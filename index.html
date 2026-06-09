@@ -212,6 +212,19 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
 .dl-btn:hover{background:rgba(255,255,255,.22)}
 .dl-btn.primary{background:var(--red);border-color:var(--red)}
 .dl-btn.primary:hover{background:#a8102f}
+
+/* PASTE ZONE — Ctrl+V de prints */
+.paste-hint{background:linear-gradient(135deg,var(--vl) 0%,var(--tl) 100%);border:1px dashed var(--vm);border-radius:8px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--nav2)}
+.paste-hint-ico{font-size:18px;flex-shrink:0}
+.paste-hint-txt{flex:1}
+.paste-hint-key{background:var(--card);border:1px solid var(--brd);border-radius:4px;padding:2px 6px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--nav)}
+.auto-analyze-tag{background:var(--okl);color:var(--ok);border:1px solid #b0dcc8;font-size:9px;font-weight:600;padding:2px 7px;border-radius:3px;font-family:'IBM Plex Mono',monospace;margin-left:6px;display:inline-block}
+.fzone.processing{border-color:var(--teal);background:var(--tl);pointer-events:none}
+.fzone.processing .fzone-txt{color:var(--teal)}
+.fpreview-status{margin-top:8px;padding:8px 12px;background:var(--card);border:1px solid var(--brd);border-radius:6px;font-size:11px;color:var(--mut);display:flex;align-items:center;gap:8px}
+.fpreview-status.success{background:var(--okl);border-color:#b0dcc8;color:var(--ok)}
+.fpreview-status.error{background:var(--rl);border-color:#f0b0c0;color:var(--red)}
+.fpreview-status.processing{background:var(--tl);border-color:#a8d4e2;color:var(--teal)}
 /* FILE ZONE */
 .fzone{border:2px dashed var(--vm);border-radius:10px;padding:18px;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg);position:relative;margin-bottom:12px}
 .fzone:hover,.fzone.drag{border-color:var(--verde);background:var(--vl)}
@@ -408,6 +421,17 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
         <div class="ff">
           <label class="fl">Descrição Detalhada</label>
           <textarea class="ft" id="inDesc" placeholder="Descreva o processo, incidente ou informação com o máximo de contexto. Quanto mais detalhe, melhor o processamento automático..."></textarea>
+        </div>
+        <!-- PASTE HINT -->
+        <div class="paste-hint">
+          <div class="paste-hint-ico">📋</div>
+          <div class="paste-hint-txt">
+            <strong>Dica:</strong> Você pode colar prints direto com 
+            <span class="paste-hint-key">Ctrl</span> + <span class="paste-hint-key">V</span>
+            <span class="auto-analyze-tag">✨ ANÁLISE AUTOMÁTICA</span>
+            <br>
+            <span style="color:var(--mut);font-size:10px;">Print de tela, foto, PDF ou documento — a IA Haiku analisa e preenche os campos.</span>
+          </div>
         </div>
         <!-- FILE ZONE -->
         <div class="fzone" id="fzone" ondragover="ev.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="onDrop(event)">
@@ -662,7 +686,7 @@ function onFileSelect(input){
   if(f)loadFile(f);
 }
 
-function loadFile(f){
+function loadFile(f,autoAnalyze=true){
   currentFile=f;
   document.getElementById('fpreview-ico').textContent=getFileIco(f.name);
   document.getElementById('fpreview-name').textContent=f.name;
@@ -672,14 +696,30 @@ function loadFile(f){
   document.getElementById('fai-status').style.display='none';
   // Ler como base64
   const reader=new FileReader();
+  const onReady=()=>{
+    // Auto-analisar se IA ativa e auto=true
+    if(autoAnalyze && getKey()){
+      setTimeout(()=>{
+        if(currentFileB64){
+          toast('🤖 Analisando automaticamente com IA Haiku...');
+          analyzeFile();
+        }
+      },300);
+    }else if(autoAnalyze && !getKey()){
+      const st=document.getElementById('fai-status');
+      st.style.display='block';
+      st.textContent='💡 Configure a chave IA em ⚙️ Config para análise automática. Por enquanto, preencha os campos manualmente.';
+    }
+  };
   if(f.type.startsWith('text/')||f.name.endsWith('.txt')||f.name.endsWith('.md')||f.name.endsWith('.csv')){
-    reader.onload=e=>{currentFileB64=btoa(unescape(encodeURIComponent(e.target.result)));currentFileMime='text/plain';};
+    reader.onload=e=>{currentFileB64=btoa(unescape(encodeURIComponent(e.target.result)));currentFileMime='text/plain';onReady();};
     reader.readAsText(f,'utf-8');
   }else{
     reader.onload=e=>{
       const parts=e.target.result.split(',');
       currentFileB64=parts[1];
       currentFileMime=f.type||'application/octet-stream';
+      onReady();
     };
     reader.readAsDataURL(f);
   }
@@ -713,7 +753,7 @@ async function analyzeFile(){
   const lbl=document.getElementById('fai-lbl');
   const st=document.getElementById('fai-status');
   btn.disabled=true;ico.innerHTML='<div class="spin"></div>';lbl.textContent='Analisando...';
-  st.style.display='block';st.textContent='🔄 Analisando arquivo (IA Haiku Vision — econômico)...';
+  st.style.display='block';st.textContent='🔄 Lendo o arquivo e identificando setor, tipo e pasta...';
   try{
     const isSupportedDoc=['application/pdf','image/png','image/jpeg','image/jpg','image/gif','image/webp'].includes(currentFileMime);
     const isText=currentFileMime==='text/plain';
@@ -738,7 +778,7 @@ async function analyzeFile(){
     }
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01'},
-      body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:600,messages:[{role:'user',content:msgContent}]})
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:msgContent}]})
     });
     if(!resp.ok)throw new Error('API '+resp.status);
     const d=await resp.json();
@@ -748,7 +788,7 @@ async function analyzeFile(){
     const s=cl.indexOf('{'),e=cl.lastIndexOf('}');
     const r=JSON.parse(cl.substring(s,e+1));
     applyFileResult(r);
-    st.textContent='✅ Análise concluída! Campos preenchidos automaticamente.';
+    st.textContent='✅ Análise IA Haiku concluída! Campos preenchidos. Revise e clique em Salvar.';
   }catch(err){
     console.warn('analyzeFile:',err);
     const pasta=sugerirPasta(currentFile.name+' '+(document.getElementById('inDesc').value||''));
@@ -808,7 +848,7 @@ async function submitEntry(){
   const lbl=document.getElementById('slbl');
   const st=document.getElementById('sst');
   btn.disabled=true;ico.innerHTML='<div class="spin"></div>';lbl.textContent='Processando...';
-  st.style.display='block';st.className='ss pr';st.textContent='🔄 Estruturando entrada (IA Haiku — econômico)...';
+  st.style.display='block';st.className='ss pr';st.textContent='🔄 Estruturando a entrada...';
   // processEntry NUNCA joga erro — sempre retorna fallback
   const p=await processEntry(setor,tipo,desc);
   const usedAI=(p._source==='ai');
@@ -841,7 +881,7 @@ async function processEntry(setor,tipo,desc){
       signal:controller.signal,
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        model:'claude-haiku-4-5-20251001',
+        model:'claude-sonnet-4-20250514',
         max_tokens:900,
         messages:[{role:'user',content:'Motor Canvas Vivo ATDG UNIOESTE Campus Foz do Iguaçu. Processe e retorne APENAS JSON valido sem markdown, sem texto extra: {"titulo":"titulo objetivo max 60 chars","resumo":"1-2 frases","procedimento":["passo 1","passo 2"],"atencoes":["atencao 1"],"normativa":"normativa ou Nao especificada","class":"PROCESSO|INCIDENTE|MELHORIA|NORMA|DECISAO|INFORMACAO"} Setor='+setor+'|Tipo='+(tipos[tipo]||tipo)+'|Desc='+desc}]
       })
@@ -1129,6 +1169,31 @@ async function loadHist(){
 
 // ══ UTILS ══
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
+
+// ══ PASTE LISTENER (Ctrl+V de imagens/arquivos) ══
+document.addEventListener('paste', async (e) => {
+  // Só processa se estiver na aba Nova Entrada
+  const entradaPanel = document.getElementById('panel-entrada');
+  if(!entradaPanel || !entradaPanel.classList.contains('on')) return;
+  // Pegar items do clipboard
+  const items = e.clipboardData?.items || [];
+  for(const item of items){
+    if(item.type.startsWith('image/')){
+      e.preventDefault();
+      const blob = item.getAsFile();
+      if(blob){
+        // Criar nome amigável
+        const ext = item.type.split('/')[1] || 'png';
+        const ts = new Date().toISOString().replace(/[:.]/g,'-').substring(0,19);
+        const file = new File([blob], `print_${ts}.${ext}`, {type: item.type});
+        toast('📋 Print colado! Carregando para análise...');
+        loadFile(file, true);
+        return;
+      }
+    }
+  }
+  // Se não tinha imagem, deixa o paste normal acontecer no campo de texto
+});
 
 // ══ FETCH SERVIDOR (data.json GitHub — sincronização automática) ══
 async function fetchServerData(){
