@@ -1116,13 +1116,22 @@ async function fetchServerData(){
     const d=await r.json();
     if(!d||!d.entries||!d.entries.length)return;
     const local=gEntries();
-    const ids=new Set(local.map(e=>e.id));
-    const novos=d.entries.filter(e=>!ids.has(e.id));
-    if(novos.length>0){
-      sEntries([...local,...novos]);
-      entries=[...local,...novos];
+    const byId=new Map(local.map(e=>[e.id,e]));
+    let novos=0,atualizados=0;
+    d.entries.forEach(e=>{
+      if(byId.has(e.id)){
+        if(JSON.stringify(byId.get(e.id))!==JSON.stringify(e)){byId.set(e.id,e);atualizados++;}
+      }else{byId.set(e.id,e);novos++;}
+    });
+    if(novos>0||atualizados>0){
+      const merged=[...byId.values()];
+      sEntries(merged);
+      entries=merged;
       upCounts(entries.length);
-      toast('🔄 '+novos.length+' entrada'+(novos.length!==1?'s':'')+' nova'+(novos.length!==1?'s':'')+' sincronizada'+(novos.length!==1?'s':'')+' do servidor!');
+      const partes=[];
+      if(novos>0)partes.push(novos+' nova'+(novos!==1?'s':''));
+      if(atualizados>0)partes.push(atualizados+' atualizada'+(atualizados!==1?'s':''));
+      toast('🔄 '+partes.join(' · ')+' do servidor!');
     }
   }catch(e){/* silencioso — sem data.json ainda ou offline */}
 }

@@ -460,6 +460,259 @@
       "ts": "2026-06-09T12:00:00.000Z"
     },
     {
+      "id": "pb-sec-administrativa",
+      "user": "JJFS - ATDG",
+      "setor": "Sec. Administrativa — Geral",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Secretaria Administrativa",
+        "resumo": "Visão geral da Secretaria Administrativa do Campus, que reúne as divisões de apoio à gestão. Divisões com playbook próprio: Almoxarifado, Compras, Licitação, Recursos Humanos e Manutenção e Conservação; demais em construção.",
+        "procedimento": [
+          "Coordenar as divisões administrativas do campus",
+          "Consultar o playbook específico de cada divisão",
+          "Encaminhar demandas administrativas via e-Protocolo"
+        ],
+        "atencoes": [
+          "Divisões de Segurança e Transportes, Informática, Patrimônio, Apoio Técnico aos Laboratórios e Serviços de Apoio ainda em construção"
+        ],
+        "normativa": "Estrutura conforme organograma do Campus Foz (Coordenação Administrativa)",
+        "class": "OVERVIEW",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-sec-financeira",
+      "user": "JJFS - ATDG",
+      "setor": "Sec. Financeira — Geral",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Secretaria Financeira",
+        "resumo": "Visão geral da Secretaria Financeira do Campus, que reúne as divisões de Finanças e de Contabilidade. A Divisão de Finanças já possui playbook (execução de despesas e diárias); Contabilidade em construção.",
+        "procedimento": [
+          "Coordenar as divisões de Finanças e Contabilidade",
+          "Consultar o playbook de Finanças para despesas e diárias",
+          "Encaminhar demandas financeiras via e-Protocolo"
+        ],
+        "atencoes": [
+          "Divisão de Contabilidade ainda em construção"
+        ],
+        "normativa": "Estrutura conforme organograma do Campus Foz (Secretaria Financeira)",
+        "class": "OVERVIEW",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-biblioteca",
+      "user": "JJFS - ATDG",
+      "setor": "Biblioteca",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Biblioteca",
+        "resumo": "Área da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo). Playbook em construção.",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir (regulamentos do Sistema de Bibliotecas da Unioeste)",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-biblioteca-acervo",
+      "user": "JJFS - ATDG",
+      "setor": "Div. Circulação, Referência e Acervo",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Circulação, Referência e Acervo",
+        "resumo": "Divisão de Circulação, Referência, Preservação e Conservação do Acervo (Biblioteca). Playbook em construção.",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir (regulamentos do Sistema de Bibliotecas da Unioeste)",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-seguranca-transportes",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Segurança e Transportes",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Segurança e Transportes",
+        "resumo": "Divisão de Segurança e Transportes da Secretaria Administrativa. Playbook em construção.",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-informatica",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Informática",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Informática",
+        "resumo": "Divisão de Informática da Secretaria Administrativa. Playbook em construção.",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-patrimonio",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Patrimônio e Equipamentos",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Patrimônio e Equipamentos",
+        "resumo": "Divisão de Patrimônio e Equipamentos da Secretaria Administrativa. Playbook em construção (tombamento, controle e desfazimento de bens).",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir (normas de patrimônio; TCE-PR)",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-apoio-laboratorios",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Apoio Técnico aos Laboratórios",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Apoio Técnico aos Laboratórios",
+        "resumo": "Divisão de Apoio Técnico aos Laboratórios da Secretaria Administrativa. Playbook em construção.",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-servicos-apoio",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Serviços de Apoio",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Serviços de Apoio",
+        "resumo": "Divisão de Serviços de Apoio da Secretaria Administrativa. Playbook em construção.",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-contabilidade",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Contabilidade",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Contabilidade",
+        "resumo": "Divisão de Contabilidade da Secretaria Financeira. Playbook em construção (empenho, conformidade e prestação de contas).",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir (normas contábeis públicas; TCE-PR)",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
+      "id": "pb-assistencia-estudantil",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Assistência Estudantil",
+      "tipo": "processo",
+      "desc": "Playbook da área — em construção; estrutura inicial para documentação dos processos.",
+      "p": {
+        "titulo": "Playbook — Assistência Estudantil",
+        "resumo": "Divisão de Assistência Estudantil da Coordenação Acadêmica. Playbook em construção.",
+        "procedimento": [
+          "A documentar: levantar atividades e rotinas da área",
+          "Mapear fluxos e responsáveis por etapa",
+          "Identificar normas aplicáveis e pontos de atenção"
+        ],
+        "atencoes": [
+          "Área ainda não mapeada — playbook em construção"
+        ],
+        "normativa": "A definir (políticas de assistência estudantil da Unioeste)",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:30:00.000Z"
+    },
+    {
       "id": "1780963200000",
       "user": "JJFS - ATDG",
       "setor": "Div. de Almoxarifado",
