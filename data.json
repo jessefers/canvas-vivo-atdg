@@ -1,12 +1,475 @@
 {
   "entries": [
     {
+      "id": "pb-almoxarifado",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Almoxarifado",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Almoxarifado",
+        "resumo": "Guia operacional do Almoxarifado, do recebimento ao desfazimento de materiais de consumo. Integra o Manual de Gestão (regras) e o Manual de Mapeamento (fluxos e indicadores), com 8 processos em BPMN 2.0.",
+        "procedimento": [
+          "Recebimento de materiais (conferência da NF, quantitativa e qualitativa, lançamento no GMS/ERP)",
+          "Armazenagem e guarda",
+          "Distribuição para departamentos",
+          "Inventário rotativo e geral",
+          "Conciliação físico-contábil",
+          "Desfazimento regulamentado de inservíveis",
+          "Relatórios e prestação de contas"
+        ],
+        "atencoes": [
+          "Material só vai ao armazenamento definitivo após registro no sistema",
+          "Conhecimento obrigatório de toda a equipe do setor",
+          "Sujeito a auditorias e conformidade TCE-PR/PRAF"
+        ],
+        "normativa": "Manuais de Gestão e de Mapeamento do Almoxarifado; legislação federal de materiais; normativas TCE-PR",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-compras",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Compras",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Compras",
+        "resumo": "Guia das contratações diretas: dispensa emergencial e inexigibilidade, com e sem contrato. Cobre a tramitação do pedido até a emissão do contrato ou ordem de compra.",
+        "procedimento": [
+          "Interessado elabora TR/memorando, cotações e tabela comparativa",
+          "Planejamento analisa e Direção Geral autoriza",
+          "Compras pesquisa preços e verifica regularidade fiscal",
+          "Jurídico emite parecer; Financeiro empenha/DDF",
+          "Emissão de contrato ou ordem de compra e publicação no DIOE"
+        ],
+        "atencoes": [
+          "Dispensa exige justificativa de urgência; inexigibilidade exige carta de exclusividade",
+          "Aguardar 3 dias após o aviso de inexigibilidade",
+          "Verificar regularidade fiscal antes do empenho"
+        ],
+        "normativa": "Lei nº 14.133/2021; normas internas Unioeste",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-licitacao",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Licitação",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Licitação e Contratos",
+        "resumo": "Guia do processo licitatório e da gestão dos contratos decorrentes (aquisição e serviços contínuos), do edital ao acompanhamento da execução.",
+        "procedimento": [
+          "TR e cotações; autorização da Direção Geral",
+          "Catalogação no GMS, pesquisa de preços, elementos de despesa/DDF",
+          "Elaboração do edital no GMS e ComprasNet",
+          "Geração do contrato, publicação no DIOE e portarias de Gestor/Fiscal",
+          "Registro no Planejamento e acompanhamento de execução/entregas/NF"
+        ],
+        "atencoes": [
+          "Termo de Referência bem elaborado evita retrabalho",
+          "Portarias de Gestor e Fiscal são obrigatórias",
+          "Serviços contínuos exigem acompanhamento durante a vigência"
+        ],
+        "normativa": "Lei nº 14.133/2021; normas internas Unioeste",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-rh",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Recursos Humanos",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Recursos Humanos",
+        "resumo": "Guia do regime funcional, do controle de frequência (ponto eletrônico) e da tramitação dos processos de RH no e-Protocolo conforme os fluxos da PRORH.",
+        "procedimento": [
+          "Registrar ponto eletrônico diário (entrada, saída, intervalos)",
+          "Apuração semanal da frequência pela chefia imediata",
+          "Comunicar falhas e justificativas em até 48h via e-Protocolo",
+          "Instruir processos de RH (licenças, afastamentos, progressões) pelo fluxo PRORH"
+        ],
+        "atencoes": [
+          "Vedada prestação de serviço sem registro de ponto",
+          "Usar o fluxo PRORH v3.0 (set/2024), não a v2.0",
+          "Lei 6.174/70 possui alterações posteriores — verificar vigência"
+        ],
+        "normativa": "Lei nº 6.174/1970; IS 001/2024-DRH/Foz; Instrução 002/2019; Edital 096/2023-GRE (Anexo I); Fluxos e-Protocolo PRORH",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-manutencao",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Manutenção e Conservação",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Manutenção e Conservação",
+        "resumo": "Guia de planejamento e dimensionamento dos serviços de limpeza e conservação por ambiente, base para o controle da equipe (própria/terceirizada).",
+        "procedimento": [
+          "Cadastrar ambientes e tipo de limpeza (faxina/normal)",
+          "Definir tempo médio por ambiente",
+          "Dimensionar a equipe (qtd. de pessoal)",
+          "Relacionar materiais necessários por atividade"
+        ],
+        "atencoes": [
+          "Tempos são médias de referência — ajustar à realidade",
+          "Revisar dimensionamento conforme o contrato terceirizado"
+        ],
+        "normativa": "Contrato de prestação de serviços de limpeza/conservação; normas de saúde e segurança",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-financas",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Finanças",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Finanças e Despesas",
+        "resumo": "Guia da execução de despesas do campus: diárias, passagens, hospedagem e pagamentos, com a tramitação no e-Protocolo até o empenho.",
+        "procedimento": [
+          "Preencher formulário (diárias/despesas) e coletar assinaturas via e-Protocolo",
+          "Anexar folder/justificativa e consulta ao Cadin",
+          "Secretaria Financeira verifica disponibilidade e indica fonte/conta",
+          "Encaminhar à Contabilidade para empenho"
+        ],
+        "atencoes": [
+          "Consulta ao Cadin é obrigatória",
+          "Verificar disponibilidade orçamentária antes do encaminhamento",
+          "Usar os links oficiais e os fluxos de despesas do Campus Foz"
+        ],
+        "normativa": "Procedimentos PRAF/Secretaria Financeira; fluxos de despesas do Campus Foz",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-atdg",
+      "user": "JJFS - ATDG",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — ATDG (Mapeamento de Processos)",
+        "resumo": "Guia do projeto de Mapeamento de Processos do Campus, conduzido pela ATDG: do levantamento por função à produção de POP, IT, manuais e fluxos.",
+        "procedimento": [
+          "Levantar setores, cargos, funções e quantitativo de servidores",
+          "Aplicar checklist/questionário por função (Microsoft Forms)",
+          "Consolidar e padronizar as respostas",
+          "Elaborar POP, Instrução de Trabalho, Manual e Fluxos de cada processo"
+        ],
+        "atencoes": [
+          "Dados pessoais dos respondentes (LGPD)",
+          "Controlar versionamento (há artefatos 'em elaboração' e cópias)",
+          "Manter os contatos por função atualizados"
+        ],
+        "normativa": "Projeto de Mapeamento de Processos — ATDG; Plano Diretor Unioeste 2017-2026; Estatuto (Res. 017/99-COU)",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-colegiado",
+      "user": "JJFS - ATDG",
+      "setor": "Colegiado de Curso",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Colegiados e Coordenações",
+        "resumo": "Guia das rotinas dos colegiados e coordenações de curso, estágio e TCC, e do agente universitário: comunicação, protocolo, gestão acadêmica e órgãos colegiados.",
+        "procedimento": [
+          "Comunicação, atendimento e gestão de documentos/e-Protocolo",
+          "Condução de Colegiado e NDE, com atas e pautas",
+          "Gestão acadêmica no Academus (planos, matrícula, notas, horários)",
+          "Estágio: termos, bancas e articulação com concedentes",
+          "TCC: orientadores, bancas, defesas e envio à biblioteca"
+        ],
+        "atencoes": [
+          "Forte vínculo com prazos do calendário acadêmico",
+          "Observar a Lei de Estágio (11.788/2008) e os regulamentos dos cursos",
+          "Manter vínculos corretos no Academus; LGPD"
+        ],
+        "normativa": "Estatuto (Res. 017/99-COU) art. 41; Lei nº 11.788/2008; Regulamentos de Estágio e TCC dos cursos",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-ccsa",
+      "user": "JJFS - ATDG",
+      "setor": "CCSA — Direção de Centro",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — CCSA",
+        "resumo": "Visão do Centro de Ciências Sociais Aplicadas: colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo, núcleos (NPJ, NUTUR, NUPESA) e contatos por função.",
+        "procedimento": [
+          "Articular Direção de Centro, colegiados e coordenações",
+          "Manter a base de contatos por função do Centro",
+          "Encaminhar demandas do Centro via e-Protocolo"
+        ],
+        "atencoes": [
+          "Contatos institucionais — uso interno (LGPD)",
+          "Atualizar a cada troca de coordenação/direção"
+        ],
+        "normativa": "Estatuto (Res. 017/99-COU) art. 37 e 41",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-cel",
+      "user": "JJFS - ATDG",
+      "setor": "CEL — Direção de Centro",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — CEL",
+        "resumo": "Visão do Centro de Educação e Letras (novo abr/2026): colegiados de Pedagogia e Letras (Português-Inglês e Português-Espanhol) e contatos por função.",
+        "procedimento": [
+          "Articular Direção de Centro, colegiados e coordenações",
+          "Manter a base de contatos por função do Centro",
+          "Encaminhar demandas do Centro via e-Protocolo"
+        ],
+        "atencoes": [
+          "Centro novo (abr/2026) — consolidar estrutura e contatos",
+          "Originado do desdobramento do antigo CELS"
+        ],
+        "normativa": "Estatuto (Res. 017/99-COU e 194/2024-COU) art. 37 e 41",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-ces",
+      "user": "JJFS - ATDG",
+      "setor": "CES — Direção de Centro",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — CES",
+        "resumo": "Visão do Centro (novo abr/2026): colegiado de Enfermagem (incl. PRONERA) e mestrados em Ensino, Saúde Pública em Região de Fronteira e Sociedade, Cultura e Fronteiras.",
+        "procedimento": [
+          "Articular Direção de Centro, colegiados e coordenações",
+          "Manter a base de contatos por função do Centro",
+          "Encaminhar demandas do Centro via e-Protocolo"
+        ],
+        "atencoes": [
+          "Centro novo (abr/2026) — consolidar estrutura e contatos",
+          "Originado do desdobramento do antigo CELS"
+        ],
+        "normativa": "Estatuto (Res. 017/99-COU e 194/2024-COU) art. 37 e 41",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-cece",
+      "user": "JJFS - ATDG",
+      "setor": "CECE — Direção de Centro",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — CECE",
+        "resumo": "Visão do Centro de Engenharias e Ciências Exatas: colegiados de Ciência da Computação, Engenharia Elétrica, Engenharia Mecânica, Matemática e mestrados, além dos laboratórios.",
+        "procedimento": [
+          "Articular Direção de Centro, colegiados e coordenações",
+          "Manter a base de contatos por função do Centro",
+          "Encaminhar demandas do Centro via e-Protocolo"
+        ],
+        "atencoes": [
+          "Contatos institucionais — uso interno (LGPD)",
+          "Atualizar a cada troca de coordenação/direção/suplência"
+        ],
+        "normativa": "Estatuto (Res. 017/99-COU) art. 37 e 41",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-direcao-centro",
+      "user": "JJFS - ATDG",
+      "setor": "Direção de Centro",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Direção de Centro",
+        "resumo": "Guia das competências da Direção de Centro e das assessorias (de área, de ensino e de extensão), conforme o art. 37 do Estatuto.",
+        "procedimento": [
+          "Representar o Centro em eventos e reuniões internas/externas",
+          "Nomear representantes para comitês, conselhos e GTs",
+          "Convocar e presidir o Conselho de Centro",
+          "Articular ensino com a PROGRAD e extensão com a PROEX"
+        ],
+        "atencoes": [
+          "Distribuição de tarefas deve respeitar o art. 37 do Estatuto",
+          "Assessorias atuam por delegação do Diretor de Centro"
+        ],
+        "normativa": "Estatuto (Res. 017/99-COU) art. 37",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-direcao-geral",
+      "user": "JJFS - ATDG",
+      "setor": "Direção Geral de Campus",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Direção Geral (Normas)",
+        "resumo": "Referência das normas institucionais estruturantes aplicadas no campus: Estatuto da Unioeste e Instruções de Serviço do Gabinete da Reitoria (GRE).",
+        "procedimento": [
+          "Consultar o Estatuto para competências de órgãos e funções",
+          "Aplicar as Instruções de Serviço do GRE pertinentes",
+          "Observar as alterações do Estatuto (Res. 194/2024-COU)"
+        ],
+        "atencoes": [
+          "Estatuto alterado pela Resolução 194/2024-COU",
+          "Algumas normas estão em PDF imagem — consultar o original"
+        ],
+        "normativa": "Resoluções 017/99-COU e 194/2024-COU (Estatuto); Instruções de Serviço GRE",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-graduacao",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Graduação",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Graduação (e-Protocolo)",
+        "resumo": "Guia da tramitação dos processos de ensino de graduação no e-Protocolo (PROGRAD): PPP, reconhecimento de curso, regulamentos, projetos de ensino e monitorias.",
+        "procedimento": [
+          "Identificar o tipo de processo de ensino",
+          "Instruir o e-Protocolo conforme o fluxo específico",
+          "Encaminhar às instâncias na ordem prevista (curso, centro, PROGRAD)",
+          "Acompanhar deliberações e arquivamento"
+        ],
+        "atencoes": [
+          "Seguir o fluxo correto evita devoluções",
+          "Verificar a versão atualizada do manual da Comissão e-Protocolo"
+        ],
+        "normativa": "Manual de Fluxos e-Protocolo — PROGRAD",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-coord-academica",
+      "user": "JJFS - ATDG",
+      "setor": "Coordenação Acadêmica — Geral",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Extensão (e-Protocolo)",
+        "resumo": "Guia da tramitação das atividades de extensão no e-Protocolo (PROEX): programas, projetos, cursos e eventos, com e sem recursos e com fomento externo.",
+        "procedimento": [
+          "Classificar a atividade (com/sem recursos; proponente)",
+          "Abrir o e-Protocolo conforme o fluxo da modalidade",
+          "Anexar documentação e encaminhar às instâncias",
+          "Acompanhar a aprovação na PROEX"
+        ],
+        "atencoes": [
+          "Distinguir corretamente atividades com e sem recursos financeiros",
+          "Atividades com fomento externo têm fluxo próprio"
+        ],
+        "normativa": "Manual de Fluxos e-Protocolo — PROEX",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-pos-graduacao",
+      "user": "JJFS - ATDG",
+      "setor": "Div. de Pós-Graduação",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Pós-Graduação e Pesquisa",
+        "resumo": "Guia dos fluxos de pós-graduação e pesquisa no e-Protocolo (PRPPG): capacitação/afastamento docente, ética no uso de animais (CEUA/CEUAP) e cursos lato e stricto sensu.",
+        "procedimento": [
+          "Identificar o ato (afastamento, proposta/alteração de curso, projeto de ética)",
+          "Instruir o e-Protocolo conforme o fluxo aplicável",
+          "Anexar a documentação exigida",
+          "Encaminhar à PRPPG para deliberação"
+        ],
+        "atencoes": [
+          "Observar as Resoluções CEPE aplicáveis (029/2013, 071/2021, 078/2016)",
+          "Projetos com propriedade intelectual tramitam como sigilosos",
+          "Afastamento para o exterior tem requisitos adicionais"
+        ],
+        "normativa": "Resoluções CEPE 029/2013, 071/2021 e 078/2016; Manuais de Fluxos e-Protocolo PRPPG",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
+      "id": "pb-referencia-externa",
+      "user": "JJFS - ATDG",
+      "setor": "Referência Externa",
+      "tipo": "processo",
+      "desc": "Playbook operacional consolidado da área — síntese dos processos, normas e pontos de atenção mapeados.",
+      "p": {
+        "titulo": "Playbook — Referências Metodológicas",
+        "resumo": "Acervo de benchmark metodológico: manuais de gestão por processos e BPMN de outras IES (UFPR, UFABC, UNILA, IFPR), artigo do ENEGEP e a norma ABNT NBR ISO 9000.",
+        "procedimento": [
+          "Estudar os conceitos de gestão por processos (BPM) e a notação BPMN",
+          "Comparar a estrutura com os fluxos da Unioeste",
+          "Extrair boas práticas e adaptá-las ao contexto local"
+        ],
+        "atencoes": [
+          "Referências externas — não são normativas para a Unioeste",
+          "Alguns PDFs estão em imagem (não indexáveis)",
+          "ABNT NBR ISO 9000:2005 pode ter versão posterior (2015)"
+        ],
+        "normativa": "Manuais UFPR/UFABC/UNILA; IFPR; ENEGEP 2013; ABNT NBR ISO 9000:2005",
+        "class": "PLAYBOOK",
+        "_src": "ai"
+      },
+      "ts": "2026-06-09T12:00:00.000Z"
+    },
+    {
       "id": "1780963200000",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Almoxarifado",
+      "setor": "Div. de Almoxarifado",
       "tipo": "processo",
       "desc": "Manual de Mapeamento de Processos do Almoxarifado (fluxogramas, atividades e indicadores) — do recebimento ao desfazimento.",
-      "arquivo": "02_MANUAL_MAPEAMENTO_PROCESSOS_UNIOESTE_2026_1.docx",
+      "arquivo": {
+        "nome": "02_MANUAL_MAPEAMENTO_PROCESSOS_UNIOESTE_2026_1.docx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Manual de Mapeamento de Processos do Almoxarifado",
         "resumo": "Segundo documento da série de manuais do Almoxarifado do Campus Foz, complementar ao Manual de Gestão. Apresenta fluxos, mapeamentos e indicadores de oito processos, do recebimento ao desfazimento. Para cada processo traz passo a passo, responsáveis, inputs/outputs, tempo estimado, indicadores de qualidade e riscos. Responsável: Chefe de Almoxarifado; vigência maio/2026.",
@@ -34,10 +497,14 @@
     {
       "id": "1780963200001",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Almoxarifado",
+      "setor": "Div. de Almoxarifado",
       "tipo": "norma",
       "desc": "Manual de Gestão do Almoxarifado (materiais de consumo): inventário, controle, distribuição e desfazimento.",
-      "arquivo": "Orientações Almoxarifado 2026.docx",
+      "arquivo": {
+        "nome": "Orientações Almoxarifado 2026.docx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Manual de Gestão do Almoxarifado — Materiais de Consumo",
         "resumo": "Documento obrigatório que estabelece todas as normas, procedimentos, responsabilidades e critérios do Setor de Almoxarifado do Campus Foz. Elaborado com base em legislação federal, normativas do TCE-PR e boas práticas de outras universidades estaduais do PR. Cobre recebimento, armazenagem, distribuição, inventário, desfazimento, relatórios, sistemas, indicadores e templates. Aprovação pela Direção Geral; implementação imediata pela Chefia de Almoxarifado; supervisão da PRAF.",
@@ -66,7 +533,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Respostas do questionário/checklist de atividades do Agente Universitário (instrumento de coleta do mapeamento).",
-      "arquivo": "Questionário de Atividades Realizadas - Agente Universitário (a) (2).xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Agente Universitário (a) (2).xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Questionário de Atividades — Agente Universitário (respostas",
         "resumo": "Planilha de respostas do formulário de mapeamento de atividades aplicado aos agentes universitários dos colegiados. Lista as atividades-padrão (comunicação e atendimento, gestão de documentos e protocolo, apoio acadêmico, infraestrutura) com marcação por respondente. Insumo para consolidar o perfil de tarefas e construir os fluxogramas do setor.",
@@ -91,7 +562,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Respostas do questionário/checklist de atividades do Agente Universitário (versão do instrumento de coleta).",
-      "arquivo": "Questionário de Atividades Realizadas - Agente Universitário (a).xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Agente Universitário (a).xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Questionário de Atividades — Agente Universitário",
         "resumo": "Planilha do formulário de levantamento das atividades dos agentes universitários, com o rol detalhado de tarefas administrativas dos colegiados/coordenações. Base para o mapeamento das atribuições e elaboração dos fluxos de trabalho do agente universitário.",
@@ -116,7 +591,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Consolidação (aba DADOS) das respostas do mapeamento, com contagem e percentuais por atividade e função.",
-      "arquivo": "Questionário de Atividades Realizadas - Coordenador (a) de Curso (2).xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Coordenador (a) de Curso (2).xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Consolidação de Atividades — Coordenação de Curso",
         "resumo": "Planilha consolidada com aba de DADOS que totaliza as respostas do mapeamento por bloco de atividade (Comunicação, Gestão de Documentos/Protocolo, Apoio Acadêmico) e por função, indicando quantidades e percentuais de execução. Serve de painel analítico para priorização de processos e identificação das atividades mais recorrentes.",
@@ -142,7 +621,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Planilha de questionário praticamente vazia (apenas cabeçalho ID).",
-      "arquivo": "Questionário de Atividades Realizadas - Coordenador (a) de Curso 1.xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Coordenador (a) de Curso 1.xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Questionário Coordenação de Curso (vazio)",
         "resumo": "Arquivo do questionário de Coordenação de Curso sem conteúdo de respostas (apenas a coluna 'ID'). Mantido como template/versão sem preenchimento dentro do acervo do mapeamento.",
@@ -165,7 +648,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Respostas do questionário de atividades do Coordenador de Curso.",
-      "arquivo": "Questionário de Atividades Realizadas - Coordenador (a) de Curso.xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Coordenador (a) de Curso.xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Questionário de Atividades — Coordenação de Curso",
         "resumo": "Formulário com o rol de atribuições do Coordenador de Curso: atendimento e comunicação, deliberações no e-Protocolo (transferências, segunda chamada, dispensa, exercício domiciliar), distribuição de disciplinas, horários, planos de ensino no Academus, presidência do Colegiado e NDE, ENADE, prevenção à evasão e projetos. Base para mapear o processo da coordenação de curso.",
@@ -191,7 +678,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Planilha de questionário praticamente vazia (apenas cabeçalho ID).",
-      "arquivo": "Questionário de Atividades Realizadas - Coordenador (a) de Estágio (2).xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Coordenador (a) de Estágio (2).xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Questionário Coordenação de Estágio (vazio)",
         "resumo": "Arquivo do questionário de Coordenação de Estágio sem respostas (apenas coluna 'ID'). Mantido como template/versão não preenchida no acervo do mapeamento.",
@@ -214,7 +705,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Respostas do questionário de atividades do Coordenador de Estágio.",
-      "arquivo": "Questionário de Atividades Realizadas - Coordenador (a) de Estágio.xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Coordenador (a) de Estágio.xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Questionário de Atividades — Coordenação de Estágio",
         "resumo": "Formulário com as atribuições do Coordenador de Estágio: atendimento a alunos/docentes, articulação com instituições parceiras (hotéis, escolas, NRE, SEED, Itaipu), distribuição no Academus, bancas de estágio supervisionado, termos de compromisso/aditivos/rescisões, regulamento de estágios, calendário e cumprimento da legislação. Insumo para o fluxo do processo de estágio.",
@@ -241,7 +736,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Planilha de questionário praticamente vazia (apenas cabeçalho ID).",
-      "arquivo": "Questionário de Atividades Realizadas - Coordenador (a) de TCC (2).xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Coordenador (a) de TCC (2).xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Questionário Coordenação de TCC (vazio)",
         "resumo": "Arquivo do questionário de Coordenação de TCC sem respostas (apenas coluna 'ID'). Mantido como template/versão não preenchida no acervo do mapeamento.",
@@ -264,7 +763,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "outro",
       "desc": "Respostas do questionário de atividades do Coordenador de TCC.",
-      "arquivo": "Questionário de Atividades Realizadas - Coordenador (a) de TCC.xlsx",
+      "arquivo": {
+        "nome": "Questionário de Atividades Realizadas - Coordenador (a) de TCC.xlsx",
+        "tamanho": "",
+        "pasta": "MAPEAMENTO DE PROCESSOS"
+      },
       "p": {
         "titulo": "Questionário de Atividades — Coordenação de TCC",
         "resumo": "Formulário com as atribuições do Coordenador de TCC: indicação de orientadores e bancas, organização de defesas, editais, atas e declarações, lançamento de notas/frequências no Academus, envio de versões finais à biblioteca, cronograma anual, modelos de documentos e acompanhamento dos alunos. Base para mapear o processo de TCC.",
@@ -289,10 +792,14 @@
     {
       "id": "1780963200011",
       "user": "JJFS - ATDG",
-      "setor": "CEL",
+      "setor": "CEL — Direção de Centro",
       "tipo": "reuniao",
       "desc": "Comunicado da ATDG (reunião de 09/04/2025) com novo formulário de checklist e contatos dos colegiados de Pedagogia e Letras (Centro CEL).",
-      "arquivo": "Contatos dos Colegiados/Contatos CELS.docx",
+      "arquivo": {
+        "nome": "Contatos CELS.docx",
+        "tamanho": "",
+        "pasta": "Contatos dos Colegiados"
+      },
       "p": {
         "titulo": "Contatos e Comunicado do Mapeamento — CEL",
         "resumo": "Recorte (relativo ao Centro CEL) do documento de contatos e comunicado da Assessoria Técnica da Direção-Geral, na sequência da reunião de Mapeamento de Processos de 09/04/2025, que substituiu o questionário por um checklist individual com prazo de envio até 12/05/2025. Reúne os contatos por função (Coordenação de Curso, Estágio, TCC e Agentes) dos colegiados de Pedagogia e Letras. Originado do antigo documento do CELS, desdobrado com a reestruturação dos centros.",
@@ -317,10 +824,14 @@
     {
       "id": "1780963200511",
       "user": "JJFS - ATDG",
-      "setor": "CES",
+      "setor": "CES — Direção de Centro",
       "tipo": "reuniao",
       "desc": "Comunicado da ATDG (reunião de 09/04/2025) com novo formulário de checklist e contatos do colegiado de Enfermagem (Centro CES).",
-      "arquivo": "Contatos dos Colegiados/Contatos CELS.docx",
+      "arquivo": {
+        "nome": "Contatos CELS.docx",
+        "tamanho": "",
+        "pasta": "Contatos dos Colegiados"
+      },
       "p": {
         "titulo": "Contatos e Comunicado do Mapeamento — CES",
         "resumo": "Recorte (relativo ao Centro CES) do documento de contatos e comunicado da Assessoria Técnica da Direção-Geral, na sequência da reunião de Mapeamento de Processos de 09/04/2025, que substituiu o questionário por um checklist individual com prazo de envio até 12/05/2025. Reúne os contatos por função (Coordenação de Curso, Estágio, TCC e Agentes) do colegiado de Enfermagem. Originado do antigo documento do CELS, desdobrado com a reestruturação dos centros.",
@@ -345,10 +856,14 @@
     {
       "id": "1780963200012",
       "user": "JJFS - ATDG",
-      "setor": "CCSA",
+      "setor": "CCSA — Direção de Centro",
       "tipo": "reuniao",
       "desc": "Lista de contatos dos colegiados do CCSA (coordenações de curso, TCC, estágio, agentes e estagiário).",
-      "arquivo": "Contatos dos Colegiados/Contatos dos colegiados do CCSA.docx",
+      "arquivo": {
+        "nome": "Contatos dos colegiados do CCSA.docx",
+        "tamanho": "",
+        "pasta": "Contatos dos Colegiados"
+      },
       "p": {
         "titulo": "Contatos dos Colegiados — CCSA",
         "resumo": "Relação de contatos por curso do Centro de Ciências Sociais Aplicadas (Administração, Ciências Contábeis, Direito, Hotelaria, Turismo), indicando coordenadores de curso, TCC e estágio, além de agentes universitários e estagiário. Insumo de comunicação para o mapeamento de processos.",
@@ -370,10 +885,14 @@
     {
       "id": "1780963200013",
       "user": "JJFS - ATDG",
-      "setor": "CECE",
+      "setor": "CECE — Direção de Centro",
       "tipo": "reuniao",
       "desc": "Lista de contatos dos colegiados do CECE (engenharias, matemática e ciência da computação).",
-      "arquivo": "Contatos dos Colegiados/Contatos dos colegiados do CECE.docx",
+      "arquivo": {
+        "nome": "Contatos dos colegiados do CECE.docx",
+        "tamanho": "",
+        "pasta": "Contatos dos Colegiados"
+      },
       "p": {
         "titulo": "Contatos dos Colegiados — CECE",
         "resumo": "Relação de contatos por equipe/curso do Centro de Engenharias e Ciências Exatas (Eng. Mecânica, Elétrica, Matemática, Ciência da Computação), com técnico administrativo, coordenador, suplente e coordenadores de TCC e estágio. Insumo de comunicação para o mapeamento de processos.",
@@ -395,10 +914,14 @@
     {
       "id": "1780963200014",
       "user": "JJFS - ATDG",
-      "setor": "Assessoria Técnica da Direção Geral (ATDG)",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "tipo": "reuniao",
       "desc": "Mailing consolidado por função (coordenadores de curso, TCC, estágio e agentes) do Campus Foz.",
-      "arquivo": "Contatos dos Colegiados/Contatos por Função.docx",
+      "arquivo": {
+        "nome": "Contatos por Função.docx",
+        "tamanho": "",
+        "pasta": "Contatos dos Colegiados"
+      },
       "p": {
         "titulo": "Contatos por Função — Campus Foz",
         "resumo": "Lista consolidada de e-mails institucionais agrupados por função (Coordenador de Curso, Coordenador de TCC, Coordenador de Estágio e Agentes), abrangendo os quatro Centros (CCSA, CEL, CECE e CES). Facilita disparos segmentados de formulários e comunicados do projeto de mapeamento.",
@@ -420,10 +943,14 @@
     {
       "id": "1780963200015",
       "user": "JJFS - ATDG",
-      "setor": "Assessoria Técnica da Direção Geral (ATDG)",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "tipo": "outro",
       "desc": "Respostas brutas (1-26) do checklist de atividades do colegiado, com listagem e periodicidade por servidor.",
-      "arquivo": "Em Elaboração/CHECKLIST DE ATIVIDADES DO COLEGIADO(1-26) (3).xlsx",
+      "arquivo": {
+        "nome": "CHECKLIST DE ATIVIDADES DO COLEGIADO(1-26) (3).xlsx",
+        "tamanho": "",
+        "pasta": "Em Elaboração"
+      },
       "p": {
         "titulo": "Checklist de Atividades do Colegiado (respostas 1-26)",
         "resumo": "Planilha com respostas do formulário de checklist aplicado a servidores dos colegiados, contendo setor, cargo, função, chefia imediata e a listagem quantificada das atividades por periodicidade (diário, esporádico, anual). Fonte primária para consolidação dos processos por função.",
@@ -445,10 +972,14 @@
     {
       "id": "1780963200016",
       "user": "JJFS - ATDG",
-      "setor": "Assessoria Técnica da Direção Geral (ATDG)",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "tipo": "outro",
       "desc": "Primeira versão consolidada das respostas do checklist de mapeamento, com aba de Dados Iniciais do Forms.",
-      "arquivo": "Em Elaboração/CHECKLIST DE ATIVIDADES MAPEAMENTO 1º VERSÃO.xlsx",
+      "arquivo": {
+        "nome": "CHECKLIST DE ATIVIDADES MAPEAMENTO 1º VERSÃO.xlsx",
+        "tamanho": "",
+        "pasta": "Em Elaboração"
+      },
       "p": {
         "titulo": "Checklist de Atividades — Mapeamento (1ª versão)",
         "resumo": "Planilha da primeira versão de consolidação das respostas do formulário (Microsoft Forms), reunindo setor, curso, cargo, função e o rol de atividades declaradas por coordenadores e agentes. Base de trabalho para depurar e padronizar a descrição dos processos.",
@@ -470,10 +1001,14 @@
     {
       "id": "1780963200017",
       "user": "JJFS - ATDG",
-      "setor": "Assessoria Técnica da Direção Geral (ATDG)",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "tipo": "outro",
       "desc": "Cópia de teste da planilha de consolidação do checklist de mapeamento de atividades.",
-      "arquivo": "Em Elaboração/TESTE - CHECKLIST DE ATIVIDADES MAPEAMENTO - Copia.xlsx",
+      "arquivo": {
+        "nome": "TESTE - CHECKLIST DE ATIVIDADES MAPEAMENTO - Copia.xlsx",
+        "tamanho": "",
+        "pasta": "Em Elaboração"
+      },
       "p": {
         "titulo": "Checklist de Atividades — Mapeamento (cópia de teste)",
         "resumo": "Cópia de trabalho/teste da planilha de consolidação das respostas do checklist de mapeamento, com a aba de Dados Iniciais do Forms e as listagens de atividades por respondente. Usada para experimentação sem afetar a versão oficial.",
@@ -497,7 +1032,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "processo",
       "desc": "Fluxograma das atividades do Agente Universitário (documento composto por imagem/diagrama; sem texto extraível).",
-      "arquivo": "Em Elaboração/Fluxogramas/Agente Universitário.docx",
+      "arquivo": {
+        "nome": "Agente Universitário.docx",
+        "tamanho": "",
+        "pasta": "Em Elaboração/Fluxogramas"
+      },
       "p": {
         "titulo": "Fluxograma — Agente Universitário",
         "resumo": "Documento com o fluxograma das atividades do agente universitário do colegiado, em formato de imagem/diagrama embutido (sem texto extraível automaticamente). Representa visualmente o encadeamento das rotinas de comunicação, protocolo e apoio acadêmico levantadas no mapeamento. Requer revisão visual para detalhamento das etapas.",
@@ -522,7 +1061,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "processo",
       "desc": "Fluxograma das atividades do Coordenador de Curso (imagem/diagrama; sem texto extraível).",
-      "arquivo": "Em Elaboração/Fluxogramas/Coordenador de Curso.docx",
+      "arquivo": {
+        "nome": "Coordenador de Curso.docx",
+        "tamanho": "",
+        "pasta": "Em Elaboração/Fluxogramas"
+      },
       "p": {
         "titulo": "Fluxograma — Coordenador de Curso",
         "resumo": "Documento com o fluxograma das atribuições do coordenador de curso, em formato de imagem/diagrama embutido (sem texto extraível). Sintetiza visualmente a gestão acadêmica, deliberações no e-Protocolo e condução de Colegiado/NDE. Requer revisão visual para detalhamento.",
@@ -547,7 +1090,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "processo",
       "desc": "Fluxograma das atividades do Coordenador de Estágio (imagem/diagrama; sem texto extraível).",
-      "arquivo": "Em Elaboração/Fluxogramas/Coordenador de Estágio.docx",
+      "arquivo": {
+        "nome": "Coordenador de Estágio.docx",
+        "tamanho": "",
+        "pasta": "Em Elaboração/Fluxogramas"
+      },
       "p": {
         "titulo": "Fluxograma — Coordenador de Estágio",
         "resumo": "Documento com o fluxograma das atribuições do coordenador de estágio, em formato de imagem/diagrama embutido (sem texto extraível). Representa visualmente a articulação com concedentes, termos de compromisso e bancas de estágio. Requer revisão visual para detalhamento das etapas.",
@@ -572,7 +1119,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "processo",
       "desc": "Fluxograma das atividades do Coordenador de TCC (imagem/diagrama; sem texto extraível).",
-      "arquivo": "Em Elaboração/Fluxogramas/Coordenador de TCC.docx",
+      "arquivo": {
+        "nome": "Coordenador de TCC.docx",
+        "tamanho": "",
+        "pasta": "Em Elaboração/Fluxogramas"
+      },
       "p": {
         "titulo": "Fluxograma — Coordenador de TCC",
         "resumo": "Documento com o fluxograma das atribuições do coordenador de TCC, em formato de imagem/diagrama embutido (sem texto extraível). Sintetiza visualmente a organização de bancas, defesas, lançamentos no Academus e envio à biblioteca. Requer revisão visual para detalhamento.",
@@ -594,10 +1145,14 @@
     {
       "id": "1780963200022",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Recursos Humanos",
+      "setor": "Div. de Recursos Humanos",
       "tipo": "norma",
       "desc": "Instrução nº 002/2019 sobre controle de frequência dos agentes (PDF digitalizado/imagem, sem texto extraível).",
-      "arquivo": "Instruções Normativas/Instrucao002-2019-ControledeFrequencia-agentes.pdf",
+      "arquivo": {
+        "nome": "Instrucao002-2019-ControledeFrequencia-agentes.pdf",
+        "tamanho": "",
+        "pasta": "Instruções Normativas"
+      },
       "p": {
         "titulo": "Instrução 002/2019 — Controle de Frequência (Agentes)",
         "resumo": "Instrução de Serviço nº 002/2019 que disciplina o controle de frequência dos agentes universitários. Arquivo em PDF digitalizado (imagem), sem texto extraível automaticamente. Norma de referência para os processos de RH/ponto do Campus, posteriormente complementada/atualizada pela IS 001/2024-DRH/Foz.",
@@ -618,10 +1173,14 @@
     {
       "id": "1780963200023",
       "user": "JJFS - ATDG",
-      "setor": "Gabinete da Reitoria (GRE)",
+      "setor": "Direção Geral de Campus",
       "tipo": "norma",
       "desc": "Instrução de Serviço nº 004/2022-GRE (PDF digitalizado/imagem, sem texto extraível).",
-      "arquivo": "Instruções Normativas/Instrução de Serviço 004-2022-GRE.pdf",
+      "arquivo": {
+        "nome": "Instrução de Serviço 004-2022-GRE.pdf",
+        "tamanho": "",
+        "pasta": "Instruções Normativas"
+      },
       "p": {
         "titulo": "Instrução de Serviço 004/2022-GRE",
         "resumo": "Instrução de Serviço nº 004/2022 do Gabinete da Reitoria (GRE), integrante do acervo normativo de referência do mapeamento. Arquivo em PDF digitalizado (imagem), sem texto extraível automaticamente. Deve ser consultada no original para a íntegra das disposições.",
@@ -642,10 +1201,14 @@
     {
       "id": "1780963200024",
       "user": "JJFS - ATDG",
-      "setor": "Gabinete da Reitoria (GRE)",
+      "setor": "Direção Geral de Campus",
       "tipo": "norma",
       "desc": "Instrução de Serviço nº 006/2022-GRE (PDF digitalizado/imagem, sem texto extraível).",
-      "arquivo": "Instruções Normativas/Instrução de Serviço nº 0062022-GRE.pdf",
+      "arquivo": {
+        "nome": "Instrução de Serviço nº 0062022-GRE.pdf",
+        "tamanho": "",
+        "pasta": "Instruções Normativas"
+      },
       "p": {
         "titulo": "Instrução de Serviço 006/2022-GRE",
         "resumo": "Instrução de Serviço nº 006/2022 do Gabinete da Reitoria (GRE), parte do acervo normativo de referência do mapeamento. Arquivo em PDF digitalizado (imagem), sem texto extraível. Consultar o original para a íntegra.",
@@ -666,10 +1229,14 @@
     {
       "id": "1780963200025",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Recursos Humanos",
+      "setor": "Div. de Recursos Humanos",
       "tipo": "norma",
       "desc": "Lei Estadual nº 6.174/1970 — Estatuto dos Funcionários Civis do Poder Executivo do Paraná (íntegra impressa).",
-      "arquivo": "Instruções Normativas/legislacao.pr.gov.br_legislacao_listarAtosAno.do_action=exibirImpressao&codAto=10297.pdf",
+      "arquivo": {
+        "nome": "legislacao.pr.gov.br_legislacao_listarAtosAno.do_action=exibirImpressao&codAto=10297.pdf",
+        "tamanho": "",
+        "pasta": "Instruções Normativas"
+      },
       "p": {
         "titulo": "Lei 6.174/1970 — Estatuto dos Funcionários Civis PR",
         "resumo": "Íntegra da Lei nº 6.174, de 16/11/1970, que estabelece o regime jurídico dos funcionários civis do Poder Executivo do Estado do Paraná. Fundamenta direitos, deveres, regime disciplinar, frequência, licenças e demais aspectos funcionais aplicáveis aos servidores estatutários da Unioeste. Referência normativa central para os processos de RH.",
@@ -691,10 +1258,14 @@
     {
       "id": "1780963200026",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Recursos Humanos",
+      "setor": "Div. de Recursos Humanos",
       "tipo": "norma",
       "desc": "Instrução de Serviço nº 001/2024-DRH/Foz: critérios e procedimentos de registro e controle de frequência dos agentes universitários.",
-      "arquivo": "Instruções Normativas/Nova pasta/IN 001-2024 RH.docx",
+      "arquivo": {
+        "nome": "IN 001-2024 RH.docx",
+        "tamanho": "",
+        "pasta": "Instruções Normativas/Nova pasta"
+      },
       "p": {
         "titulo": "IS 001/2024-DRH/Foz — Controle de Frequência",
         "resumo": "Instrução de Serviço nº 001/2024-DRH/Foz que regula o controle de frequência dos agentes universitários da Unioeste por meio de ponto eletrônico. Define obrigatoriedade do registro diário (entrada, saída, intervalos), apuração semanal pela chefia, vedação de serviço sem registro e prazos para justificativas e entrega de documentos comprobatórios.",
@@ -718,10 +1289,14 @@
     {
       "id": "1780963200027",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Recursos Humanos",
+      "setor": "Div. de Recursos Humanos",
       "tipo": "norma",
       "desc": "Edital 096/2023-GRE, Anexo I — perfil profissiográfico e atribuições das funções do concurso de Agente Universitário.",
-      "arquivo": "Legislações de Referência/ANEXO I - PERFIL PROFISSIOGRÁFICO COM ATRIBUIÇÕES DAS FUNÇÕES.pdf",
+      "arquivo": {
+        "nome": "ANEXO I - PERFIL PROFISSIOGRÁFICO COM ATRIBUIÇÕES DAS FUNÇÕES.pdf",
+        "tamanho": "",
+        "pasta": "Legislações de Referência"
+      },
       "p": {
         "titulo": "Perfil Profissiográfico — Atribuições das Funções",
         "resumo": "Anexo I do Edital 096/2023-GRE (13º Concurso de Agente Universitário) com o perfil profissiográfico e as atribuições detalhadas de cada função, incluindo a de Administrador (nível superior, 40h). Descreve tarefas de planejamento, organização, controle e assessoria à IES. Documento-base para definir competências e atribuições no mapeamento de processos.",
@@ -743,10 +1318,14 @@
     {
       "id": "1780963200028",
       "user": "JJFS - ATDG",
-      "setor": "Conselho Universitário (COU)",
+      "setor": "Direção Geral de Campus",
       "tipo": "norma",
       "desc": "Resolução nº 017/1999-COU — Estatuto da Unioeste (PDF digitalizado/imagem, sem texto extraível).",
-      "arquivo": "Legislações de Referência/RESOLUÇÃO Nº 017_99-COU_Aprova o novo Estatuto da Universidade Estadual do Oeste do Paraná − Unioeste.pdf",
+      "arquivo": {
+        "nome": "RESOLUÇÃO Nº 017_99-COU_Aprova o novo Estatuto da Universidade Estadual do Oeste do Paraná − Unioeste.pdf",
+        "tamanho": "",
+        "pasta": "Legislações de Referência"
+      },
       "p": {
         "titulo": "Resolução 017/99-COU — Estatuto da Unioeste",
         "resumo": "Resolução nº 017/1999-COU que aprova o Estatuto da Universidade Estadual do Oeste do Paraná. Norma estruturante que define organização, órgãos, competências (incluindo Direção de Centro e Coordenação de Curso) e funcionamento da instituição. Arquivo em PDF digitalizado (imagem), sem texto extraível; consultar o original.",
@@ -768,10 +1347,14 @@
     {
       "id": "1780963200029",
       "user": "JJFS - ATDG",
-      "setor": "Conselho Universitário (COU)",
+      "setor": "Direção Geral de Campus",
       "tipo": "norma",
       "desc": "Resolução nº 194/2024-COU — altera o Estatuto (Res. 017/99) da Unioeste (PDF digitalizado/imagem, sem texto extraível).",
-      "arquivo": "Legislações de Referência/RESOLUÇÃO Nº194_2024-COU_ 10_10_ 2024-Aprova alteração da Resolução nº 017_1999-COU, de 17_09_1999, que aprovou o Estatuto da Unioeste.pdf",
+      "arquivo": {
+        "nome": "RESOLUÇÃO Nº194_2024-COU_ 10_10_ 2024-Aprova alteração da Resolução nº 017_1999-COU, de 17_09_1999, que aprovou o Estatuto da Unioeste.pdf",
+        "tamanho": "",
+        "pasta": "Legislações de Referência"
+      },
       "p": {
         "titulo": "Resolução 194/2024-COU — Alteração do Estatuto",
         "resumo": "Resolução nº 194/2024-COU, de 10/10/2024, que aprova alteração da Resolução nº 017/1999-COU (Estatuto da Unioeste). Atualiza dispositivos estatutários e deve ser lida em conjunto com o Estatuto original. Arquivo em PDF digitalizado (imagem), sem texto extraível; consultar o original.",
@@ -793,10 +1376,14 @@
     {
       "id": "1780963200030",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Serviços de Manutenção e Conservação",
+      "setor": "Div. de Manutenção e Conservação",
       "tipo": "processo",
       "desc": "Planilha de controle da DSMC com tempos médios de limpeza por ambiente, materiais e dimensionamento de pessoal.",
-      "arquivo": "Manuais de Processos/CONTROLE MANUAL DSMC.xlsx",
+      "arquivo": {
+        "nome": "CONTROLE MANUAL DSMC.xlsx",
+        "tamanho": "",
+        "pasta": "Manuais de Processos"
+      },
       "p": {
         "titulo": "Controle Manual DSMC — Tempos de Limpeza",
         "resumo": "Planilha operacional da Divisão de Serviços e Manutenção/Conservação (DSMC) que parametriza, por ambiente (auditórios, banheiros, corredores, salas, biblioteca etc.), o tipo de limpeza (faxina/normal), o tempo médio e a quantidade de pessoal necessária, além de aba de materiais. Subsidia o dimensionamento e o planejamento das rotinas de conservação.",
@@ -819,10 +1406,14 @@
     {
       "id": "1780963200031",
       "user": "JJFS - ATDG",
-      "setor": "Assessoria Técnica da Direção Geral (ATDG)",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "tipo": "processo",
       "desc": "Documento principal do mapeamento de processos dos colegiados e cursos do Campus Foz (contexto histórico, estrutura e levantamento).",
-      "arquivo": "Manuais de Processos/MAPEAMENTO DE PROCESSOS COLEGIADOS E CURSOS - 04.02.docx",
+      "arquivo": {
+        "nome": "MAPEAMENTO DE PROCESSOS COLEGIADOS E CURSOS - 04.02.docx",
+        "tamanho": "",
+        "pasta": "Manuais de Processos"
+      },
       "p": {
         "titulo": "Mapeamento de Processos — Colegiados e Cursos",
         "resumo": "Documento central que contextualiza e estrutura o mapeamento de processos dos colegiados e cursos do Campus Foz. Resgata o histórico institucional (FACISA/FUNEFI até a incorporação à Unioeste em 1994), apresenta a estrutura de cursos de graduação e pós-graduação distribuídos atualmente em 4 Centros — CCSA, CEL, CECE e CES (o documento-fonte, anterior à reestruturação, ainda registra 3 Centros, com o CELS depois desdobrado em CEL e CES) — e os dados de discentes (Proplan, dez/2025). Consolida o levantamento das atividades por função para padronização dos processos.",
@@ -849,7 +1440,11 @@
       "setor": "Colegiado de Curso",
       "tipo": "processo",
       "desc": "Matriz de tarefas das coordenações (curso, estágio, TCC e assistente) com base no art. 41 do Estatuto.",
-      "arquivo": "Manuais de Processos/MAPEAMENTO DE TAREFAS COORDENAÇÃO.docx",
+      "arquivo": {
+        "nome": "MAPEAMENTO DE TAREFAS COORDENAÇÃO.docx",
+        "tamanho": "",
+        "pasta": "Manuais de Processos"
+      },
       "p": {
         "titulo": "Mapeamento de Tarefas — Coordenação",
         "resumo": "Matriz que distribui as tarefas entre Coordenador de Curso, Coordenador de Estágio, Coordenador de TCC e Assistente dos coordenadores, fundamentada no art. 41 do Estatuto (Res. 017/99-COU). Detalha responsabilidades como convocar/coordenar reuniões de Colegiado e NDE, confeccionar atas, organizar cronogramas de estágio, indicar orientadores e estabelecer comunicação com Direção Geral e de Centro.",
@@ -876,7 +1471,11 @@
       "setor": "Direção de Centro",
       "tipo": "processo",
       "desc": "Matriz de tarefas da Direção de Centro e assessorias (área, ensino, extensão) com base no art. 37 do Estatuto.",
-      "arquivo": "Manuais de Processos/MAPEAMENTO DE TAREFAS DIREÇÃO DE CENTRO.docx",
+      "arquivo": {
+        "nome": "MAPEAMENTO DE TAREFAS DIREÇÃO DE CENTRO.docx",
+        "tamanho": "",
+        "pasta": "Manuais de Processos"
+      },
       "p": {
         "titulo": "Mapeamento de Tarefas — Direção de Centro",
         "resumo": "Matriz que distribui as competências da Direção de Centro entre Diretor de Centro e Assessorias (de área, de ensino e de extensão), com base no art. 37 do Estatuto (Res. 017/99-COU). Detalha representação do Centro, participação em conselhos (CEPE), convocação e presidência do Conselho de Centro e a interlocução com PROGRAD e PROEX.",
@@ -899,10 +1498,14 @@
     {
       "id": "1780963200034",
       "user": "JJFS - ATDG",
-      "setor": "Assessoria Técnica da Direção Geral (ATDG)",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "tipo": "melhoria",
       "desc": "Projeto de extensão (Anexo IV) para implantação de modelo de gestão de processos em setor administrativo da Unioeste.",
-      "arquivo": "Manuais de Processos/Modelo de Projeto Mapeamento de Processos.docx",
+      "arquivo": {
+        "nome": "Modelo de Projeto Mapeamento de Processos.docx",
+        "tamanho": "",
+        "pasta": "Manuais de Processos"
+      },
       "p": {
         "titulo": "Projeto de Extensão — Modelo de Gestão de Processos",
         "resumo": "Formulário específico de atividade de extensão (modalidade Projeto) que propõe a implantação de um modelo de gestão de processos em setor administrativo da Unioeste. Público-alvo: servidores (346 beneficiados). Prevê identificação, análise e otimização de fluxos por meio de modelagem de processos, entrevistas e ferramentas de gestão, visando reduzir redundâncias, aumentar transparência e melhorar a tomada de decisão.",
@@ -925,10 +1528,14 @@
     {
       "id": "1780963200035",
       "user": "JJFS - ATDG",
-      "setor": "Assessoria Técnica da Direção Geral (ATDG)",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "tipo": "melhoria",
       "desc": "Projeto da ATDG para elaborar o Manual de Gestão de Processos do Campus Foz (POP, IT, manual e fluxos).",
-      "arquivo": "Manuais de Processos/PROJETO MANUAL DE GESTÃO DE PROCESSOS _ FOZ DO IGUAÇU.docx",
+      "arquivo": {
+        "nome": "PROJETO MANUAL DE GESTÃO DE PROCESSOS _ FOZ DO IGUAÇU.docx",
+        "tamanho": "",
+        "pasta": "Manuais de Processos"
+      },
       "p": {
         "titulo": "Projeto — Manual de Gestão de Processos (Foz)",
         "resumo": "Projeto conduzido pela equipe da ATDG (Renata Brasileiro Franco e Alvaro Antônio da Silva) para elaborar o Manual de Gestão de Processos da Unioeste, Campus Foz. Justifica-se pela necessidade de transparência e eficiência, propondo POP, Instrução de Trabalho, Manual e Fluxo de Processos. Detalha o levantamento de setores, cargos, funções e servidores e a elaboração do fluxo de cada processo.",
@@ -952,10 +1559,14 @@
     {
       "id": "1780963200036",
       "user": "JJFS - ATDG",
-      "setor": "Secretaria Financeira",
+      "setor": "Div. de Finanças",
       "tipo": "processo",
       "desc": "Exemplo de descrição de subprocesso financeiro (contas a pagar) do Hospital Padre Germano Lauck — referência metodológica.",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos enviados pelo Sérgio/Descrição do Subprocesso Financeiro.doc.pdf",
+      "arquivo": {
+        "nome": "Descrição do Subprocesso Financeiro.doc.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos enviados pelo Sérgio"
+      },
       "p": {
         "titulo": "Subprocesso Financeiro — Contas a Pagar (exemplo)",
         "resumo": "Documento de referência (Hospital Padre Germano Lauck, 2018) que descreve o subprocesso do Setor Financeiro — contas a pagar e pagas. Detalha o encaminhamento: recebimento de notas, registro no sistema (Tasy), análise da natureza da despesa pelo Plano de Contas e verificação de disponibilidade financeira/fonte de recursos. Serve de modelo de descrição de subprocesso para o mapeamento.",
@@ -978,10 +1589,14 @@
     {
       "id": "1780963200037",
       "user": "JJFS - ATDG",
-      "setor": "Secretaria Financeira",
+      "setor": "Div. de Finanças",
       "tipo": "processo",
       "desc": "Fluxograma do processo financeiro (PDF em imagem/diagrama, sem texto extraível) — referência.",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos enviados pelo Sérgio/Fluxograma Finaceiro.pdf",
+      "arquivo": {
+        "nome": "Fluxograma Finaceiro.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos enviados pelo Sérgio"
+      },
       "p": {
         "titulo": "Fluxograma Financeiro (exemplo)",
         "resumo": "Fluxograma do processo financeiro fornecido como material de referência para o mapeamento, complementando a descrição do subprocesso financeiro. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente; requer leitura visual.",
@@ -1003,10 +1618,14 @@
     {
       "id": "1780963200038",
       "user": "JJFS - ATDG",
-      "setor": "PROGRAD",
+      "setor": "Div. de Graduação",
       "tipo": "processo",
       "desc": "Fluxos de processos do e-Protocolo na área de Ensino (PROGRAD) — Comissão e-Protocolo da Unioeste.",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Ensino/FLUXO_DE_PROCESSOS_ENSINO_pdf_PROGRAD_-_Atualizado.pdf",
+      "arquivo": {
+        "nome": "FLUXO_DE_PROCESSOS_ENSINO_pdf_PROGRAD_-_Atualizado.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Ensino"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — Ensino (PROGRAD)",
         "resumo": "Manual da Comissão e-Protocolo com os fluxos dos processos da área de Ensino sob a PROGRAD. Cobre, entre outros, alteração de resoluções de ensino, regulamentos de bibliotecas, PPP (alteração e novo curso), reconhecimento/renovação de curso, regulamentos de estágio/TCC/internato, projetos de ensino e monitorias (voluntárias e remuneradas). Referência para tramitação correta de processos acadêmicos no e-Protocolo.",
@@ -1029,10 +1648,14 @@
     {
       "id": "1780963200039",
       "user": "JJFS - ATDG",
-      "setor": "PROEX",
+      "setor": "Coordenação Acadêmica — Geral",
       "tipo": "processo",
       "desc": "Fluxos de processos do e-Protocolo na área de Extensão (PROEX) — Comissão e-Protocolo da Unioeste.",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Extensão/FLUXO_PROEX_-_ATUAL.pdf",
+      "arquivo": {
+        "nome": "FLUXO_PROEX_-_ATUAL.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Extensão"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — Extensão (PROEX)",
         "resumo": "Manual da Comissão e-Protocolo com os fluxos da área de Extensão (PROEX). Detalha a abertura de novas atividades de extensão (programas, projetos, cursos e eventos) com e sem recursos financeiros, propostas por docente ou agente universitário, e atividades com fomento externo. Orienta a tramitação correta de cada modalidade no e-Protocolo.",
@@ -1055,10 +1678,14 @@
     {
       "id": "1780963200040",
       "user": "JJFS - ATDG",
-      "setor": "Secretaria Financeira",
+      "setor": "Div. de Finanças",
       "tipo": "processo",
       "desc": "Fluxo de despesas do Campus Foz — diárias nacionais (PDF em imagem/diagrama, sem texto extraível).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Fluxos Campus de Foz do Iguaçu/Fluxos_Eprotocolo_-_Despesas_-_Campus_Foz_do_Iguaçu Diárias nacionais.pdf",
+      "arquivo": {
+        "nome": "Fluxos_Eprotocolo_-_Despesas_-_Campus_Foz_do_Iguaçu Diárias nacionais.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Fluxos Campus de Foz do Iguaçu"
+      },
       "p": {
         "titulo": "Fluxo Despesas Campus Foz — Diárias Nacionais",
         "resumo": "Fluxograma específico do Campus Foz para a despesa de diárias nacionais, no âmbito do e-Protocolo. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Define a tramitação local do pedido de diárias até o pagamento; requer leitura visual para detalhamento das etapas.",
@@ -1080,10 +1707,14 @@
     {
       "id": "1780963200041",
       "user": "JJFS - ATDG",
-      "setor": "Secretaria Financeira",
+      "setor": "Div. de Finanças",
       "tipo": "processo",
       "desc": "Fluxo de despesas do Campus Foz — passagem e hospedagem (PDF em imagem/diagrama, sem texto extraível).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Fluxos Campus de Foz do Iguaçu/Fluxos_Eprotocolo_-_Despesas_-_Campus_Foz_do_Iguaçu passagem e hospedagem.pdf",
+      "arquivo": {
+        "nome": "Fluxos_Eprotocolo_-_Despesas_-_Campus_Foz_do_Iguaçu passagem e hospedagem.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Fluxos Campus de Foz do Iguaçu"
+      },
       "p": {
         "titulo": "Fluxo Despesas Campus Foz — Passagem e Hospedagem",
         "resumo": "Fluxograma específico do Campus Foz para despesas de passagem e hospedagem no e-Protocolo. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Define a tramitação local desses pedidos; requer leitura visual para detalhar as etapas e responsáveis.",
@@ -1105,10 +1736,14 @@
     {
       "id": "1780963200042",
       "user": "JJFS - ATDG",
-      "setor": "Secretaria Financeira",
+      "setor": "Div. de Finanças",
       "tipo": "processo",
       "desc": "Fluxo geral de despesas do Campus Foz no e-Protocolo (PDF em imagem/diagrama, sem texto extraível).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Fluxos Campus de Foz do Iguaçu/Fluxos_Eprotocolo_-_Despesas_-_Campus_Foz_do_Iguaçu.pdf",
+      "arquivo": {
+        "nome": "Fluxos_Eprotocolo_-_Despesas_-_Campus_Foz_do_Iguaçu.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Fluxos Campus de Foz do Iguaçu"
+      },
       "p": {
         "titulo": "Fluxo Despesas Campus Foz — Geral",
         "resumo": "Fluxograma geral das despesas do Campus Foz tramitadas via e-Protocolo, abrangendo o conjunto dos pedidos financeiros locais. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Consolida visualmente a tramitação das despesas; requer leitura visual.",
@@ -1130,10 +1765,14 @@
     {
       "id": "1780963200043",
       "user": "JJFS - ATDG",
-      "setor": "PRPPG",
+      "setor": "Div. de Pós-Graduação",
       "tipo": "processo",
       "desc": "Fluxos do e-Protocolo — PRPPG: capacitação de servidores (afastamento e qualificação docente).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa/FLUXO-PRPPG-CAPACITAÇÃO_SERVIDORES_NOVO_2.pdf",
+      "arquivo": {
+        "nome": "FLUXO-PRPPG-CAPACITAÇÃO_SERVIDORES_NOVO_2.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — PRPPG Capacitação de Servidores",
         "resumo": "Manual da Comissão e-Protocolo com os fluxos da PRPPG relativos à capacitação de servidores, com foco no afastamento e qualificação docente (Resolução nº 029/2013-CEPE). Cobre afastamento parcial/integral, afastamento para o exterior, prorrogação, transformação, troca de programa e retorno com/sem conclusão. Orienta a tramitação de cada situação no e-Protocolo.",
@@ -1156,10 +1795,14 @@
     {
       "id": "1780963200044",
       "user": "JJFS - ATDG",
-      "setor": "PRPPG",
+      "setor": "Div. de Pós-Graduação",
       "tipo": "processo",
       "desc": "Fluxos do e-Protocolo — Comitê de Ética no Uso de Animais (CEUA): projetos novos, alterações e relatórios finais.",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa/FLUXO_-_PRPPG_-_CEUA.pdf",
+      "arquivo": {
+        "nome": "FLUXO_-_PRPPG_-_CEUA.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — PRPPG CEUA",
         "resumo": "Manual da Comissão e-Protocolo com os fluxos do Comitê de Ética no Uso de Animais (CEUA). Define a tramitação para projetos novos, alteração de projetos e relatórios finais. O docente responsável abre o e-Protocolo com 'protocolo unificado' e 'termo de responsabilidade' e encaminha ao responsável pelo campo de estudo/coordenador, sendo projetos com propriedade intelectual tramitados como sigilosos.",
@@ -1182,10 +1825,14 @@
     {
       "id": "1780963200045",
       "user": "JJFS - ATDG",
-      "setor": "PRPPG",
+      "setor": "Div. de Pós-Graduação",
       "tipo": "processo",
       "desc": "Fluxos do e-Protocolo — Comitê de Ética no Uso de Animais de Produção (CEUAP): projetos novos, alterações e relatórios.",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa/FLUXO_-_PRPPG_-_CEUAP.pdf",
+      "arquivo": {
+        "nome": "FLUXO_-_PRPPG_-_CEUAP.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — PRPPG CEUAP",
         "resumo": "Manual da Comissão e-Protocolo com os fluxos do Comitê de Ética no Uso de Animais de Produção (CEUAP). Define a tramitação para projetos novos, alteração de projetos e relatórios finais, com abertura pelo docente responsável (protocolo unificado e termo de responsabilidade) e encaminhamento ao responsável pelo campo de estudo/coordenador. Projetos com propriedade intelectual tramitam como sigilosos.",
@@ -1208,10 +1855,14 @@
     {
       "id": "1780963200046",
       "user": "JJFS - ATDG",
-      "setor": "PRPPG",
+      "setor": "Div. de Pós-Graduação",
       "tipo": "processo",
       "desc": "Fluxos do e-Protocolo — Pós-Graduação Lato Sensu (Resolução nº 071/2021-CEPE).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa/FLUXO_-_PRPPG_-_LATO_SENSU.pdf",
+      "arquivo": {
+        "nome": "FLUXO_-_PRPPG_-_LATO_SENSU.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — PRPPG Lato Sensu",
         "resumo": "Manual da Comissão e-Protocolo com os fluxos dos cursos de pós-graduação lato sensu, conforme a Resolução nº 071/2021-CEPE. Cobre proposta de curso (presencial/semipresencial, residência, EAD), alteração/prorrogação, mudança de cronograma e inclusão de docentes, substituição de coordenador e alteração de planilha financeira. Orienta a tramitação correta no e-Protocolo.",
@@ -1234,10 +1885,14 @@
     {
       "id": "1780963200047",
       "user": "JJFS - ATDG",
-      "setor": "PRPPG",
+      "setor": "Div. de Pós-Graduação",
       "tipo": "processo",
       "desc": "Fluxos do e-Protocolo — Pós-Graduação Stricto Sensu (Resolução nº 078/2016-CEPE).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa/FLUXO_-_PRPPG_-_Stricto_Sensu.pdf",
+      "arquivo": {
+        "nome": "FLUXO_-_PRPPG_-_Stricto_Sensu.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/Pesquisa"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — PRPPG Stricto Sensu",
         "resumo": "Manual da Comissão e-Protocolo com os fluxos dos programas de pós-graduação stricto sensu, conforme a Resolução nº 078/2016-CEPE. Abrange proposta de novo programa, curso de doutorado, implantação, modificação de projeto pedagógico e de regulamento, criação de disciplinas, entre outros atos. Orienta a tramitação no e-Protocolo das demandas de mestrado e doutorado.",
@@ -1260,10 +1915,14 @@
     {
       "id": "1780963200048",
       "user": "JJFS - ATDG",
-      "setor": "PRORH",
+      "setor": "Div. de Recursos Humanos",
       "tipo": "processo",
       "desc": "Fluxos do e-Protocolo da área de Recursos Humanos — PRORH, versão 2.0 (maio/2023).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/RH/FLUXO_PRORH_VERSÃO_2.0.pdf",
+      "arquivo": {
+        "nome": "FLUXO_PRORH_VERSÃO_2.0.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Fluxos e-Protocolo/RH"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — RH (PRORH) v2.0",
         "resumo": "Manual da Comissão e-Protocolo com os fluxos da área de Recursos Humanos (PRORH), versão 2.0, de maio/2023. Reúne os procedimentos de RH tramitados no e-Protocolo (licenças, afastamentos, frequência, progressões e demais demandas funcionais), com a composição da Comissão e o histórico de versões. Referência para instrução correta dos processos de RH.",
@@ -1286,10 +1945,14 @@
     {
       "id": "1780963200049",
       "user": "JJFS - ATDG",
-      "setor": "Secretaria Financeira",
+      "setor": "Div. de Finanças",
       "tipo": "processo",
       "desc": "Procedimento de solicitação de diárias nacionais (formulário, assinaturas, anexos e tramitação até empenho).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Passagens e diárias/Diárias_Nacionais.pdf",
+      "arquivo": {
+        "nome": "Diárias_Nacionais.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Passagens e diárias"
+      },
       "p": {
         "titulo": "Procedimento — Diárias Nacionais",
         "resumo": "Procedimento textual para solicitação de diárias nacionais. O interessado preenche o formulário (link PRAF), coleta assinaturas via e-Protocolo, anexa folder/justificativa da viagem e consulta ao Cadin, e encaminha à Secretaria Financeira. Esta verifica o preenchimento e a disponibilidade orçamentária/financeira, indica fonte e conta, e encaminha à Contabilidade para empenho.",
@@ -1314,10 +1977,14 @@
     {
       "id": "1780963200050",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Compras",
+      "setor": "Div. de Compras",
       "tipo": "processo",
       "desc": "Fluxo de compra por dispensa emergencial com contrato (termo de referência, cotações, parecer jurídico, empenho e contrato).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de compras/Fluxo_Dispensa_Emergencial_-_Contrato.pdf",
+      "arquivo": {
+        "nome": "Fluxo_Dispensa_Emergencial_-_Contrato.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de compras"
+      },
       "p": {
         "titulo": "Fluxo — Dispensa Emergencial (com Contrato)",
         "resumo": "Fluxo da contratação por dispensa emergencial com contrato. O interessado elabora termo de referência, cotações e tabela comparativa e envia ao Planejamento, que analisa e submete à autorização da Direção Geral. Compras faz pesquisa de preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro empenha; a Licitação elabora o contrato, que é assinado, publicado no DIOE e tem portarias de gestor/fiscal emitidas pela Direção Geral.",
@@ -1343,10 +2010,14 @@
     {
       "id": "1780963200051",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Compras",
+      "setor": "Div. de Compras",
       "tipo": "processo",
       "desc": "Fluxo de compra por dispensa emergencial com ordem de compra (memorando, cotações, parecer, empenho e OC).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de compras/Fluxo_Dispensa_Emergencial_-_Ordem_de_Compra.pdf",
+      "arquivo": {
+        "nome": "Fluxo_Dispensa_Emergencial_-_Ordem_de_Compra.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de compras"
+      },
       "p": {
         "titulo": "Fluxo — Dispensa Emergencial (com Ordem de Compra)",
         "resumo": "Fluxo da contratação por dispensa emergencial com ordem de compra. O interessado elabora memorando, cotações e tabela comparativa e envia ao Planejamento, que analisa e submete à Direção Geral. Compras faz pesquisa de preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro empenha; e Compras emite a Ordem de Compra, publica no DIOE e encaminha à empresa e ao interessado.",
@@ -1372,10 +2043,14 @@
     {
       "id": "1780963200052",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Compras",
+      "setor": "Div. de Compras",
       "tipo": "processo",
       "desc": "Fluxo de contratação por inexigibilidade com contrato (carta de exclusividade, parecer, DDF, publicação e contrato).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de compras/Fluxo_Inexigibilidade_-_Contrato.pdf",
+      "arquivo": {
+        "nome": "Fluxo_Inexigibilidade_-_Contrato.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de compras"
+      },
       "p": {
         "titulo": "Fluxo — Inexigibilidade (com Contrato)",
         "resumo": "Fluxo da contratação por inexigibilidade com contrato. O interessado elabora termo de referência com cotação e carta de exclusividade do fornecedor e envia ao Planejamento, que submete à Direção Geral. Compras faz pesquisa de preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro faz a DDF; a Licitação publica o aviso de inexigibilidade, aguarda 3 dias e, sem impugnação, emite/publica o contrato, com portarias pela Direção Geral.",
@@ -1401,10 +2076,14 @@
     {
       "id": "1780963200053",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Compras",
+      "setor": "Div. de Compras",
       "tipo": "processo",
       "desc": "Fluxo de contratação por inexigibilidade com ordem de compra (carta de exclusividade, parecer, DDF, publicação e OC).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de compras/Fluxo_Inexigibilidade_-_Ordem_de_Compra.pdf",
+      "arquivo": {
+        "nome": "Fluxo_Inexigibilidade_-_Ordem_de_Compra.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de compras"
+      },
       "p": {
         "titulo": "Fluxo — Inexigibilidade (com Ordem de Compra)",
         "resumo": "Fluxo da contratação por inexigibilidade com ordem de compra. O interessado elabora termo de referência, cotações e carta de exclusividade e envia ao Planejamento, que submete à Direção Geral. Compras pesquisa preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro faz a DDF; a Licitação publica o aviso, aguarda 3 dias e publica a inexigibilidade, retornando o processo a Compras para a Ordem de Compra.",
@@ -1430,10 +2109,14 @@
     {
       "id": "1780963200054",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Licitação",
+      "setor": "Div. de Licitação",
       "tipo": "processo",
       "desc": "Fluxo de contrato de aquisição a partir de licitação (geração do contrato, portarias, registro e empenho).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de Licitação/Fluxo_Contrato_Aquisição.pdf",
+      "arquivo": {
+        "nome": "Fluxo_Contrato_Aquisição.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de Licitação"
+      },
       "p": {
         "titulo": "Fluxo — Contrato de Aquisição (Licitação)",
         "resumo": "Fluxo do contrato de aquisição decorrente de licitação. A CPL/Licitação gera o contrato, verifica regularidade fiscal, lança no GMS e, após assinado, publica no DIOE, encaminhando à Direção Geral. Esta emite e publica as portarias de Gestor e Fiscal; o Planejamento registra o contrato e inclui portarias no GMS; o Gestor solicita o empenho ao Financeiro e a aquisição dos itens, e o Fiscal acompanha a entrega e as notas fiscais.",
@@ -1458,10 +2141,14 @@
     {
       "id": "1780963200055",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Licitação",
+      "setor": "Div. de Licitação",
       "tipo": "processo",
       "desc": "Fluxo de contrato de prestação de serviços contínuos a partir de licitação (contrato, portarias, registro, empenho e fiscalização).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de Licitação/Fluxo_Contrato_Continuo.pdf",
+      "arquivo": {
+        "nome": "Fluxo_Contrato_Continuo.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de Licitação"
+      },
       "p": {
         "titulo": "Fluxo — Contrato de Serviços Contínuos (Licitação)",
         "resumo": "Fluxo do contrato de prestação de serviços contínuos decorrente de licitação. A CPL/Licitação gera o contrato, verifica regularidade fiscal, lança no GMS e publica no DIOE após assinatura. A Direção Geral emite portarias de Gestor e Fiscal; o Planejamento registra o contrato; o Fiscal verifica a regularidade fiscal e solicita o empenho ao Financeiro, acompanhando a execução, entregas e notas fiscais ao longo da vigência.",
@@ -1486,10 +2173,14 @@
     {
       "id": "1780963200056",
       "user": "JJFS - ATDG",
-      "setor": "Divisão de Licitação",
+      "setor": "Div. de Licitação",
       "tipo": "processo",
       "desc": "Fluxo do processo de licitação (memorando/TR, cotações, catalogação GMS, elementos de despesa, DDF, edital e ComprasNet).",
-      "arquivo": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de Licitação/Fluxo_Licitação.pdf",
+      "arquivo": {
+        "nome": "Fluxo_Licitação.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Documentos Unioeste/Processo de Licitação"
+      },
       "p": {
         "titulo": "Fluxo — Processo de Licitação",
         "resumo": "Fluxo do processo de licitação. O interessado elabora memorando e termo de referência, faz cotações e tabela comparativa e envia ao Planejamento, que submete à autorização da Direção Geral. A Licitação cataloga no GMS, faz pesquisa de preços, o Financeiro indica os elementos de despesa e a DDF, e a Licitação escreve o edital, cadastra o processo no GMS e no ComprasNet e encaminha à Direção Geral para autorização e prosseguimento.",
@@ -1518,7 +2209,11 @@
       "setor": "Referência Externa",
       "tipo": "outro",
       "desc": "Exemplo do IFPR — processo de execução orçamentária (bens, materiais, serviços e obras). PDF em imagem, sem texto extraível.",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos/IFPR - Processo - proplan_execucao_orcamentaria_bens_materiais_servicos_obras.pdf",
+      "arquivo": {
+        "nome": "IFPR - Processo - proplan_execucao_orcamentaria_bens_materiais_servicos_obras.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos"
+      },
       "p": {
         "titulo": "Exemplo IFPR — Execução Orçamentária",
         "resumo": "Documento de referência do IFPR (PROPLAN) que mapeia o processo de execução orçamentária para bens, materiais, serviços e obras. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Serve de benchmark metodológico para a modelagem dos processos administrativos da Unioeste.",
@@ -1543,7 +2238,11 @@
       "setor": "Referência Externa",
       "tipo": "outro",
       "desc": "Exemplo do IFPR — processo de demissão (PROGEPE). PDF em imagem, sem texto extraível.",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos/IFPR - Processos - progepe_demissao.pdf",
+      "arquivo": {
+        "nome": "IFPR - Processos - progepe_demissao.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos"
+      },
       "p": {
         "titulo": "Exemplo IFPR — Processo de Demissão",
         "resumo": "Documento de referência do IFPR (PROGEPE) que mapeia o processo de demissão de servidor. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Serve de benchmark metodológico para a documentação de processos de RH na Unioeste.",
@@ -1568,7 +2267,11 @@
       "setor": "Referência Externa",
       "tipo": "outro",
       "desc": "Manual de orientação de fluxo acadêmico da UNILA (PROGRAD) — referência de procedimentos acadêmicos.",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos/Manual de orientação de fluxo acadêmico - UNILA.pdf",
+      "arquivo": {
+        "nome": "Manual de orientação de fluxo acadêmico - UNILA.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos"
+      },
       "p": {
         "titulo": "Referência — Manual de Fluxo Acadêmico (UNILA)",
         "resumo": "Manual elaborado pela PROGRAD da UNILA (set/2020) para orientar o recebimento, encaminhamento e acompanhamento de documentos protocolados pelos alunos de graduação, além das atividades de coordenação de curso e procedimentos acadêmicos. Detalha passo a passo as ações por instância (Protocolo, Secretaria Acadêmica, Coordenação, PROGRAD) e anexa modelos de formulários. Referência de boas práticas para os fluxos acadêmicos da Unioeste.",
@@ -1593,7 +2296,11 @@
       "setor": "Referência Externa",
       "tipo": "outro",
       "desc": "Manual de Gestão de Processos da UFPR (2ª ed., 2024) — fundamentação teórica de BPM e modelagem.",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos/Manual-de-Gestao-de-Processos-da-UFPR_2ed.pdf",
+      "arquivo": {
+        "nome": "Manual-de-Gestao-de-Processos-da-UFPR_2ed.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos"
+      },
       "p": {
         "titulo": "Referência — Manual de Gestão de Processos (UFPR)",
         "resumo": "Manual de Gestão de Processos da UFPR (2ª edição, 2024), referência teórico-metodológica sobre gestão por processos e BPM. Aborda conceitos (processo, ator, dono do processo, valor, tipos de processo), o ciclo de BPM (projeto, análise, modelagem, automatização, execução e monitoramento) e a melhoria contínua. Base conceitual para estruturar a metodologia de mapeamento da Unioeste.",
@@ -1618,7 +2325,11 @@
       "setor": "Referência Externa",
       "tipo": "outro",
       "desc": "Manual de Gestão por Processos da UFABC — mapeamento (BPMN) e gestão por processos.",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos/Manual_de_Gesto_por_Processos_UFABC_v1.pdf",
+      "arquivo": {
+        "nome": "Manual_de_Gesto_por_Processos_UFABC_v1.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos"
+      },
       "p": {
         "titulo": "Referência — Manual de Gestão por Processos (UFABC)",
         "resumo": "Manual de Gestão por Processos da UFABC, referência teórico-prática organizada em dois níveis: mapeamento de processos (com notação BPMN) e gestão por processos (conceitos, projeto de modelagem, implantação do ciclo do processo e iniciativas como 'Café com Processos'). Apoia a definição da notação e da metodologia de mapeamento na Unioeste.",
@@ -1643,7 +2354,11 @@
       "setor": "Referência Externa",
       "tipo": "outro",
       "desc": "Artigo ENEGEP 2013 — modelo de projeto de processos utilizando modelagem com BPMN (UFC).",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos/enegep2013_TN_STO_184_050_22420.pdf",
+      "arquivo": {
+        "nome": "enegep2013_TN_STO_184_050_22420.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos"
+      },
       "p": {
         "titulo": "Referência — Artigo ENEGEP (Modelagem BPMN)",
         "resumo": "Artigo técnico do XXXIII ENEGEP (2013), de autores da UFC, que propõe um modelo de projeto de processos utilizando a modelagem com BPMN. Discute modelos de negócio como representação da realidade organizacional e sua utilidade para descrever atividades e propor melhorias. Fundamentação acadêmica para a abordagem de modelagem adotada no mapeamento.",
@@ -1668,7 +2383,11 @@
       "setor": "Referência Externa",
       "tipo": "norma",
       "desc": "Norma ABNT NBR ISO 9000:2005 — fundamentos e vocabulário de sistemas de gestão da qualidade (PDF em imagem, sem texto extraível).",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos/nbr-iso-9000-2005.pdf",
+      "arquivo": {
+        "nome": "nbr-iso-9000-2005.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Externos"
+      },
       "p": {
         "titulo": "Referência — ABNT NBR ISO 9000:2005",
         "resumo": "Norma técnica ABNT NBR ISO 9000:2005, que estabelece os fundamentos e o vocabulário dos sistemas de gestão da qualidade. Referência conceitual para a abordagem por processos e melhoria contínua aplicada ao mapeamento. Arquivo em PDF no formato de imagem, sem texto extraível automaticamente; consultar o original.",
@@ -1690,10 +2409,14 @@
     {
       "id": "1780963200064",
       "user": "JJFS - ATDG",
-      "setor": "PROGRAD",
+      "setor": "Div. de Graduação",
       "tipo": "processo",
       "desc": "Fluxos de processos do e-Protocolo na área de Ensino (PROGRAD) — cópia no acervo de fluxos internos.",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Internos/FLUXO_DE_PROCESSOS_ENSINO_pdf_PROGRAD_-_Atualizado.pdf",
+      "arquivo": {
+        "nome": "FLUXO_DE_PROCESSOS_ENSINO_pdf_PROGRAD_-_Atualizado.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Internos"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — Ensino (PROGRAD) [cópia]",
         "resumo": "Cópia, no acervo de 'Fluxos Internos', do manual da Comissão e-Protocolo com os fluxos da área de Ensino (PROGRAD). Cobre alteração de resoluções/regulamentos, PPP, reconhecimento de curso, regulamentos de estágio/TCC/internato, projetos de ensino e monitorias. Conteúdo idêntico ao da pasta de Ensino; mantido como referência interna.",
@@ -1715,10 +2438,14 @@
     {
       "id": "1780963200065",
       "user": "JJFS - ATDG",
-      "setor": "PRORH",
+      "setor": "Div. de Recursos Humanos",
       "tipo": "processo",
       "desc": "Fluxos do e-Protocolo da área de Recursos Humanos — versão 3.0 (setembro/2024), atualizada.",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Internos/FLUXO_NOVO_RH_-_Atualizado 3.0.pdf",
+      "arquivo": {
+        "nome": "FLUXO_NOVO_RH_-_Atualizado 3.0.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Internos"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — RH (PRORH) v3.0",
         "resumo": "Versão 3.0 (set/2024) do manual da Comissão e-Protocolo com os fluxos da área de Recursos Humanos. É a versão mais recente do conjunto de fluxos de RH (licenças, afastamentos, frequência, progressões e demais demandas funcionais), substituindo a versão 2.0 de mai/2023. Referência preferencial para a instrução de processos de RH no e-Protocolo.",
@@ -1741,10 +2468,14 @@
     {
       "id": "1780963200066",
       "user": "JJFS - ATDG",
-      "setor": "PRORH",
+      "setor": "Div. de Recursos Humanos",
       "tipo": "processo",
       "desc": "Fluxos do e-Protocolo da área de Recursos Humanos — versão 2.0 (maio/2023), cópia no acervo interno.",
-      "arquivo": "Pesquisa Teórica e Documental/Exemplos de Fluxos Internos/FLUXO_PRORH_VERSÃO_2.0.pdf",
+      "arquivo": {
+        "nome": "FLUXO_PRORH_VERSÃO_2.0.pdf",
+        "tamanho": "",
+        "pasta": "Pesquisa Teórica e Documental/Exemplos de Fluxos Internos"
+      },
       "p": {
         "titulo": "Fluxos e-Protocolo — RH (PRORH) v2.0 [cópia]",
         "resumo": "Cópia, no acervo de 'Fluxos Internos', do manual da Comissão e-Protocolo com os fluxos de Recursos Humanos na versão 2.0 (mai/2023). Conteúdo idêntico ao da pasta de RH; mantido como referência. Foi superado pela versão 3.0 (set/2024).",
