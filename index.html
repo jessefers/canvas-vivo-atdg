@@ -62,6 +62,20 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
 .ss.ok{background:var(--vl);color:var(--verde)}.ss.er{background:var(--rl);color:var(--red)}.ss.pr{background:var(--dl);color:#7a5c1e}
 
 
+
+/* GERAR MANUAL */
+.gen-manual-btn{background:linear-gradient(135deg,var(--red) 0%,#a8102f 100%);color:#fff;border:none;cursor:pointer;padding:7px 14px;border-radius:6px;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:all .2s;box-shadow:0 1px 4px rgba(204,21,68,.2)}
+.gen-manual-btn:hover{box-shadow:0 2px 8px rgba(204,21,68,.4);transform:translateY(-1px)}
+.gen-manual-btn:disabled{background:#aaa;cursor:not-allowed;box-shadow:none;transform:none}
+.gen-manual-btn.small{padding:5px 10px;font-size:10px}
+.manual-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;padding:10px 14px;background:linear-gradient(90deg,transparent 0%,var(--vl) 100%);border-top:1px dashed var(--vm)}
+.manual-info{font-size:10px;color:var(--mut);font-style:italic;flex:1}
+.gen-status{font-size:11px;padding:8px 12px;border-radius:6px;margin:10px 0;display:none}
+.gen-status.processing{background:var(--tl);color:var(--teal);border:1px solid #a8d4e2}
+.gen-status.success{background:var(--okl);color:var(--ok);border:1px solid #b0dcc8}
+.gen-status.error{background:var(--rl);color:var(--red);border:1px solid #f0b0c0}
+.gen-spinner{display:inline-block;width:12px;height:12px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.7s linear infinite;margin-right:6px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
 /* CAMPOS ESTRUTURADOS DE PROCESSO */
 .form-section-title{font-size:11px;font-weight:700;color:var(--nav2);text-transform:uppercase;letter-spacing:.05em;margin:14px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--vm);display:flex;align-items:center;gap:6px}
 .form-section-title .opt-tag{background:var(--vm);color:var(--nav2);font-size:9px;padding:1px 6px;border-radius:3px;letter-spacing:.04em;margin-left:auto;font-weight:600}
@@ -1050,7 +1064,15 @@ async function loadCanvas(){
         body+=`<div style="font-size:10px;color:var(--mut);margin-top:8px;padding-top:8px;border-top:1px dashed var(--brd);">Subdivisões: ${s.subs.join(' · ')}</div>`;
       }
     }
-    html+=`<div class="secc"><div class="sech" onclick="togS('${s.id}','${sid}')"><div class="secl"><div class="snum">S${s.num}</div><div><div class="sname">${s.id}</div><div class="scnt">${se.length} entrada${se.length!==1?'s':''}</div></div></div><div style="display:flex;align-items:center;gap:8px;"><span class="pill ${pc}">${s.lbl}</span><span class="chv ${open?'op':''}" id="chv_${sid}">▼</span></div></div><div class="secb" id="secb_${sid}" style="display:${open?'block':'none'};">${body}</div></div>`;
+    const setorEntradasCount = se.length;
+    const manualActionsHtml = setorEntradasCount>0 ? `
+      <div class="manual-actions">
+        <span class="manual-info">${setorEntradasCount} entrada${setorEntradasCount!==1?'s':''} disponível${setorEntradasCount!==1?'is':''} para gerar manual</span>
+        <button class="gen-manual-btn small" onclick="event.stopPropagation();gerarManualSetor('${s.id.replace(/'/g,"\\'")}')">
+          📘 Gerar Manual
+        </button>
+      </div>` : '';
+    html+=`<div class="secc"><div class="sech" onclick="togS('${s.id}','${sid}')"><div class="secl"><div class="snum">S${s.num}</div><div><div class="sname">${s.id}</div><div class="scnt">${se.length} entrada${se.length!==1?'s':''}</div></div></div><div style="display:flex;align-items:center;gap:8px;"><span class="pill ${pc}">${s.lbl}</span><span class="chv ${open?'op':''}" id="chv_${sid}">▼</span></div></div><div class="secb" id="secb_${sid}" style="display:${open?'block':'none'};">${body}${manualActionsHtml}</div></div>`;
   });
   document.getElementById('canvasContent').innerHTML=html;
 }
@@ -1212,6 +1234,335 @@ function renderSearch(q,cvRes,idxRes,webData){
   const isCache=document.getElementById('searchResults').querySelector('.cache-note');
   if(!isCache)html+=`<div class="cache-note">Resultados web em cache por 24h · Nova busca igual: zero créditos</div>`;
   document.getElementById('searchResults').innerHTML=html;
+}
+
+
+
+// ══ GERAR MANUAL DE SETOR ══
+async function gerarManualSetor(setorId){
+  const apiKey = getKey();
+  if(!apiKey){
+    toast('⚠️ Configure a chave IA em ⚙️ Config para gerar manuais.');
+    return;
+  }
+  
+  // Coletar entradas do setor (inclui subdivisões se houver)
+  const allEntries = gEntries();
+  const sectorDef = SECTORS.find(s=>s.id===setorId);
+  const subs = sectorDef?.subs || [];
+  const sectorEntries = allEntries.filter(e => 
+    e.setor === setorId || subs.includes(e.setor)
+  );
+  
+  if(sectorEntries.length===0){
+    toast('⚠️ Nenhuma entrada neste setor ainda.');
+    return;
+  }
+  
+  // Mostrar overlay de progresso
+  showManualProgress(setorId, sectorEntries.length);
+  
+  try {
+    // Preparar dados consolidados
+    const dadosSetor = {
+      setor: setorId,
+      total_entradas: sectorEntries.length,
+      colaboradores: [...new Set(sectorEntries.map(e=>e.user))],
+      entradas: sectorEntries.map(e=>({
+        id: e.id,
+        user: e.user,
+        tipo: e.tipo,
+        data: e.ts,
+        titulo: e.p?.titulo || '',
+        resumo: e.p?.resumo || e.desc,
+        descricao_original: e.desc,
+        responsavel: e.responsavel || 'A definir',
+        estrutura: e.estrutura || {},
+        procedimento: e.p?.procedimento || [],
+        atencoes: e.p?.atencoes || [],
+        normativa: e.p?.normativa || 'Não especificada',
+        classificacao: e.p?.class || 'INFORMAÇÃO',
+        arquivo: e.arq || null
+      }))
+    };
+    
+    updateManualProgress('🤖 Sonnet processando dados (qualidade máxima)...');
+    
+    // Chamar Sonnet para gerar o manual estruturado
+    const prompt = `Voce e o especialista em documentacao institucional da ATDG da UNIOESTE Campus Foz do Iguacu.
+
+Gere um MANUAL/PLAYBOOK COMPLETO em formato JSON estruturado para o setor abaixo, consolidando todas as entradas registradas. Use padrao BPMN 2.0 Anne Bail (entrada -> processamento -> saida).
+
+SETOR: ${setorId}
+TOTAL DE ENTRADAS: ${sectorEntries.length}
+
+DADOS COLETADOS:
+${JSON.stringify(dadosSetor, null, 2)}
+
+Retorne APENAS um JSON valido com esta estrutura:
+{
+  "setor": "nome do setor",
+  "data_geracao": "data atual ISO",
+  "identificacao": {
+    "subordinacao": "a quem o setor responde",
+    "responsaveis": ["lista de responsaveis identificados"],
+    "localizacao": "se mencionado"
+  },
+  "missao": "missao consolidada do setor",
+  "processos": [
+    {
+      "nome": "nome do processo",
+      "objetivo": "objetivo",
+      "responsavel": "responsavel",
+      "gatilho": "o que inicia",
+      "entrada": "insumos",
+      "processamento": ["passo 1", "passo 2", "passo 3"],
+      "saida": "entregaveis",
+      "raias_bpmn": ["atores envolvidos"],
+      "pontos_atencao": ["atencao 1"],
+      "contingencia": "plano B",
+      "kpi": "indicador",
+      "normativa": "legislacao"
+    }
+  ],
+  "incidentes_aprendizados": ["lista de licoes"],
+  "melhorias_identificadas": ["lista de melhorias"],
+  "normas_aplicaveis": ["lista de normas"],
+  "fluxogramas_sugeridos": [
+    {
+      "nome": "nome do fluxograma",
+      "descricao": "descricao para construcao no Miro",
+      "atores": ["raias"],
+      "elementos": [
+        {"tipo": "inicio|atividade|decisao|fim|pausa|captura", "texto": "label"}
+      ]
+    }
+  ],
+  "consolidacao_atdg": "perspectiva da ATDG sobre como esse setor opera no campus Foz"
+}`;
+
+    const controller = new AbortController();
+    setTimeout(()=>controller.abort(), 60000); // 60s timeout
+    
+    const r = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      signal:controller.signal,
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':apiKey,
+        'anthropic-version':'2023-06-01'
+      },
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens: 4000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    
+    if(!r.ok){
+      const errText = await r.text();
+      throw new Error('API '+r.status+': '+errText.substring(0,200));
+    }
+    
+    const d = await r.json();
+    if(d.error) throw new Error(d.error.message);
+    
+    const txt = d.content?.find(b=>b.type==='text')?.text || '';
+    const cleaned = txt.replace(/```json|```/g,'').trim();
+    const start = cleaned.indexOf('{');
+    const end = cleaned.lastIndexOf('}');
+    if(start<0 || end<0) throw new Error('Resposta sem JSON valido');
+    
+    const manual = JSON.parse(cleaned.substring(start, end+1));
+    manual._raw_data = dadosSetor;
+    manual._versao = 'Canvas Vivo ATDG v4 + ETAPA 4';
+    
+    updateManualProgress('📄 Gerando arquivo Word...');
+    
+    // Gerar e baixar Word
+    await downloadManualWord(manual);
+    
+    hideManualProgress();
+    toast('✅ Manual gerado e baixado com sucesso!');
+    
+  } catch(err) {
+    console.error('Erro gerarManualSetor:', err);
+    hideManualProgress();
+    toast('❌ Erro: '+(err.message||'desconhecido'));
+  }
+}
+
+// ══ OVERLAY DE PROGRESSO DA GERAÇÃO ══
+function showManualProgress(setor, count){
+  let overlay = document.getElementById('manual-overlay');
+  if(!overlay){
+    overlay = document.createElement('div');
+    overlay.id = 'manual-overlay';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(13,27,51,0.85);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)';
+    overlay.innerHTML = `
+      <div style="background:#fff;border-radius:14px;padding:30px;max-width:480px;width:100%;text-align:center;box-shadow:0 12px 60px rgba(0,0,0,.4)">
+        <div style="width:60px;height:60px;border:4px solid var(--vm);border-top-color:var(--red);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 18px"></div>
+        <div style="font-size:16px;font-weight:700;color:var(--nav2);margin-bottom:6px" id="manual-progress-title">📘 Gerando Manual</div>
+        <div style="font-size:12px;color:var(--mut);margin-bottom:14px" id="manual-progress-subtitle"></div>
+        <div style="font-size:13px;color:var(--teal);font-family:'IBM Plex Mono',monospace" id="manual-progress-status">🤖 Iniciando...</div>
+        <div style="margin-top:18px;padding:12px;background:var(--vl);border-radius:8px;font-size:11px;color:var(--mut);line-height:1.5">
+          <strong style="color:var(--nav2)">Modelo IA:</strong> Sonnet 4 (qualidade alta)<br>
+          <strong style="color:var(--nav2)">Padrão:</strong> BPMN 2.0 Anne Bail<br>
+          <strong style="color:var(--nav2)">Saída:</strong> Documento Word formatado
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+  }
+  document.getElementById('manual-progress-title').textContent = '📘 Gerando Manual';
+  document.getElementById('manual-progress-subtitle').textContent = setor + ' · ' + count + ' entrada' + (count!==1?'s':'') + ' sendo consolidada' + (count!==1?'s':'');
+}
+
+function updateManualProgress(msg){
+  const el = document.getElementById('manual-progress-status');
+  if(el) el.textContent = msg;
+}
+
+function hideManualProgress(){
+  const overlay = document.getElementById('manual-overlay');
+  if(overlay) overlay.remove();
+}
+
+// ══ DOWNLOAD MANUAL COMO WORD ══
+async function downloadManualWord(manual){
+  // Por enquanto, gera HTML formatado que abre no Word (mantém formatação)
+  // Versão completa Word será via ETAPA 5
+  
+  const safeStr = (s) => (s||'').toString().replace(/[<>&]/g, m => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]));
+  
+  const html = `<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+<head>
+<meta charset="UTF-8">
+<title>Manual ${safeStr(manual.setor)}</title>
+<style>
+@page { size: A4; margin: 2.5cm 2cm; }
+body { font-family: 'Arial', sans-serif; font-size: 11pt; line-height: 1.5; color: #1B2747; }
+.capa { text-align: center; padding: 60px 20px; border-top: 6px solid #CC1544; border-bottom: 3px solid #0B4D66; margin-bottom: 30px; page-break-after: always; }
+.capa h1 { font-size: 32pt; color: #1B2747; margin: 30px 0 10px; font-weight: bold; }
+.capa h2 { font-size: 16pt; color: #CC1544; margin-bottom: 40px; font-weight: 600; }
+.capa .badge { display: inline-block; background: #1B2747; color: #fff; padding: 8px 18px; border-radius: 6px; font-size: 10pt; margin: 5px; }
+h1, h2, h3 { color: #1B2747; }
+h2 { border-bottom: 2px solid #CC1544; padding-bottom: 6px; margin-top: 30px; font-size: 18pt; }
+h3 { color: #0B4D66; margin-top: 22px; font-size: 14pt; }
+h4 { color: #CC1544; margin-top: 16px; font-size: 12pt; }
+.processo { background: #F4F5FA; border-left: 4px solid #0B4D66; padding: 14px 18px; margin: 15px 0; border-radius: 4px; }
+.processo h4 { margin-top: 0; color: #1B2747; font-size: 13pt; }
+.bpmn-block { background: #EEF0F7; border: 1px solid #C5CBDC; border-radius: 6px; padding: 10px 14px; margin: 8px 0; }
+.bpmn-block strong { color: #CC1544; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+th { background: #1B2747; color: #fff; padding: 8px 10px; text-align: left; font-size: 10pt; }
+td { border: 1px solid #D0D4E8; padding: 8px 10px; font-size: 10pt; vertical-align: top; }
+.info-row { background: #E0F2F8; }
+ul { margin: 8px 0 8px 24px; }
+li { margin-bottom: 4px; }
+.footer { margin-top: 40px; padding-top: 15px; border-top: 2px solid #CC1544; font-size: 9pt; color: #5A6380; text-align: center; }
+.tag { display: inline-block; background: #CC1544; color: #fff; padding: 2px 8px; border-radius: 3px; font-size: 9pt; margin-right: 4px; }
+</style>
+</head>
+<body>
+
+<div class="capa">
+  <div class="badge">UNIOESTE — CAMPUS FOZ DO IGUAÇU</div>
+  <div class="badge" style="background:#CC1544">ATDG · Assessoria Técnica da Direção Geral</div>
+  <h1>MANUAL / PLAYBOOK</h1>
+  <h2>${safeStr(manual.setor)}</h2>
+  <p style="margin-top:40px;font-size:11pt;color:#5A6380">Documento institucional gerado pelo Canvas Vivo<br>
+  Padrão BPMN 2.0 Anne Bail · Versão consolidada</p>
+  <p style="margin-top:60px;font-size:10pt;color:#5A6380">Data de geração: ${new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})}</p>
+</div>
+
+<h2>1. Identificação do Setor</h2>
+<table>
+  <tr class="info-row"><th style="width:30%">Setor</th><td>${safeStr(manual.setor)}</td></tr>
+  <tr><th>Subordinação</th><td>${safeStr(manual.identificacao?.subordinacao || 'Direção Geral de Campus')}</td></tr>
+  <tr><th>Responsáveis identificados</th><td>${(manual.identificacao?.responsaveis||[]).map(safeStr).join(', ') || 'A definir'}</td></tr>
+  <tr><th>Localização</th><td>${safeStr(manual.identificacao?.localizacao || 'Campus Foz do Iguaçu')}</td></tr>
+  <tr><th>Total de entradas consolidadas</th><td><strong>${manual._raw_data?.total_entradas || 0}</strong></td></tr>
+  <tr><th>Colaboradores contribuintes</th><td>${(manual._raw_data?.colaboradores||[]).map(safeStr).join(', ')}</td></tr>
+</table>
+
+<h2>2. Missão do Setor</h2>
+<p>${safeStr(manual.missao || 'Em consolidação a partir das entradas registradas.')}</p>
+
+<h2>3. Processos Mapeados</h2>
+${(manual.processos||[]).map((p,i)=>`
+<div class="processo">
+  <h4>3.${i+1}. ${safeStr(p.nome)}</h4>
+  <p><strong>Objetivo:</strong> ${safeStr(p.objetivo)}</p>
+  <p><strong>Responsável:</strong> ${safeStr(p.responsavel)}</p>
+  <p><strong>Gatilho:</strong> ${safeStr(p.gatilho)}</p>
+  
+  <div class="bpmn-block">
+    <strong>⬇️ ENTRADA:</strong> ${safeStr(p.entrada)}
+  </div>
+  <div class="bpmn-block">
+    <strong>⚙️ PROCESSAMENTO:</strong>
+    <ol>${(p.processamento||[]).map(s=>`<li>${safeStr(s)}</li>`).join('')}</ol>
+  </div>
+  <div class="bpmn-block">
+    <strong>⬆️ SAÍDA:</strong> ${safeStr(p.saida)}
+  </div>
+  
+  ${p.raias_bpmn?.length ? `<p><strong>Raias BPMN (atores):</strong> ${p.raias_bpmn.map(safeStr).join(' · ')}</p>` : ''}
+  ${p.pontos_atencao?.length ? `<p><strong>⚠️ Pontos de atenção:</strong></p><ul>${p.pontos_atencao.map(a=>`<li>${safeStr(a)}</li>`).join('')}</ul>` : ''}
+  ${p.contingencia ? `<p><strong>🛡️ Contingência:</strong> ${safeStr(p.contingencia)}</p>` : ''}
+  ${p.kpi ? `<p><strong>📊 KPI/Indicador:</strong> ${safeStr(p.kpi)}</p>` : ''}
+  ${p.normativa ? `<p><strong>📋 Normativa:</strong> ${safeStr(p.normativa)}</p>` : ''}
+</div>`).join('')}
+
+${manual.incidentes_aprendizados?.length ? `
+<h2>4. Incidentes e Lições Aprendidas</h2>
+<ul>${manual.incidentes_aprendizados.map(i=>`<li>${safeStr(i)}</li>`).join('')}</ul>` : ''}
+
+${manual.melhorias_identificadas?.length ? `
+<h2>5. Melhorias Identificadas</h2>
+<ul>${manual.melhorias_identificadas.map(m=>`<li>${safeStr(m)}</li>`).join('')}</ul>` : ''}
+
+${manual.normas_aplicaveis?.length ? `
+<h2>6. Normas Aplicáveis</h2>
+<ul>${manual.normas_aplicaveis.map(n=>`<li>${safeStr(n)}</li>`).join('')}</ul>` : ''}
+
+${manual.fluxogramas_sugeridos?.length ? `
+<h2>7. Fluxogramas Sugeridos (Padrão BPMN 2.0 Anne Bail — para Miro)</h2>
+${manual.fluxogramas_sugeridos.map((f,i)=>`
+<h3>7.${i+1}. ${safeStr(f.nome)}</h3>
+<p>${safeStr(f.descricao)}</p>
+<p><strong>Atores/Raias:</strong> ${(f.atores||[]).map(safeStr).join(' · ')}</p>
+<table>
+  <tr><th style="width:25%">Tipo de elemento</th><th>Descrição (label)</th></tr>
+  ${(f.elementos||[]).map(e=>`<tr><td><span class="tag">${safeStr(e.tipo)}</span></td><td>${safeStr(e.texto)}</td></tr>`).join('')}
+</table>
+`).join('')}` : ''}
+
+<h2>8. Consolidação ATDG</h2>
+<p style="background:#FDEAEE;border-left:4px solid #CC1544;padding:14px 18px;border-radius:4px">${safeStr(manual.consolidacao_atdg || 'Perspectiva consolidada pela Assessoria Técnica da Direção Geral.')}</p>
+
+<div class="footer">
+  <strong>Canvas Vivo — Base de Conhecimento Institucional</strong><br>
+  ATDG · Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Sala B1<br>
+  Documento vivo gerado em ${new Date().toLocaleString('pt-BR')}<br>
+  Padrão BPMN 2.0 Anne Bail · Modelo IA Sonnet 4
+</div>
+
+</body>
+</html>`;
+
+  // Criar blob e baixar
+  const blob = new Blob(['\ufeff'+html], {type:'application/msword;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const safeName = manual.setor.replace(/[^a-zA-Z0-9]/g,'_').substring(0,40);
+  const dataStr = new Date().toISOString().substring(0,10);
+  a.href = url;
+  a.download = `Manual_${safeName}_${dataStr}.doc`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
 }
 
 // ══ ÍNDICE ATDG ══
