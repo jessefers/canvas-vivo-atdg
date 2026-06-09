@@ -713,7 +713,7 @@ async function analyzeFile(){
   const lbl=document.getElementById('fai-lbl');
   const st=document.getElementById('fai-status');
   btn.disabled=true;ico.innerHTML='<div class="spin"></div>';lbl.textContent='Analisando...';
-  st.style.display='block';st.textContent='🔄 Lendo o arquivo e identificando setor, tipo e pasta...';
+  st.style.display='block';st.textContent='🔄 Analisando arquivo (IA Haiku Vision — econômico)...';
   try{
     const isSupportedDoc=['application/pdf','image/png','image/jpeg','image/jpg','image/gif','image/webp'].includes(currentFileMime);
     const isText=currentFileMime==='text/plain';
@@ -738,7 +738,7 @@ async function analyzeFile(){
     }
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:msgContent}]})
+      body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:600,messages:[{role:'user',content:msgContent}]})
     });
     if(!resp.ok)throw new Error('API '+resp.status);
     const d=await resp.json();
@@ -808,7 +808,7 @@ async function submitEntry(){
   const lbl=document.getElementById('slbl');
   const st=document.getElementById('sst');
   btn.disabled=true;ico.innerHTML='<div class="spin"></div>';lbl.textContent='Processando...';
-  st.style.display='block';st.className='ss pr';st.textContent='🔄 Estruturando a entrada...';
+  st.style.display='block';st.className='ss pr';st.textContent='🔄 Estruturando entrada (IA Haiku — econômico)...';
   // processEntry NUNCA joga erro — sempre retorna fallback
   const p=await processEntry(setor,tipo,desc);
   const usedAI=(p._source==='ai');
@@ -841,7 +841,7 @@ async function processEntry(setor,tipo,desc){
       signal:controller.signal,
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
+        model:'claude-haiku-4-5-20251001',
         max_tokens:900,
         messages:[{role:'user',content:'Motor Canvas Vivo ATDG UNIOESTE Campus Foz do Iguaçu. Processe e retorne APENAS JSON valido sem markdown, sem texto extra: {"titulo":"titulo objetivo max 60 chars","resumo":"1-2 frases","procedimento":["passo 1","passo 2"],"atencoes":["atencao 1"],"normativa":"normativa ou Nao especificada","class":"PROCESSO|INCIDENTE|MELHORIA|NORMA|DECISAO|INFORMACAO"} Setor='+setor+'|Tipo='+(tipos[tipo]||tipo)+'|Desc='+desc}]
       })
