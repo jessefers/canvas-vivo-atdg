@@ -203,6 +203,15 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
 /* CANVAS HEADER GRADIENT STRIP */
 .canvas-stripe{height:3px;background:linear-gradient(90deg,var(--dou),var(--verde),var(--teal));margin-bottom:0}
 
+
+/* DOWNLOAD BAR */
+.dl-bar{background:linear-gradient(135deg,var(--nav) 0%,var(--teal) 100%);padding:8px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:2px solid var(--red)}
+.dl-bar-txt{color:rgba(255,255,255,.75);font-size:10px;letter-spacing:.02em}
+.dl-bar-btns{display:flex;gap:8px;flex-wrap:wrap}
+.dl-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:5px 12px;font-family:'Sora',sans-serif;font-size:10px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s}
+.dl-btn:hover{background:rgba(255,255,255,.22)}
+.dl-btn.primary{background:var(--red);border-color:var(--red)}
+.dl-btn.primary:hover{background:#a8102f}
 /* FILE ZONE */
 .fzone{border:2px dashed var(--vm);border-radius:10px;padding:18px;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg);position:relative;margin-bottom:12px}
 .fzone:hover,.fzone.drag{border-color:var(--verde);background:var(--vl)}
@@ -276,6 +285,19 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
   </div>
 </div>
 
+
+<!-- DOWNLOAD BAR -->
+<div class="dl-bar">
+  <span class="dl-bar-txt">📚 Documentos institucionais ATDG disponíveis para download</span>
+  <div class="dl-bar-btns">
+    <a class="dl-btn primary" href="https://raw.githubusercontent.com/jessefers/canvas-vivo-atdg/main/CANVAS_VIVO_ATDG_UNIOESTE_v1.0_2026.docx" download="CANVAS_VIVO_ATDG_UNIOESTE_v1.0_2026.docx">
+      ⬇️ Canvas Vivo — Manual Institucional (.docx)
+    </a>
+    <a class="dl-btn" href="https://raw.githubusercontent.com/jessefers/canvas-vivo-atdg/main/CANVAS_CODE_ATUALIZAR_CANVAS.md" download target="_blank">
+      📋 Prompt Claude Code (.md)
+    </a>
+  </div>
+</div>
 <div class="main">
   <div class="ubar">
     <label>👤 Colaborador:</label>
@@ -1116,22 +1138,13 @@ async function fetchServerData(){
     const d=await r.json();
     if(!d||!d.entries||!d.entries.length)return;
     const local=gEntries();
-    const byId=new Map(local.map(e=>[e.id,e]));
-    let novos=0,atualizados=0;
-    d.entries.forEach(e=>{
-      if(byId.has(e.id)){
-        if(JSON.stringify(byId.get(e.id))!==JSON.stringify(e)){byId.set(e.id,e);atualizados++;}
-      }else{byId.set(e.id,e);novos++;}
-    });
-    if(novos>0||atualizados>0){
-      const merged=[...byId.values()];
-      sEntries(merged);
-      entries=merged;
+    const ids=new Set(local.map(e=>e.id));
+    const novos=d.entries.filter(e=>!ids.has(e.id));
+    if(novos.length>0){
+      sEntries([...local,...novos]);
+      entries=[...local,...novos];
       upCounts(entries.length);
-      const partes=[];
-      if(novos>0)partes.push(novos+' nova'+(novos!==1?'s':''));
-      if(atualizados>0)partes.push(atualizados+' atualizada'+(atualizados!==1?'s':''));
-      toast('🔄 '+partes.join(' · ')+' do servidor!');
+      toast('🔄 '+novos.length+' entrada'+(novos.length!==1?'s':'')+' nova'+(novos.length!==1?'s':'')+' sincronizada'+(novos.length!==1?'s':'')+' do servidor!');
     }
   }catch(e){/* silencioso — sem data.json ainda ou offline */}
 }
