@@ -1108,8 +1108,27 @@ async function loadHist(){
 // ══ UTILS ══
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
 
+// ══ FETCH SERVIDOR (data.json GitHub — sincronização automática) ══
+async function fetchServerData(){
+  try{
+    const r=await fetch('https://jessefers.github.io/canvas-vivo-atdg/data.json?t='+Date.now());
+    if(!r.ok)return;
+    const d=await r.json();
+    if(!d||!d.entries||!d.entries.length)return;
+    const local=gEntries();
+    const ids=new Set(local.map(e=>e.id));
+    const novos=d.entries.filter(e=>!ids.has(e.id));
+    if(novos.length>0){
+      sEntries([...local,...novos]);
+      entries=[...local,...novos];
+      upCounts(entries.length);
+      toast('🔄 '+novos.length+' entrada'+(novos.length!==1?'s':'')+' nova'+(novos.length!==1?'s':'')+' sincronizada'+(novos.length!==1?'s':'')+' do servidor!');
+    }
+  }catch(e){/* silencioso — sem data.json ainda ou offline */}
+}
+
 // ══ INIT ══
-(async()=>{entries=gEntries();upCounts(entries.length);})();
+(async()=>{entries=gEntries();upCounts(entries.length);updateApiPill&&updateApiPill();fetchServerData();})();
 </script>
 </body>
 </html>
