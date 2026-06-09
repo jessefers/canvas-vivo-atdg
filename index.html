@@ -61,6 +61,23 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
 .ss{font-size:11px;padding:5px 11px;border-radius:5px;display:none}
 .ss.ok{background:var(--vl);color:var(--verde)}.ss.er{background:var(--rl);color:var(--red)}.ss.pr{background:var(--dl);color:#7a5c1e}
 
+
+/* CAMPOS ESTRUTURADOS DE PROCESSO */
+.form-section-title{font-size:11px;font-weight:700;color:var(--nav2);text-transform:uppercase;letter-spacing:.05em;margin:14px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--vm);display:flex;align-items:center;gap:6px}
+.form-section-title .opt-tag{background:var(--vm);color:var(--nav2);font-size:9px;padding:1px 6px;border-radius:3px;letter-spacing:.04em;margin-left:auto;font-weight:600}
+.proc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+.proc-block{background:var(--bg);border:1px solid var(--brd);border-radius:8px;padding:10px 12px}
+.proc-block-label{font-size:10px;font-weight:700;color:var(--nav2);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.proc-block-ico{font-size:14px}
+.proc-block textarea{width:100%;border:1px solid var(--brd);border-radius:5px;padding:6px 9px;font-family:'Sora',sans-serif;font-size:11px;color:var(--txt);background:var(--card);outline:none;resize:vertical;min-height:55px;line-height:1.45}
+.proc-block textarea:focus{border-color:var(--nav2)}
+.collapse-section{cursor:pointer;user-select:none}
+.collapse-section:hover{color:var(--red)}
+.collapse-content{transition:all .2s}
+.collapse-content.closed{display:none}
+.collapse-arrow{margin-left:6px;font-size:9px;transition:transform .2s}
+.collapse-arrow.closed{transform:rotate(-90deg)}
+@media(max-width:600px){.proc-grid{grid-template-columns:1fr}}
 /* CANVAS */
 .srow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
 .scard{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:13px 15px;box-shadow:0 1px 4px rgba(0,102,51,.04)}
@@ -422,6 +439,52 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
           <label class="fl">Descrição Detalhada</label>
           <textarea class="ft" id="inDesc" placeholder="Descreva o processo, incidente ou informação com o máximo de contexto. Quanto mais detalhe, melhor o processamento automático..."></textarea>
         </div>
+        <!-- CAMPO RESPONSÁVEL (opcional) -->
+        <div class="ff">
+          <label class="fl">👤 Responsável pelo Processo <span style="color:var(--mut);font-weight:400;text-transform:none;letter-spacing:0;">(opcional)</span></label>
+          <input class="fi" id="inResponsavel" placeholder="Ex: João Silva — Chefe da Divisão de Almoxarifado">
+        </div>
+
+        <!-- ESTRUTURA DETALHADA DO PROCESSO -->
+        <div class="form-section-title collapse-section" onclick="toggleProcSection(this)">
+          <span>🔍 Estrutura Detalhada do Processo</span>
+          <span class="opt-tag">OPCIONAL — só para tipo PROCESSO</span>
+          <span class="collapse-arrow closed">▼</span>
+        </div>
+        <div class="collapse-content closed" id="proc-detail">
+          <div style="font-size:10px;color:var(--mut);margin-bottom:10px;padding:8px 12px;background:var(--vl);border-radius:6px;border-left:3px solid var(--nav2);">
+            <strong>Padrão Anne Bail — BPMN 2.0:</strong> preencha entrada, processamento e saída para gerar fluxograma estruturado nos manuais.
+          </div>
+          <div class="proc-grid">
+            <div class="proc-block">
+              <div class="proc-block-label"><span class="proc-block-ico">⬇️</span>ENTRADA</div>
+              <textarea id="inEntrada" placeholder="Insumos, gatilhos, documentos recebidos, demanda inicial..."></textarea>
+            </div>
+            <div class="proc-block">
+              <div class="proc-block-label"><span class="proc-block-ico">⚙️</span>PROCESSAMENTO</div>
+              <textarea id="inProcessamento" placeholder="Etapas realizadas, decisões, conferências..."></textarea>
+            </div>
+            <div class="proc-block">
+              <div class="proc-block-label"><span class="proc-block-ico">⬆️</span>SAÍDA</div>
+              <textarea id="inSaida" placeholder="Entregáveis, resultados, documentos emitidos..."></textarea>
+            </div>
+          </div>
+          <div class="proc-grid">
+            <div class="proc-block">
+              <div class="proc-block-label"><span class="proc-block-ico">📊</span>KPI / INDICADOR</div>
+              <textarea id="inKPI" placeholder="Ex: prazo médio, número de itens processados, taxa de retrabalho..."></textarea>
+            </div>
+            <div class="proc-block">
+              <div class="proc-block-label"><span class="proc-block-ico">⚠️</span>CONTINGÊNCIA</div>
+              <textarea id="inContingencia" placeholder="O que fazer se algo falhar, plano B, escalação..."></textarea>
+            </div>
+            <div class="proc-block">
+              <div class="proc-block-label"><span class="proc-block-ico">📋</span>NORMATIVA</div>
+              <textarea id="inNormativa" placeholder="Lei, resolução, regulamento aplicável..."></textarea>
+            </div>
+          </div>
+        </div>
+
         <!-- PASTE HINT -->
         <div class="paste-hint">
           <div class="paste-hint-ico">📋</div>
@@ -646,6 +709,15 @@ function gCache(){try{return JSON.parse(localStorage.getItem(K_CACHE)||'{}');}ca
 function sCache(d){try{localStorage.setItem(K_CACHE,JSON.stringify(d));}catch{}}
 
 
+
+function toggleProcSection(el){
+  const content = document.getElementById('proc-detail');
+  const arrow = el.querySelector('.collapse-arrow');
+  const closed = content.classList.contains('closed');
+  content.classList.toggle('closed', !closed);
+  arrow.classList.toggle('closed', !closed);
+}
+
 // ══ ARQUIVO ══
 const ONEDRIVE_ROOT = 'C:\\Users\\javan.silva\\OneDrive - UNIOESTE\\Assessoria Técnica da Direção Geral Foz - Documentos';
 const PASTAS = {
@@ -839,6 +911,13 @@ async function submitEntry(){
   const setor=document.getElementById('inSetor').value;
   const tipo=document.getElementById('inTipo').value;
   const desc=document.getElementById('inDesc').value.trim();
+  const responsavel=document.getElementById('inResponsavel')?.value.trim()||'';
+  const entrada=document.getElementById('inEntrada')?.value.trim()||'';
+  const processamento=document.getElementById('inProcessamento')?.value.trim()||'';
+  const saida=document.getElementById('inSaida')?.value.trim()||'';
+  const kpi=document.getElementById('inKPI')?.value.trim()||'';
+  const contingencia=document.getElementById('inContingencia')?.value.trim()||'';
+  const normativaManual=document.getElementById('inNormativa')?.value.trim()||'';
   if(!user){toast('⚠️ Informe seu nome.');return;}
   if(!setor){toast('⚠️ Selecione o setor.');return;}
   if(!tipo){toast('⚠️ Selecione o tipo.');return;}
@@ -883,7 +962,7 @@ async function processEntry(setor,tipo,desc){
       body:JSON.stringify({
         model:'claude-sonnet-4-20250514',
         max_tokens:900,
-        messages:[{role:'user',content:'Motor Canvas Vivo ATDG UNIOESTE Campus Foz do Iguaçu. Processe e retorne APENAS JSON valido sem markdown, sem texto extra: {"titulo":"titulo objetivo max 60 chars","resumo":"1-2 frases","procedimento":["passo 1","passo 2"],"atencoes":["atencao 1"],"normativa":"normativa ou Nao especificada","class":"PROCESSO|INCIDENTE|MELHORIA|NORMA|DECISAO|INFORMACAO"} Setor='+setor+'|Tipo='+(tipos[tipo]||tipo)+'|Desc='+desc}]
+        messages:[{role:'user',content:'Motor Canvas Vivo ATDG UNIOESTE Campus Foz do Iguacu. Padrao BPMN 2.0 Anne Bail. Processe e retorne APENAS JSON valido sem markdown: {"titulo":"max 60 chars","resumo":"1-2 frases","responsavel":"se mencionado ou A definir","entrada":"insumos/gatilhos","processamento":"etapas resumidas","saida":"entregaveis","procedimento":["passo 1","passo 2"],"atencoes":["atencao 1"],"kpi":"indicador se mencionado","contingencia":"plano B se mencionado","normativa":"normativa ou Nao especificada","class":"PROCESSO|INCIDENTE|MELHORIA|NORMA|DECISAO|INFORMACAO"} Setor='+setor+'|Tipo='+(tipos[tipo]||tipo)+'|Desc='+desc}]
       })
     });
     clearTimeout(timer);
@@ -914,9 +993,20 @@ function tagH(tipo){
 // ══ ENTRY HTML ══
 function entH(e){
   const p=e.p||{};
+  const est=e.estrutura||{};
   const d=new Date(e.ts).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
   const steps=(p.procedimento||[]).map(s=>`<li>${s}</li>`).join('');
   const atts=(p.atencoes||[]).map(a=>`<li>⚠️ ${a}</li>`).join('');
+  const hasEstrutura = est.entrada||est.processamento||est.saida||est.kpi||est.contingencia;
+  const estruturaHtml = hasEstrutura ? `
+    <div style="margin-top:8px;padding:8px;background:var(--vl);border-radius:6px;font-size:10px;">
+      ${est.entrada?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⬇️ Entrada:</strong> ${est.entrada}</div>`:''}
+      ${est.processamento?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⚙️ Processamento:</strong> ${est.processamento}</div>`:''}
+      ${est.saida?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⬆️ Saída:</strong> ${est.saida}</div>`:''}
+      ${est.kpi?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">📊 KPI:</strong> ${est.kpi}</div>`:''}
+      ${est.contingencia?`<div style="margin-bottom:4px;"><strong style="color:var(--red)">⚠️ Contingência:</strong> ${est.contingencia}</div>`:''}
+    </div>` : '';
+  const respHtml = e.responsavel && e.responsavel!=='A definir' ? `<span class="tag" style="background:var(--tl);color:var(--teal);">👤 ${e.responsavel}</span>` : '';
   return`<div class="ei">
     <div class="em">${tagH(e.tipo)}${p.class?`<span class="tag t-ou">${p.class}</span>`:''}<span class="eau">${e.user}</span><span class="edt">${d}</span></div>
     <div class="ec"><strong>${p.titulo||'Entrada'}</strong><br>${p.resumo||e.desc.substring(0,140)}
