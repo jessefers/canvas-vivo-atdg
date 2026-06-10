@@ -63,6 +63,43 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
 
 
 
+
+/* ABA MANUAIS */
+.manuais-hero{background:linear-gradient(135deg,var(--nav) 0%,var(--teal) 100%);border-radius:14px;padding:24px 26px;margin-bottom:20px;color:#fff;position:relative;overflow:hidden}
+.manuais-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(204,21,68,0.25) 0%,transparent 70%);pointer-events:none}
+.manuais-hero h2{font-size:18px;font-weight:700;margin-bottom:6px;position:relative}
+.manuais-hero p{font-size:12px;opacity:0.85;line-height:1.6;position:relative;max-width:560px}
+.manuais-hero-actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;position:relative}
+.master-btn{background:var(--red);color:#fff;border:none;cursor:pointer;padding:11px 22px;border-radius:8px;font-family:'Sora',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;transition:all 0.2s;box-shadow:0 3px 12px rgba(204,21,68,0.4)}
+.master-btn:hover{background:#a8102f;transform:translateY(-1px);box-shadow:0 4px 16px rgba(204,21,68,0.5)}
+.master-btn:disabled{background:#888;cursor:not-allowed;transform:none;box-shadow:none}
+.manuais-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.man-stat{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:12px 14px;text-align:left}
+.man-stat-v{font-size:22px;font-weight:700;color:var(--nav2);font-family:'IBM Plex Mono',monospace;line-height:1.1}
+.man-stat-l{font-size:10px;color:var(--mut);margin-top:3px;letter-spacing:0.02em}
+.man-stat.highlight{background:linear-gradient(135deg,var(--vl) 0%,var(--tl) 100%);border-color:var(--vm)}
+.man-stat.highlight .man-stat-v{color:var(--red)}
+.man-section-title{font-size:13px;font-weight:700;color:var(--nav2);margin:20px 0 10px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:2px solid var(--vm)}
+.man-section-title .badge-count{background:var(--nav2);color:#fff;font-size:10px;padding:2px 9px;border-radius:20px;font-family:'IBM Plex Mono',monospace}
+.man-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:20px}
+.man-card{background:var(--card);border:1px solid var(--brd);border-radius:11px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;transition:all 0.2s;cursor:default;position:relative;overflow:hidden}
+.man-card:hover{border-color:var(--nav2);box-shadow:0 4px 12px rgba(27,39,71,0.08);transform:translateY(-1px)}
+.man-card-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.man-card-title{font-size:13px;font-weight:600;color:var(--nav2);line-height:1.3}
+.man-card-pill{font-size:9px;padding:2px 7px;border-radius:10px;font-weight:600;letter-spacing:0.03em;font-family:'IBM Plex Mono',monospace;white-space:nowrap}
+.man-pill-ready{background:var(--okl);color:var(--ok)}
+.man-pill-empty{background:#f3f4f6;color:#6b7280}
+.man-pill-wip{background:var(--rl);color:var(--red)}
+.man-card-meta{font-size:11px;color:var(--mut);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.man-card-meta span{display:flex;align-items:center;gap:4px}
+.man-card-actions{display:flex;gap:6px;margin-top:6px}
+.man-action-btn{flex:1;background:var(--vl);border:1px solid var(--vm);color:var(--nav2);padding:7px 10px;border-radius:6px;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;justify-content:center;gap:5px}
+.man-action-btn:hover{background:var(--vm)}
+.man-action-btn.primary{background:var(--nav2);color:#fff;border-color:var(--nav2)}
+.man-action-btn.primary:hover{background:var(--nav)}
+.man-action-btn:disabled{background:#f3f4f6;color:#aaa;border-color:#e5e7eb;cursor:not-allowed}
+.man-empty{text-align:center;padding:30px 20px;color:var(--mut);font-size:12px;background:var(--bg);border-radius:10px;border:1px dashed var(--brd)}
+@media(max-width:700px){.manuais-summary{grid-template-columns:1fr 1fr}.man-grid{grid-template-columns:1fr}}
 /* GERAR MANUAL */
 .gen-manual-btn{background:linear-gradient(135deg,var(--red) 0%,#a8102f 100%);color:#fff;border:none;cursor:pointer;padding:7px 14px;border-radius:6px;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:all .2s;box-shadow:0 1px 4px rgba(204,21,68,.2)}
 .gen-manual-btn:hover{box-shadow:0 2px 8px rgba(204,21,68,.4);transform:translateY(-1px)}
@@ -324,6 +361,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
     <button class="tb on" onclick="sw('entrada',this)">✏️ Nova Entrada <span class="tc" id="tc-e">+</span></button>
     <button class="tb" onclick="sw('canvas',this)">📋 Canvas Vivo <span class="tc" id="tc-c">0</span></button>
     <button class="tb" onclick="sw('buscar',this)">🔍 Buscar <span class="tc" id="tc-b">0</span></button>
+    <button class="tb" onclick="sw('manuais',this)">📚 Manuais <span class="tc" id="tc-m">0</span></button>
     <button class="tb" onclick="sw('hist',this)">🗂️ Histórico <span class="tc" id="tc-h">0</span></button>
     <button class="tb" onclick="sw('config',this)">⚙️ Config</button>
   </div>
@@ -626,6 +664,49 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
           <button class="idx-add" onclick="addToIndex()">+ Registrar</button>
         </div>
         <div id="idxList" class="idx-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MANUAIS ══ -->
+  <div id="panel-manuais" class="panel">
+    <div class="manuais-hero">
+      <h2>📚 Central de Manuais e Playbooks</h2>
+      <p>Gere manuais institucionais por setor ou consolide tudo num Manual Master ATDG — a perspectiva da Assessoria Técnica sobre toda a operação do Campus Foz. Padrão BPMN 2.0 Anne Bail · IA Sonnet 4.</p>
+      <div class="manuais-hero-actions">
+        <button class="master-btn" id="masterBtn" onclick="gerarManualMaster()">
+          🏛️ Gerar Manual Master ATDG Consolidado
+        </button>
+      </div>
+    </div>
+
+    <div class="manuais-summary" id="manuaisSummary"></div>
+
+    <div class="man-section-title">
+      <span>📂 Manuais por Setor</span>
+      <span class="badge-count" id="setoresComEntradas">0</span>
+    </div>
+    <div id="manuaisGrid"></div>
+
+    <div class="man-section-title">
+      <span>📥 Downloads Diretos</span>
+    </div>
+    <div class="man-grid">
+      <div class="man-card">
+        <div class="man-card-header">
+          <div class="man-card-title">📘 Canvas Vivo Institucional</div>
+          <div class="man-card-pill man-pill-ready">DISPONÍVEL</div>
+        </div>
+        <div class="man-card-meta">
+          <span>📄 .docx</span>
+          <span>🏛️ Documento institucional</span>
+        </div>
+        <div style="font-size:11px;color:var(--mut);line-height:1.5">Manual oficial do Canvas Vivo ATDG — estrutura completa, organograma e templates por setor.</div>
+        <div class="man-card-actions">
+          <a class="man-action-btn primary" href="https://raw.githubusercontent.com/jessefers/canvas-vivo-atdg/main/CANVAS_VIVO_ATDG_UNIOESTE_v1.0_2026.docx" download="CANVAS_VIVO_ATDG_UNIOESTE_v1.0_2026.docx">
+            ⬇️ Baixar Word
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -1237,6 +1318,431 @@ function renderSearch(q,cvRes,idxRes,webData){
 }
 
 
+
+
+
+// ══ ABA MANUAIS ══
+function loadManuais(){
+  entries = gEntries();
+  const totalEntradas = entries.length;
+  const colaboradores = [...new Set(entries.map(e=>e.user))];
+  const setoresAtivos = [...new Set(entries.map(e=>e.setor))];
+  
+  // Agrupar entradas por setor (incluindo subdivisões)
+  const setoresMap = {};
+  SECTORS.forEach(s=>{
+    const sEntries = entries.filter(e => e.setor===s.id || (s.subs && s.subs.includes(e.setor)));
+    if(sEntries.length > 0 || s.base){
+      setoresMap[s.id] = {
+        info: s,
+        entries: sEntries,
+        colabs: [...new Set(sEntries.map(e=>e.user))]
+      };
+    }
+  });
+  
+  // Também adicionar setores sem entradas mas que existem no organograma (priorizando os principais)
+  SECTORS.filter(s=>!setoresMap[s.id] && (s.st==='ok'||s.st==='wip')).forEach(s=>{
+    setoresMap[s.id] = { info: s, entries: [], colabs: [] };
+  });
+  
+  const totalSetoresComManuais = Object.keys(setoresMap).filter(k=>setoresMap[k].entries.length>0).length;
+  
+  // Atualizar contador da aba
+  document.getElementById('tc-m').textContent = totalSetoresComManuais;
+  document.getElementById('setoresComEntradas').textContent = totalSetoresComManuais;
+  
+  // Cards de resumo
+  const summary = document.getElementById('manuaisSummary');
+  summary.innerHTML = `
+    <div class="man-stat highlight">
+      <div class="man-stat-v">${totalSetoresComManuais}</div>
+      <div class="man-stat-l">Setores prontos para gerar manual</div>
+    </div>
+    <div class="man-stat">
+      <div class="man-stat-v">${totalEntradas}</div>
+      <div class="man-stat-l">Entradas totais coletadas</div>
+    </div>
+    <div class="man-stat">
+      <div class="man-stat-v">${colaboradores.length}</div>
+      <div class="man-stat-l">Colaboradores ativos</div>
+    </div>
+    <div class="man-stat">
+      <div class="man-stat-v">${setoresAtivos.length}</div>
+      <div class="man-stat-l">Setores documentados</div>
+    </div>`;
+  
+  // Grid de setores
+  const grid = document.getElementById('manuaisGrid');
+  const sectorKeys = Object.keys(setoresMap);
+  
+  if(sectorKeys.length === 0){
+    grid.innerHTML = `<div class="man-empty">
+      <div style="font-size:32px;margin-bottom:8px">📭</div>
+      <div style="font-weight:600;font-size:13px;color:var(--nav2);margin-bottom:4px">Nenhum setor com entradas ainda</div>
+      <div>Comece registrando entradas na aba "✏️ Nova Entrada" para gerar manuais por setor.</div>
+    </div>`;
+    return;
+  }
+  
+  // Ordenar: primeiro os com entradas, depois sem
+  sectorKeys.sort((a,b)=>{
+    const ea = setoresMap[a].entries.length;
+    const eb = setoresMap[b].entries.length;
+    if(ea !== eb) return eb - ea;
+    return a.localeCompare(b);
+  });
+  
+  grid.className = 'man-grid';
+  grid.innerHTML = sectorKeys.map(setor => {
+    const data = setoresMap[setor];
+    const count = data.entries.length;
+    const hasEntries = count > 0;
+    const isBase = data.info.base;
+    
+    let pillClass = 'man-pill-empty';
+    let pillText = 'SEM ENTRADAS';
+    if(isBase){
+      pillClass = 'man-pill-ready';
+      pillText = 'BASE PRONTA';
+    } else if(count >= 3){
+      pillClass = 'man-pill-ready';
+      pillText = `${count} ENTRADAS`;
+    } else if(count > 0){
+      pillClass = 'man-pill-wip';
+      pillText = `${count} ENTRADA${count!==1?'S':''}`;
+    }
+    
+    const subsText = data.info.subs && data.info.subs.length 
+      ? `<span title="${data.info.subs.join(' · ')}">🔗 ${data.info.subs.length} subdivisões</span>` 
+      : '';
+    
+    const colabsText = data.colabs.length 
+      ? `<span>👥 ${data.colabs.length} colab.</span>` 
+      : '';
+    
+    return `<div class="man-card">
+      <div class="man-card-header">
+        <div class="man-card-title">${setor}</div>
+        <div class="man-card-pill ${pillClass}">${pillText}</div>
+      </div>
+      <div class="man-card-meta">
+        <span>📊 ${count} entr.</span>
+        ${colabsText}
+        ${subsText}
+      </div>
+      <div class="man-card-actions">
+        <button class="man-action-btn primary" ${!hasEntries?'disabled':''} onclick="gerarManualSetor('${setor.replace(/'/g,"\\'")}')">
+          📘 Gerar Manual
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ══ MANUAL MASTER ATDG CONSOLIDADO ══
+async function gerarManualMaster(){
+  const apiKey = getKey();
+  if(!apiKey){
+    toast('⚠️ Configure a chave IA em ⚙️ Config para gerar o Manual Master.');
+    return;
+  }
+  
+  const allEntries = gEntries();
+  if(allEntries.length === 0){
+    toast('⚠️ Nenhuma entrada registrada ainda. Registre entradas antes de gerar o Manual Master.');
+    return;
+  }
+  
+  if(allEntries.length < 3){
+    if(!confirm(`Apenas ${allEntries.length} entrada(s) registrada(s). O Manual Master fica mais robusto com mais dados. Gerar mesmo assim?`)) return;
+  }
+  
+  // Agrupar por setor
+  const setoresMap = {};
+  allEntries.forEach(e=>{
+    if(!setoresMap[e.setor]) setoresMap[e.setor] = [];
+    setoresMap[e.setor].push(e);
+  });
+  
+  const setoresComEntradas = Object.keys(setoresMap).length;
+  showManualProgress('Manual Master ATDG Consolidado', allEntries.length);
+  document.getElementById('manual-progress-subtitle').textContent = 
+    `${setoresComEntradas} setor${setoresComEntradas!==1?'es':''} · ${allEntries.length} entrada${allEntries.length!==1?'s':''} sendo consolidada${allEntries.length!==1?'s':''}`;
+  
+  try {
+    updateManualProgress('🤖 Sonnet 4 consolidando dados de todos os setores...');
+    
+    // Preparar resumo de cada setor (não enviar TUDO se for muito)
+    const dadosConsolidados = {
+      total_entradas: allEntries.length,
+      total_setores: setoresComEntradas,
+      colaboradores: [...new Set(allEntries.map(e=>e.user))],
+      setores: Object.keys(setoresMap).map(setor => ({
+        nome: setor,
+        total_entradas: setoresMap[setor].length,
+        tipos: [...new Set(setoresMap[setor].map(e=>e.tipo))],
+        responsaveis: [...new Set(setoresMap[setor].map(e=>e.responsavel).filter(r=>r&&r!=='A definir'))],
+        entradas_resumo: setoresMap[setor].slice(0,10).map(e=>({
+          titulo: e.p?.titulo || '',
+          tipo: e.tipo,
+          resumo: e.p?.resumo || e.desc.substring(0,150),
+          entrada: e.estrutura?.entrada || '',
+          processamento: e.estrutura?.processamento || '',
+          saida: e.estrutura?.saida || '',
+          normativa: e.p?.normativa || ''
+        }))
+      }))
+    };
+    
+    const prompt = `Voce e o especialista em documentacao institucional da ATDG da UNIOESTE Campus Foz do Iguacu. 
+
+Sua tarefa: gerar um MANUAL MASTER CONSOLIDADO de toda a operacao do Campus Foz, na perspectiva da Assessoria Tecnica da Direcao Geral (ATDG). 
+
+Este e o documento de mais alto nivel: uma visao integrada de como todos os setores do campus funcionam, com base nos dados coletados.
+
+DADOS CONSOLIDADOS:
+${JSON.stringify(dadosConsolidados, null, 2)}
+
+Retorne APENAS um JSON valido com esta estrutura:
+{
+  "titulo": "Manual Master ATDG — UNIOESTE Campus Foz",
+  "data_geracao": "data atual ISO",
+  "introducao_atdg": "introducao institucional da ATDG sobre o campus",
+  "visao_geral": "visao consolidada da operacao do campus em 1 paragrafo",
+  "setores_documentados": [
+    {
+      "nome": "nome do setor",
+      "total_entradas": numero,
+      "missao_consolidada": "missao do setor",
+      "processos_principais": ["lista resumida"],
+      "responsaveis_identificados": ["lista"],
+      "observacoes_atdg": "observacoes da assessoria sobre o setor"
+    }
+  ],
+  "matriz_processos_criticos": [
+    {
+      "processo": "nome",
+      "setor": "setor",
+      "criticidade": "ALTA|MEDIA|BAIXA",
+      "impacto_institucional": "descricao"
+    }
+  ],
+  "fluxos_inter_setoriais": [
+    {
+      "nome": "nome do fluxo",
+      "setores_envolvidos": ["setor 1", "setor 2"],
+      "descricao": "como o fluxo atravessa o campus"
+    }
+  ],
+  "lacunas_identificadas": ["o que falta documentar"],
+  "recomendacoes_atdg": ["recomendacoes para a Direcao Geral"],
+  "indicadores_gerais": [
+    {"indicador": "nome", "valor": "valor", "fonte": "setor de origem"}
+  ],
+  "consideracoes_finais_atdg": "consideracoes finais da assessoria"
+}
+
+Seja institucional, formal, tecnico. Use linguagem da Administracao Publica. Mantenha a perspectiva de quem assessora a Direcao Geral.`;
+
+    const controller = new AbortController();
+    setTimeout(()=>controller.abort(), 90000); // 90s timeout para Master
+    
+    const r = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      signal:controller.signal,
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':apiKey,
+        'anthropic-version':'2023-06-01'
+      },
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens: 6000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    
+    if(!r.ok){
+      const errText = await r.text();
+      throw new Error('API '+r.status+': '+errText.substring(0,200));
+    }
+    
+    const d = await r.json();
+    if(d.error) throw new Error(d.error.message);
+    
+    const txt = d.content?.find(b=>b.type==='text')?.text || '';
+    const cleaned = txt.replace(/```json|```/g,'').trim();
+    const start = cleaned.indexOf('{');
+    const end = cleaned.lastIndexOf('}');
+    if(start<0 || end<0) throw new Error('Resposta sem JSON valido');
+    
+    const master = JSON.parse(cleaned.substring(start, end+1));
+    master._raw = dadosConsolidados;
+    
+    updateManualProgress('📄 Gerando documento institucional Word...');
+    
+    await downloadMasterWord(master);
+    
+    hideManualProgress();
+    toast('✅ Manual Master ATDG gerado e baixado!');
+    
+  } catch(err) {
+    console.error('Erro Master:', err);
+    hideManualProgress();
+    toast('❌ Erro: '+(err.message||'desconhecido'));
+  }
+}
+
+// ══ DOWNLOAD WORD MANUAL MASTER ══
+async function downloadMasterWord(master){
+  const safeStr = (s) => (s||'').toString().replace(/[<>&]/g, m => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]));
+  
+  const html = `<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+<head>
+<meta charset="UTF-8">
+<title>${safeStr(master.titulo)}</title>
+<style>
+@page { size: A4; margin: 2.5cm 2cm; }
+body { font-family: 'Arial', sans-serif; font-size: 11pt; line-height: 1.6; color: #1B2747; }
+.capa { text-align: center; padding: 80px 30px; background: linear-gradient(135deg, #0D1B33, #0B4D66); color: white; margin: -2.5cm -2cm 30px; page-break-after: always; }
+.capa-badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px; font-size: 11pt; margin: 4px; border: 1px solid rgba(255,255,255,0.3); }
+.capa h1 { font-size: 38pt; color: #fff; margin: 40px 0 10px; font-weight: bold; letter-spacing: -0.02em; }
+.capa h2 { font-size: 16pt; color: #CC1544; margin-bottom: 30px; font-weight: 600; background: #fff; display: inline-block; padding: 8px 24px; border-radius: 6px; }
+.capa-data { font-size: 11pt; opacity: 0.85; margin-top: 50px }
+h2 { color: #1B2747; border-bottom: 3px solid #CC1544; padding-bottom: 8px; margin: 35px 0 18px; font-size: 18pt }
+h3 { color: #0B4D66; margin-top: 24px; font-size: 14pt; padding-left: 10px; border-left: 4px solid #CC1544 }
+h4 { color: #CC1544; margin-top: 18px; font-size: 12pt }
+.intro-block { background: #EEF0F7; border-left: 5px solid #CC1544; padding: 18px 22px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 11.5pt; line-height: 1.7 }
+.setor-card { background: #fff; border: 1px solid #D0D4E8; border-radius: 8px; padding: 16px 20px; margin: 14px 0; page-break-inside: avoid }
+.setor-card-header { display: table; width: 100%; margin-bottom: 12px; border-bottom: 2px solid #EEF0F7; padding-bottom: 8px }
+.setor-card-title { font-size: 13pt; font-weight: bold; color: #1B2747; display: table-cell }
+.setor-card-count { background: #1B2747; color: white; padding: 3px 10px; border-radius: 12px; font-size: 9pt; font-weight: 600; display: table-cell; text-align: right; vertical-align: middle }
+.setor-info-row { margin: 6px 0; font-size: 10.5pt }
+.setor-info-row strong { color: #1B2747 }
+.obs-atdg { background: #E0F2F8; border-left: 3px solid #0B4D66; padding: 10px 14px; margin: 10px 0 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; font-style: italic }
+table { width: 100%; border-collapse: collapse; margin: 14px 0 }
+th { background: #1B2747; color: #fff; padding: 10px 12px; text-align: left; font-size: 10pt; font-weight: 600 }
+td { border: 1px solid #D0D4E8; padding: 9px 12px; font-size: 10pt; vertical-align: top }
+tr:nth-child(even) td { background: #F4F5FA }
+.criticidade-ALTA { background: #FDEAEE !important; color: #CC1544; font-weight: 600 }
+.criticidade-MEDIA { background: #FFF4ED !important; color: #C9783A; font-weight: 600 }
+.criticidade-BAIXA { background: #E6F7F0 !important; color: #0B7A4E }
+ul, ol { margin: 8px 0 12px 28px }
+li { margin-bottom: 6px; font-size: 11pt }
+.lacuna-item { background: #FDEAEE; border-left: 3px solid #CC1544; padding: 8px 14px; margin: 6px 0; border-radius: 0 6px 6px 0 }
+.rec-item { background: #E0F2F8; border-left: 3px solid #0B4D66; padding: 8px 14px; margin: 6px 0; border-radius: 0 6px 6px 0 }
+.fluxo-block { background: #F4F5FA; border: 1px solid #D0D4E8; padding: 12px 16px; margin: 10px 0; border-radius: 6px }
+.fluxo-setores { display: inline-block; background: #1B2747; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 9pt; margin: 0 3px }
+.indicador-row { display: table; width: 100%; padding: 8px 0; border-bottom: 1px dashed #D0D4E8 }
+.indicador-name { display: table-cell; font-weight: 600 }
+.indicador-val { display: table-cell; text-align: right; color: #CC1544; font-weight: 700 }
+.consideracoes-final { background: linear-gradient(135deg, #1B2747, #0B4D66); color: #fff; padding: 24px 28px; margin: 30px 0; border-radius: 10px; font-size: 11.5pt; line-height: 1.8 }
+.consideracoes-final::before { content: "🏛️"; font-size: 24pt; display: block; margin-bottom: 10px }
+.footer { margin-top: 50px; padding-top: 18px; border-top: 3px solid #CC1544; font-size: 9pt; color: #5A6380; text-align: center }
+</style>
+</head>
+<body>
+
+<div class="capa">
+  <div class="capa-badge">UNIOESTE — CAMPUS FOZ DO IGUAÇU</div>
+  <div class="capa-badge" style="background:#CC1544;border-color:#CC1544">ATDG · DOCUMENTO INSTITUCIONAL</div>
+  <h1>MANUAL MASTER</h1>
+  <h2>${safeStr(master.titulo)}</h2>
+  <p style="font-size:11pt;opacity:0.85;margin-top:30px">Visão consolidada da operação do campus<br>Sob a perspectiva da Assessoria Técnica da Direção Geral</p>
+  <p class="capa-data">${new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})}</p>
+  <p style="font-size:9pt;opacity:0.7;margin-top:30px">Padrão BPMN 2.0 Anne Bail · IA Sonnet 4 · Canvas Vivo v4</p>
+</div>
+
+<h2>1. Introdução Institucional</h2>
+<div class="intro-block">${safeStr(master.introducao_atdg)}</div>
+
+<h2>2. Visão Geral da Operação</h2>
+<p style="font-size:11.5pt;line-height:1.7">${safeStr(master.visao_geral)}</p>
+
+<table style="margin-top:18px">
+  <tr class="info-row"><th style="width:40%">Indicador</th><th>Valor</th></tr>
+  <tr><td>Total de entradas consolidadas</td><td><strong>${master._raw?.total_entradas || 0}</strong></td></tr>
+  <tr><td>Setores documentados</td><td><strong>${master._raw?.total_setores || 0}</strong></td></tr>
+  <tr><td>Colaboradores contribuintes</td><td>${(master._raw?.colaboradores||[]).map(safeStr).join(', ')}</td></tr>
+  <tr><td>Data de consolidação</td><td>${new Date().toLocaleDateString('pt-BR')}</td></tr>
+</table>
+
+<h2>3. Setores Documentados</h2>
+${(master.setores_documentados||[]).map(s=>`
+<div class="setor-card">
+  <div class="setor-card-header">
+    <div class="setor-card-title">${safeStr(s.nome)}</div>
+    <div class="setor-card-count">${s.total_entradas || 0} entradas</div>
+  </div>
+  <div class="setor-info-row"><strong>Missão consolidada:</strong> ${safeStr(s.missao_consolidada)}</div>
+  ${s.processos_principais?.length ? `<div class="setor-info-row"><strong>Processos principais:</strong> ${s.processos_principais.map(safeStr).join(' · ')}</div>` : ''}
+  ${s.responsaveis_identificados?.length ? `<div class="setor-info-row"><strong>Responsáveis:</strong> ${s.responsaveis_identificados.map(safeStr).join(', ')}</div>` : ''}
+  ${s.observacoes_atdg ? `<div class="obs-atdg"><strong>Observação ATDG:</strong> ${safeStr(s.observacoes_atdg)}</div>` : ''}
+</div>`).join('')}
+
+${master.matriz_processos_criticos?.length ? `
+<h2>4. Matriz de Processos Críticos</h2>
+<table>
+  <tr><th>Processo</th><th>Setor</th><th style="width:15%">Criticidade</th><th>Impacto Institucional</th></tr>
+  ${master.matriz_processos_criticos.map(p=>`
+    <tr>
+      <td>${safeStr(p.processo)}</td>
+      <td>${safeStr(p.setor)}</td>
+      <td class="criticidade-${safeStr(p.criticidade)}">${safeStr(p.criticidade)}</td>
+      <td>${safeStr(p.impacto_institucional)}</td>
+    </tr>`).join('')}
+</table>` : ''}
+
+${master.fluxos_inter_setoriais?.length ? `
+<h2>5. Fluxos Inter-Setoriais</h2>
+${master.fluxos_inter_setoriais.map(f=>`
+<div class="fluxo-block">
+  <h4 style="margin-top:0">${safeStr(f.nome)}</h4>
+  <p style="margin:8px 0">${(f.setores_envolvidos||[]).map(s=>`<span class="fluxo-setores">${safeStr(s)}</span>`).join(' → ')}</p>
+  <p style="font-size:11pt;line-height:1.6">${safeStr(f.descricao)}</p>
+</div>`).join('')}` : ''}
+
+${master.lacunas_identificadas?.length ? `
+<h2>6. Lacunas Identificadas</h2>
+${master.lacunas_identificadas.map(l=>`<div class="lacuna-item">⚠️ ${safeStr(l)}</div>`).join('')}` : ''}
+
+${master.recomendacoes_atdg?.length ? `
+<h2>7. Recomendações da ATDG à Direção Geral</h2>
+${master.recomendacoes_atdg.map((r,i)=>`<div class="rec-item"><strong>${i+1}.</strong> ${safeStr(r)}</div>`).join('')}` : ''}
+
+${master.indicadores_gerais?.length ? `
+<h2>8. Indicadores Gerais</h2>
+${master.indicadores_gerais.map(i=>`
+<div class="indicador-row">
+  <div class="indicador-name">${safeStr(i.indicador)} <span style="color:#5A6380;font-size:9pt">(${safeStr(i.fonte)})</span></div>
+  <div class="indicador-val">${safeStr(i.valor)}</div>
+</div>`).join('')}` : ''}
+
+<h2>9. Considerações Finais</h2>
+<div class="consideracoes-final">${safeStr(master.consideracoes_finais_atdg)}</div>
+
+<div class="footer">
+  <strong>Manual Master ATDG — Documento Institucional</strong><br>
+  Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Sala B1<br>
+  Documento gerado em ${new Date().toLocaleString('pt-BR')}<br>
+  Padrão BPMN 2.0 Anne Bail · Modelo IA Sonnet 4 · Canvas Vivo v4
+</div>
+
+</body>
+</html>`;
+
+  const blob = new Blob(['\ufeff'+html], {type:'application/msword;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const dataStr = new Date().toISOString().substring(0,10);
+  a.href = url;
+  a.download = `Manual_Master_ATDG_${dataStr}.doc`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
 
 // ══ GERAR MANUAL DE SETOR ══
 async function gerarManualSetor(setorId){
