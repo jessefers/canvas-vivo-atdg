@@ -64,6 +64,56 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
 
 
 
+
+/* BPMN MIRO EXPORT */
+.bpmn-btn{background:linear-gradient(135deg,var(--teal) 0%,var(--nav2) 100%);color:#fff;border:none;cursor:pointer;padding:7px 14px;border-radius:6px;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:all .2s;box-shadow:0 1px 4px rgba(11,77,102,.2)}
+.bpmn-btn:hover{box-shadow:0 2px 8px rgba(11,77,102,.4);transform:translateY(-1px)}
+.bpmn-btn:disabled{background:#aaa;cursor:not-allowed;box-shadow:none;transform:none}
+.bpmn-modal{position:fixed;inset:0;background:rgba(13,27,51,0.92);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
+.bpmn-modal.on{display:flex}
+.bpmn-modal-inner{background:#fff;border-radius:14px;max-width:760px;width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.bpmn-modal-header{background:linear-gradient(135deg,var(--nav) 0%,var(--teal) 100%);color:#fff;padding:18px 24px;border-bottom:3px solid var(--red)}
+.bpmn-modal-header h2{font-size:16px;font-weight:700;margin-bottom:4px}
+.bpmn-modal-header p{font-size:11px;opacity:.85}
+.bpmn-modal-body{padding:20px 24px;overflow-y:auto;flex:1}
+.bpmn-modal-footer{background:var(--bg);border-top:1px solid var(--brd);padding:14px 24px;display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.bpmn-close{background:none;border:1px solid rgba(255,255,255,0.4);color:#fff;padding:5px 14px;border-radius:6px;cursor:pointer;font-size:11px;font-family:'Sora',sans-serif;font-weight:600}
+.bpmn-close:hover{background:rgba(255,255,255,0.15)}
+.bpmn-section{margin-bottom:20px}
+.bpmn-section h3{font-size:12px;font-weight:700;color:var(--nav2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;padding-bottom:5px;border-bottom:2px solid var(--vm)}
+.bpmn-spec{background:var(--bg);border:1px solid var(--brd);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+.bpmn-spec-name{font-size:13px;font-weight:600;color:var(--nav2);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.bpmn-spec-desc{font-size:11px;color:var(--mut);margin-bottom:10px;line-height:1.5}
+.bpmn-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px;background:#fff;border:1px dashed var(--vm);border-radius:6px;min-height:60px}
+.bpmn-node{padding:6px 12px;border-radius:6px;font-size:10px;font-weight:600;font-family:'Sora',sans-serif;display:inline-flex;align-items:center;gap:4px;min-width:80px;justify-content:center;text-align:center;white-space:nowrap}
+.bpmn-node.inicio{background:#f3f4f6;color:#374151;border:2px solid #6b7280;border-radius:50%;width:50px;height:50px;padding:0;min-width:auto}
+.bpmn-node.atividade{background:#E6F7F0;color:#0B7A4E;border:2px solid #0B7A4E}
+.bpmn-node.decisao{background:#FFF4ED;color:#C9783A;border:2px solid #C9783A;transform:rotate(45deg);padding:4px 8px}
+.bpmn-node.decisao span{display:inline-block;transform:rotate(-45deg);font-size:9px}
+.bpmn-node.fim{background:#FDEAEE;color:#CC1544;border:4px solid #CC1544;border-radius:50%;width:50px;height:50px;padding:0;min-width:auto;font-size:9px}
+.bpmn-node.pausa{background:#fff;color:#CC1544;border:2px solid #CC1544;border-radius:50%;width:42px;height:42px;padding:0;min-width:auto;font-size:18px}
+.bpmn-node.captura{background:#fff;color:#0B4D66;border:2px solid #0B4D66;border-radius:50%;width:42px;height:42px;padding:0;min-width:auto;font-size:18px}
+.bpmn-arrow{color:#5A6380;font-size:18px;font-weight:bold;flex-shrink:0}
+.bpmn-export-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.bpmn-export-btn{background:#fff;border:2px solid var(--brd);border-radius:10px;padding:12px 14px;text-align:left;cursor:pointer;transition:all .2s;font-family:'Sora',sans-serif}
+.bpmn-export-btn:hover{border-color:var(--nav2);background:var(--vl)}
+.bpmn-export-btn.primary{border-color:var(--red);background:linear-gradient(135deg,var(--red) 0%,#a8102f 100%);color:#fff}
+.bpmn-export-btn.primary:hover{background:linear-gradient(135deg,#a8102f 0%,#8a0e26 100%)}
+.bpmn-export-title{font-size:12px;font-weight:700;margin-bottom:4px}
+.bpmn-export-desc{font-size:10px;opacity:0.85;line-height:1.4}
+.bpmn-export-btn:disabled{opacity:0.5;cursor:not-allowed}
+.bpmn-legend{background:linear-gradient(135deg,var(--vl) 0%,var(--tl) 100%);border-radius:8px;padding:14px 16px;margin-bottom:16px;font-size:11px;line-height:1.6;color:var(--nav2);border:1px solid var(--vm)}
+.bpmn-legend strong{color:var(--red)}
+.bpmn-legend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.bpmn-legend-item{display:flex;align-items:center;gap:6px;font-size:10px}
+.bpmn-mini-icon{display:inline-block;width:18px;height:18px;border-radius:50%;flex-shrink:0}
+.bpmn-mini-inicio{background:#f3f4f6;border:2px solid #6b7280}
+.bpmn-mini-atividade{background:#E6F7F0;border:2px solid #0B7A4E;border-radius:3px}
+.bpmn-mini-decisao{background:#FFF4ED;border:2px solid #C9783A;border-radius:3px;transform:rotate(45deg);width:14px;height:14px}
+.bpmn-mini-fim{background:#FDEAEE;border:4px solid #CC1544;width:14px;height:14px}
+.bpmn-mini-pausa{background:#fff;border:2px solid #CC1544}
+.bpmn-mini-captura{background:#fff;border:2px solid #0B4D66}
+@media(max-width:600px){.bpmn-export-options{grid-template-columns:1fr}.bpmn-legend-grid{grid-template-columns:1fr 1fr}}
 /* ABA MANUAIS */
 .manuais-hero{background:linear-gradient(135deg,var(--nav) 0%,var(--teal) 100%);border-radius:14px;padding:24px 26px;margin-bottom:20px;color:#fff;position:relative;overflow:hidden}
 .manuais-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(204,21,68,0.25) 0%,transparent 70%);pointer-events:none}
@@ -672,7 +722,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
   <div id="panel-manuais" class="panel">
     <div class="manuais-hero">
       <h2>📚 Central de Manuais e Playbooks</h2>
-      <p>Gere manuais institucionais por setor ou consolide tudo num Manual Master ATDG — a perspectiva da Assessoria Técnica sobre toda a operação do Campus Foz. Padrão BPMN 2.0 Anne Bail · IA Sonnet 4.</p>
+      <p>Gere manuais institucionais por setor, especificações BPMN 2.0 para Miro, ou consolide tudo num Manual Master ATDG — a perspectiva da Assessoria Técnica sobre toda a operação do Campus Foz. Padrão Anne Bail · IA Sonnet 4.</p>
       <div class="manuais-hero-actions">
         <button class="master-btn" id="masterBtn" onclick="gerarManualMaster()">
           🏛️ Gerar Manual Master ATDG Consolidado
@@ -757,6 +807,27 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
       <button onclick="clearAll()" style="background:#cc1544;color:#fff;border:none;cursor:pointer;padding:9px 18px;border-radius:7px;font-family:'Sora',sans-serif;font-size:12px;font-weight:600;">⚠️ Limpar todos os dados deste navegador</button>
       <div style="font-size:10px;color:#cc1544;margin-top:6px;">Atenção: exporte antes de limpar. Esta ação não pode ser desfeita.</div>
     </div>
+  </div>
+</div>
+
+
+
+<!-- MODAL BPMN -->
+<div class="bpmn-modal" id="bpmnModal">
+  <div class="bpmn-modal-inner">
+    <div class="bpmn-modal-header">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
+        <div>
+          <h2>🔷 Fluxogramas BPMN 2.0 — Padrão Anne Bail</h2>
+          <p id="bpmnModalSetor">Setor</p>
+        </div>
+        <button class="bpmn-close" onclick="fecharBPMNModal()">✕ Fechar</button>
+      </div>
+    </div>
+    <div class="bpmn-modal-body" id="bpmnModalBody">
+      <div style="text-align:center;padding:40px;color:var(--mut)">Carregando...</div>
+    </div>
+    <div class="bpmn-modal-footer" id="bpmnModalFooter"></div>
   </div>
 </div>
 
@@ -1152,6 +1223,9 @@ async function loadCanvas(){
         <button class="gen-manual-btn small" onclick="event.stopPropagation();gerarManualSetor('${s.id.replace(/'/g,"\\'")}')">
           📘 Gerar Manual
         </button>
+        <button class="man-action-btn" ${!hasEntries?'disabled':''} onclick="abrirBPMNModal('${setor.replace(/'/g,"\\'")}')">
+          🔷 BPMN
+        </button>
       </div>` : '';
     html+=`<div class="secc"><div class="sech" onclick="togS('${s.id}','${sid}')"><div class="secl"><div class="snum">S${s.num}</div><div><div class="sname">${s.id}</div><div class="scnt">${se.length} entrada${se.length!==1?'s':''}</div></div></div><div style="display:flex;align-items:center;gap:8px;"><span class="pill ${pc}">${s.lbl}</span><span class="chv ${open?'op':''}" id="chv_${sid}">▼</span></div></div><div class="secb" id="secb_${sid}" style="display:${open?'block':'none'};">${body}${manualActionsHtml}</div></div>`;
   });
@@ -1320,6 +1394,387 @@ function renderSearch(q,cvRes,idxRes,webData){
 
 
 
+
+
+
+// ══ MODAL BPMN — ESPECIFICAÇÃO ANNE BAIL ══
+const BPMN_ELEMENTOS = {
+  inicio: { simbolo: '○', label: 'INÍCIO', borda: '#6b7280', fundo: '#f3f4f6', forma: 'círculo borda fina' },
+  atividade: { simbolo: '▭', label: 'ATIVIDADE', borda: '#0B7A4E', fundo: '#E6F7F0', forma: 'quadrado' },
+  decisao: { simbolo: '◇', label: 'DECISÃO', borda: '#C9783A', fundo: '#FFF4ED', forma: 'losango' },
+  fim: { simbolo: '●', label: 'FIM', borda: '#CC1544', fundo: '#FDEAEE', forma: 'círculo borda grossa' },
+  pausa: { simbolo: '⏱', label: 'PAUSA/ESPERA', borda: '#CC1544', fundo: '#FDEAEE', forma: 'círculo com relógio' },
+  captura: { simbolo: '✉', label: 'CAPTURA INTER-SETOR', borda: '#0B4D66', fundo: '#E0F2F8', forma: 'círculo com carta' }
+};
+
+let bpmnCurrentSpec = null;
+
+async function abrirBPMNModal(setor){
+  const modal = document.getElementById('bpmnModal');
+  document.getElementById('bpmnModalSetor').textContent = setor + ' · Especificação BPMN 2.0';
+  document.getElementById('bpmnModalBody').innerHTML = `
+    <div style="text-align:center;padding:40px;color:var(--mut)">
+      <div style="width:40px;height:40px;border:3px solid var(--vm);border-top-color:var(--red);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 14px"></div>
+      <div style="font-size:13px;font-weight:600;color:var(--nav2)">🤖 IA Sonnet 4 gerando especificação BPMN...</div>
+      <div style="font-size:11px;color:var(--mut);margin-top:6px">Analisando processos do setor e estruturando fluxogramas no padrão Anne Bail</div>
+    </div>`;
+  document.getElementById('bpmnModalFooter').innerHTML = '';
+  modal.classList.add('on');
+  
+  const apiKey = getKey();
+  if(!apiKey){
+    document.getElementById('bpmnModalBody').innerHTML = `
+      <div style="text-align:center;padding:30px;background:var(--rl);border-radius:10px;color:var(--red)">
+        <div style="font-size:28px;margin-bottom:10px">🔑</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:6px">Chave IA necessária</div>
+        <div style="font-size:11px;color:var(--mut)">Configure a chave em ⚙️ Config para gerar especificações BPMN.</div>
+      </div>`;
+    return;
+  }
+  
+  // Coletar entradas do setor
+  const allEntries = gEntries();
+  const sectorDef = SECTORS.find(s=>s.id===setor);
+  const subs = sectorDef?.subs || [];
+  const entradas = allEntries.filter(e => e.setor===setor || subs.includes(e.setor));
+  
+  if(entradas.length === 0){
+    document.getElementById('bpmnModalBody').innerHTML = `<div class="man-empty">Nenhuma entrada neste setor ainda.</div>`;
+    return;
+  }
+  
+  try {
+    const dadosSetor = {
+      setor,
+      total: entradas.length,
+      entradas: entradas.map(e=>({
+        titulo: e.p?.titulo || '',
+        tipo: e.tipo,
+        descricao: e.desc.substring(0,400),
+        responsavel: e.responsavel || 'A definir',
+        entrada: e.estrutura?.entrada || '',
+        processamento: e.estrutura?.processamento || '',
+        saida: e.estrutura?.saida || '',
+        procedimento: e.p?.procedimento || [],
+        normativa: e.p?.normativa || ''
+      }))
+    };
+    
+    const prompt = `Você é especialista em modelagem BPMN 2.0 da ATDG/UNIOESTE Campus Foz, seguindo o padrão Anne Bail.
+
+PADRÃO ANNE BAIL — REGRAS OBRIGATÓRIAS:
+- Símbolos: círculo borda fina (início), quadrado (atividade), losango (decisão), círculo borda grossa (fim), círculo com relógio (pausa/espera), círculo com carta (captura inter-setor)
+- Cores: cinza (início), verde (atividade), laranja (decisão), vermelho (fim/pausa), azul (captura)
+- Não cruzar setas nem sobrepor
+- Cada raia = um ator/setor responsável
+- Fonte Noto Sans 14 negrito (processo), 16 negrito (raia)
+
+DADOS DO SETOR:
+${JSON.stringify(dadosSetor, null, 2)}
+
+Gere ESPECIFICAÇÕES de fluxogramas BPMN 2.0. Para cada processo identificado, crie uma especificação completa.
+
+Retorne APENAS JSON válido:
+{
+  "setor": "${setor}",
+  "processos": [
+    {
+      "nome": "nome do processo",
+      "descricao": "descrição em 1-2 frases",
+      "raias": ["Ator 1", "Ator 2"],
+      "elementos": [
+        {"id": "e1", "tipo": "inicio", "label": "Início", "raia": "Ator 1"},
+        {"id": "e2", "tipo": "atividade", "label": "Receber demanda", "raia": "Ator 1"},
+        {"id": "e3", "tipo": "decisao", "label": "Está completo?", "raia": "Ator 1"},
+        {"id": "e4", "tipo": "captura", "label": "Encaminhar setor X", "raia": "Ator 2"},
+        {"id": "e5", "tipo": "atividade", "label": "Processar", "raia": "Ator 2"},
+        {"id": "e6", "tipo": "pausa", "label": "Aguardar retorno", "raia": "Ator 1"},
+        {"id": "e7", "tipo": "fim", "label": "Concluído", "raia": "Ator 1"}
+      ],
+      "conexoes": [
+        {"de": "e1", "para": "e2"},
+        {"de": "e2", "para": "e3"},
+        {"de": "e3", "para": "e4", "label": "Sim"},
+        {"de": "e3", "para": "e2", "label": "Não - devolve"},
+        {"de": "e4", "para": "e5"},
+        {"de": "e5", "para": "e6"},
+        {"de": "e6", "para": "e7"}
+      ],
+      "observacoes_construcao_miro": "instruções práticas para reproduzir no Miro"
+    }
+  ]
+}
+
+Tipos válidos: inicio, atividade, decisao, fim, pausa, captura.
+Mínimo 1 processo, máximo 3. Cada um com no mínimo 5 elementos.`;
+
+    const controller = new AbortController();
+    setTimeout(()=>controller.abort(), 60000);
+    
+    const r = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      signal:controller.signal,
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':apiKey,
+        'anthropic-version':'2023-06-01'
+      },
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens: 4500,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    
+    if(!r.ok){
+      const errText = await r.text();
+      throw new Error('API '+r.status);
+    }
+    
+    const d = await r.json();
+    if(d.error) throw new Error(d.error.message);
+    
+    const txt = d.content?.find(b=>b.type==='text')?.text || '';
+    const cleaned = txt.replace(/```json|```/g,'').trim();
+    const start = cleaned.indexOf('{');
+    const end = cleaned.lastIndexOf('}');
+    if(start<0 || end<0) throw new Error('JSON inválido');
+    
+    const spec = JSON.parse(cleaned.substring(start, end+1));
+    bpmnCurrentSpec = spec;
+    
+    renderBPMNSpec(spec);
+    
+  } catch(err) {
+    console.error('BPMN erro:', err);
+    document.getElementById('bpmnModalBody').innerHTML = `
+      <div style="text-align:center;padding:30px;background:var(--rl);border-radius:10px;color:var(--red)">
+        <div style="font-size:28px;margin-bottom:10px">⚠️</div>
+        <div style="font-weight:700;font-size:13px;margin-bottom:6px">Erro ao gerar especificação</div>
+        <div style="font-size:11px;color:var(--mut)">${(err.message||'desconhecido').substring(0,200)}</div>
+      </div>`;
+  }
+}
+
+function renderBPMNSpec(spec){
+  const body = document.getElementById('bpmnModalBody');
+  
+  const legend = `
+    <div class="bpmn-legend">
+      <strong>🎨 Padrão BPMN 2.0 — Anne Bail (UNIOESTE Foz)</strong>
+      <div class="bpmn-legend-grid">
+        <div class="bpmn-legend-item"><span class="bpmn-mini-icon bpmn-mini-inicio"></span> Início (borda fina)</div>
+        <div class="bpmn-legend-item"><span class="bpmn-mini-icon bpmn-mini-atividade"></span> Atividade (quadrado)</div>
+        <div class="bpmn-legend-item"><span class="bpmn-mini-icon bpmn-mini-decisao"></span> Decisão (losango)</div>
+        <div class="bpmn-legend-item"><span class="bpmn-mini-icon bpmn-mini-fim"></span> Fim (borda grossa)</div>
+        <div class="bpmn-legend-item"><span class="bpmn-mini-icon bpmn-mini-pausa"></span> Pausa (relógio)</div>
+        <div class="bpmn-legend-item"><span class="bpmn-mini-icon bpmn-mini-captura"></span> Captura (carta)</div>
+      </div>
+    </div>`;
+  
+  const processosHtml = (spec.processos||[]).map((p,i) => {
+    const elementsHtml = (p.elementos||[]).slice(0,12).map(el => {
+      const tipoConfig = BPMN_ELEMENTOS[el.tipo] || BPMN_ELEMENTOS.atividade;
+      const simbolo = el.tipo === 'pausa' ? '⏱' : (el.tipo === 'captura' ? '✉' : '');
+      const label = (el.label||'').substring(0,30);
+      return `<div class="bpmn-node ${el.tipo}" title="${el.raia||''}">
+        ${el.tipo==='decisao' ? `<span>${label}</span>` : `${simbolo} ${el.tipo==='inicio'||el.tipo==='fim'?'':label}`}
+      </div>`;
+    }).join('<span class="bpmn-arrow">→</span>');
+    
+    const raiasText = (p.raias||[]).map(r=>`<span style="background:var(--nav2);color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin:2px;display:inline-block">${r}</span>`).join(' ');
+    
+    return `<div class="bpmn-spec">
+      <div class="bpmn-spec-name">
+        <span style="background:var(--red);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px">${i+1}</span>
+        ${p.nome}
+      </div>
+      <div class="bpmn-spec-desc">${p.descricao||''}</div>
+      <div style="margin-bottom:8px"><strong style="font-size:10px;color:var(--mut);text-transform:uppercase">Raias:</strong> ${raiasText}</div>
+      <div class="bpmn-flow">${elementsHtml || '<span style="color:var(--mut);font-style:italic;font-size:11px">Sem elementos definidos</span>'}</div>
+      ${p.observacoes_construcao_miro ? `<div style="margin-top:10px;padding:10px;background:#fff;border-left:3px solid var(--teal);border-radius:0 6px 6px 0;font-size:11px;color:var(--mut);line-height:1.5"><strong style="color:var(--teal)">💡 Para construir no Miro:</strong> ${p.observacoes_construcao_miro}</div>` : ''}
+    </div>`;
+  }).join('');
+  
+  body.innerHTML = legend + `
+    <div class="bpmn-section">
+      <h3>📊 Processos identificados: ${(spec.processos||[]).length}</h3>
+      ${processosHtml || '<div class="man-empty">Nenhum processo estruturado.</div>'}
+    </div>`;
+  
+  // Footer com botões de exportação
+  document.getElementById('bpmnModalFooter').innerHTML = `
+    <button class="bpmn-btn" onclick="exportarBPMNJson()">📄 Baixar JSON (specs)</button>
+    <button class="bpmn-btn" onclick="exportarBPMNTexto()">📋 Copiar texto p/ Miro</button>
+    <button class="bpmn-btn" onclick="exportarBPMNMarkdown()">📝 Baixar Markdown</button>
+  `;
+}
+
+function fecharBPMNModal(){
+  document.getElementById('bpmnModal').classList.remove('on');
+}
+
+function exportarBPMNJson(){
+  if(!bpmnCurrentSpec){toast('⚠️ Nenhuma especificação carregada.');return;}
+  const blob = new Blob([JSON.stringify(bpmnCurrentSpec, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const safe = bpmnCurrentSpec.setor.replace(/[^a-zA-Z0-9]/g,'_').substring(0,40);
+  a.href = url;
+  a.download = `BPMN_specs_${safe}_${new Date().toISOString().substring(0,10)}.json`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);}, 100);
+  toast('✅ JSON com especificações baixado!');
+}
+
+function exportarBPMNMarkdown(){
+  if(!bpmnCurrentSpec){return;}
+  const spec = bpmnCurrentSpec;
+  let md = `# Fluxogramas BPMN 2.0 — ${spec.setor}
+
+`;
+  md += `**Padrão:** Anne Bail · UNIOESTE Campus Foz do Iguaçu
+`;
+  md += `**Gerado em:** ${new Date().toLocaleString('pt-BR')}
+
+`;
+  md += `---
+
+## Convenções
+
+`;
+  md += `| Elemento | Símbolo | Cor | Uso |
+|----------|---------|-----|-----|
+`;
+  md += `| Início | Círculo borda fina | Cinza | Ponto de partida |
+`;
+  md += `| Atividade | Quadrado | Verde | Tarefa/ação |
+`;
+  md += `| Decisão | Losango | Laranja | Bifurcação |
+`;
+  md += `| Fim | Círculo borda grossa | Vermelho | Encerramento |
+`;
+  md += `| Pausa | Círculo + relógio | Vermelho | Espera/devolução |
+`;
+  md += `| Captura | Círculo + carta | Azul | Inter-setor |
+
+---
+
+`;
+  
+  (spec.processos||[]).forEach((p,i)=>{
+    md += `## ${i+1}. ${p.nome}
+
+`;
+    md += `${p.descricao || ''}
+
+`;
+    md += `**Raias (atores):** ${(p.raias||[]).join(' · ')}
+
+`;
+    md += `### Elementos
+
+`;
+    md += `| ID | Tipo | Label | Raia |
+|----|------|-------|------|
+`;
+    (p.elementos||[]).forEach(el=>{
+      md += `| ${el.id} | ${el.tipo} | ${el.label} | ${el.raia||'-'} |
+`;
+    });
+    md += `
+### Conexões
+
+`;
+    md += `| De | Para | Label |
+|----|------|-------|
+`;
+    (p.conexoes||[]).forEach(c=>{
+      md += `| ${c.de} | ${c.para} | ${c.label||'-'} |
+`;
+    });
+    if(p.observacoes_construcao_miro){
+      md += `
+### Observações para Miro
+
+${p.observacoes_construcao_miro}
+
+`;
+    }
+    md += `
+---
+
+`;
+  });
+  
+  const blob = new Blob([md], {type:'text/markdown;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const safe = spec.setor.replace(/[^a-zA-Z0-9]/g,'_').substring(0,40);
+  a.href = url;
+  a.download = `BPMN_${safe}_${new Date().toISOString().substring(0,10)}.md`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);}, 100);
+  toast('✅ Markdown baixado!');
+}
+
+function exportarBPMNTexto(){
+  if(!bpmnCurrentSpec){return;}
+  const spec = bpmnCurrentSpec;
+  let txt = `FLUXOGRAMAS BPMN 2.0 — ${spec.setor}
+Padrao Anne Bail · UNIOESTE Campus Foz
+${'='.repeat(60)}
+
+`;
+  
+  (spec.processos||[]).forEach((p,i)=>{
+    txt += `
+${'═'.repeat(60)}
+PROCESSO ${i+1}: ${p.nome.toUpperCase()}
+${'═'.repeat(60)}
+`;
+    txt += `
+${p.descricao||''}
+`;
+    txt += `
+RAIAS (atores): ${(p.raias||[]).join(' | ')}
+`;
+    txt += `
+--- ELEMENTOS ---
+`;
+    (p.elementos||[]).forEach(el=>{
+      const ico = {inicio:'○',atividade:'▭',decisao:'◇',fim:'●',pausa:'⏱',captura:'✉'}[el.tipo]||'?';
+      txt += `${ico} [${el.id}] ${el.tipo.toUpperCase()}: "${el.label}" (raia: ${el.raia||'-'})
+`;
+    });
+    txt += `
+--- FLUXO ---
+`;
+    (p.conexoes||[]).forEach(c=>{
+      const lbl = c.label ? ` --[${c.label}]--> ` : ' --> ';
+      txt += `${c.de}${lbl}${c.para}
+`;
+    });
+    if(p.observacoes_construcao_miro){
+      txt += `
+--- PARA MIRO ---
+${p.observacoes_construcao_miro}
+`;
+    }
+  });
+  
+  navigator.clipboard?.writeText(txt).then(()=>{
+    toast('✅ Texto copiado! Cole no Miro ou em qualquer editor.');
+  }).catch(()=>{
+    // Fallback: criar textarea temporária
+    const ta = document.createElement('textarea');
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    toast('✅ Texto copiado!');
+  });
+}
 
 // ══ ABA MANUAIS ══
 function loadManuais(){
