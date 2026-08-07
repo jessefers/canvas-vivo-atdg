@@ -1219,11 +1219,30 @@ async function processEntry(setor,tipo,desc){
   }
 }
 
+// ══ ESCAPE ══
+// Todo o HTML da tela é montado por concatenação de texto. Sem escapar, um
+// campo com "<" ou "&" quebra a exibição, e um valor com "<img onerror=...>"
+// vira código executando na página. Vale para o que os colegas digitam, para
+// o data.json do servidor e para o que a IA devolve.
+const _ESC={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+function esc(v){
+  if(v===null||v===undefined)return '';
+  return String(v).replace(/[&<>"']/g,c=>_ESC[c]);
+}
+// Endereços vindos da busca web: barra esquemas executáveis (javascript:, data:)
+// antes de escapar. Um href com javascript: dispara ao ser tocado.
+function safeUrl(u){
+  const s=String(u||'').trim();
+  if(!s)return '#';
+  if(/^(https?:|mailto:|\/|#|\.)/i.test(s))return esc(s);
+  return '#';
+}
+
 // ══ TAG HTML ══
 function tagH(tipo){
   const c={processo:'t-pr',incidente:'t-in',melhoria:'t-me',norma:'t-no',reuniao:'t-re',outro:'t-ou'};
   const l={processo:'PROCESSO',incidente:'INCIDENTE',melhoria:'MELHORIA',norma:'NORMA',reuniao:'REUNIÃO',outro:'OUTRO'};
-  return`<span class="tag ${c[tipo]||'t-ou'}">${l[tipo]||tipo.toUpperCase()}</span>`;
+  return`<span class="tag ${c[tipo]||'t-ou'}">${l[tipo]||esc(String(tipo||'').toUpperCase())}</span>`;
 }
 
 // ══ FORMATADOR DE DATA (reutilizado) ══
@@ -1237,27 +1256,28 @@ function entH(e){
   const p=e.p||{};
   const est=e.estrutura||{};
   const d=fmtDT(e.ts);
-  const steps=(p.procedimento||[]).map(s=>`<li>${s}</li>`).join('');
-  const atts=(p.atencoes||[]).map(a=>`<li>⚠️ ${a}</li>`).join('');
+  const desc=String(e.desc||'');
+  const steps=(p.procedimento||[]).map(s=>`<li>${esc(s)}</li>`).join('');
+  const atts=(p.atencoes||[]).map(a=>`<li>⚠️ ${esc(a)}</li>`).join('');
   const hasEstrutura = est.entrada||est.processamento||est.saida||est.kpi||est.contingencia;
   const estruturaHtml = hasEstrutura ? `
     <div style="margin-top:8px;padding:8px;background:var(--vl);border-radius:6px;font-size:10px;">
-      ${est.entrada?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⬇️ Entrada:</strong> ${est.entrada}</div>`:''}
-      ${est.processamento?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⚙️ Processamento:</strong> ${est.processamento}</div>`:''}
-      ${est.saida?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⬆️ Saída:</strong> ${est.saida}</div>`:''}
-      ${est.kpi?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">📊 KPI:</strong> ${est.kpi}</div>`:''}
-      ${est.contingencia?`<div style="margin-bottom:4px;"><strong style="color:var(--red)">⚠️ Contingência:</strong> ${est.contingencia}</div>`:''}
+      ${est.entrada?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⬇️ Entrada:</strong> ${esc(est.entrada)}</div>`:''}
+      ${est.processamento?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⚙️ Processamento:</strong> ${esc(est.processamento)}</div>`:''}
+      ${est.saida?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">⬆️ Saída:</strong> ${esc(est.saida)}</div>`:''}
+      ${est.kpi?`<div style="margin-bottom:4px;"><strong style="color:var(--nav2)">📊 KPI:</strong> ${esc(est.kpi)}</div>`:''}
+      ${est.contingencia?`<div style="margin-bottom:4px;"><strong style="color:var(--red)">⚠️ Contingência:</strong> ${esc(est.contingencia)}</div>`:''}
     </div>` : '';
-  const respHtml = e.responsavel && e.responsavel!=='A definir' ? `<span class="tag" style="background:var(--tl);color:var(--teal);">👤 ${e.responsavel}</span>` : '';
+  const respHtml = e.responsavel && e.responsavel!=='A definir' ? `<span class="tag" style="background:var(--tl);color:var(--teal);">👤 ${esc(e.responsavel)}</span>` : '';
   return`<div class="ei">
-    <div class="em">${tagH(e.tipo)}${p.class?`<span class="tag t-ou">${p.class}</span>`:''}<span class="eau">${e.user}</span><span class="edt">${d}</span></div>
-    <div class="ec"><strong>${p.titulo||'Entrada'}</strong><br>${p.resumo||e.desc.substring(0,140)}
+    <div class="em">${tagH(e.tipo)}${p.class?`<span class="tag t-ou">${esc(p.class)}</span>`:''}<span class="eau">${esc(e.user)}</span><span class="edt">${esc(d)}</span></div>
+    <div class="ec"><strong>${esc(p.titulo||'Entrada')}</strong><br>${esc(p.resumo||desc.substring(0,140))}
     ${steps?`<ul style="margin:7px 0 0 14px;font-size:10px;color:var(--mut);">${steps}</ul>`:''}
     ${atts?`<ul style="margin:5px 0 0 14px;font-size:10px;">${atts}</ul>`:''}
-    ${p.normativa&&p.normativa!=='Não especificada'?`<div style="margin-top:5px;font-size:10px;color:var(--mut);">📋 <strong>Normativa:</strong> ${p.normativa}</div>`:''}
+    ${p.normativa&&p.normativa!=='Não especificada'?`<div style="margin-top:5px;font-size:10px;color:var(--mut);">📋 <strong>Normativa:</strong> ${esc(p.normativa)}</div>`:''}
     </div>
-    <div class="era"><strong>Original:</strong> ${e.desc.substring(0,160)}${e.desc.length>160?'...':''}</div>
-    ${e.arquivo?`<div style="margin-top:6px;padding:6px 10px;background:var(--dl);border:1px solid #e8d5a0;border-radius:5px;font-size:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><span>${getFileIco(e.arquivo.nome)} <strong>${e.arquivo.nome}</strong></span><span style="color:var(--mut);">${e.arquivo.tamanho}</span>${e.arquivo.pasta&&e.arquivo.pasta!=='—'?`<span style="font-family:'IBM Plex Mono',monospace;color:var(--vd);">📁 ${e.arquivo.pasta}</span>`:''}</div>`:''}
+    <div class="era"><strong>Original:</strong> ${esc(desc.substring(0,160))}${desc.length>160?'...':''}</div>
+    ${e.arquivo?`<div style="margin-top:6px;padding:6px 10px;background:var(--dl);border:1px solid #e8d5a0;border-radius:5px;font-size:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><span>${getFileIco(e.arquivo.nome)} <strong>${esc(e.arquivo.nome)}</strong></span><span style="color:var(--mut);">${esc(e.arquivo.tamanho)}</span>${e.arquivo.pasta&&e.arquivo.pasta!=='—'?`<span style="font-family:var(--fm);color:var(--vd);">📁 ${esc(e.arquivo.pasta)}</span>`:''}</div>`:''}
   </div>`;
 }
 
@@ -1275,18 +1295,20 @@ function secBodyH(s, se){
   if(se.length===0&&!s.base)body+=`<div class="secemp">Nenhuma entrada ainda. Use "Nova Entrada" para documentar este setor.</div>`;
   for(const e of se){ body+=entH(e); }
   if(s.subs&&s.subs.length&&!(se.length===0&&!s.base)){
-    body+=`<div style="font-size:10px;color:var(--mut);margin-top:8px;padding-top:8px;border-top:1px dashed var(--brd);">Subdivisões: ${s.subs.join(' · ')}</div>`;
+    body+=`<div style="font-size:10px;color:var(--mut);margin-top:8px;padding-top:8px;border-top:1px dashed var(--brd);">Subdivisões: ${esc(s.subs.join(' · '))}</div>`;
   }
   const n = se.length;
-  const esc = s.id.replace(/'/g,"\\'");
   if(n>0){
+    // O nome do setor vai em data-setor (escapado) em vez de ser costurado
+    // dentro de uma string JavaScript no onclick: um setor com aspas ou "<"
+    // deixa de conseguir escapar do atributo. O clique é tratado por delegação.
     body += `
       <div class="manual-actions">
         <span class="manual-info">${n} entrada${n!==1?'s':''} disponíve${n!==1?'is':'l'} para gerar manual</span>
-        <button class="gen-manual-btn small" onclick="event.stopPropagation();gerarManualSetor('${esc}')">
+        <button class="gen-manual-btn small" data-acao="manual" data-setor="${esc(s.id)}">
           📘 Gerar Manual
         </button>
-        <button class="man-action-btn" onclick="event.stopPropagation();abrirBPMNModal('${esc}')">
+        <button class="man-action-btn" data-acao="bpmn" data-setor="${esc(s.id)}">
           🔷 BPMN
         </button>
       </div>`;
@@ -1336,16 +1358,31 @@ async function loadCanvas(){
       for(const sub of s.subs){ const a=porSetor.get(sub); if(a) se=se.concat(a); }
       se.sort((a,b)=>ordem.get(a)-ordem.get(b)); // mantém a ordem original de registro
     }
-    const sid=s.id.replace(/[^a-zA-Z0-9]/g,'_');
+    // O sufixo numérico evita que dois setores diferentes ("Div. A-B" e
+    // "Div. A_B") colidam no mesmo id depois da limpeza dos caracteres.
+    const sid=s.id.replace(/[^a-zA-Z0-9]/g,'_')+'_'+parts.length;
     // no celular: fechado por padrão, a menos que o usuário já tenha aberto
     const open = mobile ? openMap[s.id]===true : openMap[s.id]!==false;
     const pc={ok:'p-ok',wip:'p-wip',new:'p-new',pl:'p-pl'}[s.status]||'p-pl';
     _secIndex.set(sid,{s,se});
     const body = open ? secBodyH(s,se) : '';
-    parts.push(`<div class="secc"><div class="sech" onclick="togS('${s.id.replace(/'/g,"\\'")}','${sid}')"><div class="secl"><div class="snum">S${s.num}</div><div><div class="sname">${s.id}</div><div class="scnt">${se.length} entrada${se.length!==1?'s':''}</div></div></div><div style="display:flex;align-items:center;gap:8px;"><span class="pill ${pc}">${s.lbl}</span><span class="chv ${open?'op':''}" id="chv_${sid}">▼</span></div></div><div class="secb" id="secb_${sid}" data-filled="${open?'1':'0'}" style="display:${open?'block':'none'};">${body}</div></div>`);
+    parts.push(`<div class="secc"><div class="sech" data-acao="toggle" data-setor="${esc(s.id)}" data-sid="${esc(sid)}"><div class="secl"><div class="snum">S${esc(s.num)}</div><div><div class="sname">${esc(s.id)}</div><div class="scnt">${se.length} entrada${se.length!==1?'s':''}</div></div></div><div style="display:flex;align-items:center;gap:8px;"><span class="pill ${pc}">${esc(s.lbl)}</span><span class="chv ${open?'op':''}" id="chv_${esc(sid)}">▼</span></div></div><div class="secb" id="secb_${esc(sid)}" data-filled="${open?'1':'0'}" style="display:${open?'block':'none'};">${body}</div></div>`);
   }
   document.getElementById('canvasContent').innerHTML=parts.join('');
 }
+
+// Um único listener no contêiner trata abrir/fechar setor, gerar manual e
+// abrir o BPMN. Os nomes de setor viajam em data-setor, nunca em código.
+document.addEventListener('click',ev=>{
+  const alvo=ev.target.closest&&ev.target.closest('[data-acao]');
+  if(!alvo||!document.getElementById('canvasContent')?.contains(alvo))return;
+  const setor=alvo.dataset.setor||'';
+  switch(alvo.dataset.acao){
+    case 'toggle': togS(setor,alvo.dataset.sid); break;
+    case 'manual': ev.stopPropagation(); gerarManualSetor(setor); break;
+    case 'bpmn':   ev.stopPropagation(); abrirBPMNModal(setor); break;
+  }
+});
 
 function togS(id,sid){
   const b=document.getElementById('secb_'+sid);
@@ -1473,37 +1510,37 @@ Retorne APENAS JSON válido sem markdown:
 function renderSearch(q,cvRes,idxRes,webData){
   const total=cvRes.length+idxRes.length+webData.unioeste.resultados.length+webData.seti.resultados.length;
   if(total===0){
-    document.getElementById('searchResults').innerHTML=`<div class="empty"><div class="eico">🔍</div><div style="font-size:13px;font-weight:600;">Nenhum resultado encontrado para "${q}"</div><div style="font-size:11px;margin-top:6px;">Tente termos mais gerais ou verifique a grafia.</div></div>`;
+    document.getElementById('searchResults').innerHTML=`<div class="empty"><div class="eico">🔍</div><div style="font-size:13px;font-weight:600;">Nenhum resultado encontrado para "${esc(q)}"</div><div style="font-size:11px;margin-top:6px;">Tente termos mais gerais ou verifique a grafia.</div></div>`;
     return;
   }
   let html='';
   // Síntese
   if(webData.sintese){
-    html+=`<div class="synth-card"><div class="synth-title">💡 Síntese — ${q}</div><div class="synth-text">${webData.sintese}</div></div>`;
+    html+=`<div class="synth-card"><div class="synth-title">💡 Síntese — ${esc(q)}</div><div class="synth-text">${esc(webData.sintese)}</div></div>`;
   }
   // Canvas
   if(cvRes.length>0){
-    const rows=cvRes.map(e=>`<div class="res-item"><div class="res-title">${e.p?.titulo||'Entrada do Canvas'}</div><div class="res-url">Canvas Vivo · Setor: ${e.setor} · ${new Date(e.ts).toLocaleDateString('pt-BR')}</div><div class="res-desc">${e.p?.resumo||e.desc.substring(0,140)}</div><div class="res-match">Colaborador: ${e.user}</div></div>`).join('');
+    const rows=cvRes.map(e=>`<div class="res-item"><div class="res-title">${esc(e.p?.titulo||'Entrada do Canvas')}</div><div class="res-url">Canvas Vivo · Setor: ${esc(e.setor)} · ${esc(new Date(e.ts).toLocaleDateString('pt-BR'))}</div><div class="res-desc">${esc(e.p?.resumo||String(e.desc||'').substring(0,140))}</div><div class="res-match">Colaborador: ${esc(e.user)}</div></div>`).join('');
     html+=`<div class="src-section"><div class="src-hdr"><div class="src-hdr-l">📋 Canvas Vivo</div><div class="src-cnt">${cvRes.length} resultado${cvRes.length!==1?'s':''} · <span style="color:var(--verde);font-size:9px;">ZERO créditos</span></div></div><div class="src-body">${rows}</div></div>`;
   }
   // ATDG Index
   if(idxRes.length>0){
-    const rows=idxRes.map(d=>`<div class="res-item"><div class="res-title">📄 ${d.titulo}</div><div class="res-url">Acervo ATDG · ${d.path||'OneDrive ATDG'}</div><div class="res-desc">${d.desc}</div></div>`).join('');
+    const rows=idxRes.map(d=>`<div class="res-item"><div class="res-title">📄 ${esc(d.titulo)}</div><div class="res-url">Acervo ATDG · ${esc(d.path||'OneDrive ATDG')}</div><div class="res-desc">${esc(d.desc)}</div></div>`).join('');
     html+=`<div class="src-section"><div class="src-hdr"><div class="src-hdr-l">📁 Acervo ATDG Interno</div><div class="src-cnt">${idxRes.length} documento${idxRes.length!==1?'s':''} · <span style="color:var(--verde);font-size:9px;">ZERO créditos</span></div></div><div class="src-body">${rows}</div></div>`;
   }
   // UNIOESTE
   const ur=webData.unioeste?.resultados||[];
   const urs=webData.unioeste?.resumo||'';
   if(ur.length>0||urs){
-    const rows=ur.map(r=>`<div class="res-item"><div class="res-title"><a href="${r.url||'#'}" target="_blank" style="color:var(--verde);text-decoration:none;">${r.titulo}</a></div>${r.url?`<div class="res-url">${r.url}</div>`:''}<div class="res-desc">${r.descricao}</div></div>`).join('');
-    html+=`<div class="src-section"><div class="src-hdr"><div class="src-hdr-l">🌐 Site UNIOESTE</div><div class="src-cnt">${ur.length} resultado${ur.length!==1?'s':''}</div></div><div class="src-body">${urs?`<div style="font-size:11px;color:var(--mut);margin-bottom:10px;padding:8px;background:var(--bg);border-radius:6px;">${urs}</div>`:''}${rows||'<div class="no-res">Nenhum resultado específico encontrado.</div>'}</div></div>`;
+    const rows=ur.map(r=>`<div class="res-item"><div class="res-title"><a href="${safeUrl(r.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--verde);text-decoration:none;">${esc(r.titulo)}</a></div>${r.url?`<div class="res-url">${esc(r.url)}</div>`:''}<div class="res-desc">${esc(r.descricao)}</div></div>`).join('');
+    html+=`<div class="src-section"><div class="src-hdr"><div class="src-hdr-l">🌐 Site UNIOESTE</div><div class="src-cnt">${ur.length} resultado${ur.length!==1?'s':''}</div></div><div class="src-body">${urs?`<div style="font-size:11px;color:var(--mut);margin-bottom:10px;padding:8px;background:var(--bg);border-radius:6px;">${esc(urs)}</div>`:''}${rows||'<div class="no-res">Nenhum resultado específico encontrado.</div>'}</div></div>`;
   }
   // SETI
   const sr=webData.seti?.resultados||[];
   const ss=webData.seti?.resumo||'';
   if(sr.length>0||ss){
-    const rows=sr.map(r=>`<div class="res-item"><div class="res-title"><a href="${r.url||'#'}" target="_blank" style="color:var(--verde);text-decoration:none;">${r.titulo}</a></div>${r.url?`<div class="res-url">${r.url}</div>`:''}<div class="res-desc">${r.descricao}</div></div>`).join('');
-    html+=`<div class="src-section"><div class="src-hdr"><div class="src-hdr-l">🌐 SETI Paraná</div><div class="src-cnt">${sr.length} resultado${sr.length!==1?'s':''}</div></div><div class="src-body">${ss?`<div style="font-size:11px;color:var(--mut);margin-bottom:10px;padding:8px;background:var(--bg);border-radius:6px;">${ss}</div>`:''}${rows||'<div class="no-res">Nenhum resultado específico encontrado.</div>'}</div></div>`;
+    const rows=sr.map(r=>`<div class="res-item"><div class="res-title"><a href="${safeUrl(r.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--verde);text-decoration:none;">${esc(r.titulo)}</a></div>${r.url?`<div class="res-url">${esc(r.url)}</div>`:''}<div class="res-desc">${esc(r.descricao)}</div></div>`).join('');
+    html+=`<div class="src-section"><div class="src-hdr"><div class="src-hdr-l">🌐 SETI Paraná</div><div class="src-cnt">${sr.length} resultado${sr.length!==1?'s':''}</div></div><div class="src-body">${ss?`<div style="font-size:11px;color:var(--mut);margin-bottom:10px;padding:8px;background:var(--bg);border-radius:6px;">${esc(ss)}</div>`:''}${rows||'<div class="no-res">Nenhum resultado específico encontrado.</div>'}</div></div>`;
   }
   const isCache=document.getElementById('searchResults').querySelector('.cache-note');
   if(!isCache)html+=`<div class="cache-note">Resultados web em cache por 24h · Nova busca igual: zero créditos</div>`;
@@ -1670,7 +1707,7 @@ Mínimo 1 processo, máximo 3. Cada um com no mínimo 5 elementos.`;
       <div style="text-align:center;padding:30px;background:var(--rl);border-radius:10px;color:var(--red)">
         <div style="font-size:28px;margin-bottom:10px">⚠️</div>
         <div style="font-weight:700;font-size:13px;margin-bottom:6px">Erro ao gerar especificação</div>
-        <div style="font-size:11px;color:var(--mut)">${(err.message||'desconhecido').substring(0,200)}</div>
+        <div style="font-size:11px;color:var(--mut)">${esc(String(err.message||'desconhecido').substring(0,200))}</div>
       </div>`;
   }
 }
@@ -1696,22 +1733,22 @@ function renderBPMNSpec(spec){
       const tipoConfig = BPMN_ELEMENTOS[el.tipo] || BPMN_ELEMENTOS.atividade;
       const simbolo = el.tipo === 'pausa' ? '⏱' : (el.tipo === 'captura' ? '✉' : '');
       const label = (el.label||'').substring(0,30);
-      return `<div class="bpmn-node ${el.tipo}" title="${el.raia||''}">
-        ${el.tipo==='decisao' ? `<span>${label}</span>` : `${simbolo} ${el.tipo==='inicio'||el.tipo==='fim'?'':label}`}
+      return `<div class="bpmn-node ${esc(el.tipo)}" title="${esc(el.raia||'')}">
+        ${el.tipo==='decisao' ? `<span>${esc(label)}</span>` : `${simbolo} ${el.tipo==='inicio'||el.tipo==='fim'?'':esc(label)}`}
       </div>`;
     }).join('<span class="bpmn-arrow">→</span>');
     
-    const raiasText = (p.raias||[]).map(r=>`<span style="background:var(--nav2);color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin:2px;display:inline-block">${r}</span>`).join(' ');
+    const raiasText = (p.raias||[]).map(r=>`<span style="background:var(--nav2);color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin:2px;display:inline-block">${esc(r)}</span>`).join(' ');
     
     return `<div class="bpmn-spec">
       <div class="bpmn-spec-name">
         <span style="background:var(--red);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px">${i+1}</span>
-        ${p.nome}
+        ${esc(p.nome)}
       </div>
-      <div class="bpmn-spec-desc">${p.descricao||''}</div>
+      <div class="bpmn-spec-desc">${esc(p.descricao||'')}</div>
       <div style="margin-bottom:8px"><strong style="font-size:10px;color:var(--mut);text-transform:uppercase">Raias:</strong> ${raiasText}</div>
       <div class="bpmn-flow">${elementsHtml || '<span style="color:var(--mut);font-style:italic;font-size:11px">Sem elementos definidos</span>'}</div>
-      ${p.observacoes_construcao_miro ? `<div style="margin-top:10px;padding:10px;background:#fff;border-left:3px solid var(--teal);border-radius:0 6px 6px 0;font-size:11px;color:var(--mut);line-height:1.5"><strong style="color:var(--teal)">💡 Para construir no Miro:</strong> ${p.observacoes_construcao_miro}</div>` : ''}
+      ${p.observacoes_construcao_miro ? `<div style="margin-top:10px;padding:10px;background:#fff;border-left:3px solid var(--teal);border-radius:0 6px 6px 0;font-size:11px;color:var(--mut);line-height:1.5"><strong style="color:var(--teal)">💡 Para construir no Miro:</strong> ${esc(p.observacoes_construcao_miro)}</div>` : ''}
     </div>`;
   }).join('');
   
@@ -1987,8 +2024,8 @@ function loadManuais(){
       pillText = `${count} ENTRADA${count!==1?'S':''}`;
     }
     
-    const subsText = data.info.subs && data.info.subs.length 
-      ? `<span title="${data.info.subs.join(' · ')}">🔗 ${data.info.subs.length} subdivisões</span>` 
+    const subsText = data.info.subs && data.info.subs.length
+      ? `<span title="${esc(data.info.subs.join(' · '))}">🔗 ${data.info.subs.length} subdivisões</span>`
       : '';
     
     const colabsText = data.colabs.length 
@@ -1997,8 +2034,8 @@ function loadManuais(){
     
     return `<div class="man-card">
       <div class="man-card-header">
-        <div class="man-card-title">${setor}</div>
-        <div class="man-card-pill ${pillClass}">${pillText}</div>
+        <div class="man-card-title">${esc(setor)}</div>
+        <div class="man-card-pill ${pillClass}">${esc(pillText)}</div>
       </div>
       <div class="man-card-meta">
         <span>📊 ${count} entr.</span>
@@ -2006,13 +2043,20 @@ function loadManuais(){
         ${subsText}
       </div>
       <div class="man-card-actions">
-        <button class="man-action-btn primary" ${!hasEntries?'disabled':''} onclick="gerarManualSetor('${setor.replace(/'/g,"\\'")}')">
+        <button class="man-action-btn primary" ${!hasEntries?'disabled':''} data-acao="manual" data-setor="${esc(setor)}">
           📘 Gerar Manual
         </button>
       </div>
     </div>`;
   }).join('');
 }
+
+// Delegação para os botões da grade de Manuais (mesmo motivo do Canvas)
+document.addEventListener('click',ev=>{
+  const alvo=ev.target.closest&&ev.target.closest('#manuaisGrid [data-acao="manual"]');
+  if(!alvo||alvo.disabled)return;
+  gerarManualSetor(alvo.dataset.setor||'');
+});
 
 // ══ MANUAL MASTER ATDG CONSOLIDADO ══
 async function gerarManualMaster(){
@@ -2170,7 +2214,9 @@ Seja institucional, formal, tecnico. Use linguagem da Administracao Publica. Man
 
 // ══ DOWNLOAD WORD MANUAL MASTER ══
 async function downloadMasterWord(master){
-  const safeStr = (s) => (s||'').toString().replace(/[<>&]/g, m => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]));
+  // Delega para esc(): a versão anterior não escapava aspas e este valor é
+  // usado também dentro de atributos (class="criticidade-...") do documento gerado.
+  const safeStr = esc;
   
   const html = `<!DOCTYPE html>
 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
@@ -2512,7 +2558,9 @@ async function downloadManualWord(manual){
   // Por enquanto, gera HTML formatado que abre no Word (mantém formatação)
   // Versão completa Word será via ETAPA 5
   
-  const safeStr = (s) => (s||'').toString().replace(/[<>&]/g, m => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]));
+  // Delega para esc(): a versão anterior não escapava aspas e este valor é
+  // usado também dentro de atributos (class="criticidade-...") do documento gerado.
+  const safeStr = esc;
   
   const html = `<!DOCTYPE html>
 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
@@ -2656,7 +2704,7 @@ async function loadIdxList(){
   const idx=gIndex();atdgIndex=idx;
   if(!document.getElementById('idxList'))return;
   if(!idx.length){document.getElementById('idxList').innerHTML='<div style="font-size:11px;color:var(--mut);text-align:center;padding:10px;">Nenhum documento registrado ainda.</div>';return;}
-  document.getElementById('idxList').innerHTML=idx.map((d,i)=>`<div class="idx-item"><div><strong>${d.titulo}</strong> <span style="color:var(--mut);font-size:10px;">· ${d.path||''}</span><br><span style="font-size:10px;color:var(--mut);">${d.desc}</span></div><button class="idx-del" onclick="delIdx(${i})">✕</button></div>`).join('');
+  document.getElementById('idxList').innerHTML=idx.map((d,i)=>`<div class="idx-item"><div><strong>${esc(d.titulo)}</strong> <span style="color:var(--mut);font-size:10px;">· ${esc(d.path||'')}</span><br><span style="font-size:10px;color:var(--mut);">${esc(d.desc)}</span></div><button class="idx-del" onclick="delIdx(${Number(i)})">✕</button></div>`).join('');
 }
 async function addToIndex(){
   const t=document.getElementById('idxTit').value.trim();
@@ -2683,7 +2731,7 @@ async function loadHist(){
   const rows=[...data].reverse().map(e=>{
     const p=e.p||{};
     const d=fmtDT(e.ts);
-    return`<tr><td style="font-family:var(--fm);font-size:9px;white-space:nowrap;">${d}</td><td><strong>${e.user}</strong></td><td style="font-size:10px;">${e.setor}</td><td>${tagH(e.tipo)}</td><td style="font-size:11px;">${p.titulo||'—'}</td><td style="max-width:180px;font-size:10px;color:var(--mut);">${(e.desc||'').substring(0,90)}…</td></tr>`;
+    return`<tr><td style="font-family:var(--fm);font-size:9px;white-space:nowrap;">${esc(d)}</td><td><strong>${esc(e.user)}</strong></td><td style="font-size:10px;">${esc(e.setor)}</td><td>${tagH(e.tipo)}</td><td style="font-size:11px;">${esc(p.titulo||'—')}</td><td style="max-width:180px;font-size:10px;color:var(--mut);">${esc(String(e.desc||'').substring(0,90))}…</td></tr>`;
   }).join('');
   el.innerHTML=`<table class="ht"><thead><tr><th>Data/Hora</th><th>Colaborador</th><th>Setor</th><th>Tipo</th><th>Título</th><th>Descrição</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
