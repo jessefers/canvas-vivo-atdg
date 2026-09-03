@@ -177,6 +177,20 @@ def self_test_patch(pops, org):
     novo, tipo, _ = ap.aplicar(pop, patch, org, {'entries': []})
     if tipo != 'minor' or cl.bump_version(v0, 'minor') != novo['versao'] or len(novo['playbook']['passos']) != n0 + 1 or novo['playbook']['passos'][0]['n'] != 1:
         err('auto-teste do patch falhou (%s → %s, %s, %d passos)' % (v0, novo['versao'], tipo, len(novo['playbook']['passos'])))
+    vazio = copy.deepcopy(pops[0])
+    vazio['playbook']['passos'] = []
+    patch3 = {'codigo': vazio['codigo'], 'motivo': 'auto-teste', 'autor': 'validate.py', 'fontes': [],
+              'passos_adicionados': [{'apos_n': i, 'passo': {'acao': 'Passo %s' % l, 'responsavel': 'Teste'}} for i, l in enumerate('ABC')]}
+    novo3, _, _ = ap.aplicar(vazio, patch3, org, {'entries': []})
+    if [p['acao'] for p in novo3['playbook']['passos']] != ['Passo A', 'Passo B', 'Passo C']:
+        err('auto-teste do patch: ordem de inserção múltipla incorreta: %s' % [p['acao'] for p in novo3['playbook']['passos']])
+    dois = copy.deepcopy(pops[0])
+    dois['playbook']['passos'] = [{'n': 1, 'acao': 'Um', 'responsavel': 'T'}, {'n': 2, 'acao': 'Dois', 'responsavel': 'T'}]
+    patch4 = {'codigo': dois['codigo'], 'motivo': 'auto-teste', 'autor': 'validate.py', 'fontes': [],
+              'passos_adicionados': [{'apos_n': 1, 'passo': {'acao': 'Meio', 'responsavel': 'T'}}, {'apos_n': 9, 'passo': {'acao': 'Fim', 'responsavel': 'T'}}, {'apos_n': 0, 'passo': {'acao': 'Inicio', 'responsavel': 'T'}}]}
+    novo4, _, _ = ap.aplicar(dois, patch4, org, {'entries': []})
+    if [p['acao'] for p in novo4['playbook']['passos']] != ['Inicio', 'Um', 'Meio', 'Dois', 'Fim']:
+        err('auto-teste do patch: inserção intercalada incorreta: %s' % [p['acao'] for p in novo4['playbook']['passos']])
     patch2 = {'codigo': pop['codigo'], 'motivo': 'auto-teste', 'autor': 'validate.py', 'fontes': [], 'passos_removidos': [1]}
     if n0:
         novo2, tipo2, _ = ap.aplicar(pop, patch2, org, {'entries': []})

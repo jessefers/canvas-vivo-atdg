@@ -5,7 +5,7 @@
   "setor": "Div. de Compras",
   "setor_codigo": "S03.10-DCOM",
   "sigla": "DCOM",
-  "versao": "1.0.0",
+  "versao": "1.1.0",
   "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
@@ -334,19 +334,13 @@
       "canal": "e-Protocolo"
     }
   ],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Chefe da Divisão de Compras\"]\n    direction LR\n    e1((\"Necessidade de contratação direta identificada pela unidade requisita…\"))\n    e10(((\"Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE\")))\n  end\n  subgraph R2[\"Div. de Compras\"]\n    direction LR\n    e2[\"Identificar a hipótese de contratação direta aplicável (dispensa emer…\"]\n    e3[\"Receber e instruir o processo de contratação direta (TR/memorando, co…\"]\n    e4[\"Acompanhar a análise do Planejamento e a autorização da Direção Geral\"]\n    e5[\"Pesquisar preços de mercado e verificar a regularidade fiscal do forn…\"]\n    e6[\"Acompanhar a emissão do parecer jurídico pela Assessoria Jurídica\"]\n    e7[\"Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibili…\"]\n    e8[\"Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com…\"]\n    e9[\"Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, qu…\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e10 fim",
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Compras\"]\n    direction LR\n    e2[\"Identificar a hipótese de contratação direta aplicável (dispensa emer…\"]\n    e3[\"Receber e instruir o processo de contratação direta (TR/memorando, co…\"]\n    e4[\"Acompanhar a análise do Planejamento e a autorização da Direção Geral\"]\n    e5[\"Pesquisar preços de mercado e verificar a regularidade fiscal do forn…\"]\n    e6[\"Acompanhar a emissão do parecer jurídico pela Assessoria Jurídica\"]\n    e7[\"Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibili…\"]\n    e8[\"Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com…\"]\n    e9[\"Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, qu…\"]\n    e1((\"Necessidade de contratação direta identificada pela unidade requisita…\"))\n    e10(((\"Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE\")))\n  end\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e1 --> e2\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e1 inicio\n  class e10 fim",
   "bpmn_spec": {
     "raias": [
       "Chefe da Divisão de Compras",
       "Div. de Compras"
     ],
     "elementos": [
-      {
-        "id": "e1",
-        "tipo": "inicio",
-        "label": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
-        "raia": "Chefe da Divisão de Compras"
-      },
       {
         "id": "e2",
         "tipo": "atividade",
@@ -396,17 +390,19 @@
         "raia": "Div. de Compras"
       },
       {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
+        "raia": "Div. de Compras"
+      },
+      {
         "id": "e10",
         "tipo": "fim",
         "label": "Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE",
-        "raia": "Chefe da Divisão de Compras"
+        "raia": "Div. de Compras"
       }
     ],
     "conexoes": [
-      {
-        "de": "e1",
-        "para": "e2"
-      },
       {
         "de": "e2",
         "para": "e3"
@@ -434,6 +430,10 @@
       {
         "de": "e8",
         "para": "e9"
+      },
+      {
+        "de": "e1",
+        "para": "e2"
       },
       {
         "de": "e9",
@@ -493,6 +493,20 @@
         "pb-compras"
       ],
       "motivo": "Completar o esqueleto da visão geral das contratações diretas: desdobrar os passos compostos, definir o enquadramento inicial (modalidade/instrumento), responsável, sistemas, artefatos, decisões de roteamento para os fluxos DCOM-01 a DCOM-04, contingência, checklist, KPIs, mapa de contexto e fluxograma (raia única, regenerado a partir dos passos), a partir do playbook pb-compras."
+    },
+    {
+      "versao": "1.1.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote DCOM)",
+      "tipo": "minor",
+      "mudancas": [
+        "Elementos BPMN removidos: e1, e10",
+        "Elementos BPMN adicionados: 2"
+      ],
+      "fontes": [
+        "pb-compras"
+      ],
+      "motivo": "Correção cosmética do fluxograma regenerado: os elementos de início e fim herdaram a raia do responsável pelo documento (identificacao.responsavel = 'Chefe da Divisão de Compras'), quebrando a raia única pretendida para a visão geral; padronizados para a raia 'Div. de Compras', igual às demais atividades."
     }
   ],
   "validacao": {
@@ -522,5 +536,5 @@
   "agente": "",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-03T01:49:12Z"
+  "atualizado_em": "2026-09-03T01:50:48Z"
 }

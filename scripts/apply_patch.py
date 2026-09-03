@@ -69,25 +69,34 @@ def aplicar(pop, patch, org=None, data=None):
                 p.update({k: v for k, v in (alt.get('campos') or {}).items()})
                 mudancas.append('Passo %d alterado (%s)' % (alt['n'], ', '.join(alt.get('campos') or {})))
                 tipo = cl.max_tipo(tipo, 'minor')
-    # adições
-    adds = sorted(patch.get('passos_adicionados') or [], key=lambda a: a.get('apos_n', len(passos)), reverse=True)
-    for a in adds:
-        novo = dict(a['passo'])
-        novo.setdefault('sistema', '')
-        novo.setdefault('artefato', '')
-        novo.setdefault('prazo', 'A definir')
-        novo.setdefault('evento', '')
-        novo.setdefault('fontes', list(patch.get('fontes') or []))
-        pos = a.get('apos_n', len(passos))
-        idx = len(passos)
-        for i, p in enumerate(passos):
-            if p.get('n') == pos:
-                idx = i + 1
-                break
-        if pos == 0:
-            idx = 0
-        passos.insert(idx, novo)
-        mudancas.append('Passo adicionado após %s: %s' % (pos, novo.get('acao', '')[:80]))
+    # adições — semântica: "após o passo n da numeração ORIGINAL"; várias adições com o mesmo apos_n
+    # (ou em playbook vazio) preservam a ordem em que foram listadas no patch
+    adds = patch.get('passos_adicionados') or []
+    if adds:
+        def novo_passo(a):
+            novo = dict(a['passo'])
+            novo.setdefault('sistema', '')
+            novo.setdefault('artefato', '')
+            novo.setdefault('prazo', 'A definir')
+            novo.setdefault('evento', '')
+            novo.setdefault('fontes', list(patch.get('fontes') or []))
+            return novo
+        por_pos = {}
+        for a in adds:
+            pos = a.get('apos_n')
+            pos = float('inf') if pos is None else int(pos)
+            por_pos.setdefault(pos, []).append(a)
+        orig = list(passos)
+        ns_orig = set(p.get('n') for p in orig)
+        novos = [novo_passo(a) for a in por_pos.get(0, [])]
+        for p in orig:
+            novos.append(p)
+            novos.extend(novo_passo(a) for a in por_pos.get(p.get('n'), []))
+        for pos in sorted(k for k in por_pos if k != 0 and k not in ns_orig):
+            novos.extend(novo_passo(a) for a in por_pos[pos])
+        passos[:] = novos
+        for a in adds:
+            mudancas.append('Passo adicionado após %s: %s' % ('fim' if a.get('apos_n') is None else a.get('apos_n'), str(a['passo'].get('acao', ''))[:80]))
         tipo = cl.max_tipo(tipo, 'minor')
     for i, p in enumerate(passos, 1):
         p['n'] = i

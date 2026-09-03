@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:49:28Z",
+  "sincronizado_em": "2026-09-03T01:51:30Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -2811,9 +2811,9 @@
       "id": "diretriz-07",
       "arquivo": "diretrizes/07-licoes-aprendidas.md",
       "titulo": "Lições aprendidas (log append-only)",
-      "versao": "1.0",
-      "atualizado_em": "2026-09-02",
-      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.0\"\natualizado_em: \"2026-09-02\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
+      "versao": "1.2",
+      "atualizado_em": "2026-09-03",
+      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.2\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
     },
     {
       "id": "diretriz-08",
@@ -2895,6 +2895,24 @@
       "regra": "Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis.",
       "status": "aprovada",
       "atualizado_em": "2026-09-02"
+    },
+    {
+      "id": "L-008",
+      "data": "2026-09-03",
+      "origem": "lote ALM",
+      "licao": "Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte.",
+      "regra": "O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência).",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
+    },
+    {
+      "id": "L-009",
+      "data": "2026-09-03",
+      "origem": "lote ALM",
+      "licao": "Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco.",
+      "regra": "Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência.",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
     }
   ],
   "pops": [
@@ -3326,7 +3344,7 @@
         "1780963200001"
       ],
       "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
-      "agente": "",
+      "agente": "pop-alm-00",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:34:48Z"
@@ -4285,7 +4303,7 @@
         "1780963200001"
       ],
       "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
-      "agente": "",
+      "agente": "pop-alm-02",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:41:32Z"
@@ -4707,7 +4725,7 @@
         "1780963200001"
       ],
       "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
-      "agente": "",
+      "agente": "pop-alm-03",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:42:29Z"
@@ -5175,7 +5193,7 @@
         "1780963200001"
       ],
       "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
-      "agente": "",
+      "agente": "pop-alm-04",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:43:50Z"
@@ -5649,7 +5667,7 @@
         "1780963200001"
       ],
       "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
-      "agente": "",
+      "agente": "pop-alm-05",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:44:54Z"
@@ -6045,7 +6063,7 @@
         "1780963200001"
       ],
       "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
-      "agente": "",
+      "agente": "pop-alm-06",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:45:53Z"
@@ -6538,7 +6556,7 @@
         "1780963200001"
       ],
       "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
-      "agente": "",
+      "agente": "pop-alm-07",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:47:09Z"
@@ -6969,7 +6987,7 @@
         "1780963200001"
       ],
       "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
-      "agente": "",
+      "agente": "pop-alm-08",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:48:13Z"
@@ -11820,7 +11838,7 @@
       "setor": "Div. de Compras",
       "setor_codigo": "S03.10-DCOM",
       "sigla": "DCOM",
-      "versao": "1.0.0",
+      "versao": "1.1.0",
       "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -12149,19 +12167,13 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Chefe da Divisão de Compras\"]\n    direction LR\n    e1((\"Necessidade de contratação direta identificada pela unidade requisita…\"))\n    e10(((\"Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE\")))\n  end\n  subgraph R2[\"Div. de Compras\"]\n    direction LR\n    e2[\"Identificar a hipótese de contratação direta aplicável (dispensa emer…\"]\n    e3[\"Receber e instruir o processo de contratação direta (TR/memorando, co…\"]\n    e4[\"Acompanhar a análise do Planejamento e a autorização da Direção Geral\"]\n    e5[\"Pesquisar preços de mercado e verificar a regularidade fiscal do forn…\"]\n    e6[\"Acompanhar a emissão do parecer jurídico pela Assessoria Jurídica\"]\n    e7[\"Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibili…\"]\n    e8[\"Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com…\"]\n    e9[\"Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, qu…\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e10 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Compras\"]\n    direction LR\n    e2[\"Identificar a hipótese de contratação direta aplicável (dispensa emer…\"]\n    e3[\"Receber e instruir o processo de contratação direta (TR/memorando, co…\"]\n    e4[\"Acompanhar a análise do Planejamento e a autorização da Direção Geral\"]\n    e5[\"Pesquisar preços de mercado e verificar a regularidade fiscal do forn…\"]\n    e6[\"Acompanhar a emissão do parecer jurídico pela Assessoria Jurídica\"]\n    e7[\"Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibili…\"]\n    e8[\"Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com…\"]\n    e9[\"Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, qu…\"]\n    e1((\"Necessidade de contratação direta identificada pela unidade requisita…\"))\n    e10(((\"Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE\")))\n  end\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e1 --> e2\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e1 inicio\n  class e10 fim",
       "bpmn_spec": {
         "raias": [
           "Chefe da Divisão de Compras",
           "Div. de Compras"
         ],
         "elementos": [
-          {
-            "id": "e1",
-            "tipo": "inicio",
-            "label": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
-            "raia": "Chefe da Divisão de Compras"
-          },
           {
             "id": "e2",
             "tipo": "atividade",
@@ -12211,17 +12223,19 @@
             "raia": "Div. de Compras"
           },
           {
+            "id": "e1",
+            "tipo": "inicio",
+            "label": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
+            "raia": "Div. de Compras"
+          },
+          {
             "id": "e10",
             "tipo": "fim",
             "label": "Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE",
-            "raia": "Chefe da Divisão de Compras"
+            "raia": "Div. de Compras"
           }
         ],
         "conexoes": [
-          {
-            "de": "e1",
-            "para": "e2"
-          },
           {
             "de": "e2",
             "para": "e3"
@@ -12249,6 +12263,10 @@
           {
             "de": "e8",
             "para": "e9"
+          },
+          {
+            "de": "e1",
+            "para": "e2"
           },
           {
             "de": "e9",
@@ -12308,6 +12326,20 @@
             "pb-compras"
           ],
           "motivo": "Completar o esqueleto da visão geral das contratações diretas: desdobrar os passos compostos, definir o enquadramento inicial (modalidade/instrumento), responsável, sistemas, artefatos, decisões de roteamento para os fluxos DCOM-01 a DCOM-04, contingência, checklist, KPIs, mapa de contexto e fluxograma (raia única, regenerado a partir dos passos), a partir do playbook pb-compras."
+        },
+        {
+          "versao": "1.1.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote DCOM)",
+          "tipo": "minor",
+          "mudancas": [
+            "Elementos BPMN removidos: e1, e10",
+            "Elementos BPMN adicionados: 2"
+          ],
+          "fontes": [
+            "pb-compras"
+          ],
+          "motivo": "Correção cosmética do fluxograma regenerado: os elementos de início e fim herdaram a raia do responsável pelo documento (identificacao.responsavel = 'Chefe da Divisão de Compras'), quebrando a raia única pretendida para a visão geral; padronizados para a raia 'Div. de Compras', igual às demais atividades."
         }
       ],
       "validacao": {
@@ -12337,7 +12369,7 @@
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T01:49:12Z"
+      "atualizado_em": "2026-09-03T01:50:48Z"
     },
     {
       "id": "pop-dcom-01",
@@ -26266,6 +26298,173 @@
       ],
       "licoes_propostas": [],
       "observacoes": "SFIN-00 permanece como POP-roteiro de coleta (visão geral de coordenação); a substância operacional financeira do campus está documentada nos POPs da Div. de Finanças (DFIN) e, quando mapeada, da Div. de Contabilidade (DCONT)."
+    },
+    {
+      "id": "diag-bib-20260903",
+      "setor": "Biblioteca",
+      "setor_codigo": "S06-BIB",
+      "sigla": "BIB",
+      "data": "2026-09-03T02:00:00Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [
+        "pb-biblioteca"
+      ],
+      "hash_fontes": "4d25f3fe1b6cd51e36901dd8cbdc53853f91d96103ec0664b5f1781c4acc25ca",
+      "ecossistema": {
+        "dominio": "Informação e Acervo",
+        "subdominios": [
+          "Circulação, referência e atendimento ao usuário",
+          "Preservação e conservação do acervo",
+          "Roteiro de coleta para mapeamento de processos (setor ainda não mapeado)"
+        ],
+        "contextos_vizinhos": [
+          "Div. Circulação, Referência e Acervo",
+          "ATDG — Assessoria Técnica da Direção Geral",
+          "Direção Geral de Campus"
+        ],
+        "sistemas": [
+          "Microsoft Forms",
+          "Sistema de bibliotecas (a definir)"
+        ],
+        "normas": [
+          "A definir (regulamentos do Sistema de Bibliotecas da Unioeste)"
+        ],
+        "benchmarks": []
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "BIB-00",
+          "nome": "Visão geral — Biblioteca (roteiro de coleta)",
+          "tipo": "processo",
+          "descricao": "Roteiro de coleta para o mapeamento das rotinas da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo), aplicado pela ATDG até que a área tenha responsável, fluxos e normas formalmente definidos.",
+          "tipo_subdominio": "suporte",
+          "gatilho": "Inclusão da Biblioteca no cronograma de mapeamento de processos da ATDG",
+          "saida": "Roteiro de coleta aplicado e playbook preliminar submetido à validação da Chefia",
+          "atores": [
+            "ATDG — Assessoria Técnica da Direção Geral",
+            "Bibliotecário(a)/Chefia da Divisão"
+          ],
+          "sistemas": [
+            "Microsoft Forms"
+          ],
+          "artefatos": [
+            "Questionário de mapeamento de atividades — Biblioteca",
+            "Playbook preliminar — Biblioteca"
+          ],
+          "interfaces": [
+            "Div. Circulação, Referência e Acervo",
+            "ATDG"
+          ],
+          "evidencias": [
+            "pb-biblioteca"
+          ],
+          "maturidade": 0,
+          "criticidade": 0.6,
+          "frequencia": 0.5,
+          "risco_conformidade": 0.4,
+          "cobertura": 0.15,
+          "prioridade": 0.55,
+          "lacunas": [
+            "responsavel",
+            "formulario",
+            "prazo"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-bib-00",
+          "justificativa": "Setor sem levantamento prévio (apenas playbook em construção); nesta rodada o esqueleto foi convertido em roteiro de coleta (v0.2.0), com gatilho, entradas/saídas, KPIs e contingência do próprio levantamento, mas o responsável e as rotinas operacionais da Biblioteca seguem 'A definir' até a aplicação do questionário à Chefia."
+        }
+      ],
+      "lacunas_setor": [
+        "Responsável formal da Biblioteca ainda não designado/identificado",
+        "Normativa própria do Sistema de Bibliotecas da Unioeste ainda não localizada (regulamentos a definir)",
+        "Rotinas operacionais de circulação, referência e preservação do acervo ainda não levantadas em detalhe"
+      ],
+      "licoes_propostas": [],
+      "observacoes": "Setor sem entradas de mapeamento além do playbook em construção (pb-biblioteca). Diagnóstico registra a conversão do esqueleto em roteiro de coleta (BIB-00 v0.2.0); recomenda-se aplicar o questionário de mapeamento à Chefia da Biblioteca antes de qualificar processos operacionais específicos."
+    },
+    {
+      "id": "diag-dcra-20260903",
+      "setor": "Div. Circulação, Referência e Acervo",
+      "setor_codigo": "S06.01-DCRA",
+      "sigla": "DCRA",
+      "data": "2026-09-03T02:00:00Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [
+        "pb-biblioteca-acervo"
+      ],
+      "hash_fontes": "e3f74a1ae70851043a4f76b501ec5936f9194c39fd9a437a66643481585df4b2",
+      "ecossistema": {
+        "dominio": "Informação e Acervo",
+        "subdominios": [
+          "Circulação e referência",
+          "Preservação e conservação do acervo",
+          "Roteiro de coleta para mapeamento de processos (setor ainda não mapeado)"
+        ],
+        "contextos_vizinhos": [
+          "Biblioteca",
+          "ATDG — Assessoria Técnica da Direção Geral"
+        ],
+        "sistemas": [
+          "Microsoft Forms",
+          "Sistema de bibliotecas (a definir)"
+        ],
+        "normas": [
+          "A definir (regulamentos do Sistema de Bibliotecas da Unioeste)"
+        ],
+        "benchmarks": []
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "DCRA-00",
+          "nome": "Visão geral — Div. Circulação, Referência e Acervo (roteiro de coleta)",
+          "tipo": "processo",
+          "descricao": "Roteiro de coleta para o mapeamento das rotinas de circulação, referência, preservação e conservação do acervo, aplicado pela ATDG até que a Divisão tenha responsável, fluxos e normas formalmente definidos.",
+          "tipo_subdominio": "suporte",
+          "gatilho": "Inclusão da Div. Circulação, Referência e Acervo no cronograma de mapeamento de processos da ATDG",
+          "saida": "Roteiro de coleta aplicado e playbook preliminar submetido à validação da Chefia da Biblioteca",
+          "atores": [
+            "ATDG — Assessoria Técnica da Direção Geral",
+            "Bibliotecário(a)/Chefia da Divisão"
+          ],
+          "sistemas": [
+            "Microsoft Forms"
+          ],
+          "artefatos": [
+            "Questionário de mapeamento de atividades — Div. Circulação, Referência e Acervo",
+            "Playbook preliminar — Div. Circulação, Referência e Acervo"
+          ],
+          "interfaces": [
+            "Biblioteca",
+            "ATDG"
+          ],
+          "evidencias": [
+            "pb-biblioteca-acervo"
+          ],
+          "maturidade": 0,
+          "criticidade": 0.55,
+          "frequencia": 0.5,
+          "risco_conformidade": 0.4,
+          "cobertura": 0.15,
+          "prioridade": 0.53,
+          "lacunas": [
+            "responsavel",
+            "formulario",
+            "prazo"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-dcra-00",
+          "justificativa": "Divisão sem levantamento prévio (apenas playbook em construção); nesta rodada o esqueleto foi convertido em roteiro de coleta (v0.2.0), com gatilho, entradas/saídas, KPIs e contingência do próprio levantamento, mas o responsável e as rotinas operacionais da Divisão seguem 'A definir' até a aplicação do questionário à Chefia."
+        }
+      ],
+      "lacunas_setor": [
+        "Responsável formal da Divisão ainda não designado/identificado",
+        "Normativa própria do Sistema de Bibliotecas ainda não localizada (regulamentos a definir)",
+        "Rotinas de circulação, referência e conservação do acervo ainda não levantadas em detalhe"
+      ],
+      "licoes_propostas": [],
+      "observacoes": "Setor sem entradas de mapeamento além do playbook em construção (pb-biblioteca-acervo). Diagnóstico registra a conversão do esqueleto em roteiro de coleta (DCRA-00 v0.2.0); recomenda-se aplicar o questionário de mapeamento à Chefia da Divisão antes de qualificar processos operacionais específicos."
     }
   ],
   "agentes": [
@@ -26276,12 +26475,124 @@
       "nome": "Agente do processo ALM-01 — Recebimento de Materiais",
       "setor_codigo": "S03.04-ALM",
       "arquivo": ".claude/agents/pop-alm-01.md",
-      "versao_diretrizes": "1.0",
-      "versao_pop": "0.1.0",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.1.0",
       "modelo": "sonnet",
       "origem": "script",
       "criado_em": "2026-09-02T17:57:56Z",
-      "atualizado_em": "2026-09-02T17:57:56Z"
+      "atualizado_em": "2026-09-03T01:51:30Z"
+    },
+    {
+      "id": "agente-pop-alm-00",
+      "codigo": "ALM-00",
+      "pop_id": "pop-alm-00",
+      "nome": "Agente do processo ALM-00 — Visão geral — Div. de Almoxarifado",
+      "setor_codigo": "S03.04-ALM",
+      "arquivo": ".claude/agents/pop-alm-00.md",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:51:30Z",
+      "atualizado_em": "2026-09-03T01:51:30Z"
+    },
+    {
+      "id": "agente-pop-alm-02",
+      "codigo": "ALM-02",
+      "pop_id": "pop-alm-02",
+      "nome": "Agente do processo ALM-02 — Armazenagem",
+      "setor_codigo": "S03.04-ALM",
+      "arquivo": ".claude/agents/pop-alm-02.md",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:51:30Z",
+      "atualizado_em": "2026-09-03T01:51:30Z"
+    },
+    {
+      "id": "agente-pop-alm-03",
+      "codigo": "ALM-03",
+      "pop_id": "pop-alm-03",
+      "nome": "Agente do processo ALM-03 — Distribuição para Departamentos",
+      "setor_codigo": "S03.04-ALM",
+      "arquivo": ".claude/agents/pop-alm-03.md",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:51:30Z",
+      "atualizado_em": "2026-09-03T01:51:30Z"
+    },
+    {
+      "id": "agente-pop-alm-04",
+      "codigo": "ALM-04",
+      "pop_id": "pop-alm-04",
+      "nome": "Agente do processo ALM-04 — Inventário Rotativo",
+      "setor_codigo": "S03.04-ALM",
+      "arquivo": ".claude/agents/pop-alm-04.md",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:51:30Z",
+      "atualizado_em": "2026-09-03T01:51:30Z"
+    },
+    {
+      "id": "agente-pop-alm-05",
+      "codigo": "ALM-05",
+      "pop_id": "pop-alm-05",
+      "nome": "Agente do processo ALM-05 — Inventário Geral",
+      "setor_codigo": "S03.04-ALM",
+      "arquivo": ".claude/agents/pop-alm-05.md",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:51:30Z",
+      "atualizado_em": "2026-09-03T01:51:30Z"
+    },
+    {
+      "id": "agente-pop-alm-06",
+      "codigo": "ALM-06",
+      "pop_id": "pop-alm-06",
+      "nome": "Agente do processo ALM-06 — Conciliação Físico-Contábil",
+      "setor_codigo": "S03.04-ALM",
+      "arquivo": ".claude/agents/pop-alm-06.md",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:51:30Z",
+      "atualizado_em": "2026-09-03T01:51:30Z"
+    },
+    {
+      "id": "agente-pop-alm-07",
+      "codigo": "ALM-07",
+      "pop_id": "pop-alm-07",
+      "nome": "Agente do processo ALM-07 — Desfazimento de Materiais Inservíveis",
+      "setor_codigo": "S03.04-ALM",
+      "arquivo": ".claude/agents/pop-alm-07.md",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:51:30Z",
+      "atualizado_em": "2026-09-03T01:51:30Z"
+    },
+    {
+      "id": "agente-pop-alm-08",
+      "codigo": "ALM-08",
+      "pop_id": "pop-alm-08",
+      "nome": "Agente do processo ALM-08 — Relatórios e Prestação de Contas",
+      "setor_codigo": "S03.04-ALM",
+      "arquivo": ".claude/agents/pop-alm-08.md",
+      "versao_diretrizes": "1.2",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:51:30Z",
+      "atualizado_em": "2026-09-03T01:51:30Z"
     }
   ]
 }

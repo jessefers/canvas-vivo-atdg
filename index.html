@@ -2845,12 +2845,18 @@ function applyPopPatch(popIn,patch,entriesAll){
   const rem=new Set(patch.passos_removidos||[]);
   if(rem.size){const antes=passos.length;passos=pop.playbook.passos=passos.filter(p=>!rem.has(p.n));mud.push('Passos removidos: '+Array.from(rem).sort().join(', '));if(passos.length<antes)tipo=maxTipo(tipo,'major');}
   (patch.passos_alterados||[]).forEach(alt=>{passos.forEach(p=>{if(p.n===alt.n){Object.assign(p,alt.campos||{});mud.push('Passo '+alt.n+' alterado ('+Object.keys(alt.campos||{}).join(', ')+')');tipo=maxTipo(tipo,'minor');}});});
-  (patch.passos_adicionados||[]).slice().sort((a,b)=>(b.apos_n===undefined?passos.length:b.apos_n)-(a.apos_n===undefined?passos.length:a.apos_n)).forEach(a=>{
-    const novo=Object.assign({sistema:'',artefato:'',prazo:'A definir',evento:'',fontes:(patch.fontes||[]).slice()},a.passo);
-    const pos=(a.apos_n===undefined)?passos.length:a.apos_n;let idx=passos.length;
-    for(let i=0;i<passos.length;i++){if(passos[i].n===pos){idx=i+1;break;}}
-    if(pos===0)idx=0;passos.splice(idx,0,novo);mud.push('Passo adicionado após '+pos+': '+String(novo.acao||'').substring(0,80));tipo=maxTipo(tipo,'minor');
-  });
+  const adds=(patch.passos_adicionados||[]);
+  if(adds.length){
+    const mk=a=>Object.assign({sistema:'',artefato:'',prazo:'A definir',evento:'',fontes:(patch.fontes||[]).slice()},a.passo);
+    const byPos={};adds.forEach(a=>{const pos=(a.apos_n===undefined||a.apos_n===null)?Infinity:Number(a.apos_n);(byPos[pos]=byPos[pos]||[]).push(a);});
+    const orig=passos.slice();const nsOrig=new Set(orig.map(p=>p.n));const novo=[];
+    (byPos[0]||[]).forEach(a=>novo.push(mk(a)));
+    orig.forEach(p=>{novo.push(p);(byPos[p.n]||[]).forEach(a=>novo.push(mk(a)));});
+    Object.keys(byPos).map(Number).filter(k=>k!==0&&!nsOrig.has(k)).sort((a,b)=>a-b).forEach(k=>{byPos[k].forEach(a=>novo.push(mk(a)));});
+    passos=pop.playbook.passos=novo;
+    adds.forEach(a=>mud.push('Passo adicionado após '+((a.apos_n===undefined||a.apos_n===null)?'fim':a.apos_n)+': '+String((a.passo||{}).acao||'').substring(0,80)));
+    tipo=maxTipo(tipo,'minor');
+  }
   passos.forEach((p,i)=>{p.n=i+1;});
   PATCH_LISTAS.forEach(([chave,caminho,t])=>{const itens=patch[chave]||[];if(!itens.length)return;const alvo=getPath(pop,caminho);itens.forEach(it=>{if(!alvo.some(x=>JSON.stringify(x)===JSON.stringify(it)))alvo.push(it);});mud.push(chave+': +'+itens.length);tipo=maxTipo(tipo,t);});
   Object.entries(patch.campos||{}).forEach(([k,v])=>{const antigo=getDotted(pop,k);

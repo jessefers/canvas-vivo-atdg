@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S03.04-ALM
 setor: "Div. de Almoxarifado"
 atualizado_em: "2026-09-03T01:34:48Z"
-agente: —
+agente: pop-alm-00
 versao_diretrizes: "1.0"
 ---
 
@@ -46,7 +46,7 @@ versao_diretrizes: "1.0"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-almoxarifado, 1780963200000, 1780963200001 |
 | Lacunas abertas | formulario |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-alm-00 |
 
 ## 2. Organograma
 

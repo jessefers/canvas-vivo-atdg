@@ -1,18 +1,18 @@
 ---
 codigo: DCOM-00
 titulo: "Visão geral — Div. de Compras"
-versao: "1.0.0"
+versao: "1.1.0"
 status: em_validacao
 setor_codigo: S03.10-DCOM
 setor: "Div. de Compras"
-atualizado_em: "2026-09-03T01:49:12Z"
+atualizado_em: "2026-09-03T01:50:48Z"
 agente: —
 versao_diretrizes: "1.0"
 ---
 
 # POP DCOM-00 — Visão geral — Div. de Compras
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **1.0.0** · Status **em_validacao** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **1.1.0** · Status **em_validacao** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -173,12 +173,7 @@ graph TD
 
 ```mermaid
 flowchart LR
-  subgraph R1["Chefe da Divisão de Compras"]
-    direction LR
-    e1(("Necessidade de contratação direta identificada pela unidade requisita…"))
-    e10((("Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE")))
-  end
-  subgraph R2["Div. de Compras"]
+  subgraph R1["Div. de Compras"]
     direction LR
     e2["Identificar a hipótese de contratação direta aplicável (dispensa emer…"]
     e3["Receber e instruir o processo de contratação direta (TR/memorando, co…"]
@@ -188,8 +183,9 @@ flowchart LR
     e7["Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibili…"]
     e8["Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com…"]
     e9["Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, qu…"]
+    e1(("Necessidade de contratação direta identificada pela unidade requisita…"))
+    e10((("Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE")))
   end
-  e1 --> e2
   e2 --> e3
   e3 --> e4
   e4 --> e5
@@ -197,6 +193,7 @@ flowchart LR
   e6 --> e7
   e7 --> e8
   e8 --> e9
+  e1 --> e2
   e9 --> e10
   classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151
   classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E
@@ -204,8 +201,8 @@ flowchart LR
   classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544
   classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544
   classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66
-  class e1 inicio
   class e2,e3,e4,e5,e6,e7,e8,e9 atividade
+  class e1 inicio
   class e10 fim
 ```
 
@@ -215,7 +212,6 @@ flowchart LR
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
-| e1 | inicio | Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade) | Chefe da Divisão de Compras |
 | e2 | atividade | Identificar a hipótese de contratação direta aplicável (dispensa emergencial ou inexigibilidade) e o instrumento de formalização (contrato ou Ordem de Compra) | Div. de Compras |
 | e3 | atividade | Receber e instruir o processo de contratação direta (TR/memorando, cotações/tabela comparativa ou carta de exclusividade, conforme a hipótese) | Div. de Compras |
 | e4 | atividade | Acompanhar a análise do Planejamento e a autorização da Direção Geral | Div. de Compras |
@@ -224,11 +220,11 @@ flowchart LR
 | e7 | atividade | Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibilidade) pela Sec. Financeira/Contabilidade | Div. de Compras |
 | e8 | atividade | Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com a publicação no DIOE | Div. de Compras |
 | e9 | atividade | Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, quando aplicável | Div. de Compras |
-| e10 | fim | Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE | Chefe da Divisão de Compras |
+| e1 | inicio | Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade) | Div. de Compras |
+| e10 | fim | Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE | Div. de Compras |
 
 | De | Para | Rótulo |
 |---|---|---|
-| e1 | e2 | — |
 | e2 | e3 | — |
 | e3 | e4 | — |
 | e4 | e5 | — |
@@ -236,6 +232,7 @@ flowchart LR
 | e6 | e7 | — |
 | e7 | e8 | — |
 | e8 | e9 | — |
+| e1 | e2 | — |
 | e9 | e10 | — |
 
 _Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro._
@@ -246,6 +243,7 @@ _Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir das entradas pb-compras | pb-compras |
 | 1.0.0 | 2026-09-03 | agente:construtor-pop (lote DCOM) | major | Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo adicionado após 5: Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, quando aplicá; Passo adicionado após 4: Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibilidade) pela ; Passo adicionado após 0: Identificar a hipótese de contratação direta aplicável (dispensa emergencial ou ; entrada_nova: +4; saida_nova: +2; artefatos_novos: +7; decisoes_novas: +2; kpis_novos: +2; mapa_contexto_novo: +5; pontos_atencao_novos: +3; contingencia_nova: +3; checklist_novo: +4; glossario_novo: +6; Campo ddd.descricao atualizado; Campo ddd.subdominio atualizado; Campo identificacao.responsavel atualizado; Campo identificacao.periodicidade atualizado; Campo playbook.gatilho atualizado; Campo observacoes atualizado; Fluxograma regenerado a partir dos passos; Status promovido a em_validacao (≥ 3 passos e responsável definido) | pb-compras |
+| 1.1.0 | 2026-09-03 | agente:construtor-pop (lote DCOM) | minor | Elementos BPMN removidos: e1, e10; Elementos BPMN adicionados: 2 | pb-compras |
 
 ## 13. Validação e aprovação
 

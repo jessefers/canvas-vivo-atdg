@@ -1,0 +1,83 @@
+{
+  "id": "diag-dcra-20260903",
+  "setor": "Div. Circulação, Referência e Acervo",
+  "setor_codigo": "S06.01-DCRA",
+  "sigla": "DCRA",
+  "data": "2026-09-03T02:00:00Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-biblioteca-acervo"
+  ],
+  "hash_fontes": "e3f74a1ae70851043a4f76b501ec5936f9194c39fd9a437a66643481585df4b2",
+  "ecossistema": {
+    "dominio": "Informação e Acervo",
+    "subdominios": [
+      "Circulação e referência",
+      "Preservação e conservação do acervo",
+      "Roteiro de coleta para mapeamento de processos (setor ainda não mapeado)"
+    ],
+    "contextos_vizinhos": [
+      "Biblioteca",
+      "ATDG — Assessoria Técnica da Direção Geral"
+    ],
+    "sistemas": [
+      "Microsoft Forms",
+      "Sistema de bibliotecas (a definir)"
+    ],
+    "normas": [
+      "A definir (regulamentos do Sistema de Bibliotecas da Unioeste)"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DCRA-00",
+      "nome": "Visão geral — Div. Circulação, Referência e Acervo (roteiro de coleta)",
+      "tipo": "processo",
+      "descricao": "Roteiro de coleta para o mapeamento das rotinas de circulação, referência, preservação e conservação do acervo, aplicado pela ATDG até que a Divisão tenha responsável, fluxos e normas formalmente definidos.",
+      "tipo_subdominio": "suporte",
+      "gatilho": "Inclusão da Div. Circulação, Referência e Acervo no cronograma de mapeamento de processos da ATDG",
+      "saida": "Roteiro de coleta aplicado e playbook preliminar submetido à validação da Chefia da Biblioteca",
+      "atores": [
+        "ATDG — Assessoria Técnica da Direção Geral",
+        "Bibliotecário(a)/Chefia da Divisão"
+      ],
+      "sistemas": [
+        "Microsoft Forms"
+      ],
+      "artefatos": [
+        "Questionário de mapeamento de atividades — Div. Circulação, Referência e Acervo",
+        "Playbook preliminar — Div. Circulação, Referência e Acervo"
+      ],
+      "interfaces": [
+        "Biblioteca",
+        "ATDG"
+      ],
+      "evidencias": [
+        "pb-biblioteca-acervo"
+      ],
+      "maturidade": 0,
+      "criticidade": 0.55,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.4,
+      "cobertura": 0.15,
+      "prioridade": 0.53,
+      "lacunas": [
+        "responsavel",
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-dcra-00",
+      "justificativa": "Divisão sem levantamento prévio (apenas playbook em construção); nesta rodada o esqueleto foi convertido em roteiro de coleta (v0.2.0), com gatilho, entradas/saídas, KPIs e contingência do próprio levantamento, mas o responsável e as rotinas operacionais da Divisão seguem 'A definir' até a aplicação do questionário à Chefia."
+    }
+  ],
+  "lacunas_setor": [
+    "Responsável formal da Divisão ainda não designado/identificado",
+    "Normativa própria do Sistema de Bibliotecas ainda não localizada (regulamentos a definir)",
+    "Rotinas de circulação, referência e conservação do acervo ainda não levantadas em detalhe"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "Setor sem entradas de mapeamento além do playbook em construção (pb-biblioteca-acervo). Diagnóstico registra a conversão do esqueleto em roteiro de coleta (DCRA-00 v0.2.0); recomenda-se aplicar o questionário de mapeamento à Chefia da Divisão antes de qualificar processos operacionais específicos."
+}

@@ -1,8 +1,8 @@
 ---
 id: diretriz-07
 titulo: Lições aprendidas (log append-only)
-versao: "1.0"
-atualizado_em: "2026-09-02"
+versao: "1.2"
+atualizado_em: "2026-09-03"
 ---
 
 # 07 — Lições aprendidas
@@ -25,6 +25,8 @@ Log **append-only**. Somente lições com `status: aprovada` são injetadas nos 
 
 | id | data | origem | lição | regra proposta | status |
 |---|---|---|---|---|---|
+| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |
+| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |
 
 ## Rejeitadas
 

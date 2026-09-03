@@ -1,7 +1,7 @@
 {
   "setor": "Div. de Compras",
   "codigo": "DCOM-00",
-  "gerado_em": "2026-09-03T01:49:12Z",
+  "gerado_em": "2026-09-03T01:50:48Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
@@ -12,12 +12,6 @@
         "Div. de Compras"
       ],
       "elementos": [
-        {
-          "id": "e1",
-          "tipo": "inicio",
-          "label": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
-          "raia": "Chefe da Divisão de Compras"
-        },
         {
           "id": "e2",
           "tipo": "atividade",
@@ -67,17 +61,19 @@
           "raia": "Div. de Compras"
         },
         {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
+          "raia": "Div. de Compras"
+        },
+        {
           "id": "e10",
           "tipo": "fim",
           "label": "Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE",
-          "raia": "Chefe da Divisão de Compras"
+          "raia": "Div. de Compras"
         }
       ],
       "conexoes": [
-        {
-          "de": "e1",
-          "para": "e2"
-        },
         {
           "de": "e2",
           "para": "e3"
@@ -105,6 +101,10 @@
         {
           "de": "e8",
           "para": "e9"
+        },
+        {
+          "de": "e1",
+          "para": "e2"
         },
         {
           "de": "e9",

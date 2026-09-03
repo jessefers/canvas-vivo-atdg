@@ -1,0 +1,84 @@
+{
+  "id": "diag-bib-20260903",
+  "setor": "Biblioteca",
+  "setor_codigo": "S06-BIB",
+  "sigla": "BIB",
+  "data": "2026-09-03T02:00:00Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-biblioteca"
+  ],
+  "hash_fontes": "4d25f3fe1b6cd51e36901dd8cbdc53853f91d96103ec0664b5f1781c4acc25ca",
+  "ecossistema": {
+    "dominio": "Informação e Acervo",
+    "subdominios": [
+      "Circulação, referência e atendimento ao usuário",
+      "Preservação e conservação do acervo",
+      "Roteiro de coleta para mapeamento de processos (setor ainda não mapeado)"
+    ],
+    "contextos_vizinhos": [
+      "Div. Circulação, Referência e Acervo",
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Direção Geral de Campus"
+    ],
+    "sistemas": [
+      "Microsoft Forms",
+      "Sistema de bibliotecas (a definir)"
+    ],
+    "normas": [
+      "A definir (regulamentos do Sistema de Bibliotecas da Unioeste)"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "BIB-00",
+      "nome": "Visão geral — Biblioteca (roteiro de coleta)",
+      "tipo": "processo",
+      "descricao": "Roteiro de coleta para o mapeamento das rotinas da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo), aplicado pela ATDG até que a área tenha responsável, fluxos e normas formalmente definidos.",
+      "tipo_subdominio": "suporte",
+      "gatilho": "Inclusão da Biblioteca no cronograma de mapeamento de processos da ATDG",
+      "saida": "Roteiro de coleta aplicado e playbook preliminar submetido à validação da Chefia",
+      "atores": [
+        "ATDG — Assessoria Técnica da Direção Geral",
+        "Bibliotecário(a)/Chefia da Divisão"
+      ],
+      "sistemas": [
+        "Microsoft Forms"
+      ],
+      "artefatos": [
+        "Questionário de mapeamento de atividades — Biblioteca",
+        "Playbook preliminar — Biblioteca"
+      ],
+      "interfaces": [
+        "Div. Circulação, Referência e Acervo",
+        "ATDG"
+      ],
+      "evidencias": [
+        "pb-biblioteca"
+      ],
+      "maturidade": 0,
+      "criticidade": 0.6,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.4,
+      "cobertura": 0.15,
+      "prioridade": 0.55,
+      "lacunas": [
+        "responsavel",
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-bib-00",
+      "justificativa": "Setor sem levantamento prévio (apenas playbook em construção); nesta rodada o esqueleto foi convertido em roteiro de coleta (v0.2.0), com gatilho, entradas/saídas, KPIs e contingência do próprio levantamento, mas o responsável e as rotinas operacionais da Biblioteca seguem 'A definir' até a aplicação do questionário à Chefia."
+    }
+  ],
+  "lacunas_setor": [
+    "Responsável formal da Biblioteca ainda não designado/identificado",
+    "Normativa própria do Sistema de Bibliotecas da Unioeste ainda não localizada (regulamentos a definir)",
+    "Rotinas operacionais de circulação, referência e preservação do acervo ainda não levantadas em detalhe"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "Setor sem entradas de mapeamento além do playbook em construção (pb-biblioteca). Diagnóstico registra a conversão do esqueleto em roteiro de coleta (BIB-00 v0.2.0); recomenda-se aplicar o questionário de mapeamento à Chefia da Biblioteca antes de qualificar processos operacionais específicos."
+}
