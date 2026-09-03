@@ -1,18 +1,18 @@
 ---
 codigo: ALM-01
 titulo: "Recebimento de Materiais"
-versao: "1.0.0"
+versao: "1.1.0"
 status: em_validacao
 setor_codigo: S03.04-ALM
 setor: "Div. de Almoxarifado"
-atualizado_em: "2026-09-03T01:36:12Z"
+atualizado_em: "2026-09-03T01:39:31Z"
 agente: pop-alm-01
 versao_diretrizes: "1.0"
 ---
 
 # POP ALM-01 — Recebimento de Materiais
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **1.0.0** · Status **em_validacao** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **1.1.0** · Status **em_validacao** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -85,13 +85,13 @@ graph TD
 | Nº | Ação | Responsável | Sistema | Artefato | Prazo | Evento |
 |---|---|---|---|---|---|---|
 | 1 | Receber a Nota Fiscal (NF) e o material entregue pelo Fornecedor | Agente Universitário do Almoxarifado | — | Nota Fiscal | No ato da entrega | Material e NF recebidos |
-| 2 | Liberar o material para encaminhamento à armazenagem | Chefe da Divisão de Almoxarifado | GMS/ERP | — | Após confirmação da PRAF | Material liberado para armazenagem (ALM-02) |
-| 3 | Confirmar a regularidade do recebimento | PRAF | e-Protocolo | Confirmação da PRAF | A definir | Recebimento confirmado pela PRAF |
-| 4 | Encaminhar a confirmação do recebimento à PRAF | Chefe da Divisão de Almoxarifado | e-Protocolo | Termo de recebimento | A definir | Confirmação encaminhada à PRAF |
-| 5 | Lançar o recebimento conforme no GMS/ERP | Agente Universitário do Almoxarifado | GMS/ERP | Termo de recebimento | No ato da conferência | Material registrado no GMS/ERP |
-| 6 | Registrar a divergência ou avaria identificada e notificar o Fornecedor para providências | Agente Universitário do Almoxarifado | GMS/ERP | Registro de divergência/avaria | A definir | Divergência registrada e Fornecedor notificado |
-| 7 | Verificar a conformidade entre o material recebido e a NF | Agente Universitário do Almoxarifado | GMS/ERP | Formulário de conferência de recebimento | No ato do recebimento | Conformidade verificada |
-| 8 | Conferir quantitativa e qualitativamente o material recebido em relação à NF | Agente Universitário do Almoxarifado | GMS/ERP | Formulário de conferência de recebimento | No ato do recebimento | Conferência registrada |
+| 2 | Conferir quantitativa e qualitativamente o material recebido em relação à NF | Agente Universitário do Almoxarifado | GMS/ERP | Formulário de conferência de recebimento | No ato do recebimento | Conferência registrada |
+| 3 | Verificar a conformidade entre o material recebido e a NF | Agente Universitário do Almoxarifado | GMS/ERP | Formulário de conferência de recebimento | No ato do recebimento | Conformidade verificada |
+| 4 | Registrar a divergência ou avaria identificada e notificar o Fornecedor para providências | Agente Universitário do Almoxarifado | GMS/ERP | Registro de divergência/avaria | A definir | Divergência registrada e Fornecedor notificado |
+| 5 | Lançar o recebimento no GMS/ERP | Agente Universitário do Almoxarifado | GMS/ERP | Termo de recebimento | No ato da conferência | Material registrado no GMS/ERP |
+| 6 | Encaminhar a confirmação do recebimento à PRAF | Chefe da Divisão de Almoxarifado | e-Protocolo | Termo de recebimento | A definir | Confirmação encaminhada à PRAF |
+| 7 | Confirmar a regularidade do recebimento | PRAF | e-Protocolo | Confirmação da PRAF | A definir | Recebimento confirmado pela PRAF |
+| 8 | Liberar o material para encaminhamento à armazenagem | Chefe da Divisão de Almoxarifado | GMS/ERP | — | Após confirmação da PRAF | Material liberado para armazenagem (ALM-02) |
 
 ### 3.4 Saída (entregáveis)
 
@@ -241,6 +241,7 @@ _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir do escopo "Entrada, conferência, NF, PRAF" | — |
 | 1.0.0 | 2026-09-03 | agente:construtor-pop (lote ALM) | major | Passo adicionado após 7: Liberar o material para encaminhamento à armazenagem; Passo adicionado após 6: Confirmar a regularidade do recebimento; Passo adicionado após 5: Encaminhar a confirmação do recebimento à PRAF; Passo adicionado após 4: Lançar o recebimento conforme no GMS/ERP; Passo adicionado após 3: Registrar a divergência ou avaria identificada e notificar o Fornecedor para pro; Passo adicionado após 2: Verificar a conformidade entre o material recebido e a NF; Passo adicionado após 1: Conferir quantitativa e qualitativamente o material recebido em relação à NF; Passo adicionado após 0: Receber a Nota Fiscal (NF) e o material entregue pelo Fornecedor; entrada_nova: +1; saida_nova: +1; artefatos_novos: +3; decisoes_novas: +1; kpis_novos: +2; mapa_contexto_novo: +3; pontos_atencao_novos: +2; contingencia_nova: +3; checklist_novo: +4; glossario_novo: +2; normativa_nova: +3; Campo ddd.descricao atualizado; Campo ddd.subdominio atualizado; Campo identificacao.responsavel atualizado; Campo identificacao.periodicidade atualizado; Campo playbook.gatilho atualizado; Campo observacoes atualizado; Raias adicionadas: Fornecedor, Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado, PRAF; Elementos BPMN removidos: e1, e2; Elementos BPMN adicionados: 13; Status promovido a em_validacao (≥ 3 passos e responsável definido) | pb-almoxarifado, 1780963200000, 1780963200001 |
+| 1.1.0 | 2026-09-03 | agente:construtor-pop (lote ALM) | minor | Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 6 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 7 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 8 alterado (acao, responsavel, sistema, artefato, prazo, evento) | pb-almoxarifado, 1780963200000, 1780963200001 |
 
 ## 13. Validação e aprovação
 

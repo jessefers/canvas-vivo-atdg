@@ -1,32 +1,39 @@
 ---
 codigo: DCOM-02
 titulo: "Fluxo — Dispensa Emergencial (com Ordem de Compra)"
-versao: "0.1.0"
-status: rascunho
+versao: "1.0.0"
+status: em_validacao
 setor_codigo: S03.10-DCOM
 setor: "Div. de Compras"
-atualizado_em: "2026-09-02T17:55:54Z"
+atualizado_em: "2026-09-03T01:40:38Z"
 agente: —
 versao_diretrizes: "1.0"
 ---
 
 # POP DCOM-02 — Fluxo — Dispensa Emergencial (com Ordem de Compra)
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.1.0** · Status **rascunho** · Atualizado em 2026-09-02
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **1.0.0** · Status **em_validacao** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
 | Divisão | Departamento | Descrição |
 |---|---|---|
-| Secretaria Administrativa | Div. de Compras | Fluxo da contratação por dispensa emergencial com ordem de compra. O interessado elabora memorando, cotações e tabela comparativa e envia ao Planejamento, que analisa e submete à Direção Geral. Compras faz pesquisa de preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro empenha; e Compras emite a Ordem de Compra, publica no DIOE e encaminha à empresa e ao interessado. |
+| Secretaria Administrativa | Div. de Compras | Contratação direta por dispensa emergencial de licitação, formalizada por Ordem de Compra. A Div. de Compras conduz a pesquisa de preços e a verificação de regularidade fiscal do fornecedor, subsidia a Assessoria Jurídica e a Sec. Financeira/Contabilidade, e emite e publica a Ordem de Compra no DIOE, encaminhando-a à empresa fornecedora e ao interessado, nos termos da Lei nº 14.133/2021. |
 
 | Domínio | Subdomínio | Tipo | Contexto delimitado |
 |---|---|---|---|
-| Contratações Públicas | Fluxo — Dispensa Emergencial (com Ordem de Compra) | core | S03.10-DCOM |
+| Contratações Públicas | Contratação direta por dispensa emergencial com emissão de Ordem de Compra | core | S03.10-DCOM |
 
 ### 0.3 Linguagem ubíqua (glossário do processo)
 
-Herda integralmente o glossário institucional (`diretrizes/09-glossario-institucional.md`); sem termos locais adicionais.
+| Termo | Definição | Sistema |
+|---|---|---|
+| TR | Termo de Referência — documento que descreve o objeto, as especificações técnicas, a justificativa e os requisitos da contratação; nesta variante, substituído por memorando quando a formalização é por Ordem de Compra. | e-Protocolo |
+| DDF | Sigla utilizada pelo setor para o registro de comprometimento orçamentário/financeiro que antecede a contratação por inexigibilidade (função análoga ao empenho, usado nas dispensas); expansão exata da sigla a confirmar com a Sec. Financeira/Contabilidade. | GMS |
+| DIOE | Diário Oficial do Estado — veículo oficial de publicação dos atos administrativos (extratos de contrato/OC, avisos de dispensa/inexigibilidade, portarias); a publicação é condição de eficácia do ato. | DIOE |
+| Dispensa (de licitação) | Hipótese de contratação direta, sem processo licitatório, prevista na Lei nº 14.133/2021, cabível nas situações legalmente definidas (como a emergência), mediante justificativa da situação que a fundamenta. | — |
+| Inexigibilidade | Hipótese de contratação direta, sem processo licitatório, cabível quando há inviabilidade de competição (art. 74 da Lei nº 14.133/2021), como no caso de fornecedor exclusivo comprovado por carta de exclusividade. | — |
+| Carta de exclusividade | Declaração emitida pelo fornecedor (ou por entidade representativa, quando aplicável) atestando que é o único capaz de fornecer o objeto pretendido, subsidiando a caracterização da inexigibilidade. | — |
 
 ## 1. Identificação
 
@@ -34,14 +41,14 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 |---|---|
 | Código | DCOM-02 |
 | Setor | Div. de Compras (`S03.10-DCOM`) |
-| Responsável (função) | A definir |
-| Periodicidade | A definir |
+| Responsável (função) | Chefe da Divisão de Compras |
+| Periodicidade | Sob demanda — a cada situação emergencial que enseje contratação direta por dispensa, sem periodicidade fixa |
 | Subordinação | Secretaria Administrativa |
 | Normativa | Lei nº 14.133/2021; normas internas Unioeste |
 | Produto ATDG | POP |
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | 1780963200051 |
-| Lacunas abertas | responsavel, gatilho, entrada, saida, kpi, contingencia, formulario, prazo |
+| Lacunas abertas | prazo, versao_documento, sistema |
 | Agente responsável | — (não moldado) |
 
 ## 2. Organograma
@@ -55,67 +62,122 @@ graph TD
   S03_SADM --> S03_10_DCOM
   P["DCOM-02<br/>Fluxo — Dispensa Emergencial (com Ordem de Compra)"]
   S03_10_DCOM --> P
+  V1["Requisitante/Interessado"]
+  P -. interface .-> V1
+  V2["Planejamento"]
+  P -. interface .-> V2
+  V3["Direção Geral"]
+  P -. interface .-> V3
+  V4["Assessoria Jurídica"]
+  P -. interface .-> V4
+  V5["Sec. Financeira/Contabilidade"]
+  P -. interface .-> V5
+  V6["Fornecedor"]
+  P -. interface .-> V6
   classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747
   classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747
   classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66
   class S01_DG,S03_SADM,S03_10_DCOM setor
   class P destaque
+  class V1,V2,V3,V4,V5,V6 vizinho
 ```
 
 ## 3. Playbook
 
 ### 3.1 Gatilho (evento de domínio)
 
-**A definir**
+**Necessidade emergencial de contratação identificada pela unidade requisitante, com previsão de emissão de Ordem de Compra** — origem: Requisitante/Interessado
 
 ### 3.2 Entrada
 
-— A definir
+- Memorando
+- Cotações de preços
+- Tabela comparativa de preços
+- Justificativa de urgência da dispensa emergencial
 
 ### 3.3 Passo a passo
 
 | Nº | Ação | Responsável | Sistema | Artefato | Prazo | Evento |
 |---|---|---|---|---|---|---|
-| 1 | Interessado elabora memorando, cotações e tabela comparativa | A definir | — | — | A definir | — |
-| 2 | Planejamento analisa e submete à autorização da Direção Geral | A definir | — | — | A definir | — |
-| 3 | Compras faz pesquisa de preços e verifica regularidade fiscal | A definir | — | — | A definir | — |
-| 4 | Jurídico emite parecer; Financeiro empenha a despesa | A definir | — | — | A definir | — |
-| 5 | Compras emite a Ordem de Compra e publica no DIOE | A definir | — | — | A definir | — |
-| 6 | Encaminhar OC à empresa e ao interessado | A definir | — | — | A definir | — |
+| 1 | Elaborar o memorando, as cotações de preços e a tabela comparativa | Requisitante/Interessado | e-Protocolo | Memorando, cotações de preços e tabela comparativa | A definir | Memorando instruído e protocolado |
+| 2 | Elaborar a justificativa da situação de urgência que fundamenta a dispensa emergencial | Requisitante/Interessado | e-Protocolo | Justificativa de urgência | A definir | Justificativa de urgência anexada ao processo |
+| 3 | Analisar a instrução processual e submeter à autorização da Direção Geral | Planejamento | e-Protocolo | Processo analisado por Planejamento | A definir | Processo submetido à Direção Geral |
+| 4 | Autorizar a contratação direta por dispensa emergencial | Direção Geral | e-Protocolo | Despacho de autorização | A definir | Autorização concedida |
+| 5 | Pesquisar preços de mercado e verificar a regularidade fiscal do fornecedor | Div. de Compras | ComprasNet/PNCP | Cotações complementares e certidões de regularidade fiscal | A definir | Regularidade fiscal verificada |
+| 6 | Emitir parecer jurídico sobre a contratação direta | Assessoria Jurídica | e-Protocolo | Parecer jurídico | A definir | Parecer jurídico emitido |
+| 7 | Empenhar a despesa (emitir a nota de empenho no GMS) | Sec. Financeira/Contabilidade | GMS | Nota de empenho | Após parecer jurídico favorável e antes da emissão da Ordem de Compra | Empenho emitido |
+| 8 | Emitir a Ordem de Compra e publicar no DIOE | Div. de Compras | DIOE | Ordem de Compra e extrato de publicação | A definir | Ordem de Compra publicada no DIOE (condição de eficácia) |
+| 9 | Encaminhar a Ordem de Compra à empresa fornecedora e ao interessado | Div. de Compras | e-Protocolo | Ordem de Compra encaminhada | A definir | Ordem de Compra recebida pelas partes |
 
 ### 3.4 Saída (entregáveis)
 
-— A definir
+- Ordem de Compra emitida e publicada no DIOE
+- Ordem de Compra encaminhada à empresa fornecedora e ao interessado
 
 ## 4. Formulários e artefatos (agregados)
 
-— A definir
+| Nome | Tipo | Sistema | Campos-chave | Preenchimento |
+|---|---|---|---|---|
+| Memorando | documento | e-Protocolo | objeto, justificativa, valor estimado | Requisitante/Interessado |
+| Justificativa de urgência | documento | e-Protocolo | motivo da urgência, risco de dano, nexo com a contratação | Requisitante/Interessado |
+| Tabela comparativa de preços | formulario | e-Protocolo | fornecedores cotados, valores unitários/totais, menor preço | Requisitante/Interessado |
+| Certidões de regularidade fiscal | documento | ComprasNet/PNCP | CNPJ do fornecedor, validade das certidões, situação (regular/irregular) | Div. de Compras |
+| Parecer jurídico | documento | e-Protocolo | fundamentação legal, conclusão (favorável/desfavorável), ressalvas | Assessoria Jurídica |
+| Nota de empenho | registro | GMS | número do empenho, dotação orçamentária, valor empenhado | Sec. Financeira/Contabilidade |
+| Ordem de Compra | documento | GMS | fornecedor, objeto, valor, prazo de entrega/execução | Div. de Compras |
+| Extrato de publicação (DIOE) | registro | DIOE | número do extrato, data de publicação | Div. de Compras |
 
 ## 5. Decisões, exceções e pontos de atenção
 
-— Sem decisões registradas
+| Decisão | Condição | Sim → | Não → |
+|---|---|---|---|
+| Urgência comprovada e justificada? | Após a elaboração da justificativa de urgência e a submissão do processo à Direção Geral | A Direção Geral autoriza a contratação direta por dispensa emergencial | O processo retorna ao interessado para complementação da justificativa ou reavaliação da hipótese de contratação direta |
+| Regularidade fiscal do fornecedor comprovada? | Após a pesquisa de preços e a consulta às certidões pela Div. de Compras | O processo segue à Assessoria Jurídica para parecer | A Div. de Compras notifica o fornecedor para regularização ou realiza nova pesquisa de preços com outro fornecedor apto |
 
 **Pontos de atenção**
 
 - Dispensa emergencial exige justificativa da urgência
 - Modalidade com OC (sem contrato formal) — observar limites legais
 - Verificar regularidade fiscal antes do empenho
+- A Ordem de Compra só produz efeitos após a publicação do extrato no DIOE
+- As certidões de regularidade fiscal devem estar dentro do prazo de validade no momento da verificação
+- A Ordem de Compra deve observar os limites legais de valor previstos para essa modalidade, sem contrato formal
 
 ## 6. Contingência
 
-— A definir
+- Se a certidão de regularidade fiscal estiver vencida ou irregular, a Div. de Compras solicita a regularização ao fornecedor ou realiza nova pesquisa de preços com outro fornecedor apto.
+- Se o parecer jurídico apontar impedimento, o processo retorna à Div. de Compras/Planejamento para ajuste da instrução antes de nova submissão à Assessoria Jurídica.
+- Se a justificativa de urgência for considerada insuficiente pela Direção Geral, o processo é devolvido ao interessado para complementação ou reavaliação da hipótese de contratação direta.
+- Se houver indisponibilidade orçamentária no momento do empenho, a Sec. Financeira/Contabilidade comunica a Div. de Compras para reavaliação do processo antes da emissão da Ordem de Compra.
 
 ## 7. Checklist
 
-— A definir
+- ( ) Memorando, cotações, tabela comparativa e justificativa de urgência anexados ao processo
+- ( ) Regularidade fiscal do fornecedor verificada, com certidões válidas anexadas
+- ( ) Parecer jurídico favorável emitido e anexado ao processo
+- ( ) Empenho emitido antes da emissão da Ordem de Compra
+- ( ) Ordem de Compra publicada no DIOE
+- ( ) Ordem de Compra encaminhada à empresa fornecedora e ao interessado
 
 ## 8. KPI / Indicadores
 
-— A definir
+| Indicador | Fórmula | Meta | Fonte |
+|---|---|---|---|
+| Tempo médio de tramitação da dispensa emergencial com OC (do protocolo do memorando à emissão da OC) | Média de (data de emissão da OC − data de protocolo do memorando), em dias corridos | A definir | e-Protocolo |
+| Taxa de publicação tempestiva da OC no DIOE | (Nº de OC publicadas no DIOE dentro do prazo interno ÷ total de OC emitidas no período) × 100 | A definir | DIOE |
+| Taxa de processos devolvidos por regularidade fiscal ou parecer jurídico desfavorável | (Nº de processos devolvidos ÷ total de processos de dispensa emergencial com OC no período) × 100 | A definir | e-Protocolo |
 
 ## 9. Mapa de contexto (interfaces inter-setoriais)
 
-— Sem interfaces registradas
+| Origem | Relação | Destino | Artefato | Canal |
+|---|---|---|---|---|
+| Requisitante/Interessado | fornece | Planejamento | Memorando, cotações, tabela comparativa e justificativa de urgência | e-Protocolo |
+| Planejamento | fornece | Direção Geral | Processo analisado | e-Protocolo |
+| Direção Geral | aprova | Div. de Compras | Autorização da contratação direta | e-Protocolo |
+| Div. de Compras | fornece | Assessoria Jurídica | Processo com pesquisa de preços e regularidade fiscal | e-Protocolo |
+| Assessoria Jurídica | fornece | Sec. Financeira/Contabilidade | Parecer jurídico favorável | e-Protocolo |
+| Sec. Financeira/Contabilidade | fornece | Div. de Compras | Processo empenhado | e-Protocolo |
+| Div. de Compras | informa | Fornecedor | Ordem de Compra emitida e publicada no DIOE | DIOE |
 
 ## 10. Fluxograma (BPMN 2.0 — padrão Anne Bail)
 
@@ -123,14 +185,44 @@ graph TD
 flowchart LR
   subgraph R1["Div. de Compras"]
     direction LR
-    e1(("A definir"))
-    e2["Interessado elabora memorando, cotações e tabela comparativa"]
-    e3["Planejamento analisa e submete à autorização da Direção Geral"]
-    e4["Compras faz pesquisa de preços e verifica regularidade fiscal"]
-    e5["Jurídico emite parecer; Financeiro empenha a despesa"]
-    e6["Compras emite a Ordem de Compra e publica no DIOE"]
-    e7["Encaminhar OC à empresa e ao interessado"]
-    e8((("Concluído")))
+    e9[["✉ Encaminhar processo autorizado à Div. de Compras"]]
+    e10["Pesquisar preços de mercado e verificar regularidade fiscal do fornec…"]
+    e11{"Regularidade fiscal comprovada?"}
+    e16[["✉ Encaminhar processo empenhado à Div. de Compras"]]
+    e17["Emitir a Ordem de Compra e publicar no DIOE"]
+    e18["Encaminhar a Ordem de Compra à empresa fornecedora e ao interessado"]
+  end
+  subgraph R2["Requisitante/Interessado"]
+    direction LR
+    e1(("Necessidade emergencial de contratação identificada"))
+    e2["Elaborar o memorando, as cotações de preços e a tabela comparativa"]
+    e3["Elaborar a justificativa de urgência"]
+  end
+  subgraph R3["Planejamento"]
+    direction LR
+    e4[["✉ Encaminhar processo ao Planejamento"]]
+    e5["Analisar a instrução processual e submeter à Direção Geral"]
+  end
+  subgraph R4["Direção Geral"]
+    direction LR
+    e6[["✉ Encaminhar processo à Direção Geral"]]
+    e7{"Urgência comprovada e justificada?"}
+    e8["Autorizar a contratação direta por dispensa emergencial"]
+  end
+  subgraph R5["Assessoria Jurídica"]
+    direction LR
+    e12[["✉ Encaminhar processo à Assessoria Jurídica"]]
+    e13["Emitir parecer jurídico sobre a contratação direta"]
+  end
+  subgraph R6["Sec. Financeira/Contabilidade"]
+    direction LR
+    e14[["✉ Encaminhar processo com parecer favorável à Sec. Financeira/Contabili…"]]
+    e15["Empenhar a despesa (nota de empenho no GMS)"]
+  end
+  subgraph R7["Fornecedor"]
+    direction LR
+    e19[["✉ Fornecedor recebe a Ordem de Compra"]]
+    e20((("Ordem de Compra emitida e fornecimento/prestação iniciado")))
   end
   e1 --> e2
   e2 --> e3
@@ -138,7 +230,21 @@ flowchart LR
   e4 --> e5
   e5 --> e6
   e6 --> e7
-  e7 --> e8
+  e7 -- Sim --> e8
+  e7 -- Não --> e2
+  e8 --> e9
+  e9 --> e10
+  e10 --> e11
+  e11 -- Sim --> e12
+  e11 -- Não --> e10
+  e12 --> e13
+  e13 --> e14
+  e14 --> e15
+  e15 --> e16
+  e16 --> e17
+  e17 --> e18
+  e18 --> e19
+  e19 --> e20
   classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151
   classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E
   classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A
@@ -146,24 +252,38 @@ flowchart LR
   classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544
   classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66
   class e1 inicio
-  class e2,e3,e4,e5,e6,e7 atividade
-  class e8 fim
+  class e2,e3,e5,e8,e10,e13,e15,e17,e18 atividade
+  class e4,e6,e9,e12,e14,e16,e19 captura
+  class e7,e11 decisao
+  class e20 fim
 ```
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** Div. de Compras
+**Raias:** Div. de Compras · Requisitante/Interessado · Planejamento · Direção Geral · Assessoria Jurídica · Sec. Financeira/Contabilidade · Fornecedor
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
-| e1 | inicio | A definir | Div. de Compras |
-| e2 | atividade | Interessado elabora memorando, cotações e tabela comparativa | Div. de Compras |
-| e3 | atividade | Planejamento analisa e submete à autorização da Direção Geral | Div. de Compras |
-| e4 | atividade | Compras faz pesquisa de preços e verifica regularidade fiscal | Div. de Compras |
-| e5 | atividade | Jurídico emite parecer; Financeiro empenha a despesa | Div. de Compras |
-| e6 | atividade | Compras emite a Ordem de Compra e publica no DIOE | Div. de Compras |
-| e7 | atividade | Encaminhar OC à empresa e ao interessado | Div. de Compras |
-| e8 | fim | Concluído | Div. de Compras |
+| e1 | inicio | Necessidade emergencial de contratação identificada | Requisitante/Interessado |
+| e2 | atividade | Elaborar o memorando, as cotações de preços e a tabela comparativa | Requisitante/Interessado |
+| e3 | atividade | Elaborar a justificativa de urgência | Requisitante/Interessado |
+| e4 | captura | Encaminhar processo ao Planejamento | Planejamento |
+| e5 | atividade | Analisar a instrução processual e submeter à Direção Geral | Planejamento |
+| e6 | captura | Encaminhar processo à Direção Geral | Direção Geral |
+| e7 | decisao | Urgência comprovada e justificada? | Direção Geral |
+| e8 | atividade | Autorizar a contratação direta por dispensa emergencial | Direção Geral |
+| e9 | captura | Encaminhar processo autorizado à Div. de Compras | Div. de Compras |
+| e10 | atividade | Pesquisar preços de mercado e verificar regularidade fiscal do fornecedor | Div. de Compras |
+| e11 | decisao | Regularidade fiscal comprovada? | Div. de Compras |
+| e12 | captura | Encaminhar processo à Assessoria Jurídica | Assessoria Jurídica |
+| e13 | atividade | Emitir parecer jurídico sobre a contratação direta | Assessoria Jurídica |
+| e14 | captura | Encaminhar processo com parecer favorável à Sec. Financeira/Contabilidade | Sec. Financeira/Contabilidade |
+| e15 | atividade | Empenhar a despesa (nota de empenho no GMS) | Sec. Financeira/Contabilidade |
+| e16 | captura | Encaminhar processo empenhado à Div. de Compras | Div. de Compras |
+| e17 | atividade | Emitir a Ordem de Compra e publicar no DIOE | Div. de Compras |
+| e18 | atividade | Encaminhar a Ordem de Compra à empresa fornecedora e ao interessado | Div. de Compras |
+| e19 | captura | Fornecedor recebe a Ordem de Compra | Fornecedor |
+| e20 | fim | Ordem de Compra emitida e fornecimento/prestação iniciado | Fornecedor |
 
 | De | Para | Rótulo |
 |---|---|---|
@@ -173,7 +293,21 @@ flowchart LR
 | e4 | e5 | — |
 | e5 | e6 | — |
 | e6 | e7 | — |
-| e7 | e8 | — |
+| e7 | e8 | Sim |
+| e7 | e2 | Não |
+| e8 | e9 | — |
+| e9 | e10 | — |
+| e10 | e11 | — |
+| e11 | e12 | Sim |
+| e11 | e10 | Não |
+| e12 | e13 | — |
+| e13 | e14 | — |
+| e14 | e15 | — |
+| e15 | e16 | — |
+| e16 | e17 | — |
+| e17 | e18 | — |
+| e18 | e19 | — |
+| e19 | e20 | — |
 
 _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro._
 
@@ -182,6 +316,7 @@ _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões
 | Versão | Data | Autor | Tipo | Mudanças | Fontes |
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200051 | 1780963200051 |
+| 1.0.0 | 2026-09-03 | agente:construtor-pop (lote DCOM) | major | Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo 6 alterado (acao, responsavel, sistema, artefato, prazo, evento); Passo adicionado após 4: Empenhar a despesa (emitir a nota de empenho no GMS); Passo adicionado após 2: Autorizar a contratação direta por dispensa emergencial; Passo adicionado após 1: Elaborar a justificativa da situação de urgência que fundamenta a dispensa emerg; entrada_nova: +4; saida_nova: +2; artefatos_novos: +8; decisoes_novas: +2; kpis_novos: +3; mapa_contexto_novo: +7; pontos_atencao_novos: +3; contingencia_nova: +4; checklist_novo: +6; glossario_novo: +6; Campo ddd.descricao atualizado; Campo ddd.subdominio atualizado; Campo identificacao.responsavel atualizado; Campo identificacao.periodicidade atualizado; Campo playbook.gatilho atualizado; Campo observacoes atualizado; Raias adicionadas: Requisitante/Interessado, Planejamento, Direção Geral, Assessoria Jurídica, Sec. Financeira/Contabilidade, Fornecedor; Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7, e8; Elementos BPMN adicionados: 20; Status promovido a em_validacao (≥ 3 passos e responsável definido) | 1780963200051 |
 
 ## 13. Validação e aprovação
 
@@ -197,6 +332,10 @@ _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões
 - **L-004** — Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão.
 - **L-006** — Preservar códigos legados como códigos de processo; não renumerar.
 - **L-007** — Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis.
+- **L-002** — Um passo = uma ação; ações compostas viram passos distintos.
+- **L-003** — Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino.
+
+> **Observações:** Inferência a validar com a Divisão de Compras: atribuição dos sistemas de apoio (e-Protocolo para tramitação; ComprasNet/PNCP para pesquisa de preços e regularidade fiscal; GMS para o empenho; DIOE para publicação) e dos responsáveis por função, inferidos a partir do fluxograma institucional (fonte 1780963200051) e do playbook do setor (pb-compras); prazos específicos de cada etapa permanecem 'A definir' até confirmação formal da Divisão.
 
 ---
 _Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/DCOM/DCOM-02.pop.json` (diretrizes v1.0)._

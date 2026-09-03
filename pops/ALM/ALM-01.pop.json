@@ -5,7 +5,7 @@
   "setor": "Div. de Almoxarifado",
   "setor_codigo": "S03.04-ALM",
   "sigla": "ALM",
-  "versao": "1.0.0",
+  "versao": "1.1.0",
   "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
@@ -65,74 +65,18 @@
         "n": 1
       },
       {
-        "acao": "Liberar o material para encaminhamento à armazenagem",
-        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "acao": "Conferir quantitativa e qualitativamente o material recebido em relação à NF",
+        "responsavel": "Agente Universitário do Almoxarifado",
         "sistema": "GMS/ERP",
-        "artefato": "",
-        "prazo": "Após confirmação da PRAF",
-        "evento": "Material liberado para armazenagem (ALM-02)",
+        "artefato": "Formulário de conferência de recebimento",
+        "prazo": "No ato do recebimento",
+        "evento": "Conferência registrada",
         "fontes": [
           "pb-almoxarifado",
           "1780963200000",
           "1780963200001"
         ],
         "n": 2
-      },
-      {
-        "acao": "Confirmar a regularidade do recebimento",
-        "responsavel": "PRAF",
-        "sistema": "e-Protocolo",
-        "artefato": "Confirmação da PRAF",
-        "prazo": "A definir",
-        "evento": "Recebimento confirmado pela PRAF",
-        "fontes": [
-          "pb-almoxarifado",
-          "1780963200000",
-          "1780963200001"
-        ],
-        "n": 3
-      },
-      {
-        "acao": "Encaminhar a confirmação do recebimento à PRAF",
-        "responsavel": "Chefe da Divisão de Almoxarifado",
-        "sistema": "e-Protocolo",
-        "artefato": "Termo de recebimento",
-        "prazo": "A definir",
-        "evento": "Confirmação encaminhada à PRAF",
-        "fontes": [
-          "pb-almoxarifado",
-          "1780963200000",
-          "1780963200001"
-        ],
-        "n": 4
-      },
-      {
-        "acao": "Lançar o recebimento conforme no GMS/ERP",
-        "responsavel": "Agente Universitário do Almoxarifado",
-        "sistema": "GMS/ERP",
-        "artefato": "Termo de recebimento",
-        "prazo": "No ato da conferência",
-        "evento": "Material registrado no GMS/ERP",
-        "fontes": [
-          "pb-almoxarifado",
-          "1780963200000",
-          "1780963200001"
-        ],
-        "n": 5
-      },
-      {
-        "acao": "Registrar a divergência ou avaria identificada e notificar o Fornecedor para providências",
-        "responsavel": "Agente Universitário do Almoxarifado",
-        "sistema": "GMS/ERP",
-        "artefato": "Registro de divergência/avaria",
-        "prazo": "A definir",
-        "evento": "Divergência registrada e Fornecedor notificado",
-        "fontes": [
-          "pb-almoxarifado",
-          "1780963200000",
-          "1780963200001"
-        ],
-        "n": 6
       },
       {
         "acao": "Verificar a conformidade entre o material recebido e a NF",
@@ -146,15 +90,71 @@
           "1780963200000",
           "1780963200001"
         ],
+        "n": 3
+      },
+      {
+        "acao": "Registrar a divergência ou avaria identificada e notificar o Fornecedor para providências",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Registro de divergência/avaria",
+        "prazo": "A definir",
+        "evento": "Divergência registrada e Fornecedor notificado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Lançar o recebimento no GMS/ERP",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Termo de recebimento",
+        "prazo": "No ato da conferência",
+        "evento": "Material registrado no GMS/ERP",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Encaminhar a confirmação do recebimento à PRAF",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "e-Protocolo",
+        "artefato": "Termo de recebimento",
+        "prazo": "A definir",
+        "evento": "Confirmação encaminhada à PRAF",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Confirmar a regularidade do recebimento",
+        "responsavel": "PRAF",
+        "sistema": "e-Protocolo",
+        "artefato": "Confirmação da PRAF",
+        "prazo": "A definir",
+        "evento": "Recebimento confirmado pela PRAF",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
         "n": 7
       },
       {
-        "acao": "Conferir quantitativa e qualitativamente o material recebido em relação à NF",
-        "responsavel": "Agente Universitário do Almoxarifado",
+        "acao": "Liberar o material para encaminhamento à armazenagem",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
         "sistema": "GMS/ERP",
-        "artefato": "Formulário de conferência de recebimento",
-        "prazo": "No ato do recebimento",
-        "evento": "Conferência registrada",
+        "artefato": "",
+        "prazo": "Após confirmação da PRAF",
+        "evento": "Material liberado para armazenagem (ALM-02)",
         "fontes": [
           "pb-almoxarifado",
           "1780963200000",
@@ -460,6 +460,27 @@
         "1780963200001"
       ],
       "motivo": "Documentar o passo a passo completo do recebimento de materiais (conferência da NF, tratamento de divergências, lançamento no GMS/ERP e confirmação da PRAF), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
+    },
+    {
+      "versao": "1.1.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote ALM)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 6 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 7 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 8 alterado (acao, responsavel, sistema, artefato, prazo, evento)"
+      ],
+      "fontes": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "motivo": "Correção de ordenação: a inserção simultânea de 8 passos em playbook vazio no patch anterior não preservou a sequência lógica pretendida (apos_n só resolve contra passos já numerados, não contra irmãos inseridos no mesmo patch). Conteúdo dos passos 2 a 8 realinhado à sequência correta do processo, sem alteração de conteúdo."
     }
   ],
   "validacao": {
@@ -487,5 +508,5 @@
   "agente": "pop-alm-01",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-03T01:36:12Z"
+  "atualizado_em": "2026-09-03T01:39:31Z"
 }

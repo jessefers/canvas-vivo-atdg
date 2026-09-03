@@ -1,63 +1,141 @@
 {
   "setor": "Div. de Compras",
   "codigo": "DCOM-02",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:40:38Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DCOM-02 — Fluxo — Dispensa Emergencial (com Ordem de Compra)",
-      "descricao": "Fluxo da contratação por dispensa emergencial com ordem de compra. O interessado elabora memorando, cotações e tabela comparativa e envia ao Planejamento, que analisa e submete à Direção Geral. Compras faz pesquisa de preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro empenha; e Compras emite a Ordem de Compra, publica no DIOE e encaminha à empresa e ao interessado.",
+      "descricao": "Contratação direta por dispensa emergencial de licitação, formalizada por Ordem de Compra. A Div. de Compras conduz a pesquisa de preços e a verificação de regularidade fiscal do fornecedor, subsidia a Assessoria Jurídica e a Sec. Financeira/Contabilidade, e emite e publica a Ordem de Compra no DIOE, encaminhando-a à empresa fornecedora e ao interessado, nos termos da Lei nº 14.133/2021.",
       "raias": [
-        "Div. de Compras"
+        "Div. de Compras",
+        "Requisitante/Interessado",
+        "Planejamento",
+        "Direção Geral",
+        "Assessoria Jurídica",
+        "Sec. Financeira/Contabilidade",
+        "Fornecedor"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Compras"
+          "label": "Necessidade emergencial de contratação identificada",
+          "raia": "Requisitante/Interessado"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Interessado elabora memorando, cotações e tabela comparativa",
-          "raia": "Div. de Compras"
+          "label": "Elaborar o memorando, as cotações de preços e a tabela comparativa",
+          "raia": "Requisitante/Interessado"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Planejamento analisa e submete à autorização da Direção Geral",
-          "raia": "Div. de Compras"
+          "label": "Elaborar a justificativa de urgência",
+          "raia": "Requisitante/Interessado"
         },
         {
           "id": "e4",
-          "tipo": "atividade",
-          "label": "Compras faz pesquisa de preços e verifica regularidade fiscal",
-          "raia": "Div. de Compras"
+          "tipo": "captura",
+          "label": "Encaminhar processo ao Planejamento",
+          "raia": "Planejamento"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Jurídico emite parecer; Financeiro empenha a despesa",
-          "raia": "Div. de Compras"
+          "label": "Analisar a instrução processual e submeter à Direção Geral",
+          "raia": "Planejamento"
         },
         {
           "id": "e6",
-          "tipo": "atividade",
-          "label": "Compras emite a Ordem de Compra e publica no DIOE",
-          "raia": "Div. de Compras"
+          "tipo": "captura",
+          "label": "Encaminhar processo à Direção Geral",
+          "raia": "Direção Geral"
         },
         {
           "id": "e7",
-          "tipo": "atividade",
-          "label": "Encaminhar OC à empresa e ao interessado",
-          "raia": "Div. de Compras"
+          "tipo": "decisao",
+          "label": "Urgência comprovada e justificada?",
+          "raia": "Direção Geral"
         },
         {
           "id": "e8",
-          "tipo": "fim",
-          "label": "Concluído",
+          "tipo": "atividade",
+          "label": "Autorizar a contratação direta por dispensa emergencial",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar processo autorizado à Div. de Compras",
           "raia": "Div. de Compras"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Pesquisar preços de mercado e verificar regularidade fiscal do fornecedor",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e11",
+          "tipo": "decisao",
+          "label": "Regularidade fiscal comprovada?",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Encaminhar processo à Assessoria Jurídica",
+          "raia": "Assessoria Jurídica"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Emitir parecer jurídico sobre a contratação direta",
+          "raia": "Assessoria Jurídica"
+        },
+        {
+          "id": "e14",
+          "tipo": "captura",
+          "label": "Encaminhar processo com parecer favorável à Sec. Financeira/Contabilidade",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e15",
+          "tipo": "atividade",
+          "label": "Empenhar a despesa (nota de empenho no GMS)",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e16",
+          "tipo": "captura",
+          "label": "Encaminhar processo empenhado à Div. de Compras",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e17",
+          "tipo": "atividade",
+          "label": "Emitir a Ordem de Compra e publicar no DIOE",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e18",
+          "tipo": "atividade",
+          "label": "Encaminhar a Ordem de Compra à empresa fornecedora e ao interessado",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e19",
+          "tipo": "captura",
+          "label": "Fornecedor recebe a Ordem de Compra",
+          "raia": "Fornecedor"
+        },
+        {
+          "id": "e20",
+          "tipo": "fim",
+          "label": "Ordem de Compra emitida e fornecimento/prestação iniciado",
+          "raia": "Fornecedor"
         }
       ],
       "conexoes": [
@@ -87,7 +165,67 @@
         },
         {
           "de": "e7",
-          "para": "e8"
+          "para": "e8",
+          "label": "Sim"
+        },
+        {
+          "de": "e7",
+          "para": "e2",
+          "label": "Não"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12",
+          "label": "Sim"
+        },
+        {
+          "de": "e11",
+          "para": "e10",
+          "label": "Não"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        },
+        {
+          "de": "e15",
+          "para": "e16"
+        },
+        {
+          "de": "e16",
+          "para": "e17"
+        },
+        {
+          "de": "e17",
+          "para": "e18"
+        },
+        {
+          "de": "e18",
+          "para": "e19"
+        },
+        {
+          "de": "e19",
+          "para": "e20"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
