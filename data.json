@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:46:24Z",
+  "sincronizado_em": "2026-09-03T01:47:26Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -6057,66 +6057,403 @@
       "setor": "Div. de Almoxarifado",
       "setor_codigo": "S03.04-ALM",
       "sigla": "ALM",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Almoxarifado",
-        "descricao": "Desfazimento de Materiais Inservíveis — Descarte, doação, leilão, baixa. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+        "descricao": "Identifica, classifica e regulariza a baixa de materiais inservíveis, obsoletos ou danificados, por meio de desfazimento regulamentado (doação, alienação ou descarte), com aprovação da PRAF e, quando pertinente, articulação com a Div. de Patrimônio.",
         "dominio": "Suprimentos e Materiais",
-        "subdominio": "Desfazimento de Materiais Inservíveis",
+        "subdominio": "Desfazimento regulamentado de materiais inservíveis",
         "tipo_subdominio": "core",
         "contexto": "S03.04-ALM",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Desfazimento",
+            "definicao": "Processo regulamentado de baixa de material inservível, obsoleto ou danificado, por doação, alienação ou descarte.",
+            "sistema": "GMS/ERP"
+          },
+          {
+            "termo": "Material inservível",
+            "definicao": "Item que perdeu utilidade para a Administração por avaria, obsolescência, ociosidade ou antieconomicidade.",
+            "sistema": ""
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
-        "normativa": [],
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "periodicidade": "Conforme necessidade (identificação de material inservível)",
+        "normativa": [
+          "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+          "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)",
+          "Normativas do TCE-PR",
+          "Lei nº 14.133/2021 (Lei de Licitações e Contratos Administrativos), no que for pertinente ao desfazimento/alienação de bens da Administração Pública"
+        ],
         "subordinacao": "Secretaria Administrativa",
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-07<br/>Desfazimento de Materiais Inservíveis\"]\n  S03_04_ALM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-07<br/>Desfazimento de Materiais Inservíveis\"]\n  S03_04_ALM --> P\n  V1[\"Div. de Patrimônio\"]\n  P -. interface .-> V1\n  V2[\"PRAF\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Identificação de material inservível, obsoleto ou danificado (por inventário, avaria ou obsolescência)",
+          "origem": "Agente Universitário do Almoxarifado / ALM-04 Inventário Rotativo / ALM-05 Inventário Geral"
         },
-        "entrada": [],
-        "passos": [],
-        "saida": []
+        "entrada": [
+          "Material identificado como inservível, obsoleto ou danificado (por inventário, avaria ou obsolescência)"
+        ],
+        "passos": [
+          {
+            "acao": "Identificar o material inservível, obsoleto ou danificado",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Registro de material inservível",
+            "prazo": "Conforme identificação",
+            "evento": "Material inservível identificado",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 1
+          },
+          {
+            "acao": "Classificar o material quanto à natureza (consumo/patrimônio) e ao estado",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Registro de material inservível",
+            "prazo": "A definir",
+            "evento": "Material classificado",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 2
+          },
+          {
+            "acao": "Comunicar à Div. de Patrimônio quando o item tiver característica de bem permanente",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "e-Protocolo",
+            "artefato": "Registro de material inservível",
+            "prazo": "A definir",
+            "evento": "Div. de Patrimônio comunicada",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 3
+          },
+          {
+            "acao": "Instruir o processo de desfazimento (justificativa, classificação, relação de itens)",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "e-Protocolo",
+            "artefato": "Processo de desfazimento",
+            "prazo": "A definir",
+            "evento": "Processo de desfazimento instruído",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 4
+          },
+          {
+            "acao": "Submeter o processo de desfazimento à aprovação da PRAF",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "e-Protocolo",
+            "artefato": "Processo de desfazimento",
+            "prazo": "A definir",
+            "evento": "Processo submetido à PRAF",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 5
+          },
+          {
+            "acao": "Aguardar a decisão da PRAF quanto à modalidade de desfazimento (doação, alienação ou descarte)",
+            "responsavel": "PRAF",
+            "sistema": "e-Protocolo",
+            "artefato": "Processo de desfazimento",
+            "prazo": "A definir",
+            "evento": "Modalidade de desfazimento definida",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 6
+          },
+          {
+            "acao": "Executar a modalidade de desfazimento aprovada",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "e-Protocolo",
+            "artefato": "Termo de desfazimento",
+            "prazo": "Conforme decisão da PRAF",
+            "evento": "Desfazimento executado",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 7
+          },
+          {
+            "acao": "Registrar a baixa definitiva do material no GMS/ERP",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Termo de desfazimento",
+            "prazo": "Após execução do desfazimento",
+            "evento": "Baixa definitiva registrada",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 8
+          }
+        ],
+        "saida": [
+          "Termo de desfazimento emitido e baixa definitiva registrada no GMS/ERP"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
-      "pontos_atencao": [],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Almoxarifado\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+      "artefatos": [
+        {
+          "nome": "Registro de material inservível",
+          "tipo": "registro",
+          "sistema": "GMS/ERP",
+          "campos_chave": [
+            "item",
+            "motivo (avaria/obsolescência/inservibilidade)",
+            "classificação",
+            "natureza (consumo/patrimônio)"
+          ],
+          "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "nome": "Processo de desfazimento",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "justificativa",
+            "relação de itens",
+            "classificação",
+            "modalidade proposta"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "nome": "Termo de desfazimento",
+          "tipo": "registro",
+          "sistema": "GMS/ERP",
+          "campos_chave": [
+            "modalidade executada (doação/alienação/descarte)",
+            "itens",
+            "data",
+            "destinatário, quando houver"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "O item tem característica de bem permanente (patrimoniável)?",
+          "condicao": "Classificação do material inservível quanto à natureza",
+          "sim": "Comunicar e tramitar o desfazimento em conjunto com a Div. de Patrimônio",
+          "nao": "Tramitar o desfazimento diretamente como material de consumo"
+        }
+      ],
+      "pontos_atencao": [
+        "O desfazimento de item com característica de bem permanente deve ser conduzido em conjunto com a Div. de Patrimônio",
+        "A execução do desfazimento (doação, alienação ou descarte) depende de decisão prévia da PRAF quanto à modalidade"
+      ],
+      "contingencia": [
+        "PRAF não se manifesta sobre a modalidade de desfazimento no prazo esperado: a Chefia da Divisão de Almoxarifado reitera a solicitação e registra o atraso",
+        "Material classificado incorretamente quanto à natureza (consumo/patrimônio): corrigir a classificação junto à Div. de Patrimônio antes de prosseguir",
+        "Ausência de destinatário para doação ou de interessado em alienação: reencaminhar o processo à PRAF para definição de nova modalidade (ex.: descarte)"
+      ],
+      "checklist": [
+        "Material inservível identificado e classificado quanto à natureza e ao estado",
+        "Itens patrimoniáveis comunicados à Div. de Patrimônio antes da instrução do processo",
+        "Processo de desfazimento aprovado pela PRAF antes da execução de qualquer modalidade",
+        "Baixa definitiva registrada no GMS/ERP após a execução do desfazimento"
+      ],
+      "kpis": [
+        {
+          "indicador": "Tempo médio de tramitação do processo de desfazimento",
+          "formula": "Soma dos tempos entre instrução e execução do desfazimento / nº de processos concluídos",
+          "meta": "A definir",
+          "fonte": "e-Protocolo"
+        },
+        {
+          "indicador": "Percentual de itens inservíveis com desfazimento concluído no exercício",
+          "formula": "Nº de itens com baixa definitiva / nº total de itens identificados como inservíveis no período",
+          "meta": "A definir",
+          "fonte": "GMS/ERP"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Almoxarifado",
+          "destino": "Div. de Patrimônio",
+          "relacao": "informa",
+          "artefato": "Comunicação de item patrimoniável para desfazimento conjunto",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Almoxarifado",
+          "destino": "PRAF",
+          "relacao": "aprova",
+          "artefato": "Processo de desfazimento",
+          "canal": "e-Protocolo"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e1((\"Material inservível, obsoleto ou danificado identificado\"))\n    e2[\"Identificar o material inservível\"]\n    e12[\"Registrar a baixa definitiva do material no GMS/ERP\"]\n    e13(((\"Baixa definitiva registrada; desfazimento concluído\")))\n  end\n  subgraph R2[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e3[\"Classificar o material quanto à natureza e ao estado\"]\n    e4{\"Item tem característica de bem permanente (patrimoniável)?\"}\n    e6[\"Instruir o processo de desfazimento\"]\n    e10[[\"✉ Modalidade de desfazimento definida\"]]\n    e11[\"Executar a modalidade de desfazimento aprovada\"]\n  end\n  subgraph R3[\"Div. de Patrimônio\"]\n    direction LR\n    e5[[\"✉ Comunicação de item patrimoniável\"]]\n  end\n  subgraph R4[\"PRAF\"]\n    direction LR\n    e7[[\"✉ Processo de desfazimento submetido\"]]\n    e8([\"⏱ Aguardar decisão da PRAF quanto à modalidade de desfazimento\"])\n    e9[\"Decidir a modalidade de desfazimento (doação, alienação ou descarte)\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e5\n  e5 --> e6\n  e4 -- Não --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e6,e9,e11,e12 atividade\n  class e4 decisao\n  class e5,e7,e10 captura\n  class e8 pausa\n  class e13 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Almoxarifado"
+          "Div. de Almoxarifado",
+          "Agente Universitário do Almoxarifado",
+          "Chefe da Divisão de Almoxarifado",
+          "Div. de Patrimônio",
+          "PRAF"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "Div. de Almoxarifado"
+            "label": "Material inservível, obsoleto ou danificado identificado",
+            "raia": "Agente Universitário do Almoxarifado"
           },
           {
             "id": "e2",
+            "tipo": "atividade",
+            "label": "Identificar o material inservível",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e3",
+            "tipo": "atividade",
+            "label": "Classificar o material quanto à natureza e ao estado",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e4",
+            "tipo": "decisao",
+            "label": "Item tem característica de bem permanente (patrimoniável)?",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e5",
+            "tipo": "captura",
+            "label": "Comunicação de item patrimoniável",
+            "raia": "Div. de Patrimônio"
+          },
+          {
+            "id": "e6",
+            "tipo": "atividade",
+            "label": "Instruir o processo de desfazimento",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e7",
+            "tipo": "captura",
+            "label": "Processo de desfazimento submetido",
+            "raia": "PRAF"
+          },
+          {
+            "id": "e8",
+            "tipo": "pausa",
+            "label": "Aguardar decisão da PRAF quanto à modalidade de desfazimento",
+            "raia": "PRAF"
+          },
+          {
+            "id": "e9",
+            "tipo": "atividade",
+            "label": "Decidir a modalidade de desfazimento (doação, alienação ou descarte)",
+            "raia": "PRAF"
+          },
+          {
+            "id": "e10",
+            "tipo": "captura",
+            "label": "Modalidade de desfazimento definida",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e11",
+            "tipo": "atividade",
+            "label": "Executar a modalidade de desfazimento aprovada",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e12",
+            "tipo": "atividade",
+            "label": "Registrar a baixa definitiva do material no GMS/ERP",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e13",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "Div. de Almoxarifado"
+            "label": "Baixa definitiva registrada; desfazimento concluído",
+            "raia": "Agente Universitário do Almoxarifado"
           }
         ],
         "conexoes": [
           {
             "de": "e1",
             "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          },
+          {
+            "de": "e3",
+            "para": "e4"
+          },
+          {
+            "de": "e4",
+            "para": "e5",
+            "label": "Sim"
+          },
+          {
+            "de": "e5",
+            "para": "e6"
+          },
+          {
+            "de": "e4",
+            "para": "e6",
+            "label": "Não"
+          },
+          {
+            "de": "e6",
+            "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
           }
         ],
         "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -6132,6 +6469,49 @@
           ],
           "fontes": [],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote ALM)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo adicionado após 1: Identificar o material inservível, obsoleto ou danificado",
+            "Passo adicionado após 1: Classificar o material quanto à natureza (consumo/patrimônio) e ao estado",
+            "Passo adicionado após 1: Comunicar à Div. de Patrimônio quando o item tiver característica de bem permane",
+            "Passo adicionado após 1: Instruir o processo de desfazimento (justificativa, classificação, relação de it",
+            "Passo adicionado após 1: Submeter o processo de desfazimento à aprovação da PRAF",
+            "Passo adicionado após 1: Aguardar a decisão da PRAF quanto à modalidade de desfazimento (doação, alienaçã",
+            "Passo adicionado após 1: Executar a modalidade de desfazimento aprovada",
+            "Passo adicionado após 1: Registrar a baixa definitiva do material no GMS/ERP",
+            "entrada_nova: +1",
+            "saida_nova: +1",
+            "artefatos_novos: +3",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +2",
+            "pontos_atencao_novos: +2",
+            "contingencia_nova: +3",
+            "checklist_novo: +4",
+            "glossario_novo: +2",
+            "normativa_nova: +4",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Campo observacoes atualizado",
+            "Raias adicionadas: Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado, Div. de Patrimônio, PRAF",
+            "Elementos BPMN removidos: e1, e2",
+            "Elementos BPMN adicionados: 13",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "motivo": "Documentar o passo a passo do desfazimento de materiais inservíveis (identificação, classificação, articulação com a Div. de Patrimônio, aprovação da PRAF e execução da modalidade), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
         }
       ],
       "validacao": {
@@ -6144,27 +6524,24 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003"
       ],
       "lacunas": [
-        "passos",
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
-        "prazo",
-        "normativa"
+        "formulario"
       ],
-      "observacoes": "",
-      "fontes_entradas": [],
-      "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) rito exato de classificação do material (ocioso, recuperável, antieconômico, irrecuperável) e critérios de escolha da modalidade de desfazimento, inferidos de prática comum de gestão patrimonial pública e não detalhados nas fontes disponíveis; (2) fluxo de articulação com a Div. de Patrimônio para itens com característica de bem permanente.",
+      "fontes_entradas": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:47:09Z"
     },
     {
       "id": "pop-alm-08",
@@ -10326,21 +10703,32 @@
       "setor": "Direção de Centro",
       "setor_codigo": "S13-DCEN",
       "sigla": "DCEN",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Direção de Centro (competências gerais)",
         "departamento": "Direção de Centro (competências gerais)",
-        "descricao": "Guia das competências da Direção de Centro e das assessorias (de área, de ensino e de extensão), conforme o art. 37 do Estatuto.",
+        "descricao": "Estabelece as competências do(a) Diretor(a) de Centro e das Assessorias de área, de ensino e de extensão na condução do Centro, incluindo representação institucional, indicação de representantes, delegação de atividades, condução e deliberação do Conselho de Centro e articulação do ensino com a PROGRAD e da extensão com a PROEX, nos termos do art. 37 do Estatuto (Res. 017/99-COU). Aplica-se de forma transversal às Direções dos Centros do Campus (CCSA e CECE), que mantêm playbooks próprios (CCSA-00, CECE-00) para as particularidades de cada Centro.",
         "dominio": "Ensino, Pesquisa e Extensão (Centro)",
-        "subdominio": "Visão geral do setor (playbook)",
+        "subdominio": "Competências e governança da Direção de Centro",
         "tipo_subdominio": "core",
         "contexto": "S13-DCEN",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Conselho de Centro",
+            "definicao": "Órgão colegiado do Centro, convocado e presidido pelo Diretor(a) de Centro, responsável por deliberar sobre as matérias de sua competência regimental.",
+            "sistema": ""
+          },
+          {
+            "termo": "Assessoria de Ensino/Extensão do Centro",
+            "definicao": "Função exercida por delegação do Diretor(a) de Centro para conduzir as atividades de ensino ou de extensão do Centro, conforme o mapeamento de tarefas da Direção de Centro.",
+            "sistema": ""
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
+        "responsavel": "Diretor(a) de Centro",
+        "periodicidade": "Contínua, com convocação do Conselho de Centro conforme demanda (periodicidade formal a definir em regimento)",
         "normativa": [
           "Estatuto (Res. 017/99-COU) art. 37"
         ],
@@ -10348,116 +10736,326 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S13_DCEN[\"S13-DCEN<br/>Direção de Centro (competências gerais)\"]\n  S01_DG --> S13_DCEN\n  P[\"DCEN-00<br/>Visão geral — Direção de Centro (competências gerais)\"]\n  S13_DCEN --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S13_DCEN setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S13_DCEN[\"S13-DCEN<br/>Direção de Centro (competências gerais)\"]\n  S01_DG --> S13_DCEN\n  P[\"DCEN-00<br/>Visão geral — Direção de Centro (competências gerais)\"]\n  S13_DCEN --> P\n  V1[\"PROGRAD\"]\n  P -. interface .-> V1\n  V2[\"PROEX\"]\n  P -. interface .-> V2\n  V3[\"Colegiado de Curso\"]\n  P -. interface .-> V3\n  V4[\"Direção Geral de Campus\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S13_DCEN setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Necessidade de representação do Centro, de indicação de representante, de delegação de atividade ou de deliberação de matéria de competência do Conselho de Centro",
+          "origem": "Diretor(a) de Centro, Assessorias do Centro, Colegiados de Curso ou Direção Geral de Campus"
         },
-        "entrada": [],
+        "entrada": [
+          "Convocação ou demanda de representação, indicação ou deliberação",
+          "Mapeamento de tarefas da Direção de Centro (art. 37 do Estatuto)",
+          "Pauta ou matéria a ser submetida ao Conselho de Centro"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "Representar o Centro em eventos e reuniões internas/externas",
-            "responsavel": "A definir",
+            "acao": "Representar o Centro em eventos, reuniões e atos oficiais internos e externos",
+            "responsavel": "Diretor(a) de Centro",
             "sistema": "",
-            "artefato": "",
-            "prazo": "A definir",
-            "evento": "",
+            "artefato": "Registro/ata de representação",
+            "prazo": "Conforme convocação do evento",
+            "evento": "Centro representado",
             "fontes": [
               "pb-direcao-centro"
             ]
           },
           {
             "n": 2,
-            "acao": "Nomear representantes para comitês, conselhos e GTs",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
-            "prazo": "A definir",
-            "evento": "",
+            "acao": "Nomear representantes do Centro para comitês, conselhos e grupos de trabalho",
+            "responsavel": "Diretor(a) de Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Portaria ou ofício de designação",
+            "prazo": "Conforme demanda",
+            "evento": "Representante designado",
             "fontes": [
               "pb-direcao-centro"
             ]
           },
           {
-            "n": 3,
-            "acao": "Convocar e presidir o Conselho de Centro",
-            "responsavel": "A definir",
+            "acao": "Delegar às Assessorias de área, de ensino e de extensão as atividades correspondentes, conforme o mapeamento de tarefas da Direção de Centro",
+            "responsavel": "Diretor(a) de Centro",
             "sistema": "",
-            "artefato": "",
-            "prazo": "A definir",
-            "evento": "",
+            "artefato": "Mapeamento de tarefas da Direção de Centro",
+            "prazo": "No início da gestão e sempre que alterado",
+            "evento": "Atividades delegadas às Assessorias",
+            "fontes": [
+              "1780963200033"
+            ],
+            "n": 3
+          },
+          {
+            "acao": "Executar as atividades de ensino e de extensão delegadas pelo Diretor(a) de Centro",
+            "responsavel": "Assessoria de Ensino/Extensão do Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Relatório/registro de execução",
+            "prazo": "Conforme cronograma do Centro",
+            "evento": "Atividade delegada executada",
+            "fontes": [
+              "1780963200033"
+            ],
+            "n": 4
+          },
+          {
+            "n": 5,
+            "acao": "Convocar e presidir as reuniões do Conselho de Centro",
+            "responsavel": "Diretor(a) de Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Edital de convocação e pauta",
+            "prazo": "A definir (periodicidade do Regimento do Conselho de Centro)",
+            "evento": "Conselho de Centro convocado",
             "fontes": [
               "pb-direcao-centro"
             ]
           },
           {
-            "n": 4,
-            "acao": "Articular ensino com a PROGRAD e extensão com a PROEX",
-            "responsavel": "A definir",
+            "acao": "Deliberar sobre as matérias constantes da pauta do Conselho de Centro",
+            "responsavel": "Conselho de Centro",
             "sistema": "",
-            "artefato": "",
-            "prazo": "A definir",
-            "evento": "",
+            "artefato": "Ata do Conselho de Centro",
+            "prazo": "Na sessão convocada",
+            "evento": "Matéria deliberada",
+            "fontes": [
+              "1780963200033"
+            ],
+            "n": 6
+          },
+          {
+            "acao": "Registrar a deliberação em ata e dar encaminhamento aos setores envolvidos",
+            "responsavel": "Diretor(a) de Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Ata do Conselho de Centro assinada",
+            "prazo": "A definir (prazo regimental de lavratura da ata)",
+            "evento": "Deliberação registrada e encaminhada",
+            "fontes": [
+              "1780963200033"
+            ],
+            "n": 7
+          },
+          {
+            "n": 8,
+            "acao": "Articular o ensino do Centro com a PROGRAD e a extensão com a PROEX",
+            "responsavel": "Diretor(a) de Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Ofício/memorando de articulação",
+            "prazo": "Conforme demanda",
+            "evento": "Demanda articulada com PROGRAD/PROEX",
             "fontes": [
               "pb-direcao-centro"
             ]
           }
         ],
-        "saida": []
+        "saida": [
+          "Centro representado nos eventos, reuniões e órgãos colegiados",
+          "Representantes designados para comitês, conselhos e grupos de trabalho",
+          "Ata do Conselho de Centro com as deliberações registradas",
+          "Demanda de ensino ou de extensão articulada com a PROGRAD/PROEX"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
+      "artefatos": [
+        {
+          "nome": "Mapeamento de tarefas da Direção de Centro",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [
+            "competência",
+            "responsável (Diretor/Assessoria)",
+            "base normativa"
+          ],
+          "responsavel_preenchimento": "Diretor(a) de Centro"
+        },
+        {
+          "nome": "Edital de convocação do Conselho de Centro",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "data",
+            "pauta",
+            "convocados"
+          ],
+          "responsavel_preenchimento": "Diretor(a) de Centro"
+        },
+        {
+          "nome": "Ata do Conselho de Centro",
+          "tipo": "registro",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "deliberações",
+            "votação",
+            "encaminhamentos"
+          ],
+          "responsavel_preenchimento": "Diretor(a) de Centro"
+        },
+        {
+          "nome": "Portaria/ofício de designação de representante",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "representante designado",
+            "comitê/conselho/GT",
+            "vigência"
+          ],
+          "responsavel_preenchimento": "Diretor(a) de Centro"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "A matéria é aprovada pelo Conselho de Centro?",
+          "condicao": "Votação em reunião do Conselho de Centro, observado o quórum regimental",
+          "sim": "Registrar a aprovação em ata e encaminhar aos setores executores (Assessorias, PROGRAD, PROEX, Colegiados)",
+          "nao": "Registrar a rejeição em ata, com a justificativa, e devolver ao proponente"
+        }
+      ],
       "pontos_atencao": [
         "Distribuição de tarefas deve respeitar o art. 37 do Estatuto",
-        "Assessorias atuam por delegação do Diretor de Centro"
+        "Assessorias atuam por delegação do Diretor de Centro",
+        "A distribuição de competências entre Diretor(a) de Centro e Assessorias deve observar o art. 37 do Estatuto e não substitui a responsabilidade final do Diretor(a) de Centro.",
+        "Assessorias atuam por delegação; a delegação não desonera o Diretor(a) de Centro da supervisão dos atos delegados.",
+        "Convocação, quórum e periodicidade do Conselho de Centro seguem regimento próprio — ainda não evidenciados neste levantamento (A definir)."
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Direção de Centro\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Representar o Centro em eventos e reuniões internas/externas\"]\n    e3[\"Nomear representantes para comitês, conselhos e GTs\"]\n    e4[\"Convocar e presidir o Conselho de Centro\"]\n    e5[\"Articular ensino com a PROGRAD e extensão com a PROEX\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+      "contingencia": [
+        "Se o Diretor(a) de Centro estiver impedido de presidir o Conselho de Centro, aplicar as regras de substituição previstas no Estatuto/Regimento do Centro (instrumento específico a definir).",
+        "Se a pauta do Conselho de Centro não atingir quórum, registrar a ausência de quórum em ata e reconvocar a sessão.",
+        "Se a Assessoria delegada não executar a atividade no prazo, o Diretor(a) de Centro reassume a condução direta e comunica à Direção Geral de Campus, quando aplicável."
+      ],
+      "checklist": [
+        "Pauta e edital de convocação do Conselho de Centro emitidos com antecedência",
+        "Ata da reunião do Conselho de Centro registrada e assinada",
+        "Delegações às Assessorias formalizadas e comunicadas",
+        "Demandas de ensino e de extensão encaminhadas à PROGRAD/PROEX, quando aplicável"
+      ],
+      "kpis": [
+        {
+          "indicador": "Percentual de reuniões do Conselho de Centro com ata registrada",
+          "formula": "(reuniões com ata registrada / reuniões realizadas) × 100",
+          "meta": "A definir",
+          "fonte": "Atas do Conselho de Centro"
+        },
+        {
+          "indicador": "Prazo médio de resposta às demandas de articulação com PROGRAD/PROEX",
+          "formula": "Média (data de resposta − data de encaminhamento)",
+          "meta": "A definir",
+          "fonte": "e-Protocolo"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Direção de Centro",
+          "destino": "PROGRAD",
+          "relacao": "fornece",
+          "artefato": "Demanda de articulação de ensino",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Direção de Centro",
+          "destino": "PROEX",
+          "relacao": "fornece",
+          "artefato": "Demanda de articulação de extensão",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "Direção de Centro",
+          "relacao": "fornece",
+          "artefato": "Matéria/demanda para pauta do Conselho de Centro",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Direção de Centro",
+          "destino": "Direção Geral de Campus",
+          "relacao": "informa",
+          "artefato": "Ata do Conselho de Centro e decisões relevantes",
+          "canal": "e-Protocolo"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Diretor(a) de Centro\"]\n    direction LR\n    e1((\"Necessidade de representação do Centro, de indicação de representante…\"))\n    e2[\"Representar o Centro em eventos, reuniões e atos oficiais internos e…\"]\n    e3[\"Nomear representantes do Centro para comitês, conselhos e grupos de t…\"]\n    e4[\"Delegar às Assessorias de área, de ensino e de extensão as atividades…\"]\n    e6[\"Convocar e presidir as reuniões do Conselho de Centro\"]\n    e8[\"Registrar a deliberação em ata e dar encaminhamento aos setores envol…\"]\n    e9[\"Articular o ensino do Centro com a PROGRAD e a extensão com a PROEX\"]\n    e13(((\"Centro representado nos eventos, reuniões e órgãos colegiados\")))\n  end\n  subgraph R2[\"Assessoria de Ensino/Extensão do Centro\"]\n    direction LR\n    e5[\"Executar as atividades de ensino e de extensão delegadas pelo Diretor…\"]\n  end\n  subgraph R3[\"Conselho de Centro\"]\n    direction LR\n    e7[\"Deliberar sobre as matérias constantes da pauta do Conselho de Centro\"]\n  end\n  subgraph R4[\"PROGRAD\"]\n    direction LR\n    e10[[\"✉ Encaminhar a PROGRAD\"]]\n  end\n  subgraph R5[\"PROEX\"]\n    direction LR\n    e11[[\"✉ Encaminhar a PROEX\"]]\n  end\n  subgraph R6[\"Direção Geral de Campus\"]\n    direction LR\n    e12[[\"✉ Informar Direção Geral de Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e10,e11,e12 captura\n  class e13 fim",
       "bpmn_spec": {
         "raias": [
-          "Direção de Centro"
+          "Diretor(a) de Centro",
+          "Assessoria de Ensino/Extensão do Centro",
+          "Conselho de Centro",
+          "PROGRAD",
+          "PROEX",
+          "Direção Geral de Campus"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "Direção de Centro"
+            "label": "Necessidade de representação do Centro, de indicação de representante, de delegação de atividade ou de deliberação de matéria de competência do Conselho de Centro",
+            "raia": "Diretor(a) de Centro"
           },
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "Representar o Centro em eventos e reuniões internas/externas",
-            "raia": "Direção de Centro"
+            "label": "Representar o Centro em eventos, reuniões e atos oficiais internos e externos",
+            "raia": "Diretor(a) de Centro"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Nomear representantes para comitês, conselhos e GTs",
-            "raia": "Direção de Centro"
+            "label": "Nomear representantes do Centro para comitês, conselhos e grupos de trabalho",
+            "raia": "Diretor(a) de Centro"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Convocar e presidir o Conselho de Centro",
-            "raia": "Direção de Centro"
+            "label": "Delegar às Assessorias de área, de ensino e de extensão as atividades correspondentes, conforme o mapeamento de tarefas da Direção de Centro",
+            "raia": "Diretor(a) de Centro"
           },
           {
             "id": "e5",
             "tipo": "atividade",
-            "label": "Articular ensino com a PROGRAD e extensão com a PROEX",
-            "raia": "Direção de Centro"
+            "label": "Executar as atividades de ensino e de extensão delegadas pelo Diretor(a) de Centro",
+            "raia": "Assessoria de Ensino/Extensão do Centro"
           },
           {
             "id": "e6",
+            "tipo": "atividade",
+            "label": "Convocar e presidir as reuniões do Conselho de Centro",
+            "raia": "Diretor(a) de Centro"
+          },
+          {
+            "id": "e7",
+            "tipo": "atividade",
+            "label": "Deliberar sobre as matérias constantes da pauta do Conselho de Centro",
+            "raia": "Conselho de Centro"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Registrar a deliberação em ata e dar encaminhamento aos setores envolvidos",
+            "raia": "Diretor(a) de Centro"
+          },
+          {
+            "id": "e9",
+            "tipo": "atividade",
+            "label": "Articular o ensino do Centro com a PROGRAD e a extensão com a PROEX",
+            "raia": "Diretor(a) de Centro"
+          },
+          {
+            "id": "e10",
+            "tipo": "captura",
+            "label": "Encaminhar a PROGRAD",
+            "raia": "PROGRAD"
+          },
+          {
+            "id": "e11",
+            "tipo": "captura",
+            "label": "Encaminhar a PROEX",
+            "raia": "PROEX"
+          },
+          {
+            "id": "e12",
+            "tipo": "captura",
+            "label": "Informar Direção Geral de Campus",
+            "raia": "Direção Geral de Campus"
+          },
+          {
+            "id": "e13",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "Direção de Centro"
+            "label": "Centro representado nos eventos, reuniões e órgãos colegiados",
+            "raia": "Diretor(a) de Centro"
           }
         ],
         "conexoes": [
@@ -10480,9 +11078,37 @@
           {
             "de": "e5",
             "para": "e6"
+          },
+          {
+            "de": "e6",
+            "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 6 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -10497,6 +11123,45 @@
             "pb-direcao-centro"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote D2)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo adicionado após 3: Registrar a deliberação em ata e dar encaminhamento aos setores envolvidos",
+            "Passo adicionado após 3: Deliberar sobre as matérias constantes da pauta do Conselho de Centro",
+            "Passo adicionado após 2: Executar as atividades de ensino e de extensão delegadas pelo Diretor(a) de Cent",
+            "Passo adicionado após 2: Delegar às Assessorias de área, de ensino e de extensão as atividades correspond",
+            "entrada_nova: +3",
+            "saida_nova: +4",
+            "artefatos_novos: +4",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +4",
+            "pontos_atencao_novos: +3",
+            "contingencia_nova: +3",
+            "checklist_novo: +4",
+            "glossario_novo: +2",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Campo observacoes atualizado",
+            "Fluxograma regenerado a partir dos passos",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "pb-direcao-centro",
+            "1780963200033"
+          ],
+          "motivo": "Completar a visão geral das competências da Direção de Centro (responsável, gatilho, entradas/saídas, artefatos, decisão, KPIs, contingência, checklist e mapa de contexto) a partir do mapeamento de tarefas da Direção de Centro (art. 37 do Estatuto), tornando o POP transversal apto à validação."
         }
       ],
       "validacao": {
@@ -10509,27 +11174,24 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
-        "prazo"
+        "formulario"
       ],
-      "observacoes": "",
+      "observacoes": "POP consolidado a partir do mapeamento de tarefas da Direção de Centro (art. 37 do Estatuto); descreve as competências gerais aplicáveis a qualquer Direção de Centro do Campus. As particularidades de cada Centro constam dos playbooks CCSA-00 e CECE-00.",
       "fontes_entradas": [
-        "pb-direcao-centro"
+        "pb-direcao-centro",
+        "1780963200033"
       ],
-      "hash_fontes": "0535b073d83cefa99cb9ef90493d1d0df02498a8c39b4b5b86336e2d1bb20c6c",
+      "hash_fontes": "cacc150654c0050113032cbaff2d6bce5c2b7deee23d73fa738a4f43bfab84ad",
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
-      "atualizado_em": "2026-09-02T17:55:55Z"
+      "atualizado_em": "2026-09-03T01:47:00Z"
     },
     {
       "id": "pop-dcom-00",
@@ -17546,21 +18208,32 @@
       "setor": "Div. de Licitação",
       "setor_codigo": "S03.06-DLIC",
       "sigla": "DLIC",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Licitação",
-        "descricao": "Fluxo do contrato de prestação de serviços contínuos decorrente de licitação. A CPL/Licitação gera o contrato, verifica regularidade fiscal, lança no GMS e publica no DIOE após assinatura. A Direção Geral emite portarias de Gestor e Fiscal; o Planejamento registra o contrato; o Fiscal verifica a regularidade fiscal e solicita o empenho ao Financeiro, acompanhando a execução, entregas e notas fiscais ao longo da vigência.",
+        "descricao": "Formaliza e acompanha o contrato de serviços contínuos decorrente de licitação homologada: geração do contrato, verificação da regularidade fiscal e da disponibilidade orçamentária, publicação no DIOE, emissão de portarias de Gestor e Fiscal, registro no Planejamento e fiscalização mensal da execução (empenho, medições e notas fiscais) até a prorrogação ou o encerramento da vigência.",
         "dominio": "Contratações Públicas",
-        "subdominio": "Fluxo — Contrato de Serviços Contínuos (Licitação)",
+        "subdominio": "Formalização e fiscalização de contrato de serviços contínuos",
         "tipo_subdominio": "core",
         "contexto": "S03.06-DLIC",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Medição",
+            "definicao": "Verificação periódica da execução do serviço contínuo para fins de pagamento e controle de qualidade.",
+            "sistema": "GMS"
+          },
+          {
+            "termo": "Prorrogação contratual",
+            "definicao": "Extensão da vigência do contrato de serviço contínuo, quando prevista em cláusula e amparada em lei.",
+            "sistema": ""
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "periodicidade": "Por contrato de serviços contínuos, com acompanhamento mensal durante a vigência",
         "normativa": [
           "Lei nº 14.133/2021",
           "normas internas Unioeste"
@@ -17569,134 +18242,454 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-02<br/>Fluxo — Contrato de Serviços Contínuos (Licitação)\"]\n  S03_06_DLIC --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-02<br/>Fluxo — Contrato de Serviços Contínuos (Licitação)\"]\n  S03_06_DLIC --> P\n  V1[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V1\n  V2[\"Direção Geral\"]\n  P -. interface .-> V2\n  V3[\"Planejamento\"]\n  P -. interface .-> V3\n  V4[\"Gestor/Fiscal do contrato\"]\n  P -. interface .-> V4\n  V5[\"Requisitante\"]\n  P -. interface .-> V5\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque\n  class V1,V2,V3,V4,V5 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Homologação da licitação e necessidade de formalizar o contrato de serviços contínuos",
+          "origem": "Div. de Licitação (processo licitatório homologado)"
         },
-        "entrada": [],
+        "entrada": [
+          "Processo licitatório homologado",
+          "Minuta do contrato de serviços contínuos"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "Licitação gera contrato, verifica regularidade fiscal e lança no GMS",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Gerar o contrato de serviços contínuos no GMS",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "GMS",
+            "artefato": "Contrato de serviços contínuos",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Contrato gerado",
             "fontes": [
               "1780963200055"
             ]
           },
           {
-            "n": 2,
-            "acao": "Publicar contrato assinado no DIOE",
-            "responsavel": "A definir",
+            "acao": "Verificar a regularidade fiscal do contratado antes da assinatura",
+            "responsavel": "Chefe da Divisão de Licitação",
             "sistema": "",
-            "artefato": "",
+            "artefato": "Certidões de regularidade fiscal",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Regularidade fiscal verificada",
             "fontes": [
               "1780963200055"
-            ]
+            ],
+            "n": 2
           },
           {
-            "n": 3,
-            "acao": "Direção Geral emite portarias de Gestor e Fiscal",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Confirmar a disponibilidade orçamentária para o exercício corrente",
+            "responsavel": "Sec. Financeira/Contabilidade",
+            "sistema": "GMS",
+            "artefato": "Confirmação de disponibilidade orçamentária",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Disponibilidade orçamentária confirmada",
             "fontes": [
               "1780963200055"
-            ]
+            ],
+            "n": 3
           },
           {
             "n": 4,
-            "acao": "Planejamento registra contrato e inclui portarias no GMS",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Publicar o contrato assinado no Diário Oficial do Estado (DIOE)",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "DIOE",
+            "artefato": "Extrato de publicação no DIOE",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Contrato publicado",
             "fontes": [
               "1780963200055"
             ]
           },
           {
             "n": 5,
-            "acao": "Fiscal solicita empenho e acompanha execução/entregas/NF",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Emitir e publicar as portarias de Gestor e Fiscal do contrato",
+            "responsavel": "Direção Geral",
+            "sistema": "e-Protocolo",
+            "artefato": "Portaria de Gestor; Portaria de Fiscal",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Portarias publicadas",
             "fontes": [
               "1780963200055"
             ]
+          },
+          {
+            "n": 6,
+            "acao": "Registrar o contrato e as portarias no Planejamento (GMS)",
+            "responsavel": "Planejamento",
+            "sistema": "GMS",
+            "artefato": "Registro do contrato no GMS",
+            "prazo": "A definir",
+            "evento": "Contrato registrado",
+            "fontes": [
+              "1780963200055"
+            ]
+          },
+          {
+            "n": 7,
+            "acao": "Fiscal do contrato solicita o empenho para o período de referência",
+            "responsavel": "Fiscal do contrato",
+            "sistema": "GMS",
+            "artefato": "Nota de empenho mensal",
+            "prazo": "A definir",
+            "evento": "Empenho solicitado",
+            "fontes": [
+              "1780963200055"
+            ]
+          },
+          {
+            "acao": "Acompanhar a execução mensal do serviço",
+            "responsavel": "Fiscal do contrato",
+            "sistema": "GMS",
+            "artefato": "Relatório de medição mensal",
+            "prazo": "Mensal",
+            "evento": "Execução mensal acompanhada",
+            "fontes": [
+              "1780963200055"
+            ],
+            "n": 8
+          },
+          {
+            "acao": "Conferir as medições e as notas fiscais mensais",
+            "responsavel": "Fiscal do contrato",
+            "sistema": "GMS",
+            "artefato": "Relatório de medição mensal",
+            "prazo": "Mensal",
+            "evento": "Medição mensal conferida",
+            "fontes": [
+              "1780963200055"
+            ],
+            "n": 9
+          },
+          {
+            "acao": "Formalizar a prorrogação do contrato, quando prevista e legalmente possível, ou encaminhar à Div. de Licitação para novo processo licitatório",
+            "responsavel": "Fiscal do contrato",
+            "sistema": "e-Protocolo",
+            "artefato": "Termo de prorrogação contratual",
+            "prazo": "Antes do término da vigência",
+            "evento": "Prorrogação formalizada ou novo processo encaminhado",
+            "fontes": [
+              "1780963200055"
+            ],
+            "n": 10
           }
         ],
-        "saida": []
+        "saida": [
+          "Contrato de serviços contínuos publicado, registrado e com portarias emitidas",
+          "Execução mensal fiscalizada até a prorrogação ou o encerramento da vigência"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
+      "artefatos": [
+        {
+          "nome": "Contrato de serviços contínuos",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "nº do contrato",
+            "objeto",
+            "contratada",
+            "valor mensal",
+            "vigência"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+        },
+        {
+          "nome": "Certidões de regularidade fiscal",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [
+            "CNPJ",
+            "validade",
+            "situação"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+        },
+        {
+          "nome": "Portaria de Gestor do contrato",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "nº da portaria",
+            "servidor designado"
+          ],
+          "responsavel_preenchimento": "Direção Geral"
+        },
+        {
+          "nome": "Portaria de Fiscal do contrato",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "nº da portaria",
+            "servidor designado"
+          ],
+          "responsavel_preenchimento": "Direção Geral"
+        },
+        {
+          "nome": "Nota de empenho mensal",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "nº do empenho",
+            "período de referência",
+            "valor"
+          ],
+          "responsavel_preenchimento": "Fiscal do contrato"
+        },
+        {
+          "nome": "Relatório de medição mensal",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "período",
+            "itens medidos",
+            "conformidade"
+          ],
+          "responsavel_preenchimento": "Fiscal do contrato"
+        },
+        {
+          "nome": "Termo de prorrogação contratual",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "nova vigência",
+            "justificativa",
+            "amparo legal"
+          ],
+          "responsavel_preenchimento": "Fiscal do contrato"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "Contratado está com a regularidade fiscal em dia?",
+          "condicao": "Conferência das certidões de regularidade fiscal do contratado",
+          "sim": "Prossegue para confirmação da disponibilidade orçamentária",
+          "nao": "Assinatura/execução suspensa até a regularização"
+        },
+        {
+          "decisao": "O contrato está próximo do término da vigência?",
+          "condicao": "Verificação do prazo de vigência contratual",
+          "sim": "Avalia a possibilidade de prorrogação",
+          "nao": "Prossegue o ciclo mensal de acompanhamento"
+        },
+        {
+          "decisao": "Há prorrogação prevista e legalmente possível?",
+          "condicao": "Existência de previsão contratual e amparo legal para prorrogação (Lei nº 14.133/2021)",
+          "sim": "Fiscal formaliza a prorrogação do contrato",
+          "nao": "Encaminha-se à Div. de Licitação para abertura de novo processo licitatório"
+        }
+      ],
       "pontos_atencao": [
         "Serviços contínuos exigem acompanhamento de execução durante a vigência",
         "Verificar regularidade fiscal a cada medição/pagamento",
-        "Atenção à vigência e eventuais prorrogações"
+        "Atenção à vigência e eventuais prorrogações",
+        "A decisão sobre prorrogação deve ser tomada com antecedência suficiente para evitar solução de continuidade do serviço",
+        "Glosas identificadas na medição devem ser registradas antes do processamento do pagamento"
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Licitação gera contrato, verifica regularidade fiscal e lança no GMS\"]\n    e3[\"Publicar contrato assinado no DIOE\"]\n    e4[\"Direção Geral emite portarias de Gestor e Fiscal\"]\n    e5[\"Planejamento registra contrato e inclui portarias no GMS\"]\n    e6[\"Fiscal solicita empenho e acompanha execução/entregas/NF\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+      "contingencia": [
+        "Se o contratado não apresentar regularidade fiscal, suspender a assinatura até a regularização",
+        "Se não houver disponibilidade orçamentária para o exercício, o processo retorna ao Planejamento para readequação",
+        "Se a medição mensal identificar não conformidade, o Fiscal deve notificar a contratada e glosar o valor correspondente antes do pagamento",
+        "Se não houver amparo legal ou interesse na prorrogação, encaminhar à Div. de Licitação para novo processo licitatório com antecedência mínima ao término da vigência"
+      ],
+      "checklist": [
+        "Regularidade fiscal do contratado verificada antes da assinatura",
+        "Disponibilidade orçamentária confirmada para o exercício corrente",
+        "Contrato publicado no DIOE e portarias emitidas",
+        "Empenho do período de referência solicitado",
+        "Medições e notas fiscais mensais conferidas",
+        "Necessidade de prorrogação avaliada com antecedência ao término da vigência"
+      ],
+      "kpis": [
+        {
+          "indicador": "Percentual de medições mensais sem não conformidade",
+          "formula": "(Medições sem não conformidade ÷ total de medições) × 100",
+          "meta": "100%",
+          "fonte": "GMS"
+        },
+        {
+          "indicador": "Prazo de antecedência entre a decisão de não prorrogar e o encaminhamento à Licitação",
+          "formula": "Data de encaminhamento à Licitação − Data da decisão de não prorrogar",
+          "meta": "A definir",
+          "fonte": "e-Protocolo"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Sec. Financeira/Contabilidade",
+          "relacao": "recebe",
+          "artefato": "Confirmação de disponibilidade orçamentária",
+          "canal": "GMS"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Direção Geral",
+          "relacao": "informa",
+          "artefato": "Contrato de serviços contínuos assinado",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Planejamento",
+          "relacao": "fornece",
+          "artefato": "Registro do contrato e portarias",
+          "canal": "GMS"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Gestor/Fiscal do contrato",
+          "relacao": "informa",
+          "artefato": "Contrato de serviços contínuos para fiscalização",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Requisitante",
+          "relacao": "informa",
+          "artefato": "Encerramento da vigência e necessidade de novo processo licitatório",
+          "canal": "e-Protocolo"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"Homologação da licitação e necessidade de formalizar o contrato\"))\n    e2[\"Gerar o contrato de serviços contínuos no GMS\"]\n    e3[\"Verificar a regularidade fiscal do contratado\"]\n    e4{\"Contratado está com a regularidade fiscal em dia?\"}\n    e5([\"⏱ Aguardar regularização fiscal do contratado\"])\n    e8[\"Publicar o contrato assinado no DIOE\"]\n    e21[[\"✉ Encaminhar à Div. de Licitação para novo processo licitatório\"]]\n    e22(((\"Vigência encerrada — novo processo licitatório a iniciar\")))\n  end\n  subgraph R2[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e6[[\"✉ Encaminhar consulta de disponibilidade orçamentária\"]]\n    e7[\"Confirmar a disponibilidade orçamentária\"]\n  end\n  subgraph R3[\"Direção Geral\"]\n    direction LR\n    e9[[\"✉ Encaminhar contrato à Direção Geral para portarias\"]]\n    e10[\"Emitir e publicar as portarias de Gestor e Fiscal\"]\n  end\n  subgraph R4[\"Planejamento\"]\n    direction LR\n    e11[[\"✉ Encaminhar contrato e portarias ao Planejamento\"]]\n    e12[\"Registrar o contrato e as portarias no Planejamento (GMS)\"]\n  end\n  subgraph R5[\"Fiscal do contrato\"]\n    direction LR\n    e13[[\"✉ Informar Fiscal do contrato assinado\"]]\n    e14[\"Solicitar o empenho do período de referência\"]\n    e15[\"Acompanhar a execução mensal do serviço\"]\n    e16[\"Conferir as medições e as notas fiscais mensais\"]\n    e17{\"O contrato está próximo do término da vigência?\"}\n    e18{\"Há prorrogação prevista e legalmente possível?\"}\n    e19[\"Formalizar a prorrogação do contrato\"]\n    e20(((\"Contrato prorrogado\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e6\n  e4 -- Não --> e5\n  e5 --> e3\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  e16 --> e17\n  e17 -- Não --> e14\n  e17 -- Sim --> e18\n  e18 -- Sim --> e19\n  e19 --> e20\n  e18 -- Não --> e21\n  e21 --> e22\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e7,e8,e10,e12,e14,e15,e16,e19 atividade\n  class e4,e17,e18 decisao\n  class e5 pausa\n  class e6,e9,e11,e13,e21 captura\n  class e20,e22 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Licitação"
+          "Div. de Licitação",
+          "Sec. Financeira/Contabilidade",
+          "Direção Geral",
+          "Planejamento",
+          "Fiscal do contrato"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
+            "label": "Homologação da licitação e necessidade de formalizar o contrato",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "Licitação gera contrato, verifica regularidade fiscal e lança no GMS",
+            "label": "Gerar o contrato de serviços contínuos no GMS",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Publicar contrato assinado no DIOE",
+            "label": "Verificar a regularidade fiscal do contratado",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e4",
-            "tipo": "atividade",
-            "label": "Direção Geral emite portarias de Gestor e Fiscal",
+            "tipo": "decisao",
+            "label": "Contratado está com a regularidade fiscal em dia?",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e5",
-            "tipo": "atividade",
-            "label": "Planejamento registra contrato e inclui portarias no GMS",
+            "tipo": "pausa",
+            "label": "Aguardar regularização fiscal do contratado",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e6",
-            "tipo": "atividade",
-            "label": "Fiscal solicita empenho e acompanha execução/entregas/NF",
-            "raia": "Div. de Licitação"
+            "tipo": "captura",
+            "label": "Encaminhar consulta de disponibilidade orçamentária",
+            "raia": "Sec. Financeira/Contabilidade"
           },
           {
             "id": "e7",
+            "tipo": "atividade",
+            "label": "Confirmar a disponibilidade orçamentária",
+            "raia": "Sec. Financeira/Contabilidade"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Publicar o contrato assinado no DIOE",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e9",
+            "tipo": "captura",
+            "label": "Encaminhar contrato à Direção Geral para portarias",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e10",
+            "tipo": "atividade",
+            "label": "Emitir e publicar as portarias de Gestor e Fiscal",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e11",
+            "tipo": "captura",
+            "label": "Encaminhar contrato e portarias ao Planejamento",
+            "raia": "Planejamento"
+          },
+          {
+            "id": "e12",
+            "tipo": "atividade",
+            "label": "Registrar o contrato e as portarias no Planejamento (GMS)",
+            "raia": "Planejamento"
+          },
+          {
+            "id": "e13",
+            "tipo": "captura",
+            "label": "Informar Fiscal do contrato assinado",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e14",
+            "tipo": "atividade",
+            "label": "Solicitar o empenho do período de referência",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e15",
+            "tipo": "atividade",
+            "label": "Acompanhar a execução mensal do serviço",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e16",
+            "tipo": "atividade",
+            "label": "Conferir as medições e as notas fiscais mensais",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e17",
+            "tipo": "decisao",
+            "label": "O contrato está próximo do término da vigência?",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e18",
+            "tipo": "decisao",
+            "label": "Há prorrogação prevista e legalmente possível?",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e19",
+            "tipo": "atividade",
+            "label": "Formalizar a prorrogação do contrato",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e20",
             "tipo": "fim",
-            "label": "Concluído",
+            "label": "Contrato prorrogado",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e21",
+            "tipo": "captura",
+            "label": "Encaminhar à Div. de Licitação para novo processo licitatório",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e22",
+            "tipo": "fim",
+            "label": "Vigência encerrada — novo processo licitatório a iniciar",
             "raia": "Div. de Licitação"
           }
         ],
@@ -17715,15 +18708,89 @@
           },
           {
             "de": "e4",
-            "para": "e5"
+            "para": "e6",
+            "label": "Sim"
+          },
+          {
+            "de": "e4",
+            "para": "e5",
+            "label": "Não"
           },
           {
             "de": "e5",
-            "para": "e6"
+            "para": "e3"
           },
           {
             "de": "e6",
             "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
+          },
+          {
+            "de": "e13",
+            "para": "e14"
+          },
+          {
+            "de": "e14",
+            "para": "e15"
+          },
+          {
+            "de": "e15",
+            "para": "e16"
+          },
+          {
+            "de": "e16",
+            "para": "e17"
+          },
+          {
+            "de": "e17",
+            "para": "e14",
+            "label": "Não"
+          },
+          {
+            "de": "e17",
+            "para": "e18",
+            "label": "Sim"
+          },
+          {
+            "de": "e18",
+            "para": "e19",
+            "label": "Sim"
+          },
+          {
+            "de": "e19",
+            "para": "e20"
+          },
+          {
+            "de": "e18",
+            "para": "e21",
+            "label": "Não"
+          },
+          {
+            "de": "e21",
+            "para": "e22"
           }
         ],
         "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -17741,6 +18808,47 @@
             "1780963200055"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo adicionado após 5: Formalizar a prorrogação do contrato, quando prevista e legalmente possível, ou ",
+            "Passo adicionado após 5: Conferir as medições e as notas fiscais mensais",
+            "Passo adicionado após 5: Acompanhar a execução mensal do serviço",
+            "Passo adicionado após 1: Confirmar a disponibilidade orçamentária para o exercício corrente",
+            "Passo adicionado após 1: Verificar a regularidade fiscal do contratado antes da assinatura",
+            "entrada_nova: +2",
+            "saida_nova: +2",
+            "artefatos_novos: +7",
+            "decisoes_novas: +3",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +5",
+            "pontos_atencao_novos: +2",
+            "contingencia_nova: +4",
+            "checklist_novo: +6",
+            "glossario_novo: +2",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Raias adicionadas: Sec. Financeira/Contabilidade, Direção Geral, Planejamento, Fiscal do contrato",
+            "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7",
+            "Elementos BPMN adicionados: 22",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "1780963200055"
+          ],
+          "motivo": "Detalhamento do fluxo de contrato de serviços contínuos a partir da entrada do Canvas (1780963200055): separação das ações compostas em passos atômicos, verificação de regularidade fiscal e disponibilidade orçamentária, ciclo mensal de empenho/medição/NF e decisão de prorrogação ou novo processo licitatório."
         }
       ],
       "validacao": {
@@ -17753,16 +18861,12 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
         "prazo"
       ],
       "observacoes": "",
@@ -17773,7 +18877,7 @@
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:46:52Z"
     },
     {
       "id": "pop-dlic-03",
