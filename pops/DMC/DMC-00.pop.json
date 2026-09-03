@@ -5,21 +5,32 @@
   "setor": "Div. de Manutenção e Conservação",
   "setor_codigo": "S03.01-DMC",
   "sigla": "DMC",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
     "departamento": "Div. de Manutenção e Conservação",
-    "descricao": "Guia de planejamento e dimensionamento dos serviços de limpeza e conservação por ambiente, base para o controle da equipe (própria/terceirizada).",
+    "descricao": "Planeja e dimensiona os serviços de limpeza e conservação por ambiente (tipo de limpeza, tempo médio, equipe e materiais), elabora a escala de execução, supervisiona a equipe própria ou terceirizada e revisa periodicamente o dimensionamento conforme o contrato vigente e as normas de saúde e segurança.",
     "dominio": "Infraestrutura e Serviços",
-    "subdominio": "Visão geral do setor (playbook)",
+    "subdominio": "Planejamento, execução e supervisão da limpeza e conservação",
     "tipo_subdominio": "suporte",
     "contexto": "S03.01-DMC",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "DSMC",
+        "definicao": "Divisão de Serviços e Manutenção/Conservação — denominação usada no controle manual de tempos de limpeza.",
+        "sistema": "planilha"
+      },
+      {
+        "termo": "Faxina",
+        "definicao": "Limpeza profunda de um ambiente, com tempo médio superior ao da limpeza normal de manutenção diária.",
+        "sistema": "planilha"
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+    "periodicidade": "Contínua, com revisão periódica do dimensionamento",
     "normativa": [
       "Contrato de prestação de serviços de limpeza/conservação",
       "normas de saúde e segurança"
@@ -28,115 +39,316 @@
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_01_DMC[\"S03.01-DMC<br/>Div. de Manutenção e Conservação\"]\n  S03_SADM --> S03_01_DMC\n  P[\"DMC-00<br/>Visão geral — Div. de Manutenção e Conservação\"]\n  S03_01_DMC --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_01_DMC setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_01_DMC[\"S03.01-DMC<br/>Div. de Manutenção e Conservação\"]\n  S03_SADM --> S03_01_DMC\n  P[\"DMC-00<br/>Visão geral — Div. de Manutenção e Conservação\"]\n  S03_01_DMC --> P\n  V1[\"Equipe de limpeza (própria/terceirizada)\"]\n  P -. interface .-> V1\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_01_DMC setor\n  class P destaque\n  class V1 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Necessidade de planejar ou revisar a limpeza e conservação de um ambiente do campus",
+      "origem": "Chefe da Divisão de Manutenção e Conservação"
     },
-    "entrada": [],
+    "entrada": [
+      "Relação de ambientes do campus",
+      "Contrato de prestação de serviços de limpeza/conservação"
+    ],
     "passos": [
       {
         "n": 1,
         "acao": "Cadastrar ambientes e tipo de limpeza (faxina/normal)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Cadastro de ambientes",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Ambientes cadastrados",
         "fontes": [
-          "pb-manutencao"
+          "pb-manutencao",
+          "1780963200030"
         ]
       },
       {
         "n": 2,
-        "acao": "Definir tempo médio por ambiente",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Definir o tempo médio por ambiente",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Cadastro de ambientes",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Tempo médio definido",
         "fontes": [
-          "pb-manutencao"
+          "pb-manutencao",
+          "1780963200030"
         ]
       },
       {
         "n": 3,
-        "acao": "Dimensionar a equipe (qtd. de pessoal)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Dimensionar a equipe (quantidade de pessoal)",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Dimensionamento de equipe",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Equipe dimensionada",
         "fontes": [
-          "pb-manutencao"
+          "pb-manutencao",
+          "1780963200030"
         ]
       },
       {
         "n": 4,
-        "acao": "Relacionar materiais necessários por atividade",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Relacionar os materiais necessários por atividade",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Relação de materiais",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Materiais relacionados",
+        "fontes": [
+          "pb-manutencao",
+          "1780963200030"
+        ]
+      },
+      {
+        "acao": "Elaborar a escala/rotina de limpeza por ambiente e turno",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Escala/rotina de limpeza",
+        "prazo": "A definir",
+        "evento": "Escala elaborada",
         "fontes": [
           "pb-manutencao"
-        ]
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Executar a rotina de limpeza conforme a escala e os tempos definidos",
+        "responsavel": "Equipe de limpeza (própria/terceirizada)",
+        "sistema": "planilha",
+        "artefato": "Escala/rotina de limpeza",
+        "prazo": "Conforme escala",
+        "evento": "Rotina executada",
+        "fontes": [
+          "pb-manutencao"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Supervisionar e conferir a execução da rotina",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Registro de ocorrências e não conformidades",
+        "prazo": "A definir",
+        "evento": "Execução supervisionada",
+        "fontes": [
+          "pb-manutencao"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Registrar ocorrências e não conformidades identificadas na supervisão",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Registro de ocorrências e não conformidades",
+        "prazo": "A definir",
+        "evento": "Ocorrência registrada",
+        "fontes": [
+          "pb-manutencao"
+        ],
+        "n": 8
+      },
+      {
+        "acao": "Revisar o dimensionamento periodicamente conforme o contrato terceirizado",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Dimensionamento de equipe",
+        "prazo": "Periódica",
+        "evento": "Dimensionamento revisado",
+        "fontes": [
+          "pb-manutencao"
+        ],
+        "n": 9
       }
     ],
-    "saida": []
+    "saida": [
+      "Escala de limpeza executada e supervisionada, com dimensionamento revisado periodicamente"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "Cadastro de ambientes",
+      "tipo": "registro",
+      "sistema": "planilha",
+      "campos_chave": [
+        "ambiente",
+        "tipo de limpeza",
+        "tempo médio"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Manutenção e Conservação"
+    },
+    {
+      "nome": "Escala/rotina de limpeza",
+      "tipo": "documento",
+      "sistema": "planilha",
+      "campos_chave": [
+        "ambiente",
+        "turno",
+        "responsável pela execução"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Manutenção e Conservação"
+    },
+    {
+      "nome": "Registro de ocorrências e não conformidades",
+      "tipo": "registro",
+      "sistema": "planilha",
+      "campos_chave": [
+        "data",
+        "ambiente",
+        "ocorrência",
+        "providência"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Manutenção e Conservação"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A supervisão identificou não conformidade na execução?",
+      "condicao": "Conferência da limpeza executada frente à escala e aos padrões definidos",
+      "sim": "Registrar a ocorrência e orientar a equipe para correção",
+      "nao": "Prossegue a rotina normalmente"
+    }
+  ],
   "pontos_atencao": [
     "Tempos são médias de referência — ajustar à realidade",
-    "Revisar dimensionamento conforme o contrato terceirizado"
+    "Revisar dimensionamento conforme o contrato terceirizado",
+    "A escala deve considerar o horário de menor circulação para reduzir transtornos aos usuários dos ambientes",
+    "Materiais de limpeza devem observar as normas de saúde e segurança do trabalho"
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Manutenção e Conservação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Cadastrar ambientes e tipo de limpeza (faxina/normal)\"]\n    e3[\"Definir tempo médio por ambiente\"]\n    e4[\"Dimensionar a equipe (qtd. de pessoal)\"]\n    e5[\"Relacionar materiais necessários por atividade\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+  "contingencia": [
+    "Se a equipe estiver incompleta, priorizar os ambientes de maior criticidade (banheiros, áreas de circulação) até a normalização",
+    "Se a supervisão identificar não conformidade recorrente, reforçar a orientação à equipe ou acionar a contratada terceirizada",
+    "Se os materiais necessários não estiverem disponíveis, comunicar o Almoxarifado com antecedência para reposição"
+  ],
+  "checklist": [
+    "Ambientes e tipos de limpeza cadastrados",
+    "Tempo médio por ambiente definido",
+    "Equipe dimensionada conforme os ambientes e tempos",
+    "Materiais relacionados por atividade",
+    "Escala de limpeza elaborada e comunicada à equipe",
+    "Execução supervisionada e ocorrências registradas"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de ambientes com limpeza executada conforme a escala",
+      "formula": "(Ambientes conformes ÷ total de ambientes supervisionados) × 100",
+      "meta": "100%",
+      "fonte": "planilha"
+    },
+    {
+      "indicador": "Número de não conformidades registradas por período",
+      "formula": "Contagem de ocorrências registradas no período",
+      "meta": "A definir",
+      "fonte": "planilha"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Manutenção e Conservação",
+      "destino": "Equipe de limpeza (própria/terceirizada)",
+      "relacao": "fornece",
+      "artefato": "Escala/rotina de limpeza",
+      "canal": "planilha"
+    },
+    {
+      "origem": "Div. de Manutenção e Conservação",
+      "destino": "Equipe de limpeza (própria/terceirizada)",
+      "relacao": "recebe",
+      "artefato": "Execução da rotina de limpeza",
+      "canal": "planilha"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Manutenção e Conservação\"]\n    direction LR\n    e1((\"Necessidade de planejar ou revisar a limpeza de um ambiente\"))\n    e2[\"Cadastrar ambientes e tipo de limpeza\"]\n    e3[\"Definir o tempo médio por ambiente\"]\n    e4[\"Dimensionar a equipe\"]\n    e5[\"Relacionar os materiais necessários\"]\n    e6[\"Elaborar a escala/rotina de limpeza\"]\n    e9[[\"✉ Retornar execução para supervisão\"]]\n    e10[\"Supervisionar e conferir a execução\"]\n    e11{\"A supervisão identificou não conformidade?\"}\n    e12[\"Registrar ocorrência e orientar a equipe para correção\"]\n    e13[\"Revisar o dimensionamento periodicamente\"]\n    e14(((\"Rotina de limpeza executada e supervisionada\")))\n  end\n  subgraph R2[\"Equipe de limpeza (própria/terceirizada)\"]\n    direction LR\n    e7[[\"✉ Encaminhar escala à equipe de limpeza\"]]\n    e8[\"Executar a rotina conforme a escala e os tempos\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 -- Sim --> e12\n  e12 --> e8\n  e11 -- Não --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e8,e10,e12,e13 atividade\n  class e7,e9 captura\n  class e11 decisao\n  class e14 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Manutenção e Conservação"
+      "Div. de Manutenção e Conservação",
+      "Equipe de limpeza (própria/terceirizada)"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
+        "label": "Necessidade de planejar ou revisar a limpeza de um ambiente",
         "raia": "Div. de Manutenção e Conservação"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "Cadastrar ambientes e tipo de limpeza (faxina/normal)",
+        "label": "Cadastrar ambientes e tipo de limpeza",
         "raia": "Div. de Manutenção e Conservação"
       },
       {
         "id": "e3",
         "tipo": "atividade",
-        "label": "Definir tempo médio por ambiente",
+        "label": "Definir o tempo médio por ambiente",
         "raia": "Div. de Manutenção e Conservação"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Dimensionar a equipe (qtd. de pessoal)",
+        "label": "Dimensionar a equipe",
         "raia": "Div. de Manutenção e Conservação"
       },
       {
         "id": "e5",
         "tipo": "atividade",
-        "label": "Relacionar materiais necessários por atividade",
+        "label": "Relacionar os materiais necessários",
         "raia": "Div. de Manutenção e Conservação"
       },
       {
         "id": "e6",
+        "tipo": "atividade",
+        "label": "Elaborar a escala/rotina de limpeza",
+        "raia": "Div. de Manutenção e Conservação"
+      },
+      {
+        "id": "e7",
+        "tipo": "captura",
+        "label": "Encaminhar escala à equipe de limpeza",
+        "raia": "Equipe de limpeza (própria/terceirizada)"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Executar a rotina conforme a escala e os tempos",
+        "raia": "Equipe de limpeza (própria/terceirizada)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Retornar execução para supervisão",
+        "raia": "Div. de Manutenção e Conservação"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Supervisionar e conferir a execução",
+        "raia": "Div. de Manutenção e Conservação"
+      },
+      {
+        "id": "e11",
+        "tipo": "decisao",
+        "label": "A supervisão identificou não conformidade?",
+        "raia": "Div. de Manutenção e Conservação"
+      },
+      {
+        "id": "e12",
+        "tipo": "atividade",
+        "label": "Registrar ocorrência e orientar a equipe para correção",
+        "raia": "Div. de Manutenção e Conservação"
+      },
+      {
+        "id": "e13",
+        "tipo": "atividade",
+        "label": "Revisar o dimensionamento periodicamente",
+        "raia": "Div. de Manutenção e Conservação"
+      },
+      {
+        "id": "e14",
         "tipo": "fim",
-        "label": "Concluído",
+        "label": "Rotina de limpeza executada e supervisionada",
         "raia": "Div. de Manutenção e Conservação"
       }
     ],
@@ -160,6 +372,44 @@
       {
         "de": "e5",
         "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12",
+        "label": "Sim"
+      },
+      {
+        "de": "e12",
+        "para": "e8"
+      },
+      {
+        "de": "e11",
+        "para": "e13",
+        "label": "Não"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -177,6 +427,47 @@
         "pb-manutencao"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 4: Elaborar a escala/rotina de limpeza por ambiente e turno",
+        "Passo adicionado após 4: Executar a rotina de limpeza conforme a escala e os tempos definidos",
+        "Passo adicionado após 4: Supervisionar e conferir a execução da rotina",
+        "Passo adicionado após 4: Registrar ocorrências e não conformidades identificadas na supervisão",
+        "Passo adicionado após 4: Revisar o dimensionamento periodicamente conforme o contrato terceirizado",
+        "entrada_nova: +2",
+        "saida_nova: +1",
+        "artefatos_novos: +3",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +6",
+        "glossario_novo: +2",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Equipe de limpeza (própria/terceirizada)",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 14",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-manutencao",
+        "1780963200030"
+      ],
+      "motivo": "Detalhamento do playbook geral de Manutenção e Conservação a partir do playbook e do controle manual de tempos de limpeza (DMC-01): passos de planejamento já evidenciados, complementados com elaboração da escala, execução pela equipe, supervisão e revisão periódica do dimensionamento."
     }
   ],
   "validacao": {
@@ -189,25 +480,22 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
     "prazo"
   ],
   "observacoes": "",
   "fontes_entradas": [
-    "pb-manutencao"
+    "pb-manutencao",
+    "1780963200030"
   ],
-  "hash_fontes": "4a46bbea99cba7eb39c96dcbe2ce8c1b1f2517ac21df954f4edd4677e0e88892",
+  "hash_fontes": "ea91fd5f69a3bc6384f00637a1c77429835df7bc810437b8649d60bec44688db",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.5",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:53:56Z"
 }

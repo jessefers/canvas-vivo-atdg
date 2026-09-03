@@ -1,50 +1,99 @@
 {
   "setor": "Div. de Manutenção e Conservação",
   "codigo": "DMC-00",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:53:56Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DMC-00 — Visão geral — Div. de Manutenção e Conservação",
-      "descricao": "Guia de planejamento e dimensionamento dos serviços de limpeza e conservação por ambiente, base para o controle da equipe (própria/terceirizada).",
+      "descricao": "Planeja e dimensiona os serviços de limpeza e conservação por ambiente (tipo de limpeza, tempo médio, equipe e materiais), elabora a escala de execução, supervisiona a equipe própria ou terceirizada e revisa periodicamente o dimensionamento conforme o contrato vigente e as normas de saúde e segurança.",
       "raias": [
-        "Div. de Manutenção e Conservação"
+        "Div. de Manutenção e Conservação",
+        "Equipe de limpeza (própria/terceirizada)"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
+          "label": "Necessidade de planejar ou revisar a limpeza de um ambiente",
           "raia": "Div. de Manutenção e Conservação"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Cadastrar ambientes e tipo de limpeza (faxina/normal)",
+          "label": "Cadastrar ambientes e tipo de limpeza",
           "raia": "Div. de Manutenção e Conservação"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Definir tempo médio por ambiente",
+          "label": "Definir o tempo médio por ambiente",
           "raia": "Div. de Manutenção e Conservação"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Dimensionar a equipe (qtd. de pessoal)",
+          "label": "Dimensionar a equipe",
           "raia": "Div. de Manutenção e Conservação"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Relacionar materiais necessários por atividade",
+          "label": "Relacionar os materiais necessários",
           "raia": "Div. de Manutenção e Conservação"
         },
         {
           "id": "e6",
+          "tipo": "atividade",
+          "label": "Elaborar a escala/rotina de limpeza",
+          "raia": "Div. de Manutenção e Conservação"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Encaminhar escala à equipe de limpeza",
+          "raia": "Equipe de limpeza (própria/terceirizada)"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Executar a rotina conforme a escala e os tempos",
+          "raia": "Equipe de limpeza (própria/terceirizada)"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Retornar execução para supervisão",
+          "raia": "Div. de Manutenção e Conservação"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Supervisionar e conferir a execução",
+          "raia": "Div. de Manutenção e Conservação"
+        },
+        {
+          "id": "e11",
+          "tipo": "decisao",
+          "label": "A supervisão identificou não conformidade?",
+          "raia": "Div. de Manutenção e Conservação"
+        },
+        {
+          "id": "e12",
+          "tipo": "atividade",
+          "label": "Registrar ocorrência e orientar a equipe para correção",
+          "raia": "Div. de Manutenção e Conservação"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Revisar o dimensionamento periodicamente",
+          "raia": "Div. de Manutenção e Conservação"
+        },
+        {
+          "id": "e14",
           "tipo": "fim",
-          "label": "Concluído",
+          "label": "Rotina de limpeza executada e supervisionada",
           "raia": "Div. de Manutenção e Conservação"
         }
       ],
@@ -68,6 +117,44 @@
         {
           "de": "e5",
           "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12",
+          "label": "Sim"
+        },
+        {
+          "de": "e12",
+          "para": "e8"
+        },
+        {
+          "de": "e11",
+          "para": "e13",
+          "label": "Não"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
