@@ -1,62 +1,168 @@
 {
   "setor": "Div. de Licitação",
   "codigo": "DLIC-03",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:48:59Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DLIC-03 — Fluxo — Processo de Licitação",
-      "descricao": "Fluxo do processo de licitação. O interessado elabora memorando e termo de referência, faz cotações e tabela comparativa e envia ao Planejamento, que submete à autorização da Direção Geral. A Licitação cataloga no GMS, faz pesquisa de preços, o Financeiro indica os elementos de despesa e a DDF, e a Licitação escreve o edital, cadastra o processo no GMS e no ComprasNet e encaminha à Direção Geral para autorização e prosseguimento.",
+      "descricao": "Conduz o processo licitatório desde a elaboração do TR e das cotações pelo Requisitante até a autorização da Direção Geral, a catalogação e a pesquisa de preços, os elementos de despesa e a DDF, a elaboração do edital e o cadastro no GMS e no ComprasNet/PNCP, a sessão pública e a homologação, encaminhando o resultado à formalização do contrato de aquisição ou de serviços contínuos.",
       "raias": [
-        "Div. de Licitação"
+        "Div. de Licitação",
+        "Requisitante",
+        "Planejamento",
+        "Direção Geral",
+        "Sec. Financeira/Contabilidade"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Licitação"
+          "label": "Recebimento de memorando de solicitação",
+          "raia": "Requisitante"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Interessado elabora memorando, TR, cotações e tabela comparativa",
-          "raia": "Div. de Licitação"
+          "label": "Elaborar o memorando e o TR",
+          "raia": "Requisitante"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Planejamento analisa e submete à autorização da Direção Geral",
-          "raia": "Div. de Licitação"
+          "label": "Realizar cotações e elaborar a tabela comparativa",
+          "raia": "Requisitante"
         },
         {
           "id": "e4",
-          "tipo": "atividade",
-          "label": "Licitação cataloga no GMS e faz pesquisa de preços",
-          "raia": "Div. de Licitação"
+          "tipo": "captura",
+          "label": "Encaminhar solicitação ao Planejamento",
+          "raia": "Planejamento"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Financeiro indica elementos de despesa e faz a DDF",
-          "raia": "Div. de Licitação"
+          "label": "Analisar a solicitação",
+          "raia": "Planejamento"
         },
         {
           "id": "e6",
-          "tipo": "atividade",
-          "label": "Licitação elabora edital e cadastra no GMS e ComprasNet",
-          "raia": "Div. de Licitação"
+          "tipo": "captura",
+          "label": "Submeter à autorização da Direção Geral",
+          "raia": "Direção Geral"
         },
         {
           "id": "e7",
-          "tipo": "atividade",
-          "label": "Direção Geral autoriza o prosseguimento",
-          "raia": "Div. de Licitação"
+          "tipo": "decisao",
+          "label": "Direção Geral autoriza a abertura do processo?",
+          "raia": "Direção Geral"
         },
         {
           "id": "e8",
+          "tipo": "pausa",
+          "label": "Aguardar ajuste do TR e das cotações",
+          "raia": "Requisitante"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar processo autorizado à Div. de Licitação",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Catalogar o item/serviço no GMS",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Realizar pesquisa de preços de mercado",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Encaminhar elementos de despesa à Sec. Financeira/Contabilidade",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Indicar os elementos de despesa",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e14",
+          "tipo": "atividade",
+          "label": "Elaborar a DDF",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e15",
+          "tipo": "atividade",
+          "label": "Elaborar o edital",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e16",
+          "tipo": "atividade",
+          "label": "Cadastrar o processo no GMS e no ComprasNet/PNCP",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e17",
+          "tipo": "captura",
+          "label": "Submeter o edital à autorização da Direção Geral",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e18",
+          "tipo": "decisao",
+          "label": "Direção Geral autoriza o prosseguimento?",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e19",
+          "tipo": "pausa",
+          "label": "Aguardar ajuste do edital",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e20",
+          "tipo": "atividade",
+          "label": "Conduzir a sessão pública e homologar",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e21",
+          "tipo": "decisao",
+          "label": "Objeto licitado é aquisição de bens (não serviço contínuo)?",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e22",
+          "tipo": "captura",
+          "label": "Encaminhar à formalização do contrato de aquisição (DLIC-01)",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e23",
           "tipo": "fim",
-          "label": "Concluído",
+          "label": "Licitação homologada — contrato de aquisição a formalizar",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e24",
+          "tipo": "captura",
+          "label": "Encaminhar à formalização do contrato de serviços contínuos (DLIC-02)",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e25",
+          "tipo": "fim",
+          "label": "Licitação homologada — contrato de serviços contínuos a formalizar",
           "raia": "Div. de Licitação"
         }
       ],
@@ -87,7 +193,89 @@
         },
         {
           "de": "e7",
-          "para": "e8"
+          "para": "e9",
+          "label": "Sim"
+        },
+        {
+          "de": "e7",
+          "para": "e8",
+          "label": "Não"
+        },
+        {
+          "de": "e8",
+          "para": "e2"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        },
+        {
+          "de": "e15",
+          "para": "e16"
+        },
+        {
+          "de": "e16",
+          "para": "e17"
+        },
+        {
+          "de": "e17",
+          "para": "e18"
+        },
+        {
+          "de": "e18",
+          "para": "e20",
+          "label": "Sim"
+        },
+        {
+          "de": "e18",
+          "para": "e19",
+          "label": "Não"
+        },
+        {
+          "de": "e19",
+          "para": "e15"
+        },
+        {
+          "de": "e20",
+          "para": "e21"
+        },
+        {
+          "de": "e21",
+          "para": "e22",
+          "label": "Sim"
+        },
+        {
+          "de": "e22",
+          "para": "e23"
+        },
+        {
+          "de": "e21",
+          "para": "e24",
+          "label": "Não"
+        },
+        {
+          "de": "e24",
+          "para": "e25"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."

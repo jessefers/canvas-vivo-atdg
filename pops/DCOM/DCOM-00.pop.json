@@ -5,21 +5,52 @@
   "setor": "Div. de Compras",
   "setor_codigo": "S03.10-DCOM",
   "sigla": "DCOM",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
     "departamento": "Div. de Compras",
-    "descricao": "Guia das contratações diretas: dispensa emergencial e inexigibilidade, com e sem contrato. Cobre a tramitação do pedido até a emissão do contrato ou ordem de compra.",
+    "descricao": "Guia geral das contratações diretas conduzidas pela Div. de Compras (dispensa emergencial e inexigibilidade de licitação, com contrato ou com Ordem de Compra), cobrindo a tramitação do pedido do interessado até a formalização do instrumento e a publicação no DIOE, nos termos da Lei nº 14.133/2021. O passo a passo detalhado de cada modalidade está nos fluxos DCOM-01 a DCOM-04.",
     "dominio": "Contratações Públicas",
-    "subdominio": "Visão geral do setor (playbook)",
+    "subdominio": "Visão geral das contratações diretas (dispensa e inexigibilidade)",
     "tipo_subdominio": "core",
     "contexto": "S03.10-DCOM",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "TR",
+        "definicao": "Termo de Referência — documento que descreve o objeto, as especificações técnicas, a justificativa e os requisitos da contratação, elaborado pelo setor requisitante/interessado.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "DDF",
+        "definicao": "Sigla utilizada pelo setor para o registro de comprometimento orçamentário/financeiro que antecede a contratação por inexigibilidade (função análoga ao empenho, usado nas dispensas); expansão exata da sigla a confirmar com a Sec. Financeira/Contabilidade.",
+        "sistema": "GMS"
+      },
+      {
+        "termo": "DIOE",
+        "definicao": "Diário Oficial do Estado — veículo oficial de publicação dos atos administrativos (extratos de contrato/OC, avisos de dispensa/inexigibilidade, portarias); a publicação é condição de eficácia do ato.",
+        "sistema": "DIOE"
+      },
+      {
+        "termo": "Dispensa (de licitação)",
+        "definicao": "Hipótese de contratação direta, sem processo licitatório, prevista na Lei nº 14.133/2021, cabível nas situações legalmente definidas (como a emergência), mediante justificativa da situação que a fundamenta.",
+        "sistema": ""
+      },
+      {
+        "termo": "Inexigibilidade",
+        "definicao": "Hipótese de contratação direta, sem processo licitatório, cabível quando há inviabilidade de competição (art. 74 da Lei nº 14.133/2021), como no caso de fornecedor exclusivo comprovado por carta de exclusividade.",
+        "sistema": ""
+      },
+      {
+        "termo": "Carta de exclusividade",
+        "definicao": "Declaração emitida pelo fornecedor (ou por entidade representativa, quando aplicável) atestando que é o único capaz de fornecer o objeto pretendido, subsidiando a caracterização da inexigibilidade.",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "responsavel": "Chefe da Divisão de Compras",
+    "periodicidade": "Sob demanda — conforme a ocorrência de situações de dispensa emergencial ou inexigibilidade que justifiquem contratação direta",
     "normativa": [
       "Lei nº 14.133/2021",
       "normas internas Unioeste"
@@ -28,135 +59,347 @@
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_10_DCOM[\"S03.10-DCOM<br/>Div. de Compras\"]\n  S03_SADM --> S03_10_DCOM\n  P[\"DCOM-00<br/>Visão geral — Div. de Compras\"]\n  S03_10_DCOM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_10_DCOM setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_10_DCOM[\"S03.10-DCOM<br/>Div. de Compras\"]\n  S03_SADM --> S03_10_DCOM\n  P[\"DCOM-00<br/>Visão geral — Div. de Compras\"]\n  S03_10_DCOM --> P\n  V1[\"Planejamento\"]\n  P -. interface .-> V1\n  V2[\"Direção Geral\"]\n  P -. interface .-> V2\n  V3[\"Assessoria Jurídica\"]\n  P -. interface .-> V3\n  V4[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V4\n  V5[\"Div. de Licitação\"]\n  P -. interface .-> V5\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_10_DCOM setor\n  class P destaque\n  class V1,V2,V3,V4,V5 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
+      "origem": "Requisitante/Interessado"
     },
-    "entrada": [],
+    "entrada": [
+      "TR/memorando",
+      "Cotações de preços ou tabela comparativa",
+      "Carta de exclusividade (hipótese de inexigibilidade)",
+      "Justificativa de urgência (hipótese de dispensa emergencial)"
+    ],
     "passos": [
       {
-        "n": 1,
-        "acao": "Interessado elabora TR/memorando, cotações e tabela comparativa",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Identificar a hipótese de contratação direta aplicável (dispensa emergencial ou inexigibilidade) e o instrumento de formalização (contrato ou Ordem de Compra)",
+        "responsavel": "Div. de Compras",
+        "sistema": "e-Protocolo",
+        "artefato": "Enquadramento da contratação direta",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Modalidade e instrumento definidos",
         "fontes": [
           "pb-compras"
-        ]
+        ],
+        "n": 1
       },
       {
         "n": 2,
-        "acao": "Planejamento analisa e Direção Geral autoriza",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Receber e instruir o processo de contratação direta (TR/memorando, cotações/tabela comparativa ou carta de exclusividade, conforme a hipótese)",
+        "responsavel": "Div. de Compras",
+        "sistema": "e-Protocolo",
+        "artefato": "TR/memorando, cotações/tabela comparativa ou carta de exclusividade",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Processo de contratação direta instruído",
         "fontes": [
           "pb-compras"
         ]
       },
       {
         "n": 3,
-        "acao": "Compras pesquisa preços e verifica regularidade fiscal",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Acompanhar a análise do Planejamento e a autorização da Direção Geral",
+        "responsavel": "Div. de Compras",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo analisado e autorizado",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Autorização da contratação direta concedida",
         "fontes": [
           "pb-compras"
         ]
       },
       {
         "n": 4,
-        "acao": "Jurídico emite parecer; Financeiro empenha/DDF",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Pesquisar preços de mercado e verificar a regularidade fiscal do fornecedor",
+        "responsavel": "Div. de Compras",
+        "sistema": "ComprasNet/PNCP",
+        "artefato": "Certidões de regularidade fiscal",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Regularidade fiscal verificada",
         "fontes": [
           "pb-compras"
         ]
       },
       {
         "n": 5,
-        "acao": "Emissão de contrato ou ordem de compra e publicação no DIOE",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Acompanhar a emissão do parecer jurídico pela Assessoria Jurídica",
+        "responsavel": "Div. de Compras",
+        "sistema": "e-Protocolo",
+        "artefato": "Parecer jurídico",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Parecer jurídico emitido",
         "fontes": [
           "pb-compras"
         ]
+      },
+      {
+        "acao": "Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibilidade) pela Sec. Financeira/Contabilidade",
+        "responsavel": "Div. de Compras",
+        "sistema": "GMS",
+        "artefato": "Empenho ou DDF",
+        "prazo": "A definir",
+        "evento": "Empenho ou DDF formalizado",
+        "fontes": [
+          "pb-compras"
+        ],
+        "n": 6
+      },
+      {
+        "n": 7,
+        "acao": "Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com a publicação no DIOE",
+        "responsavel": "Div. de Compras",
+        "sistema": "DIOE",
+        "artefato": "Contrato ou Ordem de Compra e extrato de publicação",
+        "prazo": "A definir",
+        "evento": "Instrumento publicado no DIOE (condição de eficácia)",
+        "fontes": [
+          "pb-compras"
+        ]
+      },
+      {
+        "acao": "Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, quando aplicável",
+        "responsavel": "Div. de Compras",
+        "sistema": "e-Protocolo",
+        "artefato": "Portarias de Gestor e Fiscal",
+        "prazo": "A definir",
+        "evento": "Portarias emitidas (quando aplicável)",
+        "fontes": [
+          "pb-compras"
+        ],
+        "n": 8
       }
     ],
-    "saida": []
+    "saida": [
+      "Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE",
+      "Portarias de Gestor e Fiscal do contrato, quando aplicável"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "TR/memorando",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "objeto",
+        "justificativa",
+        "valor estimado"
+      ],
+      "responsavel_preenchimento": "Requisitante/Interessado"
+    },
+    {
+      "nome": "Enquadramento da contratação direta",
+      "tipo": "formulario",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "hipótese legal (dispensa/inexigibilidade)",
+        "instrumento (contrato/OC)"
+      ],
+      "responsavel_preenchimento": "Div. de Compras"
+    },
+    {
+      "nome": "Certidões de regularidade fiscal",
+      "tipo": "documento",
+      "sistema": "ComprasNet/PNCP",
+      "campos_chave": [
+        "CNPJ do fornecedor",
+        "validade das certidões",
+        "situação"
+      ],
+      "responsavel_preenchimento": "Div. de Compras"
+    },
+    {
+      "nome": "Parecer jurídico",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "fundamentação legal",
+        "conclusão"
+      ],
+      "responsavel_preenchimento": "Assessoria Jurídica"
+    },
+    {
+      "nome": "Empenho ou DDF",
+      "tipo": "registro",
+      "sistema": "GMS",
+      "campos_chave": [
+        "número",
+        "dotação orçamentária",
+        "valor"
+      ],
+      "responsavel_preenchimento": "Sec. Financeira/Contabilidade"
+    },
+    {
+      "nome": "Contrato ou Ordem de Compra",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "partes",
+        "objeto",
+        "valor"
+      ],
+      "responsavel_preenchimento": "Div. de Licitação"
+    },
+    {
+      "nome": "Extrato de publicação (DIOE)",
+      "tipo": "registro",
+      "sistema": "DIOE",
+      "campos_chave": [
+        "número do extrato",
+        "data de publicação"
+      ],
+      "responsavel_preenchimento": "Div. de Compras"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A hipótese é de dispensa emergencial?",
+      "condicao": "Ao identificar a necessidade de contratação direta e verificar os requisitos legais",
+      "sim": "Segue-se o fluxo de dispensa emergencial (DCOM-01 ou DCOM-02, conforme o instrumento)",
+      "nao": "Verifica-se a hipótese de inexigibilidade (fornecedor exclusivo) e segue-se o fluxo correspondente (DCOM-03 ou DCOM-04)"
+    },
+    {
+      "decisao": "A formalização será por contrato?",
+      "condicao": "Definida a modalidade de contratação direta",
+      "sim": "Segue-se o fluxo com formalização por contrato (DCOM-01 ou DCOM-03)",
+      "nao": "Segue-se o fluxo com emissão de Ordem de Compra (DCOM-02 ou DCOM-04)"
+    }
+  ],
   "pontos_atencao": [
     "Dispensa exige justificativa de urgência; inexigibilidade exige carta de exclusividade",
     "Aguardar 3 dias após o aviso de inexigibilidade",
-    "Verificar regularidade fiscal antes do empenho"
+    "Verificar regularidade fiscal antes do empenho",
+    "A escolha entre dispensa emergencial e inexigibilidade depende da hipótese legal efetivamente configurada; nunca deve ser presumida",
+    "O detalhamento de responsáveis por setor, sistemas, decisões e prazos de cada etapa está nos fluxos específicos (DCOM-01 a DCOM-04)",
+    "A publicação no DIOE é condição de eficácia do contrato ou da Ordem de Compra, em qualquer modalidade"
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Compras\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Interessado elabora TR/memorando, cotações e tabela comparativa\"]\n    e3[\"Planejamento analisa e Direção Geral autoriza\"]\n    e4[\"Compras pesquisa preços e verifica regularidade fiscal\"]\n    e5[\"Jurídico emite parecer; Financeiro empenha/DDF\"]\n    e6[\"Emissão de contrato ou ordem de compra e publicação no DIOE\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+  "contingencia": [
+    "Se não for possível enquadrar a necessidade em nenhuma hipótese de contratação direta, a Div. de Compras orienta o interessado a seguir o processo licitatório ordinário.",
+    "Se a Direção Geral não autorizar a contratação direta, o processo é devolvido ao interessado com as razões da negativa.",
+    "Se houver dúvida sobre a modalidade ou o instrumento aplicável, a Div. de Compras consulta a Assessoria Jurídica antes de prosseguir."
+  ],
+  "checklist": [
+    "Hipótese de contratação direta (dispensa ou inexigibilidade) identificada e enquadrada",
+    "Instrumento de formalização (contrato ou Ordem de Compra) definido",
+    "Regularidade fiscal do fornecedor verificada antes do empenho/DDF",
+    "Instrumento publicado no DIOE"
+  ],
+  "kpis": [
+    {
+      "indicador": "Volume de contratações diretas por modalidade (dispensa x inexigibilidade) e instrumento (contrato x OC)",
+      "formula": "Contagem de processos concluídos por modalidade/instrumento no período",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Tempo médio de tramitação da contratação direta (visão consolidada dos 4 fluxos)",
+      "formula": "Média de (data de publicação do instrumento − data de protocolo do TR/memorando), em dias corridos",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Compras",
+      "destino": "Planejamento",
+      "relacao": "recebe",
+      "artefato": "Processo analisado, a caminho da autorização da Direção Geral",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Compras",
+      "destino": "Direção Geral",
+      "relacao": "recebe",
+      "artefato": "Autorização da contratação direta",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Compras",
+      "destino": "Assessoria Jurídica",
+      "relacao": "recebe",
+      "artefato": "Parecer jurídico",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Compras",
+      "destino": "Sec. Financeira/Contabilidade",
+      "relacao": "recebe",
+      "artefato": "Empenho ou DDF formalizado(a)",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Compras",
+      "destino": "Div. de Licitação",
+      "relacao": "recebe",
+      "artefato": "Contrato elaborado/publicado ou aviso de inexigibilidade",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Chefe da Divisão de Compras\"]\n    direction LR\n    e1((\"Necessidade de contratação direta identificada pela unidade requisita…\"))\n    e10(((\"Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE\")))\n  end\n  subgraph R2[\"Div. de Compras\"]\n    direction LR\n    e2[\"Identificar a hipótese de contratação direta aplicável (dispensa emer…\"]\n    e3[\"Receber e instruir o processo de contratação direta (TR/memorando, co…\"]\n    e4[\"Acompanhar a análise do Planejamento e a autorização da Direção Geral\"]\n    e5[\"Pesquisar preços de mercado e verificar a regularidade fiscal do forn…\"]\n    e6[\"Acompanhar a emissão do parecer jurídico pela Assessoria Jurídica\"]\n    e7[\"Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibili…\"]\n    e8[\"Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com…\"]\n    e9[\"Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, qu…\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e10 fim",
   "bpmn_spec": {
     "raias": [
+      "Chefe da Divisão de Compras",
       "Div. de Compras"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Div. de Compras"
+        "label": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
+        "raia": "Chefe da Divisão de Compras"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "Interessado elabora TR/memorando, cotações e tabela comparativa",
+        "label": "Identificar a hipótese de contratação direta aplicável (dispensa emergencial ou inexigibilidade) e o instrumento de formalização (contrato ou Ordem de Compra)",
         "raia": "Div. de Compras"
       },
       {
         "id": "e3",
         "tipo": "atividade",
-        "label": "Planejamento analisa e Direção Geral autoriza",
+        "label": "Receber e instruir o processo de contratação direta (TR/memorando, cotações/tabela comparativa ou carta de exclusividade, conforme a hipótese)",
         "raia": "Div. de Compras"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Compras pesquisa preços e verifica regularidade fiscal",
+        "label": "Acompanhar a análise do Planejamento e a autorização da Direção Geral",
         "raia": "Div. de Compras"
       },
       {
         "id": "e5",
         "tipo": "atividade",
-        "label": "Jurídico emite parecer; Financeiro empenha/DDF",
+        "label": "Pesquisar preços de mercado e verificar a regularidade fiscal do fornecedor",
         "raia": "Div. de Compras"
       },
       {
         "id": "e6",
         "tipo": "atividade",
-        "label": "Emissão de contrato ou ordem de compra e publicação no DIOE",
+        "label": "Acompanhar a emissão do parecer jurídico pela Assessoria Jurídica",
         "raia": "Div. de Compras"
       },
       {
         "id": "e7",
-        "tipo": "fim",
-        "label": "Concluído",
+        "tipo": "atividade",
+        "label": "Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibilidade) pela Sec. Financeira/Contabilidade",
         "raia": "Div. de Compras"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com a publicação no DIOE",
+        "raia": "Div. de Compras"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, quando aplicável",
+        "raia": "Div. de Compras"
+      },
+      {
+        "id": "e10",
+        "tipo": "fim",
+        "label": "Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE",
+        "raia": "Chefe da Divisão de Compras"
       }
     ],
     "conexoes": [
@@ -183,9 +426,21 @@
       {
         "de": "e6",
         "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -200,6 +455,44 @@
         "pb-compras"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote DCOM)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 5: Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, quando aplicá",
+        "Passo adicionado após 4: Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibilidade) pela ",
+        "Passo adicionado após 0: Identificar a hipótese de contratação direta aplicável (dispensa emergencial ou ",
+        "entrada_nova: +4",
+        "saida_nova: +2",
+        "artefatos_novos: +7",
+        "decisoes_novas: +2",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +5",
+        "pontos_atencao_novos: +3",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +6",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-compras"
+      ],
+      "motivo": "Completar o esqueleto da visão geral das contratações diretas: desdobrar os passos compostos, definir o enquadramento inicial (modalidade/instrumento), responsável, sistemas, artefatos, decisões de roteamento para os fluxos DCOM-01 a DCOM-04, contingência, checklist, KPIs, mapa de contexto e fluxograma (raia única, regenerado a partir dos passos), a partir do playbook pb-compras."
     }
   ],
   "validacao": {
@@ -212,19 +505,16 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
-    "prazo"
+    "prazo",
+    "versao_documento",
+    "sistema"
   ],
-  "observacoes": "",
+  "observacoes": "Inferência a validar com a Divisão de Compras: este POP é a visão geral (playbook) das contratações diretas, com passos em nível de macroetapa e raia única atribuída à Div. de Compras como coordenadora do macroprocesso; a atribuição detalhada de responsáveis por setor, sistemas, decisões e a pausa de 3 dias da inexigibilidade está nos fluxos específicos DCOM-01 (dispensa/contrato), DCOM-02 (dispensa/OC), DCOM-03 (inexigibilidade/contrato) e DCOM-04 (inexigibilidade/OC), construídos a partir das fontes 1780963200050-53.",
   "fontes_entradas": [
     "pb-compras"
   ],
@@ -232,5 +522,5 @@
   "agente": "",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:49:12Z"
 }

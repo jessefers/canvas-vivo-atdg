@@ -1,57 +1,76 @@
 {
   "setor": "Div. de Compras",
   "codigo": "DCOM-00",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:49:12Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DCOM-00 — Visão geral — Div. de Compras",
-      "descricao": "Guia das contratações diretas: dispensa emergencial e inexigibilidade, com e sem contrato. Cobre a tramitação do pedido até a emissão do contrato ou ordem de compra.",
+      "descricao": "Guia geral das contratações diretas conduzidas pela Div. de Compras (dispensa emergencial e inexigibilidade de licitação, com contrato ou com Ordem de Compra), cobrindo a tramitação do pedido do interessado até a formalização do instrumento e a publicação no DIOE, nos termos da Lei nº 14.133/2021. O passo a passo detalhado de cada modalidade está nos fluxos DCOM-01 a DCOM-04.",
       "raias": [
+        "Chefe da Divisão de Compras",
         "Div. de Compras"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Compras"
+          "label": "Necessidade de contratação direta identificada pela unidade requisitante (dispensa emergencial ou inexigibilidade)",
+          "raia": "Chefe da Divisão de Compras"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Interessado elabora TR/memorando, cotações e tabela comparativa",
+          "label": "Identificar a hipótese de contratação direta aplicável (dispensa emergencial ou inexigibilidade) e o instrumento de formalização (contrato ou Ordem de Compra)",
           "raia": "Div. de Compras"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Planejamento analisa e Direção Geral autoriza",
+          "label": "Receber e instruir o processo de contratação direta (TR/memorando, cotações/tabela comparativa ou carta de exclusividade, conforme a hipótese)",
           "raia": "Div. de Compras"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Compras pesquisa preços e verifica regularidade fiscal",
+          "label": "Acompanhar a análise do Planejamento e a autorização da Direção Geral",
           "raia": "Div. de Compras"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Jurídico emite parecer; Financeiro empenha/DDF",
+          "label": "Pesquisar preços de mercado e verificar a regularidade fiscal do fornecedor",
           "raia": "Div. de Compras"
         },
         {
           "id": "e6",
           "tipo": "atividade",
-          "label": "Emissão de contrato ou ordem de compra e publicação no DIOE",
+          "label": "Acompanhar a emissão do parecer jurídico pela Assessoria Jurídica",
           "raia": "Div. de Compras"
         },
         {
           "id": "e7",
-          "tipo": "fim",
-          "label": "Concluído",
+          "tipo": "atividade",
+          "label": "Acompanhar o empenho (dispensa) ou a formalização da DDF (inexigibilidade) pela Sec. Financeira/Contabilidade",
           "raia": "Div. de Compras"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Emitir ou acompanhar a emissão do contrato ou da Ordem de Compra, com a publicação no DIOE",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Acompanhar a emissão das portarias de Gestor e Fiscal do contrato, quando aplicável",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e10",
+          "tipo": "fim",
+          "label": "Contrato ou Ordem de Compra formalizado(a) e publicado(a) no DIOE",
+          "raia": "Chefe da Divisão de Compras"
         }
       ],
       "conexoes": [
@@ -78,9 +97,21 @@
         {
           "de": "e6",
           "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

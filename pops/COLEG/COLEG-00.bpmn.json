@@ -1,57 +1,100 @@
 {
   "setor": "Colegiado de Curso",
   "codigo": "COLEG-00",
-  "gerado_em": "2026-09-02T17:55:55Z",
+  "gerado_em": "2026-09-03T01:48:43Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "COLEG-00 — Visão geral — Colegiado de Curso (transversal)",
-      "descricao": "Guia das rotinas dos colegiados e coordenações de curso, estágio e TCC, e do agente universitário: comunicação, protocolo, gestão acadêmica e órgãos colegiados.",
+      "descricao": "Consolida as rotinas dos colegiados e coordenações de curso, estágio e TCC e do agente universitário: comunicação e protocolo, condução do Colegiado e do NDE, gestão acadêmica no Academus, formalização de termos e bancas de estágio, e orientação, bancas e envio de TCC à Biblioteca, nos termos do art. 41 do Estatuto (Res. 017/99-COU), do Regimento de Cursos, da Lei nº 11.788/2008 e dos regulamentos de estágio e de TCC de cada curso.",
       "raias": [
-        "Colegiado de Curso"
+        "Coordenador(a) de Curso",
+        "Agente Universitário do Colegiado",
+        "Colegiado/NDE",
+        "Coordenador(a) de Estágio",
+        "Coordenador(a) de TCC",
+        "PROGRAD",
+        "Biblioteca",
+        "Direção de Centro"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Colegiado de Curso"
+          "label": "Solicitação de discente, docente ou concedente, pauta de reunião do Colegiado/NDE, ou marco do calendário acadêmico/cronograma de estágio e TCC",
+          "raia": "Coordenador(a) de Curso"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Comunicação, atendimento e gestão de documentos/e-Protocolo",
-          "raia": "Colegiado de Curso"
+          "label": "Realizar o atendimento e a comunicação com discentes, docentes e concedentes, e protocolar os documentos recebidos",
+          "raia": "Agente Universitário do Colegiado"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Condução de Colegiado e NDE, com atas e pautas",
-          "raia": "Colegiado de Curso"
+          "label": "Convocar e presidir as reuniões do Colegiado e do NDE, com pauta e ata",
+          "raia": "Coordenador(a) de Curso"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Gestão acadêmica no Academus (planos, matrícula, notas, horários)",
-          "raia": "Colegiado de Curso"
+          "label": "Deliberar sobre as matérias em pauta no Colegiado (transferências, segunda chamada, dispensa, exercício domiciliar, entre outras)",
+          "raia": "Colegiado/NDE"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Estágio: termos, bancas e articulação com concedentes",
-          "raia": "Colegiado de Curso"
+          "label": "Realizar a gestão acadêmica no Academus (planos de ensino, matrícula, notas, horários e distribuição de disciplinas)",
+          "raia": "Coordenador(a) de Curso"
         },
         {
           "id": "e6",
           "tipo": "atividade",
-          "label": "TCC: orientadores, bancas, defesas e envio à biblioteca",
-          "raia": "Colegiado de Curso"
+          "label": "Articular com as instituições concedentes e formalizar os termos de compromisso e os aditivos de estágio",
+          "raia": "Coordenador(a) de Estágio"
         },
         {
           "id": "e7",
+          "tipo": "atividade",
+          "label": "Organizar e realizar as bancas de estágio supervisionado",
+          "raia": "Coordenador(a) de Estágio"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Indicar orientadores e organizar as bancas e defesas de TCC",
+          "raia": "Coordenador(a) de TCC"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Lançar as notas e frequências de TCC no Academus e enviar a versão final à Biblioteca",
+          "raia": "Coordenador(a) de TCC"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Informar PROGRAD",
+          "raia": "PROGRAD"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Encaminhar a Biblioteca",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Informar Direção de Centro",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e13",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Colegiado de Curso"
+          "label": "Atendimento realizado e documentos protocolados",
+          "raia": "Coordenador(a) de Curso"
         }
       ],
       "conexoes": [
@@ -78,9 +121,33 @@
         {
           "de": "e6",
           "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 8 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }
