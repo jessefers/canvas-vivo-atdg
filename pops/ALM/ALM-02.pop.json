@@ -5,66 +5,360 @@
   "setor": "Div. de Almoxarifado",
   "setor_codigo": "S03.04-ALM",
   "sigla": "ALM",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
     "departamento": "Div. de Almoxarifado",
-    "descricao": "Armazenagem — Organização, localização, conservação. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "descricao": "Organiza, localiza e conserva no espaço físico do Almoxarifado os materiais liberados pelo recebimento (ALM-01), mantendo o mapa de estoque atualizado no GMS/ERP até a distribuição (ALM-03), conforme o Manual de Gestão do Almoxarifado.",
     "dominio": "Suprimentos e Materiais",
-    "subdominio": "Armazenagem",
+    "subdominio": "Armazenagem e guarda de materiais de consumo",
     "tipo_subdominio": "core",
     "contexto": "S03.04-ALM",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Mapa de estoque",
+        "definicao": "Registro que relaciona cada item armazenado à sua localização física e quantidade no Almoxarifado.",
+        "sistema": "GMS/ERP"
+      },
+      {
+        "termo": "Bem permanente",
+        "definicao": "Item cuja natureza o classifica como patrimônio (bem permanente) em vez de material de consumo, devendo ser comunicado à Div. de Patrimônio.",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
-    "normativa": [],
+    "responsavel": "Chefe da Divisão de Almoxarifado",
+    "periodicidade": "Contínua, conforme o fluxo de materiais liberados pelo recebimento (ALM-01)",
+    "normativa": [
+      "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+      "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)"
+    ],
     "subordinacao": "Secretaria Administrativa",
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-02<br/>Armazenagem\"]\n  S03_04_ALM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-02<br/>Armazenagem\"]\n  S03_04_ALM --> P\n  V1[\"Div. de Patrimônio\"]\n  P -. interface .-> V1\n  V2[\"Agente Universitário do Almoxarifado\"]\n  P -. interface .-> V2\n  V3[\"Chefe da Divisão de Almoxarifado\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Material liberado pelo recebimento (ALM-01), registrado no GMS/ERP",
+      "origem": "ALM-01 Recebimento de Materiais"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Material liberado pelo recebimento (ALM-01), registrado no GMS/ERP"
+    ],
+    "passos": [
+      {
+        "acao": "Receber o material liberado pelo recebimento (ALM-01) para armazenagem",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "",
+        "prazo": "Após liberação do recebimento (ALM-01)",
+        "evento": "Material recebido para armazenagem",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Verificar se há espaço e condições adequadas de armazenagem para o item (validade, incompatibilidade, umidade)",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "",
+        "artefato": "Formulário de verificação de condições de armazenagem",
+        "prazo": "No ato da armazenagem",
+        "evento": "Condições de armazenagem verificadas",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Sinalizar à Chefia a necessidade de adequação do espaço de armazenagem, quando aplicável",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "",
+        "artefato": "Comunicação interna (a definir)",
+        "prazo": "A definir",
+        "evento": "Necessidade de adequação sinalizada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Definir a localização de guarda conforme a classe/natureza do item",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "planilha de controle",
+        "artefato": "Mapa de estoque",
+        "prazo": "No ato da armazenagem",
+        "evento": "Localização definida",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Armazenar fisicamente o material, observando condições de conservação (validade, empilhamento, umidade, incompatibilidade entre itens)",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "No ato da armazenagem",
+        "evento": "Material armazenado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Atualizar o mapa de estoque e o GMS/ERP com a localização e a quantidade armazenada",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Mapa de estoque",
+        "prazo": "No ato da armazenagem",
+        "evento": "Mapa de estoque atualizado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Comunicar à Chefia a disponibilidade do material para distribuição",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "",
+        "prazo": "Após atualização do mapa de estoque",
+        "evento": "Material disponível para distribuição (ALM-03)",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Material armazenado, localizado no mapa de estoque e disponível para distribuição (ALM-03)"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Almoxarifado\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Formulário de verificação de condições de armazenagem",
+      "tipo": "formulario",
+      "sistema": "",
+      "campos_chave": [
+        "item",
+        "validade",
+        "condição de conservação",
+        "localização sugerida"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    },
+    {
+      "nome": "Mapa de estoque",
+      "tipo": "registro",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "item",
+        "localização física",
+        "quantidade",
+        "data de atualização"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Há espaço e condições adequadas de armazenagem para o item (validade, incompatibilidade, umidade)?",
+      "condicao": "Verificação das condições de armazenagem antes da guarda física",
+      "sim": "Definir a localização de guarda e armazenar o material",
+      "nao": "Sinalizar à Chefia da Divisão de Almoxarifado a necessidade de adequação do espaço"
+    }
+  ],
+  "pontos_atencao": [
+    "Itens com prazo de validade devem ser posicionados observando critério de saída pela ordem de vencimento (a confirmar com a Chefia)",
+    "Itens incompatíveis entre si não devem ser armazenados na mesma localização"
+  ],
+  "contingencia": [
+    "Falta de espaço físico para armazenagem adequada: sinalizar à Chefia da Divisão de Almoxarifado para avaliação de espaço alternativo",
+    "Indisponibilidade do GMS/ERP no ato da armazenagem: atualizar o mapa de estoque em planilha de controle e lançar no sistema assim que restabelecido",
+    "Identificação de avaria durante a armazenagem, não detectada no recebimento: registrar a ocorrência e comunicar à Chefia da Divisão de Almoxarifado"
+  ],
+  "checklist": [
+    "Material armazenado apenas após liberação formal do recebimento (ALM-01)",
+    "Condições de conservação (validade, umidade, incompatibilidade) verificadas antes da guarda física",
+    "Mapa de estoque atualizado com localização e quantidade a cada armazenagem",
+    "Itens com característica de bem permanente comunicados à Div. de Patrimônio"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de itens com localização registrada no mapa de estoque",
+      "formula": "Nº de itens localizados / nº total de itens em estoque",
+      "meta": "A definir",
+      "fonte": "GMS/ERP"
+    },
+    {
+      "indicador": "Percentual de perdas por avaria ou vencimento em estoque",
+      "formula": "Nº de itens baixados por avaria ou vencimento / nº total de itens armazenados no período",
+      "meta": "A definir",
+      "fonte": "GMS/ERP"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Almoxarifado",
+      "destino": "Div. de Patrimônio",
+      "relacao": "informa",
+      "artefato": "Comunicação de item com característica de bem permanente identificado no estoque",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Agente Universitário do Almoxarifado",
+      "destino": "Chefe da Divisão de Almoxarifado",
+      "relacao": "informa",
+      "artefato": "Disponibilidade do material para distribuição",
+      "canal": "GMS/ERP"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e1((\"Material liberado pelo recebimento (ALM-01) para armazenagem\"))\n    e2[\"Receber o material para armazenagem\"]\n    e3[\"Verificar condições adequadas de armazenagem\"]\n    e4{\"Há espaço e condições adequadas de armazenagem?\"}\n    e7[\"Definir a localização de guarda conforme a classe/natureza do item\"]\n    e8[\"Armazenar fisicamente o material, observando condições de conservação\"]\n    e10[\"Atualizar o mapa de estoque e o GMS/ERP\"]\n  end\n  subgraph R2[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e5[[\"✉ Necessidade de adequação do espaço\"]]\n    e6(((\"Armazenagem pendente de adequação de espaço\")))\n    e11[[\"✉ Disponibilidade do material para distribuição\"]]\n    e12(((\"Material disponível para distribuição (ALM-03)\")))\n  end\n  subgraph R3[\"Div. de Patrimônio\"]\n    direction LR\n    e9[[\"✉ Comunicação de item com característica de bem permanente (quando iden…\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Não --> e5\n  e5 --> e6\n  e4 -- Sim --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e7,e8,e10 atividade\n  class e4 decisao\n  class e5,e9,e11 captura\n  class e6,e12 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Almoxarifado"
+      "Div. de Almoxarifado",
+      "Agente Universitário do Almoxarifado",
+      "Chefe da Divisão de Almoxarifado",
+      "Div. de Patrimônio"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Div. de Almoxarifado"
+        "label": "Material liberado pelo recebimento (ALM-01) para armazenagem",
+        "raia": "Agente Universitário do Almoxarifado"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Receber o material para armazenagem",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Verificar condições adequadas de armazenagem",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e4",
+        "tipo": "decisao",
+        "label": "Há espaço e condições adequadas de armazenagem?",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e5",
+        "tipo": "captura",
+        "label": "Necessidade de adequação do espaço",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e6",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "Div. de Almoxarifado"
+        "label": "Armazenagem pendente de adequação de espaço",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Definir a localização de guarda conforme a classe/natureza do item",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Armazenar fisicamente o material, observando condições de conservação",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Comunicação de item com característica de bem permanente (quando identificado)",
+        "raia": "Div. de Patrimônio"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Atualizar o mapa de estoque e o GMS/ERP",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Disponibilidade do material para distribuição",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e12",
+        "tipo": "fim",
+        "label": "Material disponível para distribuição (ALM-03)",
+        "raia": "Chefe da Divisão de Almoxarifado"
       }
     ],
     "conexoes": [
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5",
+        "label": "Não"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e4",
+        "para": "e7",
+        "label": "Sim"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -80,6 +374,48 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote ALM)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 1: Receber o material liberado pelo recebimento (ALM-01) para armazenagem",
+        "Passo adicionado após 1: Verificar se há espaço e condições adequadas de armazenagem para o item (validad",
+        "Passo adicionado após 1: Sinalizar à Chefia a necessidade de adequação do espaço de armazenagem, quando a",
+        "Passo adicionado após 1: Definir a localização de guarda conforme a classe/natureza do item",
+        "Passo adicionado após 1: Armazenar fisicamente o material, observando condições de conservação (validade,",
+        "Passo adicionado após 1: Atualizar o mapa de estoque e o GMS/ERP com a localização e a quantidade armazen",
+        "Passo adicionado após 1: Comunicar à Chefia a disponibilidade do material para distribuição",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +2",
+        "normativa_nova: +2",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Raias adicionadas: Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado, Div. de Patrimônio",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 12",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "motivo": "Documentar o passo a passo da armazenagem (verificação de condições, localização, guarda física e atualização do mapa de estoque), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
     }
   ],
   "validacao": {
@@ -92,25 +428,20 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
-  "lacunas": [
-    "passos",
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
-    "prazo",
-    "normativa"
+  "lacunas": [],
+  "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) critério de posicionamento por ordem de validade (PEPS — primeiro que expira, primeiro que sai) inferido de boas práticas de almoxarifado, não citado explicitamente nas fontes; (2) canal de comunicação interna para sinalizar necessidade de adequação de espaço; (3) fluxo de comunicação de itens com característica de bem permanente à Div. de Patrimônio, inferido da distinção entre materiais de consumo (Almoxarifado) e bens permanentes (Patrimônio).",
+  "fontes_entradas": [
+    "pb-almoxarifado",
+    "1780963200000",
+    "1780963200001"
   ],
-  "observacoes": "",
-  "fontes_entradas": [],
-  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
   "agente": "",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:41:32Z"
 }

@@ -1,33 +1,138 @@
 {
   "setor": "Div. de Almoxarifado",
   "codigo": "ALM-02",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:41:32Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "ALM-02 — Armazenagem",
-      "descricao": "Armazenagem — Organização, localização, conservação. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+      "descricao": "Organiza, localiza e conserva no espaço físico do Almoxarifado os materiais liberados pelo recebimento (ALM-01), mantendo o mapa de estoque atualizado no GMS/ERP até a distribuição (ALM-03), conforme o Manual de Gestão do Almoxarifado.",
       "raias": [
-        "Div. de Almoxarifado"
+        "Div. de Almoxarifado",
+        "Agente Universitário do Almoxarifado",
+        "Chefe da Divisão de Almoxarifado",
+        "Div. de Patrimônio"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Almoxarifado"
+          "label": "Material liberado pelo recebimento (ALM-01) para armazenagem",
+          "raia": "Agente Universitário do Almoxarifado"
         },
         {
           "id": "e2",
+          "tipo": "atividade",
+          "label": "Receber o material para armazenagem",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Verificar condições adequadas de armazenagem",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e4",
+          "tipo": "decisao",
+          "label": "Há espaço e condições adequadas de armazenagem?",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e5",
+          "tipo": "captura",
+          "label": "Necessidade de adequação do espaço",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e6",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Div. de Almoxarifado"
+          "label": "Armazenagem pendente de adequação de espaço",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Definir a localização de guarda conforme a classe/natureza do item",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Armazenar fisicamente o material, observando condições de conservação",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Comunicação de item com característica de bem permanente (quando identificado)",
+          "raia": "Div. de Patrimônio"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Atualizar o mapa de estoque e o GMS/ERP",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Disponibilidade do material para distribuição",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e12",
+          "tipo": "fim",
+          "label": "Material disponível para distribuição (ALM-03)",
+          "raia": "Chefe da Divisão de Almoxarifado"
         }
       ],
       "conexoes": [
         {
           "de": "e1",
           "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e4",
+          "para": "e7",
+          "label": "Sim"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."

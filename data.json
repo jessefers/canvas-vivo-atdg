@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:40:42Z",
+  "sincronizado_em": "2026-09-03T01:42:26Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -3850,66 +3850,360 @@
       "setor": "Div. de Almoxarifado",
       "setor_codigo": "S03.04-ALM",
       "sigla": "ALM",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Almoxarifado",
-        "descricao": "Armazenagem — Organização, localização, conservação. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+        "descricao": "Organiza, localiza e conserva no espaço físico do Almoxarifado os materiais liberados pelo recebimento (ALM-01), mantendo o mapa de estoque atualizado no GMS/ERP até a distribuição (ALM-03), conforme o Manual de Gestão do Almoxarifado.",
         "dominio": "Suprimentos e Materiais",
-        "subdominio": "Armazenagem",
+        "subdominio": "Armazenagem e guarda de materiais de consumo",
         "tipo_subdominio": "core",
         "contexto": "S03.04-ALM",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Mapa de estoque",
+            "definicao": "Registro que relaciona cada item armazenado à sua localização física e quantidade no Almoxarifado.",
+            "sistema": "GMS/ERP"
+          },
+          {
+            "termo": "Bem permanente",
+            "definicao": "Item cuja natureza o classifica como patrimônio (bem permanente) em vez de material de consumo, devendo ser comunicado à Div. de Patrimônio.",
+            "sistema": ""
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
-        "normativa": [],
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "periodicidade": "Contínua, conforme o fluxo de materiais liberados pelo recebimento (ALM-01)",
+        "normativa": [
+          "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+          "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)"
+        ],
         "subordinacao": "Secretaria Administrativa",
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-02<br/>Armazenagem\"]\n  S03_04_ALM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-02<br/>Armazenagem\"]\n  S03_04_ALM --> P\n  V1[\"Div. de Patrimônio\"]\n  P -. interface .-> V1\n  V2[\"Agente Universitário do Almoxarifado\"]\n  P -. interface .-> V2\n  V3[\"Chefe da Divisão de Almoxarifado\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2,V3 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Material liberado pelo recebimento (ALM-01), registrado no GMS/ERP",
+          "origem": "ALM-01 Recebimento de Materiais"
         },
-        "entrada": [],
-        "passos": [],
-        "saida": []
+        "entrada": [
+          "Material liberado pelo recebimento (ALM-01), registrado no GMS/ERP"
+        ],
+        "passos": [
+          {
+            "acao": "Receber o material liberado pelo recebimento (ALM-01) para armazenagem",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "",
+            "prazo": "Após liberação do recebimento (ALM-01)",
+            "evento": "Material recebido para armazenagem",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 1
+          },
+          {
+            "acao": "Verificar se há espaço e condições adequadas de armazenagem para o item (validade, incompatibilidade, umidade)",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "",
+            "artefato": "Formulário de verificação de condições de armazenagem",
+            "prazo": "No ato da armazenagem",
+            "evento": "Condições de armazenagem verificadas",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 2
+          },
+          {
+            "acao": "Sinalizar à Chefia a necessidade de adequação do espaço de armazenagem, quando aplicável",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "",
+            "artefato": "Comunicação interna (a definir)",
+            "prazo": "A definir",
+            "evento": "Necessidade de adequação sinalizada",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 3
+          },
+          {
+            "acao": "Definir a localização de guarda conforme a classe/natureza do item",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "planilha de controle",
+            "artefato": "Mapa de estoque",
+            "prazo": "No ato da armazenagem",
+            "evento": "Localização definida",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 4
+          },
+          {
+            "acao": "Armazenar fisicamente o material, observando condições de conservação (validade, empilhamento, umidade, incompatibilidade entre itens)",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "",
+            "artefato": "",
+            "prazo": "No ato da armazenagem",
+            "evento": "Material armazenado",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 5
+          },
+          {
+            "acao": "Atualizar o mapa de estoque e o GMS/ERP com a localização e a quantidade armazenada",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Mapa de estoque",
+            "prazo": "No ato da armazenagem",
+            "evento": "Mapa de estoque atualizado",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 6
+          },
+          {
+            "acao": "Comunicar à Chefia a disponibilidade do material para distribuição",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "",
+            "prazo": "Após atualização do mapa de estoque",
+            "evento": "Material disponível para distribuição (ALM-03)",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 7
+          }
+        ],
+        "saida": [
+          "Material armazenado, localizado no mapa de estoque e disponível para distribuição (ALM-03)"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
-      "pontos_atencao": [],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Almoxarifado\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+      "artefatos": [
+        {
+          "nome": "Formulário de verificação de condições de armazenagem",
+          "tipo": "formulario",
+          "sistema": "",
+          "campos_chave": [
+            "item",
+            "validade",
+            "condição de conservação",
+            "localização sugerida"
+          ],
+          "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "nome": "Mapa de estoque",
+          "tipo": "registro",
+          "sistema": "GMS/ERP",
+          "campos_chave": [
+            "item",
+            "localização física",
+            "quantidade",
+            "data de atualização"
+          ],
+          "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "Há espaço e condições adequadas de armazenagem para o item (validade, incompatibilidade, umidade)?",
+          "condicao": "Verificação das condições de armazenagem antes da guarda física",
+          "sim": "Definir a localização de guarda e armazenar o material",
+          "nao": "Sinalizar à Chefia da Divisão de Almoxarifado a necessidade de adequação do espaço"
+        }
+      ],
+      "pontos_atencao": [
+        "Itens com prazo de validade devem ser posicionados observando critério de saída pela ordem de vencimento (a confirmar com a Chefia)",
+        "Itens incompatíveis entre si não devem ser armazenados na mesma localização"
+      ],
+      "contingencia": [
+        "Falta de espaço físico para armazenagem adequada: sinalizar à Chefia da Divisão de Almoxarifado para avaliação de espaço alternativo",
+        "Indisponibilidade do GMS/ERP no ato da armazenagem: atualizar o mapa de estoque em planilha de controle e lançar no sistema assim que restabelecido",
+        "Identificação de avaria durante a armazenagem, não detectada no recebimento: registrar a ocorrência e comunicar à Chefia da Divisão de Almoxarifado"
+      ],
+      "checklist": [
+        "Material armazenado apenas após liberação formal do recebimento (ALM-01)",
+        "Condições de conservação (validade, umidade, incompatibilidade) verificadas antes da guarda física",
+        "Mapa de estoque atualizado com localização e quantidade a cada armazenagem",
+        "Itens com característica de bem permanente comunicados à Div. de Patrimônio"
+      ],
+      "kpis": [
+        {
+          "indicador": "Percentual de itens com localização registrada no mapa de estoque",
+          "formula": "Nº de itens localizados / nº total de itens em estoque",
+          "meta": "A definir",
+          "fonte": "GMS/ERP"
+        },
+        {
+          "indicador": "Percentual de perdas por avaria ou vencimento em estoque",
+          "formula": "Nº de itens baixados por avaria ou vencimento / nº total de itens armazenados no período",
+          "meta": "A definir",
+          "fonte": "GMS/ERP"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Almoxarifado",
+          "destino": "Div. de Patrimônio",
+          "relacao": "informa",
+          "artefato": "Comunicação de item com característica de bem permanente identificado no estoque",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Agente Universitário do Almoxarifado",
+          "destino": "Chefe da Divisão de Almoxarifado",
+          "relacao": "informa",
+          "artefato": "Disponibilidade do material para distribuição",
+          "canal": "GMS/ERP"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e1((\"Material liberado pelo recebimento (ALM-01) para armazenagem\"))\n    e2[\"Receber o material para armazenagem\"]\n    e3[\"Verificar condições adequadas de armazenagem\"]\n    e4{\"Há espaço e condições adequadas de armazenagem?\"}\n    e7[\"Definir a localização de guarda conforme a classe/natureza do item\"]\n    e8[\"Armazenar fisicamente o material, observando condições de conservação\"]\n    e10[\"Atualizar o mapa de estoque e o GMS/ERP\"]\n  end\n  subgraph R2[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e5[[\"✉ Necessidade de adequação do espaço\"]]\n    e6(((\"Armazenagem pendente de adequação de espaço\")))\n    e11[[\"✉ Disponibilidade do material para distribuição\"]]\n    e12(((\"Material disponível para distribuição (ALM-03)\")))\n  end\n  subgraph R3[\"Div. de Patrimônio\"]\n    direction LR\n    e9[[\"✉ Comunicação de item com característica de bem permanente (quando iden…\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Não --> e5\n  e5 --> e6\n  e4 -- Sim --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e7,e8,e10 atividade\n  class e4 decisao\n  class e5,e9,e11 captura\n  class e6,e12 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Almoxarifado"
+          "Div. de Almoxarifado",
+          "Agente Universitário do Almoxarifado",
+          "Chefe da Divisão de Almoxarifado",
+          "Div. de Patrimônio"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "Div. de Almoxarifado"
+            "label": "Material liberado pelo recebimento (ALM-01) para armazenagem",
+            "raia": "Agente Universitário do Almoxarifado"
           },
           {
             "id": "e2",
+            "tipo": "atividade",
+            "label": "Receber o material para armazenagem",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e3",
+            "tipo": "atividade",
+            "label": "Verificar condições adequadas de armazenagem",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e4",
+            "tipo": "decisao",
+            "label": "Há espaço e condições adequadas de armazenagem?",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e5",
+            "tipo": "captura",
+            "label": "Necessidade de adequação do espaço",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e6",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "Div. de Almoxarifado"
+            "label": "Armazenagem pendente de adequação de espaço",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e7",
+            "tipo": "atividade",
+            "label": "Definir a localização de guarda conforme a classe/natureza do item",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Armazenar fisicamente o material, observando condições de conservação",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e9",
+            "tipo": "captura",
+            "label": "Comunicação de item com característica de bem permanente (quando identificado)",
+            "raia": "Div. de Patrimônio"
+          },
+          {
+            "id": "e10",
+            "tipo": "atividade",
+            "label": "Atualizar o mapa de estoque e o GMS/ERP",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e11",
+            "tipo": "captura",
+            "label": "Disponibilidade do material para distribuição",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e12",
+            "tipo": "fim",
+            "label": "Material disponível para distribuição (ALM-03)",
+            "raia": "Chefe da Divisão de Almoxarifado"
           }
         ],
         "conexoes": [
           {
             "de": "e1",
             "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          },
+          {
+            "de": "e3",
+            "para": "e4"
+          },
+          {
+            "de": "e4",
+            "para": "e5",
+            "label": "Não"
+          },
+          {
+            "de": "e5",
+            "para": "e6"
+          },
+          {
+            "de": "e4",
+            "para": "e7",
+            "label": "Sim"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
           }
         ],
         "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -3925,6 +4219,48 @@
           ],
           "fontes": [],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote ALM)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo adicionado após 1: Receber o material liberado pelo recebimento (ALM-01) para armazenagem",
+            "Passo adicionado após 1: Verificar se há espaço e condições adequadas de armazenagem para o item (validad",
+            "Passo adicionado após 1: Sinalizar à Chefia a necessidade de adequação do espaço de armazenagem, quando a",
+            "Passo adicionado após 1: Definir a localização de guarda conforme a classe/natureza do item",
+            "Passo adicionado após 1: Armazenar fisicamente o material, observando condições de conservação (validade,",
+            "Passo adicionado após 1: Atualizar o mapa de estoque e o GMS/ERP com a localização e a quantidade armazen",
+            "Passo adicionado após 1: Comunicar à Chefia a disponibilidade do material para distribuição",
+            "entrada_nova: +1",
+            "saida_nova: +1",
+            "artefatos_novos: +2",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +2",
+            "pontos_atencao_novos: +2",
+            "contingencia_nova: +3",
+            "checklist_novo: +4",
+            "glossario_novo: +2",
+            "normativa_nova: +2",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Campo observacoes atualizado",
+            "Raias adicionadas: Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado, Div. de Patrimônio",
+            "Elementos BPMN removidos: e1, e2",
+            "Elementos BPMN adicionados: 12",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "motivo": "Documentar o passo a passo da armazenagem (verificação de condições, localização, guarda física e atualização do mapa de estoque), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
         }
       ],
       "validacao": {
@@ -3937,27 +4273,22 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003"
       ],
-      "lacunas": [
-        "passos",
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
-        "prazo",
-        "normativa"
+      "lacunas": [],
+      "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) critério de posicionamento por ordem de validade (PEPS — primeiro que expira, primeiro que sai) inferido de boas práticas de almoxarifado, não citado explicitamente nas fontes; (2) canal de comunicação interna para sinalizar necessidade de adequação de espaço; (3) fluxo de comunicação de itens com característica de bem permanente à Div. de Patrimônio, inferido da distinção entre materiais de consumo (Almoxarifado) e bens permanentes (Patrimônio).",
+      "fontes_entradas": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
       ],
-      "observacoes": "",
-      "fontes_entradas": [],
-      "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:41:32Z"
     },
     {
       "id": "pop-alm-03",
@@ -4662,14 +4993,14 @@
       "setor": "Biblioteca",
       "setor_codigo": "S06-BIB",
       "sigla": "BIB",
-      "versao": "0.1.0",
+      "versao": "0.2.0",
       "status": "rascunho",
       "ddd": {
         "divisao": "Biblioteca",
         "departamento": "Biblioteca",
-        "descricao": "Área da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo). Playbook em construção.",
+        "descricao": "Estabelece o roteiro de coleta para o mapeamento das rotinas da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo), a ser aplicado pela ATDG até que a área tenha responsável, fluxos e normas formalmente definidos.",
         "dominio": "Informação e Acervo",
-        "subdominio": "Visão geral do setor (playbook)",
+        "subdominio": "Roteiro de coleta para mapeamento de processos (setor ainda não mapeado)",
         "tipo_subdominio": "suporte",
         "contexto": "S06-BIB",
         "glossario": []
@@ -4684,96 +5015,258 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S06_BIB[\"S06-BIB<br/>Biblioteca\"]\n  S01_DG --> S06_BIB\n  P[\"BIB-00<br/>Visão geral — Biblioteca\"]\n  S06_BIB --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S06_BIB setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S06_BIB[\"S06-BIB<br/>Biblioteca\"]\n  S01_DG --> S06_BIB\n  P[\"BIB-00<br/>Visão geral — Biblioteca\"]\n  S06_BIB --> P\n  V1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n  P -. interface .-> V1\n  V2[\"Div. Circulação, Referência e Acervo\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S06_BIB setor\n  class P destaque\n  class V1,V2 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Inclusão da Biblioteca no cronograma de mapeamento de processos da ATDG",
+          "origem": "ATDG — Assessoria Técnica da Direção Geral"
         },
-        "entrada": [],
+        "entrada": [
+          "Cronograma de mapeamento de processos da ATDG, com o questionário de atividades a ser respondido pela Biblioteca",
+          "Contato institucional da Chefia da Biblioteca"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "A documentar: levantar atividades e rotinas da área",
+            "acao": "Levantar, junto à Chefia da Biblioteca, as atividades e rotinas do setor",
             "responsavel": "A definir",
             "sistema": "",
-            "artefato": "",
+            "artefato": "Roteiro de coleta preenchido",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Atividades e rotinas levantadas",
             "fontes": [
               "pb-biblioteca"
             ]
           },
           {
             "n": 2,
-            "acao": "Mapear fluxos e responsáveis por etapa",
+            "acao": "Mapear os fluxos e os responsáveis por etapa das rotinas identificadas",
             "responsavel": "A definir",
             "sistema": "",
-            "artefato": "",
+            "artefato": "Esboço de fluxo por rotina",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Fluxos e responsáveis mapeados",
             "fontes": [
               "pb-biblioteca"
             ]
           },
           {
             "n": 3,
-            "acao": "Identificar normas aplicáveis e pontos de atenção",
+            "acao": "Identificar as normas aplicáveis e os pontos de atenção do setor",
             "responsavel": "A definir",
             "sistema": "",
-            "artefato": "",
+            "artefato": "Lista de normas e pontos de atenção",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Normas e pontos de atenção identificados",
             "fontes": [
               "pb-biblioteca"
             ]
+          },
+          {
+            "acao": "Aplicar questionário de mapeamento de atividades à Chefia da Biblioteca e à Divisão de Circulação, Referência e Acervo",
+            "responsavel": "A definir",
+            "sistema": "Microsoft Forms",
+            "artefato": "Questionário de mapeamento de atividades",
+            "prazo": "A definir",
+            "evento": "Questionário aplicado",
+            "fontes": [
+              "pb-biblioteca"
+            ],
+            "n": 4
+          },
+          {
+            "acao": "Consolidar as respostas do questionário e as evidências documentais coletadas",
+            "responsavel": "A definir",
+            "sistema": "Microsoft Forms",
+            "artefato": "Planilha de consolidação de respostas",
+            "prazo": "A definir",
+            "evento": "Respostas consolidadas",
+            "fontes": [
+              "pb-biblioteca"
+            ],
+            "n": 5
+          },
+          {
+            "acao": "Elaborar playbook preliminar da Biblioteca com as lacunas identificadas",
+            "responsavel": "A definir",
+            "sistema": "",
+            "artefato": "Playbook preliminar",
+            "prazo": "A definir",
+            "evento": "Playbook preliminar elaborado",
+            "fontes": [
+              "pb-biblioteca"
+            ],
+            "n": 6
+          },
+          {
+            "acao": "Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para validação",
+            "responsavel": "A definir",
+            "sistema": "",
+            "artefato": "Playbook preliminar validado",
+            "prazo": "A definir",
+            "evento": "Roteiro validado pela Chefia",
+            "fontes": [
+              "pb-biblioteca"
+            ],
+            "n": 7
           }
         ],
-        "saida": []
+        "saida": [
+          "Roteiro de coleta aplicado, com respostas e evidências documentais consolidadas",
+          "Playbook preliminar da Biblioteca submetido à validação da Chefia"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
-      "pontos_atencao": [
-        "Área ainda não mapeada — playbook em construção"
+      "artefatos": [
+        {
+          "nome": "Questionário de mapeamento de atividades — Biblioteca",
+          "tipo": "formulario",
+          "sistema": "Microsoft Forms",
+          "campos_chave": [
+            "atividade",
+            "frequência",
+            "sistema utilizado",
+            "norma aplicável"
+          ],
+          "responsavel_preenchimento": "Bibliotecário(a)/Chefia da Divisão"
+        },
+        {
+          "nome": "Playbook preliminar — Biblioteca",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [
+            "atividades levantadas",
+            "fluxos",
+            "lacunas"
+          ],
+          "responsavel_preenchimento": "ATDG — Assessoria Técnica da Direção Geral"
+        }
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Biblioteca\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+      "decisoes": [
+        {
+          "decisao": "A Chefia da Biblioteca validou o playbook preliminar?",
+          "condicao": "Análise da Chefia da Biblioteca sobre o conteúdo levantado no roteiro de coleta",
+          "sim": "Consolidar o playbook preliminar como base para a elaboração do POP definitivo da Biblioteca",
+          "nao": "Retornar à Chefia para complementação das informações e reaplicar o questionário nos pontos pendentes"
+        }
+      ],
+      "pontos_atencao": [
+        "Área ainda não mapeada — playbook em construção",
+        "Setor ainda não possui responsável formalmente designado nem normativa própria além do regulamento do Sistema de Bibliotecas (a definir).",
+        "Enquanto o roteiro de coleta não for concluído, este documento não substitui um POP operacional da Biblioteca."
+      ],
+      "contingencia": [
+        "Se a Chefia da Biblioteca não responder ao questionário no prazo combinado, a ATDG reenvia o formulário e registra o atraso nas lacunas do setor.",
+        "Se não houver Chefia formalmente designada no momento da coleta, aplicar o questionário ao servidor indicado pela Direção Geral do Campus como responsável interino.",
+        "Se as evidências coletadas forem insuficientes para elaborar o playbook preliminar, registrar a lacuna e agendar nova rodada de coleta."
+      ],
+      "checklist": [
+        "Cronograma de mapeamento da Biblioteca confirmado com a ATDG",
+        "Questionário de mapeamento de atividades aplicado à Chefia da Biblioteca",
+        "Respostas e evidências consolidadas em planilha",
+        "Playbook preliminar elaborado e submetido à validação da Chefia"
+      ],
+      "kpis": [
+        {
+          "indicador": "Percentual de questionários de mapeamento respondidos pela Biblioteca",
+          "formula": "Questionários respondidos / questionários aplicados × 100",
+          "meta": "A definir",
+          "fonte": "Microsoft Forms"
+        },
+        {
+          "indicador": "Prazo decorrido até a validação do playbook preliminar pela Chefia",
+          "formula": "Data de validação − data de aplicação do questionário",
+          "meta": "A definir",
+          "fonte": "Registro da ATDG"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Biblioteca",
+          "destino": "ATDG — Assessoria Técnica da Direção Geral",
+          "relacao": "fornece",
+          "artefato": "Respostas do questionário de mapeamento e evidências documentais",
+          "canal": "Microsoft Forms"
+        },
+        {
+          "origem": "Biblioteca",
+          "destino": "Div. Circulação, Referência e Acervo",
+          "relacao": "informa",
+          "artefato": "Diretrizes e prioridades do roteiro de coleta",
+          "canal": "Reunião/e-mail institucional"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Biblioteca\"]\n    direction LR\n    e1((\"Inclusão da Biblioteca no cronograma de mapeamento de processos da AT…\"))\n    e2[\"Levantar, junto à Chefia da Biblioteca, as atividades e rotinas do se…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa das rotinas identificadas\"]\n    e4[\"Identificar as normas aplicáveis e os pontos de atenção do setor\"]\n    e5[\"Aplicar questionário de mapeamento de atividades à Chefia da Bibliote…\"]\n    e6[\"Consolidar as respostas do questionário e as evidências documentais c…\"]\n    e7[\"Elaborar playbook preliminar da Biblioteca com as lacunas identificad…\"]\n    e8[\"Submeter o roteiro de coleta e o playbook preliminar à Chefia da Bibl…\"]\n    e11(((\"Roteiro de coleta aplicado, com respostas e evidências documentais co…\")))\n  end\n  subgraph R2[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e9[[\"✉ Encaminhar a ATDG — Assessoria Técnica da Direção Geral\"]]\n  end\n  subgraph R3[\"Div. Circulação, Referência e Acervo\"]\n    direction LR\n    e10[[\"✉ Informar Div. Circulação, Referência e Acervo\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
       "bpmn_spec": {
         "raias": [
-          "Biblioteca"
+          "Biblioteca",
+          "ATDG — Assessoria Técnica da Direção Geral",
+          "Div. Circulação, Referência e Acervo"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
+            "label": "Inclusão da Biblioteca no cronograma de mapeamento de processos da ATDG",
             "raia": "Biblioteca"
           },
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "A documentar: levantar atividades e rotinas da área",
+            "label": "Levantar, junto à Chefia da Biblioteca, as atividades e rotinas do setor",
             "raia": "Biblioteca"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Mapear fluxos e responsáveis por etapa",
+            "label": "Mapear os fluxos e os responsáveis por etapa das rotinas identificadas",
             "raia": "Biblioteca"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Identificar normas aplicáveis e pontos de atenção",
+            "label": "Identificar as normas aplicáveis e os pontos de atenção do setor",
             "raia": "Biblioteca"
           },
           {
             "id": "e5",
+            "tipo": "atividade",
+            "label": "Aplicar questionário de mapeamento de atividades à Chefia da Biblioteca e à Divisão de Circulação, Referência e Acervo",
+            "raia": "Biblioteca"
+          },
+          {
+            "id": "e6",
+            "tipo": "atividade",
+            "label": "Consolidar as respostas do questionário e as evidências documentais coletadas",
+            "raia": "Biblioteca"
+          },
+          {
+            "id": "e7",
+            "tipo": "atividade",
+            "label": "Elaborar playbook preliminar da Biblioteca com as lacunas identificadas",
+            "raia": "Biblioteca"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para validação",
+            "raia": "Biblioteca"
+          },
+          {
+            "id": "e9",
+            "tipo": "captura",
+            "label": "Encaminhar a ATDG — Assessoria Técnica da Direção Geral",
+            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+          },
+          {
+            "id": "e10",
+            "tipo": "captura",
+            "label": "Informar Div. Circulação, Referência e Acervo",
+            "raia": "Div. Circulação, Referência e Acervo"
+          },
+          {
+            "id": "e11",
             "tipo": "fim",
-            "label": "Concluído",
+            "label": "Roteiro de coleta aplicado, com respostas e evidências documentais consolidadas",
             "raia": "Biblioteca"
           }
         ],
@@ -4793,9 +5286,33 @@
           {
             "de": "e4",
             "para": "e5"
+          },
+          {
+            "de": "e5",
+            "para": "e6"
+          },
+          {
+            "de": "e6",
+            "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -4810,6 +5327,39 @@
             "pb-biblioteca"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "0.2.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote D2)",
+          "tipo": "minor",
+          "mudancas": [
+            "Passo 1 alterado (acao, sistema, artefato, prazo, evento)",
+            "Passo 2 alterado (acao, sistema, artefato, prazo, evento)",
+            "Passo 3 alterado (acao, sistema, artefato, prazo, evento)",
+            "Passo adicionado após 3: Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para",
+            "Passo adicionado após 3: Elaborar playbook preliminar da Biblioteca com as lacunas identificadas",
+            "Passo adicionado após 3: Consolidar as respostas do questionário e as evidências documentais coletadas",
+            "Passo adicionado após 3: Aplicar questionário de mapeamento de atividades à Chefia da Biblioteca e à Divi",
+            "entrada_nova: +2",
+            "saida_nova: +2",
+            "artefatos_novos: +2",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +2",
+            "pontos_atencao_novos: +2",
+            "contingencia_nova: +3",
+            "checklist_novo: +4",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Campo observacoes atualizado",
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [
+            "pb-biblioteca"
+          ],
+          "motivo": "Área ainda não mapeada (playbook em construção): converter o esqueleto genérico em roteiro de coleta para o mapeamento das rotinas da Biblioteca, com gatilho, entradas/saídas, KPIs, contingência e checklist do próprio levantamento, mantendo o responsável do processo como 'A definir' até a designação formal pela Chefia."
         }
       ],
       "validacao": {
@@ -4822,19 +5372,17 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
         "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
         "formulario",
         "prazo"
       ],
-      "observacoes": "",
+      "observacoes": "Setor ainda não mapeado — roteiro de coleta.",
       "fontes_entradas": [
         "pb-biblioteca"
       ],
@@ -4842,7 +5390,7 @@
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
-      "atualizado_em": "2026-09-02T17:55:55Z"
+      "atualizado_em": "2026-09-03T01:42:22Z"
     },
     {
       "id": "pop-cacad-00",
@@ -12748,21 +13296,37 @@
       "setor": "Div. de Licitação",
       "setor_codigo": "S03.06-DLIC",
       "sigla": "DLIC",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Licitação",
-        "descricao": "Guia do processo licitatório e da gestão dos contratos decorrentes (aquisição e serviços contínuos), do edital ao acompanhamento da execução.",
+        "descricao": "Coordena o ciclo de aquisições e contratações da Unioeste Foz, do Termo de Referência à autorização da Direção Geral, licitação, formalização do contrato, emissão de portarias de Gestor e Fiscal e acompanhamento da execução até o encerramento da vigência, nos termos da Lei nº 14.133/2021 e das normas internas da Unioeste.",
         "dominio": "Contratações Públicas",
-        "subdominio": "Visão geral do setor (playbook)",
+        "subdominio": "Ciclo de aquisições e contratações (planejamento, licitação, contrato e execução)",
         "tipo_subdominio": "core",
         "contexto": "S03.06-DLIC",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "DDF",
+            "definicao": "Declaração de Disponibilidade Financeira, documento que indica a existência de recursos orçamentários para a despesa.",
+            "sistema": "GMS"
+          },
+          {
+            "termo": "GMS",
+            "definicao": "Sistema de gestão utilizado para catalogação, pesquisa de preços e registro de contratos.",
+            "sistema": "GMS"
+          },
+          {
+            "termo": "DIOE",
+            "definicao": "Diário Oficial do Estado, veículo de publicação obrigatória dos atos e contratos administrativos.",
+            "sistema": "DIOE"
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "periodicidade": "Contínua (conforme demanda de aquisições e contratações)",
         "normativa": [
           "Lei nº 14.133/2021",
           "normas internas Unioeste"
@@ -12771,135 +13335,459 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-00<br/>Visão geral — Div. de Licitação\"]\n  S03_06_DLIC --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-00<br/>Visão geral — Div. de Licitação\"]\n  S03_06_DLIC --> P\n  V1[\"Direção Geral\"]\n  P -. interface .-> V1\n  V2[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V2\n  V3[\"Planejamento\"]\n  P -. interface .-> V3\n  V4[\"Gestor/Fiscal do contrato\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Recebimento de demanda de aquisição ou contratação de serviço pela Div. de Licitação",
+          "origem": "Requisitante (unidade demandante)"
         },
-        "entrada": [],
+        "entrada": [
+          "Memorando de solicitação do requisitante",
+          "Termo de Referência (TR) preliminar e cotações de preços"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "TR e cotações; autorização da Direção Geral",
-            "responsavel": "A definir",
+            "acao": "Elaborar o Termo de Referência (TR) e realizar cotações de preços",
+            "responsavel": "Requisitante",
             "sistema": "",
-            "artefato": "",
+            "artefato": "TR e cotações",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "TR e cotações elaborados",
             "fontes": [
-              "pb-licitacao"
+              "pb-licitacao",
+              "1780963200056"
             ]
           },
           {
-            "n": 2,
-            "acao": "Catalogação no GMS, pesquisa de preços, elementos de despesa/DDF",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Submeter o TR e as cotações à autorização da Direção Geral",
+            "responsavel": "Direção Geral",
+            "sistema": "e-Protocolo",
+            "artefato": "Autorização da Direção Geral",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "TR e cotações autorizados",
             "fontes": [
-              "pb-licitacao"
-            ]
+              "1780963200056"
+            ],
+            "n": 2
           },
           {
             "n": 3,
-            "acao": "Elaboração do edital no GMS e ComprasNet",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Catalogar o item/serviço no GMS",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "GMS",
+            "artefato": "Catalogação no GMS",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Item catalogado",
             "fontes": [
-              "pb-licitacao"
+              "pb-licitacao",
+              "1780963200056"
             ]
           },
           {
-            "n": 4,
-            "acao": "Geração do contrato, publicação no DIOE e portarias de Gestor/Fiscal",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Realizar pesquisa de preços de mercado",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "GMS",
+            "artefato": "Pesquisa de preços",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Pesquisa de preços concluída",
             "fontes": [
-              "pb-licitacao"
+              "pb-licitacao",
+              "1780963200056"
+            ],
+            "n": 4
+          },
+          {
+            "acao": "Indicar os elementos de despesa e elaborar a Declaração de Disponibilidade Financeira (DDF)",
+            "responsavel": "Sec. Financeira/Contabilidade",
+            "sistema": "GMS",
+            "artefato": "Declaração de Disponibilidade Financeira (DDF)",
+            "prazo": "A definir",
+            "evento": "DDF emitida",
+            "fontes": [
+              "1780963200056"
+            ],
+            "n": 5
+          },
+          {
+            "n": 6,
+            "acao": "Elaborar o edital e cadastrar o processo no GMS e no ComprasNet/PNCP",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "GMS, ComprasNet/PNCP",
+            "artefato": "Edital",
+            "prazo": "A definir",
+            "evento": "Edital publicado",
+            "fontes": [
+              "pb-licitacao",
+              "1780963200056"
             ]
           },
           {
-            "n": 5,
-            "acao": "Registro no Planejamento e acompanhamento de execução/entregas/NF",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Conduzir a sessão pública e apurar o resultado da licitação",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "ComprasNet/PNCP",
+            "artefato": "Ata de sessão / resultado do certame",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Licitação homologada",
             "fontes": [
-              "pb-licitacao"
+              "1780963200056"
+            ],
+            "n": 7
+          },
+          {
+            "n": 8,
+            "acao": "Gerar o contrato decorrente da licitação e verificar a regularidade fiscal do contratado",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "GMS",
+            "artefato": "Contrato",
+            "prazo": "A definir",
+            "evento": "Contrato gerado",
+            "fontes": [
+              "pb-licitacao",
+              "1780963200054",
+              "1780963200055"
             ]
+          },
+          {
+            "acao": "Publicar o contrato assinado no Diário Oficial do Estado (DIOE)",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "DIOE",
+            "artefato": "Extrato de publicação no DIOE",
+            "prazo": "A definir",
+            "evento": "Contrato publicado",
+            "fontes": [
+              "1780963200054",
+              "1780963200055"
+            ],
+            "n": 9
+          },
+          {
+            "acao": "Emitir e publicar as portarias de Gestor e Fiscal do contrato",
+            "responsavel": "Direção Geral",
+            "sistema": "e-Protocolo",
+            "artefato": "Portaria de Gestor; Portaria de Fiscal",
+            "prazo": "A definir",
+            "evento": "Portarias publicadas",
+            "fontes": [
+              "1780963200054",
+              "1780963200055"
+            ],
+            "n": 10
+          },
+          {
+            "n": 11,
+            "acao": "Registrar o contrato e as portarias no Planejamento (GMS)",
+            "responsavel": "Planejamento",
+            "sistema": "GMS",
+            "artefato": "Registro do contrato no GMS",
+            "prazo": "A definir",
+            "evento": "Contrato registrado",
+            "fontes": [
+              "pb-licitacao",
+              "1780963200054",
+              "1780963200055"
+            ]
+          },
+          {
+            "acao": "Acompanhar a execução contratual, as entregas e as notas fiscais até o encerramento da vigência",
+            "responsavel": "Gestor/Fiscal do contrato",
+            "sistema": "GMS",
+            "artefato": "Notas fiscais; relatório de execução",
+            "prazo": "Durante toda a vigência contratual",
+            "evento": "Execução encerrada",
+            "fontes": [
+              "1780963200054",
+              "1780963200055"
+            ],
+            "n": 12
           }
         ],
-        "saida": []
+        "saida": [
+          "Contrato assinado, publicado no DIOE e registrado no GMS",
+          "Execução contratual acompanhada até o encerramento da vigência"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
+      "artefatos": [
+        {
+          "nome": "Termo de Referência (TR)",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "objeto",
+            "justificativa",
+            "especificações técnicas",
+            "estimativa de custo"
+          ],
+          "responsavel_preenchimento": "Requisitante"
+        },
+        {
+          "nome": "Cotações de preços",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "fornecedor",
+            "valor unitário",
+            "data da cotação"
+          ],
+          "responsavel_preenchimento": "Requisitante"
+        },
+        {
+          "nome": "Declaração de Disponibilidade Financeira (DDF)",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "elemento de despesa",
+            "fonte de recurso",
+            "valor"
+          ],
+          "responsavel_preenchimento": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "nome": "Portaria de Gestor do contrato",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "nº da portaria",
+            "servidor designado",
+            "contrato vinculado"
+          ],
+          "responsavel_preenchimento": "Direção Geral"
+        },
+        {
+          "nome": "Portaria de Fiscal do contrato",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "nº da portaria",
+            "servidor designado",
+            "contrato vinculado"
+          ],
+          "responsavel_preenchimento": "Direção Geral"
+        },
+        {
+          "nome": "Contrato administrativo",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "nº do contrato",
+            "partes",
+            "objeto",
+            "vigência",
+            "valor"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "Direção Geral autoriza o TR e as cotações?",
+          "condicao": "Adequação do Termo de Referência e das cotações apresentadas à necessidade da contratação",
+          "sim": "Prossegue para catalogação no GMS",
+          "nao": "Requisitante revisa o TR e as cotações"
+        }
+      ],
       "pontos_atencao": [
         "Termo de Referência bem elaborado evita retrabalho",
         "Portarias de Gestor e Fiscal são obrigatórias",
-        "Serviços contínuos exigem acompanhamento durante a vigência"
+        "Serviços contínuos exigem acompanhamento durante a vigência",
+        "A regularidade fiscal do contratado deve ser verificada antes de cada pagamento, não apenas na assinatura",
+        "O cadastro no ComprasNet/PNCP deve ser conferido para evitar divergência com o GMS"
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"TR e cotações; autorização da Direção Geral\"]\n    e3[\"Catalogação no GMS, pesquisa de preços, elementos de despesa/DDF\"]\n    e4[\"Elaboração do edital no GMS e ComprasNet\"]\n    e5[\"Geração do contrato, publicação no DIOE e portarias de Gestor/Fiscal\"]\n    e6[\"Registro no Planejamento e acompanhamento de execução/entregas/NF\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+      "contingencia": [
+        "Se a Direção Geral não autorizar o TR/cotações, o Requisitante deve revisar e reencaminhar o processo",
+        "Se a pesquisa de preços não localizar fornecedores suficientes, ampliar as fontes de cotação antes de prosseguir",
+        "Se o contratado apresentar irregularidade fiscal, suspender a assinatura ou o pagamento até a regularização, comunicando a Assessoria Jurídica",
+        "Se o prazo de publicação no DIOE não for cumprido, registrar justificativa e reprogramar a publicação junto à Direção Geral"
+      ],
+      "checklist": [
+        "TR e cotações anexados e conferidos",
+        "Autorização da Direção Geral registrada no e-Protocolo",
+        "Elementos de despesa e DDF emitidos pela Sec. Financeira/Contabilidade",
+        "Edital cadastrado no GMS e no ComprasNet/PNCP",
+        "Portarias de Gestor e Fiscal emitidas e publicadas",
+        "Contrato publicado no DIOE e registrado no GMS"
+      ],
+      "kpis": [
+        {
+          "indicador": "Prazo médio entre autorização da Direção Geral e publicação do edital",
+          "formula": "Data de publicação do edital − Data de autorização da Direção Geral",
+          "meta": "A definir",
+          "fonte": "GMS"
+        },
+        {
+          "indicador": "Percentual de contratos com portarias de Gestor/Fiscal emitidas antes do início da execução",
+          "formula": "(Contratos com portarias emitidas antes da execução ÷ total de contratos) × 100",
+          "meta": "100%",
+          "fonte": "e-Protocolo/GMS"
+        },
+        {
+          "indicador": "Percentual de pagamentos com regularidade fiscal verificada previamente",
+          "formula": "(Pagamentos com regularidade verificada ÷ total de pagamentos) × 100",
+          "meta": "100%",
+          "fonte": "GMS"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Direção Geral",
+          "relacao": "aprova",
+          "artefato": "TR e cotações",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Sec. Financeira/Contabilidade",
+          "relacao": "recebe",
+          "artefato": "Elementos de despesa e DDF",
+          "canal": "GMS"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Direção Geral",
+          "relacao": "informa",
+          "artefato": "Contrato assinado para emissão de portarias",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Planejamento",
+          "relacao": "fornece",
+          "artefato": "Registro do contrato e portarias",
+          "canal": "GMS"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Gestor/Fiscal do contrato",
+          "relacao": "informa",
+          "artefato": "Contrato e portarias para acompanhamento",
+          "canal": "e-Protocolo"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"Recebimento de demanda de aquisição ou contratação de serviço\"))\n    e5[\"Catalogar o item/serviço no GMS\"]\n    e6[\"Realizar pesquisa de preços de mercado\"]\n    e9[\"Elaborar o edital e cadastrar no GMS e ComprasNet/PNCP\"]\n    e10[\"Conduzir a sessão pública e apurar o resultado\"]\n    e11[\"Gerar o contrato e verificar regularidade fiscal\"]\n    e12[\"Publicar o contrato assinado no DIOE\"]\n  end\n  subgraph R2[\"Requisitante\"]\n    direction LR\n    e2[\"Elaborar o TR e realizar cotações de preços\"]\n  end\n  subgraph R3[\"Direção Geral\"]\n    direction LR\n    e3[[\"✉ Encaminhar TR e cotações à Direção Geral\"]]\n    e4{\"Direção Geral autoriza o TR e as cotações?\"}\n    e13[[\"✉ Encaminhar processo à Direção Geral para portarias\"]]\n    e14[\"Emitir e publicar as portarias de Gestor e Fiscal\"]\n  end\n  subgraph R4[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e7[[\"✉ Encaminhar elementos de despesa à Sec. Financeira/Contabilidade\"]]\n    e8[\"Indicar elementos de despesa e elaborar a DDF\"]\n  end\n  subgraph R5[\"Planejamento\"]\n    direction LR\n    e15[[\"✉ Encaminhar contrato e portarias ao Planejamento\"]]\n    e16[\"Registrar o contrato e as portarias no Planejamento (GMS)\"]\n  end\n  subgraph R6[\"Gestor/Fiscal do contrato\"]\n    direction LR\n    e17[[\"✉ Informar Gestor e Fiscal do contrato assinado\"]]\n    e18[\"Acompanhar execução, entregas e notas fiscais\"]\n    e19(((\"Execução contratual encerrada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e5\n  e4 -- Não --> e2\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  e16 --> e17\n  e17 --> e18\n  e18 --> e19\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e5,e6,e8,e9,e10,e11,e12,e14,e16,e18 atividade\n  class e3,e7,e13,e15,e17 captura\n  class e4 decisao\n  class e19 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Licitação"
+          "Div. de Licitação",
+          "Requisitante",
+          "Direção Geral",
+          "Sec. Financeira/Contabilidade",
+          "Planejamento",
+          "Gestor/Fiscal do contrato"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
+            "label": "Recebimento de demanda de aquisição ou contratação de serviço",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "TR e cotações; autorização da Direção Geral",
-            "raia": "Div. de Licitação"
+            "label": "Elaborar o TR e realizar cotações de preços",
+            "raia": "Requisitante"
           },
           {
             "id": "e3",
-            "tipo": "atividade",
-            "label": "Catalogação no GMS, pesquisa de preços, elementos de despesa/DDF",
-            "raia": "Div. de Licitação"
+            "tipo": "captura",
+            "label": "Encaminhar TR e cotações à Direção Geral",
+            "raia": "Direção Geral"
           },
           {
             "id": "e4",
-            "tipo": "atividade",
-            "label": "Elaboração do edital no GMS e ComprasNet",
-            "raia": "Div. de Licitação"
+            "tipo": "decisao",
+            "label": "Direção Geral autoriza o TR e as cotações?",
+            "raia": "Direção Geral"
           },
           {
             "id": "e5",
             "tipo": "atividade",
-            "label": "Geração do contrato, publicação no DIOE e portarias de Gestor/Fiscal",
+            "label": "Catalogar o item/serviço no GMS",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e6",
             "tipo": "atividade",
-            "label": "Registro no Planejamento e acompanhamento de execução/entregas/NF",
+            "label": "Realizar pesquisa de preços de mercado",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e7",
-            "tipo": "fim",
-            "label": "Concluído",
+            "tipo": "captura",
+            "label": "Encaminhar elementos de despesa à Sec. Financeira/Contabilidade",
+            "raia": "Sec. Financeira/Contabilidade"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Indicar elementos de despesa e elaborar a DDF",
+            "raia": "Sec. Financeira/Contabilidade"
+          },
+          {
+            "id": "e9",
+            "tipo": "atividade",
+            "label": "Elaborar o edital e cadastrar no GMS e ComprasNet/PNCP",
             "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e10",
+            "tipo": "atividade",
+            "label": "Conduzir a sessão pública e apurar o resultado",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e11",
+            "tipo": "atividade",
+            "label": "Gerar o contrato e verificar regularidade fiscal",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e12",
+            "tipo": "atividade",
+            "label": "Publicar o contrato assinado no DIOE",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e13",
+            "tipo": "captura",
+            "label": "Encaminhar processo à Direção Geral para portarias",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e14",
+            "tipo": "atividade",
+            "label": "Emitir e publicar as portarias de Gestor e Fiscal",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e15",
+            "tipo": "captura",
+            "label": "Encaminhar contrato e portarias ao Planejamento",
+            "raia": "Planejamento"
+          },
+          {
+            "id": "e16",
+            "tipo": "atividade",
+            "label": "Registrar o contrato e as portarias no Planejamento (GMS)",
+            "raia": "Planejamento"
+          },
+          {
+            "id": "e17",
+            "tipo": "captura",
+            "label": "Informar Gestor e Fiscal do contrato assinado",
+            "raia": "Gestor/Fiscal do contrato"
+          },
+          {
+            "id": "e18",
+            "tipo": "atividade",
+            "label": "Acompanhar execução, entregas e notas fiscais",
+            "raia": "Gestor/Fiscal do contrato"
+          },
+          {
+            "id": "e19",
+            "tipo": "fim",
+            "label": "Execução contratual encerrada",
+            "raia": "Gestor/Fiscal do contrato"
           }
         ],
         "conexoes": [
@@ -12917,7 +13805,13 @@
           },
           {
             "de": "e4",
-            "para": "e5"
+            "para": "e5",
+            "label": "Sim"
+          },
+          {
+            "de": "e4",
+            "para": "e2",
+            "label": "Não"
           },
           {
             "de": "e5",
@@ -12926,6 +13820,54 @@
           {
             "de": "e6",
             "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
+          },
+          {
+            "de": "e13",
+            "para": "e14"
+          },
+          {
+            "de": "e14",
+            "para": "e15"
+          },
+          {
+            "de": "e15",
+            "para": "e16"
+          },
+          {
+            "de": "e16",
+            "para": "e17"
+          },
+          {
+            "de": "e17",
+            "para": "e18"
+          },
+          {
+            "de": "e18",
+            "para": "e19"
           }
         ],
         "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -12943,6 +13885,52 @@
             "pb-licitacao"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo adicionado após 5: Acompanhar a execução contratual, as entregas e as notas fiscais até o encerrame",
+            "Passo adicionado após 4: Emitir e publicar as portarias de Gestor e Fiscal do contrato",
+            "Passo adicionado após 4: Publicar o contrato assinado no Diário Oficial do Estado (DIOE)",
+            "Passo adicionado após 3: Conduzir a sessão pública e apurar o resultado da licitação",
+            "Passo adicionado após 2: Indicar os elementos de despesa e elaborar a Declaração de Disponibilidade Finan",
+            "Passo adicionado após 2: Realizar pesquisa de preços de mercado",
+            "Passo adicionado após 1: Submeter o TR e as cotações à autorização da Direção Geral",
+            "entrada_nova: +2",
+            "saida_nova: +2",
+            "artefatos_novos: +6",
+            "decisoes_novas: +1",
+            "kpis_novos: +3",
+            "mapa_contexto_novo: +5",
+            "pontos_atencao_novos: +2",
+            "contingencia_nova: +4",
+            "checklist_novo: +6",
+            "glossario_novo: +3",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Raias adicionadas: Requisitante, Direção Geral, Sec. Financeira/Contabilidade, Planejamento, Gestor/Fiscal do contrato",
+            "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7",
+            "Elementos BPMN adicionados: 19",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "pb-licitacao",
+            "1780963200054",
+            "1780963200055",
+            "1780963200056"
+          ],
+          "motivo": "Detalhamento do playbook geral de Licitação e Contratos a partir do playbook e dos três fluxos evidenciados no Canvas (aquisição, serviços contínuos e processo licitatório): definição de responsável, gatilho, artefatos, decisão de autorização, interfaces inter-setoriais, contingência, checklist e KPIs."
         }
       ],
       "validacao": {
@@ -12955,27 +13943,26 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
         "prazo"
       ],
       "observacoes": "",
       "fontes_entradas": [
-        "pb-licitacao"
+        "pb-licitacao",
+        "1780963200054",
+        "1780963200055",
+        "1780963200056"
       ],
-      "hash_fontes": "920947ac94bb4ad97b9c4f805afe4557048c30d79dd2c757e14f390abe315dc0",
+      "hash_fontes": "c2cc11cbeb7dd1e3c620b97a88e9902152685bd44b593002dfbb228aaa14e67c",
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:41:44Z"
     },
     {
       "id": "pop-dlic-01",

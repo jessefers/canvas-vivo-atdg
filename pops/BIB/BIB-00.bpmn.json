@@ -1,44 +1,82 @@
 {
   "setor": "Biblioteca",
   "codigo": "BIB-00",
-  "gerado_em": "2026-09-02T17:55:55Z",
+  "gerado_em": "2026-09-03T01:42:22Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "BIB-00 — Visão geral — Biblioteca",
-      "descricao": "Área da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo). Playbook em construção.",
+      "descricao": "Estabelece o roteiro de coleta para o mapeamento das rotinas da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo), a ser aplicado pela ATDG até que a área tenha responsável, fluxos e normas formalmente definidos.",
       "raias": [
-        "Biblioteca"
+        "Biblioteca",
+        "ATDG — Assessoria Técnica da Direção Geral",
+        "Div. Circulação, Referência e Acervo"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
+          "label": "Inclusão da Biblioteca no cronograma de mapeamento de processos da ATDG",
           "raia": "Biblioteca"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "A documentar: levantar atividades e rotinas da área",
+          "label": "Levantar, junto à Chefia da Biblioteca, as atividades e rotinas do setor",
           "raia": "Biblioteca"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Mapear fluxos e responsáveis por etapa",
+          "label": "Mapear os fluxos e os responsáveis por etapa das rotinas identificadas",
           "raia": "Biblioteca"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Identificar normas aplicáveis e pontos de atenção",
+          "label": "Identificar as normas aplicáveis e os pontos de atenção do setor",
           "raia": "Biblioteca"
         },
         {
           "id": "e5",
+          "tipo": "atividade",
+          "label": "Aplicar questionário de mapeamento de atividades à Chefia da Biblioteca e à Divisão de Circulação, Referência e Acervo",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Consolidar as respostas do questionário e as evidências documentais coletadas",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Elaborar playbook preliminar da Biblioteca com as lacunas identificadas",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para validação",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar a ATDG — Assessoria Técnica da Direção Geral",
+          "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Informar Div. Circulação, Referência e Acervo",
+          "raia": "Div. Circulação, Referência e Acervo"
+        },
+        {
+          "id": "e11",
           "tipo": "fim",
-          "label": "Concluído",
+          "label": "Roteiro de coleta aplicado, com respostas e evidências documentais consolidadas",
           "raia": "Biblioteca"
         }
       ],
@@ -58,9 +96,33 @@
         {
           "de": "e4",
           "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }
