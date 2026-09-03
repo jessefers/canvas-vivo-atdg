@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:57:27Z",
+  "sincronizado_em": "2026-09-03T01:58:29Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -11909,7 +11909,7 @@
       "setor": "Div. de Apoio Técnico aos Laboratórios",
       "setor_codigo": "S03.08-DATL",
       "sigla": "DATL",
-      "versao": "0.1.0",
+      "versao": "0.2.0",
       "status": "rascunho",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -11939,10 +11939,10 @@
         "passos": [
           {
             "n": 1,
-            "acao": "A documentar: levantar atividades e rotinas da área",
+            "acao": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Roteiro de levantamento de atividades",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -11951,10 +11951,10 @@
           },
           {
             "n": 2,
-            "acao": "Mapear fluxos e responsáveis por etapa",
+            "acao": "Mapear os fluxos e os responsáveis por etapa",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "planilha",
+            "artefato": "Mapa de fluxos e responsáveis",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -11963,10 +11963,10 @@
           },
           {
             "n": 3,
-            "acao": "Identificar normas aplicáveis e pontos de atenção",
+            "acao": "Identificar as normas aplicáveis e os pontos de atenção",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Lista de normas e pontos de atenção",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -11981,11 +11981,22 @@
       "pontos_atencao": [
         "Área ainda não mapeada — playbook em construção"
       ],
-      "contingencia": [],
-      "checklist": [],
+      "contingencia": [
+        "Se a chefia do setor não estiver disponível para o levantamento, agendar nova data e registrar o adiamento",
+        "Se não houver documentação prévia da área, iniciar o levantamento por entrevista direta com os servidores",
+        "Se forem identificadas normas não catalogadas no Canvas, registrá-las como lacuna para validação posterior",
+        "Se o setor não tiver processos definidos, priorizar o mapeamento das atividades de maior volume ou risco (apoio técnico às aulas práticas e aos laboratórios)"
+      ],
+      "checklist": [
+        "Chefia e servidores do setor entrevistados",
+        "Atividades e rotinas da área levantadas",
+        "Fluxos e responsáveis por etapa mapeados",
+        "Normas aplicáveis identificadas",
+        "Pontos de atenção registrados para o próximo ciclo de diagnóstico"
+      ],
       "kpis": [],
       "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Apoio Técnico aos Laboratórios\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Apoio Técnico aos Laboratórios\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Levantar as atividades e rotinas da área junto à chefia e aos servido…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa\"]\n    e4[\"Identificar as normas aplicáveis e os pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
       "bpmn_spec": {
         "raias": [
           "Div. de Apoio Técnico aos Laboratórios"
@@ -12000,19 +12011,19 @@
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "A documentar: levantar atividades e rotinas da área",
+            "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "raia": "Div. de Apoio Técnico aos Laboratórios"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Mapear fluxos e responsáveis por etapa",
+            "label": "Mapear os fluxos e os responsáveis por etapa",
             "raia": "Div. de Apoio Técnico aos Laboratórios"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Identificar normas aplicáveis e pontos de atenção",
+            "label": "Identificar as normas aplicáveis e os pontos de atenção",
             "raia": "Div. de Apoio Técnico aos Laboratórios"
           },
           {
@@ -12055,6 +12066,25 @@
             "pb-apoio-laboratorios"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "0.2.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "minor",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "contingencia_nova: +4",
+            "checklist_novo: +5",
+            "Campo observacoes atualizado",
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [
+            "pb-apoio-laboratorios"
+          ],
+          "motivo": "Estruturação do roteiro de coleta para a Div. de Apoio Técnico aos Laboratórios: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
         }
       ],
       "validacao": {
@@ -12067,7 +12097,10 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
         "responsavel",
@@ -12080,15 +12113,15 @@
         "prazo",
         "normativa"
       ],
-      "observacoes": "",
+      "observacoes": "Setor ainda não mapeado — roteiro de coleta",
       "fontes_entradas": [
         "pb-apoio-laboratorios"
       ],
       "hash_fontes": "bae2aa747382ea8d2884edffc6ce2e2ec3f79d02903a3f4be2f90460de6918bb",
       "agente": "",
-      "versao_diretrizes": "1.0",
+      "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:58:25Z"
     },
     {
       "id": "pop-dcen-00",
@@ -20891,7 +20924,7 @@
       "setor": "Div. de Informática",
       "setor_codigo": "S03.03-DINF",
       "sigla": "DINF",
-      "versao": "0.1.0",
+      "versao": "0.2.0",
       "status": "rascunho",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -20921,10 +20954,10 @@
         "passos": [
           {
             "n": 1,
-            "acao": "A documentar: levantar atividades e rotinas da área",
+            "acao": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Roteiro de levantamento de atividades",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -20933,10 +20966,10 @@
           },
           {
             "n": 2,
-            "acao": "Mapear fluxos e responsáveis por etapa",
+            "acao": "Mapear os fluxos e os responsáveis por etapa",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "planilha",
+            "artefato": "Mapa de fluxos e responsáveis",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -20945,10 +20978,10 @@
           },
           {
             "n": 3,
-            "acao": "Identificar normas aplicáveis e pontos de atenção",
+            "acao": "Identificar as normas aplicáveis e os pontos de atenção",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Lista de normas e pontos de atenção",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -20963,11 +20996,22 @@
       "pontos_atencao": [
         "Área ainda não mapeada — playbook em construção"
       ],
-      "contingencia": [],
-      "checklist": [],
+      "contingencia": [
+        "Se a chefia do setor não estiver disponível para o levantamento, agendar nova data e registrar o adiamento",
+        "Se não houver documentação prévia da área, iniciar o levantamento por entrevista direta com os servidores",
+        "Se forem identificadas normas não catalogadas no Canvas, registrá-las como lacuna para validação posterior",
+        "Se o setor não tiver processos definidos, priorizar o mapeamento das atividades de maior volume ou risco (suporte técnico e infraestrutura de TI)"
+      ],
+      "checklist": [
+        "Chefia e servidores do setor entrevistados",
+        "Atividades e rotinas da área levantadas",
+        "Fluxos e responsáveis por etapa mapeados",
+        "Normas aplicáveis identificadas",
+        "Pontos de atenção registrados para o próximo ciclo de diagnóstico"
+      ],
       "kpis": [],
       "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Informática\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Informática\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Levantar as atividades e rotinas da área junto à chefia e aos servido…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa\"]\n    e4[\"Identificar as normas aplicáveis e os pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
       "bpmn_spec": {
         "raias": [
           "Div. de Informática"
@@ -20982,19 +21026,19 @@
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "A documentar: levantar atividades e rotinas da área",
+            "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "raia": "Div. de Informática"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Mapear fluxos e responsáveis por etapa",
+            "label": "Mapear os fluxos e os responsáveis por etapa",
             "raia": "Div. de Informática"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Identificar normas aplicáveis e pontos de atenção",
+            "label": "Identificar as normas aplicáveis e os pontos de atenção",
             "raia": "Div. de Informática"
           },
           {
@@ -21037,6 +21081,25 @@
             "pb-informatica"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "0.2.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "minor",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "contingencia_nova: +4",
+            "checklist_novo: +5",
+            "Campo observacoes atualizado",
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [
+            "pb-informatica"
+          ],
+          "motivo": "Estruturação do roteiro de coleta para a Div. de Informática: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
         }
       ],
       "validacao": {
@@ -21049,7 +21112,10 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
         "responsavel",
@@ -21062,15 +21128,15 @@
         "prazo",
         "normativa"
       ],
-      "observacoes": "",
+      "observacoes": "Setor ainda não mapeado — roteiro de coleta",
       "fontes_entradas": [
         "pb-informatica"
       ],
       "hash_fontes": "bf9237f7bcefe5770d260988113061b1398300ce26fd98f565f1620bcb21888b",
       "agente": "",
-      "versao_diretrizes": "1.0",
+      "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:58:25Z"
     },
     {
       "id": "pop-dlic-00",
@@ -24667,7 +24733,7 @@
       "setor": "Div. de Patrimônio e Equipamentos",
       "setor_codigo": "S03.05-DPAT",
       "sigla": "DPAT",
-      "versao": "0.1.0",
+      "versao": "0.2.0",
       "status": "rascunho",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -24700,10 +24766,10 @@
         "passos": [
           {
             "n": 1,
-            "acao": "A documentar: levantar atividades e rotinas da área",
+            "acao": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Roteiro de levantamento de atividades",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -24712,10 +24778,10 @@
           },
           {
             "n": 2,
-            "acao": "Mapear fluxos e responsáveis por etapa",
+            "acao": "Mapear os fluxos e os responsáveis por etapa",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "planilha",
+            "artefato": "Mapa de fluxos e responsáveis",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -24724,10 +24790,10 @@
           },
           {
             "n": 3,
-            "acao": "Identificar normas aplicáveis e pontos de atenção",
+            "acao": "Identificar as normas aplicáveis e os pontos de atenção",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Lista de normas e pontos de atenção",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -24742,11 +24808,22 @@
       "pontos_atencao": [
         "Área ainda não mapeada — playbook em construção"
       ],
-      "contingencia": [],
-      "checklist": [],
+      "contingencia": [
+        "Se a chefia do setor não estiver disponível para o levantamento, agendar nova data e registrar o adiamento",
+        "Se não houver documentação prévia da área, iniciar o levantamento por entrevista direta com os servidores",
+        "Se forem identificadas normas não catalogadas no Canvas, registrá-las como lacuna para validação posterior",
+        "Se o setor não tiver processos definidos, priorizar o mapeamento das atividades de maior volume ou risco (tombamento, controle e desfazimento de bens)"
+      ],
+      "checklist": [
+        "Chefia e servidores do setor entrevistados",
+        "Atividades e rotinas da área levantadas",
+        "Fluxos e responsáveis por etapa mapeados",
+        "Normas aplicáveis identificadas",
+        "Pontos de atenção registrados para o próximo ciclo de diagnóstico"
+      ],
       "kpis": [],
       "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Patrimônio e Equipamentos\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Patrimônio e Equipamentos\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Levantar as atividades e rotinas da área junto à chefia e aos servido…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa\"]\n    e4[\"Identificar as normas aplicáveis e os pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
       "bpmn_spec": {
         "raias": [
           "Div. de Patrimônio e Equipamentos"
@@ -24761,19 +24838,19 @@
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "A documentar: levantar atividades e rotinas da área",
+            "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "raia": "Div. de Patrimônio e Equipamentos"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Mapear fluxos e responsáveis por etapa",
+            "label": "Mapear os fluxos e os responsáveis por etapa",
             "raia": "Div. de Patrimônio e Equipamentos"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Identificar normas aplicáveis e pontos de atenção",
+            "label": "Identificar as normas aplicáveis e os pontos de atenção",
             "raia": "Div. de Patrimônio e Equipamentos"
           },
           {
@@ -24816,6 +24893,25 @@
             "pb-patrimonio"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "0.2.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "minor",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "contingencia_nova: +4",
+            "checklist_novo: +5",
+            "Campo observacoes atualizado",
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [
+            "pb-patrimonio"
+          ],
+          "motivo": "Estruturação do roteiro de coleta para a Div. de Patrimônio e Equipamentos: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
         }
       ],
       "validacao": {
@@ -24828,7 +24924,10 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
         "responsavel",
@@ -24840,15 +24939,15 @@
         "formulario",
         "prazo"
       ],
-      "observacoes": "",
+      "observacoes": "Setor ainda não mapeado — roteiro de coleta",
       "fontes_entradas": [
         "pb-patrimonio"
       ],
       "hash_fontes": "4aaf5aa16ed9373c1b9e5ebd545b504823bb5bd22632687ced3264b79196242c",
       "agente": "",
-      "versao_diretrizes": "1.0",
+      "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:58:25Z"
     },
     {
       "id": "pop-dpg-00",
@@ -28998,7 +29097,7 @@
       "setor": "Div. de Serviços de Apoio",
       "setor_codigo": "S03.09-DSA",
       "sigla": "DSA",
-      "versao": "0.1.0",
+      "versao": "0.2.0",
       "status": "rascunho",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -29028,10 +29127,10 @@
         "passos": [
           {
             "n": 1,
-            "acao": "A documentar: levantar atividades e rotinas da área",
+            "acao": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Roteiro de levantamento de atividades",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -29040,10 +29139,10 @@
           },
           {
             "n": 2,
-            "acao": "Mapear fluxos e responsáveis por etapa",
+            "acao": "Mapear os fluxos e os responsáveis por etapa",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "planilha",
+            "artefato": "Mapa de fluxos e responsáveis",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -29052,10 +29151,10 @@
           },
           {
             "n": 3,
-            "acao": "Identificar normas aplicáveis e pontos de atenção",
+            "acao": "Identificar as normas aplicáveis e os pontos de atenção",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Lista de normas e pontos de atenção",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -29070,11 +29169,22 @@
       "pontos_atencao": [
         "Área ainda não mapeada — playbook em construção"
       ],
-      "contingencia": [],
-      "checklist": [],
+      "contingencia": [
+        "Se a chefia do setor não estiver disponível para o levantamento, agendar nova data e registrar o adiamento",
+        "Se não houver documentação prévia da área, iniciar o levantamento por entrevista direta com os servidores",
+        "Se forem identificadas normas não catalogadas no Canvas, registrá-las como lacuna para validação posterior",
+        "Se o setor não tiver processos definidos, priorizar o mapeamento das atividades de maior volume ou risco"
+      ],
+      "checklist": [
+        "Chefia e servidores do setor entrevistados",
+        "Atividades e rotinas da área levantadas",
+        "Fluxos e responsáveis por etapa mapeados",
+        "Normas aplicáveis identificadas",
+        "Pontos de atenção registrados para o próximo ciclo de diagnóstico"
+      ],
       "kpis": [],
       "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Serviços de Apoio\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Serviços de Apoio\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Levantar as atividades e rotinas da área junto à chefia e aos servido…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa\"]\n    e4[\"Identificar as normas aplicáveis e os pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
       "bpmn_spec": {
         "raias": [
           "Div. de Serviços de Apoio"
@@ -29089,19 +29199,19 @@
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "A documentar: levantar atividades e rotinas da área",
+            "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "raia": "Div. de Serviços de Apoio"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Mapear fluxos e responsáveis por etapa",
+            "label": "Mapear os fluxos e os responsáveis por etapa",
             "raia": "Div. de Serviços de Apoio"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Identificar normas aplicáveis e pontos de atenção",
+            "label": "Identificar as normas aplicáveis e os pontos de atenção",
             "raia": "Div. de Serviços de Apoio"
           },
           {
@@ -29144,6 +29254,25 @@
             "pb-servicos-apoio"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "0.2.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "minor",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "contingencia_nova: +4",
+            "checklist_novo: +5",
+            "Campo observacoes atualizado",
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [
+            "pb-servicos-apoio"
+          ],
+          "motivo": "Estruturação do roteiro de coleta para a Div. de Serviços de Apoio: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
         }
       ],
       "validacao": {
@@ -29156,7 +29285,10 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
         "responsavel",
@@ -29169,15 +29301,15 @@
         "prazo",
         "normativa"
       ],
-      "observacoes": "",
+      "observacoes": "Setor ainda não mapeado — roteiro de coleta",
       "fontes_entradas": [
         "pb-servicos-apoio"
       ],
       "hash_fontes": "60adcc579c257011c97a3f6d3a15eb3ad7ab764dcd9c0068002b81b00342fb20",
       "agente": "",
-      "versao_diretrizes": "1.0",
+      "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:58:25Z"
     },
     {
       "id": "pop-dst-00",
@@ -29186,7 +29318,7 @@
       "setor": "Div. de Segurança e Transportes",
       "setor_codigo": "S03.02-DST",
       "sigla": "DST",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -29273,7 +29405,7 @@
       ],
       "kpis": [],
       "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Segurança e Transportes\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Segurança e Transportes\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Levantar as atividades e rotinas da área junto à chefia e aos servido…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa\"]\n    e4[\"Identificar as normas aplicáveis e os pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
       "bpmn_spec": {
         "raias": [
           "Div. de Segurança e Transportes"
@@ -29288,19 +29420,19 @@
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "A documentar: levantar atividades e rotinas da área",
+            "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "raia": "Div. de Segurança e Transportes"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Mapear fluxos e responsáveis por etapa",
+            "label": "Mapear os fluxos e os responsáveis por etapa",
             "raia": "Div. de Segurança e Transportes"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Identificar normas aplicáveis e pontos de atenção",
+            "label": "Identificar as normas aplicáveis e os pontos de atenção",
             "raia": "Div. de Segurança e Transportes"
           },
           {
@@ -29361,6 +29493,19 @@
             "pb-seguranca-transportes"
           ],
           "motivo": "Estruturação do roteiro de coleta para a Div. de Segurança e Transportes: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [
+            "pb-seguranca-transportes"
+          ],
+          "motivo": "Regenerar o fluxograma a partir dos passos atualizados, mantendo o diagrama em sincronia com o roteiro de coleta."
         }
       ],
       "validacao": {
@@ -29397,7 +29542,7 @@
       "agente": "",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T01:57:18Z"
+      "atualizado_em": "2026-09-03T01:57:37Z"
     },
     {
       "id": "pop-map-00",

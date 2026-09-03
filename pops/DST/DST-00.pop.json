@@ -5,7 +5,7 @@
   "setor": "Div. de Segurança e Transportes",
   "setor_codigo": "S03.02-DST",
   "sigla": "DST",
-  "versao": "0.2.0",
+  "versao": "0.2.1",
   "status": "rascunho",
   "ddd": {
     "divisao": "Secretaria Administrativa",
@@ -92,7 +92,7 @@
   ],
   "kpis": [],
   "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Segurança e Transportes\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Segurança e Transportes\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Levantar as atividades e rotinas da área junto à chefia e aos servido…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa\"]\n    e4[\"Identificar as normas aplicáveis e os pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
   "bpmn_spec": {
     "raias": [
       "Div. de Segurança e Transportes"
@@ -107,19 +107,19 @@
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "A documentar: levantar atividades e rotinas da área",
+        "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
         "raia": "Div. de Segurança e Transportes"
       },
       {
         "id": "e3",
         "tipo": "atividade",
-        "label": "Mapear fluxos e responsáveis por etapa",
+        "label": "Mapear os fluxos e os responsáveis por etapa",
         "raia": "Div. de Segurança e Transportes"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Identificar normas aplicáveis e pontos de atenção",
+        "label": "Identificar as normas aplicáveis e os pontos de atenção",
         "raia": "Div. de Segurança e Transportes"
       },
       {
@@ -180,6 +180,19 @@
         "pb-seguranca-transportes"
       ],
       "motivo": "Estruturação do roteiro de coleta para a Div. de Segurança e Transportes: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
+    },
+    {
+      "versao": "0.2.1",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "patch",
+      "mudancas": [
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [
+        "pb-seguranca-transportes"
+      ],
+      "motivo": "Regenerar o fluxograma a partir dos passos atualizados, mantendo o diagrama em sincronia com o roteiro de coleta."
     }
   ],
   "validacao": {
@@ -216,5 +229,5 @@
   "agente": "",
   "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-03T01:57:18Z"
+  "atualizado_em": "2026-09-03T01:57:37Z"
 }

@@ -1,18 +1,18 @@
 ---
 codigo: DST-00
 titulo: "Visão geral — Div. de Segurança e Transportes"
-versao: "0.2.0"
+versao: "0.2.1"
 status: rascunho
 setor_codigo: S03.02-DST
 setor: "Div. de Segurança e Transportes"
-atualizado_em: "2026-09-03T01:57:18Z"
+atualizado_em: "2026-09-03T01:57:37Z"
 agente: —
 versao_diretrizes: "1.8"
 ---
 
 # POP DST-00 — Visão geral — Div. de Segurança e Transportes
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.0** · Status **rascunho** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.1** · Status **rascunho** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -126,9 +126,9 @@ flowchart LR
   subgraph R1["Div. de Segurança e Transportes"]
     direction LR
     e1(("A definir"))
-    e2["A documentar: levantar atividades e rotinas da área"]
-    e3["Mapear fluxos e responsáveis por etapa"]
-    e4["Identificar normas aplicáveis e pontos de atenção"]
+    e2["Levantar as atividades e rotinas da área junto à chefia e aos servido…"]
+    e3["Mapear os fluxos e os responsáveis por etapa"]
+    e4["Identificar as normas aplicáveis e os pontos de atenção"]
     e5((("Concluído")))
   end
   e1 --> e2
@@ -153,9 +153,9 @@ flowchart LR
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
 | e1 | inicio | A definir | Div. de Segurança e Transportes |
-| e2 | atividade | A documentar: levantar atividades e rotinas da área | Div. de Segurança e Transportes |
-| e3 | atividade | Mapear fluxos e responsáveis por etapa | Div. de Segurança e Transportes |
-| e4 | atividade | Identificar normas aplicáveis e pontos de atenção | Div. de Segurança e Transportes |
+| e2 | atividade | Levantar as atividades e rotinas da área junto à chefia e aos servidores | Div. de Segurança e Transportes |
+| e3 | atividade | Mapear os fluxos e os responsáveis por etapa | Div. de Segurança e Transportes |
+| e4 | atividade | Identificar as normas aplicáveis e os pontos de atenção | Div. de Segurança e Transportes |
 | e5 | fim | Concluído | Div. de Segurança e Transportes |
 
 | De | Para | Rótulo |
@@ -173,6 +173,7 @@ _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir das entradas pb-seguranca-transportes | pb-seguranca-transportes |
 | 0.2.0 | 2026-09-03 | agente:construtor-pop (lote C) | minor | Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); contingencia_nova: +4; checklist_novo: +5; Campo observacoes atualizado | pb-seguranca-transportes |
+| 0.2.1 | 2026-09-03 | agente:construtor-pop (lote C) | patch | Fluxograma regenerado a partir dos passos | pb-seguranca-transportes |
 
 ## 13. Validação e aprovação
 

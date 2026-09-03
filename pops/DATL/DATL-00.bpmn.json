@@ -1,7 +1,7 @@
 {
   "setor": "Div. de Apoio Técnico aos Laboratórios",
   "codigo": "DATL-00",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:58:25Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
@@ -20,19 +20,19 @@
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "A documentar: levantar atividades e rotinas da área",
+          "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
           "raia": "Div. de Apoio Técnico aos Laboratórios"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Mapear fluxos e responsáveis por etapa",
+          "label": "Mapear os fluxos e os responsáveis por etapa",
           "raia": "Div. de Apoio Técnico aos Laboratórios"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Identificar normas aplicáveis e pontos de atenção",
+          "label": "Identificar as normas aplicáveis e os pontos de atenção",
           "raia": "Div. de Apoio Técnico aos Laboratórios"
         },
         {

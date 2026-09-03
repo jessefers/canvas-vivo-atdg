@@ -1,18 +1,18 @@
 ---
 codigo: DPAT-00
 titulo: "Visão geral — Div. de Patrimônio e Equipamentos"
-versao: "0.1.0"
+versao: "0.2.0"
 status: rascunho
 setor_codigo: S03.05-DPAT
 setor: "Div. de Patrimônio e Equipamentos"
-atualizado_em: "2026-09-02T17:55:54Z"
+atualizado_em: "2026-09-03T01:58:25Z"
 agente: —
-versao_diretrizes: "1.0"
+versao_diretrizes: "1.8"
 ---
 
 # POP DPAT-00 — Visão geral — Div. de Patrimônio e Equipamentos
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.1.0** · Status **rascunho** · Atualizado em 2026-09-02
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.0** · Status **rascunho** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -76,9 +76,9 @@ graph TD
 
 | Nº | Ação | Responsável | Sistema | Artefato | Prazo | Evento |
 |---|---|---|---|---|---|---|
-| 1 | A documentar: levantar atividades e rotinas da área | A definir | — | — | A definir | — |
-| 2 | Mapear fluxos e responsáveis por etapa | A definir | — | — | A definir | — |
-| 3 | Identificar normas aplicáveis e pontos de atenção | A definir | — | — | A definir | — |
+| 1 | Levantar as atividades e rotinas da área junto à chefia e aos servidores | A definir | e-Protocolo | Roteiro de levantamento de atividades | A definir | — |
+| 2 | Mapear os fluxos e os responsáveis por etapa | A definir | planilha | Mapa de fluxos e responsáveis | A definir | — |
+| 3 | Identificar as normas aplicáveis e os pontos de atenção | A definir | e-Protocolo | Lista de normas e pontos de atenção | A definir | — |
 
 ### 3.4 Saída (entregáveis)
 
@@ -98,11 +98,18 @@ graph TD
 
 ## 6. Contingência
 
-— A definir
+- Se a chefia do setor não estiver disponível para o levantamento, agendar nova data e registrar o adiamento
+- Se não houver documentação prévia da área, iniciar o levantamento por entrevista direta com os servidores
+- Se forem identificadas normas não catalogadas no Canvas, registrá-las como lacuna para validação posterior
+- Se o setor não tiver processos definidos, priorizar o mapeamento das atividades de maior volume ou risco (tombamento, controle e desfazimento de bens)
 
 ## 7. Checklist
 
-— A definir
+- ( ) Chefia e servidores do setor entrevistados
+- ( ) Atividades e rotinas da área levantadas
+- ( ) Fluxos e responsáveis por etapa mapeados
+- ( ) Normas aplicáveis identificadas
+- ( ) Pontos de atenção registrados para o próximo ciclo de diagnóstico
 
 ## 8. KPI / Indicadores
 
@@ -119,9 +126,9 @@ flowchart LR
   subgraph R1["Div. de Patrimônio e Equipamentos"]
     direction LR
     e1(("A definir"))
-    e2["A documentar: levantar atividades e rotinas da área"]
-    e3["Mapear fluxos e responsáveis por etapa"]
-    e4["Identificar normas aplicáveis e pontos de atenção"]
+    e2["Levantar as atividades e rotinas da área junto à chefia e aos servido…"]
+    e3["Mapear os fluxos e os responsáveis por etapa"]
+    e4["Identificar as normas aplicáveis e os pontos de atenção"]
     e5((("Concluído")))
   end
   e1 --> e2
@@ -146,9 +153,9 @@ flowchart LR
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
 | e1 | inicio | A definir | Div. de Patrimônio e Equipamentos |
-| e2 | atividade | A documentar: levantar atividades e rotinas da área | Div. de Patrimônio e Equipamentos |
-| e3 | atividade | Mapear fluxos e responsáveis por etapa | Div. de Patrimônio e Equipamentos |
-| e4 | atividade | Identificar normas aplicáveis e pontos de atenção | Div. de Patrimônio e Equipamentos |
+| e2 | atividade | Levantar as atividades e rotinas da área junto à chefia e aos servidores | Div. de Patrimônio e Equipamentos |
+| e3 | atividade | Mapear os fluxos e os responsáveis por etapa | Div. de Patrimônio e Equipamentos |
+| e4 | atividade | Identificar as normas aplicáveis e os pontos de atenção | Div. de Patrimônio e Equipamentos |
 | e5 | fim | Concluído | Div. de Patrimônio e Equipamentos |
 
 | De | Para | Rótulo |
@@ -165,6 +172,7 @@ _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões
 | Versão | Data | Autor | Tipo | Mudanças | Fontes |
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir das entradas pb-patrimonio | pb-patrimonio |
+| 0.2.0 | 2026-09-03 | agente:construtor-pop (lote C) | minor | Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); contingencia_nova: +4; checklist_novo: +5; Campo observacoes atualizado; Fluxograma regenerado a partir dos passos | pb-patrimonio |
 
 ## 13. Validação e aprovação
 
@@ -180,6 +188,11 @@ _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões
 - **L-004** — Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão.
 - **L-006** — Preservar códigos legados como códigos de processo; não renumerar.
 - **L-007** — Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis.
+- **L-002** — Um passo = uma ação; ações compostas viram passos distintos.
+- **L-003** — Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino.
+- **L-005** — No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`.
+
+> **Observações:** Setor ainda não mapeado — roteiro de coleta
 
 ---
-_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/DPAT/DPAT-00.pop.json` (diretrizes v1.0)._
+_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/DPAT/DPAT-00.pop.json` (diretrizes v1.8)._
