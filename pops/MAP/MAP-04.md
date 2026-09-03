@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S02.06-MAP
 setor: "ATDG — Assessoria Técnica da Direção Geral"
 atualizado_em: "2026-09-03T02:01:05Z"
-agente: —
+agente: pop-map-04
 versao_diretrizes: "1.8"
 ---
 
@@ -45,7 +45,7 @@ versao_diretrizes: "1.8"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-atdg, 1780963200034, 1780963200035, 1780963200031 |
 | Lacunas abertas | formulario, prazo |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-map-04 |
 
 ## 2. Organograma
 

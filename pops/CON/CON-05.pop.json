@@ -5,7 +5,7 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.01-CON",
   "sigla": "CON",
-  "versao": "0.2.0",
+  "versao": "0.2.1",
   "status": "rascunho",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -170,10 +170,9 @@
       "canal": "OneDrive ATDG"
     }
   ],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Prestação de contas aprovada e convênio pronto para baixa e arquivame…\"))\n    e9(((\"Convênio baixado e arquivado\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Confirmar a aprovação da prestação de contas e a quitação de obrigaçõ…\"]\n    e3[\"Dar baixa no convênio no controle da ATDG\"]\n    e4[\"Arquivar a documentação completa do convênio (instrução, celebração,…\"]\n    e5[\"Registrar as lições aprendidas na execução do convênio\"]\n    e6[\"Comunicar o encerramento ao setor demandante\"]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e7[[\"✉ Informar Setor demandante\"]]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e8[[\"✉ Informar Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7,e8 captura\n  class e9 fim",
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Prestação de contas aprovada e convênio pronto para baixa e arquivame…\"))\n    e2[\"Confirmar a aprovação da prestação de contas e a quitação de obrigaçõ…\"]\n    e3[\"Dar baixa no convênio no controle da ATDG\"]\n    e4[\"Arquivar a documentação completa do convênio (instrução, celebração,…\"]\n    e5[\"Registrar as lições aprendidas na execução do convênio\"]\n    e6[\"Comunicar o encerramento ao setor demandante\"]\n    e9(((\"Convênio baixado e arquivado\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e7[[\"✉ Informar Setor demandante\"]]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e8[[\"✉ Informar Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7,e8 captura\n  class e9 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral",
       "Assessoria Técnica da Direção Geral (ATDG)",
       "Setor demandante",
       "Direção Geral do Campus"
@@ -183,7 +182,7 @@
         "id": "e1",
         "tipo": "inicio",
         "label": "Prestação de contas aprovada e convênio pronto para baixa e arquivamento",
-        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       },
       {
         "id": "e2",
@@ -231,7 +230,7 @@
         "id": "e9",
         "tipo": "fim",
         "label": "Convênio baixado e arquivado",
-        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       }
     ],
     "conexoes": [
@@ -268,7 +267,7 @@
         "para": "e9"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -309,6 +308,17 @@
       ],
       "fontes": [],
       "motivo": "Elaboração do playbook de Encerramento de Convênio (baixa, arquivo e lições aprendidas) a partir do escopo do manual institucional da ATDG."
+    },
+    {
+      "versao": "0.2.1",
+      "data": "2026-09-03",
+      "autor": "agente:curador-diretrizes",
+      "tipo": "patch",
+      "mudancas": [
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
     }
   ],
   "validacao": {
@@ -335,8 +345,8 @@
   "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
   "fontes_entradas": [],
   "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "agente": "",
-  "versao_diretrizes": "1.8",
+  "agente": "pop-con-05",
+  "versao_diretrizes": "1.12",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-03T02:01:05Z"
+  "atualizado_em": "2026-09-03T02:08:02Z"
 }

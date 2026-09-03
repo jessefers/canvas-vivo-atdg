@@ -1,14 +1,13 @@
 {
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "codigo": "CON-01",
-  "gerado_em": "2026-09-03T02:01:05Z",
+  "gerado_em": "2026-09-03T02:08:02Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CON-01 — Instrução de Convênio",
       "descricao": "Instrução de Convênio — Pré-aprovação, documentação, SETI. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
       "raias": [
-        "ATDG — Assessoria Técnica da Direção Geral",
         "Assessoria Técnica da Direção Geral (ATDG)",
         "Setor demandante",
         "Direção Geral do Campus",
@@ -19,7 +18,7 @@
           "id": "e1",
           "tipo": "inicio",
           "label": "Manifestação de interesse do setor demandante em celebrar convênio com órgão/entidade externa, ou publicação de edital/chamamento que enseje convênio",
-          "raia": "ATDG — Assessoria Técnica da Direção Geral"
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         },
         {
           "id": "e2",
@@ -85,7 +84,7 @@
           "id": "e12",
           "tipo": "fim",
           "label": "Processo de convênio instruído e pré-aprovado pela Direção Geral",
-          "raia": "ATDG — Assessoria Técnica da Direção Geral"
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         }
       ],
       "conexoes": [
@@ -134,7 +133,7 @@
           "para": "e12"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

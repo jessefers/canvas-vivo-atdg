@@ -2793,7 +2793,8 @@ function orgToMermaid(chain,codigo,titulo,vizinhos){
 }
 function specFromPop(pop,maxAt){
   maxAt=maxAt||10;const passos=((pop.playbook||{}).passos||[]);
-  let raiaP=((pop.identificacao||{}).responsavel)||pop.setor||'Setor';if(!raiaP||raiaP==='A definir')raiaP=pop.setor||'Setor';
+  let raiaP=((pop.identificacao||{}).responsavel)||pop.setor||'Setor';
+  if(!raiaP||raiaP==='A definir'){const freq={};passos.forEach(p=>{if(p.responsavel&&p.responsavel!=='A definir')freq[p.responsavel]=(freq[p.responsavel]||0)+1;});const ks=Object.keys(freq);raiaP=ks.length?ks.sort((a,b)=>freq[b]-freq[a])[0]:(pop.setor||'Setor');}
   const gat=(((pop.playbook||{}).gatilho)||{}).evento||'Início';
   const els=[{id:'e1',tipo:'inicio',label:gat,raia:raiaP}];const cons=[];let n=1,prev='e1';
   passos.slice(0,maxAt).forEach(p=>{n++;let raia=p.responsavel||raiaP;if(raia==='A definir')raia=raiaP;els.push({id:'e'+n,tipo:'atividade',label:p.acao||'',raia});cons.push({de:prev,para:'e'+n});prev='e'+n;});

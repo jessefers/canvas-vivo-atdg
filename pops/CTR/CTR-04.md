@@ -1,18 +1,18 @@
 ---
 codigo: CTR-04
 titulo: "Fiscalização Externa"
-versao: "0.2.0"
+versao: "0.2.1"
 status: rascunho
 setor_codigo: S02.03-CTR
 setor: "ATDG — Assessoria Técnica da Direção Geral"
-atualizado_em: "2026-09-03T02:01:05Z"
-agente: —
-versao_diretrizes: "1.8"
+atualizado_em: "2026-09-03T02:08:02Z"
+agente: pop-ctr-04
+versao_diretrizes: "1.12"
 ---
 
 # POP CTR-04 — Fiscalização Externa
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.0** · Status **rascunho** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.1** · Status **rascunho** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -42,7 +42,7 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 | Pasta OneDrive | 02_CONTROLADORIA |
 | Fontes (entradas do Canvas) | — |
 | Lacunas abertas | responsavel, kpi, formulario, prazo, normativa |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-ctr-04 |
 
 ## 2. Organograma
 
@@ -148,13 +148,9 @@ graph TD
 
 ```mermaid
 flowchart LR
-  subgraph R1["ATDG — Assessoria Técnica da Direção Geral"]
+  subgraph R1["Assessoria Técnica da Direção Geral (ATDG)"]
     direction LR
     e1(("Comunicação de visita, inspeção ou diligência de fiscalização externa…"))
-    e12((("Fiscalização externa atendida e documentada")))
-  end
-  subgraph R2["Assessoria Técnica da Direção Geral (ATDG)"]
-    direction LR
     e2["Receber a comunicação de visita/diligência de fiscalização externa"]
     e3["Informar a Direção Geral do Campus e os setores envolvidos sobre a fi…"]
     e5["Acompanhar a visita/diligência do órgão fiscalizador"]
@@ -164,8 +160,9 @@ flowchart LR
     e9[["✉ Informar Assessoria Técnica da Direção Geral (ATDG)"]]
     e10[["✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)"]]
     e11[["✉ Informar Assessoria Técnica da Direção Geral (ATDG)"]]
+    e12((("Fiscalização externa atendida e documentada")))
   end
-  subgraph R3["Setor respondente"]
+  subgraph R2["Setor respondente"]
     direction LR
     e4["Reunir a documentação e as informações objeto da fiscalização"]
   end
@@ -194,11 +191,11 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** ATDG — Assessoria Técnica da Direção Geral · Assessoria Técnica da Direção Geral (ATDG) · Setor respondente
+**Raias:** Assessoria Técnica da Direção Geral (ATDG) · Setor respondente
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
-| e1 | inicio | Comunicação de visita, inspeção ou diligência de fiscalização externa (TCE-PR, SETI ou outro órgão) ao Campus | ATDG — Assessoria Técnica da Direção Geral |
+| e1 | inicio | Comunicação de visita, inspeção ou diligência de fiscalização externa (TCE-PR, SETI ou outro órgão) ao Campus | Assessoria Técnica da Direção Geral (ATDG) |
 | e2 | atividade | Receber a comunicação de visita/diligência de fiscalização externa | Assessoria Técnica da Direção Geral (ATDG) |
 | e3 | atividade | Informar a Direção Geral do Campus e os setores envolvidos sobre a fiscalização | Assessoria Técnica da Direção Geral (ATDG) |
 | e4 | atividade | Reunir a documentação e as informações objeto da fiscalização | Setor respondente |
@@ -209,7 +206,7 @@ flowchart LR
 | e9 | captura | Informar Assessoria Técnica da Direção Geral (ATDG) | Assessoria Técnica da Direção Geral (ATDG) |
 | e10 | captura | Encaminhar a Assessoria Técnica da Direção Geral (ATDG) | Assessoria Técnica da Direção Geral (ATDG) |
 | e11 | captura | Informar Assessoria Técnica da Direção Geral (ATDG) | Assessoria Técnica da Direção Geral (ATDG) |
-| e12 | fim | Fiscalização externa atendida e documentada | ATDG — Assessoria Técnica da Direção Geral |
+| e12 | fim | Fiscalização externa atendida e documentada | Assessoria Técnica da Direção Geral (ATDG) |
 
 | De | Para | Rótulo |
 |---|---|---|
@@ -225,7 +222,7 @@ flowchart LR
 | e10 | e11 | — |
 | e11 | e12 | — |
 
-_Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro._
+_Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro._
 
 ## 12. Histórico de versões
 
@@ -233,6 +230,7 @@ _Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir do escopo "Visitas, diligências, relatórios" | — |
 | 0.2.0 | 2026-09-03 | agente:construtor-pop (lote B) | minor | Passo adicionado após 0: Receber a comunicação de visita/diligência de fiscalização externa; Passo adicionado após 1: Informar a Direção Geral do Campus e os setores envolvidos sobre a fiscalização; Passo adicionado após 2: Reunir a documentação e as informações objeto da fiscalização; Passo adicionado após 3: Acompanhar a visita/diligência do órgão fiscalizador; Passo adicionado após 4: Receber o relatório de fiscalização e as eventuais recomendações; Passo adicionado após 5: Elaborar plano de atendimento às recomendações do órgão fiscalizador; Passo adicionado após 6: Monitorar a implementação das recomendações até seu atendimento integral; entrada_nova: +2; saida_nova: +2; artefatos_novos: +2; decisoes_novas: +1; kpis_novos: +2; mapa_contexto_novo: +3; pontos_atencao_novos: +2; contingencia_nova: +3; checklist_novo: +5; Campo identificacao.periodicidade atualizado; Campo playbook.gatilho atualizado; Campo observacoes atualizado; Fluxograma regenerado a partir dos passos | — |
+| 0.2.1 | 2026-09-03 | agente:curador-diretrizes | patch | Fluxograma regenerado a partir dos passos | — |
 
 ## 13. Validação e aprovação
 
@@ -254,4 +252,4 @@ _Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões
 > **Observações:** Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.
 
 ---
-_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CTR/CTR-04.pop.json` (diretrizes v1.8)._
+_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CTR/CTR-04.pop.json` (diretrizes v1.12)._

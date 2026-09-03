@@ -1,18 +1,18 @@
 ---
 codigo: CON-01
 titulo: "Instrução de Convênio"
-versao: "0.2.0"
+versao: "0.2.1"
 status: rascunho
 setor_codigo: S02.01-CON
 setor: "ATDG — Assessoria Técnica da Direção Geral"
-atualizado_em: "2026-09-03T02:01:05Z"
-agente: —
-versao_diretrizes: "1.8"
+atualizado_em: "2026-09-03T02:08:01Z"
+agente: pop-con-01
+versao_diretrizes: "1.12"
 ---
 
 # POP CON-01 — Instrução de Convênio
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.0** · Status **rascunho** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.1** · Status **rascunho** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -45,7 +45,7 @@ versao_diretrizes: "1.8"
 | Pasta OneDrive | 01_ADMINISTRATIVO |
 | Fontes (entradas do Canvas) | — |
 | Lacunas abertas | responsavel, kpi, formulario, prazo, normativa |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-con-01 |
 
 ## 2. Organograma
 
@@ -154,30 +154,27 @@ graph TD
 
 ```mermaid
 flowchart LR
-  subgraph R1["ATDG — Assessoria Técnica da Direção Geral"]
+  subgraph R1["Assessoria Técnica da Direção Geral (ATDG)"]
     direction LR
     e1(("Manifestação de interesse do setor demandante em celebrar convênio co…"))
-    e12((("Processo de convênio instruído e pré-aprovado pela Direção Geral")))
-  end
-  subgraph R2["Assessoria Técnica da Direção Geral (ATDG)"]
-    direction LR
     e2["Receber e registrar a manifestação de interesse do setor demandante"]
     e3["Orientar o setor demandante na elaboração do plano de trabalho"]
     e5["Elaborar a minuta de convênio e o processo de instrução"]
     e6["Submeter o processo instruído à pré-aprovação da Direção Geral do Cam…"]
     e8["Encaminhar a minuta e o plano de trabalho à SETI para análise"]
     e9[["✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)"]]
+    e12((("Processo de convênio instruído e pré-aprovado pela Direção Geral")))
   end
-  subgraph R3["Setor demandante"]
+  subgraph R2["Setor demandante"]
     direction LR
     e4["Reunir a documentação de habilitação do partícipe externo"]
   end
-  subgraph R4["Direção Geral do Campus"]
+  subgraph R3["Direção Geral do Campus"]
     direction LR
     e7["Pré-aprovar o processo e autorizar o encaminhamento à SETI"]
     e10[["✉ Aprovação por Direção Geral do Campus"]]
   end
-  subgraph R5["SETI"]
+  subgraph R4["SETI"]
     direction LR
     e11[["✉ Informar SETI"]]
   end
@@ -206,11 +203,11 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** ATDG — Assessoria Técnica da Direção Geral · Assessoria Técnica da Direção Geral (ATDG) · Setor demandante · Direção Geral do Campus · SETI
+**Raias:** Assessoria Técnica da Direção Geral (ATDG) · Setor demandante · Direção Geral do Campus · SETI
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
-| e1 | inicio | Manifestação de interesse do setor demandante em celebrar convênio com órgão/entidade externa, ou publicação de edital/chamamento que enseje convênio | ATDG — Assessoria Técnica da Direção Geral |
+| e1 | inicio | Manifestação de interesse do setor demandante em celebrar convênio com órgão/entidade externa, ou publicação de edital/chamamento que enseje convênio | Assessoria Técnica da Direção Geral (ATDG) |
 | e2 | atividade | Receber e registrar a manifestação de interesse do setor demandante | Assessoria Técnica da Direção Geral (ATDG) |
 | e3 | atividade | Orientar o setor demandante na elaboração do plano de trabalho | Assessoria Técnica da Direção Geral (ATDG) |
 | e4 | atividade | Reunir a documentação de habilitação do partícipe externo | Setor demandante |
@@ -221,7 +218,7 @@ flowchart LR
 | e9 | captura | Encaminhar a Assessoria Técnica da Direção Geral (ATDG) | Assessoria Técnica da Direção Geral (ATDG) |
 | e10 | captura | Aprovação por Direção Geral do Campus | Direção Geral do Campus |
 | e11 | captura | Informar SETI | SETI |
-| e12 | fim | Processo de convênio instruído e pré-aprovado pela Direção Geral | ATDG — Assessoria Técnica da Direção Geral |
+| e12 | fim | Processo de convênio instruído e pré-aprovado pela Direção Geral | Assessoria Técnica da Direção Geral (ATDG) |
 
 | De | Para | Rótulo |
 |---|---|---|
@@ -237,7 +234,7 @@ flowchart LR
 | e10 | e11 | — |
 | e11 | e12 | — |
 
-_Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro._
+_Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro._
 
 ## 12. Histórico de versões
 
@@ -245,6 +242,7 @@ _Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir do escopo "Pré-aprovação, documentação, SETI" | — |
 | 0.2.0 | 2026-09-03 | agente:construtor-pop (lote B) | minor | Passo adicionado após 0: Receber e registrar a manifestação de interesse do setor demandante; Passo adicionado após 1: Orientar o setor demandante na elaboração do plano de trabalho; Passo adicionado após 2: Reunir a documentação de habilitação do partícipe externo; Passo adicionado após 3: Elaborar a minuta de convênio e o processo de instrução; Passo adicionado após 4: Submeter o processo instruído à pré-aprovação da Direção Geral do Campus; Passo adicionado após 5: Pré-aprovar o processo e autorizar o encaminhamento à SETI; Passo adicionado após 6: Encaminhar a minuta e o plano de trabalho à SETI para análise; entrada_nova: +3; saida_nova: +2; artefatos_novos: +2; decisoes_novas: +1; kpis_novos: +2; mapa_contexto_novo: +3; pontos_atencao_novos: +2; contingencia_nova: +3; checklist_novo: +5; glossario_novo: +2; normativa_nova: +1; Campo identificacao.periodicidade atualizado; Campo playbook.gatilho atualizado; Campo observacoes atualizado; Fluxograma regenerado a partir dos passos | — |
+| 0.2.1 | 2026-09-03 | agente:curador-diretrizes | patch | Fluxograma regenerado a partir dos passos | — |
 
 ## 13. Validação e aprovação
 
@@ -266,4 +264,4 @@ _Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões
 > **Observações:** Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.
 
 ---
-_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CON/CON-01.pop.json` (diretrizes v1.8)._
+_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CON/CON-01.pop.json` (diretrizes v1.12)._

@@ -1,14 +1,13 @@
 {
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "codigo": "CTR-02",
-  "gerado_em": "2026-09-03T02:01:05Z",
+  "gerado_em": "2026-09-03T02:08:02Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CTR-02 — Compliance Institucional",
       "descricao": "Compliance Institucional — Riscos, planos de mitigação, monitoramento. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
       "raias": [
-        "ATDG — Assessoria Técnica da Direção Geral",
         "Assessoria Técnica da Direção Geral (ATDG)",
         "Setor demandante",
         "Direção Geral do Campus"
@@ -18,7 +17,7 @@
           "id": "e1",
           "tipo": "inicio",
           "label": "Identificação de risco de conformidade ou de não conformidade institucional pela ATDG, por setor ou por órgão de controle",
-          "raia": "ATDG — Assessoria Técnica da Direção Geral"
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         },
         {
           "id": "e2",
@@ -72,7 +71,7 @@
           "id": "e10",
           "tipo": "fim",
           "label": "Plano de mitigação de risco/não conformidade aprovado",
-          "raia": "ATDG — Assessoria Técnica da Direção Geral"
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         }
       ],
       "conexoes": [
@@ -113,7 +112,7 @@
           "para": "e10"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

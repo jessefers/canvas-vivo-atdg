@@ -113,7 +113,12 @@ def spec_from_pop(pop, max_atividades=10):
     passos = (pop.get('playbook') or {}).get('passos') or []
     raia_principal = (pop.get('identificacao') or {}).get('responsavel') or pop.get('setor') or 'Setor'
     if not raia_principal or raia_principal == 'A definir':
-        raia_principal = pop.get('setor') or 'Setor'
+        freq = {}
+        for p in passos:
+            r = p.get('responsavel')
+            if r and r != 'A definir':
+                freq[r] = freq.get(r, 0) + 1
+        raia_principal = max(freq, key=freq.get) if freq else (pop.get('setor') or 'Setor')
     gat = ((pop.get('playbook') or {}).get('gatilho') or {}).get('evento') or 'Início'
     elementos = [{'id': 'e1', 'tipo': 'inicio', 'label': gat, 'raia': raia_principal}]
     conexoes = []

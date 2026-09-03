@@ -1,18 +1,18 @@
 ---
 codigo: CON-03
 titulo: "Execução de Convênio"
-versao: "0.2.0"
+versao: "0.2.1"
 status: rascunho
 setor_codigo: S02.01-CON
 setor: "ATDG — Assessoria Técnica da Direção Geral"
-atualizado_em: "2026-09-03T02:01:05Z"
-agente: —
-versao_diretrizes: "1.8"
+atualizado_em: "2026-09-03T02:08:01Z"
+agente: pop-con-03
+versao_diretrizes: "1.12"
 ---
 
 # POP CON-03 — Execução de Convênio
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.0** · Status **rascunho** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.1** · Status **rascunho** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -44,7 +44,7 @@ versao_diretrizes: "1.8"
 | Pasta OneDrive | 01_ADMINISTRATIVO |
 | Fontes (entradas do Canvas) | — |
 | Lacunas abertas | responsavel, kpi, formulario, prazo, normativa |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-con-03 |
 
 ## 2. Organograma
 
@@ -148,25 +148,22 @@ graph TD
 
 ```mermaid
 flowchart LR
-  subgraph R1["ATDG — Assessoria Técnica da Direção Geral"]
+  subgraph R1["Assessoria Técnica da Direção Geral (ATDG)"]
     direction LR
     e1(("Convênio celebrado e vigente, com execução do objeto em curso pelo se…"))
-    e10((("Relatório parcial de execução aprovado")))
-  end
-  subgraph R2["Assessoria Técnica da Direção Geral (ATDG)"]
-    direction LR
     e2["Acompanhar a execução física e financeira do objeto do convênio"]
     e3["Solicitar ao setor demandante os dados de execução para o relatório p…"]
     e5["Revisar e consolidar o relatório parcial"]
     e6["Submeter o relatório parcial ao órgão concedente/SETI, quando exigido"]
     e7["Monitorar prazos e alertar sobre riscos de descumprimento do cronogra…"]
     e8[["✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)"]]
+    e10((("Relatório parcial de execução aprovado")))
   end
-  subgraph R3["Setor demandante"]
+  subgraph R2["Setor demandante"]
     direction LR
     e4["Elaborar o relatório parcial de execução"]
   end
-  subgraph R4["SETI"]
+  subgraph R3["SETI"]
     direction LR
     e9[["✉ Informar SETI"]]
   end
@@ -193,11 +190,11 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** ATDG — Assessoria Técnica da Direção Geral · Assessoria Técnica da Direção Geral (ATDG) · Setor demandante · SETI
+**Raias:** Assessoria Técnica da Direção Geral (ATDG) · Setor demandante · SETI
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
-| e1 | inicio | Convênio celebrado e vigente, com execução do objeto em curso pelo setor demandante/partícipe | ATDG — Assessoria Técnica da Direção Geral |
+| e1 | inicio | Convênio celebrado e vigente, com execução do objeto em curso pelo setor demandante/partícipe | Assessoria Técnica da Direção Geral (ATDG) |
 | e2 | atividade | Acompanhar a execução física e financeira do objeto do convênio | Assessoria Técnica da Direção Geral (ATDG) |
 | e3 | atividade | Solicitar ao setor demandante os dados de execução para o relatório parcial | Assessoria Técnica da Direção Geral (ATDG) |
 | e4 | atividade | Elaborar o relatório parcial de execução | Setor demandante |
@@ -206,7 +203,7 @@ flowchart LR
 | e7 | atividade | Monitorar prazos e alertar sobre riscos de descumprimento do cronograma físico-financeiro | Assessoria Técnica da Direção Geral (ATDG) |
 | e8 | captura | Encaminhar a Assessoria Técnica da Direção Geral (ATDG) | Assessoria Técnica da Direção Geral (ATDG) |
 | e9 | captura | Informar SETI | SETI |
-| e10 | fim | Relatório parcial de execução aprovado | ATDG — Assessoria Técnica da Direção Geral |
+| e10 | fim | Relatório parcial de execução aprovado | Assessoria Técnica da Direção Geral (ATDG) |
 
 | De | Para | Rótulo |
 |---|---|---|
@@ -220,7 +217,7 @@ flowchart LR
 | e8 | e9 | — |
 | e9 | e10 | — |
 
-_Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro._
+_Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro._
 
 ## 12. Histórico de versões
 
@@ -228,6 +225,7 @@ _Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir do escopo "Acompanhamento, relatórios parciais" | — |
 | 0.2.0 | 2026-09-03 | agente:construtor-pop (lote B) | minor | Passo adicionado após 0: Acompanhar a execução física e financeira do objeto do convênio; Passo adicionado após 1: Solicitar ao setor demandante os dados de execução para o relatório parcial; Passo adicionado após 2: Elaborar o relatório parcial de execução; Passo adicionado após 3: Revisar e consolidar o relatório parcial; Passo adicionado após 4: Submeter o relatório parcial ao órgão concedente/SETI, quando exigido; Passo adicionado após 5: Monitorar prazos e alertar sobre riscos de descumprimento do cronograma físico-f; entrada_nova: +2; saida_nova: +2; artefatos_novos: +2; decisoes_novas: +1; kpis_novos: +2; mapa_contexto_novo: +2; pontos_atencao_novos: +2; contingencia_nova: +3; checklist_novo: +5; glossario_novo: +1; Campo identificacao.periodicidade atualizado; Campo playbook.gatilho atualizado; Campo observacoes atualizado; Fluxograma regenerado a partir dos passos | — |
+| 0.2.1 | 2026-09-03 | agente:curador-diretrizes | patch | Fluxograma regenerado a partir dos passos | — |
 
 ## 13. Validação e aprovação
 
@@ -249,4 +247,4 @@ _Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões
 > **Observações:** Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.
 
 ---
-_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CON/CON-03.pop.json` (diretrizes v1.8)._
+_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CON/CON-03.pop.json` (diretrizes v1.12)._

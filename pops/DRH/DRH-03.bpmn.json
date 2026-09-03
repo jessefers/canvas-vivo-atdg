@@ -1,0 +1,47 @@
+{
+  "setor": "Div. de Recursos Humanos",
+  "codigo": "DRH-03",
+  "gerado_em": "2026-09-03T02:08:03Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DRH-03 — Instrução de processos de RH no e-Protocolo (licenças, afastamentos, progressões)",
+      "descricao": "Tramitação, por tipo de demanda funcional (licença, afastamento, progressão e demais), dos processos de RH no e-Protocolo, com apoio do perfil profissiográfico das funções (Edital 096/2023-GRE).",
+      "raias": [
+        "Div. de Recursos Humanos",
+        "Div. de Recursos Humanos ↔ PRORH"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Servidor ou chefia solicita processo funcional de RH por tipo específico de demanda",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e2",
+          "tipo": "captura",
+          "label": "Informar Div. de Recursos Humanos ↔ PRORH",
+          "raia": "Div. de Recursos Humanos ↔ PRORH"
+        },
+        {
+          "id": "e3",
+          "tipo": "fim",
+          "label": "Processo de RH instruído e encaminhado às instâncias competentes conforme o tipo de demanda",
+          "raia": "Div. de Recursos Humanos"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 ---
 id: diretriz-07
 titulo: Lições aprendidas (log append-only)
-versao: "1.10"
+versao: "1.12"
 atualizado_em: "2026-09-03"
 ---
 
@@ -35,6 +35,8 @@ Log **append-only**. Somente lições com `status: aprovada` são injetadas nos 
 | L-015 | 2026-09-03 | lote D1 | Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte). | Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado. | proposta |
 | L-016 | 2026-09-03 | lote C | Planilha real de controle (ex.: tempos de limpeza da DMC) foi registrada apenas como texto resumido. | Formalizar planilhas de controle já em uso como artefato do tipo documento, com campos-chave, mesmo sem sistema informatizado. | proposta |
 | L-017 | 2026-09-03 | lote C | Setores com apenas o playbook-esqueleto genérico (DST, DINF, DPAT, DATL, DSA) não têm evidência operacional. | Setor cujas fontes se resumem a um único registro genérico de playbook recebe POP-roteiro de coleta (status rascunho), nunca POP operacional completo. | proposta |
+| L-018 | 2026-09-03 | lote B | bpmn_delta.raias_add/elementos_add escala o tipo de mudança para major mesmo em POPs inferidos que deveriam permanecer rascunho. | Em POPs sem evidência, reconstruir o fluxograma com bpmn_delta.regenerar_de_passos (raias derivadas do responsável de cada passo e capturas do mapa de contexto); reservar a reconstrução manual para POPs evidenciados. | proposta |
+| L-019 | 2026-09-03 | lote B | Responsável do processo 'A definir' impede a promoção automática a em_validacao mesmo com passos completos. | Em setores sem entradas no Canvas, preencher o responsável por função em cada passo, mas manter identificacao.responsavel 'A definir' até validação formal, preservando a distinção entre POP evidenciado e inferido. | proposta |
 
 ## Rejeitadas
 

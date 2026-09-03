@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T02:05:27Z",
+  "sincronizado_em": "2026-09-03T19:35:29Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -2811,9 +2811,9 @@
       "id": "diretriz-07",
       "arquivo": "diretrizes/07-licoes-aprendidas.md",
       "titulo": "Lições aprendidas (log append-only)",
-      "versao": "1.10",
+      "versao": "1.12",
       "atualizado_em": "2026-09-03",
-      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.10\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |\n| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |\n| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |\n| L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |\n| L-014 | 2026-09-03 | lote D1 | Documentos de outras instituições (ex.: subprocesso financeiro de hospital) foram anexados ao acervo como exemplo metodológico, sem descrever processo real da Unioeste. | Registrar documentos de outras instituições apenas em ecossistema.benchmarks; nunca como evidência de processo próprio nem como normativa institucional. | proposta |\n| L-015 | 2026-09-03 | lote D1 | Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte). | Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado. | proposta |\n| L-016 | 2026-09-03 | lote C | Planilha real de controle (ex.: tempos de limpeza da DMC) foi registrada apenas como texto resumido. | Formalizar planilhas de controle já em uso como artefato do tipo documento, com campos-chave, mesmo sem sistema informatizado. | proposta |\n| L-017 | 2026-09-03 | lote C | Setores com apenas o playbook-esqueleto genérico (DST, DINF, DPAT, DATL, DSA) não têm evidência operacional. | Setor cujas fontes se resumem a um único registro genérico de playbook recebe POP-roteiro de coleta (status rascunho), nunca POP operacional completo. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
+      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.12\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |\n| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |\n| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |\n| L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |\n| L-014 | 2026-09-03 | lote D1 | Documentos de outras instituições (ex.: subprocesso financeiro de hospital) foram anexados ao acervo como exemplo metodológico, sem descrever processo real da Unioeste. | Registrar documentos de outras instituições apenas em ecossistema.benchmarks; nunca como evidência de processo próprio nem como normativa institucional. | proposta |\n| L-015 | 2026-09-03 | lote D1 | Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte). | Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado. | proposta |\n| L-016 | 2026-09-03 | lote C | Planilha real de controle (ex.: tempos de limpeza da DMC) foi registrada apenas como texto resumido. | Formalizar planilhas de controle já em uso como artefato do tipo documento, com campos-chave, mesmo sem sistema informatizado. | proposta |\n| L-017 | 2026-09-03 | lote C | Setores com apenas o playbook-esqueleto genérico (DST, DINF, DPAT, DATL, DSA) não têm evidência operacional. | Setor cujas fontes se resumem a um único registro genérico de playbook recebe POP-roteiro de coleta (status rascunho), nunca POP operacional completo. | proposta |\n| L-018 | 2026-09-03 | lote B | bpmn_delta.raias_add/elementos_add escala o tipo de mudança para major mesmo em POPs inferidos que deveriam permanecer rascunho. | Em POPs sem evidência, reconstruir o fluxograma com bpmn_delta.regenerar_de_passos (raias derivadas do responsável de cada passo e capturas do mapa de contexto); reservar a reconstrução manual para POPs evidenciados. | proposta |\n| L-019 | 2026-09-03 | lote B | Responsável do processo 'A definir' impede a promoção automática a em_validacao mesmo com passos completos. | Em setores sem entradas no Canvas, preencher o responsável por função em cada passo, mas manter identificacao.responsavel 'A definir' até validação formal, preservando a distinção entre POP evidenciado e inferido. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
     },
     {
       "id": "diretriz-08",
@@ -2983,6 +2983,24 @@
       "origem": "lote C",
       "licao": "Setores com apenas o playbook-esqueleto genérico (DST, DINF, DPAT, DATL, DSA) não têm evidência operacional.",
       "regra": "Setor cujas fontes se resumem a um único registro genérico de playbook recebe POP-roteiro de coleta (status rascunho), nunca POP operacional completo.",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
+    },
+    {
+      "id": "L-018",
+      "data": "2026-09-03",
+      "origem": "lote B",
+      "licao": "bpmn_delta.raias_add/elementos_add escala o tipo de mudança para major mesmo em POPs inferidos que deveriam permanecer rascunho.",
+      "regra": "Em POPs sem evidência, reconstruir o fluxograma com bpmn_delta.regenerar_de_passos (raias derivadas do responsável de cada passo e capturas do mapa de contexto); reservar a reconstrução manual para POPs evidenciados.",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
+    },
+    {
+      "id": "L-019",
+      "data": "2026-09-03",
+      "origem": "lote B",
+      "licao": "Responsável do processo 'A definir' impede a promoção automática a em_validacao mesmo com passos completos.",
+      "regra": "Em setores sem entradas no Canvas, preencher o responsável por função em cada passo, mas manter identificacao.responsavel 'A definir' até validação formal, preservando a distinção entre POP evidenciado e inferido.",
       "status": "proposta",
       "atualizado_em": "2026-09-03"
     }
@@ -8504,7 +8522,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.02-CAP",
       "sigla": "CAP",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -8703,10 +8721,9 @@
           "canal": "A definir"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Publicação de edital de fomento (Fundação Araucária, SETI ou outro ór…\"))\n    e12(((\"Proposta submetida ao edital\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Identificar e divulgar editais de fomento de interesse do Campus\"]\n    e3[\"Receber a manifestação de interesse do setor demandante em submeter p…\"]\n    e4[\"Orientar a elaboração da proposta técnica conforme as exigências do e…\"]\n    e5[\"Conferir a documentação exigida pelo edital antes da submissão\"]\n    e6[\"Submeter a proposta ao órgão de fomento (Fundação Araucária/SETI)\"]\n    e7[\"Acompanhar o resultado da análise do órgão de fomento\"]\n    e8[\"Registrar o resultado da submissão e comunicar ao setor demandante\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Fundação Araucária\"]\n    direction LR\n    e10[[\"✉ Informar Fundação Araucária\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Publicação de edital de fomento (Fundação Araucária, SETI ou outro ór…\"))\n    e2[\"Identificar e divulgar editais de fomento de interesse do Campus\"]\n    e3[\"Receber a manifestação de interesse do setor demandante em submeter p…\"]\n    e4[\"Orientar a elaboração da proposta técnica conforme as exigências do e…\"]\n    e5[\"Conferir a documentação exigida pelo edital antes da submissão\"]\n    e6[\"Submeter a proposta ao órgão de fomento (Fundação Araucária/SETI)\"]\n    e7[\"Acompanhar o resultado da análise do órgão de fomento\"]\n    e8[\"Registrar o resultado da submissão e comunicar ao setor demandante\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e12(((\"Proposta submetida ao edital\")))\n  end\n  subgraph R2[\"Fundação Araucária\"]\n    direction LR\n    e10[[\"✉ Informar Fundação Araucária\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Fundação Araucária"
         ],
@@ -8715,7 +8732,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Publicação de edital de fomento (Fundação Araucária, SETI ou outro órgão) de interesse do Campus",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -8781,7 +8798,7 @@
             "id": "e12",
             "tipo": "fim",
             "label": "Proposta submetida ao edital",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -8830,7 +8847,7 @@
             "para": "e12"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -8874,6 +8891,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Captação de Recursos Externos (editais, Fundação Araucária, SETI) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -8900,10 +8928,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de captação de recursos e parcerias em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-cap-01",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:02Z"
     },
     {
       "id": "pop-cap-02",
@@ -8912,7 +8940,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.02-CAP",
       "sigla": "CAP",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -9095,10 +9123,9 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Identificação de oportunidade de parceria institucional (acordo de co…\"))\n    e10(((\"Acordo/termo de cooperação celebrado\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Receber e registrar a proposta de parceria institucional\"]\n    e3[\"Elaborar a minuta do acordo/termo de cooperação\"]\n    e4[\"Submeter a minuta à Direção Geral do Campus para aprovação\"]\n    e6[\"Acompanhar a execução da parceria institucional\"]\n    e7[\"Avaliar e, se pertinente, instruir a renovação do acordo antes do tér…\"]\n    e8[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e5[\"Celebrar o acordo/termo de cooperação com a entidade parceira\"]\n    e9[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Identificação de oportunidade de parceria institucional (acordo de co…\"))\n    e2[\"Receber e registrar a proposta de parceria institucional\"]\n    e3[\"Elaborar a minuta do acordo/termo de cooperação\"]\n    e4[\"Submeter a minuta à Direção Geral do Campus para aprovação\"]\n    e6[\"Acompanhar a execução da parceria institucional\"]\n    e7[\"Avaliar e, se pertinente, instruir a renovação do acordo antes do tér…\"]\n    e8[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10(((\"Acordo/termo de cooperação celebrado\")))\n  end\n  subgraph R2[\"Direção Geral do Campus\"]\n    direction LR\n    e5[\"Celebrar o acordo/termo de cooperação com a entidade parceira\"]\n    e9[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Direção Geral do Campus"
         ],
@@ -9107,7 +9134,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Identificação de oportunidade de parceria institucional (acordo de cooperação técnica) com entidade pública ou privada",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -9161,7 +9188,7 @@
             "id": "e10",
             "tipo": "fim",
             "label": "Acordo/termo de cooperação celebrado",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -9202,7 +9229,7 @@
             "para": "e10"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -9245,6 +9272,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Parcerias Institucionais (instrução, acompanhamento e renovação) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -9271,10 +9309,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de captação de recursos e parcerias em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-cap-02",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:02Z"
     },
     {
       "id": "pop-ccsa-00",
@@ -11026,7 +11064,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.01-CON",
       "sigla": "CON",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -11234,10 +11272,9 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Manifestação de interesse do setor demandante em celebrar convênio co…\"))\n    e12(((\"Processo de convênio instruído e pré-aprovado pela Direção Geral\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Receber e registrar a manifestação de interesse do setor demandante\"]\n    e3[\"Orientar o setor demandante na elaboração do plano de trabalho\"]\n    e5[\"Elaborar a minuta de convênio e o processo de instrução\"]\n    e6[\"Submeter o processo instruído à pré-aprovação da Direção Geral do Cam…\"]\n    e8[\"Encaminhar a minuta e o plano de trabalho à SETI para análise\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e4[\"Reunir a documentação de habilitação do partícipe externo\"]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e7[\"Pré-aprovar o processo e autorizar o encaminhamento à SETI\"]\n    e10[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  subgraph R5[\"SETI\"]\n    direction LR\n    e11[[\"✉ Informar SETI\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Manifestação de interesse do setor demandante em celebrar convênio co…\"))\n    e2[\"Receber e registrar a manifestação de interesse do setor demandante\"]\n    e3[\"Orientar o setor demandante na elaboração do plano de trabalho\"]\n    e5[\"Elaborar a minuta de convênio e o processo de instrução\"]\n    e6[\"Submeter o processo instruído à pré-aprovação da Direção Geral do Cam…\"]\n    e8[\"Encaminhar a minuta e o plano de trabalho à SETI para análise\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e12(((\"Processo de convênio instruído e pré-aprovado pela Direção Geral\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e4[\"Reunir a documentação de habilitação do partícipe externo\"]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e7[\"Pré-aprovar o processo e autorizar o encaminhamento à SETI\"]\n    e10[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  subgraph R4[\"SETI\"]\n    direction LR\n    e11[[\"✉ Informar SETI\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Setor demandante",
           "Direção Geral do Campus",
@@ -11248,7 +11285,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Manifestação de interesse do setor demandante em celebrar convênio com órgão/entidade externa, ou publicação de edital/chamamento que enseje convênio",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -11314,7 +11351,7 @@
             "id": "e12",
             "tipo": "fim",
             "label": "Processo de convênio instruído e pré-aprovado pela Direção Geral",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -11363,7 +11400,7 @@
             "para": "e12"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -11408,6 +11445,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Instrução de Convênio (pré-aprovação, documentação e encaminhamento à SETI) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -11434,10 +11482,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-con-01",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:01Z"
     },
     {
       "id": "pop-con-02",
@@ -11446,7 +11494,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.01-CON",
       "sigla": "CON",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -11639,10 +11687,9 @@
           "canal": "e-Protocolo/OneDrive ATDG"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Aprovação da minuta de convênio pela SETI (ou órgão concedente) receb…\"))\n    e11(((\"Convênio assinado pelos partícipes\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Receber a aprovação da minuta de convênio pela SETI\"]\n    e3[\"Preparar a via definitiva do convênio para assinatura\"]\n    e5[\"Colher a assinatura do partícipe externo\"]\n    e6[\"Publicar o extrato do convênio\"]\n    e7[\"Registrar o convênio celebrado no controle da ATDG\"]\n    e8[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e4[\"Colher a assinatura da Direção Geral do Campus (ou autoridade compete…\"]\n    e9[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  subgraph R4[\"Setor demandante\"]\n    direction LR\n    e10[[\"✉ Informar Setor demandante\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9,e10 captura\n  class e11 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Aprovação da minuta de convênio pela SETI (ou órgão concedente) receb…\"))\n    e2[\"Receber a aprovação da minuta de convênio pela SETI\"]\n    e3[\"Preparar a via definitiva do convênio para assinatura\"]\n    e5[\"Colher a assinatura do partícipe externo\"]\n    e6[\"Publicar o extrato do convênio\"]\n    e7[\"Registrar o convênio celebrado no controle da ATDG\"]\n    e8[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11(((\"Convênio assinado pelos partícipes\")))\n  end\n  subgraph R2[\"Direção Geral do Campus\"]\n    direction LR\n    e4[\"Colher a assinatura da Direção Geral do Campus (ou autoridade compete…\"]\n    e9[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e10[[\"✉ Informar Setor demandante\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9,e10 captura\n  class e11 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Direção Geral do Campus",
           "Setor demandante"
@@ -11652,7 +11699,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Aprovação da minuta de convênio pela SETI (ou órgão concedente) recebida",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -11712,7 +11759,7 @@
             "id": "e11",
             "tipo": "fim",
             "label": "Convênio assinado pelos partícipes",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -11757,7 +11804,7 @@
             "para": "e11"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -11801,6 +11848,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Celebração de Convênio (assinaturas, publicação e registro) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -11827,10 +11885,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-con-02",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:01Z"
     },
     {
       "id": "pop-con-03",
@@ -11839,7 +11897,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.01-CON",
       "sigla": "CON",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -12022,10 +12080,9 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Convênio celebrado e vigente, com execução do objeto em curso pelo se…\"))\n    e10(((\"Relatório parcial de execução aprovado\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Acompanhar a execução física e financeira do objeto do convênio\"]\n    e3[\"Solicitar ao setor demandante os dados de execução para o relatório p…\"]\n    e5[\"Revisar e consolidar o relatório parcial\"]\n    e6[\"Submeter o relatório parcial ao órgão concedente/SETI, quando exigido\"]\n    e7[\"Monitorar prazos e alertar sobre riscos de descumprimento do cronogra…\"]\n    e8[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e4[\"Elaborar o relatório parcial de execução\"]\n  end\n  subgraph R4[\"SETI\"]\n    direction LR\n    e9[[\"✉ Informar SETI\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Convênio celebrado e vigente, com execução do objeto em curso pelo se…\"))\n    e2[\"Acompanhar a execução física e financeira do objeto do convênio\"]\n    e3[\"Solicitar ao setor demandante os dados de execução para o relatório p…\"]\n    e5[\"Revisar e consolidar o relatório parcial\"]\n    e6[\"Submeter o relatório parcial ao órgão concedente/SETI, quando exigido\"]\n    e7[\"Monitorar prazos e alertar sobre riscos de descumprimento do cronogra…\"]\n    e8[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10(((\"Relatório parcial de execução aprovado\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e4[\"Elaborar o relatório parcial de execução\"]\n  end\n  subgraph R3[\"SETI\"]\n    direction LR\n    e9[[\"✉ Informar SETI\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Setor demandante",
           "SETI"
@@ -12035,7 +12092,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Convênio celebrado e vigente, com execução do objeto em curso pelo setor demandante/partícipe",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -12089,7 +12146,7 @@
             "id": "e10",
             "tipo": "fim",
             "label": "Relatório parcial de execução aprovado",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -12130,7 +12187,7 @@
             "para": "e10"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -12173,6 +12230,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Execução de Convênio (acompanhamento e relatórios parciais) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -12199,10 +12267,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-con-03",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:01Z"
     },
     {
       "id": "pop-con-04",
@@ -12211,7 +12279,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.01-CON",
       "sigla": "CON",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -12403,12 +12471,11 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Encerramento da vigência ou do objeto do convênio, exigindo prestação…\"))\n    e11(((\"Prestação de contas financeira e técnica aprovada\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e2[\"Reunir os comprovantes de despesa e o relatório técnico final de exec…\"]\n  end\n  subgraph R3[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e3[\"Conferir a compatibilidade entre despesas realizadas e o plano de tra…\"]\n    e4[\"Elaborar a prestação de contas financeira e técnica\"]\n    e5[\"Submeter a prestação de contas à Direção Geral do Campus\"]\n    e7[\"Encaminhar a prestação de contas ao órgão concedente/SETI\"]\n    e8[\"Aguardar e responder eventuais diligências do TCE-PR sobre a prestaçã…\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e6[\"Aprovar a prestação de contas\"]\n  end\n  subgraph R5[\"TCE-PR\"]\n    direction LR\n    e10[[\"✉ Informar TCE-PR\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Encerramento da vigência ou do objeto do convênio, exigindo prestação…\"))\n    e3[\"Conferir a compatibilidade entre despesas realizadas e o plano de tra…\"]\n    e4[\"Elaborar a prestação de contas financeira e técnica\"]\n    e5[\"Submeter a prestação de contas à Direção Geral do Campus\"]\n    e7[\"Encaminhar a prestação de contas ao órgão concedente/SETI\"]\n    e8[\"Aguardar e responder eventuais diligências do TCE-PR sobre a prestaçã…\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11(((\"Prestação de contas financeira e técnica aprovada\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e2[\"Reunir os comprovantes de despesa e o relatório técnico final de exec…\"]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e6[\"Aprovar a prestação de contas\"]\n  end\n  subgraph R4[\"TCE-PR\"]\n    direction LR\n    e10[[\"✉ Informar TCE-PR\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
-          "Setor demandante",
           "Assessoria Técnica da Direção Geral (ATDG)",
+          "Setor demandante",
           "Direção Geral do Campus",
           "TCE-PR"
         ],
@@ -12417,7 +12484,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Encerramento da vigência ou do objeto do convênio, exigindo prestação de contas financeira e técnica",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -12477,7 +12544,7 @@
             "id": "e11",
             "tipo": "fim",
             "label": "Prestação de contas financeira e técnica aprovada",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -12522,7 +12589,7 @@
             "para": "e11"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -12566,6 +12633,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Prestação de Contas de Convênio (financeira e técnica, TCE-PR) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -12592,10 +12670,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-con-04",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:01Z"
     },
     {
       "id": "pop-con-05",
@@ -12604,7 +12682,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.01-CON",
       "sigla": "CON",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -12769,10 +12847,9 @@
           "canal": "OneDrive ATDG"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Prestação de contas aprovada e convênio pronto para baixa e arquivame…\"))\n    e9(((\"Convênio baixado e arquivado\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Confirmar a aprovação da prestação de contas e a quitação de obrigaçõ…\"]\n    e3[\"Dar baixa no convênio no controle da ATDG\"]\n    e4[\"Arquivar a documentação completa do convênio (instrução, celebração,…\"]\n    e5[\"Registrar as lições aprendidas na execução do convênio\"]\n    e6[\"Comunicar o encerramento ao setor demandante\"]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e7[[\"✉ Informar Setor demandante\"]]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e8[[\"✉ Informar Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7,e8 captura\n  class e9 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Prestação de contas aprovada e convênio pronto para baixa e arquivame…\"))\n    e2[\"Confirmar a aprovação da prestação de contas e a quitação de obrigaçõ…\"]\n    e3[\"Dar baixa no convênio no controle da ATDG\"]\n    e4[\"Arquivar a documentação completa do convênio (instrução, celebração,…\"]\n    e5[\"Registrar as lições aprendidas na execução do convênio\"]\n    e6[\"Comunicar o encerramento ao setor demandante\"]\n    e9(((\"Convênio baixado e arquivado\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e7[[\"✉ Informar Setor demandante\"]]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e8[[\"✉ Informar Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7,e8 captura\n  class e9 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Setor demandante",
           "Direção Geral do Campus"
@@ -12782,7 +12859,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Prestação de contas aprovada e convênio pronto para baixa e arquivamento",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -12830,7 +12907,7 @@
             "id": "e9",
             "tipo": "fim",
             "label": "Convênio baixado e arquivado",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -12867,7 +12944,7 @@
             "para": "e9"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -12908,6 +12985,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Encerramento de Convênio (baixa, arquivo e lições aprendidas) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -12934,10 +13022,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-con-05",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:02Z"
     },
     {
       "id": "pop-ctr-01",
@@ -12946,7 +13034,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.03-CTR",
       "sigla": "CTR",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -13145,10 +13233,9 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Recebimento de demanda, notificação ou diligência do TCE-PR dirigida…\"))\n    e12(((\"Resposta formal encaminhada ao TCE-PR dentro do prazo\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Receber e registrar a demanda/diligência do TCE-PR\"]\n    e3[\"Identificar o(s) setor(es) responsável(is) pelas informações solicita…\"]\n    e4[\"Solicitar aos setores responsáveis a documentação e as informações ex…\"]\n    e6[\"Elaborar a resposta formal à demanda do TCE-PR\"]\n    e7[\"Submeter a resposta à Direção Geral do Campus para validação\"]\n    e9[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor respondente\"]\n    direction LR\n    e5[\"Reunir e conferir a documentação e as informações recebidas\"]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e8[\"Encaminhar a resposta formal ao TCE-PR dentro do prazo estabelecido\"]\n  end\n  subgraph R5[\"TCE-PR\"]\n    direction LR\n    e11[[\"✉ Informar TCE-PR\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Recebimento de demanda, notificação ou diligência do TCE-PR dirigida…\"))\n    e2[\"Receber e registrar a demanda/diligência do TCE-PR\"]\n    e3[\"Identificar o(s) setor(es) responsável(is) pelas informações solicita…\"]\n    e4[\"Solicitar aos setores responsáveis a documentação e as informações ex…\"]\n    e6[\"Elaborar a resposta formal à demanda do TCE-PR\"]\n    e7[\"Submeter a resposta à Direção Geral do Campus para validação\"]\n    e9[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e12(((\"Resposta formal encaminhada ao TCE-PR dentro do prazo\")))\n  end\n  subgraph R2[\"Setor respondente\"]\n    direction LR\n    e5[\"Reunir e conferir a documentação e as informações recebidas\"]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e8[\"Encaminhar a resposta formal ao TCE-PR dentro do prazo estabelecido\"]\n  end\n  subgraph R4[\"TCE-PR\"]\n    direction LR\n    e11[[\"✉ Informar TCE-PR\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Setor respondente",
           "Direção Geral do Campus",
@@ -13159,7 +13246,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Recebimento de demanda, notificação ou diligência do TCE-PR dirigida ao Campus",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -13225,7 +13312,7 @@
             "id": "e12",
             "tipo": "fim",
             "label": "Resposta formal encaminhada ao TCE-PR dentro do prazo",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -13274,7 +13361,7 @@
             "para": "e12"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -13318,6 +13405,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Auditoria TCE-PR (demandas, prazos, respostas formais) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -13344,10 +13442,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-ctr-01",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:02Z"
     },
     {
       "id": "pop-ctr-02",
@@ -13356,7 +13454,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.03-CTR",
       "sigla": "CTR",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -13545,10 +13643,9 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Identificação de risco de conformidade ou de não conformidade institu…\"))\n    e10(((\"Plano de mitigação de risco/não conformidade aprovado\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Registrar o risco ou a não conformidade identificado\"]\n    e3[\"Avaliar a probabilidade e o impacto do risco/não conformidade\"]\n    e5[\"Submeter o plano de mitigação à Direção Geral do Campus para aprovação\"]\n    e6[\"Monitorar a implementação das ações de mitigação\"]\n    e7[\"Atualizar a matriz de riscos institucionais com o resultado do monito…\"]\n    e8[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e4[\"Elaborar o plano de mitigação com o setor responsável\"]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e9[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Identificação de risco de conformidade ou de não conformidade institu…\"))\n    e2[\"Registrar o risco ou a não conformidade identificado\"]\n    e3[\"Avaliar a probabilidade e o impacto do risco/não conformidade\"]\n    e5[\"Submeter o plano de mitigação à Direção Geral do Campus para aprovação\"]\n    e6[\"Monitorar a implementação das ações de mitigação\"]\n    e7[\"Atualizar a matriz de riscos institucionais com o resultado do monito…\"]\n    e8[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10(((\"Plano de mitigação de risco/não conformidade aprovado\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e4[\"Elaborar o plano de mitigação com o setor responsável\"]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e9[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Setor demandante",
           "Direção Geral do Campus"
@@ -13558,7 +13655,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Identificação de risco de conformidade ou de não conformidade institucional pela ATDG, por setor ou por órgão de controle",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -13612,7 +13709,7 @@
             "id": "e10",
             "tipo": "fim",
             "label": "Plano de mitigação de risco/não conformidade aprovado",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -13653,7 +13750,7 @@
             "para": "e10"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -13696,6 +13793,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Compliance Institucional (riscos, planos de mitigação, monitoramento) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -13722,10 +13830,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-ctr-02",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:02Z"
     },
     {
       "id": "pop-ctr-03",
@@ -13734,7 +13842,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.03-CTR",
       "sigla": "CTR",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -13916,10 +14024,9 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Necessidade de conferência ou alinhamento de fluxo financeiro entre o…\"))\n    e10(((\"Conferência financeira concluída e conciliada com a PRAF\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Receber a demanda de conferência financeira da PRAF ou identificar a…\"]\n    e3[\"Reunir os registros financeiros do Campus pertinentes à conferência\"]\n    e4[\"Conciliar os registros do Campus com os dados da PRAF\"]\n    e5[\"Identificar divergências e pendências financeiras\"]\n    e6[\"Regularizar as pendências identificadas junto à PRAF\"]\n    e7[\"Registrar o resultado da conferência financeira\"]\n    e8[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"PRAF\"]\n    direction LR\n    e9[[\"✉ Informar PRAF\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Necessidade de conferência ou alinhamento de fluxo financeiro entre o…\"))\n    e2[\"Receber a demanda de conferência financeira da PRAF ou identificar a…\"]\n    e3[\"Reunir os registros financeiros do Campus pertinentes à conferência\"]\n    e4[\"Conciliar os registros do Campus com os dados da PRAF\"]\n    e5[\"Identificar divergências e pendências financeiras\"]\n    e6[\"Regularizar as pendências identificadas junto à PRAF\"]\n    e7[\"Registrar o resultado da conferência financeira\"]\n    e8[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10(((\"Conferência financeira concluída e conciliada com a PRAF\")))\n  end\n  subgraph R2[\"PRAF\"]\n    direction LR\n    e9[[\"✉ Informar PRAF\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "PRAF"
         ],
@@ -13928,7 +14035,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Necessidade de conferência ou alinhamento de fluxo financeiro entre o Campus e a Pró-Reitoria de Administração e Finanças (PRAF)",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -13982,7 +14089,7 @@
             "id": "e10",
             "tipo": "fim",
             "label": "Conferência financeira concluída e conciliada com a PRAF",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -14023,7 +14130,7 @@
             "para": "e10"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -14066,6 +14173,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Relacionamento com a PRAF (fluxos financeiros, conferências) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -14092,10 +14210,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-ctr-03",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:02Z"
     },
     {
       "id": "pop-ctr-04",
@@ -14104,7 +14222,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.03-CTR",
       "sigla": "CTR",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -14298,10 +14416,9 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Comunicação de visita, inspeção ou diligência de fiscalização externa…\"))\n    e12(((\"Fiscalização externa atendida e documentada\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Receber a comunicação de visita/diligência de fiscalização externa\"]\n    e3[\"Informar a Direção Geral do Campus e os setores envolvidos sobre a fi…\"]\n    e5[\"Acompanhar a visita/diligência do órgão fiscalizador\"]\n    e6[\"Receber o relatório de fiscalização e as eventuais recomendações\"]\n    e7[\"Elaborar plano de atendimento às recomendações do órgão fiscalizador\"]\n    e8[\"Monitorar a implementação das recomendações até seu atendimento integ…\"]\n    e9[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor respondente\"]\n    direction LR\n    e4[\"Reunir a documentação e as informações objeto da fiscalização\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Comunicação de visita, inspeção ou diligência de fiscalização externa…\"))\n    e2[\"Receber a comunicação de visita/diligência de fiscalização externa\"]\n    e3[\"Informar a Direção Geral do Campus e os setores envolvidos sobre a fi…\"]\n    e5[\"Acompanhar a visita/diligência do órgão fiscalizador\"]\n    e6[\"Receber o relatório de fiscalização e as eventuais recomendações\"]\n    e7[\"Elaborar plano de atendimento às recomendações do órgão fiscalizador\"]\n    e8[\"Monitorar a implementação das recomendações até seu atendimento integ…\"]\n    e9[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e12(((\"Fiscalização externa atendida e documentada\")))\n  end\n  subgraph R2[\"Setor respondente\"]\n    direction LR\n    e4[\"Reunir a documentação e as informações objeto da fiscalização\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Setor respondente"
         ],
@@ -14310,7 +14427,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Comunicação de visita, inspeção ou diligência de fiscalização externa (TCE-PR, SETI ou outro órgão) ao Campus",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -14376,7 +14493,7 @@
             "id": "e12",
             "tipo": "fim",
             "label": "Fiscalização externa atendida e documentada",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -14425,7 +14542,7 @@
             "para": "e12"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -14468,6 +14585,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Fiscalização Externa (visitas, diligências, relatórios) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -14494,10 +14622,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-ctr-04",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:02Z"
     },
     {
       "id": "pop-ctr-05",
@@ -14506,7 +14634,7 @@
       "setor": "ATDG — Assessoria Técnica da Direção Geral",
       "setor_codigo": "S02.03-CTR",
       "sigla": "CTR",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -14699,10 +14827,9 @@
           "canal": "e-Protocolo"
         }
       ],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Definição do ciclo periódico de gestão de riscos institucionais pela…\"))\n    e11(((\"Matriz de riscos institucionais atualizada\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Definir o escopo e os setores/processos a serem avaliados no ciclo de…\"]\n    e4[\"Classificar cada risco quanto à probabilidade de ocorrência\"]\n    e5[\"Classificar cada risco quanto ao impacto institucional\"]\n    e6[\"Calcular a criticidade e priorizar os riscos institucionais\"]\n    e7[\"Submeter a matriz de riscos priorizada à Direção Geral do Campus\"]\n    e8[\"Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos…\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e3[\"Levantar os riscos institucionais junto aos setores demandantes\"]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e10[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Definição do ciclo periódico de gestão de riscos institucionais pela…\"))\n    e2[\"Definir o escopo e os setores/processos a serem avaliados no ciclo de…\"]\n    e4[\"Classificar cada risco quanto à probabilidade de ocorrência\"]\n    e5[\"Classificar cada risco quanto ao impacto institucional\"]\n    e6[\"Calcular a criticidade e priorizar os riscos institucionais\"]\n    e7[\"Submeter a matriz de riscos priorizada à Direção Geral do Campus\"]\n    e8[\"Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos…\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11(((\"Matriz de riscos institucionais atualizada\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e3[\"Levantar os riscos institucionais junto aos setores demandantes\"]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e10[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
       "bpmn_spec": {
         "raias": [
-          "ATDG — Assessoria Técnica da Direção Geral",
           "Assessoria Técnica da Direção Geral (ATDG)",
           "Setor demandante",
           "Direção Geral do Campus"
@@ -14712,7 +14839,7 @@
             "id": "e1",
             "tipo": "inicio",
             "label": "Definição do ciclo periódico de gestão de riscos institucionais pela Direção Geral/ATDG",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           },
           {
             "id": "e2",
@@ -14772,7 +14899,7 @@
             "id": "e11",
             "tipo": "fim",
             "label": "Matriz de riscos institucionais atualizada",
-            "raia": "ATDG — Assessoria Técnica da Direção Geral"
+            "raia": "Assessoria Técnica da Direção Geral (ATDG)"
           }
         ],
         "conexoes": [
@@ -14817,7 +14944,7 @@
             "para": "e11"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -14861,6 +14988,17 @@
           ],
           "fontes": [],
           "motivo": "Elaboração do playbook de Gestão de Riscos (mapeamento, probabilidade, impacto) a partir do escopo do manual institucional da ATDG."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Fluxograma regenerado a partir dos passos"
+          ],
+          "fontes": [],
+          "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
         }
       ],
       "validacao": {
@@ -14887,10 +15025,10 @@
       "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
       "fontes_entradas": [],
       "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agente": "",
-      "versao_diretrizes": "1.8",
+      "agente": "pop-ctr-05",
+      "versao_diretrizes": "1.12",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T02:01:05Z"
+      "atualizado_em": "2026-09-03T02:08:02Z"
     },
     {
       "id": "pop-dae-00",
@@ -23399,7 +23537,7 @@
         "1780963200029"
       ],
       "hash_fontes": "b9b63cf1a01f0f71abea90f7cb3ce8724699237a011a0230346bb0b05e2f7ed1",
-      "agente": "",
+      "agente": "pop-dg-00",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T02:01:04Z"
@@ -23834,7 +23972,7 @@
         "1780963200029"
       ],
       "hash_fontes": "b9b63cf1a01f0f71abea90f7cb3ce8724699237a011a0230346bb0b05e2f7ed1",
-      "agente": "",
+      "agente": "pop-dg-01",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T02:01:04Z"
@@ -33907,7 +34045,7 @@
         "1780963200035"
       ],
       "hash_fontes": "6c982fb325ddd4b7b97aceb1dbec7478108f12d6f92890ed31787a8febc505a2",
-      "agente": "",
+      "agente": "pop-map-00",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T02:01:04Z"
@@ -34308,7 +34446,7 @@
         "1780963200035"
       ],
       "hash_fontes": "df49c749512aea2a91ac79fe0f27f94aaa59b1fc030c1c211e8c6f749041d0da",
-      "agente": "",
+      "agente": "pop-map-01",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T02:01:04Z"
@@ -34710,7 +34848,7 @@
         "1780963200017"
       ],
       "hash_fontes": "179d880b819f09eac2e4be4579535552b3ee3d92894246fe3b6193313e0efc0c",
-      "agente": "",
+      "agente": "pop-map-02",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T02:01:04Z"
@@ -35115,7 +35253,7 @@
         "1780963200031"
       ],
       "hash_fontes": "822ba66b85225a8edce9d6bade1bc185bbbe40a8498b9023d8739aad7c4275d0",
-      "agente": "",
+      "agente": "pop-map-03",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T02:01:04Z"
@@ -35525,7 +35663,7 @@
         "1780963200031"
       ],
       "hash_fontes": "68eec753957733b9efcb025747bae33a271b03bed7780485788b0b7a074296da",
-      "agente": "",
+      "agente": "pop-map-04",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T02:01:05Z"
@@ -36293,6 +36431,1092 @@
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
+    },
+    {
+      "id": "pop-coleg-01",
+      "codigo": "COLEG-01",
+      "titulo": "Rotinas do Agente Universitário do Colegiado",
+      "setor": "Colegiado de Curso",
+      "setor_codigo": "S12-COLEG",
+      "sigla": "COLEG",
+      "versao": "0.1.0",
+      "status": "rascunho",
+      "ddd": {
+        "divisao": "Colegiado de Curso (transversal)",
+        "departamento": "Colegiado de Curso (transversal)",
+        "descricao": "Comunicação e atendimento a discentes, docentes e concedentes, gestão de documentos e protocolo (e-Protocolo) e apoio acadêmico às coordenações de curso, estágio e TCC, exercidos pelo Agente Universitário do Colegiado.",
+        "dominio": "Colegiados e Cursos",
+        "subdominio": "Rotinas do Agente Universitário do Colegiado",
+        "tipo_subdominio": "suporte",
+        "contexto": "S12-COLEG",
+        "glossario": []
+      },
+      "identificacao": {
+        "responsavel": "A definir",
+        "periodicidade": "A definir",
+        "normativa": [],
+        "subordinacao": "Direção Geral de Campus",
+        "produto_atdg": "POP",
+        "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+      },
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S12_COLEG[\"S12-COLEG<br/>Colegiado de Curso (transversal)\"]\n  S01_DG --> S12_COLEG\n  P[\"COLEG-01<br/>Rotinas do Agente Universitário do Colegiado\"]\n  S12_COLEG --> P\n  V1[\"Discentes e docentes\"]\n  P -. interface .-> V1\n  V2[\"Concedentes de estágio\"]\n  P -. interface .-> V2\n  V3[\"Coordenações de curso, estágio e TCC\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S12_COLEG setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+      "playbook": {
+        "gatilho": {
+          "evento": "Solicitação de discente, docente, concedente ou coordenação que demande atendimento, protocolo ou apoio acadêmico",
+          "origem": ""
+        },
+        "entrada": [],
+        "passos": [],
+        "saida": [
+          "Atendimento realizado, documento protocolado e apoio acadêmico prestado às coordenações"
+        ]
+      },
+      "artefatos": [
+        {
+          "nome": "Protocolo/registro de atendimento",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        }
+      ],
+      "decisoes": [],
+      "pontos_atencao": [],
+      "contingencia": [],
+      "checklist": [],
+      "kpis": [],
+      "mapa_contexto": [
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "Discentes e docentes",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        },
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "Concedentes de estágio",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        },
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "Coordenações de curso, estágio e TCC",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Solicitação de discente, docente, concedente ou coordenação que deman…\"))\n    e5(((\"Atendimento realizado, documento protocolado e apoio acadêmico presta…\")))\n  end\n  subgraph R2[\"Discentes e docentes\"]\n    direction LR\n    e2[[\"✉ Informar Discentes e docentes\"]]\n  end\n  subgraph R3[\"Concedentes de estágio\"]\n    direction LR\n    e3[[\"✉ Informar Concedentes de estágio\"]]\n  end\n  subgraph R4[\"Coordenações de curso, estágio e TCC\"]\n    direction LR\n    e4[[\"✉ Informar Coordenações de curso, estágio e TCC\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 captura\n  class e5 fim",
+      "bpmn_spec": {
+        "raias": [
+          "Colegiado de Curso",
+          "Discentes e docentes",
+          "Concedentes de estágio",
+          "Coordenações de curso, estágio e TCC"
+        ],
+        "elementos": [
+          {
+            "id": "e1",
+            "tipo": "inicio",
+            "label": "Solicitação de discente, docente, concedente ou coordenação que demande atendimento, protocolo ou apoio acadêmico",
+            "raia": "Colegiado de Curso"
+          },
+          {
+            "id": "e2",
+            "tipo": "captura",
+            "label": "Informar Discentes e docentes",
+            "raia": "Discentes e docentes"
+          },
+          {
+            "id": "e3",
+            "tipo": "captura",
+            "label": "Informar Concedentes de estágio",
+            "raia": "Concedentes de estágio"
+          },
+          {
+            "id": "e4",
+            "tipo": "captura",
+            "label": "Informar Coordenações de curso, estágio e TCC",
+            "raia": "Coordenações de curso, estágio e TCC"
+          },
+          {
+            "id": "e5",
+            "tipo": "fim",
+            "label": "Atendimento realizado, documento protocolado e apoio acadêmico prestado às coordenações",
+            "raia": "Colegiado de Curso"
+          }
+        ],
+        "conexoes": [
+          {
+            "de": "e1",
+            "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          },
+          {
+            "de": "e3",
+            "para": "e4"
+          },
+          {
+            "de": "e4",
+            "para": "e5"
+          }
+        ],
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      },
+      "changelog": [
+        {
+          "versao": "0.1.0",
+          "data": "2026-09-03",
+          "autor": "scripts/scaffold_pops.py",
+          "tipo": "patch",
+          "mudancas": [
+            "Esqueleto gerado a partir do diagnóstico diag-coleg-20260903 (recomendação: coletar_mais)"
+          ],
+          "fontes": [
+            "1780963200002",
+            "1780963200003",
+            "1780963200018"
+          ],
+          "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+        }
+      ],
+      "validacao": {
+        "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+        "revisao": "A definir (responsável do setor)",
+        "aprovacao": "Direção Geral do Campus",
+        "data_aprovacao": ""
+      },
+      "licoes_aplicadas": [
+        "L-001",
+        "L-004",
+        "L-006",
+        "L-007"
+      ],
+      "lacunas": [
+        "passos",
+        "responsavel",
+        "entrada",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo",
+        "normativa",
+        "sistema"
+      ],
+      "observacoes": "Esqueleto herdado do diagnóstico diag-coleg-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+      "fontes_entradas": [
+        "1780963200002",
+        "1780963200003",
+        "1780963200018"
+      ],
+      "hash_fontes": "8392441b96f92f76da38e34ceeee3fa536fe78a9c89b114d16a0b8465f7c4b9c",
+      "agente": "pop-coleg-01",
+      "versao_diretrizes": "1.12",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "pop-coleg-02",
+      "codigo": "COLEG-02",
+      "titulo": "Gestão acadêmica da coordenação de curso",
+      "setor": "Colegiado de Curso",
+      "setor_codigo": "S12-COLEG",
+      "sigla": "COLEG",
+      "versao": "0.1.0",
+      "status": "rascunho",
+      "ddd": {
+        "divisao": "Colegiado de Curso (transversal)",
+        "departamento": "Colegiado de Curso (transversal)",
+        "descricao": "Gestão acadêmica no Academus (planos de ensino, matrícula, notas, horários e distribuição de disciplinas), condução do Colegiado e do NDE e deliberações via e-Protocolo (transferências, segunda chamada, dispensa, exercício domiciliar), conforme o art. 41 do Estatuto e o Regimento de Cursos.",
+        "dominio": "Colegiados e Cursos",
+        "subdominio": "Gestão acadêmica da coordenação de curso",
+        "tipo_subdominio": "core",
+        "contexto": "S12-COLEG",
+        "glossario": []
+      },
+      "identificacao": {
+        "responsavel": "A definir",
+        "periodicidade": "A definir",
+        "normativa": [],
+        "subordinacao": "Direção Geral de Campus",
+        "produto_atdg": "POP",
+        "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+      },
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S12_COLEG[\"S12-COLEG<br/>Colegiado de Curso (transversal)\"]\n  S01_DG --> S12_COLEG\n  P[\"COLEG-02<br/>Gestão acadêmica da coordenação de curso\"]\n  S12_COLEG --> P\n  V1[\"PROGRAD\"]\n  P -. interface .-> V1\n  V2[\"Direção de Centro\"]\n  P -. interface .-> V2\n  V3[\"Docentes\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S12_COLEG setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+      "playbook": {
+        "gatilho": {
+          "evento": "Pauta de reunião do Colegiado/NDE, marco do calendário acadêmico ou solicitação de deliberação",
+          "origem": ""
+        },
+        "entrada": [],
+        "passos": [],
+        "saida": [
+          "Gestão acadêmica do período concluída no Academus e deliberações do Colegiado/NDE registradas em ata"
+        ]
+      },
+      "artefatos": [
+        {
+          "nome": "Pauta e ata do Colegiado/NDE",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Plano de ensino",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Ata de deliberação",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        }
+      ],
+      "decisoes": [],
+      "pontos_atencao": [],
+      "contingencia": [],
+      "checklist": [],
+      "kpis": [],
+      "mapa_contexto": [
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "PROGRAD",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        },
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "Direção de Centro",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        },
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "Docentes",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Pauta de reunião do Colegiado/NDE, marco do calendário acadêmico ou s…\"))\n    e5(((\"Gestão acadêmica do período concluída no Academus e deliberações do C…\")))\n  end\n  subgraph R2[\"PROGRAD\"]\n    direction LR\n    e2[[\"✉ Informar PROGRAD\"]]\n  end\n  subgraph R3[\"Direção de Centro\"]\n    direction LR\n    e3[[\"✉ Informar Direção de Centro\"]]\n  end\n  subgraph R4[\"Docentes\"]\n    direction LR\n    e4[[\"✉ Informar Docentes\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 captura\n  class e5 fim",
+      "bpmn_spec": {
+        "raias": [
+          "Colegiado de Curso",
+          "PROGRAD",
+          "Direção de Centro",
+          "Docentes"
+        ],
+        "elementos": [
+          {
+            "id": "e1",
+            "tipo": "inicio",
+            "label": "Pauta de reunião do Colegiado/NDE, marco do calendário acadêmico ou solicitação de deliberação",
+            "raia": "Colegiado de Curso"
+          },
+          {
+            "id": "e2",
+            "tipo": "captura",
+            "label": "Informar PROGRAD",
+            "raia": "PROGRAD"
+          },
+          {
+            "id": "e3",
+            "tipo": "captura",
+            "label": "Informar Direção de Centro",
+            "raia": "Direção de Centro"
+          },
+          {
+            "id": "e4",
+            "tipo": "captura",
+            "label": "Informar Docentes",
+            "raia": "Docentes"
+          },
+          {
+            "id": "e5",
+            "tipo": "fim",
+            "label": "Gestão acadêmica do período concluída no Academus e deliberações do Colegiado/NDE registradas em ata",
+            "raia": "Colegiado de Curso"
+          }
+        ],
+        "conexoes": [
+          {
+            "de": "e1",
+            "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          },
+          {
+            "de": "e3",
+            "para": "e4"
+          },
+          {
+            "de": "e4",
+            "para": "e5"
+          }
+        ],
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      },
+      "changelog": [
+        {
+          "versao": "0.1.0",
+          "data": "2026-09-03",
+          "autor": "scripts/scaffold_pops.py",
+          "tipo": "patch",
+          "mudancas": [
+            "Esqueleto gerado a partir do diagnóstico diag-coleg-20260903 (recomendação: gerar_pop)"
+          ],
+          "fontes": [
+            "1780963200004",
+            "1780963200005",
+            "1780963200006",
+            "1780963200019",
+            "1780963200032"
+          ],
+          "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+        }
+      ],
+      "validacao": {
+        "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+        "revisao": "A definir (responsável do setor)",
+        "aprovacao": "Direção Geral do Campus",
+        "data_aprovacao": ""
+      },
+      "licoes_aplicadas": [
+        "L-001",
+        "L-004",
+        "L-006",
+        "L-007"
+      ],
+      "lacunas": [
+        "passos",
+        "responsavel",
+        "entrada",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo",
+        "normativa",
+        "sistema",
+        "interface_setorial"
+      ],
+      "observacoes": "Esqueleto herdado do diagnóstico diag-coleg-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+      "fontes_entradas": [
+        "1780963200004",
+        "1780963200005",
+        "1780963200006",
+        "1780963200019",
+        "1780963200032"
+      ],
+      "hash_fontes": "b62aee2afad3d238cc3efe55072dcba793bedde004ccafcc31f7ee57dabafd0e",
+      "agente": "pop-coleg-02",
+      "versao_diretrizes": "1.12",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "pop-coleg-03",
+      "codigo": "COLEG-03",
+      "titulo": "Coordenação de estágio",
+      "setor": "Colegiado de Curso",
+      "setor_codigo": "S12-COLEG",
+      "sigla": "COLEG",
+      "versao": "0.1.0",
+      "status": "rascunho",
+      "ddd": {
+        "divisao": "Colegiado de Curso (transversal)",
+        "departamento": "Colegiado de Curso (transversal)",
+        "descricao": "Articulação com instituições concedentes, formalização de termos de compromisso e aditivos, organização de bancas de estágio supervisionado e observância do calendário e da legislação de estágio.",
+        "dominio": "Colegiados e Cursos",
+        "subdominio": "Coordenação de estágio",
+        "tipo_subdominio": "core",
+        "contexto": "S12-COLEG",
+        "glossario": []
+      },
+      "identificacao": {
+        "responsavel": "A definir",
+        "periodicidade": "A definir",
+        "normativa": [],
+        "subordinacao": "Direção Geral de Campus",
+        "produto_atdg": "POP",
+        "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+      },
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S12_COLEG[\"S12-COLEG<br/>Colegiado de Curso (transversal)\"]\n  S01_DG --> S12_COLEG\n  P[\"COLEG-03<br/>Coordenação de estágio\"]\n  S12_COLEG --> P\n  V1[\"Concedentes de estágio (hotéis, escolas, NRE, SEE…\"]\n  P -. interface .-> V1\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S12_COLEG setor\n  class P destaque\n  class V1 vizinho",
+      "playbook": {
+        "gatilho": {
+          "evento": "Solicitação de estágio de discente ou concedente, ou vencimento/alteração de termo de compromisso vigente",
+          "origem": ""
+        },
+        "entrada": [],
+        "passos": [],
+        "saida": [
+          "Termo de compromisso ou aditivo formalizado e banca de estágio supervisionado realizada"
+        ]
+      },
+      "artefatos": [
+        {
+          "nome": "Termo de compromisso de estágio",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Aditivo de termo de compromisso",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Ata de banca de estágio",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        }
+      ],
+      "decisoes": [],
+      "pontos_atencao": [],
+      "contingencia": [],
+      "checklist": [],
+      "kpis": [],
+      "mapa_contexto": [
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Solicitação de estágio de discente ou concedente, ou vencimento/alter…\"))\n    e3(((\"Termo de compromisso ou aditivo formalizado e banca de estágio superv…\")))\n  end\n  subgraph R2[\"Concedentes de estágio (hotéis, escolas, NRE, SEE…\"]\n    direction LR\n    e2[[\"✉ Informar Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 captura\n  class e3 fim",
+      "bpmn_spec": {
+        "raias": [
+          "Colegiado de Curso",
+          "Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)"
+        ],
+        "elementos": [
+          {
+            "id": "e1",
+            "tipo": "inicio",
+            "label": "Solicitação de estágio de discente ou concedente, ou vencimento/alteração de termo de compromisso vigente",
+            "raia": "Colegiado de Curso"
+          },
+          {
+            "id": "e2",
+            "tipo": "captura",
+            "label": "Informar Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)",
+            "raia": "Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)"
+          },
+          {
+            "id": "e3",
+            "tipo": "fim",
+            "label": "Termo de compromisso ou aditivo formalizado e banca de estágio supervisionado realizada",
+            "raia": "Colegiado de Curso"
+          }
+        ],
+        "conexoes": [
+          {
+            "de": "e1",
+            "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          }
+        ],
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      },
+      "changelog": [
+        {
+          "versao": "0.1.0",
+          "data": "2026-09-03",
+          "autor": "scripts/scaffold_pops.py",
+          "tipo": "patch",
+          "mudancas": [
+            "Esqueleto gerado a partir do diagnóstico diag-coleg-20260903 (recomendação: gerar_pop)"
+          ],
+          "fontes": [
+            "1780963200007",
+            "1780963200008",
+            "1780963200020"
+          ],
+          "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+        }
+      ],
+      "validacao": {
+        "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+        "revisao": "A definir (responsável do setor)",
+        "aprovacao": "Direção Geral do Campus",
+        "data_aprovacao": ""
+      },
+      "licoes_aplicadas": [
+        "L-001",
+        "L-004",
+        "L-006",
+        "L-007"
+      ],
+      "lacunas": [
+        "passos",
+        "responsavel",
+        "entrada",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo",
+        "normativa",
+        "sistema",
+        "interface_setorial"
+      ],
+      "observacoes": "Esqueleto herdado do diagnóstico diag-coleg-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+      "fontes_entradas": [
+        "1780963200007",
+        "1780963200008",
+        "1780963200020"
+      ],
+      "hash_fontes": "208be4359d61b1f8eb21103127208cc9b39cfffb83d2a3a44a95c093f3249245",
+      "agente": "pop-coleg-03",
+      "versao_diretrizes": "1.12",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "pop-coleg-04",
+      "codigo": "COLEG-04",
+      "titulo": "Coordenação de TCC",
+      "setor": "Colegiado de Curso",
+      "setor_codigo": "S12-COLEG",
+      "sigla": "COLEG",
+      "versao": "0.1.0",
+      "status": "rascunho",
+      "ddd": {
+        "divisao": "Colegiado de Curso (transversal)",
+        "departamento": "Colegiado de Curso (transversal)",
+        "descricao": "Indicação de orientadores, organização de bancas e defesas, editais, atas e declarações, lançamento de notas e frequências no Academus, envio da versão final à Biblioteca e cronograma anual de TCC.",
+        "dominio": "Colegiados e Cursos",
+        "subdominio": "Coordenação de TCC",
+        "tipo_subdominio": "core",
+        "contexto": "S12-COLEG",
+        "glossario": []
+      },
+      "identificacao": {
+        "responsavel": "A definir",
+        "periodicidade": "A definir",
+        "normativa": [],
+        "subordinacao": "Direção Geral de Campus",
+        "produto_atdg": "POP",
+        "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+      },
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S12_COLEG[\"S12-COLEG<br/>Colegiado de Curso (transversal)\"]\n  S01_DG --> S12_COLEG\n  P[\"COLEG-04<br/>Coordenação de TCC\"]\n  S12_COLEG --> P\n  V1[\"Biblioteca\"]\n  P -. interface .-> V1\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S12_COLEG setor\n  class P destaque\n  class V1 vizinho",
+      "playbook": {
+        "gatilho": {
+          "evento": "Abertura do cronograma anual de TCC ou solicitação de orientação/defesa de discente",
+          "origem": ""
+        },
+        "entrada": [],
+        "passos": [],
+        "saida": [
+          "TCC defendido, notas lançadas no Academus e versão final enviada à Biblioteca"
+        ]
+      },
+      "artefatos": [
+        {
+          "nome": "Edital de TCC",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Ata de banca de defesa",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Declaração de entrega à Biblioteca",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        }
+      ],
+      "decisoes": [],
+      "pontos_atencao": [],
+      "contingencia": [],
+      "checklist": [],
+      "kpis": [],
+      "mapa_contexto": [
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "Biblioteca",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Abertura do cronograma anual de TCC ou solicitação de orientação/defe…\"))\n    e3(((\"TCC defendido, notas lançadas no Academus e versão final enviada à Bi…\")))\n  end\n  subgraph R2[\"Biblioteca\"]\n    direction LR\n    e2[[\"✉ Informar Biblioteca\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 captura\n  class e3 fim",
+      "bpmn_spec": {
+        "raias": [
+          "Colegiado de Curso",
+          "Biblioteca"
+        ],
+        "elementos": [
+          {
+            "id": "e1",
+            "tipo": "inicio",
+            "label": "Abertura do cronograma anual de TCC ou solicitação de orientação/defesa de discente",
+            "raia": "Colegiado de Curso"
+          },
+          {
+            "id": "e2",
+            "tipo": "captura",
+            "label": "Informar Biblioteca",
+            "raia": "Biblioteca"
+          },
+          {
+            "id": "e3",
+            "tipo": "fim",
+            "label": "TCC defendido, notas lançadas no Academus e versão final enviada à Biblioteca",
+            "raia": "Colegiado de Curso"
+          }
+        ],
+        "conexoes": [
+          {
+            "de": "e1",
+            "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          }
+        ],
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      },
+      "changelog": [
+        {
+          "versao": "0.1.0",
+          "data": "2026-09-03",
+          "autor": "scripts/scaffold_pops.py",
+          "tipo": "patch",
+          "mudancas": [
+            "Esqueleto gerado a partir do diagnóstico diag-coleg-20260903 (recomendação: coletar_mais)"
+          ],
+          "fontes": [
+            "1780963200009",
+            "1780963200010",
+            "1780963200021"
+          ],
+          "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+        }
+      ],
+      "validacao": {
+        "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+        "revisao": "A definir (responsável do setor)",
+        "aprovacao": "Direção Geral do Campus",
+        "data_aprovacao": ""
+      },
+      "licoes_aplicadas": [
+        "L-001",
+        "L-004",
+        "L-006",
+        "L-007"
+      ],
+      "lacunas": [
+        "passos",
+        "responsavel",
+        "entrada",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo",
+        "normativa",
+        "sistema",
+        "interface_setorial"
+      ],
+      "observacoes": "Esqueleto herdado do diagnóstico diag-coleg-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+      "fontes_entradas": [
+        "1780963200009",
+        "1780963200010",
+        "1780963200021"
+      ],
+      "hash_fontes": "50c44e0ab2cda78f002a411d91ccf00a25c19e0c5052fef3662becaf66d09493",
+      "agente": "pop-coleg-04",
+      "versao_diretrizes": "1.12",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "pop-drh-02",
+      "codigo": "DRH-02",
+      "titulo": "Registro e apuração de frequência (ponto eletrônico)",
+      "setor": "Div. de Recursos Humanos",
+      "setor_codigo": "S03.07-DRH",
+      "sigla": "DRH",
+      "versao": "0.1.0",
+      "status": "rascunho",
+      "ddd": {
+        "divisao": "Secretaria Administrativa",
+        "departamento": "Div. de Recursos Humanos",
+        "descricao": "Registro diário do ponto eletrônico, apuração semanal pela chefia imediata e comunicação de falhas/justificativas em até 48h via e-Protocolo, conforme IS 001/2024-DRH/Foz e Instrução 002/2019.",
+        "dominio": "Gestão de Pessoas",
+        "subdominio": "Registro e apuração de frequência (ponto eletrônico)",
+        "tipo_subdominio": "core",
+        "contexto": "S03.07-DRH",
+        "glossario": []
+      },
+      "identificacao": {
+        "responsavel": "A definir",
+        "periodicidade": "A definir",
+        "normativa": [],
+        "subordinacao": "Secretaria Administrativa",
+        "produto_atdg": "POP",
+        "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+      },
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_07_DRH[\"S03.07-DRH<br/>Div. de Recursos Humanos\"]\n  S03_SADM --> S03_07_DRH\n  P[\"DRH-02<br/>Registro e apuração de frequência (ponto eletrônico)\"]\n  S03_07_DRH --> P\n  V1[\"Div. de Recursos Humanos ↔ Chefia imediata\"]\n  P -. interface .-> V1\n  V2[\"Div. de Recursos Humanos ↔ Servidor\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_07_DRH setor\n  class P destaque\n  class V1,V2 vizinho",
+      "playbook": {
+        "gatilho": {
+          "evento": "Início da jornada de trabalho do servidor",
+          "origem": ""
+        },
+        "entrada": [],
+        "passos": [],
+        "saida": [
+          "Frequência apurada e eventuais falhas justificadas e registradas dentro do prazo"
+        ]
+      },
+      "artefatos": [
+        {
+          "nome": "Registro de ponto",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Apuração semanal de frequência",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Justificativa de frequência",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        }
+      ],
+      "decisoes": [],
+      "pontos_atencao": [],
+      "contingencia": [],
+      "checklist": [],
+      "kpis": [],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Recursos Humanos",
+          "destino": "Div. de Recursos Humanos ↔ Chefia imediata",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        },
+        {
+          "origem": "Div. de Recursos Humanos",
+          "destino": "Div. de Recursos Humanos ↔ Servidor",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Recursos Humanos\"]\n    direction LR\n    e1((\"Início da jornada de trabalho do servidor\"))\n    e4(((\"Frequência apurada e eventuais falhas justificadas e registradas dent…\")))\n  end\n  subgraph R2[\"Div. de Recursos Humanos ↔ Chefia imediata\"]\n    direction LR\n    e2[[\"✉ Informar Div. de Recursos Humanos ↔ Chefia imediata\"]]\n  end\n  subgraph R3[\"Div. de Recursos Humanos ↔ Servidor\"]\n    direction LR\n    e3[[\"✉ Informar Div. de Recursos Humanos ↔ Servidor\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3 captura\n  class e4 fim",
+      "bpmn_spec": {
+        "raias": [
+          "Div. de Recursos Humanos",
+          "Div. de Recursos Humanos ↔ Chefia imediata",
+          "Div. de Recursos Humanos ↔ Servidor"
+        ],
+        "elementos": [
+          {
+            "id": "e1",
+            "tipo": "inicio",
+            "label": "Início da jornada de trabalho do servidor",
+            "raia": "Div. de Recursos Humanos"
+          },
+          {
+            "id": "e2",
+            "tipo": "captura",
+            "label": "Informar Div. de Recursos Humanos ↔ Chefia imediata",
+            "raia": "Div. de Recursos Humanos ↔ Chefia imediata"
+          },
+          {
+            "id": "e3",
+            "tipo": "captura",
+            "label": "Informar Div. de Recursos Humanos ↔ Servidor",
+            "raia": "Div. de Recursos Humanos ↔ Servidor"
+          },
+          {
+            "id": "e4",
+            "tipo": "fim",
+            "label": "Frequência apurada e eventuais falhas justificadas e registradas dentro do prazo",
+            "raia": "Div. de Recursos Humanos"
+          }
+        ],
+        "conexoes": [
+          {
+            "de": "e1",
+            "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          },
+          {
+            "de": "e3",
+            "para": "e4"
+          }
+        ],
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      },
+      "changelog": [
+        {
+          "versao": "0.1.0",
+          "data": "2026-09-03",
+          "autor": "scripts/scaffold_pops.py",
+          "tipo": "patch",
+          "mudancas": [
+            "Esqueleto gerado a partir do diagnóstico diag-drh-20260903 (recomendação: gerar_pop)"
+          ],
+          "fontes": [
+            "pb-rh",
+            "1780963200022",
+            "1780963200025",
+            "1780963200026"
+          ],
+          "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+        }
+      ],
+      "validacao": {
+        "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+        "revisao": "A definir (responsável do setor)",
+        "aprovacao": "Direção Geral do Campus",
+        "data_aprovacao": ""
+      },
+      "licoes_aplicadas": [
+        "L-001",
+        "L-004",
+        "L-006",
+        "L-007"
+      ],
+      "lacunas": [
+        "passos",
+        "responsavel",
+        "entrada",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo",
+        "normativa",
+        "sistema",
+        "interface_setorial"
+      ],
+      "observacoes": "Esqueleto herdado do diagnóstico diag-drh-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+      "fontes_entradas": [
+        "pb-rh",
+        "1780963200022",
+        "1780963200025",
+        "1780963200026"
+      ],
+      "hash_fontes": "8935ff37e223e683476a7665380a2f2de0d9bfee011f5522ecdb2cb188473850",
+      "agente": "pop-drh-02",
+      "versao_diretrizes": "1.12",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "pop-drh-03",
+      "codigo": "DRH-03",
+      "titulo": "Instrução de processos de RH no e-Protocolo (licenças, afastamentos, progressões)",
+      "setor": "Div. de Recursos Humanos",
+      "setor_codigo": "S03.07-DRH",
+      "sigla": "DRH",
+      "versao": "0.1.0",
+      "status": "rascunho",
+      "ddd": {
+        "divisao": "Secretaria Administrativa",
+        "departamento": "Div. de Recursos Humanos",
+        "descricao": "Tramitação, por tipo de demanda funcional (licença, afastamento, progressão e demais), dos processos de RH no e-Protocolo, com apoio do perfil profissiográfico das funções (Edital 096/2023-GRE).",
+        "dominio": "Gestão de Pessoas",
+        "subdominio": "Instrução de processos de RH no e-Protocolo (licenças, afastamentos, progressões)",
+        "tipo_subdominio": "core",
+        "contexto": "S03.07-DRH",
+        "glossario": []
+      },
+      "identificacao": {
+        "responsavel": "A definir",
+        "periodicidade": "A definir",
+        "normativa": [],
+        "subordinacao": "Secretaria Administrativa",
+        "produto_atdg": "POP",
+        "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+      },
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_07_DRH[\"S03.07-DRH<br/>Div. de Recursos Humanos\"]\n  S03_SADM --> S03_07_DRH\n  P[\"DRH-03<br/>Instrução de processos de RH no e-Protocolo (licenças, afas…\"]\n  S03_07_DRH --> P\n  V1[\"Div. de Recursos Humanos ↔ PRORH\"]\n  P -. interface .-> V1\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_07_DRH setor\n  class P destaque\n  class V1 vizinho",
+      "playbook": {
+        "gatilho": {
+          "evento": "Servidor ou chefia solicita processo funcional de RH por tipo específico de demanda",
+          "origem": ""
+        },
+        "entrada": [],
+        "passos": [],
+        "saida": [
+          "Processo de RH instruído e encaminhado às instâncias competentes conforme o tipo de demanda"
+        ]
+      },
+      "artefatos": [
+        {
+          "nome": "Processo e-Protocolo",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Perfil profissiográfico da função",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        },
+        {
+          "nome": "Documentação funcional",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [],
+          "responsavel_preenchimento": ""
+        }
+      ],
+      "decisoes": [],
+      "pontos_atencao": [],
+      "contingencia": [],
+      "checklist": [],
+      "kpis": [],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Recursos Humanos",
+          "destino": "Div. de Recursos Humanos ↔ PRORH",
+          "relacao": "informa",
+          "artefato": "",
+          "canal": "A definir"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Recursos Humanos\"]\n    direction LR\n    e1((\"Servidor ou chefia solicita processo funcional de RH por tipo específ…\"))\n    e3(((\"Processo de RH instruído e encaminhado às instâncias competentes conf…\")))\n  end\n  subgraph R2[\"Div. de Recursos Humanos ↔ PRORH\"]\n    direction LR\n    e2[[\"✉ Informar Div. de Recursos Humanos ↔ PRORH\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 captura\n  class e3 fim",
+      "bpmn_spec": {
+        "raias": [
+          "Div. de Recursos Humanos",
+          "Div. de Recursos Humanos ↔ PRORH"
+        ],
+        "elementos": [
+          {
+            "id": "e1",
+            "tipo": "inicio",
+            "label": "Servidor ou chefia solicita processo funcional de RH por tipo específico de demanda",
+            "raia": "Div. de Recursos Humanos"
+          },
+          {
+            "id": "e2",
+            "tipo": "captura",
+            "label": "Informar Div. de Recursos Humanos ↔ PRORH",
+            "raia": "Div. de Recursos Humanos ↔ PRORH"
+          },
+          {
+            "id": "e3",
+            "tipo": "fim",
+            "label": "Processo de RH instruído e encaminhado às instâncias competentes conforme o tipo de demanda",
+            "raia": "Div. de Recursos Humanos"
+          }
+        ],
+        "conexoes": [
+          {
+            "de": "e1",
+            "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          }
+        ],
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      },
+      "changelog": [
+        {
+          "versao": "0.1.0",
+          "data": "2026-09-03",
+          "autor": "scripts/scaffold_pops.py",
+          "tipo": "patch",
+          "mudancas": [
+            "Esqueleto gerado a partir do diagnóstico diag-drh-20260903 (recomendação: coletar_mais)"
+          ],
+          "fontes": [
+            "pb-rh",
+            "1780963200027",
+            "1780963200048",
+            "1780963200065",
+            "1780963200066"
+          ],
+          "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+        }
+      ],
+      "validacao": {
+        "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+        "revisao": "A definir (responsável do setor)",
+        "aprovacao": "Direção Geral do Campus",
+        "data_aprovacao": ""
+      },
+      "licoes_aplicadas": [
+        "L-001",
+        "L-004",
+        "L-006",
+        "L-007"
+      ],
+      "lacunas": [
+        "passos",
+        "responsavel",
+        "entrada",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo",
+        "normativa",
+        "interface_setorial"
+      ],
+      "observacoes": "Esqueleto herdado do diagnóstico diag-drh-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+      "fontes_entradas": [
+        "pb-rh",
+        "1780963200027",
+        "1780963200048",
+        "1780963200065",
+        "1780963200066"
+      ],
+      "hash_fontes": "e2d5f6b36f0e9ddda2262374475a485aa5d2b36f3c43250dc37785754cb40e43",
+      "agente": "pop-drh-03",
+      "versao_diretrizes": "1.12",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
     }
   ],
   "diagnosticos": [
@@ -42010,6 +43234,356 @@
       "origem": "script",
       "criado_em": "2026-09-03T02:05:27Z",
       "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dg-00",
+      "codigo": "DG-00",
+      "pop_id": "pop-dg-00",
+      "nome": "Agente do processo DG-00 — Visão geral — Direção Geral de Campus",
+      "setor_codigo": "S01-DG",
+      "arquivo": ".claude/agents/pop-dg-00.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-dg-01",
+      "codigo": "DG-01",
+      "pop_id": "pop-dg-01",
+      "nome": "Agente do processo DG-01 — Aplicação do Estatuto e das Instruções de Serviço do GRE",
+      "setor_codigo": "S01-DG",
+      "arquivo": ".claude/agents/pop-dg-01.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-map-00",
+      "codigo": "MAP-00",
+      "pop_id": "pop-map-00",
+      "nome": "Agente do processo MAP-00 — Visão geral — ATDG — Mapeamento de Processos",
+      "setor_codigo": "S02.06-MAP",
+      "arquivo": ".claude/agents/pop-map-00.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-map-01",
+      "codigo": "MAP-01",
+      "pop_id": "pop-map-01",
+      "nome": "Agente do processo MAP-01 — Levantamento de setores, cargos, funções e servidores",
+      "setor_codigo": "S02.06-MAP",
+      "arquivo": ".claude/agents/pop-map-01.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-map-02",
+      "codigo": "MAP-02",
+      "pop_id": "pop-map-02",
+      "nome": "Agente do processo MAP-02 — Aplicação de checklist/questionário por função (Microsoft Forms)",
+      "setor_codigo": "S02.06-MAP",
+      "arquivo": ".claude/agents/pop-map-02.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-map-03",
+      "codigo": "MAP-03",
+      "pop_id": "pop-map-03",
+      "nome": "Agente do processo MAP-03 — Consolidação e padronização das respostas do mapeamento",
+      "setor_codigo": "S02.06-MAP",
+      "arquivo": ".claude/agents/pop-map-03.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-map-04",
+      "codigo": "MAP-04",
+      "pop_id": "pop-map-04",
+      "nome": "Agente do processo MAP-04 — Elaboração de POP, Instrução de Trabalho, Manual e Fluxos",
+      "setor_codigo": "S02.06-MAP",
+      "arquivo": ".claude/agents/pop-map-04.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-con-01",
+      "codigo": "CON-01",
+      "pop_id": "pop-con-01",
+      "nome": "Agente do processo CON-01 — Instrução de Convênio",
+      "setor_codigo": "S02.01-CON",
+      "arquivo": ".claude/agents/pop-con-01.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-con-02",
+      "codigo": "CON-02",
+      "pop_id": "pop-con-02",
+      "nome": "Agente do processo CON-02 — Celebração de Convênio",
+      "setor_codigo": "S02.01-CON",
+      "arquivo": ".claude/agents/pop-con-02.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-con-03",
+      "codigo": "CON-03",
+      "pop_id": "pop-con-03",
+      "nome": "Agente do processo CON-03 — Execução de Convênio",
+      "setor_codigo": "S02.01-CON",
+      "arquivo": ".claude/agents/pop-con-03.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-con-04",
+      "codigo": "CON-04",
+      "pop_id": "pop-con-04",
+      "nome": "Agente do processo CON-04 — Prestação de Contas de Convênio",
+      "setor_codigo": "S02.01-CON",
+      "arquivo": ".claude/agents/pop-con-04.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-con-05",
+      "codigo": "CON-05",
+      "pop_id": "pop-con-05",
+      "nome": "Agente do processo CON-05 — Encerramento de Convênio",
+      "setor_codigo": "S02.01-CON",
+      "arquivo": ".claude/agents/pop-con-05.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-cap-01",
+      "codigo": "CAP-01",
+      "pop_id": "pop-cap-01",
+      "nome": "Agente do processo CAP-01 — Captação de Recursos Externos",
+      "setor_codigo": "S02.02-CAP",
+      "arquivo": ".claude/agents/pop-cap-01.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-cap-02",
+      "codigo": "CAP-02",
+      "pop_id": "pop-cap-02",
+      "nome": "Agente do processo CAP-02 — Parcerias Institucionais",
+      "setor_codigo": "S02.02-CAP",
+      "arquivo": ".claude/agents/pop-cap-02.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-ctr-01",
+      "codigo": "CTR-01",
+      "pop_id": "pop-ctr-01",
+      "nome": "Agente do processo CTR-01 — Auditoria TCE-PR",
+      "setor_codigo": "S02.03-CTR",
+      "arquivo": ".claude/agents/pop-ctr-01.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-ctr-02",
+      "codigo": "CTR-02",
+      "pop_id": "pop-ctr-02",
+      "nome": "Agente do processo CTR-02 — Compliance Institucional",
+      "setor_codigo": "S02.03-CTR",
+      "arquivo": ".claude/agents/pop-ctr-02.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-ctr-03",
+      "codigo": "CTR-03",
+      "pop_id": "pop-ctr-03",
+      "nome": "Agente do processo CTR-03 — Relacionamento com a PRAF",
+      "setor_codigo": "S02.03-CTR",
+      "arquivo": ".claude/agents/pop-ctr-03.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-ctr-04",
+      "codigo": "CTR-04",
+      "pop_id": "pop-ctr-04",
+      "nome": "Agente do processo CTR-04 — Fiscalização Externa",
+      "setor_codigo": "S02.03-CTR",
+      "arquivo": ".claude/agents/pop-ctr-04.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-ctr-05",
+      "codigo": "CTR-05",
+      "pop_id": "pop-ctr-05",
+      "nome": "Agente do processo CTR-05 — Gestão de Riscos",
+      "setor_codigo": "S02.03-CTR",
+      "arquivo": ".claude/agents/pop-ctr-05.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:02Z",
+      "atualizado_em": "2026-09-03T02:08:02Z"
+    },
+    {
+      "id": "agente-pop-coleg-01",
+      "codigo": "COLEG-01",
+      "pop_id": "pop-coleg-01",
+      "nome": "Agente do processo COLEG-01 — Rotinas do Agente Universitário do Colegiado",
+      "setor_codigo": "S12-COLEG",
+      "arquivo": ".claude/agents/pop-coleg-01.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.1.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "agente-pop-coleg-02",
+      "codigo": "COLEG-02",
+      "pop_id": "pop-coleg-02",
+      "nome": "Agente do processo COLEG-02 — Gestão acadêmica da coordenação de curso",
+      "setor_codigo": "S12-COLEG",
+      "arquivo": ".claude/agents/pop-coleg-02.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.1.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "agente-pop-coleg-03",
+      "codigo": "COLEG-03",
+      "pop_id": "pop-coleg-03",
+      "nome": "Agente do processo COLEG-03 — Coordenação de estágio",
+      "setor_codigo": "S12-COLEG",
+      "arquivo": ".claude/agents/pop-coleg-03.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.1.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "agente-pop-coleg-04",
+      "codigo": "COLEG-04",
+      "pop_id": "pop-coleg-04",
+      "nome": "Agente do processo COLEG-04 — Coordenação de TCC",
+      "setor_codigo": "S12-COLEG",
+      "arquivo": ".claude/agents/pop-coleg-04.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.1.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "agente-pop-drh-02",
+      "codigo": "DRH-02",
+      "pop_id": "pop-drh-02",
+      "nome": "Agente do processo DRH-02 — Registro e apuração de frequência (ponto eletrônico)",
+      "setor_codigo": "S03.07-DRH",
+      "arquivo": ".claude/agents/pop-drh-02.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.1.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
+    },
+    {
+      "id": "agente-pop-drh-03",
+      "codigo": "DRH-03",
+      "pop_id": "pop-drh-03",
+      "nome": "Agente do processo DRH-03 — Instrução de processos de RH no e-Protocolo (licenças, afastamentos, progressões)",
+      "setor_codigo": "S03.07-DRH",
+      "arquivo": ".claude/agents/pop-drh-03.md",
+      "versao_diretrizes": "1.12",
+      "versao_pop": "0.1.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:08:03Z",
+      "atualizado_em": "2026-09-03T02:08:03Z"
     }
   ]
 }

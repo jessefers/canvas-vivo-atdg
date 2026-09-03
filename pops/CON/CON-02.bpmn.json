@@ -1,14 +1,13 @@
 {
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "codigo": "CON-02",
-  "gerado_em": "2026-09-03T02:01:05Z",
+  "gerado_em": "2026-09-03T02:08:02Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CON-02 — Celebração de Convênio",
       "descricao": "Celebração de Convênio — Assinaturas, publicação, registro. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
       "raias": [
-        "ATDG — Assessoria Técnica da Direção Geral",
         "Assessoria Técnica da Direção Geral (ATDG)",
         "Direção Geral do Campus",
         "Setor demandante"
@@ -18,7 +17,7 @@
           "id": "e1",
           "tipo": "inicio",
           "label": "Aprovação da minuta de convênio pela SETI (ou órgão concedente) recebida",
-          "raia": "ATDG — Assessoria Técnica da Direção Geral"
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         },
         {
           "id": "e2",
@@ -78,7 +77,7 @@
           "id": "e11",
           "tipo": "fim",
           "label": "Convênio assinado pelos partícipes",
-          "raia": "ATDG — Assessoria Técnica da Direção Geral"
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         }
       ],
       "conexoes": [
@@ -123,7 +122,7 @@
           "para": "e11"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

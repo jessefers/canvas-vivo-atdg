@@ -5,7 +5,7 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.03-CTR",
   "sigla": "CTR",
-  "versao": "0.2.0",
+  "versao": "0.2.1",
   "status": "rascunho",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -198,10 +198,9 @@
       "canal": "e-Protocolo"
     }
   ],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Definição do ciclo periódico de gestão de riscos institucionais pela…\"))\n    e11(((\"Matriz de riscos institucionais atualizada\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Definir o escopo e os setores/processos a serem avaliados no ciclo de…\"]\n    e4[\"Classificar cada risco quanto à probabilidade de ocorrência\"]\n    e5[\"Classificar cada risco quanto ao impacto institucional\"]\n    e6[\"Calcular a criticidade e priorizar os riscos institucionais\"]\n    e7[\"Submeter a matriz de riscos priorizada à Direção Geral do Campus\"]\n    e8[\"Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos…\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e3[\"Levantar os riscos institucionais junto aos setores demandantes\"]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e10[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Definição do ciclo periódico de gestão de riscos institucionais pela…\"))\n    e2[\"Definir o escopo e os setores/processos a serem avaliados no ciclo de…\"]\n    e4[\"Classificar cada risco quanto à probabilidade de ocorrência\"]\n    e5[\"Classificar cada risco quanto ao impacto institucional\"]\n    e6[\"Calcular a criticidade e priorizar os riscos institucionais\"]\n    e7[\"Submeter a matriz de riscos priorizada à Direção Geral do Campus\"]\n    e8[\"Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos…\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11(((\"Matriz de riscos institucionais atualizada\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e3[\"Levantar os riscos institucionais junto aos setores demandantes\"]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e10[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral",
       "Assessoria Técnica da Direção Geral (ATDG)",
       "Setor demandante",
       "Direção Geral do Campus"
@@ -211,7 +210,7 @@
         "id": "e1",
         "tipo": "inicio",
         "label": "Definição do ciclo periódico de gestão de riscos institucionais pela Direção Geral/ATDG",
-        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       },
       {
         "id": "e2",
@@ -271,7 +270,7 @@
         "id": "e11",
         "tipo": "fim",
         "label": "Matriz de riscos institucionais atualizada",
-        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       }
     ],
     "conexoes": [
@@ -316,7 +315,7 @@
         "para": "e11"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -360,6 +359,17 @@
       ],
       "fontes": [],
       "motivo": "Elaboração do playbook de Gestão de Riscos (mapeamento, probabilidade, impacto) a partir do escopo do manual institucional da ATDG."
+    },
+    {
+      "versao": "0.2.1",
+      "data": "2026-09-03",
+      "autor": "agente:curador-diretrizes",
+      "tipo": "patch",
+      "mudancas": [
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
     }
   ],
   "validacao": {
@@ -386,8 +396,8 @@
   "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
   "fontes_entradas": [],
   "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "agente": "",
-  "versao_diretrizes": "1.8",
+  "agente": "pop-ctr-05",
+  "versao_diretrizes": "1.12",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-03T02:01:05Z"
+  "atualizado_em": "2026-09-03T02:08:02Z"
 }

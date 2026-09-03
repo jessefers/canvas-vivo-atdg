@@ -1,18 +1,18 @@
 ---
 codigo: CAP-01
 titulo: "Captação de Recursos Externos"
-versao: "0.2.0"
+versao: "0.2.1"
 status: rascunho
 setor_codigo: S02.02-CAP
 setor: "ATDG — Assessoria Técnica da Direção Geral"
-atualizado_em: "2026-09-03T02:01:05Z"
-agente: —
-versao_diretrizes: "1.8"
+atualizado_em: "2026-09-03T02:08:02Z"
+agente: pop-cap-01
+versao_diretrizes: "1.12"
 ---
 
 # POP CAP-01 — Captação de Recursos Externos
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.0** · Status **rascunho** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.1** · Status **rascunho** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -44,7 +44,7 @@ versao_diretrizes: "1.8"
 | Pasta OneDrive | 01_ADMINISTRATIVO |
 | Fontes (entradas do Canvas) | — |
 | Lacunas abertas | responsavel, kpi, formulario, prazo, normativa |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-cap-01 |
 
 ## 2. Organograma
 
@@ -150,13 +150,9 @@ graph TD
 
 ```mermaid
 flowchart LR
-  subgraph R1["ATDG — Assessoria Técnica da Direção Geral"]
+  subgraph R1["Assessoria Técnica da Direção Geral (ATDG)"]
     direction LR
     e1(("Publicação de edital de fomento (Fundação Araucária, SETI ou outro ór…"))
-    e12((("Proposta submetida ao edital")))
-  end
-  subgraph R2["Assessoria Técnica da Direção Geral (ATDG)"]
-    direction LR
     e2["Identificar e divulgar editais de fomento de interesse do Campus"]
     e3["Receber a manifestação de interesse do setor demandante em submeter p…"]
     e4["Orientar a elaboração da proposta técnica conforme as exigências do e…"]
@@ -166,8 +162,9 @@ flowchart LR
     e8["Registrar o resultado da submissão e comunicar ao setor demandante"]
     e9[["✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)"]]
     e11[["✉ Informar Assessoria Técnica da Direção Geral (ATDG)"]]
+    e12((("Proposta submetida ao edital")))
   end
-  subgraph R3["Fundação Araucária"]
+  subgraph R2["Fundação Araucária"]
     direction LR
     e10[["✉ Informar Fundação Araucária"]]
   end
@@ -196,11 +193,11 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** ATDG — Assessoria Técnica da Direção Geral · Assessoria Técnica da Direção Geral (ATDG) · Fundação Araucária
+**Raias:** Assessoria Técnica da Direção Geral (ATDG) · Fundação Araucária
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
-| e1 | inicio | Publicação de edital de fomento (Fundação Araucária, SETI ou outro órgão) de interesse do Campus | ATDG — Assessoria Técnica da Direção Geral |
+| e1 | inicio | Publicação de edital de fomento (Fundação Araucária, SETI ou outro órgão) de interesse do Campus | Assessoria Técnica da Direção Geral (ATDG) |
 | e2 | atividade | Identificar e divulgar editais de fomento de interesse do Campus | Assessoria Técnica da Direção Geral (ATDG) |
 | e3 | atividade | Receber a manifestação de interesse do setor demandante em submeter proposta | Assessoria Técnica da Direção Geral (ATDG) |
 | e4 | atividade | Orientar a elaboração da proposta técnica conforme as exigências do edital | Assessoria Técnica da Direção Geral (ATDG) |
@@ -211,7 +208,7 @@ flowchart LR
 | e9 | captura | Encaminhar a Assessoria Técnica da Direção Geral (ATDG) | Assessoria Técnica da Direção Geral (ATDG) |
 | e10 | captura | Informar Fundação Araucária | Fundação Araucária |
 | e11 | captura | Informar Assessoria Técnica da Direção Geral (ATDG) | Assessoria Técnica da Direção Geral (ATDG) |
-| e12 | fim | Proposta submetida ao edital | ATDG — Assessoria Técnica da Direção Geral |
+| e12 | fim | Proposta submetida ao edital | Assessoria Técnica da Direção Geral (ATDG) |
 
 | De | Para | Rótulo |
 |---|---|---|
@@ -227,7 +224,7 @@ flowchart LR
 | e10 | e11 | — |
 | e11 | e12 | — |
 
-_Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro._
+_Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro._
 
 ## 12. Histórico de versões
 
@@ -235,6 +232,7 @@ _Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir do escopo "Editais, Fundação Araucária, SETI" | — |
 | 0.2.0 | 2026-09-03 | agente:construtor-pop (lote B) | minor | Passo adicionado após 0: Identificar e divulgar editais de fomento de interesse do Campus; Passo adicionado após 1: Receber a manifestação de interesse do setor demandante em submeter proposta; Passo adicionado após 2: Orientar a elaboração da proposta técnica conforme as exigências do edital; Passo adicionado após 3: Conferir a documentação exigida pelo edital antes da submissão; Passo adicionado após 4: Submeter a proposta ao órgão de fomento (Fundação Araucária/SETI); Passo adicionado após 5: Acompanhar o resultado da análise do órgão de fomento; Passo adicionado após 6: Registrar o resultado da submissão e comunicar ao setor demandante; entrada_nova: +2; saida_nova: +2; artefatos_novos: +2; decisoes_novas: +1; kpis_novos: +2; mapa_contexto_novo: +3; pontos_atencao_novos: +2; contingencia_nova: +3; checklist_novo: +5; glossario_novo: +1; Campo identificacao.periodicidade atualizado; Campo playbook.gatilho atualizado; Campo observacoes atualizado; Fluxograma regenerado a partir dos passos | — |
+| 0.2.1 | 2026-09-03 | agente:curador-diretrizes | patch | Fluxograma regenerado a partir dos passos | — |
 
 ## 13. Validação e aprovação
 
@@ -256,4 +254,4 @@ _Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões
 > **Observações:** Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de captação de recursos e parcerias em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.
 
 ---
-_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CAP/CAP-01.pop.json` (diretrizes v1.8)._
+_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CAP/CAP-01.pop.json` (diretrizes v1.12)._

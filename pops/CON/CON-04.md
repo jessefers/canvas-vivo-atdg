@@ -1,18 +1,18 @@
 ---
 codigo: CON-04
 titulo: "Prestação de Contas de Convênio"
-versao: "0.2.0"
+versao: "0.2.1"
 status: rascunho
 setor_codigo: S02.01-CON
 setor: "ATDG — Assessoria Técnica da Direção Geral"
-atualizado_em: "2026-09-03T02:01:05Z"
-agente: —
-versao_diretrizes: "1.8"
+atualizado_em: "2026-09-03T02:08:01Z"
+agente: pop-con-04
+versao_diretrizes: "1.12"
 ---
 
 # POP CON-04 — Prestação de Contas de Convênio
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.0** · Status **rascunho** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.1** · Status **rascunho** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -44,7 +44,7 @@ versao_diretrizes: "1.8"
 | Pasta OneDrive | 01_ADMINISTRATIVO |
 | Fontes (entradas do Canvas) | — |
 | Lacunas abertas | responsavel, kpi, formulario, prazo, normativa |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-con-04 |
 
 ## 2. Organograma
 
@@ -149,29 +149,26 @@ graph TD
 
 ```mermaid
 flowchart LR
-  subgraph R1["ATDG — Assessoria Técnica da Direção Geral"]
+  subgraph R1["Assessoria Técnica da Direção Geral (ATDG)"]
     direction LR
     e1(("Encerramento da vigência ou do objeto do convênio, exigindo prestação…"))
-    e11((("Prestação de contas financeira e técnica aprovada")))
-  end
-  subgraph R2["Setor demandante"]
-    direction LR
-    e2["Reunir os comprovantes de despesa e o relatório técnico final de exec…"]
-  end
-  subgraph R3["Assessoria Técnica da Direção Geral (ATDG)"]
-    direction LR
     e3["Conferir a compatibilidade entre despesas realizadas e o plano de tra…"]
     e4["Elaborar a prestação de contas financeira e técnica"]
     e5["Submeter a prestação de contas à Direção Geral do Campus"]
     e7["Encaminhar a prestação de contas ao órgão concedente/SETI"]
     e8["Aguardar e responder eventuais diligências do TCE-PR sobre a prestaçã…"]
     e9[["✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)"]]
+    e11((("Prestação de contas financeira e técnica aprovada")))
   end
-  subgraph R4["Direção Geral do Campus"]
+  subgraph R2["Setor demandante"]
+    direction LR
+    e2["Reunir os comprovantes de despesa e o relatório técnico final de exec…"]
+  end
+  subgraph R3["Direção Geral do Campus"]
     direction LR
     e6["Aprovar a prestação de contas"]
   end
-  subgraph R5["TCE-PR"]
+  subgraph R4["TCE-PR"]
     direction LR
     e10[["✉ Informar TCE-PR"]]
   end
@@ -199,11 +196,11 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** ATDG — Assessoria Técnica da Direção Geral · Setor demandante · Assessoria Técnica da Direção Geral (ATDG) · Direção Geral do Campus · TCE-PR
+**Raias:** Assessoria Técnica da Direção Geral (ATDG) · Setor demandante · Direção Geral do Campus · TCE-PR
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
-| e1 | inicio | Encerramento da vigência ou do objeto do convênio, exigindo prestação de contas financeira e técnica | ATDG — Assessoria Técnica da Direção Geral |
+| e1 | inicio | Encerramento da vigência ou do objeto do convênio, exigindo prestação de contas financeira e técnica | Assessoria Técnica da Direção Geral (ATDG) |
 | e2 | atividade | Reunir os comprovantes de despesa e o relatório técnico final de execução | Setor demandante |
 | e3 | atividade | Conferir a compatibilidade entre despesas realizadas e o plano de trabalho aprovado | Assessoria Técnica da Direção Geral (ATDG) |
 | e4 | atividade | Elaborar a prestação de contas financeira e técnica | Assessoria Técnica da Direção Geral (ATDG) |
@@ -213,7 +210,7 @@ flowchart LR
 | e8 | atividade | Aguardar e responder eventuais diligências do TCE-PR sobre a prestação de contas | Assessoria Técnica da Direção Geral (ATDG) |
 | e9 | captura | Encaminhar a Assessoria Técnica da Direção Geral (ATDG) | Assessoria Técnica da Direção Geral (ATDG) |
 | e10 | captura | Informar TCE-PR | TCE-PR |
-| e11 | fim | Prestação de contas financeira e técnica aprovada | ATDG — Assessoria Técnica da Direção Geral |
+| e11 | fim | Prestação de contas financeira e técnica aprovada | Assessoria Técnica da Direção Geral (ATDG) |
 
 | De | Para | Rótulo |
 |---|---|---|
@@ -228,7 +225,7 @@ flowchart LR
 | e9 | e10 | — |
 | e10 | e11 | — |
 
-_Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro._
+_Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro._
 
 ## 12. Histórico de versões
 
@@ -236,6 +233,7 @@ _Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir do escopo "Financeira e técnica, TCE-PR" | — |
 | 0.2.0 | 2026-09-03 | agente:construtor-pop (lote B) | minor | Passo adicionado após 0: Reunir os comprovantes de despesa e o relatório técnico final de execução; Passo adicionado após 1: Conferir a compatibilidade entre despesas realizadas e o plano de trabalho aprov; Passo adicionado após 2: Elaborar a prestação de contas financeira e técnica; Passo adicionado após 3: Submeter a prestação de contas à Direção Geral do Campus; Passo adicionado após 4: Aprovar a prestação de contas; Passo adicionado após 5: Encaminhar a prestação de contas ao órgão concedente/SETI; Passo adicionado após 6: Aguardar e responder eventuais diligências do TCE-PR sobre a prestação de contas; entrada_nova: +2; saida_nova: +2; artefatos_novos: +2; decisoes_novas: +1; kpis_novos: +2; mapa_contexto_novo: +2; pontos_atencao_novos: +2; contingencia_nova: +3; checklist_novo: +5; glossario_novo: +1; Campo identificacao.periodicidade atualizado; Campo playbook.gatilho atualizado; Campo observacoes atualizado; Fluxograma regenerado a partir dos passos | — |
+| 0.2.1 | 2026-09-03 | agente:curador-diretrizes | patch | Fluxograma regenerado a partir dos passos | — |
 
 ## 13. Validação e aprovação
 
@@ -257,4 +255,4 @@ _Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões
 > **Observações:** Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.
 
 ---
-_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CON/CON-04.pop.json` (diretrizes v1.8)._
+_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/CON/CON-04.pop.json` (diretrizes v1.12)._
