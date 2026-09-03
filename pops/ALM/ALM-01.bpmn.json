@@ -1,33 +1,149 @@
 {
   "setor": "Div. de Almoxarifado",
   "codigo": "ALM-01",
-  "gerado_em": "2026-09-02T17:57:56Z",
+  "gerado_em": "2026-09-03T01:36:12Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "ALM-01 — Recebimento de Materiais",
-      "descricao": "Recebimento de Materiais — Entrada, conferência, NF, PRAF. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+      "descricao": "Recebe e confere, quantitativa e qualitativamente, os materiais de consumo entregues pelo Fornecedor contra a Nota Fiscal, lança o recebimento no GMS/ERP e obtém a confirmação da PRAF antes do encaminhamento à armazenagem (ALM-02), conforme o Manual de Gestão do Almoxarifado.",
       "raias": [
-        "Div. de Almoxarifado"
+        "Div. de Almoxarifado",
+        "Fornecedor",
+        "Agente Universitário do Almoxarifado",
+        "Chefe da Divisão de Almoxarifado",
+        "PRAF"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Almoxarifado"
+          "label": "NF e material entregues pelo Fornecedor",
+          "raia": "Fornecedor"
         },
         {
           "id": "e2",
+          "tipo": "atividade",
+          "label": "Receber a NF e o material entregue pelo Fornecedor",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Conferir quantitativa e qualitativamente o material recebido",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e4",
+          "tipo": "decisao",
+          "label": "Material conforme a NF (sem divergência/avaria)?",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Registrar a divergência/avaria",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e6",
+          "tipo": "captura",
+          "label": "Notificar o Fornecedor da divergência/avaria",
+          "raia": "Fornecedor"
+        },
+        {
+          "id": "e7",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Div. de Almoxarifado"
+          "label": "Recebimento pendente de regularização com o Fornecedor",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Lançar o recebimento no GMS/ERP",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Encaminhar a confirmação do recebimento à PRAF",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Confirmação do recebimento",
+          "raia": "PRAF"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Confirmar a regularidade do recebimento",
+          "raia": "PRAF"
+        },
+        {
+          "id": "e12",
+          "tipo": "atividade",
+          "label": "Liberar o material para armazenagem",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e13",
+          "tipo": "fim",
+          "label": "Material liberado para armazenagem (ALM-02)",
+          "raia": "Chefe da Divisão de Almoxarifado"
         }
       ],
       "conexoes": [
         {
           "de": "e1",
           "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e4",
+          "para": "e8",
+          "label": "Sim"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."

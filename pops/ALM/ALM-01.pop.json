@@ -5,66 +5,403 @@
   "setor": "Div. de Almoxarifado",
   "setor_codigo": "S03.04-ALM",
   "sigla": "ALM",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
     "departamento": "Div. de Almoxarifado",
-    "descricao": "Recebimento de Materiais — Entrada, conferência, NF, PRAF. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "descricao": "Recebe e confere, quantitativa e qualitativamente, os materiais de consumo entregues pelo Fornecedor contra a Nota Fiscal, lança o recebimento no GMS/ERP e obtém a confirmação da PRAF antes do encaminhamento à armazenagem (ALM-02), conforme o Manual de Gestão do Almoxarifado.",
     "dominio": "Suprimentos e Materiais",
-    "subdominio": "Recebimento de Materiais",
+    "subdominio": "Recebimento e conferência de materiais de consumo",
     "tipo_subdominio": "core",
     "contexto": "S03.04-ALM",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "NF",
+        "definicao": "Nota Fiscal que acompanha o material entregue pelo Fornecedor, base da conferência de recebimento.",
+        "sistema": ""
+      },
+      {
+        "termo": "Conferência de recebimento",
+        "definicao": "Verificação quantitativa e qualitativa do material recebido em relação à Nota Fiscal.",
+        "sistema": "GMS/ERP"
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
-    "normativa": [],
+    "responsavel": "Chefe da Divisão de Almoxarifado",
+    "periodicidade": "Conforme o recebimento de materiais (sob demanda, contínuo)",
+    "normativa": [
+      "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+      "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)",
+      "Lei nº 14.133/2021 (Lei de Licitações e Contratos Administrativos), no que for pertinente ao recebimento de materiais decorrentes de contratações públicas"
+    ],
     "subordinacao": "Secretaria Administrativa",
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-01<br/>Recebimento de Materiais\"]\n  S03_04_ALM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-01<br/>Recebimento de Materiais\"]\n  S03_04_ALM --> P\n  V1[\"Fornecedor\"]\n  P -. interface .-> V1\n  V2[\"PRAF\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Chegada de material acompanhado de Nota Fiscal, entregue pelo Fornecedor no Almoxarifado",
+      "origem": "Fornecedor"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Nota Fiscal e material entregues pelo Fornecedor"
+    ],
+    "passos": [
+      {
+        "acao": "Receber a Nota Fiscal (NF) e o material entregue pelo Fornecedor",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "",
+        "artefato": "Nota Fiscal",
+        "prazo": "No ato da entrega",
+        "evento": "Material e NF recebidos",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Liberar o material para encaminhamento à armazenagem",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "",
+        "prazo": "Após confirmação da PRAF",
+        "evento": "Material liberado para armazenagem (ALM-02)",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Confirmar a regularidade do recebimento",
+        "responsavel": "PRAF",
+        "sistema": "e-Protocolo",
+        "artefato": "Confirmação da PRAF",
+        "prazo": "A definir",
+        "evento": "Recebimento confirmado pela PRAF",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Encaminhar a confirmação do recebimento à PRAF",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "e-Protocolo",
+        "artefato": "Termo de recebimento",
+        "prazo": "A definir",
+        "evento": "Confirmação encaminhada à PRAF",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Lançar o recebimento conforme no GMS/ERP",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Termo de recebimento",
+        "prazo": "No ato da conferência",
+        "evento": "Material registrado no GMS/ERP",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Registrar a divergência ou avaria identificada e notificar o Fornecedor para providências",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Registro de divergência/avaria",
+        "prazo": "A definir",
+        "evento": "Divergência registrada e Fornecedor notificado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Verificar a conformidade entre o material recebido e a NF",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Formulário de conferência de recebimento",
+        "prazo": "No ato do recebimento",
+        "evento": "Conformidade verificada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Conferir quantitativa e qualitativamente o material recebido em relação à NF",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Formulário de conferência de recebimento",
+        "prazo": "No ato do recebimento",
+        "evento": "Conferência registrada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 8
+      }
+    ],
+    "saida": [
+      "Material registrado no GMS/ERP e liberado para armazenagem (ALM-02)"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Almoxarifado\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Formulário de conferência de recebimento",
+      "tipo": "formulario",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "nº da NF",
+        "quantidade conferida",
+        "divergências/avarias"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    },
+    {
+      "nome": "Termo de recebimento",
+      "tipo": "registro",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "nº da NF",
+        "Fornecedor",
+        "itens recebidos",
+        "data"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    },
+    {
+      "nome": "Registro de divergência/avaria",
+      "tipo": "registro",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "descrição da divergência",
+        "itens afetados",
+        "providência solicitada ao Fornecedor"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Material está em conformidade com a NF (sem divergência ou avaria)?",
+      "condicao": "Conferência quantitativa e qualitativa do material recebido",
+      "sim": "Lançar o recebimento no GMS/ERP e seguir para confirmação da PRAF",
+      "nao": "Registrar a divergência/avaria e notificar o Fornecedor para providências"
+    }
+  ],
+  "pontos_atencao": [
+    "Material só é encaminhado à armazenagem definitiva (ALM-02) após registro no GMS/ERP e confirmação da PRAF",
+    "Toda divergência ou avaria identificada na conferência deve ser registrada antes do lançamento do recebimento"
+  ],
+  "contingencia": [
+    "Indisponibilidade do GMS/ERP no ato do recebimento: registrar a conferência em planilha de controle e lançar no sistema assim que restabelecido",
+    "Fornecedor não localizado para tratativa de divergência/avaria: escalar à Chefia da Divisão de Almoxarifado e, se pertinente, à Div. de Licitação",
+    "PRAF não confirma o recebimento no prazo esperado: a Chefia da Divisão de Almoxarifado reitera a solicitação e registra o atraso"
+  ],
+  "checklist": [
+    "NF conferida quantitativa e qualitativamente contra o material recebido",
+    "Divergências e avarias, quando houver, registradas e comunicadas ao Fornecedor",
+    "Recebimento lançado no GMS/ERP antes do encaminhamento à armazenagem",
+    "Confirmação da PRAF obtida e registrada antes da liberação do material"
+  ],
+  "kpis": [
+    {
+      "indicador": "Prazo médio de conferência do recebimento",
+      "formula": "Soma dos tempos entre chegada do material e lançamento no GMS/ERP / nº de recebimentos no período",
+      "meta": "A definir",
+      "fonte": "GMS/ERP"
+    },
+    {
+      "indicador": "Percentual de recebimentos com divergência/avaria",
+      "formula": "Nº de recebimentos com divergência ou avaria / nº total de recebimentos no período",
+      "meta": "A definir",
+      "fonte": "GMS/ERP"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Fornecedor",
+      "destino": "Div. de Almoxarifado",
+      "relacao": "fornece",
+      "artefato": "Nota Fiscal e material",
+      "canal": "Entrega presencial"
+    },
+    {
+      "origem": "Div. de Almoxarifado",
+      "destino": "PRAF",
+      "relacao": "valida",
+      "artefato": "Termo de recebimento",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Almoxarifado",
+      "destino": "Fornecedor",
+      "relacao": "informa",
+      "artefato": "Registro de divergência/avaria",
+      "canal": "Contato direto com o Fornecedor (a definir)"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Fornecedor\"]\n    direction LR\n    e1((\"NF e material entregues pelo Fornecedor\"))\n    e6[[\"✉ Notificar o Fornecedor da divergência/avaria\"]]\n  end\n  subgraph R2[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e2[\"Receber a NF e o material entregue pelo Fornecedor\"]\n    e3[\"Conferir quantitativa e qualitativamente o material recebido\"]\n    e4{\"Material conforme a NF (sem divergência/avaria)?\"}\n    e5[\"Registrar a divergência/avaria\"]\n    e7(((\"Recebimento pendente de regularização com o Fornecedor\")))\n    e8[\"Lançar o recebimento no GMS/ERP\"]\n  end\n  subgraph R3[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e9[\"Encaminhar a confirmação do recebimento à PRAF\"]\n    e12[\"Liberar o material para armazenagem\"]\n    e13(((\"Material liberado para armazenagem (ALM-02)\")))\n  end\n  subgraph R4[\"PRAF\"]\n    direction LR\n    e10[[\"✉ Confirmação do recebimento\"]]\n    e11[\"Confirmar a regularidade do recebimento\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Não --> e5\n  e5 --> e6\n  e6 --> e7\n  e4 -- Sim --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e5,e8,e9,e11,e12 atividade\n  class e4 decisao\n  class e6,e10 captura\n  class e7,e13 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Almoxarifado"
+      "Div. de Almoxarifado",
+      "Fornecedor",
+      "Agente Universitário do Almoxarifado",
+      "Chefe da Divisão de Almoxarifado",
+      "PRAF"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Div. de Almoxarifado"
+        "label": "NF e material entregues pelo Fornecedor",
+        "raia": "Fornecedor"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Receber a NF e o material entregue pelo Fornecedor",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Conferir quantitativa e qualitativamente o material recebido",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e4",
+        "tipo": "decisao",
+        "label": "Material conforme a NF (sem divergência/avaria)?",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Registrar a divergência/avaria",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e6",
+        "tipo": "captura",
+        "label": "Notificar o Fornecedor da divergência/avaria",
+        "raia": "Fornecedor"
+      },
+      {
+        "id": "e7",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "Div. de Almoxarifado"
+        "label": "Recebimento pendente de regularização com o Fornecedor",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Lançar o recebimento no GMS/ERP",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Encaminhar a confirmação do recebimento à PRAF",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Confirmação do recebimento",
+        "raia": "PRAF"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Confirmar a regularidade do recebimento",
+        "raia": "PRAF"
+      },
+      {
+        "id": "e12",
+        "tipo": "atividade",
+        "label": "Liberar o material para armazenagem",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e13",
+        "tipo": "fim",
+        "label": "Material liberado para armazenagem (ALM-02)",
+        "raia": "Chefe da Divisão de Almoxarifado"
       }
     ],
     "conexoes": [
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5",
+        "label": "Não"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e4",
+        "para": "e8",
+        "label": "Sim"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -80,6 +417,49 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote ALM)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 7: Liberar o material para encaminhamento à armazenagem",
+        "Passo adicionado após 6: Confirmar a regularidade do recebimento",
+        "Passo adicionado após 5: Encaminhar a confirmação do recebimento à PRAF",
+        "Passo adicionado após 4: Lançar o recebimento conforme no GMS/ERP",
+        "Passo adicionado após 3: Registrar a divergência ou avaria identificada e notificar o Fornecedor para pro",
+        "Passo adicionado após 2: Verificar a conformidade entre o material recebido e a NF",
+        "Passo adicionado após 1: Conferir quantitativa e qualitativamente o material recebido em relação à NF",
+        "Passo adicionado após 0: Receber a Nota Fiscal (NF) e o material entregue pelo Fornecedor",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +3",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +2",
+        "normativa_nova: +3",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Raias adicionadas: Fornecedor, Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado, PRAF",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 13",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "motivo": "Documentar o passo a passo completo do recebimento de materiais (conferência da NF, tratamento de divergências, lançamento no GMS/ERP e confirmação da PRAF), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
     }
   ],
   "validacao": {
@@ -92,25 +472,20 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
-  "lacunas": [
-    "passos",
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
-    "prazo",
-    "normativa"
+  "lacunas": [],
+  "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) sequência exata de conferência/lançamento/confirmação PRAF, pois os manuais-fonte descrevem o processo em nível macro, sem passo a passo linha a linha; (2) canal de notificação do Fornecedor em caso de divergência/avaria (e-mail institucional ou outro, a confirmar); (3) prazos internos (contingência, notificação, confirmação PRAF), ainda não normatizados nas fontes disponíveis.",
+  "fontes_entradas": [
+    "pb-almoxarifado",
+    "1780963200000",
+    "1780963200001"
   ],
-  "observacoes": "",
-  "fontes_entradas": [],
-  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
   "agente": "pop-alm-01",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:36:12Z"
 }
