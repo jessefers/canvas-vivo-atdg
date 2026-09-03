@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Graduação",
   "codigo": "DGRAD-00",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:45Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DGRAD-00 — Visão geral — Div. de Graduação",
       "descricao": "Guia da tramitação dos processos de ensino de graduação no e-Protocolo (PROGRAD): PPP, reconhecimento de curso, regulamentos, projetos de ensino e monitorias.",
       "raias": [
-        "Div. de Graduação",
         "Colegiado de Curso",
         "Direção de Centro",
         "PROGRAD"

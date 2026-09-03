@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S13-DCEN
 setor: "Direção de Centro"
 atualizado_em: "2026-09-03T01:47:00Z"
-agente: —
+agente: pop-dcen-00
 versao_diretrizes: "1.0"
 ---
 
@@ -45,7 +45,7 @@ versao_diretrizes: "1.0"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-direcao-centro, 1780963200033 |
 | Lacunas abertas | formulario |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dcen-00 |
 
 ## 2. Organograma
 

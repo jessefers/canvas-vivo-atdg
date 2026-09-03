@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Pós-Graduação",
   "codigo": "DPG-02",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:45Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DPG-02 — Fluxos e-Protocolo — PRPPG CEUA",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos do Comitê de Ética no Uso de Animais (CEUA). Define a tramitação para projetos novos, alteração de projetos e relatórios finais. O docente responsável abre o e-Protocolo com 'protocolo unificado' e 'termo de responsabilidade' e encaminha ao responsável pelo campo de estudo/coordenador, sendo projetos com propriedade intelectual tramitados como sigilosos.",
       "raias": [
-        "Div. de Pós-Graduação",
         "Proponente/Coordenador da atividade",
         "CEUA/CEUAP"
       ],

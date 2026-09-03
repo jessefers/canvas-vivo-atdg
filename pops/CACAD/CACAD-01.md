@@ -210,7 +210,7 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** Coordenação Acadêmica — Geral · Proponente/Coordenador da atividade · PROEX · Coordenação Acadêmica
+**Raias:** Proponente/Coordenador da atividade · PROEX · Coordenação Acadêmica
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|

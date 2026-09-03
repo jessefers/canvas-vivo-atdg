@@ -1,7 +1,7 @@
 ---
 id: diretriz-07
 titulo: Lições aprendidas (log append-only)
-versao: "1.5"
+versao: "1.6"
 atualizado_em: "2026-09-03"
 ---
 
@@ -30,6 +30,7 @@ Log **append-only**. Somente lições com `status: aprovada` são injetadas nos 
 | L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |
 | L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |
 | L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |
+| L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |
 
 ## Rejeitadas
 

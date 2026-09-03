@@ -209,7 +209,7 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** Div. de Graduação · Colegiado de Curso · Direção de Centro · PROGRAD
+**Raias:** Colegiado de Curso · Direção de Centro · PROGRAD
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|

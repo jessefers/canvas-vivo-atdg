@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S12-COLEG
 setor: "Colegiado de Curso"
 atualizado_em: "2026-09-03T01:48:43Z"
-agente: —
+agente: pop-coleg-00
 versao_diretrizes: "1.0"
 ---
 
@@ -45,7 +45,7 @@ versao_diretrizes: "1.0"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-colegiado, 1780963200002, 1780963200003, 1780963200004, 1780963200005, 1780963200006, 1780963200007, 1780963200008, 1780963200009, 1780963200010, 1780963200018, 1780963200019, 1780963200020, 1780963200021, 1780963200032 |
 | Lacunas abertas | versao_documento, dados_pessoais_lgpd |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-coleg-00 |
 
 ## 2. Organograma
 

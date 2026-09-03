@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S07-CCSA
 setor: "CCSA — Direção de Centro"
 atualizado_em: "2026-09-03T01:44:47Z"
-agente: —
+agente: pop-ccsa-00
 versao_diretrizes: "1.0"
 ---
 
@@ -46,7 +46,7 @@ versao_diretrizes: "1.0"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-ccsa, 1780963200012 |
 | Lacunas abertas | formulario, dados_pessoais_lgpd |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-ccsa-00 |
 
 ## 2. Organograma
 

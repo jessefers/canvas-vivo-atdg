@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Graduação",
   "codigo": "DGRAD-01",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:45Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DGRAD-01 — Fluxos e-Protocolo — Ensino (PROGRAD)",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos dos processos da área de Ensino sob a PROGRAD. Cobre, entre outros, alteração de resoluções de ensino, regulamentos de bibliotecas, PPP (alteração e novo curso), reconhecimento/renovação de curso, regulamentos de estágio/TCC/internato, projetos de ensino e monitorias (voluntárias e remuneradas). Referência para tramitação correta de processos acadêmicos no e-Protocolo.",
       "raias": [
-        "Div. de Graduação",
         "Colegiado de Curso",
         "Direção de Centro",
         "PROGRAD"

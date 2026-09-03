@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:54:28Z",
+  "sincronizado_em": "2026-09-03T01:55:14Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -2811,9 +2811,9 @@
       "id": "diretriz-07",
       "arquivo": "diretrizes/07-licoes-aprendidas.md",
       "titulo": "Lições aprendidas (log append-only)",
-      "versao": "1.5",
+      "versao": "1.6",
       "atualizado_em": "2026-09-03",
-      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.5\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |\n| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |\n| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
+      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.6\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |\n| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |\n| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |\n| L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
     },
     {
       "id": "diretriz-08",
@@ -2938,6 +2938,15 @@
       "origem": "lote DCOM",
       "licao": "Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes.",
       "regra": "O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado.",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
+    },
+    {
+      "id": "L-013",
+      "data": "2026-09-03",
+      "origem": "lote D2",
+      "licao": "Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo.",
+      "regra": "Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo.",
       "status": "proposta",
       "atualizado_em": "2026-09-03"
     }
@@ -7420,7 +7429,7 @@
         "pb-biblioteca"
       ],
       "hash_fontes": "4d25f3fe1b6cd51e36901dd8cbdc53853f91d96103ec0664b5f1781c4acc25ca",
-      "agente": "",
+      "agente": "pop-bib-00",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:42:22Z"
@@ -7695,7 +7704,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Proposição de atividade de extensão\"))\n    e2[\"Classificar a modalidade da atividade (programa/projeto/curso/evento)\"]\n    e3{\"Atividade com recursos financeiros?\"}\n    e4{\"Há fomento externo?\"}\n    e6[\"Abrir o e-Protocolo conforme o fluxo da modalidade\"]\n    e7[\"Anexar a documentação exigida pela modalidade\"]\n  end\n  subgraph R2[\"PROEX\"]\n    direction LR\n    e5[[\"✉ Encaminhar pelo fluxo de fomento externo\"]]\n    e10[[\"✉ Encaminhar à PROEX para aprovação\"]]\n    e11([\"⏱ Aguardar deliberação da PROEX\"])\n  end\n  subgraph R3[\"Coordenação Acadêmica\"]\n    direction LR\n    e8[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e9[\"Encaminhar o processo às instâncias previstas para a modalidade\"]\n    e12[[\"✉ Informar resultado à Coordenação Acadêmica\"]]\n    e13[\"Registrar o resultado e comunicar ao proponente\"]\n    e14(((\"Atividade de extensão aprovada/registrada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e3 -- Não --> e6\n  e4 -- Sim --> e5\n  e4 -- Não --> e6\n  e5 --> e7\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e6,e7,e9,e13 atividade\n  class e3,e4 decisao\n  class e5,e8,e10,e12 captura\n  class e11 pausa\n  class e14 fim",
       "bpmn_spec": {
         "raias": [
-          "Coordenação Acadêmica — Geral",
           "Proponente/Coordenador da atividade",
           "PROEX",
           "Coordenação Acadêmica"
@@ -8199,7 +8207,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Abertura de nova atividade de extensão pelo proponente\"))\n    e2[\"Classificar a modalidade da atividade (programa/projeto/curso/evento)\"]\n    e3{\"Proponente é agente universitário (e não docente)?\"}\n    e4[\"Confirmar a possibilidade de proposição por agente universitário para…\"]\n    e5{\"Atividade com recursos financeiros?\"}\n    e6{\"Há fomento externo?\"}\n    e8[\"Abrir o e-Protocolo conforme o fluxo da modalidade\"]\n    e9[\"Anexar o projeto/plano de trabalho conforme a modalidade\"]\n  end\n  subgraph R2[\"PROEX\"]\n    direction LR\n    e7[[\"✉ Encaminhar pelo fluxo de fomento externo\"]]\n    e12[[\"✉ Encaminhar à PROEX para aprovação\"]]\n    e13([\"⏱ Aguardar deliberação da PROEX\"])\n  end\n  subgraph R3[\"Coordenação Acadêmica\"]\n    direction LR\n    e10[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e11[\"Encaminhar o processo às instâncias previstas\"]\n    e14[[\"✉ Informar resultado à Coordenação Acadêmica\"]]\n    e15(((\"Atividade de extensão aprovada pela PROEX\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 -- Sim --> e6\n  e5 -- Não --> e8\n  e6 -- Sim --> e7\n  e6 -- Não --> e8\n  e7 --> e9\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e8,e9,e11 atividade\n  class e3,e5,e6 decisao\n  class e7,e10,e12,e14 captura\n  class e13 pausa\n  class e15 fim",
       "bpmn_spec": {
         "raias": [
-          "Coordenação Acadêmica — Geral",
           "Proponente/Coordenador da atividade",
           "PROEX",
           "Coordenação Acadêmica"
@@ -9094,7 +9101,7 @@
         "1780963200012"
       ],
       "hash_fontes": "ad8ee7601b832c7d1c0ca33cef3a5ad10e321dfc6a90e8848768f93379a40f29",
-      "agente": "",
+      "agente": "pop-ccsa-00",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:44:47Z"
@@ -9502,7 +9509,7 @@
         "1780963200013"
       ],
       "hash_fontes": "6b64a933856bd8be154544c134dc0ce8aae8a950f256ea32c22b8f32d5a86d4d",
-      "agente": "",
+      "agente": "pop-cece-00",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:45:49Z"
@@ -10424,7 +10431,7 @@
         "1780963200032"
       ],
       "hash_fontes": "7175dc7d7cb8c240a17be8d4221f650ea681fc5bf3dd86ce5f0ccfcf1231f540",
-      "agente": "",
+      "agente": "pop-coleg-00",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:48:43Z"
@@ -12557,7 +12564,7 @@
         "1780963200033"
       ],
       "hash_fontes": "cacc150654c0050113032cbaff2d6bce5c2b7deee23d73fa738a4f43bfab84ad",
-      "agente": "",
+      "agente": "pop-dcen-00",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:47:00Z"
@@ -16792,7 +16799,7 @@
         "pb-biblioteca-acervo"
       ],
       "hash_fontes": "e3f74a1ae70851043a4f76b501ec5936f9194c39fd9a437a66643481585df4b2",
-      "agente": "",
+      "agente": "pop-dcra-00",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:42:57Z"
@@ -17723,7 +17730,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Servidor/Requisitante\"]\n    direction LR\n    e1((\"Necessidade de viagem a serviço no território nacional\"))\n    e2[\"Abrir o arquivo do fluxograma para leitura visual do fluxo local\"]\n    e3[\"Preencher o formulário de diárias nacionais e coletar assinaturas via…\"]\n    e4[\"Anexar folder/justificativa da viagem\"]\n    e5[\"Consultar o Cadin e anexar o comprovante\"]\n  end\n  subgraph R2[\"Secretaria Financeira\"]\n    direction LR\n    e6[[\"✉ Encaminhar a Secretaria Financeira\"]]\n    e7{\"Cadin regular?\"}\n    e8[\"Devolver ao requisitante para regularização\"]\n    e9(((\"Processo suspenso até regularização do Cadin\")))\n    e10{\"Disponibilidade orçamentária confirmada?\"}\n    e11[\"Conferir com o procedimento textual de Diárias Nacionais (DFIN-04) e…\"]\n    e12[\"Indicar fonte e conta orçamentária\"]\n  end\n  subgraph R3[\"Div. de Contabilidade\"]\n    direction LR\n    e13[[\"✉ Encaminhar a Div. de Contabilidade\"]]\n    e14[\"Emitir nota de empenho\"]\n    e15(((\"Diária nacional empenhada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 -- Não --> e8\n  e8 --> e9\n  e7 -- Sim --> e10\n  e10 -- Não --> e11\n  e11 --> e10\n  e10 -- Sim --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e8,e11,e12,e14 atividade\n  class e6,e13 captura\n  class e7,e10 decisao\n  class e9,e15 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Finanças",
           "Servidor/Requisitante",
           "Secretaria Financeira",
           "Div. de Contabilidade"
@@ -18274,7 +18280,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Servidor/Requisitante\"]\n    direction LR\n    e1((\"Necessidade de passagem e/ou hospedagem para viagem a serviço\"))\n    e2[\"Abrir o arquivo do fluxograma para leitura visual do fluxo local\"]\n    e3[\"Preencher o formulário de passagem/hospedagem e coletar assinaturas v…\"]\n    e4[\"Anexar folder/justificativa e a consulta ao Cadin\"]\n  end\n  subgraph R2[\"Secretaria Financeira\"]\n    direction LR\n    e5[[\"✉ Encaminhar a Secretaria Financeira\"]]\n    e6{\"Documentação de viagem completa (folder, datas e Cadin regular)?\"}\n    e7[\"Solicitar complementação ao requisitante\"]\n    e8(((\"Processo pendente de complementação documental\")))\n    e9{\"Disponibilidade orçamentária confirmada?\"}\n    e10[\"Solicitar remanejamento ou devolver ao requisitante\"]\n    e11(((\"Processo pendente de disponibilidade orçamentária\")))\n    e12[\"Indicar fonte e conta orçamentária\"]\n  end\n  subgraph R3[\"Div. de Contabilidade\"]\n    direction LR\n    e13[[\"✉ Encaminhar a Div. de Contabilidade\"]]\n    e14[\"Emitir nota de empenho\"]\n    e15(((\"Passagem/hospedagem empenhada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 -- Não --> e7\n  e7 --> e8\n  e6 -- Sim --> e9\n  e9 -- Não --> e10\n  e10 --> e11\n  e9 -- Sim --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e7,e10,e12,e14 atividade\n  class e5,e13 captura\n  class e6,e9 decisao\n  class e8,e11,e15 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Finanças",
           "Servidor/Requisitante",
           "Secretaria Financeira",
           "Div. de Contabilidade"
@@ -18795,7 +18800,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Servidor/Requisitante\"]\n    direction LR\n    e1((\"Abertura de pedido de despesa do Campus Foz no e-Protocolo\"))\n    e2[\"Abrir o arquivo do fluxograma geral para leitura visual\"]\n    e3[\"Identificar o tipo de despesa (diárias, passagem/hospedagem ou outra)\"]\n    e5[\"Consultar a Secretaria Financeira para reclassificação do tipo de des…\"]\n  end\n  subgraph R2[\"Secretaria Financeira\"]\n    direction LR\n    e4{\"Tipo de despesa identificado corretamente?\"}\n    e6[[\"✉ Seguir o fluxo específico aplicável (DFIN-01/DFIN-02/DFIN-04)\"]]\n    e7{\"Disponibilidade orçamentária confirmada?\"}\n    e8[\"Solicitar remanejamento ou devolver ao requisitante\"]\n    e9(((\"Processo pendente de disponibilidade orçamentária\")))\n    e10[\"Indicar fonte e conta orçamentária\"]\n  end\n  subgraph R3[\"Div. de Contabilidade\"]\n    direction LR\n    e11[[\"✉ Encaminhar a Div. de Contabilidade\"]]\n    e12[\"Emitir nota de empenho\"]\n    e13(((\"Despesa do Campus Foz empenhada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Não --> e5\n  e5 --> e3\n  e4 -- Sim --> e6\n  e6 --> e7\n  e7 -- Não --> e8\n  e8 --> e9\n  e7 -- Sim --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e5,e8,e10,e12 atividade\n  class e4,e7 decisao\n  class e6,e11 captura\n  class e9,e13 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Finanças",
           "Servidor/Requisitante",
           "Secretaria Financeira",
           "Div. de Contabilidade"
@@ -19336,7 +19340,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Servidor/Requisitante\"]\n    direction LR\n    e1((\"Necessidade de viagem a serviço no território nacional\"))\n    e2[\"Preencher o formulário de diárias nacionais (link PRAF)\"]\n    e4[\"Anexar folder/justificativa da viagem\"]\n    e5[\"Consultar o Cadin do interessado e anexar comprovante\"]\n  end\n  subgraph R2[\"Chefia imediata\"]\n    direction LR\n    e3[\"Assinar e solicitar assinaturas via e-Protocolo\"]\n  end\n  subgraph R3[\"Secretaria Financeira\"]\n    direction LR\n    e6[[\"✉ Encaminhar (C27) à Secretária Financeira para conferência e fonte\"]]\n    e7{\"Cadin regular?\"}\n    e8[\"Notificar/devolver ao requisitante para regularização\"]\n    e9(((\"Processo suspenso até regularização do Cadin\")))\n    e10{\"Disponibilidade orçamentária e financeira confirmada?\"}\n    e11[\"Solicitar remanejamento ou devolver ao requisitante\"]\n    e12(((\"Processo pendente de disponibilidade orçamentária\")))\n    e13[\"Indicar fonte e conta orçamentária\"]\n  end\n  subgraph R4[\"Div. de Contabilidade\"]\n    direction LR\n    e14[[\"✉ Encaminhar à Div. de Contabilidade para empenho\"]]\n    e15[\"Emitir nota de empenho\"]\n    e16(((\"Diária nacional empenhada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 -- Não --> e8\n  e8 --> e9\n  e7 -- Sim --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e10 -- Sim --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e8,e11,e13,e15 atividade\n  class e6,e14 captura\n  class e7,e10 decisao\n  class e9,e12,e16 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Finanças",
           "Servidor/Requisitante",
           "Chefia imediata",
           "Secretaria Financeira",
@@ -20143,7 +20146,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Necessidade de tramitar processo de ensino de graduação\"))\n    e2[\"Identificar o tipo de processo de ensino (PPP, reconhecimento de curs…\"]\n    e3[\"Instruir o e-Protocolo conforme o fluxo específico\"]\n    e4{\"Processo depende de aprovação do Colegiado de Curso?\"}\n    e5[\"Deliberar em reunião do Colegiado e registrar em ata\"]\n    e11[[\"✉ Devolver ao Colegiado/Direção de Centro para ajustes\"]]\n    e12[\"Realizar os ajustes solicitados e reencaminhar\"]\n    e13[[\"✉ Arquivar/publicar a deliberação e comunicar ao curso/centro\"]]\n    e14(((\"Processo deliberado pela PROGRAD e arquivado/publicado\")))\n  end\n  subgraph R2[\"Direção de Centro\"]\n    direction LR\n    e6[[\"✉ Encaminhar à Direção de Centro\"]]\n    e7[\"Analisar o processo e emitir parecer do Centro\"]\n  end\n  subgraph R3[\"PROGRAD\"]\n    direction LR\n    e8[[\"✉ Encaminhar à PROGRAD para deliberação\"]]\n    e9([\"⏱ Aguardar deliberação da PROGRAD\"])\n    e10{\"PROGRAD aprova o processo?\"}\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e5\n  e5 --> e6\n  e4 -- Não --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e12 --> e3\n  e10 -- Sim --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e5,e7,e12 atividade\n  class e4,e10 decisao\n  class e6,e8,e11,e13 captura\n  class e9 pausa\n  class e14 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Graduação",
           "Colegiado de Curso",
           "Direção de Centro",
           "PROGRAD"
@@ -20627,7 +20629,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Abertura de processo de ensino de graduação no e-Protocolo\"))\n    e2[\"Identificar o tipo de processo de ensino (PPP, reconhecimento de curs…\"]\n    e3[\"Instruir o e-Protocolo conforme o fluxo específico\"]\n    e4{\"Processo depende de aprovação do Colegiado de Curso?\"}\n    e5[\"Deliberar em reunião do Colegiado e registrar em ata\"]\n    e11[[\"✉ Devolver ao Colegiado/Direção de Centro para ajustes\"]]\n    e12[\"Realizar os ajustes solicitados e reencaminhar\"]\n    e13[[\"✉ Arquivar/publicar a deliberação e comunicar ao curso/centro\"]]\n    e14(((\"Processo deliberado pela PROGRAD e arquivado/publicado\")))\n  end\n  subgraph R2[\"Direção de Centro\"]\n    direction LR\n    e6[[\"✉ Encaminhar à Direção de Centro\"]]\n    e7[\"Analisar o processo e emitir parecer do Centro\"]\n  end\n  subgraph R3[\"PROGRAD\"]\n    direction LR\n    e8[[\"✉ Encaminhar à PROGRAD para deliberação\"]]\n    e9([\"⏱ Aguardar deliberação da PROGRAD\"])\n    e10{\"PROGRAD aprova o processo?\"}\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e5\n  e5 --> e6\n  e4 -- Não --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e12 --> e3\n  e10 -- Sim --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e5,e7,e12 atividade\n  class e4,e10 decisao\n  class e6,e8,e11,e13 captura\n  class e9 pausa\n  class e14 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Graduação",
           "Colegiado de Curso",
           "Direção de Centro",
           "PROGRAD"
@@ -24188,21 +24189,27 @@
       "setor": "Div. de Manutenção e Conservação",
       "setor_codigo": "S03.01-DMC",
       "sigla": "DMC",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Manutenção e Conservação",
         "descricao": "Planilha operacional da Divisão de Serviços e Manutenção/Conservação (DSMC) que parametriza, por ambiente (auditórios, banheiros, corredores, salas, biblioteca etc.), o tipo de limpeza (faxina/normal), o tempo médio e a quantidade de pessoal necessária, além de aba de materiais. Subsidia o dimensionamento e o planejamento das rotinas de conservação.",
         "dominio": "Infraestrutura e Serviços",
-        "subdominio": "Controle Manual DSMC — Tempos de Limpeza",
+        "subdominio": "Manutenção da planilha de controle de tempos e dimensionamento de limpeza",
         "tipo_subdominio": "suporte",
         "contexto": "S03.01-DMC",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Tempo médio de limpeza",
+            "definicao": "Estimativa de tempo necessário para a limpeza completa de um ambiente, usada para dimensionar a equipe.",
+            "sistema": "planilha"
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "periodicidade": "Atualização contínua, conforme necessidade",
         "normativa": [
           "Contrato de prestação de serviços de limpeza/conservação",
           "normas de saúde e segurança"
@@ -24211,116 +24218,296 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_01_DMC[\"S03.01-DMC<br/>Div. de Manutenção e Conservação\"]\n  S03_SADM --> S03_01_DMC\n  P[\"DMC-01<br/>Controle Manual DSMC — Tempos de Limpeza\"]\n  S03_01_DMC --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_01_DMC setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_01_DMC[\"S03.01-DMC<br/>Div. de Manutenção e Conservação\"]\n  S03_SADM --> S03_01_DMC\n  P[\"DMC-01<br/>Controle Manual DSMC — Tempos de Limpeza\"]\n  S03_01_DMC --> P\n  V1[\"Almoxarifado\"]\n  P -. interface .-> V1\n  V2[\"Equipe de limpeza (própria/terceirizada)\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_01_DMC setor\n  class P destaque\n  class V1,V2 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza",
+          "origem": "Chefe da Divisão de Manutenção e Conservação"
         },
-        "entrada": [],
+        "entrada": [
+          "Relação de ambientes do campus",
+          "Contrato de prestação de serviços de limpeza/conservação vigente"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "Cadastrar ambientes e tipo de limpeza (faxina/normal)",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Cadastrar os ambientes na planilha de controle (auditórios, banheiros, corredores, salas, biblioteca etc.)",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Controle Manual DSMC (planilha)",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Ambientes cadastrados",
             "fontes": [
               "1780963200030"
             ]
           },
           {
             "n": 2,
-            "acao": "Definir tempo médio por ambiente",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal)",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Controle Manual DSMC (planilha)",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Tempo médio definido",
             "fontes": [
               "1780963200030"
             ]
           },
           {
-            "n": 3,
-            "acao": "Dimensionar equipe (qtd. de pessoal)",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Registrar observações específicas por ambiente (ex.: piso especial, equipamentos sensíveis)",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Controle Manual DSMC (planilha)",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Observações registradas",
             "fontes": [
               "1780963200030"
-            ]
+            ],
+            "n": 3
           },
           {
             "n": 4,
-            "acao": "Relacionar materiais necessários por atividade",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Calcular a quantidade de pessoal necessária a partir dos tempos definidos",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Controle Manual DSMC (planilha)",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Pessoal calculado",
             "fontes": [
               "1780963200030"
             ]
+          },
+          {
+            "acao": "Registrar o custo estimado de mão de obra a partir do dimensionamento",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Controle Manual DSMC (planilha)",
+            "prazo": "A definir",
+            "evento": "Custo estimado registrado",
+            "fontes": [
+              "1780963200030"
+            ],
+            "n": 5
+          },
+          {
+            "n": 6,
+            "acao": "Relacionar os materiais de limpeza por atividade na aba de materiais",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Relação de materiais por atividade",
+            "prazo": "A definir",
+            "evento": "Materiais relacionados",
+            "fontes": [
+              "1780963200030"
+            ]
+          },
+          {
+            "acao": "Validar a consistência da planilha antes de utilizá-la para o dimensionamento",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Controle Manual DSMC (planilha)",
+            "prazo": "A definir",
+            "evento": "Planilha validada",
+            "fontes": [
+              "1780963200030"
+            ],
+            "n": 7
+          },
+          {
+            "acao": "Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Controle Manual DSMC (planilha)",
+            "prazo": "A definir",
+            "evento": "Planilha disponibilizada",
+            "fontes": [
+              "1780963200030"
+            ],
+            "n": 8
+          },
+          {
+            "acao": "Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão do contrato",
+            "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+            "sistema": "planilha",
+            "artefato": "Controle Manual DSMC (planilha)",
+            "prazo": "Contínua, conforme necessidade",
+            "evento": "Planilha atualizada",
+            "fontes": [
+              "1780963200030"
+            ],
+            "n": 9
           }
         ],
-        "saida": []
+        "saida": [
+          "Planilha de controle validada, atualizada e disponível para consulta"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
+      "artefatos": [
+        {
+          "nome": "Controle Manual DSMC (planilha)",
+          "tipo": "documento",
+          "sistema": "planilha",
+          "campos_chave": [
+            "ambiente",
+            "tipo de limpeza",
+            "tempo médio",
+            "quantidade de pessoal",
+            "materiais"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "nome": "Relação de materiais por atividade",
+          "tipo": "documento",
+          "sistema": "planilha",
+          "campos_chave": [
+            "atividade",
+            "material",
+            "quantidade estimada"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Manutenção e Conservação"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "A planilha está consistente com os ambientes e o contrato vigente?",
+          "condicao": "Conferência dos ambientes, tempos e materiais cadastrados frente à situação real e ao contrato",
+          "sim": "Disponibilizar a planilha para consulta",
+          "nao": "Corrigir os dados antes de disponibilizar"
+        }
+      ],
       "pontos_atencao": [
         "Tempos são médias de referência — ajustar à realidade",
-        "Revisar dimensionamento conforme contrato terceirizado"
+        "Revisar dimensionamento conforme contrato terceirizado",
+        "A planilha deve ser a única fonte oficial de referência para tempos e dimensionamento, evitando versões paralelas desatualizadas"
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Manutenção e Conservação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Cadastrar ambientes e tipo de limpeza (faxina/normal)\"]\n    e3[\"Definir tempo médio por ambiente\"]\n    e4[\"Dimensionar equipe (qtd. de pessoal)\"]\n    e5[\"Relacionar materiais necessários por atividade\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+      "contingencia": [
+        "Se um ambiente novo não estiver cadastrado, incluí-lo na planilha antes de dimensionar a equipe para aquele espaço",
+        "Se houver divergência entre o tempo médio da planilha e a realidade observada, revisar o tempo antes de nova aplicação",
+        "Se o contrato terceirizado for alterado, revisar o dimensionamento e os materiais relacionados"
+      ],
+      "checklist": [
+        "Todos os ambientes do campus cadastrados na planilha",
+        "Tempo médio e tipo de limpeza definidos por ambiente",
+        "Quantidade de pessoal calculada a partir dos tempos",
+        "Materiais relacionados por atividade",
+        "Planilha validada e disponibilizada para consulta"
+      ],
+      "kpis": [
+        {
+          "indicador": "Percentual de ambientes do campus cadastrados na planilha",
+          "formula": "(Ambientes cadastrados ÷ total de ambientes do campus) × 100",
+          "meta": "100%",
+          "fonte": "planilha"
+        },
+        {
+          "indicador": "Periodicidade de atualização da planilha",
+          "formula": "Data da última atualização",
+          "meta": "A definir",
+          "fonte": "planilha"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Manutenção e Conservação",
+          "destino": "Almoxarifado",
+          "relacao": "fornece",
+          "artefato": "Relação de materiais de limpeza por atividade",
+          "canal": "planilha"
+        },
+        {
+          "origem": "Div. de Manutenção e Conservação",
+          "destino": "Equipe de limpeza (própria/terceirizada)",
+          "relacao": "fornece",
+          "artefato": "Planilha de tempos e dimensionamento",
+          "canal": "planilha"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Chefe da Divisão de Manutenção e Conservação\"]\n    direction LR\n    e1((\"Necessidade de cadastrar, atualizar ou consultar os tempos e o dimens…\"))\n    e2[\"Cadastrar os ambientes na planilha de controle (auditórios, banheiros…\"]\n    e3[\"Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal)\"]\n    e4[\"Registrar observações específicas por ambiente (ex.: piso especial, e…\"]\n    e5[\"Calcular a quantidade de pessoal necessária a partir dos tempos defin…\"]\n    e6[\"Registrar o custo estimado de mão de obra a partir do dimensionamento\"]\n    e7[\"Relacionar os materiais de limpeza por atividade na aba de materiais\"]\n    e8[\"Validar a consistência da planilha antes de utilizá-la para o dimensi…\"]\n    e9[\"Disponibilizar a planilha atualizada para consulta da equipe e do Alm…\"]\n    e10[\"Atualizar a planilha sempre que houver novo ambiente, mudança de uso…\"]\n    e13(((\"Planilha de controle validada, atualizada e disponível para consulta\")))\n  end\n  subgraph R2[\"Almoxarifado\"]\n    direction LR\n    e11[[\"✉ Encaminhar a Almoxarifado\"]]\n  end\n  subgraph R3[\"Equipe de limpeza (própria/terceirizada)\"]\n    direction LR\n    e12[[\"✉ Encaminhar a Equipe de limpeza (própria/terceirizada)\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9,e10 atividade\n  class e11,e12 captura\n  class e13 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Manutenção e Conservação"
+          "Chefe da Divisão de Manutenção e Conservação",
+          "Almoxarifado",
+          "Equipe de limpeza (própria/terceirizada)"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "Div. de Manutenção e Conservação"
+            "label": "Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
           },
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "Cadastrar ambientes e tipo de limpeza (faxina/normal)",
-            "raia": "Div. de Manutenção e Conservação"
+            "label": "Cadastrar os ambientes na planilha de controle (auditórios, banheiros, corredores, salas, biblioteca etc.)",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Definir tempo médio por ambiente",
-            "raia": "Div. de Manutenção e Conservação"
+            "label": "Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal)",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Dimensionar equipe (qtd. de pessoal)",
-            "raia": "Div. de Manutenção e Conservação"
+            "label": "Registrar observações específicas por ambiente (ex.: piso especial, equipamentos sensíveis)",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
           },
           {
             "id": "e5",
             "tipo": "atividade",
-            "label": "Relacionar materiais necessários por atividade",
-            "raia": "Div. de Manutenção e Conservação"
+            "label": "Calcular a quantidade de pessoal necessária a partir dos tempos definidos",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
           },
           {
             "id": "e6",
+            "tipo": "atividade",
+            "label": "Registrar o custo estimado de mão de obra a partir do dimensionamento",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
+          },
+          {
+            "id": "e7",
+            "tipo": "atividade",
+            "label": "Relacionar os materiais de limpeza por atividade na aba de materiais",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Validar a consistência da planilha antes de utilizá-la para o dimensionamento",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
+          },
+          {
+            "id": "e9",
+            "tipo": "atividade",
+            "label": "Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
+          },
+          {
+            "id": "e10",
+            "tipo": "atividade",
+            "label": "Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão do contrato",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
+          },
+          {
+            "id": "e11",
+            "tipo": "captura",
+            "label": "Encaminhar a Almoxarifado",
+            "raia": "Almoxarifado"
+          },
+          {
+            "id": "e12",
+            "tipo": "captura",
+            "label": "Encaminhar a Equipe de limpeza (própria/terceirizada)",
+            "raia": "Equipe de limpeza (própria/terceirizada)"
+          },
+          {
+            "id": "e13",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "Div. de Manutenção e Conservação"
+            "label": "Planilha de controle validada, atualizada e disponível para consulta",
+            "raia": "Chefe da Divisão de Manutenção e Conservação"
           }
         ],
         "conexoes": [
@@ -24343,9 +24530,37 @@
           {
             "de": "e5",
             "para": "e6"
+          },
+          {
+            "de": "e6",
+            "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -24360,6 +24575,43 @@
             "1780963200030"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo adicionado após 2: Registrar observações específicas por ambiente (ex.: piso especial, equipamentos",
+            "Passo adicionado após 3: Registrar o custo estimado de mão de obra a partir do dimensionamento",
+            "Passo adicionado após 4: Validar a consistência da planilha antes de utilizá-la para o dimensionamento",
+            "Passo adicionado após 4: Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado",
+            "Passo adicionado após 4: Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão ",
+            "entrada_nova: +2",
+            "saida_nova: +1",
+            "artefatos_novos: +2",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +2",
+            "pontos_atencao_novos: +1",
+            "contingencia_nova: +3",
+            "checklist_novo: +5",
+            "glossario_novo: +1",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Fluxograma regenerado a partir dos passos",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "1780963200030"
+          ],
+          "motivo": "Detalhamento do controle manual DSMC (planilha de tempos de limpeza) a partir da entrada do Canvas (1780963200030): passos de cadastro e dimensionamento já evidenciados, complementados com validação, disponibilização e atualização contínua da planilha como fonte única de referência."
         }
       ],
       "validacao": {
@@ -24372,16 +24624,12 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
         "prazo"
       ],
       "observacoes": "",
@@ -24390,9 +24638,9 @@
       ],
       "hash_fontes": "b82f810fa08c0391b633d7a9474e25d2425a5200bb1a2fbbdad06dedee9e120e",
       "agente": "",
-      "versao_diretrizes": "1.0",
+      "versao_diretrizes": "1.5",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:54:59Z"
     },
     {
       "id": "pop-dpat-00",
@@ -24829,7 +25077,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Necessidade de afastamento/capacitação, projeto de ética ou proposta/…\"))\n    e2[\"Identificar o ato (afastamento, proposta/alteração de curso, projeto…\"]\n    e3{\"Projeto envolve propriedade intelectual?\"}\n    e4[\"Marcar o processo como sigiloso no e-Protocolo\"]\n    e5[\"Instruir o e-Protocolo conforme o fluxo aplicável\"]\n    e6[\"Anexar a documentação exigida pelo ato\"]\n  end\n  subgraph R2[\"Coordenação Acadêmica\"]\n    direction LR\n    e7[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e8{\"Ato é de competência de comitê de ética (CEUA/CEUAP)?\"}\n    e12[[\"✉ Informar deliberação à Coordenação Acadêmica\"]]\n    e13[\"Registrar a deliberação e comunicar ao proponente\"]\n    e14(((\"Processo deliberado pela PRPPG\")))\n  end\n  subgraph R3[\"CEUA/CEUAP\"]\n    direction LR\n    e9[[\"✉ Encaminhar ao CEUA/CEUAP\"]]\n  end\n  subgraph R4[\"PRPPG\"]\n    direction LR\n    e10[[\"✉ Encaminhar à PRPPG para deliberação\"]]\n    e11([\"⏱ Aguardar deliberação da PRPPG (ou do comitê de ética)\"])\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 -- Sim --> e9\n  e9 --> e12\n  e8 -- Não --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e5,e6,e13 atividade\n  class e3,e8 decisao\n  class e7,e9,e10,e12 captura\n  class e11 pausa\n  class e14 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Pós-Graduação",
           "Proponente/Coordenador da atividade",
           "Coordenação Acadêmica",
           "CEUA/CEUAP",
@@ -25337,7 +25584,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Interesse do docente em afastamento/qualificação\"))\n    e2[\"Identificar a modalidade de afastamento/qualificação (parcial, integr…\"]\n    e3{\"Afastamento é para o exterior?\"}\n    e4[\"Reunir os requisitos adicionais exigidos para afastamento ao exterior\"]\n    e5[\"Abrir o e-Protocolo conforme o fluxo aplicável\"]\n    e6[\"Anexar documentação exigida (plano de trabalho, aceite, comprovantes)\"]\n  end\n  subgraph R2[\"Coordenação Acadêmica\"]\n    direction LR\n    e7[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e11[\"Notificar o docente e orientar novo pedido/recurso\"]\n    e12(((\"Afastamento/qualificação indeferido\")))\n    e13[\"Acompanhar o afastamento até o retorno (com ou sem conclusão)\"]\n    e14(((\"Afastamento/qualificação deliberado e acompanhado até o retorno\")))\n  end\n  subgraph R3[\"PRPPG\"]\n    direction LR\n    e8[[\"✉ Encaminhar à PRPPG para deliberação\"]]\n    e9([\"⏱ Aguardar deliberação da PRPPG\"])\n    e10{\"PRPPG defere o afastamento/qualificação?\"}\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e10 -- Sim --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e5,e6,e11,e13 atividade\n  class e3,e10 decisao\n  class e7,e8 captura\n  class e9 pausa\n  class e12,e14 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Pós-Graduação",
           "Proponente/Coordenador da atividade",
           "Coordenação Acadêmica",
           "PRPPG"
@@ -25856,7 +26102,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Proposição de projeto de pesquisa com uso de animais\"))\n    e2[\"Elaborar o protocolo unificado e o termo de responsabilidade\"]\n    e3{\"Projeto envolve propriedade intelectual?\"}\n    e4[\"Marcar o processo como sigiloso no e-Protocolo\"]\n    e5[\"Abrir o e-Protocolo com o protocolo unificado e o termo de responsabi…\"]\n    e6[[\"✉ Encaminhar ao responsável pelo campo de estudo/coordenador\"]]\n    e7[\"Analisar o protocolo e solicitar ajustes, se necessário\"]\n    e11[\"Devolver ao proponente para ajustes e nova submissão\"]\n    e12(((\"Projeto devolvido para ajustes\")))\n    e13[\"Executar o projeto sob acompanhamento do CEUA\"]\n  end\n  subgraph R2[\"CEUA/CEUAP\"]\n    direction LR\n    e8[[\"✉ Tramitar ao Presidente do CEUA para autorização\"]]\n    e9([\"⏱ Aguardar autorização do Presidente do CEUA\"])\n    e10{\"Presidente do CEUA autoriza?\"}\n    e14[[\"✉ Submeter alterações e relatório final ao CEUA pelos fluxos próprios\"]]\n    e15(((\"Projeto autorizado e encerrado com relatório final\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e10 -- Sim --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e5,e7,e11,e13 atividade\n  class e3,e10 decisao\n  class e6,e8,e14 captura\n  class e9 pausa\n  class e12,e15 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Pós-Graduação",
           "Proponente/Coordenador da atividade",
           "CEUA/CEUAP"
         ],
@@ -26385,7 +26630,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Proposição de projeto de pesquisa com uso de animais de produção\"))\n    e2[\"Elaborar o protocolo unificado e o termo de responsabilidade\"]\n    e3{\"Projeto envolve propriedade intelectual?\"}\n    e4[\"Marcar o processo como sigiloso no e-Protocolo\"]\n    e5[\"Abrir o e-Protocolo com o protocolo unificado e o termo de responsabi…\"]\n    e6[[\"✉ Encaminhar ao responsável pelo campo de estudo/coordenador\"]]\n    e7[\"Analisar o protocolo e solicitar ajustes, se necessário\"]\n    e11[\"Devolver ao proponente para ajustes e nova submissão\"]\n    e12(((\"Projeto devolvido para ajustes\")))\n    e13[\"Executar o projeto sob acompanhamento do CEUAP\"]\n  end\n  subgraph R2[\"CEUA/CEUAP\"]\n    direction LR\n    e8[[\"✉ Tramitar ao Presidente do CEUAP para autorização\"]]\n    e9([\"⏱ Aguardar autorização do Presidente do CEUAP\"])\n    e10{\"Presidente do CEUAP autoriza?\"}\n    e14[[\"✉ Submeter alterações e relatório final ao CEUAP pelos fluxos próprios\"]]\n    e15(((\"Projeto autorizado e encerrado com relatório final\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e10 -- Sim --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e5,e7,e11,e13 atividade\n  class e3,e10 decisao\n  class e6,e8,e14 captura\n  class e9 pausa\n  class e12,e15 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Pós-Graduação",
           "Proponente/Coordenador da atividade",
           "CEUA/CEUAP"
         ],
@@ -26897,7 +27141,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Proposta de curso, alteração ou substituição na pós-graduação lato se…\"))\n    e2[\"Identificar a modalidade/ato (proposta de curso, alteração/prorrogaçã…\"]\n    e3{\"É proposta de novo curso (e não alteração de curso existente)?\"}\n    e4[\"Elaborar o projeto do novo curso conforme a Resolução nº 071/2021-CEPE\"]\n    e5{\"Há alteração de planilha financeira?\"}\n    e6[\"Anexar a planilha financeira revisada\"]\n    e7[\"Abrir o e-Protocolo conforme o fluxo específico\"]\n    e8[\"Anexar projeto, cronograma e planilha financeira\"]\n  end\n  subgraph R2[\"Coordenação Acadêmica\"]\n    direction LR\n    e9[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e12[[\"✉ Informar deliberação à Coordenação Acadêmica\"]]\n    e13[\"Registrar a deliberação e comunicar ao proponente\"]\n    e14(((\"Proposta/alteração deliberada pela PRPPG\")))\n  end\n  subgraph R3[\"PRPPG\"]\n    direction LR\n    e10[[\"✉ Encaminhar à PRPPG para deliberação\"]]\n    e11([\"⏱ Aguardar deliberação da PRPPG\"])\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e7\n  e3 -- Não --> e5\n  e5 -- Sim --> e6\n  e6 --> e7\n  e5 -- Não --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e6,e7,e8,e13 atividade\n  class e3,e5 decisao\n  class e9,e10,e12 captura\n  class e11 pausa\n  class e14 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Pós-Graduação",
           "Proponente/Coordenador da atividade",
           "Coordenação Acadêmica",
           "PRPPG"
@@ -27404,7 +27647,6 @@
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Proposta ou alteração de programa/curso stricto sensu\"))\n    e2[\"Identificar o ato (proposta de novo programa, implantação, modificaçã…\"]\n    e3{\"É proposta de novo programa/curso (mestrado ou doutorado)?\"}\n    e4[\"Reunir a documentação ampliada exigida para novo programa (Resolução…\"]\n    e5{\"Projeto/proposta envolve propriedade intelectual?\"}\n    e6[\"Marcar o processo como sigiloso no e-Protocolo\"]\n    e7[\"Abrir o e-Protocolo conforme o fluxo específico\"]\n    e8[\"Anexar projeto pedagógico/regulamento conforme exigido\"]\n  end\n  subgraph R2[\"Coordenação Acadêmica\"]\n    direction LR\n    e9[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e12[[\"✉ Informar deliberação à Coordenação Acadêmica\"]]\n    e13[\"Registrar a deliberação e comunicar ao proponente\"]\n    e14(((\"Proposta/alteração deliberada pela PRPPG\")))\n  end\n  subgraph R3[\"PRPPG\"]\n    direction LR\n    e10[[\"✉ Encaminhar à PRPPG para deliberação\"]]\n    e11([\"⏱ Aguardar deliberação da PRPPG\"])\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 -- Sim --> e6\n  e6 --> e7\n  e5 -- Não --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e6,e7,e8,e13 atividade\n  class e3,e5 decisao\n  class e9,e10,e12 captura\n  class e11 pausa\n  class e14 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Pós-Graduação",
           "Proponente/Coordenador da atividade",
           "Coordenação Acadêmica",
           "PRPPG"
@@ -33235,6 +33477,90 @@
       "origem": "script",
       "criado_em": "2026-09-03T01:53:21Z",
       "atualizado_em": "2026-09-03T01:53:21Z"
+    },
+    {
+      "id": "agente-pop-bib-00",
+      "codigo": "BIB-00",
+      "pop_id": "pop-bib-00",
+      "nome": "Agente do processo BIB-00 — Visão geral — Biblioteca",
+      "setor_codigo": "S06-BIB",
+      "arquivo": ".claude/agents/pop-bib-00.md",
+      "versao_diretrizes": "1.6",
+      "versao_pop": "0.2.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:55:14Z",
+      "atualizado_em": "2026-09-03T01:55:14Z"
+    },
+    {
+      "id": "agente-pop-dcra-00",
+      "codigo": "DCRA-00",
+      "pop_id": "pop-dcra-00",
+      "nome": "Agente do processo DCRA-00 — Visão geral — Div. Circulação, Referência e Acervo",
+      "setor_codigo": "S06.01-DCRA",
+      "arquivo": ".claude/agents/pop-dcra-00.md",
+      "versao_diretrizes": "1.6",
+      "versao_pop": "0.2.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:55:14Z",
+      "atualizado_em": "2026-09-03T01:55:14Z"
+    },
+    {
+      "id": "agente-pop-ccsa-00",
+      "codigo": "CCSA-00",
+      "pop_id": "pop-ccsa-00",
+      "nome": "Agente do processo CCSA-00 — Visão geral — Centro de Ciências Sociais Aplicadas — Direção de Centro",
+      "setor_codigo": "S07-CCSA",
+      "arquivo": ".claude/agents/pop-ccsa-00.md",
+      "versao_diretrizes": "1.6",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:55:14Z",
+      "atualizado_em": "2026-09-03T01:55:14Z"
+    },
+    {
+      "id": "agente-pop-cece-00",
+      "codigo": "CECE-00",
+      "pop_id": "pop-cece-00",
+      "nome": "Agente do processo CECE-00 — Visão geral — Centro de Engenharias e Ciências Exatas — Direção de Centro",
+      "setor_codigo": "S08-CECE",
+      "arquivo": ".claude/agents/pop-cece-00.md",
+      "versao_diretrizes": "1.6",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:55:14Z",
+      "atualizado_em": "2026-09-03T01:55:14Z"
+    },
+    {
+      "id": "agente-pop-coleg-00",
+      "codigo": "COLEG-00",
+      "pop_id": "pop-coleg-00",
+      "nome": "Agente do processo COLEG-00 — Visão geral — Colegiado de Curso (transversal)",
+      "setor_codigo": "S12-COLEG",
+      "arquivo": ".claude/agents/pop-coleg-00.md",
+      "versao_diretrizes": "1.6",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:55:14Z",
+      "atualizado_em": "2026-09-03T01:55:14Z"
+    },
+    {
+      "id": "agente-pop-dcen-00",
+      "codigo": "DCEN-00",
+      "pop_id": "pop-dcen-00",
+      "nome": "Agente do processo DCEN-00 — Visão geral — Direção de Centro (competências gerais)",
+      "setor_codigo": "S13-DCEN",
+      "arquivo": ".claude/agents/pop-dcen-00.md",
+      "versao_diretrizes": "1.6",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:55:14Z",
+      "atualizado_em": "2026-09-03T01:55:14Z"
     }
   ]
 }

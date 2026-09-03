@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Pós-Graduação",
   "codigo": "DPG-03",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:45Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DPG-03 — Fluxos e-Protocolo — PRPPG CEUAP",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos do Comitê de Ética no Uso de Animais de Produção (CEUAP). Define a tramitação para projetos novos, alteração de projetos e relatórios finais, com abertura pelo docente responsável (protocolo unificado e termo de responsabilidade) e encaminhamento ao responsável pelo campo de estudo/coordenador. Projetos com propriedade intelectual tramitam como sigilosos.",
       "raias": [
-        "Div. de Pós-Graduação",
         "Proponente/Coordenador da atividade",
         "CEUA/CEUAP"
       ],

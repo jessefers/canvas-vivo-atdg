@@ -209,7 +209,7 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** Div. de Pós-Graduação · Proponente/Coordenador da atividade · Coordenação Acadêmica · PRPPG
+**Raias:** Proponente/Coordenador da atividade · Coordenação Acadêmica · PRPPG
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|

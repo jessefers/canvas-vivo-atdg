@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Finanças",
   "codigo": "DFIN-04",
-  "gerado_em": "2026-09-03T01:52:53Z",
+  "gerado_em": "2026-09-03T01:54:44Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DFIN-04 — Procedimento — Diárias Nacionais",
       "descricao": "Procedimento textual para solicitação de diárias nacionais. O interessado preenche o formulário (link PRAF), coleta assinaturas via e-Protocolo, anexa folder/justificativa da viagem e consulta ao Cadin, e encaminha à Secretaria Financeira. Esta verifica o preenchimento e a disponibilidade orçamentária/financeira, indica fonte e conta, e encaminha à Contabilidade para empenho.",
       "raias": [
-        "Div. de Finanças",
         "Servidor/Requisitante",
         "Chefia imediata",
         "Secretaria Financeira",

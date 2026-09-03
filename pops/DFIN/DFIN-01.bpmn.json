@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Finanças",
   "codigo": "DFIN-01",
-  "gerado_em": "2026-09-03T01:52:53Z",
+  "gerado_em": "2026-09-03T01:54:44Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DFIN-01 — Fluxo Despesas Campus Foz — Diárias Nacionais",
       "descricao": "Fluxograma específico do Campus Foz para a despesa de diárias nacionais, no âmbito do e-Protocolo. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Define a tramitação local do pedido de diárias até o pagamento; requer leitura visual para detalhamento das etapas.",
       "raias": [
-        "Div. de Finanças",
         "Servidor/Requisitante",
         "Secretaria Financeira",
         "Div. de Contabilidade"

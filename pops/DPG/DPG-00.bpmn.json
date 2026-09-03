@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Pós-Graduação",
   "codigo": "DPG-00",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:44Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DPG-00 — Visão geral — Div. de Pós-Graduação",
       "descricao": "Guia dos fluxos de pós-graduação e pesquisa no e-Protocolo (PRPPG): capacitação/afastamento docente, ética no uso de animais (CEUA/CEUAP) e cursos lato e stricto sensu.",
       "raias": [
-        "Div. de Pós-Graduação",
         "Proponente/Coordenador da atividade",
         "Coordenação Acadêmica",
         "CEUA/CEUAP",

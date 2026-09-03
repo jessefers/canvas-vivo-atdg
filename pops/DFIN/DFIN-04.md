@@ -221,7 +221,7 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** Div. de Finanças · Servidor/Requisitante · Chefia imediata · Secretaria Financeira · Div. de Contabilidade
+**Raias:** Servidor/Requisitante · Chefia imediata · Secretaria Financeira · Div. de Contabilidade
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|

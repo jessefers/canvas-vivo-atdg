@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Pós-Graduação",
   "codigo": "DPG-01",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:45Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DPG-01 — Fluxos e-Protocolo — PRPPG Capacitação de Servidores",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos da PRPPG relativos à capacitação de servidores, com foco no afastamento e qualificação docente (Resolução nº 029/2013-CEPE). Cobre afastamento parcial/integral, afastamento para o exterior, prorrogação, transformação, troca de programa e retorno com/sem conclusão. Orienta a tramitação de cada situação no e-Protocolo.",
       "raias": [
-        "Div. de Pós-Graduação",
         "Proponente/Coordenador da atividade",
         "Coordenação Acadêmica",
         "PRPPG"

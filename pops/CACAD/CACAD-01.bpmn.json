@@ -1,14 +1,13 @@
 {
   "setor": "Coordenação Acadêmica — Geral",
   "codigo": "CACAD-01",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:44Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CACAD-01 — Fluxos e-Protocolo — Extensão (PROEX)",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos da área de Extensão (PROEX). Detalha a abertura de novas atividades de extensão (programas, projetos, cursos e eventos) com e sem recursos financeiros, propostas por docente ou agente universitário, e atividades com fomento externo. Orienta a tramitação correta de cada modalidade no e-Protocolo.",
       "raias": [
-        "Coordenação Acadêmica — Geral",
         "Proponente/Coordenador da atividade",
         "PROEX",
         "Coordenação Acadêmica"

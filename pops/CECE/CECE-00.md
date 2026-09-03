@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S08-CECE
 setor: "CECE — Direção de Centro"
 atualizado_em: "2026-09-03T01:45:49Z"
-agente: —
+agente: pop-cece-00
 versao_diretrizes: "1.0"
 ---
 
@@ -45,7 +45,7 @@ versao_diretrizes: "1.0"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-cece, 1780963200013 |
 | Lacunas abertas | formulario, dados_pessoais_lgpd |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-cece-00 |
 
 ## 2. Organograma
 

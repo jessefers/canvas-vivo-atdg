@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Finanças",
   "codigo": "DFIN-02",
-  "gerado_em": "2026-09-03T01:52:53Z",
+  "gerado_em": "2026-09-03T01:54:44Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DFIN-02 — Fluxo Despesas Campus Foz — Passagem e Hospedagem",
       "descricao": "Fluxograma específico do Campus Foz para despesas de passagem e hospedagem no e-Protocolo. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Define a tramitação local desses pedidos; requer leitura visual para detalhar as etapas e responsáveis.",
       "raias": [
-        "Div. de Finanças",
         "Servidor/Requisitante",
         "Secretaria Financeira",
         "Div. de Contabilidade"

@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Pós-Graduação",
   "codigo": "DPG-05",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:45Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DPG-05 — Fluxos e-Protocolo — PRPPG Stricto Sensu",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos dos programas de pós-graduação stricto sensu, conforme a Resolução nº 078/2016-CEPE. Abrange proposta de novo programa, curso de doutorado, implantação, modificação de projeto pedagógico e de regulamento, criação de disciplinas, entre outros atos. Orienta a tramitação no e-Protocolo das demandas de mestrado e doutorado.",
       "raias": [
-        "Div. de Pós-Graduação",
         "Proponente/Coordenador da atividade",
         "Coordenação Acadêmica",
         "PRPPG"

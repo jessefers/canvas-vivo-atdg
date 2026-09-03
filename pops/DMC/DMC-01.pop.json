@@ -5,21 +5,27 @@
   "setor": "Div. de Manutenção e Conservação",
   "setor_codigo": "S03.01-DMC",
   "sigla": "DMC",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
     "departamento": "Div. de Manutenção e Conservação",
     "descricao": "Planilha operacional da Divisão de Serviços e Manutenção/Conservação (DSMC) que parametriza, por ambiente (auditórios, banheiros, corredores, salas, biblioteca etc.), o tipo de limpeza (faxina/normal), o tempo médio e a quantidade de pessoal necessária, além de aba de materiais. Subsidia o dimensionamento e o planejamento das rotinas de conservação.",
     "dominio": "Infraestrutura e Serviços",
-    "subdominio": "Controle Manual DSMC — Tempos de Limpeza",
+    "subdominio": "Manutenção da planilha de controle de tempos e dimensionamento de limpeza",
     "tipo_subdominio": "suporte",
     "contexto": "S03.01-DMC",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Tempo médio de limpeza",
+        "definicao": "Estimativa de tempo necessário para a limpeza completa de um ambiente, usada para dimensionar a equipe.",
+        "sistema": "planilha"
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+    "periodicidade": "Atualização contínua, conforme necessidade",
     "normativa": [
       "Contrato de prestação de serviços de limpeza/conservação",
       "normas de saúde e segurança"
@@ -28,116 +34,296 @@
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_01_DMC[\"S03.01-DMC<br/>Div. de Manutenção e Conservação\"]\n  S03_SADM --> S03_01_DMC\n  P[\"DMC-01<br/>Controle Manual DSMC — Tempos de Limpeza\"]\n  S03_01_DMC --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_01_DMC setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_01_DMC[\"S03.01-DMC<br/>Div. de Manutenção e Conservação\"]\n  S03_SADM --> S03_01_DMC\n  P[\"DMC-01<br/>Controle Manual DSMC — Tempos de Limpeza\"]\n  S03_01_DMC --> P\n  V1[\"Almoxarifado\"]\n  P -. interface .-> V1\n  V2[\"Equipe de limpeza (própria/terceirizada)\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_01_DMC setor\n  class P destaque\n  class V1,V2 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza",
+      "origem": "Chefe da Divisão de Manutenção e Conservação"
     },
-    "entrada": [],
+    "entrada": [
+      "Relação de ambientes do campus",
+      "Contrato de prestação de serviços de limpeza/conservação vigente"
+    ],
     "passos": [
       {
         "n": 1,
-        "acao": "Cadastrar ambientes e tipo de limpeza (faxina/normal)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Cadastrar os ambientes na planilha de controle (auditórios, banheiros, corredores, salas, biblioteca etc.)",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Controle Manual DSMC (planilha)",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Ambientes cadastrados",
         "fontes": [
           "1780963200030"
         ]
       },
       {
         "n": 2,
-        "acao": "Definir tempo médio por ambiente",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal)",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Controle Manual DSMC (planilha)",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Tempo médio definido",
         "fontes": [
           "1780963200030"
         ]
       },
       {
-        "n": 3,
-        "acao": "Dimensionar equipe (qtd. de pessoal)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Registrar observações específicas por ambiente (ex.: piso especial, equipamentos sensíveis)",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Controle Manual DSMC (planilha)",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Observações registradas",
         "fontes": [
           "1780963200030"
-        ]
+        ],
+        "n": 3
       },
       {
         "n": 4,
-        "acao": "Relacionar materiais necessários por atividade",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Calcular a quantidade de pessoal necessária a partir dos tempos definidos",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Controle Manual DSMC (planilha)",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Pessoal calculado",
         "fontes": [
           "1780963200030"
         ]
+      },
+      {
+        "acao": "Registrar o custo estimado de mão de obra a partir do dimensionamento",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Controle Manual DSMC (planilha)",
+        "prazo": "A definir",
+        "evento": "Custo estimado registrado",
+        "fontes": [
+          "1780963200030"
+        ],
+        "n": 5
+      },
+      {
+        "n": 6,
+        "acao": "Relacionar os materiais de limpeza por atividade na aba de materiais",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Relação de materiais por atividade",
+        "prazo": "A definir",
+        "evento": "Materiais relacionados",
+        "fontes": [
+          "1780963200030"
+        ]
+      },
+      {
+        "acao": "Validar a consistência da planilha antes de utilizá-la para o dimensionamento",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Controle Manual DSMC (planilha)",
+        "prazo": "A definir",
+        "evento": "Planilha validada",
+        "fontes": [
+          "1780963200030"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Controle Manual DSMC (planilha)",
+        "prazo": "A definir",
+        "evento": "Planilha disponibilizada",
+        "fontes": [
+          "1780963200030"
+        ],
+        "n": 8
+      },
+      {
+        "acao": "Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão do contrato",
+        "responsavel": "Chefe da Divisão de Manutenção e Conservação",
+        "sistema": "planilha",
+        "artefato": "Controle Manual DSMC (planilha)",
+        "prazo": "Contínua, conforme necessidade",
+        "evento": "Planilha atualizada",
+        "fontes": [
+          "1780963200030"
+        ],
+        "n": 9
       }
     ],
-    "saida": []
+    "saida": [
+      "Planilha de controle validada, atualizada e disponível para consulta"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "Controle Manual DSMC (planilha)",
+      "tipo": "documento",
+      "sistema": "planilha",
+      "campos_chave": [
+        "ambiente",
+        "tipo de limpeza",
+        "tempo médio",
+        "quantidade de pessoal",
+        "materiais"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Manutenção e Conservação"
+    },
+    {
+      "nome": "Relação de materiais por atividade",
+      "tipo": "documento",
+      "sistema": "planilha",
+      "campos_chave": [
+        "atividade",
+        "material",
+        "quantidade estimada"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Manutenção e Conservação"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A planilha está consistente com os ambientes e o contrato vigente?",
+      "condicao": "Conferência dos ambientes, tempos e materiais cadastrados frente à situação real e ao contrato",
+      "sim": "Disponibilizar a planilha para consulta",
+      "nao": "Corrigir os dados antes de disponibilizar"
+    }
+  ],
   "pontos_atencao": [
     "Tempos são médias de referência — ajustar à realidade",
-    "Revisar dimensionamento conforme contrato terceirizado"
+    "Revisar dimensionamento conforme contrato terceirizado",
+    "A planilha deve ser a única fonte oficial de referência para tempos e dimensionamento, evitando versões paralelas desatualizadas"
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Manutenção e Conservação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Cadastrar ambientes e tipo de limpeza (faxina/normal)\"]\n    e3[\"Definir tempo médio por ambiente\"]\n    e4[\"Dimensionar equipe (qtd. de pessoal)\"]\n    e5[\"Relacionar materiais necessários por atividade\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+  "contingencia": [
+    "Se um ambiente novo não estiver cadastrado, incluí-lo na planilha antes de dimensionar a equipe para aquele espaço",
+    "Se houver divergência entre o tempo médio da planilha e a realidade observada, revisar o tempo antes de nova aplicação",
+    "Se o contrato terceirizado for alterado, revisar o dimensionamento e os materiais relacionados"
+  ],
+  "checklist": [
+    "Todos os ambientes do campus cadastrados na planilha",
+    "Tempo médio e tipo de limpeza definidos por ambiente",
+    "Quantidade de pessoal calculada a partir dos tempos",
+    "Materiais relacionados por atividade",
+    "Planilha validada e disponibilizada para consulta"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de ambientes do campus cadastrados na planilha",
+      "formula": "(Ambientes cadastrados ÷ total de ambientes do campus) × 100",
+      "meta": "100%",
+      "fonte": "planilha"
+    },
+    {
+      "indicador": "Periodicidade de atualização da planilha",
+      "formula": "Data da última atualização",
+      "meta": "A definir",
+      "fonte": "planilha"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Manutenção e Conservação",
+      "destino": "Almoxarifado",
+      "relacao": "fornece",
+      "artefato": "Relação de materiais de limpeza por atividade",
+      "canal": "planilha"
+    },
+    {
+      "origem": "Div. de Manutenção e Conservação",
+      "destino": "Equipe de limpeza (própria/terceirizada)",
+      "relacao": "fornece",
+      "artefato": "Planilha de tempos e dimensionamento",
+      "canal": "planilha"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Chefe da Divisão de Manutenção e Conservação\"]\n    direction LR\n    e1((\"Necessidade de cadastrar, atualizar ou consultar os tempos e o dimens…\"))\n    e2[\"Cadastrar os ambientes na planilha de controle (auditórios, banheiros…\"]\n    e3[\"Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal)\"]\n    e4[\"Registrar observações específicas por ambiente (ex.: piso especial, e…\"]\n    e5[\"Calcular a quantidade de pessoal necessária a partir dos tempos defin…\"]\n    e6[\"Registrar o custo estimado de mão de obra a partir do dimensionamento\"]\n    e7[\"Relacionar os materiais de limpeza por atividade na aba de materiais\"]\n    e8[\"Validar a consistência da planilha antes de utilizá-la para o dimensi…\"]\n    e9[\"Disponibilizar a planilha atualizada para consulta da equipe e do Alm…\"]\n    e10[\"Atualizar a planilha sempre que houver novo ambiente, mudança de uso…\"]\n    e13(((\"Planilha de controle validada, atualizada e disponível para consulta\")))\n  end\n  subgraph R2[\"Almoxarifado\"]\n    direction LR\n    e11[[\"✉ Encaminhar a Almoxarifado\"]]\n  end\n  subgraph R3[\"Equipe de limpeza (própria/terceirizada)\"]\n    direction LR\n    e12[[\"✉ Encaminhar a Equipe de limpeza (própria/terceirizada)\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9,e10 atividade\n  class e11,e12 captura\n  class e13 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Manutenção e Conservação"
+      "Chefe da Divisão de Manutenção e Conservação",
+      "Almoxarifado",
+      "Equipe de limpeza (própria/terceirizada)"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Div. de Manutenção e Conservação"
+        "label": "Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "Cadastrar ambientes e tipo de limpeza (faxina/normal)",
-        "raia": "Div. de Manutenção e Conservação"
+        "label": "Cadastrar os ambientes na planilha de controle (auditórios, banheiros, corredores, salas, biblioteca etc.)",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
       },
       {
         "id": "e3",
         "tipo": "atividade",
-        "label": "Definir tempo médio por ambiente",
-        "raia": "Div. de Manutenção e Conservação"
+        "label": "Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal)",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Dimensionar equipe (qtd. de pessoal)",
-        "raia": "Div. de Manutenção e Conservação"
+        "label": "Registrar observações específicas por ambiente (ex.: piso especial, equipamentos sensíveis)",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
       },
       {
         "id": "e5",
         "tipo": "atividade",
-        "label": "Relacionar materiais necessários por atividade",
-        "raia": "Div. de Manutenção e Conservação"
+        "label": "Calcular a quantidade de pessoal necessária a partir dos tempos definidos",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
       },
       {
         "id": "e6",
+        "tipo": "atividade",
+        "label": "Registrar o custo estimado de mão de obra a partir do dimensionamento",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Relacionar os materiais de limpeza por atividade na aba de materiais",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Validar a consistência da planilha antes de utilizá-la para o dimensionamento",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão do contrato",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Encaminhar a Almoxarifado",
+        "raia": "Almoxarifado"
+      },
+      {
+        "id": "e12",
+        "tipo": "captura",
+        "label": "Encaminhar a Equipe de limpeza (própria/terceirizada)",
+        "raia": "Equipe de limpeza (própria/terceirizada)"
+      },
+      {
+        "id": "e13",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "Div. de Manutenção e Conservação"
+        "label": "Planilha de controle validada, atualizada e disponível para consulta",
+        "raia": "Chefe da Divisão de Manutenção e Conservação"
       }
     ],
     "conexoes": [
@@ -160,9 +346,37 @@
       {
         "de": "e5",
         "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -177,6 +391,43 @@
         "1780963200030"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 2: Registrar observações específicas por ambiente (ex.: piso especial, equipamentos",
+        "Passo adicionado após 3: Registrar o custo estimado de mão de obra a partir do dimensionamento",
+        "Passo adicionado após 4: Validar a consistência da planilha antes de utilizá-la para o dimensionamento",
+        "Passo adicionado após 4: Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado",
+        "Passo adicionado após 4: Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão ",
+        "entrada_nova: +2",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +1",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Fluxograma regenerado a partir dos passos",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200030"
+      ],
+      "motivo": "Detalhamento do controle manual DSMC (planilha de tempos de limpeza) a partir da entrada do Canvas (1780963200030): passos de cadastro e dimensionamento já evidenciados, complementados com validação, disponibilização e atualização contínua da planilha como fonte única de referência."
     }
   ],
   "validacao": {
@@ -189,16 +440,12 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
     "prazo"
   ],
   "observacoes": "",
@@ -207,7 +454,7 @@
   ],
   "hash_fontes": "b82f810fa08c0391b633d7a9474e25d2425a5200bb1a2fbbdad06dedee9e120e",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.5",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:54:59Z"
 }

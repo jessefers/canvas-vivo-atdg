@@ -1,14 +1,13 @@
 {
   "setor": "Coordenação Acadêmica — Geral",
   "codigo": "CACAD-00",
-  "gerado_em": "2026-09-03T01:52:53Z",
+  "gerado_em": "2026-09-03T01:54:44Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CACAD-00 — Visão geral — Coordenação Acadêmica",
       "descricao": "Guia da tramitação das atividades de extensão no e-Protocolo (PROEX): programas, projetos, cursos e eventos, com e sem recursos e com fomento externo.",
       "raias": [
-        "Coordenação Acadêmica — Geral",
         "Proponente/Coordenador da atividade",
         "PROEX",
         "Coordenação Acadêmica"

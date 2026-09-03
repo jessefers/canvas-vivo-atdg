@@ -1,14 +1,13 @@
 {
   "setor": "Div. de Pós-Graduação",
   "codigo": "DPG-04",
-  "gerado_em": "2026-09-03T01:52:54Z",
+  "gerado_em": "2026-09-03T01:54:45Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DPG-04 — Fluxos e-Protocolo — PRPPG Lato Sensu",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos dos cursos de pós-graduação lato sensu, conforme a Resolução nº 071/2021-CEPE. Cobre proposta de curso (presencial/semipresencial, residência, EAD), alteração/prorrogação, mudança de cronograma e inclusão de docentes, substituição de coordenador e alteração de planilha financeira. Orienta a tramitação correta no e-Protocolo.",
       "raias": [
-        "Div. de Pós-Graduação",
         "Proponente/Coordenador da atividade",
         "Coordenação Acadêmica",
         "PRPPG"

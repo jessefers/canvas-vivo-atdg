@@ -6,7 +6,7 @@ status: rascunho
 setor_codigo: S06.01-DCRA
 setor: "Div. Circulação, Referência e Acervo"
 atualizado_em: "2026-09-03T01:42:57Z"
-agente: —
+agente: pop-dcra-00
 versao_diretrizes: "1.0"
 ---
 
@@ -42,7 +42,7 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-biblioteca-acervo |
 | Lacunas abertas | responsavel, formulario, prazo |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dcra-00 |
 
 ## 2. Organograma
 

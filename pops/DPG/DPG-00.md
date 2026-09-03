@@ -211,7 +211,7 @@ flowchart LR
 
 ## 11. Especificação BPMN para o Miro
 
-**Raias:** Div. de Pós-Graduação · Proponente/Coordenador da atividade · Coordenação Acadêmica · CEUA/CEUAP · PRPPG
+**Raias:** Proponente/Coordenador da atividade · Coordenação Acadêmica · CEUA/CEUAP · PRPPG
 
 | Id | Tipo | Elemento | Raia |
 |---|---|---|---|
