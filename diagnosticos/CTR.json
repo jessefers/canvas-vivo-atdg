@@ -1,0 +1,248 @@
+{
+  "id": "diag-ctr-20260903",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.03-CTR",
+  "sigla": "CTR",
+  "data": "2026-09-03T02:02:00Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [],
+  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "ecossistema": {
+    "dominio": "Controladoria, Compliance e Riscos",
+    "subdominios": [
+      "Auditoria TCE-PR",
+      "Compliance Institucional",
+      "Relacionamento com a PRAF",
+      "Fiscalização Externa",
+      "Gestão de Riscos"
+    ],
+    "contextos_vizinhos": [
+      "TCE-PR",
+      "PRAF",
+      "Setor demandante/respondente",
+      "Direção Geral do Campus"
+    ],
+    "sistemas": [
+      "e-Protocolo",
+      "OneDrive ATDG"
+    ],
+    "normas": [],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "CTR-01",
+      "nome": "Auditoria TCE-PR",
+      "tipo": "processo",
+      "descricao": "Auditoria TCE-PR — demandas, prazos, respostas formais.",
+      "tipo_subdominio": "core",
+      "gatilho": "Recebimento de demanda, notificação ou diligência do TCE-PR dirigida ao Campus",
+      "saida": "Resposta formal encaminhada ao TCE-PR dentro do prazo",
+      "atores": [
+        "TCE-PR",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Registro de demandas do TCE-PR",
+        "Resposta formal ao TCE-PR"
+      ],
+      "interfaces": [
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "evidencias": [],
+      "maturidade": 1,
+      "criticidade": 0.9,
+      "frequencia": 0.35,
+      "risco_conformidade": 0.9,
+      "cobertura": 0.18,
+      "prioridade": 0.68,
+      "lacunas": [
+        "responsavel",
+        "kpi",
+        "formulario",
+        "prazo",
+        "normativa"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-ctr-01",
+      "justificativa": "Processo de maior risco de conformidade do subdomínio (auditoria de órgão de controle externo); sem entradas do Canvas, playbook construído por inferência (minor, rascunho)."
+    },
+    {
+      "codigo_sugerido": "CTR-04",
+      "nome": "Fiscalização Externa",
+      "tipo": "processo",
+      "descricao": "Fiscalização Externa — visitas, diligências, relatórios.",
+      "tipo_subdominio": "core",
+      "gatilho": "Comunicação de visita, inspeção ou diligência de fiscalização externa ao Campus",
+      "saida": "Fiscalização atendida e recomendações monitoradas",
+      "atores": [
+        "TCE-PR",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Plano de atendimento às recomendações de fiscalização",
+        "Registro de fiscalizações externas"
+      ],
+      "interfaces": [
+        "Setor respondente"
+      ],
+      "evidencias": [],
+      "maturidade": 0,
+      "criticidade": 0.85,
+      "frequencia": 0.3,
+      "risco_conformidade": 0.85,
+      "cobertura": 0.15,
+      "prioridade": 0.67,
+      "lacunas": [
+        "responsavel",
+        "kpi",
+        "formulario",
+        "prazo",
+        "normativa"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-ctr-04",
+      "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); interage com CTR-01 (recomendações podem repetir achados de auditoria)."
+    },
+    {
+      "codigo_sugerido": "CTR-02",
+      "nome": "Compliance Institucional",
+      "tipo": "processo",
+      "descricao": "Compliance Institucional — riscos, planos de mitigação, monitoramento.",
+      "tipo_subdominio": "core",
+      "gatilho": "Identificação de risco de conformidade ou de não conformidade institucional",
+      "saida": "Plano de mitigação aprovado e matriz de riscos atualizada",
+      "atores": [
+        "Setor demandante",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus"
+      ],
+      "sistemas": [
+        "OneDrive ATDG",
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Matriz de riscos institucionais",
+        "Plano de mitigação de risco"
+      ],
+      "interfaces": [
+        "Direção Geral do Campus"
+      ],
+      "evidencias": [],
+      "maturidade": 0,
+      "criticidade": 0.75,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.7,
+      "cobertura": 0.15,
+      "prioridade": 0.66,
+      "lacunas": [
+        "responsavel",
+        "kpi",
+        "formulario",
+        "prazo",
+        "normativa"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-ctr-02",
+      "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); interage com CTR-01, CTR-04 e CTR-05."
+    },
+    {
+      "codigo_sugerido": "CTR-03",
+      "nome": "Relacionamento com a PRAF",
+      "tipo": "processo",
+      "descricao": "Relacionamento com a PRAF — fluxos financeiros, conferências.",
+      "tipo_subdominio": "core",
+      "gatilho": "Necessidade de conferência ou alinhamento de fluxo financeiro entre o Campus e a PRAF",
+      "saida": "Conferência financeira concluída e pendências regularizadas",
+      "atores": [
+        "PRAF",
+        "Assessoria Técnica da Direção Geral (ATDG)"
+      ],
+      "sistemas": [
+        "A definir",
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Planilha de conciliação financeira",
+        "Registro de conferências financeiras com a PRAF"
+      ],
+      "interfaces": [
+        "PRAF"
+      ],
+      "evidencias": [],
+      "maturidade": 0,
+      "criticidade": 0.65,
+      "frequencia": 0.45,
+      "risco_conformidade": 0.65,
+      "cobertura": 0.15,
+      "prioridade": 0.6,
+      "lacunas": [
+        "responsavel",
+        "kpi",
+        "formulario",
+        "prazo",
+        "normativa"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-ctr-03",
+      "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); sistema financeiro da PRAF ainda não identificado."
+    },
+    {
+      "codigo_sugerido": "CTR-05",
+      "nome": "Gestão de Riscos",
+      "tipo": "processo",
+      "descricao": "Gestão de Riscos — mapeamento, probabilidade, impacto.",
+      "tipo_subdominio": "core",
+      "gatilho": "Definição do ciclo periódico de gestão de riscos institucionais",
+      "saida": "Matriz de riscos atualizada e relatório do ciclo consolidado",
+      "atores": [
+        "Setor demandante",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus"
+      ],
+      "sistemas": [
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Matriz de riscos institucionais (ciclo de mapeamento)",
+        "Relatório de gestão de riscos do ciclo"
+      ],
+      "interfaces": [
+        "Direção Geral do Campus"
+      ],
+      "evidencias": [],
+      "maturidade": 0,
+      "criticidade": 0.7,
+      "frequencia": 0.3,
+      "risco_conformidade": 0.6,
+      "cobertura": 0.15,
+      "prioridade": 0.57,
+      "lacunas": [
+        "responsavel",
+        "kpi",
+        "formulario",
+        "prazo",
+        "normativa"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-ctr-05",
+      "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); alimenta os planos de mitigação de CTR-02."
+    }
+  ],
+  "lacunas_setor": [
+    "sem entradas no Canvas"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "Diagnóstico do lote CTR (5 processos), sem entradas do Canvas Vivo para este subdomínio. Escopos derivados do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos. Playbooks elaborados por inferência (tipo_mudanca minor, status permanece rascunho), com responsável do processo, prazos, formulários, KPIs e normativa específica marcados como lacunas pendentes de validação com a ATDG."
+}

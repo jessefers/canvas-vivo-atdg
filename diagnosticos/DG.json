@@ -1,0 +1,139 @@
+{
+  "id": "diag-dg-20260903",
+  "setor": "Direção Geral de Campus",
+  "setor_codigo": "S01-DG",
+  "sigla": "DG",
+  "data": "2026-09-03T02:02:00Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-direcao-geral",
+    "1780963200023",
+    "1780963200024",
+    "1780963200028",
+    "1780963200029"
+  ],
+  "hash_fontes": "b9b63cf1a01f0f71abea90f7cb3ce8724699237a011a0230346bb0b05e2f7ed1",
+  "ecossistema": {
+    "dominio": "Governança e Direção do Campus",
+    "subdominios": [
+      "Referência normativa institucional (Estatuto e Instruções de Serviço do GRE)",
+      "Aplicação da norma a casos concretos"
+    ],
+    "contextos_vizinhos": [
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Gabinete da Reitoria (GRE)",
+      "Setores do Campus"
+    ],
+    "sistemas": [
+      "e-Protocolo",
+      "OneDrive ATDG"
+    ],
+    "normas": [
+      "Resolução nº 017/1999-COU (Estatuto da Unioeste)",
+      "Resolução nº 194/2024-COU (altera a Resolução nº 017/1999-COU)",
+      "Instruções de Serviço do Gabinete da Reitoria (GRE)"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DG-01",
+      "nome": "Aplicação do Estatuto e das Instruções de Serviço do GRE",
+      "tipo": "processo",
+      "descricao": "Aplica, caso a caso, o Estatuto ou Instrução de Serviço do GRE a situações concretas do Campus, mediante parecer técnico da ATDG e decisão da Direção Geral.",
+      "tipo_subdominio": "core",
+      "gatilho": "Situação concreta do Campus que exige aplicação ou interpretação do Estatuto ou de Instrução de Serviço do GRE",
+      "saida": "Despacho/portaria de aplicação da norma e precedente registrado",
+      "atores": [
+        "Setor demandante",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Parecer técnico de enquadramento normativo",
+        "Despacho/portaria de aplicação da norma"
+      ],
+      "interfaces": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus"
+      ],
+      "evidencias": [
+        "pb-direcao-geral",
+        "1780963200023",
+        "1780963200024",
+        "1780963200028",
+        "1780963200029"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.7,
+      "frequencia": 0.35,
+      "risco_conformidade": 0.6,
+      "cobertura": 0.65,
+      "prioridade": 0.6,
+      "lacunas": [
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-dg-01",
+      "justificativa": "Processo codificado no manual institucional da ATDG; POP completo elaborado (v1.0.0, em_validacao) a partir do mesmo acervo normativo de DG-00, com fluxo de parecer técnico e decisão da Direção Geral."
+    },
+    {
+      "codigo_sugerido": "DG-00",
+      "nome": "Visão geral — Direção Geral de Campus",
+      "tipo": "processo",
+      "descricao": "Mantém e disponibiliza o acervo normativo institucional (Estatuto e Instruções de Serviço do GRE) e responde a consultas de setores sobre sua aplicação, sob validação da Direção Geral.",
+      "tipo_subdominio": "core",
+      "gatilho": "Norma institucional nova, revisada ou consultada identificada pela Direção Geral, pela ATDG ou por setor do Campus",
+      "saida": "Acervo normativo consolidado e resposta formal à consulta",
+      "atores": [
+        "Setor demandante",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Acervo normativo da ATDG",
+        "Nota técnica/orientação normativa"
+      ],
+      "interfaces": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus"
+      ],
+      "evidencias": [
+        "pb-direcao-geral",
+        "1780963200023",
+        "1780963200024",
+        "1780963200028",
+        "1780963200029"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.65,
+      "frequencia": 0.4,
+      "risco_conformidade": 0.5,
+      "cobertura": 0.7,
+      "prioridade": 0.55,
+      "lacunas": [
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-dg-00",
+      "justificativa": "Processo de referência normativa já elaborado em POP completo (playbook v1.0.0, em_validacao), com passos, responsáveis, decisão e mapa de contexto definidos a partir das entradas do Canvas (Estatuto Res. 017/99 e 194/2024-COU; Instruções de Serviço GRE)."
+    }
+  ],
+  "lacunas_setor": [
+    "Formulário/modelo padronizado de registro de consultas normativas não formalizado",
+    "Prazos de resposta a consultas e de decisão normativa não normatizados"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "Diagnóstico do lote DG (2 processos) elaborado a partir de 5 entradas do Canvas (playbook e normas — Estatuto Res. 017/99 e 194/2024-COU; Instruções de Serviço GRE). Os 2 processos foram elaborados em POP completo (playbook DDD híbrido, v1.0.0, em_validacao) no lote B."
+}

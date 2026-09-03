@@ -1,0 +1,288 @@
+{
+  "id": "diag-map-20260903",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.06-MAP",
+  "sigla": "MAP",
+  "data": "2026-09-03T02:02:00Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-atdg",
+    "1780963200014",
+    "1780963200015",
+    "1780963200016",
+    "1780963200017",
+    "1780963200031",
+    "1780963200034",
+    "1780963200035"
+  ],
+  "hash_fontes": "6c982fb325ddd4b7b97aceb1dbec7478108f12d6f92890ed31787a8febc505a2",
+  "ecossistema": {
+    "dominio": "Assessoria Técnica e Gestão por Processos",
+    "subdominios": [
+      "Levantamento de setores, cargos e funções",
+      "Aplicação de checklist (Microsoft Forms)",
+      "Consolidação e padronização de respostas",
+      "Elaboração de POP/IT/Manual/Fluxo"
+    ],
+    "contextos_vizinhos": [
+      "Direção Geral do Campus",
+      "Setores, Centros e Colegiados do Campus (setor respondente)"
+    ],
+    "sistemas": [
+      "Microsoft Forms",
+      "OneDrive ATDG"
+    ],
+    "normas": [
+      "Plano Diretor Unioeste 2017-2026",
+      "Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "MAP-04",
+      "nome": "Elaboração de POP, Instrução de Trabalho, Manual e Fluxos",
+      "tipo": "processo",
+      "descricao": "Elabora POP, Instrução de Trabalho e fluxograma de cada processo mapeado, valida com o setor respondente e consolida no Manual de Gestão de Processos.",
+      "tipo_subdominio": "core",
+      "gatilho": "Planilha consolidada e padronizada de atividades por função disponível (MAP-03)",
+      "saida": "POP/IT/Fluxo publicados e Manual de Gestão de Processos atualizado",
+      "atores": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "sistemas": [
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Procedimento Operacional Padrão (POP)",
+        "Manual de Gestão de Processos do Campus"
+      ],
+      "interfaces": [
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "evidencias": [
+        "pb-atdg",
+        "1780963200014",
+        "1780963200015",
+        "1780963200016",
+        "1780963200017",
+        "1780963200031",
+        "1780963200034",
+        "1780963200035"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.65,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.35,
+      "cobertura": 0.65,
+      "prioridade": 0.57,
+      "lacunas": [
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-map-04",
+      "justificativa": "Etapa final do projeto de mapeamento, evidenciada pelo documento de projeto do Manual de Gestão de Processos; POP completo elaborado (v1.0.0, em_validacao)."
+    },
+    {
+      "codigo_sugerido": "MAP-03",
+      "nome": "Consolidação e padronização das respostas do mapeamento",
+      "tipo": "processo",
+      "descricao": "Importa, normaliza, agrupa e padroniza as respostas do checklist em planilha consolidada, validada pelo setor respondente.",
+      "tipo_subdominio": "core",
+      "gatilho": "Base de respostas do checklist exportada (MAP-02) para consolidação",
+      "saida": "Planilha consolidada e padronizada de atividades por função",
+      "atores": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente"
+      ],
+      "sistemas": [
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Planilha consolidada de atividades por função",
+        "Controle de versões da consolidação"
+      ],
+      "interfaces": [
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "evidencias": [
+        "pb-atdg",
+        "1780963200014",
+        "1780963200015",
+        "1780963200016",
+        "1780963200017",
+        "1780963200031",
+        "1780963200034",
+        "1780963200035"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.6,
+      "frequencia": 0.4,
+      "risco_conformidade": 0.45,
+      "cobertura": 0.6,
+      "prioridade": 0.55,
+      "lacunas": [
+        "formulario",
+        "prazo",
+        "versao_documento"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-map-03",
+      "justificativa": "Entradas mostram múltiplas versões e cópias de teste de planilhas de consolidação, indicando controle de versão ainda informal; POP completo elaborado (v1.0.0, em_validacao)."
+    },
+    {
+      "codigo_sugerido": "MAP-02",
+      "nome": "Aplicação de checklist/questionário por função (Microsoft Forms)",
+      "tipo": "processo",
+      "descricao": "Elabora, envia, monitora e encerra a coleta do checklist de atividades por função via Microsoft Forms.",
+      "tipo_subdominio": "core",
+      "gatilho": "Relação de setores, cargos e funções disponibilizada (MAP-01) para aplicação do checklist",
+      "saida": "Respostas do checklist coletadas e prontas para consolidação",
+      "atores": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente"
+      ],
+      "sistemas": [
+        "Microsoft Forms"
+      ],
+      "artefatos": [
+        "Formulário de checklist por função",
+        "Painel de respostas do checklist"
+      ],
+      "interfaces": [
+        "Setor respondente"
+      ],
+      "evidencias": [
+        "pb-atdg",
+        "1780963200014",
+        "1780963200015",
+        "1780963200016",
+        "1780963200017",
+        "1780963200031",
+        "1780963200034",
+        "1780963200035"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.55,
+      "frequencia": 0.4,
+      "risco_conformidade": 0.55,
+      "cobertura": 0.7,
+      "prioridade": 0.53,
+      "lacunas": [
+        "prazo",
+        "dados_pessoais_lgpd"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-map-02",
+      "justificativa": "Evidenciado por múltiplas planilhas de checklist (versões e cópias de teste) nas entradas; POP completo elaborado (v1.0.0, em_validacao), com atenção à LGPD."
+    },
+    {
+      "codigo_sugerido": "MAP-00",
+      "nome": "Visão geral — ATDG — Mapeamento de Processos",
+      "tipo": "processo",
+      "descricao": "Conduz o ciclo de Mapeamento de Processos do Campus: define escopo, levanta setores/funções, aplica checklist, consolida respostas e elabora POP/IT/Manual/Fluxo de cada processo.",
+      "tipo_subdominio": "core",
+      "gatilho": "Definição, pela Direção Geral ou pela ATDG, do início ou de novo ciclo do projeto de Mapeamento de Processos",
+      "saida": "Manual de Gestão de Processos do Campus consolidado",
+      "atores": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "sistemas": [
+        "Microsoft Forms",
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Checklist de atividades por função",
+        "Manual de Gestão de Processos"
+      ],
+      "interfaces": [
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "evidencias": [
+        "pb-atdg",
+        "1780963200014",
+        "1780963200015",
+        "1780963200016",
+        "1780963200017",
+        "1780963200031",
+        "1780963200034",
+        "1780963200035"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.65,
+      "frequencia": 0.35,
+      "risco_conformidade": 0.4,
+      "cobertura": 0.7,
+      "prioridade": 0.52,
+      "lacunas": [
+        "prazo",
+        "dados_pessoais_lgpd"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-map-00",
+      "justificativa": "Projeto institucional já em curso (documento de projeto, checklists e planilhas de consolidação identificados nas entradas); POP completo elaborado (v1.0.0, em_validacao) cobrindo o ciclo geral."
+    },
+    {
+      "codigo_sugerido": "MAP-01",
+      "nome": "Levantamento de setores, cargos, funções e servidores",
+      "tipo": "processo",
+      "descricao": "Levanta a estrutura de setores, centros, colegiados, cargos, funções e quantitativo de servidores, e mantém a lista de contatos por função.",
+      "tipo_subdominio": "core",
+      "gatilho": "Início de novo ciclo de mapeamento de processos definido pela ATDG/Direção Geral",
+      "saida": "Relação consolidada de setores, cargos, funções e servidores disponibilizada",
+      "atores": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente"
+      ],
+      "sistemas": [
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Relação de setores, cargos, funções e servidores",
+        "Lista de contatos institucionais por função"
+      ],
+      "interfaces": [
+        "Setor respondente"
+      ],
+      "evidencias": [
+        "pb-atdg",
+        "1780963200014",
+        "1780963200015",
+        "1780963200016",
+        "1780963200017",
+        "1780963200031",
+        "1780963200034",
+        "1780963200035"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.55,
+      "frequencia": 0.3,
+      "risco_conformidade": 0.35,
+      "cobertura": 0.65,
+      "prioridade": 0.47,
+      "lacunas": [
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-map-01",
+      "justificativa": "Etapa evidenciada por lista de contatos por função e documento de mapeamento já existentes; POP completo elaborado (v1.0.0, em_validacao)."
+    }
+  ],
+  "lacunas_setor": [
+    "Prazos-padrão de cada etapa do ciclo de mapeamento não normatizados",
+    "Tratamento formal de dados pessoais dos respondentes (LGPD) não documentado em política específica",
+    "Controle de versionamento de planilhas e documentos ainda informal (cópias de teste em circulação)"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "Diagnóstico do lote MAP (5 processos) elaborado a partir de 8 entradas do Canvas (playbook, contatos por função, checklists, documento de mapeamento e projeto do Manual de Gestão de Processos). Os 5 processos foram elaborados em POP completo (playbook DDD híbrido, v1.0.0, em_validacao) no lote B. Nomes e e-mails de servidores presentes nas entradas não foram reproduzidos, por força da LGPD."
+}

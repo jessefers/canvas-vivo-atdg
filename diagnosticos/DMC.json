@@ -6,41 +6,31 @@
   "data": "2026-09-03T01:59:01Z",
   "modelo": "claude-sonnet (subagente construtor)",
   "versao_diretrizes": "1.0",
-  "fontes_entradas": ["1780963200030", "pb-manutencao"],
+  "fontes_entradas": [
+    "1780963200030",
+    "pb-manutencao"
+  ],
   "hash_fontes": "ea91fd5f69a3bc6384f00637a1c77429835df7bc810437b8649d60bec44688db",
   "ecossistema": {
     "dominio": "Infraestrutura e Serviços",
-    "subdominios": ["Planejamento e dimensionamento de limpeza/conservação", "Execução e supervisão da rotina de limpeza"],
-    "contextos_vizinhos": ["Equipe de limpeza (própria/terceirizada)", "Almoxarifado"],
-    "sistemas": ["planilha"],
-    "normas": ["Contrato de prestação de serviços de limpeza/conservação", "normas de saúde e segurança"],
+    "subdominios": [
+      "Planejamento e dimensionamento de limpeza/conservação",
+      "Execução e supervisão da rotina de limpeza"
+    ],
+    "contextos_vizinhos": [
+      "Equipe de limpeza (própria/terceirizada)",
+      "Almoxarifado"
+    ],
+    "sistemas": [
+      "planilha"
+    ],
+    "normas": [
+      "Contrato de prestação de serviços de limpeza/conservação",
+      "normas de saúde e segurança"
+    ],
     "benchmarks": []
   },
   "processos": [
-    {
-      "codigo_sugerido": "DMC-00",
-      "nome": "Playbook — Manutenção e Conservação (visão geral)",
-      "tipo": "processo",
-      "descricao": "Guia de planejamento, execução e supervisão da limpeza e conservação por ambiente, com equipe própria ou terceirizada.",
-      "tipo_subdominio": "suporte",
-      "gatilho": "Necessidade de planejar ou revisar a limpeza e conservação de um ambiente do campus",
-      "saida": "Escala de limpeza executada e supervisionada, com dimensionamento revisado periodicamente",
-      "atores": ["Chefe da Divisão de Manutenção e Conservação", "Equipe de limpeza (própria/terceirizada)"],
-      "sistemas": ["planilha"],
-      "artefatos": ["Cadastro de ambientes", "Escala/rotina de limpeza", "Registro de ocorrências e não conformidades"],
-      "interfaces": ["Div. de Manutenção e Conservação ↔ Equipe de limpeza (própria/terceirizada)"],
-      "evidencias": ["pb-manutencao"],
-      "maturidade": 1,
-      "criticidade": 0.50,
-      "frequencia": 0.60,
-      "risco_conformidade": 0.40,
-      "cobertura": 0.35,
-      "prioridade": 0.54,
-      "lacunas": ["responsavel", "gatilho", "entrada", "saida", "kpi", "contingencia", "formulario", "prazo"],
-      "recomendacao": "coletar_mais",
-      "pop_existente": "DMC-00",
-      "justificativa": "Processo de suporte com boa descrição textual, mas sem evidência de execução/supervisão real (apenas planejamento); recomenda-se coletar evidências de execução antes de considerar o POP maduro, ainda que o esqueleto já tenha sido ampliado."
-    },
     {
       "codigo_sugerido": "DMC-01",
       "nome": "Controle Manual DSMC — Tempos de Limpeza",
@@ -49,21 +39,88 @@
       "tipo_subdominio": "suporte",
       "gatilho": "Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza",
       "saida": "Planilha de controle validada, atualizada e disponível para consulta",
-      "atores": ["Chefe da Divisão de Manutenção e Conservação"],
-      "sistemas": ["planilha"],
-      "artefatos": ["Controle Manual DSMC (planilha)", "Relação de materiais por atividade"],
-      "interfaces": ["Div. de Manutenção e Conservação ↔ Almoxarifado", "Div. de Manutenção e Conservação ↔ Equipe de limpeza (própria/terceirizada)"],
-      "evidencias": ["1780963200030"],
+      "atores": [
+        "Chefe da Divisão de Manutenção e Conservação"
+      ],
+      "sistemas": [
+        "planilha"
+      ],
+      "artefatos": [
+        "Controle Manual DSMC (planilha)",
+        "Relação de materiais por atividade"
+      ],
+      "interfaces": [
+        "Div. de Manutenção e Conservação ↔ Almoxarifado",
+        "Div. de Manutenção e Conservação ↔ Equipe de limpeza (própria/terceirizada)"
+      ],
+      "evidencias": [
+        "1780963200030"
+      ],
       "maturidade": 2,
       "criticidade": 0.55,
       "frequencia": 0.65,
       "risco_conformidade": 0.45,
-      "cobertura": 0.50,
+      "cobertura": 0.5,
       "prioridade": 0.56,
-      "lacunas": ["responsavel", "gatilho", "entrada", "saida", "kpi", "contingencia", "formulario", "prazo"],
+      "lacunas": [
+        "responsavel",
+        "gatilho",
+        "entrada",
+        "saida",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo"
+      ],
       "recomendacao": "coletar_mais",
       "pop_existente": "DMC-01",
       "justificativa": "Ferramenta concreta (planilha Excel) já em uso, com estrutura de dados definida; maturidade operacional maior que a média do setor, mas ainda sem validação formal, responsável ou KPIs."
+    },
+    {
+      "codigo_sugerido": "DMC-00",
+      "nome": "Playbook — Manutenção e Conservação (visão geral)",
+      "tipo": "processo",
+      "descricao": "Guia de planejamento, execução e supervisão da limpeza e conservação por ambiente, com equipe própria ou terceirizada.",
+      "tipo_subdominio": "suporte",
+      "gatilho": "Necessidade de planejar ou revisar a limpeza e conservação de um ambiente do campus",
+      "saida": "Escala de limpeza executada e supervisionada, com dimensionamento revisado periodicamente",
+      "atores": [
+        "Chefe da Divisão de Manutenção e Conservação",
+        "Equipe de limpeza (própria/terceirizada)"
+      ],
+      "sistemas": [
+        "planilha"
+      ],
+      "artefatos": [
+        "Cadastro de ambientes",
+        "Escala/rotina de limpeza",
+        "Registro de ocorrências e não conformidades"
+      ],
+      "interfaces": [
+        "Div. de Manutenção e Conservação ↔ Equipe de limpeza (própria/terceirizada)"
+      ],
+      "evidencias": [
+        "pb-manutencao"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.5,
+      "frequencia": 0.6,
+      "risco_conformidade": 0.4,
+      "cobertura": 0.35,
+      "prioridade": 0.54,
+      "lacunas": [
+        "responsavel",
+        "gatilho",
+        "entrada",
+        "saida",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "DMC-00",
+      "justificativa": "Processo de suporte com boa descrição textual, mas sem evidência de execução/supervisão real (apenas planejamento); recomenda-se coletar evidências de execução antes de considerar o POP maduro, ainda que o esqueleto já tenha sido ampliado."
     }
   ],
   "lacunas_setor": [
