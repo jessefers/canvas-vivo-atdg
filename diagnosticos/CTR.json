@@ -57,12 +57,12 @@
         "Direção Geral do Campus"
       ],
       "evidencias": [],
-      "maturidade": 1,
+      "maturidade": 0,
       "criticidade": 0.9,
       "frequencia": 0.35,
       "risco_conformidade": 0.9,
       "cobertura": 0.18,
-      "prioridade": 0.68,
+      "prioridade": 0.71,
       "lacunas": [
         "responsavel",
         "kpi",
@@ -70,7 +70,7 @@
         "prazo",
         "normativa"
       ],
-      "recomendacao": "coletar_mais",
+      "recomendacao": "gerar_pop",
       "pop_existente": "pop-ctr-01",
       "justificativa": "Processo de maior risco de conformidade do subdomínio (auditoria de órgão de controle externo); sem entradas do Canvas, playbook construído por inferência (minor, rascunho)."
     },

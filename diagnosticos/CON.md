@@ -25,10 +25,10 @@ versao_diretrizes: "1.0"
 
 | Prior. | Código | Processo | Tipo | Mat. | Crit. | Freq. | Risco | Cob. | Recomendação | POP |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 0.69 | CON-04 | Prestação de Contas de Convênio | processo | 1 | 0.9 | 0.4 | 0.9 | 0.15 | coletar_mais | pop-con-04 |
+| 0.72 | CON-04 | Prestação de Contas de Convênio | processo | 0 | 0.9 | 0.4 | 0.9 | 0.15 | gerar_pop | pop-con-04 |
+| 0.67 | CON-01 | Instrução de Convênio | processo | 0 | 0.8 | 0.5 | 0.7 | 0.18 | coletar_mais | pop-con-01 |
+| 0.67 | CON-03 | Execução de Convênio | processo | 0 | 0.75 | 0.55 | 0.7 | 0.18 | coletar_mais | pop-con-03 |
 | 0.66 | CON-02 | Celebração de Convênio | processo | 0 | 0.8 | 0.45 | 0.7 | 0.15 | coletar_mais | pop-con-02 |
-| 0.64 | CON-01 | Instrução de Convênio | processo | 1 | 0.8 | 0.5 | 0.7 | 0.18 | coletar_mais | pop-con-01 |
-| 0.64 | CON-03 | Execução de Convênio | processo | 1 | 0.75 | 0.55 | 0.7 | 0.18 | coletar_mais | pop-con-03 |
 | 0.54 | CON-05 | Encerramento de Convênio | processo | 0 | 0.6 | 0.3 | 0.6 | 0.15 | coletar_mais | pop-con-05 |
 
 ### CON-04 — Prestação de Contas de Convênio
@@ -46,22 +46,6 @@ Prestação de Contas de Convênio — financeira e técnica, TCE-PR.
 | Evidências | — |
 | Lacunas | responsavel, kpi, formulario, prazo, normativa |
 | Justificativa | Processo de maior risco de conformidade do subdomínio (TCE-PR); sem entradas do Canvas, playbook construído por inferência (minor, rascunho), prioridade alta para validação com a ATDG. |
-
-### CON-02 — Celebração de Convênio
-
-Celebração de Convênio — assinaturas, publicação e registro.
-
-| Campo | Valor |
-|---|---|
-| Gatilho | Aprovação da minuta de convênio pela SETI recebida |
-| Saída | Convênio assinado, publicado e registrado |
-| Atores | Assessoria Técnica da Direção Geral (ATDG), Direção Geral do Campus, SETI, Setor demandante |
-| Sistemas | e-Protocolo, OneDrive ATDG |
-| Artefatos | Convênio (instrumento assinado), Registro de convênios |
-| Interfaces | Direção Geral do Campus, SETI, Setor demandante |
-| Evidências | — |
-| Lacunas | responsavel, kpi, formulario, prazo, normativa |
-| Justificativa | Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho). |
 
 ### CON-01 — Instrução de Convênio
 
@@ -91,6 +75,22 @@ Execução de Convênio — acompanhamento e relatórios parciais.
 | Sistemas | e-Protocolo, OneDrive ATDG |
 | Artefatos | Relatório parcial de execução, Registro de acompanhamento do convênio |
 | Interfaces | SETI |
+| Evidências | — |
+| Lacunas | responsavel, kpi, formulario, prazo, normativa |
+| Justificativa | Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho). |
+
+### CON-02 — Celebração de Convênio
+
+Celebração de Convênio — assinaturas, publicação e registro.
+
+| Campo | Valor |
+|---|---|
+| Gatilho | Aprovação da minuta de convênio pela SETI recebida |
+| Saída | Convênio assinado, publicado e registrado |
+| Atores | Assessoria Técnica da Direção Geral (ATDG), Direção Geral do Campus, SETI, Setor demandante |
+| Sistemas | e-Protocolo, OneDrive ATDG |
+| Artefatos | Convênio (instrumento assinado), Registro de convênios |
+| Interfaces | Direção Geral do Campus, SETI, Setor demandante |
 | Evidências | — |
 | Lacunas | responsavel, kpi, formulario, prazo, normativa |
 | Justificativa | Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho). |

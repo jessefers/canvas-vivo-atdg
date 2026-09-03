@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S03.06-DLIC
 setor: "Div. de Licitação"
 atualizado_em: "2026-09-03T01:48:59Z"
-agente: —
+agente: pop-dlic-03
 versao_diretrizes: "1.0"
 ---
 
@@ -45,7 +45,7 @@ versao_diretrizes: "1.0"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | 1780963200056 |
 | Lacunas abertas | prazo |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dlic-03 |
 
 ## 2. Organograma
 

@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S03-SADM
 setor: "Sec. Administrativa — Geral"
 atualizado_em: "2026-09-03T01:56:40Z"
-agente: —
+agente: pop-sadm-00
 versao_diretrizes: "1.8"
 ---
 
@@ -44,7 +44,7 @@ versao_diretrizes: "1.8"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-sec-administrativa |
 | Lacunas abertas | prazo |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-sadm-00 |
 
 ## 2. Organograma
 

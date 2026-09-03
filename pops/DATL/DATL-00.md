@@ -6,7 +6,7 @@ status: rascunho
 setor_codigo: S03.08-DATL
 setor: "Div. de Apoio Técnico aos Laboratórios"
 atualizado_em: "2026-09-03T01:58:25Z"
-agente: —
+agente: pop-datl-00
 versao_diretrizes: "1.8"
 ---
 
@@ -42,7 +42,7 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-apoio-laboratorios |
 | Lacunas abertas | responsavel, gatilho, entrada, saida, kpi, contingencia, formulario, prazo, normativa |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-datl-00 |
 
 ## 2. Organograma
 

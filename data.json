@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T02:01:59Z",
+  "sincronizado_em": "2026-09-03T02:05:27Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -2811,9 +2811,9 @@
       "id": "diretriz-07",
       "arquivo": "diretrizes/07-licoes-aprendidas.md",
       "titulo": "Lições aprendidas (log append-only)",
-      "versao": "1.8",
+      "versao": "1.10",
       "atualizado_em": "2026-09-03",
-      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.8\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |\n| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |\n| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |\n| L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |\n| L-014 | 2026-09-03 | lote D1 | Documentos de outras instituições (ex.: subprocesso financeiro de hospital) foram anexados ao acervo como exemplo metodológico, sem descrever processo real da Unioeste. | Registrar documentos de outras instituições apenas em ecossistema.benchmarks; nunca como evidência de processo próprio nem como normativa institucional. | proposta |\n| L-015 | 2026-09-03 | lote D1 | Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte). | Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
+      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.10\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |\n| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |\n| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |\n| L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |\n| L-014 | 2026-09-03 | lote D1 | Documentos de outras instituições (ex.: subprocesso financeiro de hospital) foram anexados ao acervo como exemplo metodológico, sem descrever processo real da Unioeste. | Registrar documentos de outras instituições apenas em ecossistema.benchmarks; nunca como evidência de processo próprio nem como normativa institucional. | proposta |\n| L-015 | 2026-09-03 | lote D1 | Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte). | Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado. | proposta |\n| L-016 | 2026-09-03 | lote C | Planilha real de controle (ex.: tempos de limpeza da DMC) foi registrada apenas como texto resumido. | Formalizar planilhas de controle já em uso como artefato do tipo documento, com campos-chave, mesmo sem sistema informatizado. | proposta |\n| L-017 | 2026-09-03 | lote C | Setores com apenas o playbook-esqueleto genérico (DST, DINF, DPAT, DATL, DSA) não têm evidência operacional. | Setor cujas fontes se resumem a um único registro genérico de playbook recebe POP-roteiro de coleta (status rascunho), nunca POP operacional completo. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
     },
     {
       "id": "diretriz-08",
@@ -2965,6 +2965,24 @@
       "origem": "lote D1",
       "licao": "Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte).",
       "regra": "Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado.",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
+    },
+    {
+      "id": "L-016",
+      "data": "2026-09-03",
+      "origem": "lote C",
+      "licao": "Planilha real de controle (ex.: tempos de limpeza da DMC) foi registrada apenas como texto resumido.",
+      "regra": "Formalizar planilhas de controle já em uso como artefato do tipo documento, com campos-chave, mesmo sem sistema informatizado.",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
+    },
+    {
+      "id": "L-017",
+      "data": "2026-09-03",
+      "origem": "lote C",
+      "licao": "Setores com apenas o playbook-esqueleto genérico (DST, DINF, DPAT, DATL, DSA) não têm evidência operacional.",
+      "regra": "Setor cujas fontes se resumem a um único registro genérico de playbook recebe POP-roteiro de coleta (status rascunho), nunca POP operacional completo.",
       "status": "proposta",
       "atualizado_em": "2026-09-03"
     }
@@ -15378,7 +15396,7 @@
         "pb-apoio-laboratorios"
       ],
       "hash_fontes": "bae2aa747382ea8d2884edffc6ce2e2ec3f79d02903a3f4be2f90460de6918bb",
-      "agente": "",
+      "agente": "pop-datl-00",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:58:25Z"
@@ -25004,7 +25022,7 @@
         "pb-informatica"
       ],
       "hash_fontes": "bf9237f7bcefe5770d260988113061b1398300ce26fd98f565f1620bcb21888b",
-      "agente": "",
+      "agente": "pop-dinf-00",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:58:25Z"
@@ -25679,7 +25697,7 @@
         "1780963200056"
       ],
       "hash_fontes": "c2cc11cbeb7dd1e3c620b97a88e9902152685bd44b593002dfbb228aaa14e67c",
-      "agente": "",
+      "agente": "pop-dlic-00",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:41:44Z"
@@ -26248,7 +26266,7 @@
         "1780963200054"
       ],
       "hash_fontes": "30aec0c10ac7d4e6c1c298f27980be0fad62904e2d8bebaa757c1a7c10f07fb4",
-      "agente": "",
+      "agente": "pop-dlic-01",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:44:33Z"
@@ -26926,7 +26944,7 @@
         "1780963200055"
       ],
       "hash_fontes": "10b841b457f628f4766daeb4469c42f9ec5490752118b9bef23b1c21a7a24d32",
-      "agente": "",
+      "agente": "pop-dlic-02",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:46:52Z"
@@ -27631,7 +27649,7 @@
         "1780963200056"
       ],
       "hash_fontes": "9be5453a42e6e6603c7e05086281866e3c6988966eae3823e6d72c138db18bea",
-      "agente": "",
+      "agente": "pop-dlic-03",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:48:59Z"
@@ -28132,7 +28150,7 @@
         "1780963200030"
       ],
       "hash_fontes": "ea91fd5f69a3bc6384f00637a1c77429835df7bc810437b8649d60bec44688db",
-      "agente": "",
+      "agente": "pop-dmc-00",
       "versao_diretrizes": "1.5",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:53:56Z"
@@ -28592,7 +28610,7 @@
         "1780963200030"
       ],
       "hash_fontes": "b82f810fa08c0391b633d7a9474e25d2425a5200bb1a2fbbdad06dedee9e120e",
-      "agente": "",
+      "agente": "pop-dmc-01",
       "versao_diretrizes": "1.5",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:54:59Z"
@@ -28604,7 +28622,7 @@
       "setor": "Div. de Patrimônio e Equipamentos",
       "setor_codigo": "S03.05-DPAT",
       "sigla": "DPAT",
-      "versao": "0.2.0",
+      "versao": "0.2.1",
       "status": "rascunho",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -28620,8 +28638,7 @@
         "responsavel": "A definir",
         "periodicidade": "A definir",
         "normativa": [
-          "A definir (normas de patrimônio",
-          "TCE-PR)"
+          "A definir (normas de patrimônio; TCE-PR)"
         ],
         "subordinacao": "Secretaria Administrativa",
         "produto_atdg": "POP",
@@ -28783,6 +28800,17 @@
             "pb-patrimonio"
           ],
           "motivo": "Estruturação do roteiro de coleta para a Div. de Patrimônio e Equipamentos: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
+        },
+        {
+          "versao": "0.2.1",
+          "data": "2026-09-03",
+          "autor": "agente:curador-diretrizes",
+          "tipo": "patch",
+          "mudancas": [
+            "Campo identificacao.normativa atualizado"
+          ],
+          "fontes": [],
+          "motivo": "Correção da normativa quebrada pelo separador ';' dentro de parênteses no esqueleto (achado do lote C)."
         }
       ],
       "validacao": {
@@ -28815,10 +28843,10 @@
         "pb-patrimonio"
       ],
       "hash_fontes": "4aaf5aa16ed9373c1b9e5ebd545b504823bb5bd22632687ced3264b79196242c",
-      "agente": "",
+      "agente": "pop-dpat-00",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T01:58:25Z"
+      "atualizado_em": "2026-09-03T02:05:26Z"
     },
     {
       "id": "pop-dpg-00",
@@ -32476,7 +32504,7 @@
         "1780963200065"
       ],
       "hash_fontes": "3c25121b8b916bc1c3d9f4b2be145a8fdc8ca263417ee87b3ef8bd800ad3d2fd",
-      "agente": "",
+      "agente": "pop-drh-00",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:51:35Z"
@@ -32956,7 +32984,7 @@
         "1780963200066"
       ],
       "hash_fontes": "8b270cd5b551a3a2a491c0cf27043a9ceff0b9271d94b968e89a2dd81371ca37",
-      "agente": "",
+      "agente": "pop-drh-01",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:45Z"
@@ -33177,7 +33205,7 @@
         "pb-servicos-apoio"
       ],
       "hash_fontes": "60adcc579c257011c97a3f6d3a15eb3ad7ab764dcd9c0068002b81b00342fb20",
-      "agente": "",
+      "agente": "pop-dsa-00",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:58:25Z"
@@ -33410,7 +33438,7 @@
         "pb-seguranca-transportes"
       ],
       "hash_fontes": "dc6392f2f1f05961954427e41f8527f1b3caaa8f1561d82bddd7fd818c4954ac",
-      "agente": "",
+      "agente": "pop-dst-00",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:57:37Z"
@@ -35967,7 +35995,7 @@
         "pb-sec-administrativa"
       ],
       "hash_fontes": "e4b6eb4586a98db600343eaa4352b80394f9fd5bfaa02718185e2711720600e7",
-      "agente": "",
+      "agente": "pop-sadm-00",
       "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:56:40Z"
@@ -39369,6 +39397,55 @@
       },
       "processos": [
         {
+          "codigo_sugerido": "DRH-02",
+          "nome": "Registro e apuração de frequência (ponto eletrônico)",
+          "tipo": "processo",
+          "descricao": "Registro diário do ponto eletrônico, apuração semanal pela chefia imediata e comunicação de falhas/justificativas em até 48h via e-Protocolo, conforme IS 001/2024-DRH/Foz e Instrução 002/2019.",
+          "tipo_subdominio": "core",
+          "gatilho": "Início da jornada de trabalho do servidor",
+          "saida": "Frequência apurada e eventuais falhas justificadas e registradas dentro do prazo",
+          "atores": [
+            "Servidor",
+            "Chefia imediata",
+            "Chefe da Divisão de Recursos Humanos"
+          ],
+          "sistemas": [
+            "ponto eletrônico",
+            "e-Protocolo"
+          ],
+          "artefatos": [
+            "Registro de ponto",
+            "Apuração semanal de frequência",
+            "Justificativa de frequência"
+          ],
+          "interfaces": [
+            "Div. de Recursos Humanos ↔ Chefia imediata",
+            "Div. de Recursos Humanos ↔ Servidor"
+          ],
+          "evidencias": [
+            "1780963200022",
+            "1780963200025",
+            "1780963200026",
+            "pb-rh"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.85,
+          "frequencia": 0.95,
+          "risco_conformidade": 0.85,
+          "cobertura": 0.3,
+          "prioridade": 0.81,
+          "lacunas": [
+            "responsavel",
+            "passos",
+            "sistema",
+            "formulario",
+            "interface_setorial"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "",
+          "justificativa": "Processo evidenciado por três normas (IS 001/2024-DRH/Foz, Instrução 002/2019, Lei nº 6.174/1970) e pelo playbook geral, mas sem POP dedicado; frequência diária/semanal e vedação de prestação de serviço sem registro elevam o risco. Recomenda-se gerar POP específico (DRH-02) a partir das normas já mapeadas."
+        },
+        {
           "codigo_sugerido": "DRH-00",
           "nome": "Playbook — Recursos Humanos (visão geral)",
           "tipo": "processo",
@@ -39468,55 +39545,6 @@
           "recomendacao": "gerar_pop",
           "pop_existente": "DRH-01",
           "justificativa": "Três entradas do Canvas registram versões (v2.0, v3.0) e uma cópia do mesmo manual (lição L-005): risco de uso de versão superada torna prioritário consolidar o POP na versão vigente."
-        },
-        {
-          "codigo_sugerido": "DRH-02",
-          "nome": "Registro e apuração de frequência (ponto eletrônico)",
-          "tipo": "processo",
-          "descricao": "Registro diário do ponto eletrônico, apuração semanal pela chefia imediata e comunicação de falhas/justificativas em até 48h via e-Protocolo, conforme IS 001/2024-DRH/Foz e Instrução 002/2019.",
-          "tipo_subdominio": "core",
-          "gatilho": "Início da jornada de trabalho do servidor",
-          "saida": "Frequência apurada e eventuais falhas justificadas e registradas dentro do prazo",
-          "atores": [
-            "Servidor",
-            "Chefia imediata",
-            "Chefe da Divisão de Recursos Humanos"
-          ],
-          "sistemas": [
-            "ponto eletrônico",
-            "e-Protocolo"
-          ],
-          "artefatos": [
-            "Registro de ponto",
-            "Apuração semanal de frequência",
-            "Justificativa de frequência"
-          ],
-          "interfaces": [
-            "Div. de Recursos Humanos ↔ Chefia imediata",
-            "Div. de Recursos Humanos ↔ Servidor"
-          ],
-          "evidencias": [
-            "1780963200022",
-            "1780963200025",
-            "1780963200026",
-            "pb-rh"
-          ],
-          "maturidade": 1,
-          "criticidade": 0.85,
-          "frequencia": 0.95,
-          "risco_conformidade": 0.85,
-          "cobertura": 0.3,
-          "prioridade": 0.81,
-          "lacunas": [
-            "responsavel",
-            "passos",
-            "sistema",
-            "formulario",
-            "interface_setorial"
-          ],
-          "recomendacao": "gerar_pop",
-          "pop_existente": "",
-          "justificativa": "Processo evidenciado por três normas (IS 001/2024-DRH/Foz, Instrução 002/2019, Lei nº 6.174/1970) e pelo playbook geral, mas sem POP dedicado; frequência diária/semanal e vedação de prestação de serviço sem registro elevam o risco. Recomenda-se gerar POP específico (DRH-02) a partir das normas já mapeadas."
         },
         {
           "codigo_sugerido": "DRH-03",
@@ -39691,6 +39719,51 @@
       },
       "processos": [
         {
+          "codigo_sugerido": "DMC-01",
+          "nome": "Controle Manual DSMC — Tempos de Limpeza",
+          "tipo": "processo",
+          "descricao": "Planilha operacional que parametriza, por ambiente, o tipo de limpeza, o tempo médio, a quantidade de pessoal e os materiais, subsidiando o dimensionamento.",
+          "tipo_subdominio": "suporte",
+          "gatilho": "Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza",
+          "saida": "Planilha de controle validada, atualizada e disponível para consulta",
+          "atores": [
+            "Chefe da Divisão de Manutenção e Conservação"
+          ],
+          "sistemas": [
+            "planilha"
+          ],
+          "artefatos": [
+            "Controle Manual DSMC (planilha)",
+            "Relação de materiais por atividade"
+          ],
+          "interfaces": [
+            "Div. de Manutenção e Conservação ↔ Almoxarifado",
+            "Div. de Manutenção e Conservação ↔ Equipe de limpeza (própria/terceirizada)"
+          ],
+          "evidencias": [
+            "1780963200030"
+          ],
+          "maturidade": 2,
+          "criticidade": 0.55,
+          "frequencia": 0.65,
+          "risco_conformidade": 0.45,
+          "cobertura": 0.5,
+          "prioridade": 0.56,
+          "lacunas": [
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "kpi",
+            "contingencia",
+            "formulario",
+            "prazo"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "DMC-01",
+          "justificativa": "Ferramenta concreta (planilha Excel) já em uso, com estrutura de dados definida; maturidade operacional maior que a média do setor, mas ainda sem validação formal, responsável ou KPIs."
+        },
+        {
           "codigo_sugerido": "DMC-00",
           "nome": "Playbook — Manutenção e Conservação (visão geral)",
           "tipo": "processo",
@@ -39735,51 +39808,6 @@
           "recomendacao": "coletar_mais",
           "pop_existente": "DMC-00",
           "justificativa": "Processo de suporte com boa descrição textual, mas sem evidência de execução/supervisão real (apenas planejamento); recomenda-se coletar evidências de execução antes de considerar o POP maduro, ainda que o esqueleto já tenha sido ampliado."
-        },
-        {
-          "codigo_sugerido": "DMC-01",
-          "nome": "Controle Manual DSMC — Tempos de Limpeza",
-          "tipo": "processo",
-          "descricao": "Planilha operacional que parametriza, por ambiente, o tipo de limpeza, o tempo médio, a quantidade de pessoal e os materiais, subsidiando o dimensionamento.",
-          "tipo_subdominio": "suporte",
-          "gatilho": "Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza",
-          "saida": "Planilha de controle validada, atualizada e disponível para consulta",
-          "atores": [
-            "Chefe da Divisão de Manutenção e Conservação"
-          ],
-          "sistemas": [
-            "planilha"
-          ],
-          "artefatos": [
-            "Controle Manual DSMC (planilha)",
-            "Relação de materiais por atividade"
-          ],
-          "interfaces": [
-            "Div. de Manutenção e Conservação ↔ Almoxarifado",
-            "Div. de Manutenção e Conservação ↔ Equipe de limpeza (própria/terceirizada)"
-          ],
-          "evidencias": [
-            "1780963200030"
-          ],
-          "maturidade": 2,
-          "criticidade": 0.55,
-          "frequencia": 0.65,
-          "risco_conformidade": 0.45,
-          "cobertura": 0.5,
-          "prioridade": 0.56,
-          "lacunas": [
-            "responsavel",
-            "gatilho",
-            "entrada",
-            "saida",
-            "kpi",
-            "contingencia",
-            "formulario",
-            "prazo"
-          ],
-          "recomendacao": "coletar_mais",
-          "pop_existente": "DMC-01",
-          "justificativa": "Ferramenta concreta (planilha Excel) já em uso, com estrutura de dados definida; maturidade operacional maior que a média do setor, mas ainda sem validação formal, responsável ou KPIs."
         }
       ],
       "lacunas_setor": [
@@ -40123,6 +40151,1135 @@
         }
       ],
       "observacoes": "Setor ainda não mapeado — roteiro de coleta. Identificado defeito de formatação herdado do esqueleto original em identificacao.normativa (ver lição proposta); não corrigido neste lote por estar fora do escopo de campos autorizados para patch (campos.normativa não faz parte da lista de campos editáveis por este protocolo)."
+    },
+    {
+      "id": "diag-cap-20260903",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
+      "setor_codigo": "S02.02-CAP",
+      "sigla": "CAP",
+      "data": "2026-09-03T02:02:00Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [],
+      "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ecossistema": {
+        "dominio": "Convênios, Parcerias e Captação",
+        "subdominios": [
+          "Captação de Recursos Externos (editais)",
+          "Parcerias Institucionais"
+        ],
+        "contextos_vizinhos": [
+          "Setor demandante",
+          "Fundação Araucária",
+          "SETI",
+          "Direção Geral do Campus"
+        ],
+        "sistemas": [
+          "e-Protocolo",
+          "OneDrive ATDG"
+        ],
+        "normas": [],
+        "benchmarks": []
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "CAP-01",
+          "nome": "Captação de Recursos Externos",
+          "tipo": "processo",
+          "descricao": "Captação de Recursos Externos — editais, Fundação Araucária, SETI.",
+          "tipo_subdominio": "core",
+          "gatilho": "Publicação de edital de fomento de interesse do Campus",
+          "saida": "Proposta submetida ao edital e resultado registrado",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Fundação Araucária",
+            "SETI"
+          ],
+          "sistemas": [
+            "e-Protocolo",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Checklist de exigências do edital",
+            "Registro de captação de recursos externos"
+          ],
+          "interfaces": [
+            "Fundação Araucária",
+            "SETI"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.65,
+          "frequencia": 0.45,
+          "risco_conformidade": 0.6,
+          "cobertura": 0.18,
+          "prioridade": 0.6,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-cap-01",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); prazos de editais externos exigem validação com a ATDG."
+        },
+        {
+          "codigo_sugerido": "CAP-02",
+          "nome": "Parcerias Institucionais",
+          "tipo": "processo",
+          "descricao": "Parcerias Institucionais — instrução, acompanhamento e renovação.",
+          "tipo_subdominio": "core",
+          "gatilho": "Identificação de oportunidade de parceria institucional (acordo de cooperação técnica)",
+          "saida": "Acordo de cooperação celebrado e acompanhado",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "e-Protocolo",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Acordo/termo de cooperação técnica",
+            "Registro de acompanhamento de parcerias institucionais"
+          ],
+          "interfaces": [
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.55,
+          "frequencia": 0.3,
+          "risco_conformidade": 0.5,
+          "cobertura": 0.15,
+          "prioridade": 0.51,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-cap-02",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho)."
+        }
+      ],
+      "lacunas_setor": [
+        "sem entradas no Canvas"
+      ],
+      "licoes_propostas": [],
+      "observacoes": "Diagnóstico do lote CAP (2 processos), sem entradas do Canvas Vivo para este subdomínio. Escopos derivados do manual institucional da ATDG (jun/2026) e da prática administrativa geral. Playbooks elaborados por inferência (tipo_mudanca minor, status permanece rascunho), com responsável do processo, prazos, formulários, KPIs e normativa específica marcados como lacunas pendentes de validação com a ATDG."
+    },
+    {
+      "id": "diag-con-20260903",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
+      "setor_codigo": "S02.01-CON",
+      "sigla": "CON",
+      "data": "2026-09-03T02:02:00Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [],
+      "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ecossistema": {
+        "dominio": "Convênios, Parcerias e Captação",
+        "subdominios": [
+          "Instrução de Convênio",
+          "Celebração de Convênio",
+          "Execução de Convênio",
+          "Prestação de Contas de Convênio",
+          "Encerramento de Convênio"
+        ],
+        "contextos_vizinhos": [
+          "Direção Geral do Campus",
+          "Setor demandante",
+          "SETI",
+          "TCE-PR"
+        ],
+        "sistemas": [
+          "e-Protocolo",
+          "OneDrive ATDG"
+        ],
+        "normas": [
+          "Lei nº 14.133/2021 (Lei de Licitações e Contratos Administrativos), no que for pertinente à formalização de convênios"
+        ],
+        "benchmarks": []
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "CON-04",
+          "nome": "Prestação de Contas de Convênio",
+          "tipo": "processo",
+          "descricao": "Prestação de Contas de Convênio — financeira e técnica, TCE-PR.",
+          "tipo_subdominio": "core",
+          "gatilho": "Encerramento da vigência ou do objeto do convênio, exigindo prestação de contas",
+          "saida": "Prestação de contas aprovada e disponível ao TCE-PR",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus",
+            "TCE-PR"
+          ],
+          "sistemas": [
+            "e-Protocolo"
+          ],
+          "artefatos": [
+            "Prestação de contas financeira e técnica",
+            "Planilha de conferência financeira"
+          ],
+          "interfaces": [
+            "Direção Geral do Campus",
+            "TCE-PR"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.9,
+          "frequencia": 0.4,
+          "risco_conformidade": 0.9,
+          "cobertura": 0.15,
+          "prioridade": 0.72,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-con-04",
+          "justificativa": "Processo de maior risco de conformidade do subdomínio (TCE-PR); sem entradas do Canvas, playbook construído por inferência (minor, rascunho), prioridade alta para validação com a ATDG."
+        },
+        {
+          "codigo_sugerido": "CON-01",
+          "nome": "Instrução de Convênio",
+          "tipo": "processo",
+          "descricao": "Instrução de Convênio — pré-aprovação, documentação e encaminhamento à SETI.",
+          "tipo_subdominio": "core",
+          "gatilho": "Manifestação de interesse do setor demandante em celebrar convênio, ou publicação de edital/chamamento que enseje convênio",
+          "saida": "Processo de convênio instruído, pré-aprovado e encaminhado à SETI",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus",
+            "SETI"
+          ],
+          "sistemas": [
+            "e-Protocolo"
+          ],
+          "artefatos": [
+            "Plano de trabalho",
+            "Minuta de convênio"
+          ],
+          "interfaces": [
+            "Direção Geral do Campus",
+            "SETI"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.8,
+          "frequencia": 0.5,
+          "risco_conformidade": 0.7,
+          "cobertura": 0.18,
+          "prioridade": 0.67,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-con-01",
+          "justificativa": "Escopo evidenciado apenas pelo manual institucional da ATDG (jun/2026), sem entradas do Canvas; playbook construído por inferência (minor, rascunho), pendente de validação da ATDG."
+        },
+        {
+          "codigo_sugerido": "CON-03",
+          "nome": "Execução de Convênio",
+          "tipo": "processo",
+          "descricao": "Execução de Convênio — acompanhamento e relatórios parciais.",
+          "tipo_subdominio": "core",
+          "gatilho": "Convênio celebrado e vigente, com execução do objeto em curso",
+          "saida": "Relatório parcial de execução aprovado e acompanhamento atualizado",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "SETI"
+          ],
+          "sistemas": [
+            "e-Protocolo",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Relatório parcial de execução",
+            "Registro de acompanhamento do convênio"
+          ],
+          "interfaces": [
+            "SETI"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.75,
+          "frequencia": 0.55,
+          "risco_conformidade": 0.7,
+          "cobertura": 0.18,
+          "prioridade": 0.67,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-con-03",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho)."
+        },
+        {
+          "codigo_sugerido": "CON-02",
+          "nome": "Celebração de Convênio",
+          "tipo": "processo",
+          "descricao": "Celebração de Convênio — assinaturas, publicação e registro.",
+          "tipo_subdominio": "core",
+          "gatilho": "Aprovação da minuta de convênio pela SETI recebida",
+          "saida": "Convênio assinado, publicado e registrado",
+          "atores": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus",
+            "SETI",
+            "Setor demandante"
+          ],
+          "sistemas": [
+            "e-Protocolo",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Convênio (instrumento assinado)",
+            "Registro de convênios"
+          ],
+          "interfaces": [
+            "Direção Geral do Campus",
+            "SETI",
+            "Setor demandante"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.8,
+          "frequencia": 0.45,
+          "risco_conformidade": 0.7,
+          "cobertura": 0.15,
+          "prioridade": 0.66,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-con-02",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho)."
+        },
+        {
+          "codigo_sugerido": "CON-05",
+          "nome": "Encerramento de Convênio",
+          "tipo": "processo",
+          "descricao": "Encerramento de Convênio — baixa, arquivo e lições aprendidas.",
+          "tipo_subdominio": "core",
+          "gatilho": "Prestação de contas aprovada e convênio pronto para baixa e arquivamento",
+          "saida": "Convênio baixado e arquivado, com lições aprendidas registradas",
+          "atores": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Setor demandante",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "e-Protocolo",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Registro de lições aprendidas do convênio",
+            "Processo de convênio arquivado"
+          ],
+          "interfaces": [
+            "Setor demandante",
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.6,
+          "frequencia": 0.3,
+          "risco_conformidade": 0.6,
+          "cobertura": 0.15,
+          "prioridade": 0.54,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-con-05",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho)."
+        }
+      ],
+      "lacunas_setor": [
+        "sem entradas no Canvas"
+      ],
+      "licoes_propostas": [],
+      "observacoes": "Diagnóstico do lote CON (5 processos), sem entradas do Canvas Vivo para este subdomínio. Escopos derivados do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná. Playbooks elaborados por inferência (tipo_mudanca minor, status permanece rascunho), com responsável do processo, prazos, formulários, KPIs e normativa específica marcados como lacunas pendentes de validação com a ATDG."
+    },
+    {
+      "id": "diag-ctr-20260903",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
+      "setor_codigo": "S02.03-CTR",
+      "sigla": "CTR",
+      "data": "2026-09-03T02:02:00Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [],
+      "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ecossistema": {
+        "dominio": "Controladoria, Compliance e Riscos",
+        "subdominios": [
+          "Auditoria TCE-PR",
+          "Compliance Institucional",
+          "Relacionamento com a PRAF",
+          "Fiscalização Externa",
+          "Gestão de Riscos"
+        ],
+        "contextos_vizinhos": [
+          "TCE-PR",
+          "PRAF",
+          "Setor demandante/respondente",
+          "Direção Geral do Campus"
+        ],
+        "sistemas": [
+          "e-Protocolo",
+          "OneDrive ATDG"
+        ],
+        "normas": [],
+        "benchmarks": []
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "CTR-01",
+          "nome": "Auditoria TCE-PR",
+          "tipo": "processo",
+          "descricao": "Auditoria TCE-PR — demandas, prazos, respostas formais.",
+          "tipo_subdominio": "core",
+          "gatilho": "Recebimento de demanda, notificação ou diligência do TCE-PR dirigida ao Campus",
+          "saida": "Resposta formal encaminhada ao TCE-PR dentro do prazo",
+          "atores": [
+            "TCE-PR",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Setor respondente",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "e-Protocolo"
+          ],
+          "artefatos": [
+            "Registro de demandas do TCE-PR",
+            "Resposta formal ao TCE-PR"
+          ],
+          "interfaces": [
+            "Setor respondente",
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.9,
+          "frequencia": 0.35,
+          "risco_conformidade": 0.9,
+          "cobertura": 0.18,
+          "prioridade": 0.71,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-ctr-01",
+          "justificativa": "Processo de maior risco de conformidade do subdomínio (auditoria de órgão de controle externo); sem entradas do Canvas, playbook construído por inferência (minor, rascunho)."
+        },
+        {
+          "codigo_sugerido": "CTR-04",
+          "nome": "Fiscalização Externa",
+          "tipo": "processo",
+          "descricao": "Fiscalização Externa — visitas, diligências, relatórios.",
+          "tipo_subdominio": "core",
+          "gatilho": "Comunicação de visita, inspeção ou diligência de fiscalização externa ao Campus",
+          "saida": "Fiscalização atendida e recomendações monitoradas",
+          "atores": [
+            "TCE-PR",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Setor respondente"
+          ],
+          "sistemas": [
+            "e-Protocolo"
+          ],
+          "artefatos": [
+            "Plano de atendimento às recomendações de fiscalização",
+            "Registro de fiscalizações externas"
+          ],
+          "interfaces": [
+            "Setor respondente"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.85,
+          "frequencia": 0.3,
+          "risco_conformidade": 0.85,
+          "cobertura": 0.15,
+          "prioridade": 0.67,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-ctr-04",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); interage com CTR-01 (recomendações podem repetir achados de auditoria)."
+        },
+        {
+          "codigo_sugerido": "CTR-02",
+          "nome": "Compliance Institucional",
+          "tipo": "processo",
+          "descricao": "Compliance Institucional — riscos, planos de mitigação, monitoramento.",
+          "tipo_subdominio": "core",
+          "gatilho": "Identificação de risco de conformidade ou de não conformidade institucional",
+          "saida": "Plano de mitigação aprovado e matriz de riscos atualizada",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "OneDrive ATDG",
+            "e-Protocolo"
+          ],
+          "artefatos": [
+            "Matriz de riscos institucionais",
+            "Plano de mitigação de risco"
+          ],
+          "interfaces": [
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.75,
+          "frequencia": 0.5,
+          "risco_conformidade": 0.7,
+          "cobertura": 0.15,
+          "prioridade": 0.66,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-ctr-02",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); interage com CTR-01, CTR-04 e CTR-05."
+        },
+        {
+          "codigo_sugerido": "CTR-03",
+          "nome": "Relacionamento com a PRAF",
+          "tipo": "processo",
+          "descricao": "Relacionamento com a PRAF — fluxos financeiros, conferências.",
+          "tipo_subdominio": "core",
+          "gatilho": "Necessidade de conferência ou alinhamento de fluxo financeiro entre o Campus e a PRAF",
+          "saida": "Conferência financeira concluída e pendências regularizadas",
+          "atores": [
+            "PRAF",
+            "Assessoria Técnica da Direção Geral (ATDG)"
+          ],
+          "sistemas": [
+            "A definir",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Planilha de conciliação financeira",
+            "Registro de conferências financeiras com a PRAF"
+          ],
+          "interfaces": [
+            "PRAF"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.65,
+          "frequencia": 0.45,
+          "risco_conformidade": 0.65,
+          "cobertura": 0.15,
+          "prioridade": 0.6,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-ctr-03",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); sistema financeiro da PRAF ainda não identificado."
+        },
+        {
+          "codigo_sugerido": "CTR-05",
+          "nome": "Gestão de Riscos",
+          "tipo": "processo",
+          "descricao": "Gestão de Riscos — mapeamento, probabilidade, impacto.",
+          "tipo_subdominio": "core",
+          "gatilho": "Definição do ciclo periódico de gestão de riscos institucionais",
+          "saida": "Matriz de riscos atualizada e relatório do ciclo consolidado",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Matriz de riscos institucionais (ciclo de mapeamento)",
+            "Relatório de gestão de riscos do ciclo"
+          ],
+          "interfaces": [
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [],
+          "maturidade": 0,
+          "criticidade": 0.7,
+          "frequencia": 0.3,
+          "risco_conformidade": 0.6,
+          "cobertura": 0.15,
+          "prioridade": 0.57,
+          "lacunas": [
+            "responsavel",
+            "kpi",
+            "formulario",
+            "prazo",
+            "normativa"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-ctr-05",
+          "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho); alimenta os planos de mitigação de CTR-02."
+        }
+      ],
+      "lacunas_setor": [
+        "sem entradas no Canvas"
+      ],
+      "licoes_propostas": [],
+      "observacoes": "Diagnóstico do lote CTR (5 processos), sem entradas do Canvas Vivo para este subdomínio. Escopos derivados do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos. Playbooks elaborados por inferência (tipo_mudanca minor, status permanece rascunho), com responsável do processo, prazos, formulários, KPIs e normativa específica marcados como lacunas pendentes de validação com a ATDG."
+    },
+    {
+      "id": "diag-dg-20260903",
+      "setor": "Direção Geral de Campus",
+      "setor_codigo": "S01-DG",
+      "sigla": "DG",
+      "data": "2026-09-03T02:02:00Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [
+        "pb-direcao-geral",
+        "1780963200023",
+        "1780963200024",
+        "1780963200028",
+        "1780963200029"
+      ],
+      "hash_fontes": "b9b63cf1a01f0f71abea90f7cb3ce8724699237a011a0230346bb0b05e2f7ed1",
+      "ecossistema": {
+        "dominio": "Governança e Direção do Campus",
+        "subdominios": [
+          "Referência normativa institucional (Estatuto e Instruções de Serviço do GRE)",
+          "Aplicação da norma a casos concretos"
+        ],
+        "contextos_vizinhos": [
+          "ATDG — Assessoria Técnica da Direção Geral",
+          "Gabinete da Reitoria (GRE)",
+          "Setores do Campus"
+        ],
+        "sistemas": [
+          "e-Protocolo",
+          "OneDrive ATDG"
+        ],
+        "normas": [
+          "Resolução nº 017/1999-COU (Estatuto da Unioeste)",
+          "Resolução nº 194/2024-COU (altera a Resolução nº 017/1999-COU)",
+          "Instruções de Serviço do Gabinete da Reitoria (GRE)"
+        ],
+        "benchmarks": []
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "DG-01",
+          "nome": "Aplicação do Estatuto e das Instruções de Serviço do GRE",
+          "tipo": "processo",
+          "descricao": "Aplica, caso a caso, o Estatuto ou Instrução de Serviço do GRE a situações concretas do Campus, mediante parecer técnico da ATDG e decisão da Direção Geral.",
+          "tipo_subdominio": "core",
+          "gatilho": "Situação concreta do Campus que exige aplicação ou interpretação do Estatuto ou de Instrução de Serviço do GRE",
+          "saida": "Despacho/portaria de aplicação da norma e precedente registrado",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "e-Protocolo",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Parecer técnico de enquadramento normativo",
+            "Despacho/portaria de aplicação da norma"
+          ],
+          "interfaces": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [
+            "pb-direcao-geral",
+            "1780963200023",
+            "1780963200024",
+            "1780963200028",
+            "1780963200029"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.7,
+          "frequencia": 0.35,
+          "risco_conformidade": 0.6,
+          "cobertura": 0.65,
+          "prioridade": 0.6,
+          "lacunas": [
+            "formulario",
+            "prazo"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-dg-01",
+          "justificativa": "Processo codificado no manual institucional da ATDG; POP completo elaborado (v1.0.0, em_validacao) a partir do mesmo acervo normativo de DG-00, com fluxo de parecer técnico e decisão da Direção Geral."
+        },
+        {
+          "codigo_sugerido": "DG-00",
+          "nome": "Visão geral — Direção Geral de Campus",
+          "tipo": "processo",
+          "descricao": "Mantém e disponibiliza o acervo normativo institucional (Estatuto e Instruções de Serviço do GRE) e responde a consultas de setores sobre sua aplicação, sob validação da Direção Geral.",
+          "tipo_subdominio": "core",
+          "gatilho": "Norma institucional nova, revisada ou consultada identificada pela Direção Geral, pela ATDG ou por setor do Campus",
+          "saida": "Acervo normativo consolidado e resposta formal à consulta",
+          "atores": [
+            "Setor demandante",
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "e-Protocolo",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Acervo normativo da ATDG",
+            "Nota técnica/orientação normativa"
+          ],
+          "interfaces": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [
+            "pb-direcao-geral",
+            "1780963200023",
+            "1780963200024",
+            "1780963200028",
+            "1780963200029"
+          ],
+          "maturidade": 2,
+          "criticidade": 0.65,
+          "frequencia": 0.4,
+          "risco_conformidade": 0.5,
+          "cobertura": 0.7,
+          "prioridade": 0.55,
+          "lacunas": [
+            "formulario",
+            "prazo"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-dg-00",
+          "justificativa": "Processo de referência normativa já elaborado em POP completo (playbook v1.0.0, em_validacao), com passos, responsáveis, decisão e mapa de contexto definidos a partir das entradas do Canvas (Estatuto Res. 017/99 e 194/2024-COU; Instruções de Serviço GRE)."
+        }
+      ],
+      "lacunas_setor": [
+        "Formulário/modelo padronizado de registro de consultas normativas não formalizado",
+        "Prazos de resposta a consultas e de decisão normativa não normatizados"
+      ],
+      "licoes_propostas": [],
+      "observacoes": "Diagnóstico do lote DG (2 processos) elaborado a partir de 5 entradas do Canvas (playbook e normas — Estatuto Res. 017/99 e 194/2024-COU; Instruções de Serviço GRE). Os 2 processos foram elaborados em POP completo (playbook DDD híbrido, v1.0.0, em_validacao) no lote B."
+    },
+    {
+      "id": "diag-dsa-20260903",
+      "setor": "Div. de Serviços de Apoio",
+      "setor_codigo": "S03.09-DSA",
+      "sigla": "DSA",
+      "data": "2026-09-03T01:59:01Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [
+        "pb-servicos-apoio"
+      ],
+      "hash_fontes": "60adcc579c257011c97a3f6d3a15eb3ad7ab764dcd9c0068002b81b00342fb20",
+      "ecossistema": {
+        "dominio": "Infraestrutura e Serviços",
+        "subdominios": [
+          "A definir (playbook em construção)"
+        ],
+        "contextos_vizinhos": [
+          "A definir"
+        ],
+        "sistemas": [],
+        "normas": [],
+        "benchmarks": []
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "DSA-00",
+          "nome": "Visão geral — Div. de Serviços de Apoio (roteiro de coleta)",
+          "tipo": "processo",
+          "descricao": "Setor sem mapeamento de processos no Canvas; o único registro é o playbook-esqueleto genérico apontando para o levantamento inicial de atividades, fluxos e normas aplicáveis.",
+          "tipo_subdominio": "suporte",
+          "gatilho": "A definir",
+          "saida": "A definir",
+          "atores": [
+            "A definir"
+          ],
+          "sistemas": [],
+          "artefatos": [],
+          "interfaces": [],
+          "evidencias": [
+            "pb-servicos-apoio"
+          ],
+          "maturidade": 0,
+          "criticidade": 0.4,
+          "frequencia": 0.3,
+          "risco_conformidade": 0.4,
+          "cobertura": 0.05,
+          "prioridade": 0.43,
+          "lacunas": [
+            "responsavel",
+            "normativa",
+            "gatilho",
+            "entrada",
+            "saida",
+            "passos",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "DSA-00",
+          "justificativa": "Nenhuma entrada real do Canvas além do playbook-esqueleto genérico; o POP foi tratado como roteiro de coleta (contingência e checklist de levantamento), mantendo o status rascunho até que os serviços de apoio sejam mapeados."
+        }
+      ],
+      "lacunas_setor": [
+        "sem entradas no Canvas"
+      ],
+      "licoes_propostas": [],
+      "observacoes": "Setor ainda não mapeado — roteiro de coleta (mesmo padrão de DST, DINF, DPAT e DATL; ver lição proposta em diagnosticos/DST.json)."
+    },
+    {
+      "id": "diag-map-20260903",
+      "setor": "ATDG — Assessoria Técnica da Direção Geral",
+      "setor_codigo": "S02.06-MAP",
+      "sigla": "MAP",
+      "data": "2026-09-03T02:02:00Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [
+        "pb-atdg",
+        "1780963200014",
+        "1780963200015",
+        "1780963200016",
+        "1780963200017",
+        "1780963200031",
+        "1780963200034",
+        "1780963200035"
+      ],
+      "hash_fontes": "6c982fb325ddd4b7b97aceb1dbec7478108f12d6f92890ed31787a8febc505a2",
+      "ecossistema": {
+        "dominio": "Assessoria Técnica e Gestão por Processos",
+        "subdominios": [
+          "Levantamento de setores, cargos e funções",
+          "Aplicação de checklist (Microsoft Forms)",
+          "Consolidação e padronização de respostas",
+          "Elaboração de POP/IT/Manual/Fluxo"
+        ],
+        "contextos_vizinhos": [
+          "Direção Geral do Campus",
+          "Setores, Centros e Colegiados do Campus (setor respondente)"
+        ],
+        "sistemas": [
+          "Microsoft Forms",
+          "OneDrive ATDG"
+        ],
+        "normas": [
+          "Plano Diretor Unioeste 2017-2026",
+          "Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)"
+        ],
+        "benchmarks": []
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "MAP-04",
+          "nome": "Elaboração de POP, Instrução de Trabalho, Manual e Fluxos",
+          "tipo": "processo",
+          "descricao": "Elabora POP, Instrução de Trabalho e fluxograma de cada processo mapeado, valida com o setor respondente e consolida no Manual de Gestão de Processos.",
+          "tipo_subdominio": "core",
+          "gatilho": "Planilha consolidada e padronizada de atividades por função disponível (MAP-03)",
+          "saida": "POP/IT/Fluxo publicados e Manual de Gestão de Processos atualizado",
+          "atores": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Setor respondente",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Procedimento Operacional Padrão (POP)",
+            "Manual de Gestão de Processos do Campus"
+          ],
+          "interfaces": [
+            "Setor respondente",
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [
+            "pb-atdg",
+            "1780963200014",
+            "1780963200015",
+            "1780963200016",
+            "1780963200017",
+            "1780963200031",
+            "1780963200034",
+            "1780963200035"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.65,
+          "frequencia": 0.5,
+          "risco_conformidade": 0.35,
+          "cobertura": 0.65,
+          "prioridade": 0.57,
+          "lacunas": [
+            "formulario",
+            "prazo"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-map-04",
+          "justificativa": "Etapa final do projeto de mapeamento, evidenciada pelo documento de projeto do Manual de Gestão de Processos; POP completo elaborado (v1.0.0, em_validacao)."
+        },
+        {
+          "codigo_sugerido": "MAP-03",
+          "nome": "Consolidação e padronização das respostas do mapeamento",
+          "tipo": "processo",
+          "descricao": "Importa, normaliza, agrupa e padroniza as respostas do checklist em planilha consolidada, validada pelo setor respondente.",
+          "tipo_subdominio": "core",
+          "gatilho": "Base de respostas do checklist exportada (MAP-02) para consolidação",
+          "saida": "Planilha consolidada e padronizada de atividades por função",
+          "atores": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Setor respondente"
+          ],
+          "sistemas": [
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Planilha consolidada de atividades por função",
+            "Controle de versões da consolidação"
+          ],
+          "interfaces": [
+            "Setor respondente",
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [
+            "pb-atdg",
+            "1780963200014",
+            "1780963200015",
+            "1780963200016",
+            "1780963200017",
+            "1780963200031",
+            "1780963200034",
+            "1780963200035"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.6,
+          "frequencia": 0.4,
+          "risco_conformidade": 0.45,
+          "cobertura": 0.6,
+          "prioridade": 0.55,
+          "lacunas": [
+            "formulario",
+            "prazo",
+            "versao_documento"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-map-03",
+          "justificativa": "Entradas mostram múltiplas versões e cópias de teste de planilhas de consolidação, indicando controle de versão ainda informal; POP completo elaborado (v1.0.0, em_validacao)."
+        },
+        {
+          "codigo_sugerido": "MAP-02",
+          "nome": "Aplicação de checklist/questionário por função (Microsoft Forms)",
+          "tipo": "processo",
+          "descricao": "Elabora, envia, monitora e encerra a coleta do checklist de atividades por função via Microsoft Forms.",
+          "tipo_subdominio": "core",
+          "gatilho": "Relação de setores, cargos e funções disponibilizada (MAP-01) para aplicação do checklist",
+          "saida": "Respostas do checklist coletadas e prontas para consolidação",
+          "atores": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Setor respondente"
+          ],
+          "sistemas": [
+            "Microsoft Forms"
+          ],
+          "artefatos": [
+            "Formulário de checklist por função",
+            "Painel de respostas do checklist"
+          ],
+          "interfaces": [
+            "Setor respondente"
+          ],
+          "evidencias": [
+            "pb-atdg",
+            "1780963200014",
+            "1780963200015",
+            "1780963200016",
+            "1780963200017",
+            "1780963200031",
+            "1780963200034",
+            "1780963200035"
+          ],
+          "maturidade": 2,
+          "criticidade": 0.55,
+          "frequencia": 0.4,
+          "risco_conformidade": 0.55,
+          "cobertura": 0.7,
+          "prioridade": 0.53,
+          "lacunas": [
+            "prazo",
+            "dados_pessoais_lgpd"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-map-02",
+          "justificativa": "Evidenciado por múltiplas planilhas de checklist (versões e cópias de teste) nas entradas; POP completo elaborado (v1.0.0, em_validacao), com atenção à LGPD."
+        },
+        {
+          "codigo_sugerido": "MAP-00",
+          "nome": "Visão geral — ATDG — Mapeamento de Processos",
+          "tipo": "processo",
+          "descricao": "Conduz o ciclo de Mapeamento de Processos do Campus: define escopo, levanta setores/funções, aplica checklist, consolida respostas e elabora POP/IT/Manual/Fluxo de cada processo.",
+          "tipo_subdominio": "core",
+          "gatilho": "Definição, pela Direção Geral ou pela ATDG, do início ou de novo ciclo do projeto de Mapeamento de Processos",
+          "saida": "Manual de Gestão de Processos do Campus consolidado",
+          "atores": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Setor respondente",
+            "Direção Geral do Campus"
+          ],
+          "sistemas": [
+            "Microsoft Forms",
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Checklist de atividades por função",
+            "Manual de Gestão de Processos"
+          ],
+          "interfaces": [
+            "Setor respondente",
+            "Direção Geral do Campus"
+          ],
+          "evidencias": [
+            "pb-atdg",
+            "1780963200014",
+            "1780963200015",
+            "1780963200016",
+            "1780963200017",
+            "1780963200031",
+            "1780963200034",
+            "1780963200035"
+          ],
+          "maturidade": 2,
+          "criticidade": 0.65,
+          "frequencia": 0.35,
+          "risco_conformidade": 0.4,
+          "cobertura": 0.7,
+          "prioridade": 0.52,
+          "lacunas": [
+            "prazo",
+            "dados_pessoais_lgpd"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-map-00",
+          "justificativa": "Projeto institucional já em curso (documento de projeto, checklists e planilhas de consolidação identificados nas entradas); POP completo elaborado (v1.0.0, em_validacao) cobrindo o ciclo geral."
+        },
+        {
+          "codigo_sugerido": "MAP-01",
+          "nome": "Levantamento de setores, cargos, funções e servidores",
+          "tipo": "processo",
+          "descricao": "Levanta a estrutura de setores, centros, colegiados, cargos, funções e quantitativo de servidores, e mantém a lista de contatos por função.",
+          "tipo_subdominio": "core",
+          "gatilho": "Início de novo ciclo de mapeamento de processos definido pela ATDG/Direção Geral",
+          "saida": "Relação consolidada de setores, cargos, funções e servidores disponibilizada",
+          "atores": [
+            "Assessoria Técnica da Direção Geral (ATDG)",
+            "Setor respondente"
+          ],
+          "sistemas": [
+            "OneDrive ATDG"
+          ],
+          "artefatos": [
+            "Relação de setores, cargos, funções e servidores",
+            "Lista de contatos institucionais por função"
+          ],
+          "interfaces": [
+            "Setor respondente"
+          ],
+          "evidencias": [
+            "pb-atdg",
+            "1780963200014",
+            "1780963200015",
+            "1780963200016",
+            "1780963200017",
+            "1780963200031",
+            "1780963200034",
+            "1780963200035"
+          ],
+          "maturidade": 2,
+          "criticidade": 0.55,
+          "frequencia": 0.3,
+          "risco_conformidade": 0.35,
+          "cobertura": 0.65,
+          "prioridade": 0.47,
+          "lacunas": [
+            "formulario",
+            "prazo"
+          ],
+          "recomendacao": "coletar_mais",
+          "pop_existente": "pop-map-01",
+          "justificativa": "Etapa evidenciada por lista de contatos por função e documento de mapeamento já existentes; POP completo elaborado (v1.0.0, em_validacao)."
+        }
+      ],
+      "lacunas_setor": [
+        "Prazos-padrão de cada etapa do ciclo de mapeamento não normatizados",
+        "Tratamento formal de dados pessoais dos respondentes (LGPD) não documentado em política específica",
+        "Controle de versionamento de planilhas e documentos ainda informal (cópias de teste em circulação)"
+      ],
+      "licoes_propostas": [],
+      "observacoes": "Diagnóstico do lote MAP (5 processos) elaborado a partir de 8 entradas do Canvas (playbook, contatos por função, checklists, documento de mapeamento e projeto do Manual de Gestão de Processos). Os 5 processos foram elaborados em POP completo (playbook DDD híbrido, v1.0.0, em_validacao) no lote B. Nomes e e-mails de servidores presentes nas entradas não foram reproduzidos, por força da LGPD."
     }
   ],
   "agentes": [
@@ -40657,6 +41814,202 @@
       "origem": "script",
       "criado_em": "2026-09-03T01:56:22Z",
       "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dlic-00",
+      "codigo": "DLIC-00",
+      "pop_id": "pop-dlic-00",
+      "nome": "Agente do processo DLIC-00 — Visão geral — Div. de Licitação",
+      "setor_codigo": "S03.06-DLIC",
+      "arquivo": ".claude/agents/pop-dlic-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dlic-01",
+      "codigo": "DLIC-01",
+      "pop_id": "pop-dlic-01",
+      "nome": "Agente do processo DLIC-01 — Fluxo — Contrato de Aquisição (Licitação)",
+      "setor_codigo": "S03.06-DLIC",
+      "arquivo": ".claude/agents/pop-dlic-01.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.1.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dlic-02",
+      "codigo": "DLIC-02",
+      "pop_id": "pop-dlic-02",
+      "nome": "Agente do processo DLIC-02 — Fluxo — Contrato de Serviços Contínuos (Licitação)",
+      "setor_codigo": "S03.06-DLIC",
+      "arquivo": ".claude/agents/pop-dlic-02.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dlic-03",
+      "codigo": "DLIC-03",
+      "pop_id": "pop-dlic-03",
+      "nome": "Agente do processo DLIC-03 — Fluxo — Processo de Licitação",
+      "setor_codigo": "S03.06-DLIC",
+      "arquivo": ".claude/agents/pop-dlic-03.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-drh-00",
+      "codigo": "DRH-00",
+      "pop_id": "pop-drh-00",
+      "nome": "Agente do processo DRH-00 — Visão geral — Div. de Recursos Humanos",
+      "setor_codigo": "S03.07-DRH",
+      "arquivo": ".claude/agents/pop-drh-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-drh-01",
+      "codigo": "DRH-01",
+      "pop_id": "pop-drh-01",
+      "nome": "Agente do processo DRH-01 — Fluxos e-Protocolo — RH (PRORH)",
+      "setor_codigo": "S03.07-DRH",
+      "arquivo": ".claude/agents/pop-drh-01.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dmc-00",
+      "codigo": "DMC-00",
+      "pop_id": "pop-dmc-00",
+      "nome": "Agente do processo DMC-00 — Visão geral — Div. de Manutenção e Conservação",
+      "setor_codigo": "S03.01-DMC",
+      "arquivo": ".claude/agents/pop-dmc-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dmc-01",
+      "codigo": "DMC-01",
+      "pop_id": "pop-dmc-01",
+      "nome": "Agente do processo DMC-01 — Controle Manual DSMC — Tempos de Limpeza",
+      "setor_codigo": "S03.01-DMC",
+      "arquivo": ".claude/agents/pop-dmc-01.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-sadm-00",
+      "codigo": "SADM-00",
+      "pop_id": "pop-sadm-00",
+      "nome": "Agente do processo SADM-00 — Visão geral — Secretaria Administrativa",
+      "setor_codigo": "S03-SADM",
+      "arquivo": ".claude/agents/pop-sadm-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dst-00",
+      "codigo": "DST-00",
+      "pop_id": "pop-dst-00",
+      "nome": "Agente do processo DST-00 — Visão geral — Div. de Segurança e Transportes",
+      "setor_codigo": "S03.02-DST",
+      "arquivo": ".claude/agents/pop-dst-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dinf-00",
+      "codigo": "DINF-00",
+      "pop_id": "pop-dinf-00",
+      "nome": "Agente do processo DINF-00 — Visão geral — Div. de Informática",
+      "setor_codigo": "S03.03-DINF",
+      "arquivo": ".claude/agents/pop-dinf-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "0.2.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dpat-00",
+      "codigo": "DPAT-00",
+      "pop_id": "pop-dpat-00",
+      "nome": "Agente do processo DPAT-00 — Visão geral — Div. de Patrimônio e Equipamentos",
+      "setor_codigo": "S03.05-DPAT",
+      "arquivo": ".claude/agents/pop-dpat-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "0.2.1",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-datl-00",
+      "codigo": "DATL-00",
+      "pop_id": "pop-datl-00",
+      "nome": "Agente do processo DATL-00 — Visão geral — Div. de Apoio Técnico aos Laboratórios",
+      "setor_codigo": "S03.08-DATL",
+      "arquivo": ".claude/agents/pop-datl-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "0.2.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
+    },
+    {
+      "id": "agente-pop-dsa-00",
+      "codigo": "DSA-00",
+      "pop_id": "pop-dsa-00",
+      "nome": "Agente do processo DSA-00 — Visão geral — Div. de Serviços de Apoio",
+      "setor_codigo": "S03.09-DSA",
+      "arquivo": ".claude/agents/pop-dsa-00.md",
+      "versao_diretrizes": "1.10",
+      "versao_pop": "0.2.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T02:05:27Z",
+      "atualizado_em": "2026-09-03T02:05:27Z"
     }
   ]
 }

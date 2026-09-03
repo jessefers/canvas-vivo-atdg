@@ -25,7 +25,7 @@ versao_diretrizes: "1.0"
 
 | Prior. | Código | Processo | Tipo | Mat. | Crit. | Freq. | Risco | Cob. | Recomendação | POP |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 0.68 | CTR-01 | Auditoria TCE-PR | processo | 1 | 0.9 | 0.35 | 0.9 | 0.18 | coletar_mais | pop-ctr-01 |
+| 0.71 | CTR-01 | Auditoria TCE-PR | processo | 0 | 0.9 | 0.35 | 0.9 | 0.18 | gerar_pop | pop-ctr-01 |
 | 0.67 | CTR-04 | Fiscalização Externa | processo | 0 | 0.85 | 0.3 | 0.85 | 0.15 | coletar_mais | pop-ctr-04 |
 | 0.66 | CTR-02 | Compliance Institucional | processo | 0 | 0.75 | 0.5 | 0.7 | 0.15 | coletar_mais | pop-ctr-02 |
 | 0.60 | CTR-03 | Relacionamento com a PRAF | processo | 0 | 0.65 | 0.45 | 0.65 | 0.15 | coletar_mais | pop-ctr-03 |

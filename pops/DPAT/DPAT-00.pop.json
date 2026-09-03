@@ -5,7 +5,7 @@
   "setor": "Div. de Patrimônio e Equipamentos",
   "setor_codigo": "S03.05-DPAT",
   "sigla": "DPAT",
-  "versao": "0.2.0",
+  "versao": "0.2.1",
   "status": "rascunho",
   "ddd": {
     "divisao": "Secretaria Administrativa",
@@ -21,8 +21,7 @@
     "responsavel": "A definir",
     "periodicidade": "A definir",
     "normativa": [
-      "A definir (normas de patrimônio",
-      "TCE-PR)"
+      "A definir (normas de patrimônio; TCE-PR)"
     ],
     "subordinacao": "Secretaria Administrativa",
     "produto_atdg": "POP",
@@ -184,6 +183,17 @@
         "pb-patrimonio"
       ],
       "motivo": "Estruturação do roteiro de coleta para a Div. de Patrimônio e Equipamentos: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
+    },
+    {
+      "versao": "0.2.1",
+      "data": "2026-09-03",
+      "autor": "agente:curador-diretrizes",
+      "tipo": "patch",
+      "mudancas": [
+        "Campo identificacao.normativa atualizado"
+      ],
+      "fontes": [],
+      "motivo": "Correção da normativa quebrada pelo separador ';' dentro de parênteses no esqueleto (achado do lote C)."
     }
   ],
   "validacao": {
@@ -216,8 +226,8 @@
     "pb-patrimonio"
   ],
   "hash_fontes": "4aaf5aa16ed9373c1b9e5ebd545b504823bb5bd22632687ced3264b79196242c",
-  "agente": "",
+  "agente": "pop-dpat-00",
   "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-03T01:58:25Z"
+  "atualizado_em": "2026-09-03T02:05:26Z"
 }

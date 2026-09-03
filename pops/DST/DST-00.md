@@ -6,7 +6,7 @@ status: rascunho
 setor_codigo: S03.02-DST
 setor: "Div. de Segurança e Transportes"
 atualizado_em: "2026-09-03T01:57:37Z"
-agente: —
+agente: pop-dst-00
 versao_diretrizes: "1.8"
 ---
 
@@ -42,7 +42,7 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-seguranca-transportes |
 | Lacunas abertas | responsavel, gatilho, entrada, saida, kpi, contingencia, formulario, prazo, normativa |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dst-00 |
 
 ## 2. Organograma
 

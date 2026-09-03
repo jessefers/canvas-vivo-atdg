@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S03.07-DRH
 setor: "Div. de Recursos Humanos"
 atualizado_em: "2026-09-03T01:52:45Z"
-agente: —
+agente: pop-drh-01
 versao_diretrizes: "1.2"
 ---
 
@@ -44,7 +44,7 @@ versao_diretrizes: "1.2"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | 1780963200048, 1780963200065, 1780963200066 |
 | Lacunas abertas | prazo |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-drh-01 |
 
 ## 2. Organograma
 

@@ -59,12 +59,55 @@
         "TCE-PR"
       ],
       "evidencias": [],
-      "maturidade": 1,
+      "maturidade": 0,
       "criticidade": 0.9,
       "frequencia": 0.4,
       "risco_conformidade": 0.9,
       "cobertura": 0.15,
-      "prioridade": 0.69,
+      "prioridade": 0.72,
+      "lacunas": [
+        "responsavel",
+        "kpi",
+        "formulario",
+        "prazo",
+        "normativa"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "pop-con-04",
+      "justificativa": "Processo de maior risco de conformidade do subdomínio (TCE-PR); sem entradas do Canvas, playbook construído por inferência (minor, rascunho), prioridade alta para validação com a ATDG."
+    },
+    {
+      "codigo_sugerido": "CON-01",
+      "nome": "Instrução de Convênio",
+      "tipo": "processo",
+      "descricao": "Instrução de Convênio — pré-aprovação, documentação e encaminhamento à SETI.",
+      "tipo_subdominio": "core",
+      "gatilho": "Manifestação de interesse do setor demandante em celebrar convênio, ou publicação de edital/chamamento que enseje convênio",
+      "saida": "Processo de convênio instruído, pré-aprovado e encaminhado à SETI",
+      "atores": [
+        "Setor demandante",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus",
+        "SETI"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Plano de trabalho",
+        "Minuta de convênio"
+      ],
+      "interfaces": [
+        "Direção Geral do Campus",
+        "SETI"
+      ],
+      "evidencias": [],
+      "maturidade": 0,
+      "criticidade": 0.8,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.7,
+      "cobertura": 0.18,
+      "prioridade": 0.67,
       "lacunas": [
         "responsavel",
         "kpi",
@@ -73,8 +116,50 @@
         "normativa"
       ],
       "recomendacao": "coletar_mais",
-      "pop_existente": "pop-con-04",
-      "justificativa": "Processo de maior risco de conformidade do subdomínio (TCE-PR); sem entradas do Canvas, playbook construído por inferência (minor, rascunho), prioridade alta para validação com a ATDG."
+      "pop_existente": "pop-con-01",
+      "justificativa": "Escopo evidenciado apenas pelo manual institucional da ATDG (jun/2026), sem entradas do Canvas; playbook construído por inferência (minor, rascunho), pendente de validação da ATDG."
+    },
+    {
+      "codigo_sugerido": "CON-03",
+      "nome": "Execução de Convênio",
+      "tipo": "processo",
+      "descricao": "Execução de Convênio — acompanhamento e relatórios parciais.",
+      "tipo_subdominio": "core",
+      "gatilho": "Convênio celebrado e vigente, com execução do objeto em curso",
+      "saida": "Relatório parcial de execução aprovado e acompanhamento atualizado",
+      "atores": [
+        "Setor demandante",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "SETI"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "OneDrive ATDG"
+      ],
+      "artefatos": [
+        "Relatório parcial de execução",
+        "Registro de acompanhamento do convênio"
+      ],
+      "interfaces": [
+        "SETI"
+      ],
+      "evidencias": [],
+      "maturidade": 0,
+      "criticidade": 0.75,
+      "frequencia": 0.55,
+      "risco_conformidade": 0.7,
+      "cobertura": 0.18,
+      "prioridade": 0.67,
+      "lacunas": [
+        "responsavel",
+        "kpi",
+        "formulario",
+        "prazo",
+        "normativa"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-con-03",
+      "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho)."
     },
     {
       "codigo_sugerido": "CON-02",
@@ -119,91 +204,6 @@
       ],
       "recomendacao": "coletar_mais",
       "pop_existente": "pop-con-02",
-      "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho)."
-    },
-    {
-      "codigo_sugerido": "CON-01",
-      "nome": "Instrução de Convênio",
-      "tipo": "processo",
-      "descricao": "Instrução de Convênio — pré-aprovação, documentação e encaminhamento à SETI.",
-      "tipo_subdominio": "core",
-      "gatilho": "Manifestação de interesse do setor demandante em celebrar convênio, ou publicação de edital/chamamento que enseje convênio",
-      "saida": "Processo de convênio instruído, pré-aprovado e encaminhado à SETI",
-      "atores": [
-        "Setor demandante",
-        "Assessoria Técnica da Direção Geral (ATDG)",
-        "Direção Geral do Campus",
-        "SETI"
-      ],
-      "sistemas": [
-        "e-Protocolo"
-      ],
-      "artefatos": [
-        "Plano de trabalho",
-        "Minuta de convênio"
-      ],
-      "interfaces": [
-        "Direção Geral do Campus",
-        "SETI"
-      ],
-      "evidencias": [],
-      "maturidade": 1,
-      "criticidade": 0.8,
-      "frequencia": 0.5,
-      "risco_conformidade": 0.7,
-      "cobertura": 0.18,
-      "prioridade": 0.64,
-      "lacunas": [
-        "responsavel",
-        "kpi",
-        "formulario",
-        "prazo",
-        "normativa"
-      ],
-      "recomendacao": "coletar_mais",
-      "pop_existente": "pop-con-01",
-      "justificativa": "Escopo evidenciado apenas pelo manual institucional da ATDG (jun/2026), sem entradas do Canvas; playbook construído por inferência (minor, rascunho), pendente de validação da ATDG."
-    },
-    {
-      "codigo_sugerido": "CON-03",
-      "nome": "Execução de Convênio",
-      "tipo": "processo",
-      "descricao": "Execução de Convênio — acompanhamento e relatórios parciais.",
-      "tipo_subdominio": "core",
-      "gatilho": "Convênio celebrado e vigente, com execução do objeto em curso",
-      "saida": "Relatório parcial de execução aprovado e acompanhamento atualizado",
-      "atores": [
-        "Setor demandante",
-        "Assessoria Técnica da Direção Geral (ATDG)",
-        "SETI"
-      ],
-      "sistemas": [
-        "e-Protocolo",
-        "OneDrive ATDG"
-      ],
-      "artefatos": [
-        "Relatório parcial de execução",
-        "Registro de acompanhamento do convênio"
-      ],
-      "interfaces": [
-        "SETI"
-      ],
-      "evidencias": [],
-      "maturidade": 1,
-      "criticidade": 0.75,
-      "frequencia": 0.55,
-      "risco_conformidade": 0.7,
-      "cobertura": 0.18,
-      "prioridade": 0.64,
-      "lacunas": [
-        "responsavel",
-        "kpi",
-        "formulario",
-        "prazo",
-        "normativa"
-      ],
-      "recomendacao": "coletar_mais",
-      "pop_existente": "pop-con-03",
       "justificativa": "Sem entradas do Canvas; playbook construído por inferência a partir do escopo do manual institucional (minor, rascunho)."
     },
     {

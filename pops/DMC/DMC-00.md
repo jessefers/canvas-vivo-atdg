@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S03.01-DMC
 setor: "Div. de Manutenção e Conservação"
 atualizado_em: "2026-09-03T01:53:56Z"
-agente: —
+agente: pop-dmc-00
 versao_diretrizes: "1.5"
 ---
 
@@ -45,7 +45,7 @@ versao_diretrizes: "1.5"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-manutencao, 1780963200030 |
 | Lacunas abertas | prazo |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dmc-00 |
 
 ## 2. Organograma
 

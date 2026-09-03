@@ -25,7 +25,7 @@ versao_diretrizes: "1.0"
 
 | Prior. | Código | Processo | Tipo | Mat. | Crit. | Freq. | Risco | Cob. | Recomendação | POP |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 0.57 | CAP-01 | Captação de Recursos Externos | processo | 1 | 0.65 | 0.45 | 0.6 | 0.18 | coletar_mais | pop-cap-01 |
+| 0.60 | CAP-01 | Captação de Recursos Externos | processo | 0 | 0.65 | 0.45 | 0.6 | 0.18 | coletar_mais | pop-cap-01 |
 | 0.51 | CAP-02 | Parcerias Institucionais | processo | 0 | 0.55 | 0.3 | 0.5 | 0.15 | coletar_mais | pop-cap-02 |
 
 ### CAP-01 — Captação de Recursos Externos

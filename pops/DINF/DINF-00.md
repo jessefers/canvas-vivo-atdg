@@ -6,7 +6,7 @@ status: rascunho
 setor_codigo: S03.03-DINF
 setor: "Div. de Informática"
 atualizado_em: "2026-09-03T01:58:25Z"
-agente: —
+agente: pop-dinf-00
 versao_diretrizes: "1.8"
 ---
 
@@ -42,7 +42,7 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-informatica |
 | Lacunas abertas | responsavel, gatilho, entrada, saida, kpi, contingencia, formulario, prazo, normativa |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dinf-00 |
 
 ## 2. Organograma
 

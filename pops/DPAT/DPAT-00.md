@@ -1,18 +1,18 @@
 ---
 codigo: DPAT-00
 titulo: "Visão geral — Div. de Patrimônio e Equipamentos"
-versao: "0.2.0"
+versao: "0.2.1"
 status: rascunho
 setor_codigo: S03.05-DPAT
 setor: "Div. de Patrimônio e Equipamentos"
-atualizado_em: "2026-09-03T01:58:25Z"
-agente: —
+atualizado_em: "2026-09-03T02:05:26Z"
+agente: pop-dpat-00
 versao_diretrizes: "1.8"
 ---
 
 # POP DPAT-00 — Visão geral — Div. de Patrimônio e Equipamentos
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.0** · Status **rascunho** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **0.2.1** · Status **rascunho** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -42,7 +42,7 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-patrimonio |
 | Lacunas abertas | responsavel, gatilho, entrada, saida, kpi, contingencia, formulario, prazo |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dpat-00 |
 
 ## 2. Organograma
 
@@ -173,6 +173,7 @@ _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir das entradas pb-patrimonio | pb-patrimonio |
 | 0.2.0 | 2026-09-03 | agente:construtor-pop (lote C) | minor | Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); contingencia_nova: +4; checklist_novo: +5; Campo observacoes atualizado; Fluxograma regenerado a partir dos passos | pb-patrimonio |
+| 0.2.1 | 2026-09-03 | agente:curador-diretrizes | patch | Campo identificacao.normativa atualizado | — |
 
 ## 13. Validação e aprovação
 

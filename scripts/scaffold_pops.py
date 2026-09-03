@@ -29,8 +29,21 @@ LICOES_ESTRUTURAIS = ['L-001', 'L-004', 'L-006', 'L-007']
 
 
 def normas_de(texto):
+    """Divide a normativa por ';' fora de parênteses (ex.: 'A definir (normas; TCE-PR)' permanece um item)."""
+    partes, atual, nivel = [], '', 0
+    for ch in texto or '':
+        if ch == '(':
+            nivel += 1
+        elif ch == ')':
+            nivel = max(0, nivel - 1)
+        if ch == ';' and nivel == 0:
+            partes.append(atual)
+            atual = ''
+        else:
+            atual += ch
+    partes.append(atual)
     out = []
-    for n in re.split(r';', texto or ''):
+    for n in partes:
         n = n.strip()
         if n and cl.norm(n) not in ('nao especificada', 'a definir', 'nao especificado'):
             out.append(n)
