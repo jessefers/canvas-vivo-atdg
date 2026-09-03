@@ -1,63 +1,147 @@
 {
   "setor": "Div. de Compras",
   "codigo": "DCOM-01",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:38:35Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DCOM-01 — Fluxo — Dispensa Emergencial (com Contrato)",
-      "descricao": "Fluxo da contratação por dispensa emergencial com contrato. O interessado elabora termo de referência, cotações e tabela comparativa e envia ao Planejamento, que analisa e submete à autorização da Direção Geral. Compras faz pesquisa de preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro empenha; a Licitação elabora o contrato, que é assinado, publicado no DIOE e tem portarias de gestor/fiscal emitidas pela Direção Geral.",
+      "descricao": "Contratação direta por dispensa emergencial de licitação, formalizada por contrato administrativo. A Div. de Compras conduz a pesquisa de preços e a verificação de regularidade fiscal do fornecedor, subsidiando a Assessoria Jurídica, a Sec. Financeira/Contabilidade e a Div. de Licitação até a assinatura do contrato, a publicação no DIOE e a emissão das portarias de Gestor e Fiscal, nos termos da Lei nº 14.133/2021.",
       "raias": [
-        "Div. de Compras"
+        "Div. de Compras",
+        "Requisitante/Interessado",
+        "Planejamento",
+        "Direção Geral",
+        "Assessoria Jurídica",
+        "Sec. Financeira/Contabilidade",
+        "Div. de Licitação"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Compras"
+          "label": "Necessidade emergencial de contratação identificada",
+          "raia": "Requisitante/Interessado"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Interessado elabora termo de referência, cotações e tabela comparativa",
-          "raia": "Div. de Compras"
+          "label": "Elaborar o TR, as cotações de preços e a tabela comparativa",
+          "raia": "Requisitante/Interessado"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Planejamento analisa e submete à autorização da Direção Geral",
-          "raia": "Div. de Compras"
+          "label": "Elaborar a justificativa de urgência",
+          "raia": "Requisitante/Interessado"
         },
         {
           "id": "e4",
-          "tipo": "atividade",
-          "label": "Compras faz pesquisa de preços e verifica regularidade fiscal",
-          "raia": "Div. de Compras"
+          "tipo": "captura",
+          "label": "Encaminhar processo ao Planejamento",
+          "raia": "Planejamento"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Jurídico emite parecer; Financeiro faz o empenho no GMS",
-          "raia": "Div. de Compras"
+          "label": "Analisar a instrução processual e submeter à Direção Geral",
+          "raia": "Planejamento"
         },
         {
           "id": "e6",
-          "tipo": "atividade",
-          "label": "Licitação elabora o contrato; assina-se e publica-se no DIOE",
-          "raia": "Div. de Compras"
+          "tipo": "captura",
+          "label": "Encaminhar processo à Direção Geral",
+          "raia": "Direção Geral"
         },
         {
           "id": "e7",
-          "tipo": "atividade",
-          "label": "Direção Geral emite portarias de Gestor e Fiscal",
-          "raia": "Div. de Compras"
+          "tipo": "decisao",
+          "label": "Urgência comprovada e justificada?",
+          "raia": "Direção Geral"
         },
         {
           "id": "e8",
-          "tipo": "fim",
-          "label": "Concluído",
+          "tipo": "atividade",
+          "label": "Autorizar a contratação direta por dispensa emergencial",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar processo autorizado à Div. de Compras",
           "raia": "Div. de Compras"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Pesquisar preços de mercado e verificar regularidade fiscal do fornecedor",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e11",
+          "tipo": "decisao",
+          "label": "Regularidade fiscal comprovada?",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Encaminhar processo à Assessoria Jurídica",
+          "raia": "Assessoria Jurídica"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Emitir parecer jurídico sobre a contratação direta",
+          "raia": "Assessoria Jurídica"
+        },
+        {
+          "id": "e14",
+          "tipo": "captura",
+          "label": "Encaminhar processo com parecer favorável à Sec. Financeira/Contabilidade",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e15",
+          "tipo": "atividade",
+          "label": "Empenhar a despesa (nota de empenho no GMS)",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e16",
+          "tipo": "captura",
+          "label": "Encaminhar processo empenhado à Div. de Licitação",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e17",
+          "tipo": "atividade",
+          "label": "Elaborar a minuta do contrato administrativo",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e18",
+          "tipo": "atividade",
+          "label": "Assinar o contrato e publicar o extrato no DIOE",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e19",
+          "tipo": "captura",
+          "label": "Encaminhar contrato publicado à Direção Geral",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e20",
+          "tipo": "atividade",
+          "label": "Emitir as portarias de Gestor e Fiscal do contrato",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e21",
+          "tipo": "fim",
+          "label": "Contrato vigente, com Gestor e Fiscal designados",
+          "raia": "Direção Geral"
         }
       ],
       "conexoes": [
@@ -87,7 +171,71 @@
         },
         {
           "de": "e7",
-          "para": "e8"
+          "para": "e8",
+          "label": "Sim"
+        },
+        {
+          "de": "e7",
+          "para": "e2",
+          "label": "Não"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12",
+          "label": "Sim"
+        },
+        {
+          "de": "e11",
+          "para": "e10",
+          "label": "Não"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        },
+        {
+          "de": "e15",
+          "para": "e16"
+        },
+        {
+          "de": "e16",
+          "para": "e17"
+        },
+        {
+          "de": "e17",
+          "para": "e18"
+        },
+        {
+          "de": "e18",
+          "para": "e19"
+        },
+        {
+          "de": "e19",
+          "para": "e20"
+        },
+        {
+          "de": "e20",
+          "para": "e21"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
