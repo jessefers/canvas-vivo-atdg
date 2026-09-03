@@ -1,0 +1,66 @@
+{
+  "setor": "CES — Direção de Centro",
+  "codigo": "CES-00",
+  "gerado_em": "2026-09-02T17:55:55Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "CES-00 — Visão geral — Centro de Educação e Saúde (novo abr/2026) — Direção de Centro",
+      "descricao": "Visão do Centro (novo abr/2026): colegiado de Enfermagem (incl. PRONERA) e mestrados em Ensino, Saúde Pública em Região de Fronteira e Sociedade, Cultura e Fronteiras.",
+      "raias": [
+        "CES — Direção de Centro"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "CES — Direção de Centro"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Articular Direção de Centro, colegiados e coordenações",
+          "raia": "CES — Direção de Centro"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Manter a base de contatos por função do Centro",
+          "raia": "CES — Direção de Centro"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Encaminhar demandas do Centro via e-Protocolo",
+          "raia": "CES — Direção de Centro"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "CES — Direção de Centro"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "setor": "Coordenação Acadêmica — Geral",
+  "codigo": "CACAD-00",
+  "gerado_em": "2026-09-02T17:55:54Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "CACAD-00 — Visão geral — Coordenação Acadêmica",
+      "descricao": "Guia da tramitação das atividades de extensão no e-Protocolo (PROEX): programas, projetos, cursos e eventos, com e sem recursos e com fomento externo.",
+      "raias": [
+        "Coordenação Acadêmica — Geral"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Coordenação Acadêmica — Geral"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Classificar a atividade (com/sem recursos; proponente)",
+          "raia": "Coordenação Acadêmica — Geral"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Abrir o e-Protocolo conforme o fluxo da modalidade",
+          "raia": "Coordenação Acadêmica — Geral"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Anexar documentação e encaminhar às instâncias",
+          "raia": "Coordenação Acadêmica — Geral"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Acompanhar a aprovação na PROEX",
+          "raia": "Coordenação Acadêmica — Geral"
+        },
+        {
+          "id": "e6",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Coordenação Acadêmica — Geral"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

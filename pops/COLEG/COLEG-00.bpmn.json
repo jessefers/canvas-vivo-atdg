@@ -1,0 +1,86 @@
+{
+  "setor": "Colegiado de Curso",
+  "codigo": "COLEG-00",
+  "gerado_em": "2026-09-02T17:55:55Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "COLEG-00 — Visão geral — Colegiado de Curso (transversal)",
+      "descricao": "Guia das rotinas dos colegiados e coordenações de curso, estágio e TCC, e do agente universitário: comunicação, protocolo, gestão acadêmica e órgãos colegiados.",
+      "raias": [
+        "Colegiado de Curso"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Comunicação, atendimento e gestão de documentos/e-Protocolo",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Condução de Colegiado e NDE, com atas e pautas",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Gestão acadêmica no Academus (planos, matrícula, notas, horários)",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Estágio: termos, bancas e articulação com concedentes",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "TCC: orientadores, bancas, defesas e envio à biblioteca",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e7",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Colegiado de Curso"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "setor": "Div. de Licitação",
+  "codigo": "DLIC-00",
+  "gerado_em": "2026-09-02T17:55:54Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DLIC-00 — Visão geral — Div. de Licitação",
+      "descricao": "Guia do processo licitatório e da gestão dos contratos decorrentes (aquisição e serviços contínuos), do edital ao acompanhamento da execução.",
+      "raias": [
+        "Div. de Licitação"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "TR e cotações; autorização da Direção Geral",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Catalogação no GMS, pesquisa de preços, elementos de despesa/DDF",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Elaboração do edital no GMS e ComprasNet",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Geração do contrato, publicação no DIOE e portarias de Gestor/Fiscal",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Registro no Planejamento e acompanhamento de execução/entregas/NF",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e7",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Licitação"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

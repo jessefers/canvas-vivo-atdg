@@ -1,0 +1,66 @@
+{
+  "setor": "CECE — Direção de Centro",
+  "codigo": "CECE-00",
+  "gerado_em": "2026-09-02T17:55:55Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "CECE-00 — Visão geral — Centro de Engenharias e Ciências Exatas — Direção de Centro",
+      "descricao": "Visão do Centro de Engenharias e Ciências Exatas: colegiados de Ciência da Computação, Engenharia Elétrica, Engenharia Mecânica, Matemática e mestrados, além dos laboratórios.",
+      "raias": [
+        "CECE — Direção de Centro"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "CECE — Direção de Centro"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Articular Direção de Centro, colegiados e coordenações",
+          "raia": "CECE — Direção de Centro"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Manter a base de contatos por função do Centro",
+          "raia": "CECE — Direção de Centro"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Encaminhar demandas do Centro via e-Protocolo",
+          "raia": "CECE — Direção de Centro"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "CECE — Direção de Centro"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "id": "pop-ctr-04",
+  "codigo": "CTR-04",
+  "titulo": "Fiscalização Externa",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.03-CTR",
+  "sigla": "CTR",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "ATDG — Assessoria Técnica da Direção Geral",
+    "departamento": "ATDG — Controladoria e Compliance",
+    "descricao": "Fiscalização Externa — Visitas, diligências, relatórios. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "dominio": "Controladoria, Compliance e Riscos",
+    "subdominio": "Fiscalização Externa",
+    "tipo_subdominio": "core",
+    "contexto": "S02.03-CTR",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [],
+    "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "02_CONTROLADORIA"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_03_CTR[\"S02.03-CTR<br/>ATDG — Controladoria e Compliance\"]\n  S02_ATDG --> S02_03_CTR\n  P[\"CTR-04<br/>Fiscalização Externa\"]\n  S02_03_CTR --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_03_CTR setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "bpmn_spec": {
+    "raias": [
+      "ATDG — Assessoria Técnica da Direção Geral"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+      },
+      {
+        "id": "e2",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir do escopo \"Visitas, diligências, relatórios\""
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "passos",
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo",
+    "normativa"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [],
+  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-02T17:55:54Z"
+}

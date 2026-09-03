@@ -1,0 +1,236 @@
+{
+  "id": "pop-dcom-00",
+  "codigo": "DCOM-00",
+  "titulo": "Visão geral — Div. de Compras",
+  "setor": "Div. de Compras",
+  "setor_codigo": "S03.10-DCOM",
+  "sigla": "DCOM",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Compras",
+    "descricao": "Guia das contratações diretas: dispensa emergencial e inexigibilidade, com e sem contrato. Cobre a tramitação do pedido até a emissão do contrato ou ordem de compra.",
+    "dominio": "Contratações Públicas",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "core",
+    "contexto": "S03.10-DCOM",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Lei nº 14.133/2021",
+      "normas internas Unioeste"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_10_DCOM[\"S03.10-DCOM<br/>Div. de Compras\"]\n  S03_SADM --> S03_10_DCOM\n  P[\"DCOM-00<br/>Visão geral — Div. de Compras\"]\n  S03_10_DCOM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_10_DCOM setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Interessado elabora TR/memorando, cotações e tabela comparativa",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-compras"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Planejamento analisa e Direção Geral autoriza",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-compras"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Compras pesquisa preços e verifica regularidade fiscal",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-compras"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Jurídico emite parecer; Financeiro empenha/DDF",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-compras"
+        ]
+      },
+      {
+        "n": 5,
+        "acao": "Emissão de contrato ou ordem de compra e publicação no DIOE",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-compras"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Dispensa exige justificativa de urgência; inexigibilidade exige carta de exclusividade",
+    "Aguardar 3 dias após o aviso de inexigibilidade",
+    "Verificar regularidade fiscal antes do empenho"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Compras\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Interessado elabora TR/memorando, cotações e tabela comparativa\"]\n    e3[\"Planejamento analisa e Direção Geral autoriza\"]\n    e4[\"Compras pesquisa preços e verifica regularidade fiscal\"]\n    e5[\"Jurídico emite parecer; Financeiro empenha/DDF\"]\n    e6[\"Emissão de contrato ou ordem de compra e publicação no DIOE\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Compras"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Div. de Compras"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Interessado elabora TR/memorando, cotações e tabela comparativa",
+        "raia": "Div. de Compras"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Planejamento analisa e Direção Geral autoriza",
+        "raia": "Div. de Compras"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Compras pesquisa preços e verifica regularidade fiscal",
+        "raia": "Div. de Compras"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Jurídico emite parecer; Financeiro empenha/DDF",
+        "raia": "Div. de Compras"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Emissão de contrato ou ordem de compra e publicação no DIOE",
+        "raia": "Div. de Compras"
+      },
+      {
+        "id": "e7",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Div. de Compras"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-compras"
+      ],
+      "fontes": [
+        "pb-compras"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-compras"
+  ],
+  "hash_fontes": "1b531a5b9bf0d95af680b802f1491f94aec92e7e97311351ceb5b3e83608890c",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-02T17:55:54Z"
+}

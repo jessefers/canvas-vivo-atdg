@@ -1,0 +1,189 @@
+{
+  "id": "pop-sadm-00",
+  "codigo": "SADM-00",
+  "titulo": "Visão geral — Secretaria Administrativa",
+  "setor": "Sec. Administrativa — Geral",
+  "setor_codigo": "S03-SADM",
+  "sigla": "SADM",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Secretaria Administrativa",
+    "descricao": "Visão geral da Secretaria Administrativa do Campus, que reúne as divisões de apoio à gestão. Divisões com playbook próprio: Almoxarifado, Compras, Licitação, Recursos Humanos e Manutenção e Conservação; demais em construção.",
+    "dominio": "Administração e Suprimentos",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "suporte",
+    "contexto": "S03-SADM",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Estrutura conforme organograma do Campus Foz (Coordenação Administrativa)"
+    ],
+    "subordinacao": "Direção Geral de Campus",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  P[\"SADM-00<br/>Visão geral — Secretaria Administrativa\"]\n  S03_SADM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Coordenar as divisões administrativas do campus",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-sec-administrativa"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Consultar o playbook específico de cada divisão",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-sec-administrativa"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Encaminhar demandas administrativas via e-Protocolo",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-sec-administrativa"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Divisões de Segurança e Transportes, Informática, Patrimônio, Apoio Técnico aos Laboratórios e Serviços de Apoio ainda em construção"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Sec. Administrativa — Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Coordenar as divisões administrativas do campus\"]\n    e3[\"Consultar o playbook específico de cada divisão\"]\n    e4[\"Encaminhar demandas administrativas via e-Protocolo\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Sec. Administrativa — Geral"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Sec. Administrativa — Geral"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Coordenar as divisões administrativas do campus",
+        "raia": "Sec. Administrativa — Geral"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Consultar o playbook específico de cada divisão",
+        "raia": "Sec. Administrativa — Geral"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Encaminhar demandas administrativas via e-Protocolo",
+        "raia": "Sec. Administrativa — Geral"
+      },
+      {
+        "id": "e5",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Sec. Administrativa — Geral"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-sec-administrativa"
+      ],
+      "fontes": [
+        "pb-sec-administrativa"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-sec-administrativa"
+  ],
+  "hash_fontes": "e4b6eb4586a98db600343eaa4352b80394f9fd5bfaa02718185e2711720600e7",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-02T17:55:54Z"
+}

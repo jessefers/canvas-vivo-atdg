@@ -1,0 +1,66 @@
+{
+  "setor": "Div. de Apoio Técnico aos Laboratórios",
+  "codigo": "DATL-00",
+  "gerado_em": "2026-09-02T17:55:54Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DATL-00 — Visão geral — Div. de Apoio Técnico aos Laboratórios",
+      "descricao": "Divisão de Apoio Técnico aos Laboratórios da Secretaria Administrativa. Playbook em construção.",
+      "raias": [
+        "Div. de Apoio Técnico aos Laboratórios"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Apoio Técnico aos Laboratórios"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "A documentar: levantar atividades e rotinas da área",
+          "raia": "Div. de Apoio Técnico aos Laboratórios"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Mapear fluxos e responsáveis por etapa",
+          "raia": "Div. de Apoio Técnico aos Laboratórios"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Identificar normas aplicáveis e pontos de atenção",
+          "raia": "Div. de Apoio Técnico aos Laboratórios"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Apoio Técnico aos Laboratórios"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

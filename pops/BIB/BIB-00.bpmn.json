@@ -1,0 +1,66 @@
+{
+  "setor": "Biblioteca",
+  "codigo": "BIB-00",
+  "gerado_em": "2026-09-02T17:55:55Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "BIB-00 — Visão geral — Biblioteca",
+      "descricao": "Área da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo). Playbook em construção.",
+      "raias": [
+        "Biblioteca"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "A documentar: levantar atividades e rotinas da área",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Mapear fluxos e responsáveis por etapa",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Identificar normas aplicáveis e pontos de atenção",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Biblioteca"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

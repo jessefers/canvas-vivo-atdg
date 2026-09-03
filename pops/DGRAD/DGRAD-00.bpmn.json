@@ -1,0 +1,76 @@
+{
+  "setor": "Div. de Graduação",
+  "codigo": "DGRAD-00",
+  "gerado_em": "2026-09-02T17:55:55Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DGRAD-00 — Visão geral — Div. de Graduação",
+      "descricao": "Guia da tramitação dos processos de ensino de graduação no e-Protocolo (PROGRAD): PPP, reconhecimento de curso, regulamentos, projetos de ensino e monitorias.",
+      "raias": [
+        "Div. de Graduação"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Graduação"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Identificar o tipo de processo de ensino",
+          "raia": "Div. de Graduação"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Instruir o e-Protocolo conforme o fluxo específico",
+          "raia": "Div. de Graduação"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Encaminhar às instâncias na ordem prevista (curso, centro, PROGRAD)",
+          "raia": "Div. de Graduação"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Acompanhar deliberações e arquivamento",
+          "raia": "Div. de Graduação"
+        },
+        {
+          "id": "e6",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Graduação"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

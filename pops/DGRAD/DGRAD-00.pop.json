@@ -1,0 +1,212 @@
+{
+  "id": "pop-dgrad-00",
+  "codigo": "DGRAD-00",
+  "titulo": "Visão geral — Div. de Graduação",
+  "setor": "Div. de Graduação",
+  "setor_codigo": "S05.02-DGRAD",
+  "sigla": "DGRAD",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Coordenação Acadêmica",
+    "departamento": "Div. de Graduação",
+    "descricao": "Guia da tramitação dos processos de ensino de graduação no e-Protocolo (PROGRAD): PPP, reconhecimento de curso, regulamentos, projetos de ensino e monitorias.",
+    "dominio": "Gestão Acadêmica",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "core",
+    "contexto": "S05.02-DGRAD",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Manual de Fluxos e-Protocolo — PROGRAD"
+    ],
+    "subordinacao": "Coordenação Acadêmica",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  S05_02_DGRAD[\"S05.02-DGRAD<br/>Div. de Graduação\"]\n  S05_CACAD --> S05_02_DGRAD\n  P[\"DGRAD-00<br/>Visão geral — Div. de Graduação\"]\n  S05_02_DGRAD --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD,S05_02_DGRAD setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Identificar o tipo de processo de ensino",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-graduacao"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Instruir o e-Protocolo conforme o fluxo específico",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-graduacao"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Encaminhar às instâncias na ordem prevista (curso, centro, PROGRAD)",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-graduacao"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Acompanhar deliberações e arquivamento",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-graduacao"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Seguir o fluxo correto evita devoluções",
+    "Verificar a versão atualizada do manual da Comissão e-Protocolo"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Graduação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Identificar o tipo de processo de ensino\"]\n    e3[\"Instruir o e-Protocolo conforme o fluxo específico\"]\n    e4[\"Encaminhar às instâncias na ordem prevista (curso, centro, PROGRAD)\"]\n    e5[\"Acompanhar deliberações e arquivamento\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Graduação"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Div. de Graduação"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Identificar o tipo de processo de ensino",
+        "raia": "Div. de Graduação"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Instruir o e-Protocolo conforme o fluxo específico",
+        "raia": "Div. de Graduação"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Encaminhar às instâncias na ordem prevista (curso, centro, PROGRAD)",
+        "raia": "Div. de Graduação"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Acompanhar deliberações e arquivamento",
+        "raia": "Div. de Graduação"
+      },
+      {
+        "id": "e6",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Div. de Graduação"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-graduacao"
+      ],
+      "fontes": [
+        "pb-graduacao"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-graduacao"
+  ],
+  "hash_fontes": "91c36ccbc5cae5b52bf2ca65b33e8eaa5184651911eef6fdb453fd31d602122f",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-02T17:55:55Z"
+}

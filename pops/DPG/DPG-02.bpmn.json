@@ -1,0 +1,76 @@
+{
+  "setor": "Div. de Pós-Graduação",
+  "codigo": "DPG-02",
+  "gerado_em": "2026-09-02T17:55:55Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DPG-02 — Fluxos e-Protocolo — PRPPG CEUA",
+      "descricao": "Manual da Comissão e-Protocolo com os fluxos do Comitê de Ética no Uso de Animais (CEUA). Define a tramitação para projetos novos, alteração de projetos e relatórios finais. O docente responsável abre o e-Protocolo com 'protocolo unificado' e 'termo de responsabilidade' e encaminha ao responsável pelo campo de estudo/coordenador, sendo projetos com propriedade intelectual tramitados como sigilosos.",
+      "raias": [
+        "Div. de Pós-Graduação"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Pós-Graduação"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Abrir e-Protocolo com protocolo unificado e termo de responsabilidade",
+          "raia": "Div. de Pós-Graduação"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Encaminhar ao responsável pelo campo de estudo/coordenador",
+          "raia": "Div. de Pós-Graduação"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Solicitar autorização e tramitar ao Presidente do CEUA",
+          "raia": "Div. de Pós-Graduação"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Submeter alterações e relatórios finais pelos fluxos próprios",
+          "raia": "Div. de Pós-Graduação"
+        },
+        {
+          "id": "e6",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Pós-Graduação"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "canvas-vivo-atdg/diagnostico.schema.json",
+  "title": "Diagnóstico e qualificação de processos de um setor — Canvas Vivo ATDG",
+  "type": "object",
+  "required": ["id", "setor", "setor_codigo", "sigla", "data", "modelo", "versao_diretrizes", "fontes_entradas", "hash_fontes", "ecossistema", "processos", "lacunas_setor", "licoes_propostas"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^diag-[a-z0-9-]+-[0-9]{8}$"},
+    "setor": {"type": "string"},
+    "setor_codigo": {"type": "string"},
+    "sigla": {"type": "string"},
+    "data": {"type": "string"},
+    "modelo": {"type": "string"},
+    "versao_diretrizes": {"type": "string"},
+    "fontes_entradas": {"type": "array", "items": {"type": "string"}},
+    "hash_fontes": {"type": "string"},
+    "ecossistema": {
+      "type": "object", "required": ["dominio", "subdominios", "contextos_vizinhos"],
+      "properties": {"dominio": {"type": "string"}, "subdominios": {"type": "array", "items": {"type": "string"}}, "contextos_vizinhos": {"type": "array", "items": {"type": "string"}}, "sistemas": {"type": "array", "items": {"type": "string"}}, "normas": {"type": "array", "items": {"type": "string"}}, "benchmarks": {"type": "array", "items": {"type": "string"}}}
+    },
+    "processos": {"type": "array", "items": {
+      "type": "object",
+      "required": ["codigo_sugerido", "nome", "tipo", "descricao", "evidencias", "maturidade", "criticidade", "frequencia", "risco_conformidade", "cobertura", "prioridade", "lacunas", "recomendacao"],
+      "properties": {
+        "codigo_sugerido": {"type": "string"}, "nome": {"type": "string"},
+        "tipo": {"type": "string", "enum": ["processo", "subprocesso", "acao", "projeto"]},
+        "descricao": {"type": "string"},
+        "tipo_subdominio": {"type": "string", "enum": ["core", "suporte", "generico"]},
+        "gatilho": {"type": "string"}, "saida": {"type": "string"},
+        "atores": {"type": "array", "items": {"type": "string"}}, "sistemas": {"type": "array", "items": {"type": "string"}},
+        "artefatos": {"type": "array", "items": {"type": "string"}}, "interfaces": {"type": "array", "items": {"type": "string"}},
+        "evidencias": {"type": "array", "items": {"type": "string"}},
+        "maturidade": {"type": "integer", "minimum": 0, "maximum": 5},
+        "criticidade": {"type": "number", "minimum": 0, "maximum": 1},
+        "frequencia": {"type": "number", "minimum": 0, "maximum": 1},
+        "risco_conformidade": {"type": "number", "minimum": 0, "maximum": 1},
+        "cobertura": {"type": "number", "minimum": 0, "maximum": 1},
+        "prioridade": {"type": "number", "minimum": 0, "maximum": 1},
+        "lacunas": {"type": "array", "items": {"type": "string", "enum": ["responsavel", "normativa", "gatilho", "entrada", "saida", "passos", "sistema", "formulario", "prazo", "kpi", "contingencia", "interface_setorial", "versao_documento", "dados_pessoais_lgpd"]}},
+        "recomendacao": {"type": "string", "enum": ["gerar_pop", "coletar_mais", "agrupar", "descartar"]},
+        "pop_existente": {"type": "string"},
+        "justificativa": {"type": "string"}
+      }
+    }},
+    "lacunas_setor": {"type": "array", "items": {"type": "string"}},
+    "licoes_propostas": {"type": "array", "items": {"type": "object", "required": ["licao", "regra"], "properties": {"licao": {"type": "string"}, "regra": {"type": "string"}, "exemplo": {"type": "string"}, "origem": {"type": "string"}}}},
+    "observacoes": {"type": "string"},
+    "changelog": {"type": "array", "items": {"type": "object"}}
+  }
+}

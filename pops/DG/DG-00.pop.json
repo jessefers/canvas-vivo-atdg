@@ -1,0 +1,191 @@
+{
+  "id": "pop-dg-00",
+  "codigo": "DG-00",
+  "titulo": "Visão geral — Direção Geral de Campus",
+  "setor": "Direção Geral de Campus",
+  "setor_codigo": "S01-DG",
+  "sigla": "DG",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Direção Geral de Campus",
+    "departamento": "Direção Geral de Campus",
+    "descricao": "Referência das normas institucionais estruturantes aplicadas no campus: Estatuto da Unioeste e Instruções de Serviço do Gabinete da Reitoria (GRE).",
+    "dominio": "Governança e Direção do Campus",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "core",
+    "contexto": "S01-DG",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Resoluções 017/99-COU e 194/2024-COU (Estatuto)",
+      "Instruções de Serviço GRE"
+    ],
+    "subordinacao": "Reitoria da Unioeste",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "01_ADMINISTRATIVO"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  P[\"DG-00<br/>Visão geral — Direção Geral de Campus\"]\n  S01_DG --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Consultar o Estatuto para competências de órgãos e funções",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-direcao-geral"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Aplicar as Instruções de Serviço do GRE pertinentes",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-direcao-geral"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Observar as alterações do Estatuto (Res. 194/2024-COU)",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-direcao-geral"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Estatuto alterado pela Resolução 194/2024-COU",
+    "Algumas normas estão em PDF imagem — consultar o original"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Direção Geral de Campus\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Consultar o Estatuto para competências de órgãos e funções\"]\n    e3[\"Aplicar as Instruções de Serviço do GRE pertinentes\"]\n    e4[\"Observar as alterações do Estatuto (Res. 194/2024-COU)\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Direção Geral de Campus"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Direção Geral de Campus"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Consultar o Estatuto para competências de órgãos e funções",
+        "raia": "Direção Geral de Campus"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Aplicar as Instruções de Serviço do GRE pertinentes",
+        "raia": "Direção Geral de Campus"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Observar as alterações do Estatuto (Res. 194/2024-COU)",
+        "raia": "Direção Geral de Campus"
+      },
+      {
+        "id": "e5",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Direção Geral de Campus"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-direcao-geral"
+      ],
+      "fontes": [
+        "pb-direcao-geral"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-direcao-geral"
+  ],
+  "hash_fontes": "22ef07d9a96a356900b7d849cb8637e5b5cee9a0bdfa6965643a5765675c5a14",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-02T17:55:54Z"
+}

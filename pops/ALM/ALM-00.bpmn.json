@@ -1,0 +1,106 @@
+{
+  "setor": "Div. de Almoxarifado",
+  "codigo": "ALM-00",
+  "gerado_em": "2026-09-02T17:55:54Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "ALM-00 — Visão geral — Div. de Almoxarifado",
+      "descricao": "Guia operacional do Almoxarifado, do recebimento ao desfazimento de materiais de consumo. Integra o Manual de Gestão (regras) e o Manual de Mapeamento (fluxos e indicadores), com 8 processos em BPMN 2.0.",
+      "raias": [
+        "Div. de Almoxarifado"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Almoxarifado"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Recebimento de materiais (conferência da NF, quantitativa e qualitativa, lançamento no GMS/ERP)",
+          "raia": "Div. de Almoxarifado"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Armazenagem e guarda",
+          "raia": "Div. de Almoxarifado"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Distribuição para departamentos",
+          "raia": "Div. de Almoxarifado"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Inventário rotativo e geral",
+          "raia": "Div. de Almoxarifado"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Conciliação físico-contábil",
+          "raia": "Div. de Almoxarifado"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Desfazimento regulamentado de inservíveis",
+          "raia": "Div. de Almoxarifado"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Relatórios e prestação de contas",
+          "raia": "Div. de Almoxarifado"
+        },
+        {
+          "id": "e9",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Almoxarifado"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

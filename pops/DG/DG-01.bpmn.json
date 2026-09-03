@@ -1,0 +1,36 @@
+{
+  "setor": "Direção Geral de Campus",
+  "codigo": "DG-01",
+  "gerado_em": "2026-09-02T17:55:54Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DG-01 — Aplicação do Estatuto e das Instruções de Serviço do GRE",
+      "descricao": "Aplicação do Estatuto e das Instruções de Serviço do GRE. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+      "raias": [
+        "Direção Geral de Campus"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Direção Geral de Campus"
+        },
+        {
+          "id": "e2",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Direção Geral de Campus"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

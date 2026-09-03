@@ -1,0 +1,76 @@
+{
+  "setor": "Direção de Centro",
+  "codigo": "DCEN-00",
+  "gerado_em": "2026-09-02T17:55:55Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DCEN-00 — Visão geral — Direção de Centro (competências gerais)",
+      "descricao": "Guia das competências da Direção de Centro e das assessorias (de área, de ensino e de extensão), conforme o art. 37 do Estatuto.",
+      "raias": [
+        "Direção de Centro"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Representar o Centro em eventos e reuniões internas/externas",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Nomear representantes para comitês, conselhos e GTs",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Convocar e presidir o Conselho de Centro",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Articular ensino com a PROGRAD e extensão com a PROEX",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e6",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Direção de Centro"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

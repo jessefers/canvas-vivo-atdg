@@ -1,0 +1,66 @@
+{
+  "setor": "Div. de Finanças",
+  "codigo": "DFIN-02",
+  "gerado_em": "2026-09-02T17:55:54Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DFIN-02 — Fluxo Despesas Campus Foz — Passagem e Hospedagem",
+      "descricao": "Fluxograma específico do Campus Foz para despesas de passagem e hospedagem no e-Protocolo. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Define a tramitação local desses pedidos; requer leitura visual para detalhar as etapas e responsáveis.",
+      "raias": [
+        "Div. de Finanças"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Finanças"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Abrir o arquivo para leitura visual do fluxo",
+          "raia": "Div. de Finanças"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Seguir a tramitação local de passagem e hospedagem",
+          "raia": "Div. de Finanças"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Conferir disponibilidade orçamentária e documentação exigida",
+          "raia": "Div. de Finanças"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Finanças"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

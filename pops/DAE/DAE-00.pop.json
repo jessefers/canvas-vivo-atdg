@@ -1,0 +1,189 @@
+{
+  "id": "pop-dae-00",
+  "codigo": "DAE-00",
+  "titulo": "Visão geral — Div. de Assistência Estudantil",
+  "setor": "Div. de Assistência Estudantil",
+  "setor_codigo": "S05.03-DAE",
+  "sigla": "DAE",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Coordenação Acadêmica",
+    "departamento": "Div. de Assistência Estudantil",
+    "descricao": "Divisão de Assistência Estudantil da Coordenação Acadêmica. Playbook em construção.",
+    "dominio": "Gestão Acadêmica",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "suporte",
+    "contexto": "S05.03-DAE",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "A definir (políticas de assistência estudantil da Unioeste)"
+    ],
+    "subordinacao": "Coordenação Acadêmica",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  S05_03_DAE[\"S05.03-DAE<br/>Div. de Assistência Estudantil\"]\n  S05_CACAD --> S05_03_DAE\n  P[\"DAE-00<br/>Visão geral — Div. de Assistência Estudantil\"]\n  S05_03_DAE --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD,S05_03_DAE setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "A documentar: levantar atividades e rotinas da área",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-assistencia-estudantil"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Mapear fluxos e responsáveis por etapa",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-assistencia-estudantil"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Identificar normas aplicáveis e pontos de atenção",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-assistencia-estudantil"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Área ainda não mapeada — playbook em construção"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Assistência Estudantil\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Assistência Estudantil"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Div. de Assistência Estudantil"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "A documentar: levantar atividades e rotinas da área",
+        "raia": "Div. de Assistência Estudantil"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Mapear fluxos e responsáveis por etapa",
+        "raia": "Div. de Assistência Estudantil"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Identificar normas aplicáveis e pontos de atenção",
+        "raia": "Div. de Assistência Estudantil"
+      },
+      {
+        "id": "e5",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Div. de Assistência Estudantil"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-assistencia-estudantil"
+      ],
+      "fontes": [
+        "pb-assistencia-estudantil"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-assistencia-estudantil"
+  ],
+  "hash_fontes": "238b2a9528e1d70a9b82fc803abb5069b49012ce25d7e4c21259d7737712fd98",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-02T17:55:55Z"
+}

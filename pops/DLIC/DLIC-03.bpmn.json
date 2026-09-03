@@ -1,0 +1,96 @@
+{
+  "setor": "Div. de Licitação",
+  "codigo": "DLIC-03",
+  "gerado_em": "2026-09-02T17:55:54Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DLIC-03 — Fluxo — Processo de Licitação",
+      "descricao": "Fluxo do processo de licitação. O interessado elabora memorando e termo de referência, faz cotações e tabela comparativa e envia ao Planejamento, que submete à autorização da Direção Geral. A Licitação cataloga no GMS, faz pesquisa de preços, o Financeiro indica os elementos de despesa e a DDF, e a Licitação escreve o edital, cadastra o processo no GMS e no ComprasNet e encaminha à Direção Geral para autorização e prosseguimento.",
+      "raias": [
+        "Div. de Licitação"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Interessado elabora memorando, TR, cotações e tabela comparativa",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Planejamento analisa e submete à autorização da Direção Geral",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Licitação cataloga no GMS e faz pesquisa de preços",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Financeiro indica elementos de despesa e faz a DDF",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Licitação elabora edital e cadastra no GMS e ComprasNet",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Direção Geral autoriza o prosseguimento",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e8",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Licitação"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

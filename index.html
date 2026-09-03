@@ -10,6 +10,7 @@
   --verde:#1B2747;--vd:#0D1B33;--vl:#EEF0F7;--vm:#C5CBDC;
   --dou:#CC1544;--dl:#FDEAEE;
   --teal:#0B4D66;--tl:#E0F2F8;
+  --nav:#0D1B33;--nav2:#1B2747;--ok:#0B7A4E;--okl:#E6F7F0;
   --bg:#F4F5FA;--card:#fff;--txt:#1B2747;--mut:#5A6380;--brd:#D0D4E8;
   --red:#c0392b;--rl:#fdf0ee;--blue:#2563eb;--bl:#eff6ff;--pu:#7c3aed;--pl:#f3e8ff;--or:#c9783a;--ol:#fff4ed
 }
@@ -179,6 +180,17 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
 .collapse-arrow{margin-left:6px;font-size:9px;transition:transform .2s}
 .collapse-arrow.closed{transform:rotate(-90deg)}
 @media(max-width:600px){.proc-grid{grid-template-columns:1fr}}
+/* ABA AGENTES */
+.ag-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 12px}
+.ag-tabs .man-action-btn{flex:0 0 auto}
+.ag-tabs .man-action-btn.on{background:var(--nav2);color:#fff;border-color:var(--nav2)}
+.pop-sec{margin-bottom:14px}
+.pop-sec h3{font-size:12px;font-weight:700;color:var(--nav2);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 6px;padding-bottom:4px;border-bottom:2px solid var(--vm)}
+.pop-table{width:100%;border-collapse:collapse;font-size:11px;margin:6px 0}
+.pop-table th{background:var(--nav2);color:#fff;padding:5px 8px;text-align:left;font-size:10px;letter-spacing:.03em}
+.pop-table td{border:1px solid var(--brd);padding:5px 8px;vertical-align:top;background:#fff}
+.mmd{background:#fff;border:1px solid var(--brd);border-radius:8px;padding:10px;overflow:auto;margin:8px 0;min-height:40px}
+.mmd svg{max-width:100%;height:auto}
 /* CANVAS */
 .srow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
 .scard{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:13px 15px;box-shadow:0 1px 4px rgba(0,102,51,.04)}
@@ -412,6 +424,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
     <button class="tb" onclick="sw('canvas',this)">📋 Canvas Vivo <span class="tc" id="tc-c">0</span></button>
     <button class="tb" onclick="sw('buscar',this)">🔍 Buscar <span class="tc" id="tc-b">0</span></button>
     <button class="tb" onclick="sw('manuais',this)">📚 Manuais <span class="tc" id="tc-m">0</span></button>
+    <button class="tb" onclick="sw('agentes',this)">🤖 Agentes <span class="tc" id="tc-a">0</span></button>
     <button class="tb" onclick="sw('hist',this)">🗂️ Histórico <span class="tc" id="tc-h">0</span></button>
     <button class="tb" onclick="sw('config',this)">⚙️ Config</button>
   </div>
@@ -761,6 +774,26 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
     </div>
   </div>
 
+  <!-- ══ AGENTES ══ -->
+  <div id="panel-agentes" class="panel">
+    <div class="manuais-hero">
+      <h2>🤖 Agentes — diagnóstico, POPs e aprendizado</h2>
+      <p>Para cada projeto, ação ou processo do campus: identificar, diagnosticar e qualificar; construir o POP em modo playbook (formato DDD híbrido — Divisão → Departamento → Descrição + Domain-Driven Design) com organograma e fluxograma BPMN 2.0 padrão Anne Bail; adicionar incrementalmente cada novo passo, formulário ou alteração; e aprender por lições aprovadas. Mesmas diretrizes do repositório (Claude Code) e deste app.</p>
+      <div class="manuais-hero-actions">
+        <button class="master-btn" onclick="diagnosticarTodos()">🩺 Diagnosticar todos os setores (lote)</button>
+        <button class="bpmn-close" onclick="agSub('diretrizes')">📐 Diretrizes e lições</button>
+      </div>
+    </div>
+    <div class="manuais-summary" id="agSummary"></div>
+    <div class="ag-tabs" id="agTabs">
+      <button class="man-action-btn on" data-sub="diag" onclick="agSub('diag')">🩺 Diagnóstico</button>
+      <button class="man-action-btn" data-sub="pops" onclick="agSub('pops')">📘 POPs</button>
+      <button class="man-action-btn" data-sub="agentes" onclick="agSub('agentes')">🧩 Agentes por processo</button>
+      <button class="man-action-btn" data-sub="diretrizes" onclick="agSub('diretrizes')">📐 Diretrizes e lições</button>
+    </div>
+    <div id="agContent"></div>
+  </div>
+
   <!-- ══ HISTÓRICO ══ -->
   <div id="panel-hist" class="panel">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
@@ -781,6 +814,10 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
         <button onclick="clearApiKey()" style="background:none;border:1px solid var(--brd);color:var(--mut);cursor:pointer;padding:9px 14px;border-radius:7px;font-family:'Sora',sans-serif;font-size:12px;">Remover</button>
       </div>
       <div id="apiKeyStatus" style="margin-top:8px;font-size:11px;color:var(--mut);"></div>
+      <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;margin-top:14px;">
+        <div style="flex:1;min-width:240px;"><label class="fl">Modelo IA (manuais, BPMN, busca e agentes)</label><select class="fs" id="cfgModel" onchange="saveModelChoice(this)"></select></div>
+        <div style="font-size:10px;color:var(--mut);max-width:360px;line-height:1.5;">Entradas e arquivos usam sempre o modelo rápido (Haiku 4.5). Uso acumulado neste navegador: <span id="cfg-budget" style="font-family:'IBM Plex Mono',monospace">—</span> <button class="rbtn" style="padding:2px 8px;font-size:10px;margin-left:4px" onclick="resetBudget()">zerar</button></div>
+      </div>
     </div>
     <div style="background:var(--card);border:1px solid var(--brd);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 6px rgba(0,0,0,.05);">
       <div style="font-size:14px;font-weight:700;color:var(--nav2);margin-bottom:4px;">🔄 Sincronizar com a Equipe</div>
@@ -831,6 +868,20 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--txt);min-hei
   </div>
 </div>
 
+<!-- MODAL POP -->
+<div class="bpmn-modal" id="popModal">
+  <div class="bpmn-modal-inner" style="max-width:1000px">
+    <div class="bpmn-modal-header">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
+        <div><h2 id="popModalTitle">POP</h2><p id="popModalSub"></p></div>
+        <button class="bpmn-close" onclick="fecharPopModal()">✕ Fechar</button>
+      </div>
+    </div>
+    <div class="bpmn-modal-body" id="popModalBody"></div>
+    <div class="bpmn-modal-footer" id="popModalFooter"></div>
+  </div>
+</div>
+
 <div id="toast" class="toast"></div>
 
 <script>
@@ -843,6 +894,104 @@ const K_KEY = 'cv-atdg-apikey';
 // API Key helpers
 function getKey(){return localStorage.getItem(K_KEY)||'';}
 function saveKey(k){if(k)localStorage.setItem(K_KEY,k);else localStorage.removeItem(K_KEY);}
+
+// ══ MODELOS E CHAMADA À API (helper único) ══
+const MODELOS={
+  'claude-sonnet-5':{nome:'Claude Sonnet 5 — recomendado',perfil:'qualidade'},
+  'claude-opus-5':{nome:'Claude Opus 5 — máxima capacidade (custo maior)',perfil:'qualidade'},
+  'claude-haiku-4-5':{nome:'Claude Haiku 4.5 — rápido e econômico',perfil:'rapido'},
+  'claude-sonnet-4-0':{nome:'Claude Sonnet 4 — legado (depreciado)',perfil:'qualidade'}
+};
+const MODEL_QUALIDADE_PADRAO='claude-sonnet-5';
+const MODEL_RAPIDO='claude-haiku-4-5';
+const K_MODEL='cv-atdg-model-v1';
+const K_BUDGET='cv-atdg-budget-v1';
+function getModel(){const m=localStorage.getItem(K_MODEL);return (m&&MODELOS[m])?m:MODEL_QUALIDADE_PADRAO;}
+function setModel(m){if(MODELOS[m])localStorage.setItem(K_MODEL,m);}
+function getBudget(){try{return JSON.parse(localStorage.getItem(K_BUDGET)||'{"chamadas":0,"tokens_est":0}');}catch{return{chamadas:0,tokens_est:0};}}
+function addBudget(chars){try{const b=getBudget();b.chamadas++;b.tokens_est+=Math.round(chars/4);localStorage.setItem(K_BUDGET,JSON.stringify(b));}catch{}}
+function resetBudget(){localStorage.removeItem(K_BUDGET);if(typeof loadCfgInfo==='function')loadCfgInfo();}
+function extractJSON(txt){
+  const clean=(txt||'').replace(/```json|```/g,'').trim();
+  const s=clean.indexOf('{'),e=clean.lastIndexOf('}');
+  if(s<0||e<0)throw new Error('Resposta sem JSON válido');
+  return JSON.parse(clean.substring(s,e+1));
+}
+// Chamada direta do navegador à API Anthropic (padrão do app). Retorna JSON extraído (json=true) ou texto.
+async function callClaude({model,max_tokens=4000,system,messages,content,tools,timeoutMs=90000,json=true}={}){
+  const apiKey=getKey();
+  if(!apiKey)throw new Error('Chave IA não configurada (⚙️ Config).');
+  const msgs=messages||[{role:'user',content}];
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),timeoutMs);
+  try{
+    const body={model:model||getModel(),max_tokens,messages:msgs};
+    if(system)body.system=system;
+    if(tools)body.tools=tools;
+    const r=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',signal:controller.signal,
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify(body)
+    });
+    const d=await r.json().catch(()=>({}));
+    if(!r.ok||d.error)throw new Error('API '+r.status+': '+((d.error&&d.error.message)||'').substring(0,200));
+    const txt=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('\n');
+    addBudget(JSON.stringify(body).length+txt.length);
+    if(json)return extractJSON(txt);
+    return {texto:txt,raw:d};
+  }finally{clearTimeout(timer);}
+}
+
+// ══ COLEÇÕES (POPs, diagnósticos, agentes, diretrizes, lições) ══
+const K_POPS='cv-atdg-pops-v1';
+const K_DIAG='cv-atdg-diag-v1';
+const K_AG='cv-atdg-agentes-v1';
+const K_DIR='cv-atdg-diretrizes-v1';
+const K_LIC='cv-atdg-licoes-v1';
+function gColl(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v:[];}catch{return[];}}
+function sColl(k,d){try{localStorage.setItem(k,JSON.stringify(d));}catch(e){toast('⚠️ Armazenamento cheio: '+(e.message||''));}}
+function gPops(){return gColl(K_POPS);} function sPops(d){sColl(K_POPS,d);}
+function gDiags(){return gColl(K_DIAG);} function sDiags(d){sColl(K_DIAG,d);}
+function gAgentes(){return gColl(K_AG);} function sAgentes(d){sColl(K_AG,d);}
+function gDiretrizes(){return gColl(K_DIR);} function sDiretrizes(d){sColl(K_DIR,d);}
+function gLicoes(){return gColl(K_LIC);} function sLicoes(d){sColl(K_LIC,d);}
+function cmpVersao(a,b){
+  const pa=String(a||'0').replace(/^v/i,'').split('.').map(n=>parseInt(n)||0);
+  const pb=String(b||'0').replace(/^v/i,'').split('.').map(n=>parseInt(n)||0);
+  for(let i=0;i<Math.max(pa.length,pb.length);i++){const d=(pa[i]||0)-(pb[i]||0);if(d)return d;}
+  return 0;
+}
+// true quando `inc` é mais recente que `cur` (versão maior ou atualizado_em/ts posterior)
+function isNewer(cur,inc){
+  if(cur.versao!==undefined&&inc.versao!==undefined&&String(cur.versao)!==String(inc.versao))return cmpVersao(inc.versao,cur.versao)>0;
+  return String(inc.atualizado_em||inc.ts||'')>String(cur.atualizado_em||cur.ts||'');
+}
+function mergeById(local,incoming,replaceNewer){
+  const map=new Map((local||[]).map(x=>[x.id,x]));let added=0,updated=0;
+  (incoming||[]).forEach(x=>{
+    if(!x||x.id===undefined||x.id===null)return;
+    const cur=map.get(x.id);
+    if(!cur){map.set(x.id,x);added++;}
+    else if(replaceNewer&&isNewer(cur,x)){map.set(x.id,x);updated++;}
+  });
+  return{list:[...map.values()],added,updated};
+}
+// Mescla um objeto exportado/servidor em todas as coleções locais ("atualiza+adiciona"; entries só adiciona)
+function mergeCollections(d){
+  const res={entries:0,index:0,pops:0,diagnosticos:0,agentes:0,diretrizes:0,licoes:0};
+  const srcObj=Array.isArray(d)?{entries:d}:(d||{});
+  if(Array.isArray(srcObj.entries)){const m=mergeById(gEntries(),srcObj.entries,false);sEntries(m.list);res.entries=m.added;}
+  if(Array.isArray(srcObj.index)){const cur=gIndex();const seen=new Set(cur.map(i=>(i.titulo||'')+'|'+(i.path||'')));srcObj.index.forEach(i=>{const key=(i.titulo||'')+'|'+(i.path||'');if(i&&i.titulo&&!seen.has(key)){cur.push(i);seen.add(key);res.index++;}});sIndex(cur);}
+  [['pops',gPops,sPops],['diagnosticos',gDiags,sDiags],['agentes',gAgentes,sAgentes],['diretrizes',gDiretrizes,sDiretrizes],['licoes',gLicoes,sLicoes]].forEach(([k,g,s])=>{
+    if(Array.isArray(srcObj[k])){const m=mergeById(g(),srcObj[k],true);s(m.list);res[k]=m.added+m.updated;}
+  });
+  return res;
+}
+function downloadBlob(text,filename,mime,bom){
+  const blob=new Blob([(bom?'﻿':'')+text],{type:mime||'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;
+  document.body.appendChild(a);a.click();setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
+}
 
 // ══ STATE ══
 let entries = [];
@@ -1015,8 +1164,8 @@ async function analyzeFile(){
       return;
     }
     const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:msgContent}]})
+      method:'POST',headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:MODEL_RAPIDO,max_tokens:600,messages:[{role:'user',content:msgContent}]})
     });
     if(!resp.ok)throw new Error('API '+resp.status);
     const d=await resp.json();
@@ -1062,6 +1211,8 @@ function sw(tab,btn){
   if(tab==='canvas')loadCanvas();
   if(tab==='hist')loadHist();
   if(tab==='buscar')loadIdxList();
+  if(tab==='manuais')loadManuais();
+  if(tab==='agentes')loadAgentes();
   if(tab==='config'){loadCfgInfo();}
 }
 
@@ -1100,12 +1251,15 @@ async function submitEntry(){
   // Salvar entrada independente do resultado da IA
   try{
     const fileInfo=currentFile?{nome:currentFile.name,tamanho:fmtSize(currentFile.size),tipo:currentFile.type,pasta:document.getElementById('fpath-val').textContent}:null;
-    const e={id:Date.now()+'',user,setor,tipo,desc,p,ts:new Date().toISOString(),arquivo:fileInfo};
+    const estrutura={entrada:entrada||p.entrada||'',processamento:processamento||p.processamento||'',saida:saida||p.saida||'',kpi:kpi||p.kpi||'',contingencia:contingencia||p.contingencia||'',normativa:normativaManual||''};
+    if(normativaManual)p.normativa=normativaManual;
+    const e={id:Date.now()+'',user,setor,tipo,desc,p,responsavel:responsavel||p.responsavel||'',estrutura,ts:new Date().toISOString(),arquivo:fileInfo};
     const all=gEntries();all.push(e);sEntries(all);entries=all;upCounts(all.length);
     st.className='ss ok';
     st.textContent=usedAI?'✅ Entrada processada e integrada ao Canvas!':'✅ Entrada salva (processamento IA em modo offline)';
     ico.innerHTML='✅';lbl.textContent='Enviado!';
     document.getElementById('inSetor').value='';document.getElementById('inTipo').value='';document.getElementById('inDesc').value='';
+    ['inResponsavel','inEntrada','inProcessamento','inSaida','inKPI','inContingencia','inNormativa'].forEach(i=>{const el=document.getElementById(i);if(el)el.value='';});
     toast('✅ Entrada de '+user+' salva no Canvas Vivo!');
     setTimeout(()=>{btn.disabled=false;ico.innerHTML='📤';lbl.textContent='Enviar para o Canvas';st.style.display='none';},3000);
   }catch(err){
@@ -1117,31 +1271,10 @@ async function submitEntry(){
 async function processEntry(setor,tipo,desc){
   // Fallback sempre disponível — entrada salva mesmo sem IA
   const fallback={titulo:desc.substring(0,55)+'...',resumo:desc.substring(0,180),procedimento:[],atencoes:[],normativa:'Não especificada',class:'INFORMAÇÃO',_source:'fallback'};
+  if(!getKey())return fallback;
   try{
     const tipos={processo:'Processo/Procedimento',incidente:'Incidente/Problema',melhoria:'Melhoria',norma:'Norma/Regulamento',reuniao:'Decisão de Reunião',outro:'Outro'};
-    const controller=new AbortController();
-    const timer=setTimeout(()=>controller.abort(),15000); // timeout 15s
-    const r=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      signal:controller.signal,
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:900,
-        messages:[{role:'user',content:'Motor Canvas Vivo ATDG UNIOESTE Campus Foz do Iguacu. Padrao BPMN 2.0 Anne Bail. Processe e retorne APENAS JSON valido sem markdown: {"titulo":"max 60 chars","resumo":"1-2 frases","responsavel":"se mencionado ou A definir","entrada":"insumos/gatilhos","processamento":"etapas resumidas","saida":"entregaveis","procedimento":["passo 1","passo 2"],"atencoes":["atencao 1"],"kpi":"indicador se mencionado","contingencia":"plano B se mencionado","normativa":"normativa ou Nao especificada","class":"PROCESSO|INCIDENTE|MELHORIA|NORMA|DECISAO|INFORMACAO"} Setor='+setor+'|Tipo='+(tipos[tipo]||tipo)+'|Desc='+desc}]
-      })
-    });
-    clearTimeout(timer);
-    if(!r.ok){console.warn('API status:',r.status);return fallback;}
-    const d=await r.json();
-    if(d.error){console.warn('API error:',d.error.message);return fallback;}
-    const t=d.content?.find(b=>b.type==='text')?.text||'';
-    if(!t)return fallback;
-    const clean=t.replace(/```json|```/g,'').trim();
-    const start=clean.indexOf('{');
-    const end=clean.lastIndexOf('}');
-    if(start<0||end<0)return fallback;
-    const parsed=JSON.parse(clean.substring(start,end+1));
+    const parsed=await callClaude({model:MODEL_RAPIDO,max_tokens:900,timeoutMs:20000,content:'Motor Canvas Vivo ATDG UNIOESTE Campus Foz do Iguacu. Padrao BPMN 2.0 Anne Bail. Processe e retorne APENAS JSON valido sem markdown: {"titulo":"max 60 chars","resumo":"1-2 frases","responsavel":"se mencionado ou A definir","entrada":"insumos/gatilhos","processamento":"etapas resumidas","saida":"entregaveis","procedimento":["passo 1","passo 2"],"atencoes":["atencao 1"],"kpi":"indicador se mencionado","contingencia":"plano B se mencionado","normativa":"normativa ou Nao especificada","class":"PROCESSO|INCIDENTE|MELHORIA|NORMA|DECISAO|INFORMACAO"} Setor='+setor+'|Tipo='+(tipos[tipo]||tipo)+'|Desc='+desc});
     return{...parsed,_source:'ai'};
   }catch(e){
     console.warn('processEntry fallback:',e.message||e);
@@ -1223,7 +1356,7 @@ async function loadCanvas(){
         <button class="gen-manual-btn small" onclick="event.stopPropagation();gerarManualSetor('${s.id.replace(/'/g,"\\'")}')">
           📘 Gerar Manual
         </button>
-        <button class="man-action-btn" ${!hasEntries?'disabled':''} onclick="abrirBPMNModal('${setor.replace(/'/g,"\\'")}')">
+        <button class="man-action-btn" onclick="event.stopPropagation();abrirBPMNModal('${s.id.replace(/'/g,"\\'")}')">
           🔷 BPMN
         </button>
       </div>` : '';
@@ -1330,9 +1463,13 @@ Retorne APENAS JSON válido sem markdown:
 
   let msgs=[{role:'user',content:prompt}];
   for(let i=0;i<6;i++){
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1800,tools:[{type:'web_search_20250305',name:'web_search'}],messages:msgs})});
+    const model=getModel();
+    const wsType=/sonnet-4-0/.test(model)?'web_search_20250305':'web_search_20260209';
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model,max_tokens:1800,tools:[{type:wsType,name:'web_search'}],messages:msgs})});
     const d=await r.json();
     if(d.error)throw new Error(d.error.message);
+    addBudget(JSON.stringify(msgs).length+JSON.stringify(d.content||'').length);
+    if(d.stop_reason==='pause_turn'){msgs.push({role:'assistant',content:d.content});continue;}
     if(d.stop_reason==='end_turn'){
       const t=d.content?.find(b=>b.type==='text')?.text||'{}';
       try{return JSON.parse(t.replace(/```json|```/g,'').trim());}
@@ -1517,10 +1654,11 @@ Mínimo 1 processo, máximo 3. Cada um com no mínimo 5 elementos.`;
       headers:{
         'Content-Type':'application/json',
         'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01'
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
       },
       body: JSON.stringify({
-        model:'claude-sonnet-4-20250514',
+        model:getModel(),
         max_tokens: 4500,
         messages:[{role:'user',content:prompt}]
       })
@@ -1797,7 +1935,7 @@ function loadManuais(){
   });
   
   // Também adicionar setores sem entradas mas que existem no organograma (priorizando os principais)
-  SECTORS.filter(s=>!setoresMap[s.id] && (s.st==='ok'||s.st==='wip')).forEach(s=>{
+  SECTORS.filter(s=>!setoresMap[s.id] && (s.status==='ok'||s.status==='wip')).forEach(s=>{
     setoresMap[s.id] = { info: s, entries: [], colabs: [] };
   });
   
@@ -2009,10 +2147,11 @@ Seja institucional, formal, tecnico. Use linguagem da Administracao Publica. Man
       headers:{
         'Content-Type':'application/json',
         'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01'
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
       },
       body: JSON.stringify({
-        model:'claude-sonnet-4-20250514',
+        model:getModel(),
         max_tokens: 6000,
         messages:[{role:'user',content:prompt}]
       })
@@ -2311,10 +2450,11 @@ Retorne APENAS um JSON valido com esta estrutura:
       headers:{
         'Content-Type':'application/json',
         'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01'
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
       },
       body: JSON.stringify({
-        model:'claude-sonnet-4-20250514',
+        model:getModel(),
         max_tokens: 4000,
         messages:[{role:'user',content:prompt}]
       })
@@ -2569,6 +2709,539 @@ async function loadHist(){
   el.innerHTML=`<table class="ht"><thead><tr><th>Data/Hora</th><th>Colaborador</th><th>Setor</th><th>Tipo</th><th>Título</th><th>Descrição</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
 
+
+const ORGANOGRAMA=[{"codigo":"S01-DG","sigla":"DG","nome":"Direção Geral de Campus","id_app":"Direção Geral de Campus","nivel":1,"num":"01","status":"ok","dominio":"Governança e Direção do Campus","tipo_subdominio":"core","pasta_onedrive":"01_ADMINISTRATIVO","processos_conhecidos":[{"codigo":"DG-01","nome":"Aplicação do Estatuto e das Instruções de Serviço do GRE"}]},{"codigo":"S01.01-GAB","sigla":"GAB","nome":"Gabinete da Direção Geral","id_app":"Gabinete da Direção Geral","nivel":2,"pai":"S01-DG","num":"01.01","status":"pl","dominio":"Governança e Direção do Campus","tipo_subdominio":"suporte","pasta_onedrive":"04_COMUNICAÇÃO OFICIAL"},{"codigo":"S01.02-CONS","sigla":"CONS","nome":"Conselho de Campus","id_app":"Conselho de Campus","nivel":2,"pai":"S01-DG","num":"01.02","status":"pl","dominio":"Governança e Direção do Campus","tipo_subdominio":"core","pasta_onedrive":"04_COMUNICAÇÃO OFICIAL"},{"codigo":"S02-ATDG","sigla":"ATDG","nome":"ATDG — Assessoria Técnica da Direção Geral","id_app":"ATDG — Assessoria Técnica da Direção Geral","nivel":1,"pai":"S01-DG","num":"02","status":"ok","dominio":"Assessoria Técnica e Gestão por Processos","tipo_subdominio":"core","pasta_onedrive":"01_ADMINISTRATIVO"},{"codigo":"S02.01-CON","sigla":"CON","nome":"ATDG — Convênios e Parcerias","id_app":"ATDG — Assessoria Técnica da Direção Geral","nivel":2,"pai":"S02-ATDG","num":"02.01","status":"wip","dominio":"Convênios, Parcerias e Captação","tipo_subdominio":"core","pasta_onedrive":"01_ADMINISTRATIVO","processos_conhecidos":[{"codigo":"CON-01","nome":"Instrução de Convênio"},{"codigo":"CON-02","nome":"Celebração de Convênio"},{"codigo":"CON-03","nome":"Execução de Convênio"},{"codigo":"CON-04","nome":"Prestação de Contas de Convênio"},{"codigo":"CON-05","nome":"Encerramento de Convênio"}],"filtro_regex":"conv[êe]nio|parceria|acordo de coopera|termo de coopera"},{"codigo":"S02.02-CAP","sigla":"CAP","nome":"ATDG — Captação de Recursos","id_app":"ATDG — Assessoria Técnica da Direção Geral","nivel":2,"pai":"S02-ATDG","num":"02.02","status":"wip","dominio":"Convênios, Parcerias e Captação","tipo_subdominio":"core","pasta_onedrive":"01_ADMINISTRATIVO","processos_conhecidos":[{"codigo":"CAP-01","nome":"Captação de Recursos Externos"},{"codigo":"CAP-02","nome":"Parcerias Institucionais"}],"filtro_regex":"capta[çc]|funda[çc][ãa]o arauc|edital de fomento|fomento|recursos externos"},{"codigo":"S02.03-CTR","sigla":"CTR","nome":"ATDG — Controladoria e Compliance","id_app":"ATDG — Assessoria Técnica da Direção Geral","nivel":2,"pai":"S02-ATDG","num":"02.03","status":"wip","dominio":"Controladoria, Compliance e Riscos","tipo_subdominio":"core","pasta_onedrive":"02_CONTROLADORIA","processos_conhecidos":[{"codigo":"CTR-01","nome":"Auditoria TCE-PR"},{"codigo":"CTR-02","nome":"Compliance Institucional"},{"codigo":"CTR-03","nome":"Relacionamento com a PRAF"},{"codigo":"CTR-04","nome":"Fiscalização Externa"},{"codigo":"CTR-05","nome":"Gestão de Riscos"}],"filtro_regex":"\\btce\\b|controladoria|compliance|\\bpraf\\b|auditoria|risco|fiscaliza"},{"codigo":"S02.04-COM","sigla":"COM","nome":"ATDG — Comunicação Oficial","id_app":"ATDG — Assessoria Técnica da Direção Geral","nivel":2,"pai":"S02-ATDG","num":"02.04","status":"pl","dominio":"Comunicação Oficial","tipo_subdominio":"suporte","pasta_onedrive":"04_COMUNICAÇÃO OFICIAL","filtro_regex":"of[íi]cio|memorando|parecer|comunica[çc][ãa]o oficial"},{"codigo":"S02.05-GI","sigla":"GI","nome":"ATDG — Gestão Interna","id_app":"ATDG — Assessoria Técnica da Direção Geral","nivel":2,"pai":"S02-ATDG","num":"02.05","status":"pl","dominio":"Gestão Interna e Planejamento","tipo_subdominio":"suporte","pasta_onedrive":"05_GESTÃO INTERNA","filtro_regex":"\\bpdi\\b|\\bppp\\b|\\bcipa\\b|brigada|capacita[çc]|proplan|gest[ãa]o interna"},{"codigo":"S02.06-MAP","sigla":"MAP","nome":"ATDG — Mapeamento de Processos","id_app":"ATDG — Assessoria Técnica da Direção Geral","nivel":2,"pai":"S02-ATDG","num":"02.06","status":"ok","dominio":"Assessoria Técnica e Gestão por Processos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS","processos_conhecidos":[{"codigo":"MAP-01","nome":"Levantamento de setores, cargos, funções e servidores"},{"codigo":"MAP-02","nome":"Aplicação de checklist/questionário por função (Microsoft Forms)"},{"codigo":"MAP-03","nome":"Consolidação e padronização das respostas do mapeamento"},{"codigo":"MAP-04","nome":"Elaboração de POP, Instrução de Trabalho, Manual e Fluxos"}],"filtro_regex":"mapeamento|\\bpop\\b|fluxo|processo|question|checklist|forms|manual de gest|bpmn|playbook"},{"codigo":"S03-SADM","sigla":"SADM","nome":"Secretaria Administrativa","id_app":"Sec. Administrativa — Geral","nivel":1,"pai":"S01-DG","num":"03","status":"wip","dominio":"Administração e Suprimentos","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.01-DMC","sigla":"DMC","nome":"Div. de Manutenção e Conservação","id_app":"Div. de Manutenção e Conservação","nivel":2,"pai":"S03-SADM","num":"03.01","status":"wip","dominio":"Infraestrutura e Serviços","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.02-DST","sigla":"DST","nome":"Div. de Segurança e Transportes","id_app":"Div. de Segurança e Transportes","nivel":2,"pai":"S03-SADM","num":"03.02","status":"wip","dominio":"Infraestrutura e Serviços","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.03-DINF","sigla":"DINF","nome":"Div. de Informática","id_app":"Div. de Informática","nivel":2,"pai":"S03-SADM","num":"03.03","status":"wip","dominio":"Tecnologia da Informação","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.04-ALM","sigla":"ALM","nome":"Div. de Almoxarifado","id_app":"Div. de Almoxarifado","nivel":2,"pai":"S03-SADM","num":"03.04","status":"ok","dominio":"Suprimentos e Materiais","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS","processos_conhecidos":[{"codigo":"ALM-01","nome":"Recebimento de Materiais"},{"codigo":"ALM-02","nome":"Armazenagem"},{"codigo":"ALM-03","nome":"Distribuição para Departamentos"},{"codigo":"ALM-04","nome":"Inventário Rotativo"},{"codigo":"ALM-05","nome":"Inventário Geral"},{"codigo":"ALM-06","nome":"Conciliação Físico-Contábil"},{"codigo":"ALM-07","nome":"Desfazimento de Materiais Inservíveis"},{"codigo":"ALM-08","nome":"Relatórios e Prestação de Contas"}]},{"codigo":"S03.05-DPAT","sigla":"DPAT","nome":"Div. de Patrimônio e Equipamentos","id_app":"Div. de Patrimônio e Equipamentos","nivel":2,"pai":"S03-SADM","num":"03.05","status":"wip","dominio":"Suprimentos e Materiais","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.06-DLIC","sigla":"DLIC","nome":"Div. de Licitação","id_app":"Div. de Licitação","nivel":2,"pai":"S03-SADM","num":"03.06","status":"wip","dominio":"Contratações Públicas","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.07-DRH","sigla":"DRH","nome":"Div. de Recursos Humanos","id_app":"Div. de Recursos Humanos","nivel":2,"pai":"S03-SADM","num":"03.07","status":"wip","dominio":"Gestão de Pessoas","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.08-DATL","sigla":"DATL","nome":"Div. de Apoio Técnico aos Laboratórios","id_app":"Div. de Apoio Técnico aos Laboratórios","nivel":2,"pai":"S03-SADM","num":"03.08","status":"wip","dominio":"Infraestrutura e Serviços","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.09-DSA","sigla":"DSA","nome":"Div. de Serviços de Apoio","id_app":"Div. de Serviços de Apoio","nivel":2,"pai":"S03-SADM","num":"03.09","status":"wip","dominio":"Infraestrutura e Serviços","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S03.10-DCOM","sigla":"DCOM","nome":"Div. de Compras","id_app":"Div. de Compras","nivel":2,"pai":"S03-SADM","num":"03.10","status":"wip","dominio":"Contratações Públicas","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S04-SFIN","sigla":"SFIN","nome":"Secretaria Financeira","id_app":"Sec. Financeira — Geral","nivel":1,"pai":"S01-DG","num":"04","status":"wip","dominio":"Finanças e Orçamento","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S04.01-DFIN","sigla":"DFIN","nome":"Div. de Finanças","id_app":"Div. de Finanças","nivel":2,"pai":"S04-SFIN","num":"04.01","status":"wip","dominio":"Finanças e Orçamento","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S04.02-DCONT","sigla":"DCONT","nome":"Div. de Contabilidade","id_app":"Div. de Contabilidade","nivel":2,"pai":"S04-SFIN","num":"04.02","status":"wip","dominio":"Finanças e Orçamento","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S05-CACAD","sigla":"CACAD","nome":"Coordenação Acadêmica","id_app":"Coordenação Acadêmica — Geral","nivel":1,"pai":"S01-DG","num":"05","status":"wip","dominio":"Gestão Acadêmica","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S05.01-DPG","sigla":"DPG","nome":"Div. de Pós-Graduação","id_app":"Div. de Pós-Graduação","nivel":2,"pai":"S05-CACAD","num":"05.01","status":"wip","dominio":"Gestão Acadêmica","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S05.02-DGRAD","sigla":"DGRAD","nome":"Div. de Graduação","id_app":"Div. de Graduação","nivel":2,"pai":"S05-CACAD","num":"05.02","status":"wip","dominio":"Gestão Acadêmica","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S05.03-DAE","sigla":"DAE","nome":"Div. de Assistência Estudantil","id_app":"Div. de Assistência Estudantil","nivel":2,"pai":"S05-CACAD","num":"05.03","status":"wip","dominio":"Gestão Acadêmica","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S06-BIB","sigla":"BIB","nome":"Biblioteca","id_app":"Biblioteca","nivel":1,"pai":"S01-DG","num":"06","status":"wip","dominio":"Informação e Acervo","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S06.01-DCRA","sigla":"DCRA","nome":"Div. Circulação, Referência e Acervo","id_app":"Div. Circulação, Referência e Acervo","nivel":2,"pai":"S06-BIB","num":"06.01","status":"wip","dominio":"Informação e Acervo","tipo_subdominio":"suporte","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S07-CCSA","sigla":"CCSA","nome":"Centro de Ciências Sociais Aplicadas — Direção de Centro","id_app":"CCSA — Direção de Centro","nivel":1,"pai":"S01-DG","num":"07","status":"pl","dominio":"Ensino, Pesquisa e Extensão (Centro)","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S07.01-CCSA-ADM","sigla":"CCSA-ADM","nome":"CCSA — Administração","id_app":"CCSA / Administração","nivel":2,"pai":"S07-CCSA","num":"07.01","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S07.02-CCSA-CC","sigla":"CCSA-CC","nome":"CCSA — Ciências Contábeis","id_app":"CCSA / Ciências Contábeis","nivel":2,"pai":"S07-CCSA","num":"07.02","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S07.03-CCSA-DIR","sigla":"CCSA-DIR","nome":"CCSA — Direito","id_app":"CCSA / Direito","nivel":2,"pai":"S07-CCSA","num":"07.03","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S07.04-CCSA-HOT","sigla":"CCSA-HOT","nome":"CCSA — Hotelaria","id_app":"CCSA / Hotelaria","nivel":2,"pai":"S07-CCSA","num":"07.04","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S07.05-CCSA-TUR","sigla":"CCSA-TUR","nome":"CCSA — Turismo","id_app":"CCSA / Turismo","nivel":2,"pai":"S07-CCSA","num":"07.05","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S07.06-CCSA-NPJ","sigla":"CCSA-NPJ","nome":"CCSA — NPJ","id_app":"CCSA / NPJ","nivel":2,"pai":"S07-CCSA","num":"07.06","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS","aliases":["CCSA / NPJ — Núcleo de Prática Jurídica"]},{"codigo":"S07.07-CCSA-NUTUR","sigla":"CCSA-NUTUR","nome":"CCSA — NUTUR","id_app":"CCSA / NUTUR","nivel":2,"pai":"S07-CCSA","num":"07.07","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS","aliases":["CCSA / NUTUR — Núcleo de Turismo"]},{"codigo":"S07.08-CCSA-NUPESA","sigla":"CCSA-NUPESA","nome":"CCSA — NUPESA","id_app":"CCSA / NUPESA","nivel":2,"pai":"S07-CCSA","num":"07.08","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S08-CECE","sigla":"CECE","nome":"Centro de Engenharias e Ciências Exatas — Direção de Centro","id_app":"CECE — Direção de Centro","nivel":1,"pai":"S01-DG","num":"08","status":"pl","dominio":"Ensino, Pesquisa e Extensão (Centro)","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S08.01-CECE-CC","sigla":"CECE-CC","nome":"CECE — Ciência da Computação","id_app":"CECE / Ciência da Computação","nivel":2,"pai":"S08-CECE","num":"08.01","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S08.02-CECE-EE","sigla":"CECE-EE","nome":"CECE — Engenharia Elétrica","id_app":"CECE / Engenharia Elétrica","nivel":2,"pai":"S08-CECE","num":"08.02","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S08.03-CECE-EM","sigla":"CECE-EM","nome":"CECE — Engenharia Mecânica","id_app":"CECE / Engenharia Mecânica","nivel":2,"pai":"S08-CECE","num":"08.03","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S08.04-CECE-MAT","sigla":"CECE-MAT","nome":"CECE — Matemática","id_app":"CECE / Matemática","nivel":2,"pai":"S08-CECE","num":"08.04","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S08.05-CECE-PPGEEC","sigla":"CECE-PPGEEC","nome":"CECE — Mestrado em Eng. Elétrica e Computação","id_app":"CECE / Mestrado em Eng. Elétrica e Computação","nivel":2,"pai":"S08-CECE","num":"08.05","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S08.06-CECE-PPGTGS","sigla":"CECE-PPGTGS","nome":"CECE — Mestrado em Tecnologias, Gestão e Sustentabilidade","id_app":"CECE / Mestrado em Tecnologias, Gestão e Sustentabilidade","nivel":2,"pai":"S08-CECE","num":"08.06","status":"pl","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S09-CEL","sigla":"CEL","nome":"Centro de Educação e Letras (novo abr/2026) — Direção de Centro","id_app":"CEL — Direção de Centro","nivel":1,"pai":"S01-DG","num":"09","status":"new","dominio":"Ensino, Pesquisa e Extensão (Centro)","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S09.01-CEL-LPI","sigla":"CEL-LPI","nome":"CEL — Letras Português-Inglês","id_app":"CEL / Letras Português-Inglês","nivel":2,"pai":"S09-CEL","num":"09.01","status":"new","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S09.02-CEL-LPE","sigla":"CEL-LPE","nome":"CEL — Letras Português-Espanhol","id_app":"CEL / Letras Português-Espanhol","nivel":2,"pai":"S09-CEL","num":"09.02","status":"new","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S09.03-CEL-PED","sigla":"CEL-PED","nome":"CEL — Pedagogia","id_app":"CEL / Pedagogia","nivel":2,"pai":"S09-CEL","num":"09.03","status":"new","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S10-CES","sigla":"CES","nome":"Centro de Educação e Saúde (novo abr/2026) — Direção de Centro","id_app":"CES — Direção de Centro","nivel":1,"pai":"S01-DG","num":"10","status":"new","dominio":"Ensino, Pesquisa e Extensão (Centro)","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S10.01-CES-ENF","sigla":"CES-ENF","nome":"CES — Enfermagem","id_app":"CES / Enfermagem","nivel":2,"pai":"S10-CES","num":"10.01","status":"new","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S10.02-CES-ENFP","sigla":"CES-ENFP","nome":"CES — Enfermagem PRONERA","id_app":"CES / Enfermagem PRONERA","nivel":2,"pai":"S10-CES","num":"10.02","status":"new","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S10.03-CES-PPGEN","sigla":"CES-PPGEN","nome":"CES — Mestrado em Ensino","id_app":"CES / Mestrado em Ensino","nivel":2,"pai":"S10-CES","num":"10.03","status":"new","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S10.04-CES-PPGSP","sigla":"CES-PPGSP","nome":"CES — Mestrado em Saúde Pública em Região de Fronteira","id_app":"CES / Mestrado em Saúde Pública em Região de Fronteira","nivel":2,"pai":"S10-CES","num":"10.04","status":"new","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S10.05-CES-PPGSCF","sigla":"CES-PPGSCF","nome":"CES — Mestrado e Doutorado em Sociedade, Cultura e Fronteiras","id_app":"CES / Mestrado e Doutorado em Sociedade, Cultura e Fronteiras","nivel":2,"pai":"S10-CES","num":"10.05","status":"new","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S11-ITAI","sigla":"ITAI","nome":"ITAI — Instituto de Tecnologia Aplicada e Inovação","id_app":"ITAI","nivel":1,"pai":"S01-DG","num":"11","status":"pl","dominio":"Inovação e Tecnologia","tipo_subdominio":"genérico","pasta_onedrive":"01_ADMINISTRATIVO"},{"codigo":"S12-COLEG","sigla":"COLEG","nome":"Colegiado de Curso (transversal)","id_app":"Colegiado de Curso","nivel":1,"pai":"S01-DG","num":"12","status":"wip","dominio":"Colegiados e Cursos","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S13-DCEN","sigla":"DCEN","nome":"Direção de Centro (competências gerais)","id_app":"Direção de Centro","nivel":1,"pai":"S01-DG","num":"13","status":"wip","dominio":"Ensino, Pesquisa e Extensão (Centro)","tipo_subdominio":"core","pasta_onedrive":"03_MAPEAMENTO DE PROCESSOS"},{"codigo":"S00-REF","sigla":"REF","nome":"Referência Externa (benchmark metodológico)","id_app":"Referência Externa","nivel":1,"num":"00","status":"ok","dominio":"Referências Metodológicas","tipo_subdominio":"genérico","pasta_onedrive":"06_BASE DE MODELOS E APOIO","gera_pop":false},{"codigo":"S99-OUT","sigla":"OUT","nome":"Outro (não classificado)","id_app":"Outro","nivel":1,"num":"99","status":"pl","dominio":"Não classificado","tipo_subdominio":"genérico","pasta_onedrive":"07_ARQUIVO HISTÓRICO","gera_pop":false}];
+const AGENTE_TEMPLATE="---\nname: pop-{{codigo_lower}}\ndescription: Agente do processo {{codigo}} — {{nome}} ({{setor}}). Use para diagnosticar, atualizar o POP, o organograma e o fluxograma BPMN quando surgir novo passo, formulário, decisão, interface ou alteração neste processo; sempre por patch incremental, nunca reescrevendo.\ntools: Read, Grep, Glob, Edit, Write, Bash(python3 scripts/*)\nmodel: sonnet\nmemory: project\nskills:\n  - atualizar-pop\n---\n\n# Agente do processo {{codigo}} — {{nome}}\n\nVocê é o agente moldado para o processo **{{codigo}} — {{nome}}**, do setor **{{setor}}** (`{{setor_codigo}}`), domínio **{{dominio}}**, contexto delimitado **{{contexto}}**. Atua como assessoria técnica da ATDG/UNIOESTE Campus Foz do Iguaçu, em linguagem institucional da Administração Pública.\n\n## Arquivos sob sua guarda\n- POP canônico: `{{arquivo_pop}}` (versão atual {{versao}}, status {{status}})\n- Renderizações: `{{arquivo_md}}` e `{{arquivo_bpmn}}` (nunca editar à mão; usar `python3 scripts/render_pop.py {{codigo}}`)\n- Diagnóstico do setor: `diagnosticos/{{sigla}}.json`\n- Diretrizes (versão {{diretrizes_versao}}): `diretrizes/01-formato-ddd.md`, `02-template-pop-playbook.md`, `04-bpmn-anne-bail.md`, `05-rubrica-diagnostico.md`, `06-codificacao-versionamento.md`, `07-licoes-aprendidas.md` (aplicar apenas lições aprovadas), `09-glossario-institucional.md`\n\n## Contexto do processo\n- Responsável (função): {{responsavel}}\n- Raias do fluxograma: {{raias}}\n- Normativa: {{normativa}}\n- Interfaces (mapa de contexto): {{interfaces}}\n- Fontes incorporadas: {{fontes}} (hash {{hash_fontes}})\n\n## Protocolo de atualização (obrigatório)\n1. Ler o POP canônico e as diretrizes; nunca partir de memória.\n2. Coletar insumos novos: `python3 scripts/extract_setor.py --setor {{setor_codigo}} --desde {{atualizado_em}} --exclui {{fontes_csv}}` e o texto fornecido pelo usuário.\n3. Sem insumos ⇒ responder \"sem novidades\" e encerrar (não chamar modelo, não alterar arquivos).\n4. Classificar cada insumo: passo novo / passo alterado / formulário / decisão / interface / regra / **processo novo** (⇒ recomendar `/gerar-pop`, não absorver) / sem impacto.\n5. Produzir **apenas** um `patch.json` conforme `schemas/patch.schema.json` (com `changelog`, `fontes`, `tipo_mudanca` sugerido e `licoes_propostas`).\n6. Aplicar com `python3 scripts/apply_patch.py {{codigo}} <patch.json>`; validar com `python3 scripts/validate.py`.\n7. Registrar lições propostas em `diretrizes/07-licoes-aprendidas.md` (status `proposta`) e sincronizar com `python3 scripts/sync_data.py --to-data`.\n\n## Proibições\n- Não reescrever o POP, não renumerar códigos, não remover passos sem justificativa normativa.\n- Não inventar responsáveis, prazos, normas ou KPIs (\"A definir\" + lacuna).\n- Não citar nomes de servidores (LGPD); referir funções.\n- Não tratar referências externas como norma da Unioeste.\n\n## Memória\nRegistre em sua memória de projeto apenas convenções confirmadas pelo usuário para este processo (ex.: nomes de artefatos, raias, siglas locais). Convenções gerais vão para `07-licoes-aprendidas.md` como proposta.\n";
+const DIRETRIZES_DEFAULT="RESUMO EMBUTIDO DAS DIRETRIZES (versão 1.0 — usar quando data.json ainda não sincronizou)\n1) FORMATO DDD HÍBRIDO: Divisão → Departamento → Descrição (posição no organograma + o que o processo entrega, para quem, sob qual norma) e Domain-Driven Design: domínio/subdomínio (core, suporte, generico), contexto delimitado (setor dono = raia proprietária), linguagem ubíqua (glossário: termo, definição, sistema), eventos de domínio (gatilho como evento, ex. \"NF recebida\"; evento por passo que muda estado), agregados/entidades (artefatos: formulário, documento, registro, sistema), invariantes (decisões {decisao, condicao, sim, nao} e normativa), mapa de contexto (origem, destino, relacao fornece|recebe|valida|aprova|informa, artefato, canal).\n2) REDAÇÃO: linguagem institucional da Administração Pública; um passo = uma ação (verbo no início); função/cargo, nunca nome de pessoa (LGPD); sistemas e artefatos explícitos; prazo em dias úteis ou marco normativo; normativa com identificação completa; \"A definir\" + lacuna em vez de inventar; referências externas (UFPR, UFABC, UNILA, IFPR, ISO) são benchmark, nunca norma.\n3) POP (seções fixas 0–14): 0 Cabeçalho DDD; 1 Identificação (responsável por função, periodicidade, normativa[], subordinação, produto ATDG, pasta OneDrive); 2 Organograma; 3 Playbook (3.1 gatilho, 3.2 entrada[], 3.3 passos {n, acao, responsavel, sistema, artefato, prazo, evento, fontes}, 3.4 saída[]); 4 Formulários e artefatos; 5 Decisões, exceções e pontos de atenção; 6 Contingência (sistema indisponível, ausência do responsável, documento incompleto); 7 Checklist; 8 KPI {indicador, formula, meta, fonte}; 9 Mapa de contexto; 10 Fluxograma; 11 Especificação BPMN para o Miro; 12 Histórico de versões; 13 Validação; 14 Lições incorporadas. Mínimo de 3 passos para em_validacao.\n4) BPMN 2.0 PADRÃO ANNE BAIL: tipos inicio (círculo borda fina, cinza), atividade (retângulo, verde), decisao (losango, laranja, conexões rotuladas Sim/Não), fim (círculo borda grossa, vermelho), pausa (círculo com relógio), captura (círculo com carta, azul, passagem entre setores); uma raia por ator; sem cruzar setas; mínimo 5 elementos; ids e1..eN; uma captura por interface do mapa de contexto.\n5) RUBRICA DE DIAGNÓSTICO: tipo processo|subprocesso|acao|projeto; maturidade 0–5 (0 inexistente, 1 informal, 2 descrito parcialmente, 3 documentado com responsável e normativa, 4 medido e com contingência, 5 otimizado/auditado); criticidade 0–1 (1,0 legal/financeiro/TCE-PR; 0,7 continuidade; 0,4 qualidade; 0,2 conveniência); frequência 0–1 (1,0 diário; 0,8 semanal; 0,6 mensal; 0,4 semestral; 0,2 anual); risco_conformidade 0–1 (1,0 norma cogente/auditoria; 0,6 norma interna; 0,2 sem exigência); cobertura 0–1; prioridade = 0,30·criticidade + 0,25·frequência + 0,20·risco + 0,15·(5−maturidade)/5 + 0,10·cobertura; ≥0,70 gerar_pop; 0,40–0,69 coletar_mais; <0,40 descartar/agrupar; lacunas: responsavel, normativa, gatilho, entrada, saida, passos, sistema, formulario, prazo, kpi, contingencia, interface_setorial, versao_documento, dados_pessoais_lgpd.\n6) CÓDIGOS E VERSÕES: setor S<num>-<SIGLA> / S<num>.<nn>-<SIGLA>; processo <SIGLA>-<nn> (00 = visão geral); códigos legados preservados (ALM-01..08, CON-01..05, CAP-01/02, CTR-01..05); versão MAJOR.MINOR.PATCH (major: passo removido, raia alterada, responsável alterado, reestruturação; minor: passo/artefato/decisão/KPI/interface adicionados ou alterados; patch: texto, glossário, normativa, contingência, checklist); status rascunho → em_validacao → aprovado → obsoleto (aprovado alterado volta a em_validacao); nunca reescrever POP: sempre patch com changelog e fontes.\n7) GLOSSÁRIO BASE: ATDG (Assessoria Técnica da Direção Geral), e-Protocolo (processos eletrônicos do Estado), GMS (gestão de materiais e serviços), DIOE (Diário Oficial), DDF (declaração de disponibilidade financeira), empenho, PRAF, PROGRAD/PROEX/PRPPG/PRORH/PROPLAN, GRE, SETI, TCE-PR, TR (termo de referência), NF, dispensa/inexigibilidade (Lei nº 14.133/2021), Academus, Microsoft Forms, OneDrive ATDG, POP, IT, playbook, raia, captura inter-setor, contexto delimitado, evento de domínio, agregado, mapa de contexto, LGPD, Cadin, KPI.";
+// ══════════════════════════════════════════════════════════════════════════
+// 🤖 AGENTES — diagnóstico, POPs (DDD híbrido + BPMN Anne Bail), agentes por processo, diretrizes vivas
+// Espelho em JavaScript de scripts/canvas_lib.py, bpmn_mermaid.py e apply_patch.py (mesmas regras).
+// ══════════════════════════════════════════════════════════════════════════
+const ORG_IDX={};ORGANOGRAMA.forEach(s=>{ORG_IDX[s.codigo]=s;});
+function orgNode(c){return ORG_IDX[c]||null;}
+function orgNorm(s){return String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/\s+/g,' ').trim();}
+function orgFind(q){
+  if(!q)return null;q=String(q).trim();
+  if(ORG_IDX[q])return ORG_IDX[q];
+  const up=q.toUpperCase();const bySigla=ORGANOGRAMA.find(s=>s.sigla===up);if(bySigla)return bySigla;
+  const nq=orgNorm(q);const cands=ORGANOGRAMA.filter(s=>orgNorm(s.id_app)===nq||(s.aliases||[]).some(a=>orgNorm(a)===nq));
+  if(cands.length)return cands.slice().sort((a,b)=>a.nivel-b.nivel)[0];
+  return ORGANOGRAMA.find(s=>nq&&orgNorm(s.nome).includes(nq))||null;
+}
+function orgChain(c){const out=[];let n=orgNode(c);while(n){out.unshift(n);n=n.pai?orgNode(n.pai):null;}return out;}
+function orgChildren(c){return ORGANOGRAMA.filter(s=>s.pai===c);}
+function orgDescendants(c){const out=[];orgChildren(c).forEach(x=>{out.push(x);out.push(...orgDescendants(x.codigo));});return out;}
+function orgLabels(node,withChildren){const nodes=[node].concat(withChildren?orgDescendants(node.codigo):[]);const set=new Set();nodes.forEach(n=>{[n.id_app].concat(n.aliases||[]).forEach(l=>{if(l)set.add(l);});});return set;}
+function entryText(e){const p=e.p||{};return [e.desc,p.titulo,p.resumo,(p.procedimento||[]).join(' '),(p.atencoes||[]).join(' '),p.normativa,(e.arquivo||{}).nome,JSON.stringify(e.estrutura||{})].filter(Boolean).join(' ');}
+function entriesForNode(node,withChildren){
+  const labels=orgLabels(node,withChildren!==false);
+  let res=gEntries().filter(e=>labels.has(e.setor));
+  if(node.filtro_regex){const rx=new RegExp(node.filtro_regex,'i');res=res.filter(e=>rx.test(entryText(e)));}
+  return res.sort((a,b)=>String(a.ts||'').localeCompare(String(b.ts||'')));
+}
+function resumoEntrada(e,chars){
+  const p=e.p||{};const est=e.estrutura||{};const estF={};Object.keys(est).forEach(k=>{if(est[k])estF[k]=est[k];});
+  return{id:e.id,ts:e.ts,tipo:e.tipo,setor:e.setor,titulo:p.titulo||'',resumo:(p.resumo||e.desc||'').substring(0,chars||400),procedimento:p.procedimento||[],atencoes:p.atencoes||[],responsavel:e.responsavel||p.responsavel||'',estrutura:estF,normativa:p.normativa||'',class:p.class||'',arquivo:(e.arquivo||{}).nome||''};
+}
+async function sha256Hex(text){
+  try{const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}
+  catch(e){let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619)>>>0;}return 'fnv-'+h.toString(16);}
+}
+async function hashFontes(ents){const keys=(ents||[]).map(e=>(typeof e==='object')?((e.id||'')+'|'+(e.ts||'')):(e+'|')).sort();return sha256Hex(keys.join('\n'));}
+function nowIso(){return new Date().toISOString().replace(/\.\d{3}Z$/,'Z');}
+function hoje(){return nowIso().substring(0,10);}
+function bumpVersao(v,tipo){const p=String(v||'0').replace(/^v/i,'').split('.').map(n=>parseInt(n)||0);while(p.length<3)p.push(0);if(tipo==='major')return (p[0]+1)+'.0.0';if(tipo==='minor')return p[0]+'.'+(p[1]+1)+'.0';return p[0]+'.'+p[1]+'.'+(p[2]+1);}
+const ORDEM_TIPO={patch:0,minor:1,major:2};
+function maxTipo(a,b){return (ORDEM_TIPO[a]||0)>=(ORDEM_TIPO[b]||0)?a:b;}
+function popIdDe(codigo){return 'pop-'+String(codigo).toLowerCase();}
+function siglaDe(codigo){const i=String(codigo).lastIndexOf('-');return i>0?codigo.substring(0,i):codigo;}
+function diretrizesVersao(){const d=gDiretrizes();let best='1.0';d.forEach(x=>{if(cmpVersao(x.versao||'0',best)>0)best=x.versao;});return best;}
+function licoesAprovadas(){return gLicoes().filter(l=>l.status==='aprovada');}
+function findPop(codigo){return gPops().find(p=>p.codigo===codigo)||null;}
+function savePop(pop){const all=gPops();const i=all.findIndex(p=>p.id===pop.id);if(i>=0)all[i]=pop;else all.push(pop);sPops(all);}
+
+// ── Mermaid (espelho de scripts/bpmn_mermaid.py) ──
+const MMD_NODE={inicio:(id,l)=>id+'(("'+l+'"))',atividade:(id,l)=>id+'["'+l+'"]',decisao:(id,l)=>id+'{"'+l+'"}',fim:(id,l)=>id+'((("'+l+'")))',pausa:(id,l)=>id+'(["⏱ '+l+'"])',captura:(id,l)=>id+'[["✉ '+l+'"]]'};
+const MMD_CLASSDEFS=['classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151','classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E','classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A','classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544','classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544','classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66'];
+function mmdEsc(s,max){s=String(s||'').replace(/\s+/g,' ').trim().replace(/"/g,"'");max=max||70;if(s.length>max)s=s.substring(0,max-1).trim()+'…';return s||'—';}
+function mmdId(s){return String(s).replace(/[^A-Za-z0-9_]/g,'_');}
+function specToMermaid(spec,dir){
+  dir=dir||'LR';spec=spec||{};const els=(spec.elementos||[]).slice();const cons=(spec.conexoes||[]).slice();
+  let raias=(spec.raias||[]).slice();els.forEach(el=>{if(el.raia&&!raias.includes(el.raia))raias.push(el.raia);});
+  raias=raias.filter(r=>els.some(el=>el.raia===r));
+  const L=['flowchart '+dir];const ok=new Set();
+  raias.forEach((raia,i)=>{L.push('  subgraph R'+(i+1)+'["'+mmdEsc(raia,50)+'"]');L.push('    direction '+dir);els.forEach(el=>{if(el.raia===raia){const f=MMD_NODE[el.tipo]||MMD_NODE.atividade;L.push('    '+f(mmdId(el.id),mmdEsc(el.label)));ok.add(el.id);}});L.push('  end');});
+  els.forEach(el=>{if(!ok.has(el.id)){const f=MMD_NODE[el.tipo]||MMD_NODE.atividade;L.push('  '+f(mmdId(el.id),mmdEsc(el.label)));ok.add(el.id);}});
+  cons.forEach(c=>{if(ok.has(c.de)&&ok.has(c.para)){L.push(c.label?('  '+mmdId(c.de)+' -- '+mmdEsc(c.label,30)+' --> '+mmdId(c.para)):('  '+mmdId(c.de)+' --> '+mmdId(c.para)));}});
+  MMD_CLASSDEFS.forEach(c=>L.push('  '+c));
+  const byTipo={};els.forEach(el=>{(byTipo[el.tipo||'atividade']=byTipo[el.tipo||'atividade']||[]).push(mmdId(el.id));});
+  Object.keys(byTipo).forEach(t=>{if(MMD_NODE[t])L.push('  class '+byTipo[t].join(',')+' '+t);});
+  return L.join('\n');
+}
+function orgToMermaid(chain,codigo,titulo,vizinhos){
+  vizinhos=vizinhos||[];const L=['graph TD'];let prev=null;
+  chain.forEach(n=>{const id=mmdId(n.codigo);L.push('  '+id+'["'+n.codigo+'<br/>'+mmdEsc(n.nome,60)+'"]');if(prev)L.push('  '+prev+' --> '+id);prev=id;});
+  L.push('  P["'+mmdEsc(codigo,20)+'<br/>'+mmdEsc(titulo,60)+'"]');if(prev)L.push('  '+prev+' --> P');
+  vizinhos.forEach((v,i)=>{L.push('  V'+(i+1)+'["'+mmdEsc(v,50)+'"]');L.push('  P -. interface .-> V'+(i+1));});
+  L.push('  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747');
+  L.push('  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747');
+  L.push('  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66');
+  if(chain.length)L.push('  class '+chain.map(n=>mmdId(n.codigo)).join(',')+' setor');
+  L.push('  class P destaque');
+  if(vizinhos.length)L.push('  class '+vizinhos.map((v,i)=>'V'+(i+1)).join(',')+' vizinho');
+  return L.join('\n');
+}
+function specFromPop(pop,maxAt){
+  maxAt=maxAt||10;const passos=((pop.playbook||{}).passos||[]);
+  let raiaP=((pop.identificacao||{}).responsavel)||pop.setor||'Setor';if(!raiaP||raiaP==='A definir')raiaP=pop.setor||'Setor';
+  const gat=(((pop.playbook||{}).gatilho)||{}).evento||'Início';
+  const els=[{id:'e1',tipo:'inicio',label:gat,raia:raiaP}];const cons=[];let n=1,prev='e1';
+  passos.slice(0,maxAt).forEach(p=>{n++;let raia=p.responsavel||raiaP;if(raia==='A definir')raia=raiaP;els.push({id:'e'+n,tipo:'atividade',label:p.acao||'',raia});cons.push({de:prev,para:'e'+n});prev='e'+n;});
+  const verbo={fornece:'Encaminhar a',informa:'Informar',valida:'Validação por',aprova:'Aprovação por'};
+  (pop.mapa_contexto||[]).forEach(mc=>{if(mc.destino&&mc.destino!==pop.setor&&verbo[mc.relacao]){n++;els.push({id:'e'+n,tipo:'captura',label:verbo[mc.relacao]+' '+mc.destino,raia:mc.destino});cons.push({de:prev,para:'e'+n});prev='e'+n;}});
+  const saida=((pop.playbook||{}).saida||[]);n++;els.push({id:'e'+n,tipo:'fim',label:saida[0]||'Concluído',raia:raiaP});cons.push({de:prev,para:'e'+n});
+  const raias=[];els.forEach(el=>{if(!raias.includes(el.raia))raias.push(el.raia);});
+  return{raias,elementos:els,conexoes:cons,observacoes_construcao_miro:'Especificação gerada a partir dos passos do POP; '+raias.length+' raia(s). Revisar decisões e pausas antes de construir no Miro.'};
+}
+function refreshMermaid(pop){
+  const chain=orgChain(pop.setor_codigo);const viz=[];
+  (pop.mapa_contexto||[]).forEach(mc=>{['origem','destino'].forEach(l=>{const v=mc[l];if(v&&v!==pop.setor&&!viz.includes(v))viz.push(v);});});
+  pop.organograma_mermaid=orgToMermaid(chain,pop.codigo,pop.titulo,viz.slice(0,6));
+  if(!((pop.bpmn_spec||{}).elementos||[]).length)pop.bpmn_spec=specFromPop(pop);
+  pop.fluxograma_mermaid=specToMermaid(pop.bpmn_spec);
+  return pop;
+}
+
+// ── Esqueleto de POP (espelho de scripts/scaffold_pops.py::make_pop) ──
+function scaffoldPop(node,codigo,titulo,descricao,fontes,passosTxt,normativa,atencoes,subdominio,autor){
+  const chain=orgChain(node.codigo);const divisao=(node.codigo==='S01-DG'||chain.length<2)?node.nome:chain[1].nome;
+  const pai=node.pai?orgNode(node.pai):null;const subordinacao=pai?pai.nome:(node.codigo==='S01-DG'?'Reitoria da Unioeste':'Direção Geral de Campus');
+  const ids=(fontes||[]).map(e=>e.id);
+  const passos=(passosTxt||[]).filter(t=>String(t).trim()).map((t,i)=>({n:i+1,acao:String(t).trim(),responsavel:'A definir',sistema:'',artefato:'',prazo:'A definir',evento:'',fontes:ids.slice()}));
+  const normas=String(normativa||'').split(';').map(s=>s.trim()).filter(s=>s&&!['nao especificada','não especificada','a definir'].includes(s.toLowerCase()));
+  const lacunas=['responsavel','gatilho','entrada','saida','kpi','contingencia','formulario','prazo'];if(passos.length<3)lacunas.unshift('passos');if(!normas.length)lacunas.push('normativa');
+  const now=nowIso();
+  const pop={id:popIdDe(codigo),codigo,titulo,setor:node.id_app,setor_codigo:node.codigo,sigla:node.sigla,versao:'0.1.0',status:'rascunho',
+    ddd:{divisao,departamento:node.nome,descricao:descricao||'',dominio:node.dominio,subdominio:subdominio||titulo,tipo_subdominio:node.tipo_subdominio||'suporte',contexto:node.codigo,glossario:[]},
+    identificacao:{responsavel:'A definir',periodicidade:'A definir',normativa:normas,subordinacao,produto_atdg:'POP',pasta_onedrive:node.pasta_onedrive||'03_MAPEAMENTO DE PROCESSOS'},
+    organograma_mermaid:'',playbook:{gatilho:{evento:'A definir',origem:''},entrada:[],passos,saida:[]},
+    artefatos:[],decisoes:[],pontos_atencao:(atencoes||[]).filter(a=>String(a).trim()),contingencia:[],checklist:[],kpis:[],mapa_contexto:[],
+    fluxograma_mermaid:'',bpmn_spec:{raias:[],elementos:[],conexoes:[],observacoes_construcao_miro:''},
+    changelog:[{versao:'0.1.0',data:now.substring(0,10),autor:autor||'app:canvas-vivo',tipo:'patch',mudancas:['Esqueleto inicial gerado no app'+(ids.length?' a partir das entradas '+ids.join(', '):'')],fontes:ids.slice(),motivo:'Criação pela aba Agentes'}],
+    validacao:{elaboracao:'ATDG — Assessoria Técnica da Direção Geral',revisao:'A definir (responsável do setor)',aprovacao:'Direção Geral do Campus',data_aprovacao:''},
+    licoes_aplicadas:['L-001','L-004','L-006','L-007'],lacunas,observacoes:'',fontes_entradas:ids.slice(),hash_fontes:'',agente:'',versao_diretrizes:diretrizesVersao(),criado_em:now,atualizado_em:now};
+  return refreshMermaid(pop);
+}
+
+// ── Patch incremental (espelho de scripts/apply_patch.py::aplicar) ──
+const PATCH_LISTAS=[['entrada_nova',['playbook','entrada'],'minor'],['saida_nova',['playbook','saida'],'minor'],['artefatos_novos',['artefatos'],'minor'],['decisoes_novas',['decisoes'],'minor'],['kpis_novos',['kpis'],'minor'],['mapa_contexto_novo',['mapa_contexto'],'minor'],['pontos_atencao_novos',['pontos_atencao'],'patch'],['contingencia_nova',['contingencia'],'patch'],['checklist_novo',['checklist'],'patch'],['glossario_novo',['ddd','glossario'],'patch'],['normativa_nova',['identificacao','normativa'],'patch']];
+function getPath(o,path){let d=o;for(let i=0;i<path.length;i++){const k=path[i];if(d[k]===undefined)d[k]=(i===path.length-1)?[]:{};d=d[k];}return d;}
+function setDotted(o,key,v){const parts=key.split('.');let d=o;parts.slice(0,-1).forEach(k=>{if(typeof d[k]!=='object'||d[k]===null)d[k]={};d=d[k];});d[parts[parts.length-1]]=v;}
+function getDotted(o,key){let d=o;for(const k of key.split('.')){if(d===null||typeof d!=='object')return undefined;d=d[k];}return d;}
+function applyPopPatch(popIn,patch,entriesAll){
+  const pop=JSON.parse(JSON.stringify(popIn));let tipo='patch';const mud=[];
+  if(patch.codigo&&patch.codigo!==pop.codigo)throw new Error('Patch para '+patch.codigo+' aplicado em '+pop.codigo);
+  pop.playbook=pop.playbook||{};let passos=pop.playbook.passos=pop.playbook.passos||[];
+  const rem=new Set(patch.passos_removidos||[]);
+  if(rem.size){const antes=passos.length;passos=pop.playbook.passos=passos.filter(p=>!rem.has(p.n));mud.push('Passos removidos: '+Array.from(rem).sort().join(', '));if(passos.length<antes)tipo=maxTipo(tipo,'major');}
+  (patch.passos_alterados||[]).forEach(alt=>{passos.forEach(p=>{if(p.n===alt.n){Object.assign(p,alt.campos||{});mud.push('Passo '+alt.n+' alterado ('+Object.keys(alt.campos||{}).join(', ')+')');tipo=maxTipo(tipo,'minor');}});});
+  (patch.passos_adicionados||[]).slice().sort((a,b)=>(b.apos_n===undefined?passos.length:b.apos_n)-(a.apos_n===undefined?passos.length:a.apos_n)).forEach(a=>{
+    const novo=Object.assign({sistema:'',artefato:'',prazo:'A definir',evento:'',fontes:(patch.fontes||[]).slice()},a.passo);
+    const pos=(a.apos_n===undefined)?passos.length:a.apos_n;let idx=passos.length;
+    for(let i=0;i<passos.length;i++){if(passos[i].n===pos){idx=i+1;break;}}
+    if(pos===0)idx=0;passos.splice(idx,0,novo);mud.push('Passo adicionado após '+pos+': '+String(novo.acao||'').substring(0,80));tipo=maxTipo(tipo,'minor');
+  });
+  passos.forEach((p,i)=>{p.n=i+1;});
+  PATCH_LISTAS.forEach(([chave,caminho,t])=>{const itens=patch[chave]||[];if(!itens.length)return;const alvo=getPath(pop,caminho);itens.forEach(it=>{if(!alvo.some(x=>JSON.stringify(x)===JSON.stringify(it)))alvo.push(it);});mud.push(chave+': +'+itens.length);tipo=maxTipo(tipo,t);});
+  Object.entries(patch.campos||{}).forEach(([k,v])=>{const antigo=getDotted(pop,k);
+    if(k==='identificacao.responsavel'&&antigo&&antigo!=='A definir'&&antigo!==v)tipo=maxTipo(tipo,'major');
+    else if(k==='titulo'||k==='setor_codigo')tipo=maxTipo(tipo,'major');
+    else if(k!=='status')tipo=maxTipo(tipo,'patch');
+    setDotted(pop,k,v);mud.push('Campo '+k+' atualizado');});
+  const delta=patch.bpmn_delta||{};pop.bpmn_spec=pop.bpmn_spec||{raias:[],elementos:[],conexoes:[],observacoes_construcao_miro:''};let spec=pop.bpmn_spec;
+  if(delta.regenerar_de_passos||!(spec.elementos||[]).length){pop.bpmn_spec=spec=specFromPop(pop);if(delta.regenerar_de_passos)mud.push('Fluxograma regenerado a partir dos passos');}
+  if((delta.raias_add||[]).length){delta.raias_add.forEach(r=>{if(!spec.raias.includes(r))spec.raias.push(r);});tipo=maxTipo(tipo,'major');mud.push('Raias adicionadas: '+delta.raias_add.join(', '));}
+  if((delta.elementos_rm||[]).length){const rm=new Set(delta.elementos_rm);spec.elementos=spec.elementos.filter(e=>!rm.has(e.id));spec.conexoes=spec.conexoes.filter(c=>!rm.has(c.de)&&!rm.has(c.para));tipo=maxTipo(tipo,'minor');mud.push('Elementos BPMN removidos: '+Array.from(rm).sort().join(', '));}
+  if((delta.elementos_add||[]).length){const ids=new Set(spec.elementos.map(e=>e.id));delta.elementos_add.forEach(e=>{if(!ids.has(e.id)){spec.elementos.push(e);ids.add(e.id);if(e.raia&&!spec.raias.includes(e.raia))spec.raias.push(e.raia);}});tipo=maxTipo(tipo,'minor');mud.push('Elementos BPMN adicionados: '+delta.elementos_add.length);}
+  if((delta.conexoes_rm||[]).length){const rmc=new Set(delta.conexoes_rm.map(c=>c.de+'>'+c.para));spec.conexoes=spec.conexoes.filter(c=>!rmc.has(c.de+'>'+c.para));}
+  if((delta.conexoes_add||[]).length){delta.conexoes_add.forEach(c=>{if(!spec.conexoes.some(x=>x.de===c.de&&x.para===c.para&&(x.label||'')===(c.label||'')))spec.conexoes.push(c);});tipo=maxTipo(tipo,'minor');}
+  if((patch.lacunas_resolvidas||[]).length){const r=new Set(patch.lacunas_resolvidas);pop.lacunas=(pop.lacunas||[]).filter(l=>!r.has(l));}
+  (patch.lacunas_novas||[]).forEach(l=>{pop.lacunas=pop.lacunas||[];if(!pop.lacunas.includes(l))pop.lacunas.push(l);});
+  (patch.licoes_aplicadas||[]).forEach(l=>{pop.licoes_aplicadas=pop.licoes_aplicadas||[];if(!pop.licoes_aplicadas.includes(l))pop.licoes_aplicadas.push(l);});
+  tipo=maxTipo(tipo,patch.tipo_mudanca||'patch');
+  pop.versao=bumpVersao(pop.versao,tipo);
+  const resp=(pop.identificacao||{}).responsavel||'A definir';
+  if(pop.status==='aprovado'){pop.status='em_validacao';mud.push('Status devolvido a em_validacao (POP aprovado alterado)');}
+  else if(pop.status==='rascunho'&&passos.length>=3&&resp&&resp!=='A definir'){pop.status='em_validacao';mud.push('Status promovido a em_validacao (≥ 3 passos e responsável definido)');}
+  if(passos.length>=3)pop.lacunas=(pop.lacunas||[]).filter(l=>l!=='passos');
+  if(resp&&resp!=='A definir')pop.lacunas=(pop.lacunas||[]).filter(l=>l!=='responsavel');
+  const fontes=(pop.fontes_entradas||[]).slice();(patch.fontes||[]).forEach(f=>{if(!fontes.includes(f))fontes.push(f);});pop.fontes_entradas=fontes;
+  const now=nowIso();pop.atualizado_em=now;pop.versao_diretrizes=diretrizesVersao();
+  pop.changelog=pop.changelog||[];pop.changelog.push({versao:pop.versao,data:now.substring(0,10),autor:patch.autor||'agente:app',tipo,mudancas:mud.length?mud:['Sem alterações estruturais'],fontes:(patch.fontes||[]).slice(),motivo:patch.motivo||''});
+  refreshMermaid(pop);
+  return{pop,tipo,mudancas:mud};
+}
+
+// ── Contexto de diretrizes para os prompts (fonte: data.json → diretrizes/lições; fallback embutido) ──
+function buildDiretrizesContext(maxChars){
+  maxChars=maxChars||12000;const dir=gDiretrizes();const get=id=>{const d=dir.find(x=>x.id===id);return d?d.conteudo:'';};
+  let txt='';[['diretriz-01',3600],['diretriz-04',2400],['diretriz-05',2400],['diretriz-06',1800],['diretriz-09',1600]].forEach(([id,lim])=>{const c=get(id);if(c)txt+='\n\n'+c.substring(0,lim);});
+  if(!txt.trim())txt=DIRETRIZES_DEFAULT;
+  const lic=licoesAprovadas();if(lic.length)txt+='\n\nLIÇÕES APROVADAS (obrigatórias):\n'+lic.map(l=>'- '+l.id+': '+l.regra).join('\n');
+  return txt.substring(0,maxChars);
+}
+function popCompacto(pop){const c=JSON.parse(JSON.stringify(pop));delete c.organograma_mermaid;delete c.fluxograma_mermaid;c.changelog=(c.changelog||[]).slice(-3);return c;}
+function promptDiagnostico(node,entradas,popsSigla,proxCodigo){
+  const chain=orgChain(node.codigo).map(n=>n.codigo+' '+n.nome).join(' → ');
+  return 'Você é o agente de diagnóstico de processos da ATDG (Assessoria Técnica da Direção Geral) da UNIOESTE Campus Foz do Iguaçu. Linguagem institucional da Administração Pública (pt-BR). Identifique, diagnostique e qualifique os processos, subprocessos, ações e projetos do setor abaixo a partir das entradas do Canvas Vivo, aplicando as DIRETRIZES.\n\nDIRETRIZES (resumo vigente):'+buildDiretrizesContext()+
+  '\n\nSETOR: '+node.nome+' (código '+node.codigo+', sigla '+node.sigla+', domínio '+node.dominio+', tipo '+node.tipo_subdominio+')\nCADEIA HIERÁRQUICA: '+chain+
+  '\nPROCESSOS CONHECIDOS (códigos legados a reutilizar): '+((node.processos_conhecidos||[]).map(p=>p.codigo+' '+p.nome).join('; ')||'nenhum')+
+  '\nPOPs EXISTENTES DA SIGLA: '+(popsSigla.map(p=>p.codigo+' — '+p.titulo+' (v'+p.versao+', '+p.status+', id '+p.id+')').join('; ')||'nenhum')+
+  '\nPRÓXIMO CÓDIGO LIVRE: '+proxCodigo+'\n\nENTRADAS DO CANVAS ('+entradas.length+'):\n'+JSON.stringify(entradas)+
+  '\n\nRetorne APENAS JSON válido, sem markdown, com esta estrutura:\n{"ecossistema":{"dominio":"","subdominios":[],"contextos_vizinhos":[],"sistemas":[],"normas":[],"benchmarks":[]},"processos":[{"codigo_sugerido":"'+node.sigla+'-nn","nome":"","tipo":"processo|subprocesso|acao|projeto","descricao":"","tipo_subdominio":"core|suporte|generico","gatilho":"","saida":"","atores":[],"sistemas":[],"artefatos":[],"interfaces":[],"evidencias":["ids das entradas"],"maturidade":0,"criticidade":0.0,"frequencia":0.0,"risco_conformidade":0.0,"cobertura":0.0,"lacunas":["responsavel|normativa|gatilho|entrada|saida|passos|sistema|formulario|prazo|kpi|contingencia|interface_setorial|versao_documento|dados_pessoais_lgpd"],"recomendacao":"gerar_pop|coletar_mais|agrupar|descartar","pop_existente":"id do POP existente ou vazio","justificativa":""}],"lacunas_setor":[],"licoes_propostas":[{"licao":"","regra":"","exemplo":"","origem":"diag"}],"observacoes":""}\n'+
+  'Regras: um POP por processo; reutilize códigos conhecidos e dos POPs existentes; códigos novos a partir do próximo livre; agrupe versões/cópias do mesmo documento (lição L-005); função/cargo, nunca nomes de pessoas; não invente normas; escalas: maturidade 0–5 inteiro, demais 0–1; a prioridade será recalculada pelo sistema; máximo 12 processos.';
+}
+function promptPatch(pop,modo,entradas,texto){
+  const estrutura='{"codigo":"'+pop.codigo+'","tipo_mudanca":"patch|minor|major","motivo":"","autor":"agente:app","fontes":["ids"],"campos":{"ddd.descricao":"","ddd.subdominio":"","ddd.tipo_subdominio":"core|suporte|generico","identificacao.responsavel":"função/cargo","identificacao.periodicidade":"","playbook.gatilho":{"evento":"","origem":""},"observacoes":""},"passos_alterados":[{"n":1,"campos":{"acao":"","responsavel":"","sistema":"","artefato":"","prazo":"","evento":""}}],"passos_adicionados":[{"apos_n":1,"passo":{"acao":"","responsavel":"","sistema":"","artefato":"","prazo":"","evento":"","fontes":[]}}],"passos_removidos":[],"entrada_nova":[],"saida_nova":[],"artefatos_novos":[{"nome":"","tipo":"formulario|documento|registro|sistema","sistema":"","campos_chave":[],"responsavel_preenchimento":""}],"decisoes_novas":[{"decisao":"","condicao":"","sim":"","nao":""}],"pontos_atencao_novos":[],"contingencia_nova":[],"checklist_novo":[],"kpis_novos":[{"indicador":"","formula":"","meta":"","fonte":""}],"mapa_contexto_novo":[{"origem":"","destino":"","relacao":"fornece|recebe|valida|aprova|informa","artefato":"","canal":""}],"glossario_novo":[{"termo":"","definicao":"","sistema":""}],"normativa_nova":[],"bpmn_delta":{"raias_add":[],"elementos_rm":["ids atuais substituídos"],"elementos_add":[{"id":"e1","tipo":"inicio|atividade|decisao|fim|pausa|captura","label":"","raia":""}],"conexoes_add":[{"de":"e1","para":"e2","label":"Sim/Não quando decisão"}],"regenerar_de_passos":false},"lacunas_resolvidas":[],"lacunas_novas":[],"licoes_aplicadas":[],"licoes_propostas":[{"licao":"","regra":"","exemplo":"","origem":"pop"}],"processos_novos_sugeridos":[]}';
+  return 'Você é o agente construtor de POP da ATDG (Assessoria Técnica da Direção Geral) da UNIOESTE Campus Foz do Iguaçu. Redija POPs em modo playbook no formato DDD híbrido (Divisão → Departamento → Descrição + Domain-Driven Design), com fluxograma BPMN 2.0 padrão Anne Bail, em linguagem institucional da Administração Pública (pt-BR). Produza APENAS um PATCH incremental para o POP abaixo; nunca reescreva o POP.\n\nDIRETRIZES (resumo vigente):'+buildDiretrizesContext()+
+  '\n\nMODO: '+(modo==='construir'?'CONSTRUIR — completar todas as seções do POP com base nas evidências (cabeçalho DDD, responsável por função, gatilho como evento, entrada, passos completos, saída, artefatos, decisões, pontos de atenção, contingência, checklist, KPI, mapa de contexto, glossário, normativa, fluxograma).':'ATUALIZAR — alterar somente o que os novos insumos justificam (passo novo/alterado, formulário, decisão, interface, regra); sem insumo relevante, devolva um patch vazio com motivo "sem impacto".')+
+  '\n\nPOP ATUAL (JSON canônico):\n'+JSON.stringify(popCompacto(pop))+'\n\nEVIDÊNCIAS / INSUMOS ('+entradas.length+' entradas do Canvas):\n'+JSON.stringify(entradas)+(texto?'\n\nINSUMO INFORMADO PELO USUÁRIO:\n'+texto:'')+
+  '\n\nRetorne APENAS JSON válido, sem markdown, seguindo esta estrutura (omita chaves não usadas):\n'+estrutura+
+  '\nRegras: uma ação por passo; cada passo com responsavel (função/raia), sistema, artefato, prazo, evento e fontes; bpmn_delta completo (raias por ator; ids e1..eN; decisões com conexões rotuladas Sim/Não; captura em cada passagem entre setores; pausa em esperas; elementos_rm com todos os ids atuais quando reconstruir) ou {"regenerar_de_passos":true} para fluxo simples de uma raia; mínimo 5 elementos; uma captura por interface do mapa de contexto; tipo_mudanca "major" quando o POP ficar completo (≥3 passos, responsável, gatilho, entrada, saída), senão "minor"; "A definir" + lacunas_novas em vez de inventar prazos, normas ou responsáveis; nunca nomes de pessoas (LGPD); normas só se evidenciadas; nunca alterar titulo nem setor_codigo; processo distinto identificado vai em processos_novos_sugeridos, não é absorvido.';
+}
+
+// ── Diagnóstico ──
+function prioridadeDe(p){return Math.round((0.30*(+p.criticidade||0)+0.25*(+p.frequencia||0)+0.20*(+p.risco_conformidade||0)+0.15*(5-(+p.maturidade||0))/5+0.10*(+p.cobertura||0))*100)/100;}
+async function diagnosticarSetor(codigo,opts){
+  opts=opts||{};const node=orgNode(codigo)||orgFind(codigo);if(!node){toast('⚠️ Setor não encontrado.');return null;}
+  if(!getKey()){toast('⚠️ Configure a chave IA em ⚙️ Config.');return null;}
+  const ents=entriesForNode(node,true);const hash=await hashFontes(ents);
+  const anterior=gDiags().find(d=>d.setor_codigo===node.codigo);
+  if(anterior&&anterior.hash_fontes===hash&&!opts.forcar){if(!opts.silencioso)toast('ℹ️ '+node.sigla+': entradas sem mudança desde o último diagnóstico ('+anterior.data.substring(0,10)+').');return anterior;}
+  const popsSigla=gPops().filter(p=>p.sigla===node.sigla);
+  const nums=popsSigla.map(p=>parseInt(p.codigo.split('-').pop())||0).concat((node.processos_conhecidos||[]).map(p=>parseInt(p.codigo.split('-').pop())||0));
+  const prox=node.sigla+'-'+String((nums.length?Math.max(...nums):0)+1).padStart(2,'0');
+  const entradas=ents.slice(-40).map(e=>resumoEntrada(e,400));
+  if(!opts.silencioso)showManualProgress('Diagnóstico — '+node.nome,ents.length);
+  try{
+    updateManualProgress('🤖 Diagnosticando '+node.sigla+' ('+ents.length+' entradas)...');
+    const model=ents.length<=3?MODEL_RAPIDO:getModel();
+    const r=await callClaude({model,max_tokens:4000,timeoutMs:150000,content:promptDiagnostico(node,entradas,popsSigla,prox)});
+    const procs=(r.processos||[]).map(p=>{p.prioridade=prioridadeDe(p);p.maturidade=Math.max(0,Math.min(5,Math.round(+p.maturidade||0)));if(!p.recomendacao)p.recomendacao=p.prioridade>=0.7?'gerar_pop':(p.prioridade>=0.4?'coletar_mais':'descartar');p.pop_existente=(popsSigla.find(x=>x.codigo===p.codigo_sugerido)||{}).id||p.pop_existente||'';return p;}).sort((a,b)=>b.prioridade-a.prioridade);
+    const diag={id:'diag-'+node.sigla.toLowerCase()+'-'+hoje().replace(/-/g,''),setor:node.id_app,setor_codigo:node.codigo,sigla:node.sigla,data:nowIso(),modelo:model,versao_diretrizes:diretrizesVersao(),fontes_entradas:ents.map(e=>e.id),hash_fontes:hash,ecossistema:Object.assign({dominio:node.dominio,subdominios:[],contextos_vizinhos:[],sistemas:[],normas:[],benchmarks:[]},r.ecossistema||{}),processos:procs,lacunas_setor:r.lacunas_setor||[],licoes_propostas:r.licoes_propostas||[],observacoes:r.observacoes||'',atualizado_em:nowIso()};
+    if(anterior)diag.changelog=(anterior.changelog||[]).concat([{data:anterior.data,id_anterior:anterior.id,resumo:(anterior.processos||[]).length+' processo(s)'}]);
+    const all=gDiags().filter(d=>d.setor_codigo!==node.codigo);all.push(diag);sDiags(all);
+    registrarLicoesPropostas(diag.licoes_propostas,'diag:'+node.sigla);
+    if(!opts.silencioso){hideManualProgress();toast('✅ Diagnóstico de '+node.sigla+': '+procs.length+' processo(s).');loadAgentes('diag');}
+    return diag;
+  }catch(err){console.error('diagnosticarSetor',err);if(!opts.silencioso){hideManualProgress();toast('❌ '+(err.message||'erro'));}return null;}
+}
+async function diagnosticarTodos(){
+  if(!getKey()){toast('⚠️ Configure a chave IA em ⚙️ Config.');return;}
+  const nodes=ORGANOGRAMA.filter(n=>n.gera_pop!==false).map(n=>({n,c:entriesForNode(n,true).length})).filter(x=>x.c>0);
+  if(!nodes.length){toast('Nenhum setor com entradas.');return;}
+  if(!confirm('Diagnosticar '+nodes.length+' setor(es) com entradas, em sequência ('+nodes.length+' chamadas à API; setores sem mudança são pulados). Continuar?'))return;
+  showManualProgress('Diagnóstico em lote',nodes.length);let feitos=0;
+  for(const x of nodes){updateManualProgress('🤖 '+(feitos+1)+'/'+nodes.length+' · '+x.n.sigla+' ('+x.c+' entradas)...');await diagnosticarSetor(x.n.codigo,{silencioso:true});feitos++;}
+  hideManualProgress();toast('✅ Lote concluído: '+feitos+' setor(es).');loadAgentes('diag');
+}
+function registrarLicoesPropostas(lista,origem){
+  if(!lista||!lista.length)return;const all=gLicoes();let n=Math.max(0,...all.map(l=>parseInt(String(l.id||'').replace('L-',''))||0));
+  lista.forEach(l=>{if(!l||!(l.regra||l.licao))return;n++;all.push({id:'L-'+String(n).padStart(3,'0'),data:hoje(),origem:l.origem||origem,licao:l.licao||'',regra:l.regra||'',exemplo:l.exemplo||'',status:'proposta',atualizado_em:nowIso()});});
+  sLicoes(all);
+}
+
+// ── POPs: criar, construir, atualizar ──
+async function gerarPop(codigo,diagId,idx){
+  let pop=findPop(codigo);
+  if(!pop){
+    const diag=gDiags().find(d=>d.id===diagId);const proc=diag?(diag.processos||[])[idx]:null;const node=diag?orgNode(diag.setor_codigo):orgFind(siglaDe(codigo));
+    if(!node){toast('⚠️ Setor do processo não identificado.');return;}
+    const fontes=gEntries().filter(e=>(proc?proc.evidencias||[]:[]).includes(e.id));
+    pop=scaffoldPop(node,codigo,proc?proc.nome:codigo,proc?proc.descricao:'',fontes,[],'',[],proc?proc.nome:'', 'app:agentes');
+    if(proc&&proc.gatilho)pop.playbook.gatilho={evento:proc.gatilho,origem:''};
+    pop.hash_fontes=await hashFontes(fontes);savePop(pop);toast('📘 Esqueleto '+codigo+' criado.');
+  }
+  await construirPop(codigo);
+}
+async function construirPop(codigo){
+  const pop=findPop(codigo);if(!pop){toast('POP não encontrado.');return;}
+  if(!getKey()){toast('⚠️ Configure a chave IA em ⚙️ Config.');return;}
+  const node=orgNode(pop.setor_codigo);const ents=node?entriesForNode(node,true):[];
+  const fontesSet=new Set(pop.fontes_entradas||[]);const evid=ents.filter(e=>fontesSet.has(e.id));const outras=ents.filter(e=>!fontesSet.has(e.id)).slice(-15);
+  const entradas=evid.concat(outras).map(e=>resumoEntrada(e,400));
+  showManualProgress('Construção do POP '+codigo,entradas.length);
+  try{
+    updateManualProgress('🤖 Redigindo POP '+codigo+' ('+entradas.length+' evidências)...');
+    const patch=await callClaude({max_tokens:8000,timeoutMs:180000,content:promptPatch(pop,'construir',entradas,'')});
+    patch.codigo=pop.codigo;patch.autor=patch.autor||'agente:app';patch.fontes=(patch.fontes||[]).filter(f=>ents.some(e=>e.id===f));
+    const {pop:novo,tipo,mudancas}=applyPopPatch(pop,patch);
+    novo.hash_fontes=await hashFontes(ents.filter(e=>(novo.fontes_entradas||[]).includes(e.id)));savePop(novo);
+    registrarLicoesPropostas(patch.licoes_propostas,'pop:'+codigo);
+    hideManualProgress();toast('✅ '+codigo+': v'+pop.versao+' → v'+novo.versao+' ('+tipo+', '+mudancas.length+' mudanças)');
+    if((patch.processos_novos_sugeridos||[]).length)alert('Processos novos sugeridos (não absorvidos):\n- '+patch.processos_novos_sugeridos.join('\n- '));
+    loadAgentes('pops');verPop(codigo);
+  }catch(err){console.error('construirPop',err);hideManualProgress();toast('❌ '+(err.message||'erro'));}
+}
+async function atualizarPopIncremental(codigo){
+  const pop=findPop(codigo);if(!pop){toast('POP não encontrado.');return;}
+  if(!getKey()){toast('⚠️ Configure a chave IA em ⚙️ Config.');return;}
+  const texto=prompt('Insumo adicional (novo passo, formulário, alteração...) — opcional. Deixe vazio para considerar apenas as entradas novas do Canvas:','')||'';
+  const node=orgNode(pop.setor_codigo);const ents=node?entriesForNode(node,true):[];
+  const fontesSet=new Set(pop.fontes_entradas||[]);const novas=ents.filter(e=>!fontesSet.has(e.id)||String(e.ts||'')>String(pop.atualizado_em||''));
+  if(!novas.length&&!texto.trim()){toast('ℹ️ '+codigo+': sem novidades (nenhuma entrada nova e nenhum insumo informado).');return;}
+  const entradas=novas.slice(-20).map(e=>resumoEntrada(e,400));
+  showManualProgress('Atualização incremental — '+codigo,entradas.length);
+  try{
+    updateManualProgress('🤖 Classificando '+entradas.length+' insumo(s) e gerando patch...');
+    const patch=await callClaude({model:entradas.length<=2&&!texto?MODEL_RAPIDO:getModel(),max_tokens:6000,timeoutMs:150000,content:promptPatch(pop,'atualizar',entradas,texto)});
+    patch.codigo=pop.codigo;patch.autor=patch.autor||'agente:app';patch.fontes=(patch.fontes||[]).filter(f=>ents.some(e=>e.id===f));
+    const semImpacto=!['passos_adicionados','passos_alterados','passos_removidos','entrada_nova','saida_nova','artefatos_novos','decisoes_novas','pontos_atencao_novos','contingencia_nova','checklist_novo','kpis_novos','mapa_contexto_novo','glossario_novo','normativa_nova'].some(k=>(patch[k]||[]).length)&&!Object.keys(patch.campos||{}).length&&!Object.keys(patch.bpmn_delta||{}).length;
+    if(semImpacto){hideManualProgress();toast('ℹ️ '+codigo+': insumos sem impacto no POP ('+(patch.motivo||'')+').');registrarLicoesPropostas(patch.licoes_propostas,'pop:'+codigo);return;}
+    const {pop:novo,tipo,mudancas}=applyPopPatch(pop,patch);
+    novo.hash_fontes=await hashFontes(ents.filter(e=>(novo.fontes_entradas||[]).includes(e.id)));savePop(novo);
+    registrarLicoesPropostas(patch.licoes_propostas,'pop:'+codigo);
+    hideManualProgress();toast('✅ '+codigo+': v'+pop.versao+' → v'+novo.versao+' ('+tipo+', '+mudancas.length+' mudanças)');
+    if((patch.processos_novos_sugeridos||[]).length)alert('Processo(s) novo(s) identificado(s) — gere POP próprio:\n- '+patch.processos_novos_sugeridos.join('\n- '));
+    loadAgentes('pops');verPop(codigo);
+  }catch(err){console.error('atualizarPopIncremental',err);hideManualProgress();toast('❌ '+(err.message||'erro'));}
+}
+
+// ── Mermaid (vendor/mermaid.min.js) com fallback HTML ──
+let mermaidPromise=null,mmdSeq=0;
+function loadMermaid(){
+  if(window.mermaid){return Promise.resolve(true);}
+  if(mermaidPromise)return mermaidPromise;
+  mermaidPromise=new Promise(res=>{const s=document.createElement('script');s.src='vendor/mermaid.min.js';s.onload=()=>{try{window.mermaid.initialize({startOnLoad:false,securityLevel:'strict',theme:'default',fontFamily:'Sora, Arial, sans-serif',flowchart:{useMaxWidth:false,htmlLabels:false,curve:'basis'}});res(true);}catch(e){console.warn('mermaid init',e);res(false);}};s.onerror=()=>{console.warn('Mermaid não carregado — fallback HTML');res(false);};document.head.appendChild(s);});
+  return mermaidPromise;
+}
+async function renderMermaidIn(container){
+  const els=Array.from(container.querySelectorAll('.mmd[data-code]'));if(!els.length)return;
+  const ok=await loadMermaid();
+  for(const el of els){const code=el.getAttribute('data-code');
+    if(ok){try{const {svg}=await window.mermaid.render('mmd'+(++mmdSeq),code);el.innerHTML=svg;el.classList.add('mmd-ok');continue;}catch(e){console.warn('mermaid render',e);}}
+    const spec=el.getAttribute('data-spec');
+    el.innerHTML=(spec?renderSpecBlocks(JSON.parse(spec)):'')+'<details><summary style="font-size:10px;color:var(--mut);cursor:pointer">Código Mermaid (renderizador indisponível)</summary><pre style="font-size:10px;white-space:pre-wrap">'+escapeHtml(code)+'</pre></details>';
+  }
+}
+function renderSpecBlocks(spec){
+  const raias=spec.raias||[];
+  return raias.map(r=>{const els=(spec.elementos||[]).filter(e=>e.raia===r).map(el=>{const s=el.tipo==='pausa'?'⏱ ':(el.tipo==='captura'?'✉ ':'');return '<div class="bpmn-node '+escapeHtml(el.tipo)+'" title="'+escapeHtml(el.id)+'">'+(el.tipo==='decisao'?'<span>'+escapeHtml((el.label||'').substring(0,30))+'</span>':(s+((el.tipo==='inicio'||el.tipo==='fim')?'':escapeHtml((el.label||'').substring(0,30)))))+'</div>';}).join('<span class="bpmn-arrow">→</span>');
+    return '<div style="margin-bottom:6px"><div style="font-size:10px;font-weight:700;color:var(--nav2);margin-bottom:3px">RAIA: '+escapeHtml(r)+'</div><div class="bpmn-flow">'+(els||'<span style="color:var(--mut);font-size:11px">—</span>')+'</div></div>';}).join('');
+}
+async function mermaidToPng(code){
+  if(!(await loadMermaid()))return null;
+  try{const {svg}=await window.mermaid.render('mmdpng'+(++mmdSeq),code);const img=new Image();
+    await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src='data:image/svg+xml;base64,'+btoa(unescape(encodeURIComponent(svg)));});
+    const w=img.naturalWidth||1200,h=img.naturalHeight||500;const c=document.createElement('canvas');c.width=Math.round(w*2);c.height=Math.round(h*2);const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.scale(2,2);ctx.drawImage(img,0,0,w,h);return {dataUrl:c.toDataURL('image/png'),w,h};
+  }catch(e){console.warn('mermaidToPng',e);return null;}
+}
+function escapeHtml(s){return String(s===undefined||s===null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function popTable(head,rows,vazio){if(!rows||!rows.length)return '<div class="man-empty" style="padding:8px">'+escapeHtml(vazio||'— A definir')+'</div>';return '<table class="pop-table"><thead><tr>'+head.map(h=>'<th>'+escapeHtml(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(c=>'<td>'+escapeHtml(c===undefined||c===null||c===''?'—':c)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';}
+function popList(items,vazio){items=(items||[]).filter(i=>String(i).trim());return items.length?'<ul style="margin:4px 0 4px 18px;font-size:11px">'+items.map(i=>'<li>'+escapeHtml(i)+'</li>').join('')+'</ul>':'<div style="font-size:11px;color:var(--mut)">'+escapeHtml(vazio||'— A definir')+'</div>';}
+function statusPill(st){const m={rascunho:'man-pill-empty',em_validacao:'man-pill-wip',aprovado:'man-pill-ready',obsoleto:'man-pill-empty'};return '<span class="man-card-pill '+(m[st]||'man-pill-empty')+'">'+escapeHtml(st||'').toUpperCase()+'</span>';}
+
+// ── Visualização do POP (modal) ──
+function renderPopHtml(pop){
+  const d=pop.ddd||{},idn=pop.identificacao||{},pb=pop.playbook||{},spec=pop.bpmn_spec||{};const lic={};licoesAprovadas().forEach(l=>{lic[l.id]=l;});
+  const sec=(n,t,body)=>'<div class="pop-sec"><h3>'+n+'. '+escapeHtml(t)+'</h3>'+body+'</div>';
+  let h='';
+  h+=sec(0,'Cabeçalho DDD',popTable(['Divisão','Departamento','Descrição'],[[d.divisao,d.departamento,d.descricao]])+popTable(['Domínio','Subdomínio','Tipo','Contexto delimitado'],[[d.dominio,d.subdominio,d.tipo_subdominio,d.contexto]])+'<div style="font-size:11px;font-weight:600;margin-top:6px">0.3 Linguagem ubíqua</div>'+popTable(['Termo','Definição','Sistema'],(d.glossario||[]).map(g=>[g.termo,g.definicao,g.sistema]),'Herda o glossário institucional (diretriz 09).'));
+  h+=sec(1,'Identificação',popTable(['Campo','Valor'],[['Código',pop.codigo],['Setor',pop.setor+' ('+pop.setor_codigo+')'],['Responsável (função)',idn.responsavel],['Periodicidade',idn.periodicidade],['Subordinação',idn.subordinacao],['Normativa',(idn.normativa||[]).join('; ')||'A definir'],['Produto ATDG',idn.produto_atdg],['Pasta OneDrive',idn.pasta_onedrive],['Fontes',(pop.fontes_entradas||[]).join(', ')||'—'],['Lacunas abertas',(pop.lacunas||[]).join(', ')||'nenhuma'],['Agente',pop.agente||'— (não moldado)'],['Versão / status','v'+pop.versao+' · '+pop.status+' · '+String(pop.atualizado_em||'').substring(0,10)]]));
+  h+=sec(2,'Organograma','<div class="mmd" data-code="'+escapeHtml(pop.organograma_mermaid||'')+'"></div>');
+  const g=pb.gatilho||{};
+  h+=sec(3,'Playbook','<div style="font-size:11px"><strong>3.1 Gatilho:</strong> '+escapeHtml(g.evento||'A definir')+(g.origem?' — origem: '+escapeHtml(g.origem):'')+'</div><div style="font-size:11px;margin-top:6px"><strong>3.2 Entrada</strong></div>'+popList(pb.entrada)+'<div style="font-size:11px;margin-top:6px"><strong>3.3 Passo a passo</strong></div>'+popTable(['Nº','Ação','Responsável','Sistema','Artefato','Prazo','Evento'],(pb.passos||[]).map(p=>[p.n,p.acao,p.responsavel,p.sistema,p.artefato,p.prazo,p.evento]),'— A documentar')+'<div style="font-size:11px;margin-top:6px"><strong>3.4 Saída</strong></div>'+popList(pb.saida));
+  h+=sec(4,'Formulários e artefatos (agregados)',popTable(['Nome','Tipo','Sistema','Campos-chave','Preenchimento'],(pop.artefatos||[]).map(a=>[a.nome,a.tipo,a.sistema,(a.campos_chave||[]).join(', '),a.responsavel_preenchimento])));
+  h+=sec(5,'Decisões, exceções e pontos de atenção',popTable(['Decisão','Condição','Sim →','Não →'],(pop.decisoes||[]).map(x=>[x.decisao,x.condicao,x.sim,x.nao]),'— Sem decisões')+'<div style="font-size:11px;margin-top:6px"><strong>Pontos de atenção</strong></div>'+popList(pop.pontos_atencao,'— Nenhum'));
+  h+=sec(6,'Contingência',popList(pop.contingencia));
+  h+=sec(7,'Checklist',popList((pop.checklist||[]).map(i=>'( ) '+i)));
+  h+=sec(8,'KPI / Indicadores',popTable(['Indicador','Fórmula','Meta','Fonte'],(pop.kpis||[]).map(k=>[k.indicador,k.formula,k.meta,k.fonte])));
+  h+=sec(9,'Mapa de contexto',popTable(['Origem','Relação','Destino','Artefato','Canal'],(pop.mapa_contexto||[]).map(m=>[m.origem,m.relacao,m.destino,m.artefato,m.canal]),'— Sem interfaces'));
+  h+=sec(10,'Fluxograma (BPMN 2.0 — Anne Bail)','<div class="mmd" data-code="'+escapeHtml(pop.fluxograma_mermaid||'')+'" data-spec="'+escapeHtml(JSON.stringify(spec))+'"></div>');
+  h+=sec(11,'Especificação BPMN para o Miro','<div style="font-size:11px"><strong>Raias:</strong> '+escapeHtml((spec.raias||[]).join(' · ')||'—')+'</div>'+popTable(['Id','Tipo','Elemento','Raia'],(spec.elementos||[]).map(e=>[e.id,e.tipo,e.label,e.raia]))+popTable(['De','Para','Rótulo'],(spec.conexoes||[]).map(c=>[c.de,c.para,c.label])));
+  h+=sec(12,'Histórico de versões',popTable(['Versão','Data','Autor','Tipo','Mudanças','Fontes'],(pop.changelog||[]).map(c=>[c.versao,c.data,c.autor,c.tipo,(c.mudancas||[]).join('; '),(c.fontes||[]).join(', ')])));
+  const v=pop.validacao||{};h+=sec(13,'Validação e aprovação',popTable(['Papel','Função / unidade','Data'],[['Elaboração',v.elaboracao,String(pop.criado_em||'').substring(0,10)],['Revisão',v.revisao,'___/___/____'],['Aprovação',v.aprovacao,v.data_aprovacao||'___/___/____']]));
+  h+=sec(14,'Lições incorporadas',popList((pop.licoes_aplicadas||[]).map(i=>i+' — '+(lic[i]?lic[i].regra:'ver diretriz 07')),'— Nenhuma além das diretrizes vigentes'));
+  if(pop.observacoes)h+='<div style="font-size:11px;background:var(--dl);border-left:3px solid var(--dou);padding:8px 10px;border-radius:4px;margin-top:8px"><strong>Observações:</strong> '+escapeHtml(pop.observacoes)+'</div>';
+  return h;
+}
+function verPop(codigo){
+  const pop=findPop(codigo);if(!pop){toast('POP não encontrado.');return;}
+  document.getElementById('popModalTitle').textContent='POP '+pop.codigo+' — '+pop.titulo;
+  document.getElementById('popModalSub').textContent=pop.setor+' · v'+pop.versao+' · '+pop.status+' · DDD híbrido + BPMN 2.0 Anne Bail · diretrizes v'+(pop.versao_diretrizes||'');
+  const body=document.getElementById('popModalBody');body.innerHTML=renderPopHtml(pop);
+  const q=s=>"'"+String(s).replace(/'/g,"\\'")+"'";
+  document.getElementById('popModalFooter').innerHTML='<button class="bpmn-btn" onclick="downloadPopWord('+q(codigo)+')">📄 Word</button><button class="bpmn-btn" onclick="downloadPopMarkdown('+q(codigo)+')">📝 Markdown</button><button class="bpmn-btn" onclick="downloadPopJson('+q(codigo)+')">🧾 JSON</button><button class="bpmn-btn" onclick="abrirMiroPop('+q(codigo)+')">🔷 BPMN Miro</button><button class="bpmn-btn" onclick="atualizarPopIncremental('+q(codigo)+')">🔄 Atualizar</button><button class="bpmn-btn" onclick="construirPop('+q(codigo)+')">🤖 Construir/completar</button><button class="bpmn-btn" onclick="moldarAgenteApp('+q(codigo)+')">🧩 Moldar agente</button>';
+  document.getElementById('popModal').classList.add('on');renderMermaidIn(body);
+}
+function fecharPopModal(){document.getElementById('popModal').classList.remove('on');}
+
+// ── Exportações ──
+function popMarkdown(pop){
+  const d=pop.ddd||{},idn=pop.identificacao||{},pb=pop.playbook||{},spec=pop.bpmn_spec||{};const c=s=>String(s===undefined||s===null?'':s).replace(/\|/g,'\\|').replace(/\r?\n/g,' ').trim()||'—';
+  const tab=(head,rows,vazio)=>rows.length?('| '+head.join(' | ')+' |\n|'+head.map(()=>'---').join('|')+'|\n'+rows.map(r=>'| '+r.map(c).join(' | ')+' |').join('\n')):(vazio||'— A definir');
+  const lst=(items,vazio)=>{items=(items||[]).filter(i=>String(i).trim());return items.length?items.map(i=>'- '+c(i)).join('\n'):(vazio||'— A definir');};
+  const L=['---','codigo: '+pop.codigo,'titulo: "'+String(pop.titulo).replace(/"/g,"'")+'"','versao: "'+pop.versao+'"','status: '+pop.status,'setor_codigo: '+pop.setor_codigo,'setor: "'+String(pop.setor).replace(/"/g,"'")+'"','atualizado_em: "'+(pop.atualizado_em||'')+'"','agente: '+(pop.agente||'—'),'versao_diretrizes: "'+(pop.versao_diretrizes||'')+'"','---','','# POP '+pop.codigo+' — '+pop.titulo,'','> **Documento vivo** · ATDG — UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **'+pop.versao+'** · Status **'+pop.status+'** · Atualizado em '+String(pop.atualizado_em||'').substring(0,10),'','## 0. Cabeçalho DDD','',tab(['Divisão','Departamento','Descrição'],[[d.divisao,d.departamento,d.descricao]]),'',tab(['Domínio','Subdomínio','Tipo','Contexto delimitado'],[[d.dominio,d.subdominio,d.tipo_subdominio,d.contexto]]),'','### 0.3 Linguagem ubíqua (glossário do processo)','',tab(['Termo','Definição','Sistema'],(d.glossario||[]).map(g=>[g.termo,g.definicao,g.sistema]),'Herda integralmente o glossário institucional (`diretrizes/09-glossario-institucional.md`); sem termos locais adicionais.'),'','## 1. Identificação','',tab(['Campo','Valor'],[['Código',pop.codigo],['Setor',pop.setor+' (`'+pop.setor_codigo+'`)'],['Responsável (função)',idn.responsavel],['Periodicidade',idn.periodicidade],['Subordinação',idn.subordinacao],['Normativa',(idn.normativa||[]).join('; ')||'A definir'],['Produto ATDG',idn.produto_atdg],['Pasta OneDrive',idn.pasta_onedrive],['Fontes (entradas do Canvas)',(pop.fontes_entradas||[]).join(', ')||'—'],['Lacunas abertas',(pop.lacunas||[]).join(', ')||'nenhuma'],['Agente responsável',pop.agente||'— (não moldado)']]),'','## 2. Organograma','','```mermaid\n'+(pop.organograma_mermaid||'')+'\n```','','## 3. Playbook','','### 3.1 Gatilho (evento de domínio)','','**'+c((pb.gatilho||{}).evento||'A definir')+'**'+((pb.gatilho||{}).origem?' — origem: '+c(pb.gatilho.origem):''),'','### 3.2 Entrada','',lst(pb.entrada),'','### 3.3 Passo a passo','',tab(['Nº','Ação','Responsável','Sistema','Artefato','Prazo','Evento'],(pb.passos||[]).map(p=>[p.n,p.acao,p.responsavel,p.sistema||'—',p.artefato||'—',p.prazo||'A definir',p.evento||'—']),'— A documentar (nenhum passo registrado)'),'','### 3.4 Saída (entregáveis)','',lst(pb.saida),'','## 4. Formulários e artefatos (agregados)','',tab(['Nome','Tipo','Sistema','Campos-chave','Preenchimento'],(pop.artefatos||[]).map(a=>[a.nome,a.tipo,a.sistema||'—',(a.campos_chave||[]).join(', ')||'—',a.responsavel_preenchimento||'—'])),'','## 5. Decisões, exceções e pontos de atenção','',tab(['Decisão','Condição','Sim →','Não →'],(pop.decisoes||[]).map(x=>[x.decisao,x.condicao,x.sim,x.nao]),'— Sem decisões registradas'),'','**Pontos de atenção**','',lst(pop.pontos_atencao,'— Nenhum registrado'),'','## 6. Contingência','',lst(pop.contingencia),'','## 7. Checklist','',((pop.checklist||[]).filter(i=>String(i).trim()).map(i=>'- ( ) '+c(i)).join('\n')||'— A definir'),'','## 8. KPI / Indicadores','',tab(['Indicador','Fórmula','Meta','Fonte'],(pop.kpis||[]).map(k=>[k.indicador,k.formula||'A definir',k.meta||'A definir',k.fonte||'A definir'])),'','## 9. Mapa de contexto (interfaces inter-setoriais)','',tab(['Origem','Relação','Destino','Artefato','Canal'],(pop.mapa_contexto||[]).map(m=>[m.origem,m.relacao,m.destino,m.artefato||'—',m.canal||'—']),'— Sem interfaces registradas'),'','## 10. Fluxograma (BPMN 2.0 — padrão Anne Bail)','','```mermaid\n'+(pop.fluxograma_mermaid||'')+'\n```','','## 11. Especificação BPMN para o Miro','','**Raias:** '+((spec.raias||[]).join(' · ')||'—'),'',tab(['Id','Tipo','Elemento','Raia'],(spec.elementos||[]).map(e=>[e.id,e.tipo,e.label,e.raia])),'',tab(['De','Para','Rótulo'],(spec.conexoes||[]).map(x=>[x.de,x.para,x.label||'—'])),'',(spec.observacoes_construcao_miro?'_'+c(spec.observacoes_construcao_miro)+'_\n':''),'## 12. Histórico de versões','',tab(['Versão','Data','Autor','Tipo','Mudanças','Fontes'],(pop.changelog||[]).map(x=>[x.versao,x.data,x.autor,x.tipo,(x.mudancas||[]).join('; '),(x.fontes||[]).join(', ')||'—'])),'','## 13. Validação e aprovação','',tab(['Papel','Função / unidade','Data'],[['Elaboração',(pop.validacao||{}).elaboracao,String(pop.criado_em||'').substring(0,10)],['Revisão',(pop.validacao||{}).revisao,'___/___/______'],['Aprovação',(pop.validacao||{}).aprovacao,(pop.validacao||{}).data_aprovacao||'___/___/______']]),'','## 14. Lições incorporadas','',((pop.licoes_aplicadas||[]).length?(pop.licoes_aplicadas.map(i=>'- **'+i+'**').join('\n')):'— Nenhuma lição específica além das diretrizes vigentes.'),''];
+  if(pop.observacoes)L.push('> **Observações:** '+c(pop.observacoes),'');
+  L.push('---','_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · exportado pelo app (aba 🤖 Agentes) — arquivo canônico: pops/'+pop.sigla+'/'+pop.codigo+'.pop.json (diretrizes v'+(pop.versao_diretrizes||'')+')._');
+  return L.join('\n')+'\n';
+}
+function downloadPopMarkdown(codigo){const pop=findPop(codigo);if(!pop)return;downloadBlob(popMarkdown(pop),pop.codigo+'.md','text/markdown;charset=utf-8',false);toast('⬇️ Markdown gerado.');}
+function downloadPopJson(codigo){const pop=findPop(codigo);if(!pop)return;downloadBlob(JSON.stringify(pop,null,2),pop.codigo+'.pop.json','application/json;charset=utf-8',false);toast('⬇️ JSON canônico gerado — salve em pops/'+pop.sigla+'/ e rode /sincronizar-canvas.');}
+function bpmnExportDe(pop){const spec=pop.bpmn_spec||{};return{setor:pop.setor,codigo:pop.codigo,gerado_em:nowIso(),padrao:'BPMN 2.0 — Anne Bail (UNIOESTE Foz)',processos:[{nome:pop.codigo+' — '+pop.titulo,descricao:(pop.ddd||{}).descricao||'',raias:spec.raias||[],elementos:spec.elementos||[],conexoes:spec.conexoes||[],observacoes_construcao_miro:spec.observacoes_construcao_miro||''}]};}
+function abrirMiroPop(codigo){const pop=findPop(codigo);if(!pop)return;bpmnCurrentSpec=bpmnExportDe(pop);document.getElementById('bpmnModalSetor').textContent=pop.codigo+' — '+pop.titulo+' · Especificação BPMN 2.0';document.getElementById('bpmnModal').classList.add('on');renderBPMNSpec(bpmnCurrentSpec);}
+async function downloadPopWord(codigo){
+  const pop=findPop(codigo);if(!pop)return;const d=pop.ddd||{},idn=pop.identificacao||{},pb=pop.playbook||{},spec=pop.bpmn_spec||{};
+  toast('📄 Gerando Word...');const png=await mermaidToPng(pop.fluxograma_mermaid||'');const pngOrg=await mermaidToPng(pop.organograma_mermaid||'');
+  const tab=(head,rows)=>rows.length?'<table><tr>'+head.map(h=>'<th>'+escapeHtml(h)+'</th>').join('')+'</tr>'+rows.map(r=>'<tr>'+r.map(c=>'<td>'+escapeHtml(c===undefined||c===null||c===''?'—':c)+'</td>').join('')+'</tr>').join('')+'</table>':'<p><em>— A definir</em></p>';
+  const lst=(items)=>{items=(items||[]).filter(i=>String(i).trim());return items.length?'<ul>'+items.map(i=>'<li>'+escapeHtml(i)+'</li>').join('')+'</ul>':'<p><em>— A definir</em></p>';};
+  const img=(p,alt)=>p?'<p><img src="'+p.dataUrl+'" width="'+Math.min(p.w,640)+'" alt="'+alt+'"></p>':'';
+  const html='<!DOCTYPE html><html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="UTF-8"><title>POP '+escapeHtml(pop.codigo)+'</title><style>@page{size:A4;margin:2.5cm 2cm}body{font-family:Arial,sans-serif;font-size:11pt;line-height:1.5;color:#1B2747}.capa{text-align:center;padding:60px 20px;border-top:6px solid #CC1544;border-bottom:3px solid #0B4D66;margin-bottom:30px;page-break-after:always}.capa h1{font-size:28pt;color:#1B2747;margin:30px 0 10px}.capa h2{font-size:16pt;color:#CC1544;margin-bottom:40px}.badge{display:inline-block;background:#1B2747;color:#fff;padding:8px 18px;border-radius:6px;font-size:10pt;margin:5px}h2{border-bottom:2px solid #CC1544;padding-bottom:6px;margin-top:28px;font-size:16pt;color:#1B2747}h3{color:#0B4D66;font-size:12pt;margin-top:16px}table{width:100%;border-collapse:collapse;margin:10px 0}th{background:#1B2747;color:#fff;padding:6px 8px;text-align:left;font-size:10pt}td{border:1px solid #D0D4E8;padding:6px 8px;font-size:10pt;vertical-align:top}.footer{margin-top:40px;padding-top:15px;border-top:2px solid #CC1544;font-size:9pt;color:#5A6380;text-align:center}.obs{background:#FDEAEE;border-left:4px solid #CC1544;padding:10px 14px}</style></head><body>'+
+  '<div class="capa"><div class="badge">UNIOESTE — CAMPUS FOZ DO IGUAÇU</div><div class="badge" style="background:#CC1544">ATDG · Assessoria Técnica da Direção Geral</div><h1>PROCEDIMENTO OPERACIONAL PADRÃO</h1><h2>'+escapeHtml(pop.codigo+' — '+pop.titulo)+'</h2><p>'+escapeHtml(pop.setor)+' · Formato DDD híbrido · BPMN 2.0 padrão Anne Bail</p><p style="margin-top:40px">Versão '+escapeHtml(pop.versao)+' · Status '+escapeHtml(pop.status)+' · '+new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})+'</p></div>'+
+  '<h2>0. Cabeçalho DDD</h2>'+tab(['Divisão','Departamento','Descrição'],[[d.divisao,d.departamento,d.descricao]])+tab(['Domínio','Subdomínio','Tipo','Contexto delimitado'],[[d.dominio,d.subdominio,d.tipo_subdominio,d.contexto]])+'<h3>0.3 Linguagem ubíqua</h3>'+tab(['Termo','Definição','Sistema'],(d.glossario||[]).map(g=>[g.termo,g.definicao,g.sistema]))+
+  '<h2>1. Identificação</h2>'+tab(['Campo','Valor'],[['Código',pop.codigo],['Setor',pop.setor+' ('+pop.setor_codigo+')'],['Responsável (função)',idn.responsavel],['Periodicidade',idn.periodicidade],['Subordinação',idn.subordinacao],['Normativa',(idn.normativa||[]).join('; ')||'A definir'],['Produto ATDG',idn.produto_atdg],['Pasta OneDrive',idn.pasta_onedrive],['Lacunas abertas',(pop.lacunas||[]).join(', ')||'nenhuma']])+
+  '<h2>2. Organograma</h2>'+(img(pngOrg,'Organograma')||'<p>'+escapeHtml(orgChain(pop.setor_codigo).map(n=>n.nome).join(' → '))+' → '+escapeHtml(pop.codigo)+'</p>')+
+  '<h2>3. Playbook</h2><h3>3.1 Gatilho</h3><p><strong>'+escapeHtml((pb.gatilho||{}).evento||'A definir')+'</strong>'+((pb.gatilho||{}).origem?' — origem: '+escapeHtml(pb.gatilho.origem):'')+'</p><h3>3.2 Entrada</h3>'+lst(pb.entrada)+'<h3>3.3 Passo a passo</h3>'+tab(['Nº','Ação','Responsável','Sistema','Artefato','Prazo','Evento'],(pb.passos||[]).map(p=>[p.n,p.acao,p.responsavel,p.sistema,p.artefato,p.prazo,p.evento]))+'<h3>3.4 Saída</h3>'+lst(pb.saida)+
+  '<h2>4. Formulários e artefatos (agregados)</h2>'+tab(['Nome','Tipo','Sistema','Campos-chave','Preenchimento'],(pop.artefatos||[]).map(a=>[a.nome,a.tipo,a.sistema,(a.campos_chave||[]).join(', '),a.responsavel_preenchimento]))+
+  '<h2>5. Decisões, exceções e pontos de atenção</h2>'+tab(['Decisão','Condição','Sim →','Não →'],(pop.decisoes||[]).map(x=>[x.decisao,x.condicao,x.sim,x.nao]))+'<h3>Pontos de atenção</h3>'+lst(pop.pontos_atencao)+
+  '<h2>6. Contingência</h2>'+lst(pop.contingencia)+'<h2>7. Checklist</h2>'+lst((pop.checklist||[]).map(i=>'( ) '+i))+'<h2>8. KPI / Indicadores</h2>'+tab(['Indicador','Fórmula','Meta','Fonte'],(pop.kpis||[]).map(k=>[k.indicador,k.formula,k.meta,k.fonte]))+
+  '<h2>9. Mapa de contexto</h2>'+tab(['Origem','Relação','Destino','Artefato','Canal'],(pop.mapa_contexto||[]).map(m=>[m.origem,m.relacao,m.destino,m.artefato,m.canal]))+
+  '<h2>10. Fluxograma (BPMN 2.0 — padrão Anne Bail)</h2>'+(img(png,'Fluxograma')||'<p><em>Fluxograma renderizado indisponível; consulte a especificação abaixo.</em></p>')+
+  '<h2>11. Especificação BPMN para o Miro</h2><p><strong>Raias:</strong> '+escapeHtml((spec.raias||[]).join(' · ')||'—')+'</p>'+tab(['Id','Tipo','Elemento','Raia'],(spec.elementos||[]).map(e=>[e.id,e.tipo,e.label,e.raia]))+tab(['De','Para','Rótulo'],(spec.conexoes||[]).map(x=>[x.de,x.para,x.label]))+
+  '<h2>12. Histórico de versões</h2>'+tab(['Versão','Data','Autor','Tipo','Mudanças'],(pop.changelog||[]).map(x=>[x.versao,x.data,x.autor,x.tipo,(x.mudancas||[]).join('; ')]))+
+  '<h2>13. Validação e aprovação</h2>'+tab(['Papel','Função / unidade','Assinatura','Data'],[['Elaboração',(pop.validacao||{}).elaboracao,'','___/___/______'],['Revisão',(pop.validacao||{}).revisao,'','___/___/______'],['Aprovação',(pop.validacao||{}).aprovacao,'','___/___/______']])+
+  '<h2>14. Lições incorporadas</h2>'+lst(pop.licoes_aplicadas)+(pop.observacoes?'<p class="obs"><strong>Observações:</strong> '+escapeHtml(pop.observacoes)+'</p>':'')+
+  '<div class="footer"><strong>Canvas Vivo — Base de Conhecimento Institucional</strong><br>ATDG · UNIOESTE Campus Foz do Iguaçu · Documento vivo gerado em '+new Date().toLocaleString('pt-BR')+'<br>POP '+escapeHtml(pop.codigo)+' v'+escapeHtml(pop.versao)+' · diretrizes v'+escapeHtml(pop.versao_diretrizes||'')+'</div></body></html>';
+  downloadBlob(html,'POP_'+pop.codigo+'_v'+pop.versao+'.doc','application/msword;charset=utf-8',true);toast('✅ Word gerado.');
+}
+
+// ── Agente moldado por processo (template 08) ──
+function agenteMd(pop){
+  const node=orgNode(pop.setor_codigo)||{};const spec=pop.bpmn_spec||{};const fontes=pop.fontes_entradas||[];
+  const vals={codigo:pop.codigo,codigo_lower:pop.codigo.toLowerCase(),nome:pop.titulo,setor:pop.setor,setor_codigo:pop.setor_codigo,sigla:pop.sigla,dominio:(pop.ddd||{}).dominio||node.dominio||'',contexto:(pop.ddd||{}).contexto||pop.setor_codigo,arquivo_pop:'pops/'+pop.sigla+'/'+pop.codigo+'.pop.json',arquivo_md:'pops/'+pop.sigla+'/'+pop.codigo+'.md',arquivo_bpmn:'pops/'+pop.sigla+'/'+pop.codigo+'.bpmn.json',versao:pop.versao,status:pop.status,diretrizes_versao:diretrizesVersao(),responsavel:(pop.identificacao||{}).responsavel||'A definir',raias:(spec.raias||[]).join(', ')||'A definir',normativa:((pop.identificacao||{}).normativa||[]).join('; ')||'A definir',interfaces:(pop.mapa_contexto||[]).map(m=>m.origem+' → '+m.destino+' ('+m.relacao+')').join('; ')||'nenhuma registrada',fontes:fontes.join(', ')||'nenhuma',fontes_csv:fontes.join(',')||'-',hash_fontes:String(pop.hash_fontes||'').substring(0,12),atualizado_em:pop.atualizado_em||''};
+  let txt=AGENTE_TEMPLATE;Object.keys(vals).forEach(k=>{txt=txt.split('{{'+k+'}}').join(String(vals[k]));});return txt;
+}
+function moldarAgenteApp(codigo){
+  const pop=findPop(codigo);if(!pop)return;const md=agenteMd(pop);const id='agente-pop-'+pop.codigo.toLowerCase();
+  const all=gAgentes();const now=nowIso();const cur=all.find(a=>a.id===id);
+  const item={id,codigo:pop.codigo,pop_id:pop.id,nome:'Agente do processo '+pop.codigo+' — '+pop.titulo,setor_codigo:pop.setor_codigo,arquivo:'.claude/agents/pop-'+pop.codigo.toLowerCase()+'.md',versao_diretrizes:diretrizesVersao(),versao_pop:pop.versao,modelo:'sonnet',origem:'app',criado_em:cur?cur.criado_em:now,atualizado_em:now};
+  if(cur)Object.assign(cur,item);else all.push(item);sAgentes(all);
+  if(pop.agente!=='pop-'+pop.codigo.toLowerCase()){pop.agente='pop-'+pop.codigo.toLowerCase();savePop(pop);}
+  downloadBlob(md,'pop-'+pop.codigo.toLowerCase()+'.md','text/markdown;charset=utf-8',false);
+  toast('🧩 Agente pop-'+pop.codigo.toLowerCase()+' moldado — salve o arquivo em .claude/agents/ do repositório.');loadAgentes('agentes');
+}
+function baixarTodosAgentes(){const pops=gPops().filter(p=>p.agente);if(!pops.length){toast('Nenhum agente moldado.');return;}const txt=pops.map(p=>'<!-- ===== .claude/agents/pop-'+p.codigo.toLowerCase()+'.md ===== -->\n'+agenteMd(p)).join('\n\n');downloadBlob(txt,'agentes-por-processo.md','text/markdown;charset=utf-8',false);}
+
+// ── Lições (aprendizado) ──
+function aprovarLicao(id){const all=gLicoes();const l=all.find(x=>x.id===id);if(!l)return;l.status='aprovada';l.data=hoje();l.atualizado_em=nowIso();sLicoes(all);toast('✅ '+id+' aprovada — passa a valer nos próximos prompts. Exporte o JSON e rode /sincronizar-canvas para registrar em diretrizes/07.');loadAgentes('diretrizes');}
+function rejeitarLicao(id){const all=gLicoes();const l=all.find(x=>x.id===id);if(!l)return;const m=prompt('Motivo da rejeição (opcional):','')||'';l.status='rejeitada';l.motivo=m;l.atualizado_em=nowIso();sLicoes(all);loadAgentes('diretrizes');}
+function proporLicao(){const licao=prompt('Lição observada (o que aconteceu):','');if(!licao)return;const regra=prompt('Regra proposta (como fazer daqui em diante):','');if(!regra)return;registrarLicoesPropostas([{licao,regra,origem:'usuario:'+((document.getElementById('uname')||{}).value||'app')}],'app');loadAgentes('diretrizes');}
+
+// ── Interface da aba ──
+let agSubAtual='diag';
+function loadAgentes(sub){
+  if(sub)agSubAtual=sub;
+  const pops=gPops(),diags=gDiags(),ags=gAgentes(),lic=gLicoes();
+  const tc=document.getElementById('tc-a');if(tc)tc.textContent=pops.length;
+  const porStatus={};pops.forEach(p=>{porStatus[p.status]=(porStatus[p.status]||0)+1;});
+  document.getElementById('agSummary').innerHTML='<div class="man-stat highlight"><div class="man-stat-v">'+pops.length+'</div><div class="man-stat-l">POPs ('+(porStatus.em_validacao||0)+' em validação · '+(porStatus.aprovado||0)+' aprovados · '+(porStatus.rascunho||0)+' rascunhos)</div></div><div class="man-stat"><div class="man-stat-v">'+diags.length+'</div><div class="man-stat-l">Setores diagnosticados</div></div><div class="man-stat"><div class="man-stat-v">'+ags.length+'</div><div class="man-stat-l">Agentes por processo</div></div><div class="man-stat"><div class="man-stat-v">'+lic.filter(l=>l.status==='proposta').length+'</div><div class="man-stat-l">Lições pendentes de aprovação ('+lic.filter(l=>l.status==='aprovada').length+' vigentes · diretrizes v'+diretrizesVersao()+')</div></div>';
+  document.querySelectorAll('#agTabs .man-action-btn').forEach(b=>b.classList.toggle('on',b.getAttribute('data-sub')===agSubAtual));
+  const el=document.getElementById('agContent');
+  if(agSubAtual==='diag')el.innerHTML=renderDiagPanel();else if(agSubAtual==='pops')el.innerHTML=renderPopsPanel();else if(agSubAtual==='agentes')el.innerHTML=renderAgentesPanel();else el.innerHTML=renderDiretrizesPanel();
+}
+function agSub(name){loadAgentes(name);}
+function setorOptionsHtml(){
+  const grupos={};ORGANOGRAMA.filter(n=>n.gera_pop!==false).forEach(n=>{const raiz=orgChain(n.codigo)[1]||n;const g=raiz.nome;(grupos[g]=grupos[g]||[]).push(n);});
+  return Object.keys(grupos).map(g=>'<optgroup label="'+escapeHtml(g)+'">'+grupos[g].map(n=>'<option value="'+escapeHtml(n.codigo)+'">'+escapeHtml(n.codigo+' · '+n.nome)+' ('+entriesForNode(n,true).length+' entr.)</option>').join('')+'</optgroup>').join('');
+}
+function renderDiagPanel(){
+  const diags=gDiags().slice().sort((a,b)=>String(b.data).localeCompare(String(a.data)));
+  const q=s=>"'"+String(s).replace(/'/g,"\\'")+"'";
+  let h='<div class="fc"><div class="fch"><h3>🩺 Diagnóstico de processos por setor</h3><p>Identifica, diagnostica e qualifica processos, ações e projetos a partir das entradas do Canvas (rubrica da diretriz 05: maturidade, criticidade, frequência, risco, cobertura → prioridade). Setores sem mudança nas entradas não consomem chamadas.</p></div><div class="fcb"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end"><div style="flex:1;min-width:260px"><label class="fl">Setor / divisão / frente</label><select class="fs" id="agSetorSel">'+setorOptionsHtml()+'</select></div><button class="gen-manual-btn" onclick="diagnosticarSetor(document.getElementById(\'agSetorSel\').value)">🩺 Diagnosticar</button><button class="man-action-btn" style="flex:0 0 auto" onclick="diagnosticarSetor(document.getElementById(\'agSetorSel\').value,{forcar:true})">↻ Forçar</button></div></div></div>';
+  if(!diags.length)return h+'<div class="man-empty">Nenhum diagnóstico ainda. Selecione um setor e clique em Diagnosticar, ou use o lote no topo.</div>';
+  h+='<div class="man-section-title"><span>📊 Diagnósticos</span><span class="badge-count">'+diags.length+'</span></div>';
+  diags.forEach(d=>{
+    const procs=d.processos||[];
+    h+='<div class="fc"><div class="fch" style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><div><h3>'+escapeHtml(d.setor)+' <span style="font-weight:400;color:var(--mut)">('+escapeHtml(d.setor_codigo)+')</span></h3><p>'+escapeHtml(String(d.data).substring(0,10))+' · '+procs.length+' processo(s) · '+(d.fontes_entradas||[]).length+' entradas · modelo '+escapeHtml(d.modelo||'')+' · diretrizes v'+escapeHtml(d.versao_diretrizes||'')+'</p></div><div style="display:flex;gap:6px"><button class="man-action-btn" onclick="diagnosticarSetor('+q(d.setor_codigo)+',{forcar:true})">↻ Refazer</button></div></div><div class="fcb" style="padding:10px 14px">';
+    h+='<table class="pop-table"><thead><tr><th>Prior.</th><th>Código</th><th>Processo</th><th>Tipo</th><th>Mat.</th><th>Lacunas</th><th>Recomendação</th><th>Ação</th></tr></thead><tbody>'+procs.map((p,i)=>'<tr><td><strong>'+p.prioridade.toFixed(2)+'</strong></td><td>'+escapeHtml(p.codigo_sugerido)+'</td><td>'+escapeHtml(p.nome)+'<div style="font-size:10px;color:var(--mut)">'+escapeHtml((p.descricao||'').substring(0,140))+'</div></td><td>'+escapeHtml(p.tipo)+'</td><td>'+escapeHtml(p.maturidade)+'</td><td style="font-size:10px">'+escapeHtml((p.lacunas||[]).join(', ')||'—')+'</td><td>'+escapeHtml(p.recomendacao)+'</td><td>'+(findPop(p.codigo_sugerido)?'<button class="man-action-btn" onclick="verPop('+q(p.codigo_sugerido)+')">📘 Ver POP</button>':'<button class="man-action-btn primary" onclick="gerarPop('+q(p.codigo_sugerido)+','+q(d.id)+','+i+')">➕ Gerar POP</button>')+'</td></tr>').join('')+'</tbody></table>';
+    if((d.lacunas_setor||[]).length)h+='<div style="font-size:11px;margin-top:8px"><strong>Lacunas do setor:</strong> '+escapeHtml(d.lacunas_setor.join('; '))+'</div>';
+    const eco=d.ecossistema||{};h+='<div style="font-size:10px;color:var(--mut);margin-top:6px">Domínio: '+escapeHtml(eco.dominio||'')+' · Subdomínios: '+escapeHtml((eco.subdominios||[]).join(', ')||'—')+' · Contextos vizinhos: '+escapeHtml((eco.contextos_vizinhos||[]).join(', ')||'—')+' · Sistemas: '+escapeHtml((eco.sistemas||[]).join(', ')||'—')+'</div></div></div>';
+  });
+  return h;
+}
+function renderPopsPanel(){
+  const pops=gPops().slice().sort((a,b)=>a.codigo.localeCompare(b.codigo));const q=s=>"'"+String(s).replace(/'/g,"\\'")+"'";
+  if(!pops.length)return '<div class="man-empty">Nenhum POP ainda. Gere a partir de um diagnóstico ou sincronize o data.json do repositório.</div>';
+  const grupos={};pops.forEach(p=>{const raiz=orgChain(p.setor_codigo)[1]||orgNode(p.setor_codigo)||{nome:p.setor};(grupos[raiz.nome]=grupos[raiz.nome]||[]).push(p);});
+  let h='<div style="font-size:11px;color:var(--mut);margin-bottom:8px">POPs canônicos (JSON) com renderização DDD híbrida, organograma e fluxograma BPMN Anne Bail. Atualizações são sempre incrementais (patch + changelog + versão).</div>';
+  Object.keys(grupos).forEach(g=>{h+='<div class="man-section-title"><span>'+escapeHtml(g)+'</span><span class="badge-count">'+grupos[g].length+'</span></div><div class="man-grid">'+grupos[g].map(p=>'<div class="man-card"><div class="man-card-header"><div class="man-card-title">'+escapeHtml(p.codigo)+' — '+escapeHtml(p.titulo)+'</div>'+statusPill(p.status)+'</div><div class="man-card-meta"><span>v'+escapeHtml(p.versao)+'</span><span>📋 '+((p.playbook||{}).passos||[]).length+' passos</span><span>🕒 '+escapeHtml(String(p.atualizado_em||'').substring(0,10))+'</span>'+(p.agente?'<span>🧩 '+escapeHtml(p.agente)+'</span>':'')+'</div><div style="font-size:11px;color:var(--mut)">'+escapeHtml(p.setor)+(p.lacunas&&p.lacunas.length?' · lacunas: '+escapeHtml(p.lacunas.slice(0,4).join(', '))+(p.lacunas.length>4?'…':''):'')+'</div><div class="man-card-actions"><button class="man-action-btn primary" onclick="verPop('+q(p.codigo)+')">📘 Ver</button><button class="man-action-btn" onclick="atualizarPopIncremental('+q(p.codigo)+')">🔄 Atualizar</button><button class="man-action-btn" onclick="downloadPopWord('+q(p.codigo)+')">📄 Word</button></div></div>').join('')+'</div>';});
+  return h;
+}
+function renderAgentesPanel(){
+  const ags=gAgentes().slice().sort((a,b)=>a.codigo.localeCompare(b.codigo));const q=s=>"'"+String(s).replace(/'/g,"\\'")+"'";
+  let h='<div class="fc"><div class="fch"><h3>🧩 Agentes moldados por processo</h3><p>Cada POP pode ter um agente próprio (template da diretriz 08) que conhece o processo, suas fontes, raias e normativa e aplica o protocolo de atualização incremental. No Claude Code, os arquivos ficam em <code>.claude/agents/pop-&lt;codigo&gt;.md</code> e são acionados por <code>/atualizar-pop &lt;CODIGO&gt;</code> ou por delegação automática.</p></div><div class="fcb"><button class="man-action-btn" style="flex:0 0 auto" onclick="baixarTodosAgentes()">⬇️ Baixar todos (.md)</button> <span style="font-size:10px;color:var(--mut)">Para moldar um agente, abra o POP e clique em "🧩 Moldar agente".</span></div></div>';
+  if(!ags.length)return h+'<div class="man-empty">Nenhum agente moldado neste navegador.</div>';
+  return h+'<table class="pop-table"><thead><tr><th>Agente</th><th>Processo</th><th>Setor</th><th>Arquivo</th><th>Diretrizes</th><th>POP</th><th>Origem</th><th>Atualizado</th><th></th></tr></thead><tbody>'+ags.map(a=>'<tr><td>'+escapeHtml(a.id.replace('agente-',''))+'</td><td>'+escapeHtml(a.codigo)+'</td><td>'+escapeHtml(a.setor_codigo||'')+'</td><td style="font-size:10px">'+escapeHtml(a.arquivo)+'</td><td>v'+escapeHtml(a.versao_diretrizes)+'</td><td>v'+escapeHtml(a.versao_pop||'')+'</td><td>'+escapeHtml(a.origem||'')+'</td><td>'+escapeHtml(String(a.atualizado_em||'').substring(0,10))+'</td><td>'+(findPop(a.codigo)?'<button class="man-action-btn" onclick="moldarAgenteApp('+q(a.codigo)+')">⬇️ .md</button>':'')+'</td></tr>').join('')+'</tbody></table>';
+}
+function renderDiretrizesPanel(){
+  const dir=gDiretrizes().slice().sort((a,b)=>String(a.arquivo).localeCompare(String(b.arquivo)));const lic=gLicoes();const q=s=>"'"+String(s).replace(/'/g,"\\'")+"'";
+  let h='<div class="fc"><div class="fch"><h3>📐 Diretrizes vivas e lições aprendidas</h3><p>As diretrizes são a fonte única para agentes, scripts e este app. O aprendizado ocorre por lições: propostas pelos agentes ou pela equipe, aprovadas pelo responsável, e então injetadas em todos os prompts (versão vigente v'+escapeHtml(diretrizesVersao())+').</p></div><div class="fcb"><button class="gen-manual-btn" onclick="proporLicao()">➕ Propor lição</button> <span style="font-size:10px;color:var(--mut)">Para levar aprovações ao repositório: ⚙️ Config → Exportar JSON → <code>/sincronizar-canvas export.json</code>.</span></div></div>';
+  const pend=lic.filter(l=>l.status==='proposta'),vig=lic.filter(l=>l.status==='aprovada'),rej=lic.filter(l=>l.status==='rejeitada');
+  h+='<div class="man-section-title"><span>⏳ Lições pendentes</span><span class="badge-count">'+pend.length+'</span></div>'+(pend.length?'<table class="pop-table"><thead><tr><th>Id</th><th>Origem</th><th>Lição</th><th>Regra proposta</th><th>Ação</th></tr></thead><tbody>'+pend.map(l=>'<tr><td>'+escapeHtml(l.id)+'</td><td>'+escapeHtml(l.origem||'')+'</td><td>'+escapeHtml(l.licao)+'</td><td>'+escapeHtml(l.regra)+'</td><td><button class="man-action-btn primary" onclick="aprovarLicao('+q(l.id)+')">✅ Aprovar</button> <button class="man-action-btn" onclick="rejeitarLicao('+q(l.id)+')">✕</button></td></tr>').join('')+'</tbody></table>':'<div class="man-empty" style="padding:10px">Nenhuma lição pendente.</div>');
+  h+='<div class="man-section-title"><span>✅ Regras vigentes</span><span class="badge-count">'+vig.length+'</span></div>'+popTable(['Id','Data','Origem','Lição','Regra'],vig.map(l=>[l.id,l.data,l.origem,l.licao,l.regra]),'Nenhuma lição aprovada.');
+  if(rej.length)h+='<details style="margin:8px 0"><summary style="font-size:11px;cursor:pointer">Rejeitadas ('+rej.length+')</summary>'+popTable(['Id','Lição','Motivo'],rej.map(l=>[l.id,l.licao,l.motivo||l.regra]))+'</details>';
+  h+='<div class="man-section-title"><span>📚 Diretrizes</span><span class="badge-count">'+dir.length+'</span></div>'+(dir.length?dir.map(d=>'<details class="fc" style="padding:8px 14px"><summary style="cursor:pointer;font-size:12px;font-weight:600;color:var(--nav2)">'+escapeHtml(d.titulo)+' <span style="font-weight:400;color:var(--mut)">· '+escapeHtml(d.arquivo)+' · v'+escapeHtml(d.versao)+'</span></summary><pre style="white-space:pre-wrap;font-size:10px;line-height:1.5;margin-top:8px;font-family:\'IBM Plex Mono\',monospace">'+escapeHtml(d.conteudo||'')+'</pre></details>').join(''):'<div class="man-empty" style="padding:10px">Diretrizes ainda não sincronizadas (data.json). Os prompts usam o resumo embutido no app.</div>');
+  return h;
+}
+
+
+// ══ CONFIG ══
+function loadCfgInfo(){
+  const k=getKey();
+  const st=document.getElementById('apiKeyStatus');
+  if(st)st.innerHTML=k?('🟢 Chave configurada ('+k.substring(0,10)+'…'+k.slice(-4)+') · modelo: <strong>'+((MODELOS[getModel()]||{}).nome||getModel())+'</strong>'):'⚪ Sem chave — modo offline (entradas salvas sem processamento IA)';
+  const tot=document.getElementById('cfg-total');if(tot)tot.textContent=gEntries().length;
+  const sz=document.getElementById('cfg-size');
+  if(sz){let bytes=0;for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(key&&key.startsWith('cv-atdg-'))bytes+=(localStorage.getItem(key)||'').length*2;}sz.textContent=fmtSize(bytes);}
+  const sel=document.getElementById('cfgModel');
+  if(sel){sel.innerHTML=Object.entries(MODELOS).map(([id,m])=>`<option value="${id}">${m.nome}</option>`).join('');sel.value=getModel();}
+  const b=getBudget();const bd=document.getElementById('cfg-budget');
+  if(bd)bd.textContent=b.chamadas+' chamadas · ≈'+b.tokens_est.toLocaleString('pt-BR')+' tokens estimados';
+}
+function saveApiKey(){
+  const inp=document.getElementById('apiKeyInput');const v=(inp.value||'').trim();
+  if(!v){toast('⚠️ Informe a chave.');return;}
+  if(!v.startsWith('sk-ant-')){toast('⚠️ A chave deve começar com sk-ant-');return;}
+  saveKey(v);inp.value='';loadCfgInfo();toast('✅ Chave salva neste navegador.');
+}
+function clearApiKey(){saveKey('');loadCfgInfo();toast('Chave removida deste navegador.');}
+function saveModelChoice(sel){setModel(sel.value);loadCfgInfo();toast('Modelo: '+((MODELOS[sel.value]||{}).nome||sel.value));}
+function exportData(){
+  const payload={versao:'Canvas Vivo ATDG v5',exportado_em:new Date().toISOString(),exportado_por:(document.getElementById('uname')||{}).value||'',
+    entries:gEntries(),index:gIndex(),pops:gPops(),diagnosticos:gDiags(),agentes:gAgentes(),diretrizes:gDiretrizes(),licoes:gLicoes()};
+  downloadBlob(JSON.stringify(payload,null,2),'canvas-vivo-atdg-export-'+new Date().toISOString().substring(0,10)+'.json','application/json;charset=utf-8',false);
+  toast('⬇️ Exportação gerada — compartilhe o JSON com a equipe.');
+}
+function importData(input){
+  const f=input.files&&input.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    try{
+      const d=JSON.parse(String(rd.result).replace(/^﻿/,''));
+      const res=mergeCollections(d);
+      entries=gEntries();upCounts(entries.length);loadCfgInfo();
+      toast('✅ Importado: '+res.entries+' entradas, '+res.pops+' POPs, '+res.diagnosticos+' diagnósticos, '+res.agentes+' agentes, '+res.licoes+' lições');
+    }catch(e){toast('❌ JSON inválido: '+(e.message||''));}
+    input.value='';
+  };
+  rd.readAsText(f);
+}
+function clearAll(){
+  if(!confirm('Apagar TODOS os dados deste navegador (entradas, índice, POPs, diagnósticos, agentes, diretrizes)? A chave IA será mantida. Exporte antes.'))return;
+  [K_ENT,K_IDX,K_CACHE,K_POPS,K_DIAG,K_AG,K_DIR,K_LIC,K_BUDGET].forEach(k=>localStorage.removeItem(k));
+  entries=[];upCounts(0);loadCfgInfo();toast('🗑️ Dados apagados deste navegador.');
+}
+
 // ══ UTILS ══
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',3500);}
 
@@ -2603,21 +3276,16 @@ async function fetchServerData(){
     const r=await fetch('https://jessefers.github.io/canvas-vivo-atdg/data.json?t='+Date.now());
     if(!r.ok)return;
     const d=await r.json();
-    if(!d||!d.entries||!d.entries.length)return;
-    const local=gEntries();
-    const ids=new Set(local.map(e=>e.id));
-    const novos=d.entries.filter(e=>!ids.has(e.id));
-    if(novos.length>0){
-      sEntries([...local,...novos]);
-      entries=[...local,...novos];
-      upCounts(entries.length);
-      toast('🔄 '+novos.length+' entrada'+(novos.length!==1?'s':'')+' nova'+(novos.length!==1?'s':'')+' sincronizada'+(novos.length!==1?'s':'')+' do servidor!');
-    }
+    if(!d)return;
+    const res=mergeCollections(d);
+    entries=gEntries();upCounts(entries.length);
+    const tot=res.entries+res.pops+res.diagnosticos+res.agentes+res.diretrizes+res.licoes;
+    if(tot>0)toast('🔄 Sincronizado do servidor: '+res.entries+' entradas, '+res.pops+' POPs, '+res.diagnosticos+' diagnósticos, '+res.licoes+' lições');
   }catch(e){/* silencioso — sem data.json ainda ou offline */}
 }
 
 // ══ INIT ══
-(async()=>{entries=gEntries();upCounts(entries.length);updateApiPill&&updateApiPill();fetchServerData();})();
+(async()=>{entries=gEntries();upCounts(entries.length);if(typeof loadCfgInfo==='function')loadCfgInfo();fetchServerData();})();
 </script>
 </body>
 </html>

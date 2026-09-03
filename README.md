@@ -22,7 +22,8 @@ Acesse pelo link: **https://SEU-USUARIO.github.io/canvas-vivo-atdg/**
    - **📋 Canvas Vivo** — visualizar a base de conhecimento por setor
    - **🔍 Buscar** — buscar no Canvas, Acervo ATDG, UNIOESTE e SETI
    - **🗂️ Histórico** — ver todas as entradas registradas
-   - **⚙️ Config** — configurar IA, exportar/importar dados
+   - **🤖 Agentes** — diagnosticar setores, gerar/atualizar POPs (DDD + BPMN), moldar agentes, aprovar lições
+   - **⚙️ Config** — configurar IA e modelo, exportar/importar dados
 
 ## Sincronização entre colegas
 
@@ -43,6 +44,29 @@ Para ativar o processamento automático de entradas:
 
 Sem a chave, o sistema funciona normalmente — entradas são salvas com o texto original.
 
+## 🤖 Agentes, POPs e diretrizes (v5)
+
+O Canvas Vivo passou a contar com um **ecossistema de agentes** que, para cada projeto, ação ou processo do campus:
+
+1. **identifica, diagnostica e qualifica** o processo (rubrica de maturidade, criticidade, frequência, risco e cobertura → prioridade);
+2. **constrói o POP em modo playbook** no formato **DDD híbrido** — *Divisão → Departamento → Descrição* + *Domain-Driven Design* (domínio, contexto delimitado, linguagem ubíqua, eventos, agregados, mapa de contexto) — com **organograma** e **fluxograma BPMN 2.0 padrão Anne Bail**;
+3. **adiciona incrementalmente** cada novo passo, formulário, decisão ou alteração (patch + changelog + versão semântica; nunca reescreve);
+4. **aprende a se moldar** por lições propostas → aprovadas (`diretrizes/07-licoes-aprendidas.md`), que passam a valer nos prompts;
+5. pode ser **instanciado por processo** (`.claude/agents/pop-<codigo>.md`).
+
+| Onde | O quê |
+|---|---|
+| `diretrizes/` | fonte única: formato DDD, template do POP, organograma canônico codificado, regras BPMN/Mermaid, rubrica, versionamento, lições, template de agente, glossário |
+| `pops/<SIGLA>/` | POPs canônicos (`.pop.json`) + renderizações (`.md`, `.bpmn.json` para o Miro) |
+| `diagnosticos/` | diagnóstico por setor (`.json` + `.md`) |
+| `.claude/agents/` · `.claude/skills/` | agentes (`diagnostico-processos`, `construtor-pop`, `curador-diretrizes`, `moldador-agentes`, `pop-*`) e skills `/diagnosticar`, `/gerar-pop`, `/atualizar-pop`, `/moldar-agente`, `/aprender-diretriz`, `/ciclo-pop`, `/sincronizar-canvas` |
+| `scripts/` | `scaffold_pops.py`, `extract_setor.py`, `apply_patch.py`, `render_pop.py`, `render_diag.py`, `bpmn_mermaid.py`, `moldar_agente.py`, `licoes.py`, `sync_data.py`, `validate.py` (Python 3, sem dependências) |
+| Aba **🤖 Agentes** do app | diagnóstico por setor ou em lote, POPs (ver, atualizar, Word, Markdown, JSON, BPMN Miro, moldar agente), agentes por processo, diretrizes e fila de lições — mesmas diretrizes do repositório, via `data.json` |
+
+Fluxo típico no Claude Code: `/diagnosticar ALM` → `/gerar-pop ALM-01` → `/moldar-agente ALM-01` → (nova entrada no Canvas) → `/atualizar-pop ALM-01` → `/aprender-diretriz aprovar L-008` → `/sincronizar-canvas`. Validação: `python3 scripts/validate.py`.
+
+No app, a equipe exporta (⚙️ Config → Exportar JSON) e o JJFS aplica no repositório com `/sincronizar-canvas canvas-vivo-atdg-export-AAAA-MM-DD.json`; o `data.json` publicado é sincronizado automaticamente por todos os navegadores.
+
 ## Setores do Campus Foz do Iguaçu
 
 Organograma completo incluído conforme estrutura oficial:
@@ -58,4 +82,4 @@ Organograma completo incluído conforme estrutura oficial:
 
 **Responsável:** Javan Jessé Ferreira da Silva — Administrador/Assessor ATDG
 
-**Versão:** v4 · Junho 2026
+**Versão:** v5 · Setembro 2026 (agentes, POPs DDD híbrido e diretrizes vivas)

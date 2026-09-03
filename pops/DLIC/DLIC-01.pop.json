@@ -1,0 +1,236 @@
+{
+  "id": "pop-dlic-01",
+  "codigo": "DLIC-01",
+  "titulo": "Fluxo — Contrato de Aquisição (Licitação)",
+  "setor": "Div. de Licitação",
+  "setor_codigo": "S03.06-DLIC",
+  "sigla": "DLIC",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Licitação",
+    "descricao": "Fluxo do contrato de aquisição decorrente de licitação. A CPL/Licitação gera o contrato, verifica regularidade fiscal, lança no GMS e, após assinado, publica no DIOE, encaminhando à Direção Geral. Esta emite e publica as portarias de Gestor e Fiscal; o Planejamento registra o contrato e inclui portarias no GMS; o Gestor solicita o empenho ao Financeiro e a aquisição dos itens, e o Fiscal acompanha a entrega e as notas fiscais.",
+    "dominio": "Contratações Públicas",
+    "subdominio": "Fluxo — Contrato de Aquisição (Licitação)",
+    "tipo_subdominio": "core",
+    "contexto": "S03.06-DLIC",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Lei nº 14.133/2021",
+      "normas internas Unioeste"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-01<br/>Fluxo — Contrato de Aquisição (Licitação)\"]\n  S03_06_DLIC --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Licitação gera contrato, verifica regularidade fiscal e lança no GMS",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200054"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Publicar contrato assinado no DIOE",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200054"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Direção Geral emite portarias de Gestor e Fiscal",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200054"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Planejamento registra contrato e inclui portarias no GMS",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200054"
+        ]
+      },
+      {
+        "n": 5,
+        "acao": "Gestor solicita empenho e aquisição; Fiscal acompanha entrega/NF",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200054"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Portarias de Gestor e Fiscal são obrigatórias",
+    "Verificar regularidade fiscal em cada etapa de pagamento",
+    "Registro no GMS e publicação no DIOE"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Licitação gera contrato, verifica regularidade fiscal e lança no GMS\"]\n    e3[\"Publicar contrato assinado no DIOE\"]\n    e4[\"Direção Geral emite portarias de Gestor e Fiscal\"]\n    e5[\"Planejamento registra contrato e inclui portarias no GMS\"]\n    e6[\"Gestor solicita empenho e aquisição; Fiscal acompanha entrega/NF\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Licitação"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Licitação gera contrato, verifica regularidade fiscal e lança no GMS",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Publicar contrato assinado no DIOE",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Direção Geral emite portarias de Gestor e Fiscal",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Planejamento registra contrato e inclui portarias no GMS",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Gestor solicita empenho e aquisição; Fiscal acompanha entrega/NF",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e7",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Div. de Licitação"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200054"
+      ],
+      "fontes": [
+        "1780963200054"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "1780963200054"
+  ],
+  "hash_fontes": "30aec0c10ac7d4e6c1c298f27980be0fad62904e2d8bebaa757c1a7c10f07fb4",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-02T17:55:54Z"
+}

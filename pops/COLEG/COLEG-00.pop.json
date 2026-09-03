@@ -1,0 +1,237 @@
+{
+  "id": "pop-coleg-00",
+  "codigo": "COLEG-00",
+  "titulo": "Visão geral — Colegiado de Curso (transversal)",
+  "setor": "Colegiado de Curso",
+  "setor_codigo": "S12-COLEG",
+  "sigla": "COLEG",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Colegiado de Curso (transversal)",
+    "departamento": "Colegiado de Curso (transversal)",
+    "descricao": "Guia das rotinas dos colegiados e coordenações de curso, estágio e TCC, e do agente universitário: comunicação, protocolo, gestão acadêmica e órgãos colegiados.",
+    "dominio": "Colegiados e Cursos",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "core",
+    "contexto": "S12-COLEG",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Estatuto (Res. 017/99-COU) art. 41",
+      "Lei nº 11.788/2008",
+      "Regulamentos de Estágio e TCC dos cursos"
+    ],
+    "subordinacao": "Direção Geral de Campus",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S12_COLEG[\"S12-COLEG<br/>Colegiado de Curso (transversal)\"]\n  S01_DG --> S12_COLEG\n  P[\"COLEG-00<br/>Visão geral — Colegiado de Curso (transversal)\"]\n  S12_COLEG --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S12_COLEG setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Comunicação, atendimento e gestão de documentos/e-Protocolo",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Condução de Colegiado e NDE, com atas e pautas",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Gestão acadêmica no Academus (planos, matrícula, notas, horários)",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Estágio: termos, bancas e articulação com concedentes",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "n": 5,
+        "acao": "TCC: orientadores, bancas, defesas e envio à biblioteca",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Forte vínculo com prazos do calendário acadêmico",
+    "Observar a Lei de Estágio (11.788/2008) e os regulamentos dos cursos",
+    "Manter vínculos corretos no Academus; LGPD"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Comunicação, atendimento e gestão de documentos/e-Protocolo\"]\n    e3[\"Condução de Colegiado e NDE, com atas e pautas\"]\n    e4[\"Gestão acadêmica no Academus (planos, matrícula, notas, horários)\"]\n    e5[\"Estágio: termos, bancas e articulação com concedentes\"]\n    e6[\"TCC: orientadores, bancas, defesas e envio à biblioteca\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Colegiado de Curso"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Comunicação, atendimento e gestão de documentos/e-Protocolo",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Condução de Colegiado e NDE, com atas e pautas",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Gestão acadêmica no Academus (planos, matrícula, notas, horários)",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Estágio: termos, bancas e articulação com concedentes",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "TCC: orientadores, bancas, defesas e envio à biblioteca",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e7",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Colegiado de Curso"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-colegiado"
+      ],
+      "fontes": [
+        "pb-colegiado"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-colegiado"
+  ],
+  "hash_fontes": "cba5c43d8f1dc65646da4e6c8f3c230f2954047fea1b75ee533aee733c21089f",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-02T17:55:55Z"
+}

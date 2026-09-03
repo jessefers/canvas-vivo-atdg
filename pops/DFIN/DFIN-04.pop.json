@@ -1,0 +1,235 @@
+{
+  "id": "pop-dfin-04",
+  "codigo": "DFIN-04",
+  "titulo": "Procedimento — Diárias Nacionais",
+  "setor": "Div. de Finanças",
+  "setor_codigo": "S04.01-DFIN",
+  "sigla": "DFIN",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Secretaria Financeira",
+    "departamento": "Div. de Finanças",
+    "descricao": "Procedimento textual para solicitação de diárias nacionais. O interessado preenche o formulário (link PRAF), coleta assinaturas via e-Protocolo, anexa folder/justificativa da viagem e consulta ao Cadin, e encaminha à Secretaria Financeira. Esta verifica o preenchimento e a disponibilidade orçamentária/financeira, indica fonte e conta, e encaminha à Contabilidade para empenho.",
+    "dominio": "Finanças e Orçamento",
+    "subdominio": "Procedimento — Diárias Nacionais",
+    "tipo_subdominio": "core",
+    "contexto": "S04.01-DFIN",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Procedimentos de diárias — PRAF/Unioeste"
+    ],
+    "subordinacao": "Secretaria Financeira",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S04_SFIN[\"S04-SFIN<br/>Secretaria Financeira\"]\n  S01_DG --> S04_SFIN\n  S04_01_DFIN[\"S04.01-DFIN<br/>Div. de Finanças\"]\n  S04_SFIN --> S04_01_DFIN\n  P[\"DFIN-04<br/>Procedimento — Diárias Nacionais\"]\n  S04_01_DFIN --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S04_SFIN,S04_01_DFIN setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Preencher formulário de diárias nacionais (link PRAF)",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200049"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Assinar e solicitar assinaturas via e-Protocolo",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200049"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Anexar folder/justificativa e consulta ao Cadin do interessado",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200049"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Encaminhar (C27) à Secretária Financeira para conferência e fonte",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200049"
+        ]
+      },
+      {
+        "n": 5,
+        "acao": "Encaminhar à Contabilidade para empenho",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "1780963200049"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Consulta ao Cadin é obrigatória (interessado e conferência)",
+    "Verificar disponibilidade orçamentária antes do encaminhamento",
+    "Usar os links oficiais de formulário e instrução de assinatura"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Finanças\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Preencher formulário de diárias nacionais (link PRAF)\"]\n    e3[\"Assinar e solicitar assinaturas via e-Protocolo\"]\n    e4[\"Anexar folder/justificativa e consulta ao Cadin do interessado\"]\n    e5[\"Encaminhar (C27) à Secretária Financeira para conferência e fonte\"]\n    e6[\"Encaminhar à Contabilidade para empenho\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Finanças"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Div. de Finanças"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Preencher formulário de diárias nacionais (link PRAF)",
+        "raia": "Div. de Finanças"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Assinar e solicitar assinaturas via e-Protocolo",
+        "raia": "Div. de Finanças"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Anexar folder/justificativa e consulta ao Cadin do interessado",
+        "raia": "Div. de Finanças"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Encaminhar (C27) à Secretária Financeira para conferência e fonte",
+        "raia": "Div. de Finanças"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Encaminhar à Contabilidade para empenho",
+        "raia": "Div. de Finanças"
+      },
+      {
+        "id": "e7",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Div. de Finanças"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200049"
+      ],
+      "fontes": [
+        "1780963200049"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "1780963200049"
+  ],
+  "hash_fontes": "f45c1544efde07ad6995116620f05f10b1a5321a543805c61f78e5a4fbd83b96",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-02T17:55:54Z"
+}

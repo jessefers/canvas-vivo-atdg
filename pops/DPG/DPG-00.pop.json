@@ -1,0 +1,214 @@
+{
+  "id": "pop-dpg-00",
+  "codigo": "DPG-00",
+  "titulo": "Visão geral — Div. de Pós-Graduação",
+  "setor": "Div. de Pós-Graduação",
+  "setor_codigo": "S05.01-DPG",
+  "sigla": "DPG",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Coordenação Acadêmica",
+    "departamento": "Div. de Pós-Graduação",
+    "descricao": "Guia dos fluxos de pós-graduação e pesquisa no e-Protocolo (PRPPG): capacitação/afastamento docente, ética no uso de animais (CEUA/CEUAP) e cursos lato e stricto sensu.",
+    "dominio": "Gestão Acadêmica",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "core",
+    "contexto": "S05.01-DPG",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Resoluções CEPE 029/2013, 071/2021 e 078/2016",
+      "Manuais de Fluxos e-Protocolo PRPPG"
+    ],
+    "subordinacao": "Coordenação Acadêmica",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  S05_01_DPG[\"S05.01-DPG<br/>Div. de Pós-Graduação\"]\n  S05_CACAD --> S05_01_DPG\n  P[\"DPG-00<br/>Visão geral — Div. de Pós-Graduação\"]\n  S05_01_DPG --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD,S05_01_DPG setor\n  class P destaque",
+  "playbook": {
+    "gatilho": {
+      "evento": "A definir",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Identificar o ato (afastamento, proposta/alteração de curso, projeto de ética)",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-pos-graduacao"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Instruir o e-Protocolo conforme o fluxo aplicável",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-pos-graduacao"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Anexar a documentação exigida",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-pos-graduacao"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Encaminhar à PRPPG para deliberação",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "",
+        "fontes": [
+          "pb-pos-graduacao"
+        ]
+      }
+    ],
+    "saida": []
+  },
+  "artefatos": [],
+  "decisoes": [],
+  "pontos_atencao": [
+    "Observar as Resoluções CEPE aplicáveis (029/2013, 071/2021, 078/2016)",
+    "Projetos com propriedade intelectual tramitam como sigilosos",
+    "Afastamento para o exterior tem requisitos adicionais"
+  ],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Pós-Graduação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Identificar o ato (afastamento, proposta/alteração de curso, projeto…\"]\n    e3[\"Instruir o e-Protocolo conforme o fluxo aplicável\"]\n    e4[\"Anexar a documentação exigida\"]\n    e5[\"Encaminhar à PRPPG para deliberação\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Pós-Graduação"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "A definir",
+        "raia": "Div. de Pós-Graduação"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Identificar o ato (afastamento, proposta/alteração de curso, projeto de ética)",
+        "raia": "Div. de Pós-Graduação"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Instruir o e-Protocolo conforme o fluxo aplicável",
+        "raia": "Div. de Pós-Graduação"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Anexar a documentação exigida",
+        "raia": "Div. de Pós-Graduação"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Encaminhar à PRPPG para deliberação",
+        "raia": "Div. de Pós-Graduação"
+      },
+      {
+        "id": "e6",
+        "tipo": "fim",
+        "label": "Concluído",
+        "raia": "Div. de Pós-Graduação"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-pos-graduacao"
+      ],
+      "fontes": [
+        "pb-pos-graduacao"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "responsavel",
+    "gatilho",
+    "entrada",
+    "saida",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-pos-graduacao"
+  ],
+  "hash_fontes": "6444c5999c31a12d4da808aba8f63eece89553eaa617e1883ca79e510937c236",
+  "agente": "",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-02T17:55:55Z"
+}
