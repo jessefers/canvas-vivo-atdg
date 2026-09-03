@@ -1,8 +1,8 @@
 ---
 id: diretriz-06
 titulo: Codificação, arquivos, status e versionamento
-versao: "1.0"
-atualizado_em: "2026-09-02"
+versao: "1.1"
+atualizado_em: "2026-09-03"
 ---
 
 # 06 — Codificação, arquivos, status e versionamento
@@ -61,3 +61,8 @@ Scaffold nasce em `0.1.0`; primeiro POP completo = `1.0.0`. A regra é aplicada 
 ## Nome dos commits
 
 `POP <SIGLA> vX.Y — <resumo>` · `DIAG <SIGLA> — <data>` · `DIRETRIZES vX.Y — <resumo>` · `AGENTE pop-<codigo>`.
+
+## Regras incorporadas na v1.1 (lições aprovadas em 2026-09-03)
+
+- **POP inferido permanece rascunho (L-019).** Em setores sem entradas no Canvas, preencher o responsável por função em cada passo (para modelar as raias), mas manter `identificacao.responsavel = "A definir"` até validação formal do setor; isso preserva a distinção entre POP evidenciado (`major` → `em_validacao`) e inferido (`minor` → `rascunho`).
+- **Raias novas são mudança maior (L-018).** `bpmn_delta.raias_add` escala o tipo para `major`; em POPs inferidos, usar `regenerar_de_passos`.

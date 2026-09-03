@@ -15,8 +15,11 @@ from render_pop import cell, tabela, lista  # noqa: E402
 
 
 def prioridade(p):
-    return round(0.30 * float(p.get('criticidade', 0)) + 0.25 * float(p.get('frequencia', 0)) + 0.20 * float(p.get('risco_conformidade', 0))
-                 + 0.15 * (5 - int(p.get('maturidade', 0))) / 5.0 + 0.10 * float(p.get('cobertura', 0)), 2)
+    pr = round(0.30 * float(p.get('criticidade', 0)) + 0.25 * float(p.get('frequencia', 0)) + 0.20 * float(p.get('risco_conformidade', 0))
+               + 0.15 * (5 - int(p.get('maturidade', 0))) / 5.0 + 0.10 * float(p.get('cobertura', 0)), 2)
+    if p.get('auditoria_externa') and float(p.get('risco_conformidade', 0)) >= 0.9:
+        pr = max(pr, 0.70)  # lição L-009: piso de prioridade para processos auditados de alto risco
+    return pr
 
 
 def recalcular(diag):

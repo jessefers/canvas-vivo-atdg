@@ -1,8 +1,8 @@
 ---
 id: diretriz-00
 titulo: Índice das diretrizes
-versao: "1.0"
-atualizado_em: "2026-09-02"
+versao: "1.1"
+atualizado_em: "2026-09-03"
 ---
 
 # Diretrizes do ecossistema Canvas Vivo ATDG — índice

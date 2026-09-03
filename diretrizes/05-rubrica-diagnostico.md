@@ -1,8 +1,8 @@
 ---
 id: diretriz-05
 titulo: Rubrica de identificação, diagnóstico e qualificação
-versao: "1.0"
-atualizado_em: "2026-09-02"
+versao: "1.1"
+atualizado_em: "2026-09-03"
 ---
 
 # 05 — Rubrica de diagnóstico e qualificação de processos
@@ -53,3 +53,10 @@ Para cada setor diagnosticado: `dominio` (do organograma canônico), `subdominio
 ## 6. Saída do diagnóstico
 
 Objeto único conforme `schemas/diagnostico.schema.json`, com `processos[]` ordenados por `prioridade` decrescente, `codigo_sugerido` respeitando `06-codificacao-versionamento.md` (reutilizar códigos de `processos_conhecidos` quando o processo coincidir), `evidencias[]` (ids das entradas), `lacunas[]` e `licoes_propostas[]`.
+
+## Regras incorporadas na v1.1 (lições aprovadas em 2026-09-03)
+
+- **Piso de prioridade por risco de conformidade (L-009).** Processo com `risco_conformidade ≥ 0,90` e evidência de auditoria externa (TCE-PR, PRAF, fiscalização) recebe `auditoria_externa: true` e piso de prioridade **0,70** (`gerar_pop`), mesmo com frequência baixa (ex.: inventário geral anual).
+- **Fluxogramas em imagem (L-013).** Documento cujo fluxo existe só como imagem (sem texto extraível) gera a lacuna `passos` e exige revisão visual manual antes de elevar a maturidade do processo.
+- **Referências de outras instituições (L-014).** Documentos de outras instituições entram apenas em `ecossistema.benchmarks`; nunca como evidência de processo próprio nem como normativa.
+- **Setor sem evidência operacional (L-017).** Setor cujas fontes se resumem a um único registro genérico de playbook recebe POP-roteiro de coleta (status `rascunho`), nunca POP operacional completo.

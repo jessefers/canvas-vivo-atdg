@@ -1,8 +1,8 @@
 ---
 id: diretriz-02
 titulo: Template do POP em modo playbook
-versao: "1.0"
-atualizado_em: "2026-09-02"
+versao: "1.1"
+atualizado_em: "2026-09-03"
 ---
 
 # 02 — Estrutura obrigatória do POP (modo playbook)
@@ -69,3 +69,8 @@ codigo: ALM-01 · versao: 1.0 · status: em_validacao · setor: S03.04-ALM · at
 ### 3.1 Gatilho · 3.2 Entrada · 3.3 Passo a passo (tabela) · 3.4 Saída
 ## 4. Formulários e artefatos … ## 14. Lições incorporadas
 ```
+
+## Regras incorporadas na v1.1 (lições aprovadas em 2026-09-03)
+
+11. **Planilhas de controle são artefatos (L-016).** Planilhas já em uso no setor (ex.: controle de tempos de limpeza) entram em `artefatos[]` como `tipo: documento`, com `campos_chave` e responsável pelo preenchimento, mesmo sem sistema informatizado.
+12. **Herança do manual-fonte (L-008).** POPs de processos conhecidos (códigos do manual institucional) devem herdar, no primeiro patch, gatilho e saída provisórios do manual-fonte quando existir, marcando-os como inferência a validar; o esqueleto nunca fica sem gatilho quando o manual o descreve.

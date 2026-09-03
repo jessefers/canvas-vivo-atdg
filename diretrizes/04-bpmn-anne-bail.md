@@ -1,8 +1,8 @@
 ---
 id: diretriz-04
 titulo: Fluxograma BPMN 2.0 — padrão Anne Bail e mapeamento Mermaid/Miro
-versao: "1.0"
-atualizado_em: "2026-09-02"
+versao: "1.1"
+atualizado_em: "2026-09-03"
 ---
 
 # 04 — Fluxograma BPMN 2.0 (padrão Anne Bail, UNIOESTE Foz)
@@ -89,3 +89,9 @@ Regras do gerador: um `subgraph` por raia na ordem de primeira aparição; rótu
 ## Organograma (seção 2)
 
 `graph TD` com o caminho completo Direção Geral → setor nível 1 → setor nível 2 → **processo** (nó destacado com `classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px`), incluindo os setores-irmãos do nível 2 apenas quando houver interface no mapa de contexto.
+
+## Regras incorporadas na v1.1 (lições aprovadas em 2026-09-03)
+
+- **Pausa dedicada (L-011).** Todo prazo de espera explícito ("aguardar N dias", "aguardar retorno") gera um elemento `pausa` próprio e, quando houver condição de prosseguimento, uma `decisao` com conexões "Sim"/"Não"; nunca fundir a espera com a atividade seguinte.
+- **Fluxo inferido × evidenciado (L-018).** Em POPs sem evidência (rascunho), reconstruir o fluxograma com `bpmn_delta.regenerar_de_passos` (raias derivadas do responsável de cada passo; `captura` a partir do mapa de contexto). A reconstrução manual (`elementos_rm` + `raias_add` + `elementos_add`) fica reservada a POPs evidenciados, pois `raias_add` implica mudança `major`.
+- **Ordem das raias.** Para reordenar raias pela ordem de entrada no fluxo, usar `bpmn_delta.raias_ordem`.

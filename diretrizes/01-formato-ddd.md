@@ -1,8 +1,8 @@
 ---
 id: diretriz-01
 titulo: Formato DDD híbrido do POP
-versao: "1.0"
-atualizado_em: "2026-09-02"
+versao: "1.1"
+atualizado_em: "2026-09-03"
 ---
 
 # 01 — Formato DDD híbrido
@@ -51,3 +51,9 @@ atualizado_em: "2026-09-02"
 | Domínio | Subdomínio | Tipo | Contexto delimitado |
 |---|---|---|---|
 | Suprimentos e Materiais | Recebimento e conferência de materiais | core | S03.04-ALM (Div. de Almoxarifado) |
+
+## Regras incorporadas na v1.1 (lições aprovadas em 2026-09-03)
+
+11. **Um responsável por passo (L-010).** Passo cujo texto envolva mais de um responsável (ex.: "Jurídico emite parecer; Financeiro empenha") é desdobrado em passos distintos — alterar o existente e adicionar os demais com `apos_n`; nunca manter responsável ambíguo.
+12. **Siglas sem expansão (L-012).** Quando a fonte usar sigla não expandida (ex.: DDF), o glossário registra a função observada e marca a expansão como "pendente de confirmação"; nunca presumir o significado.
+13. **Arquivo-fonte duplicado (L-015).** Ao identificar o mesmo arquivo em duas pastas/versões do Canvas, citar apenas o arquivo mestre em `fontes_entradas` e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado.

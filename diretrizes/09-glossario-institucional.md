@@ -1,8 +1,8 @@
 ---
 id: diretriz-09
 titulo: Glossário institucional (linguagem ubíqua de base)
-versao: "1.0"
-atualizado_em: "2026-09-02"
+versao: "1.1"
+atualizado_em: "2026-09-03"
 ---
 
 # 09 — Glossário institucional (linguagem ubíqua de base)
@@ -46,3 +46,7 @@ Termos herdados por todo POP (`ddd.glossario` acrescenta os termos locais). Defi
 | LGPD | Lei Geral de Proteção de Dados (Lei nº 13.709/2018) | Federal |
 | Cadin | Cadastro Informativo de créditos não quitados — consulta obrigatória antes de despesas | Estado do Paraná |
 | KPI | indicador-chave de desempenho do processo (fórmula, meta, fonte) | Diretriz 02 |
+
+## Regra incorporada na v1.1 (lição L-012, aprovada em 2026-09-03)
+
+Sigla encontrada nas fontes sem expansão é registrada no glossário do POP com a função observada e a marca "expansão pendente de confirmação". Exemplo: DDF — usada nos fluxos de despesa como documento que indica disponibilidade financeira antes do empenho; expansão confirmada em 2026-09-03 como Declaração de Disponibilidade Financeira.
