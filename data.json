@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:56:22Z",
+  "sincronizado_em": "2026-09-03T01:57:27Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -29186,7 +29186,7 @@
       "setor": "Div. de Segurança e Transportes",
       "setor_codigo": "S03.02-DST",
       "sigla": "DST",
-      "versao": "0.1.0",
+      "versao": "0.2.0",
       "status": "rascunho",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -29216,10 +29216,10 @@
         "passos": [
           {
             "n": 1,
-            "acao": "A documentar: levantar atividades e rotinas da área",
+            "acao": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Roteiro de levantamento de atividades",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -29228,10 +29228,10 @@
           },
           {
             "n": 2,
-            "acao": "Mapear fluxos e responsáveis por etapa",
+            "acao": "Mapear os fluxos e os responsáveis por etapa",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "planilha",
+            "artefato": "Mapa de fluxos e responsáveis",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -29240,10 +29240,10 @@
           },
           {
             "n": 3,
-            "acao": "Identificar normas aplicáveis e pontos de atenção",
+            "acao": "Identificar as normas aplicáveis e os pontos de atenção",
             "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "sistema": "e-Protocolo",
+            "artefato": "Lista de normas e pontos de atenção",
             "prazo": "A definir",
             "evento": "",
             "fontes": [
@@ -29258,8 +29258,19 @@
       "pontos_atencao": [
         "Área ainda não mapeada — playbook em construção"
       ],
-      "contingencia": [],
-      "checklist": [],
+      "contingencia": [
+        "Se a chefia do setor não estiver disponível para o levantamento, agendar nova data e registrar o adiamento",
+        "Se não houver documentação prévia da área, iniciar o levantamento por entrevista direta com os servidores",
+        "Se forem identificadas normas não catalogadas no Canvas, registrá-las como lacuna para validação posterior",
+        "Se o setor não tiver processos definidos, priorizar o mapeamento das atividades de maior volume ou risco (segurança patrimonial e transporte de servidores)"
+      ],
+      "checklist": [
+        "Chefia e servidores do setor entrevistados",
+        "Atividades e rotinas da área levantadas",
+        "Fluxos e responsáveis por etapa mapeados",
+        "Normas aplicáveis identificadas",
+        "Pontos de atenção registrados para o próximo ciclo de diagnóstico"
+      ],
       "kpis": [],
       "mapa_contexto": [],
       "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Segurança e Transportes\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
@@ -29332,6 +29343,24 @@
             "pb-seguranca-transportes"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "0.2.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "minor",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "contingencia_nova: +4",
+            "checklist_novo: +5",
+            "Campo observacoes atualizado"
+          ],
+          "fontes": [
+            "pb-seguranca-transportes"
+          ],
+          "motivo": "Estruturação do roteiro de coleta para a Div. de Segurança e Transportes: setor ainda sem entradas específicas no Canvas além do playbook-esqueleto genérico; os 3 passos existentes recebem sistema/artefato e o POP passa a orientar a coleta de evidências, sem promover o status."
         }
       ],
       "validacao": {
@@ -29344,7 +29373,10 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
         "responsavel",
@@ -29357,15 +29389,15 @@
         "prazo",
         "normativa"
       ],
-      "observacoes": "",
+      "observacoes": "Setor ainda não mapeado — roteiro de coleta",
       "fontes_entradas": [
         "pb-seguranca-transportes"
       ],
       "hash_fontes": "dc6392f2f1f05961954427e41f8527f1b3caaa8f1561d82bddd7fd818c4954ac",
       "agente": "",
-      "versao_diretrizes": "1.0",
+      "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:57:18Z"
     },
     {
       "id": "pop-map-00",
@@ -30053,21 +30085,27 @@
       "setor": "Sec. Administrativa — Geral",
       "setor_codigo": "S03-SADM",
       "sigla": "SADM",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Secretaria Administrativa",
-        "descricao": "Visão geral da Secretaria Administrativa do Campus, que reúne as divisões de apoio à gestão. Divisões com playbook próprio: Almoxarifado, Compras, Licitação, Recursos Humanos e Manutenção e Conservação; demais em construção.",
+        "descricao": "Coordena as divisões administrativas do Campus, recebendo, triando e encaminhando demandas administrativas via e-Protocolo à divisão responsável (Almoxarifado, Compras, Licitação, Recursos Humanos, Manutenção e Conservação e demais em construção), acompanhando o atendimento até a conclusão e escalando à Direção Geral quando necessário.",
         "dominio": "Administração e Suprimentos",
-        "subdominio": "Visão geral do setor (playbook)",
+        "subdominio": "Coordenação e triagem de demandas administrativas via e-Protocolo",
         "tipo_subdominio": "suporte",
         "contexto": "S03-SADM",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Coordenação Administrativa",
+            "definicao": "Estrutura da Secretaria Administrativa responsável por coordenar as divisões administrativas do Campus, conforme o organograma do Campus Foz.",
+            "sistema": ""
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
+        "responsavel": "Coordenador(a) Administrativo(a)",
+        "periodicidade": "Contínua, por demanda",
         "normativa": [
           "Estrutura conforme organograma do Campus Foz (Coordenação Administrativa)"
         ],
@@ -30075,97 +30113,303 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  P[\"SADM-00<br/>Visão geral — Secretaria Administrativa\"]\n  S03_SADM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  P[\"SADM-00<br/>Visão geral — Secretaria Administrativa\"]\n  S03_SADM --> P\n  V1[\"Div. de Licitação\"]\n  P -. interface .-> V1\n  V2[\"Div. de Recursos Humanos\"]\n  P -. interface .-> V2\n  V3[\"Div. de Manutenção e Conservação\"]\n  P -. interface .-> V3\n  V4[\"Direção Geral\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Recebimento de demanda administrativa própria ou de outro setor do campus",
+          "origem": "Servidor / Setor solicitante"
         },
-        "entrada": [],
+        "entrada": [
+          "Demanda administrativa registrada no e-Protocolo"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "Coordenar as divisões administrativas do campus",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Receber a demanda administrativa (própria ou de outro setor) via e-Protocolo",
+            "responsavel": "Coordenador(a) Administrativo(a)",
+            "sistema": "e-Protocolo",
+            "artefato": "Demanda administrativa (e-Protocolo)",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Demanda recebida",
             "fontes": [
               "pb-sec-administrativa"
             ]
           },
           {
             "n": 2,
-            "acao": "Consultar o playbook específico de cada divisão",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Identificar a divisão responsável pelo atendimento da demanda",
+            "responsavel": "Coordenador(a) Administrativo(a)",
+            "sistema": "e-Protocolo",
+            "artefato": "Demanda administrativa (e-Protocolo)",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Divisão responsável identificada",
             "fontes": [
               "pb-sec-administrativa"
             ]
           },
           {
-            "n": 3,
-            "acao": "Encaminhar demandas administrativas via e-Protocolo",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Consultar o playbook ou POP específico da divisão responsável",
+            "responsavel": "Coordenador(a) Administrativo(a)",
+            "sistema": "e-Protocolo",
+            "artefato": "Demanda administrativa (e-Protocolo)",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Playbook/POP consultado",
+            "fontes": [
+              "pb-sec-administrativa"
+            ],
+            "n": 3
+          },
+          {
+            "n": 4,
+            "acao": "Encaminhar a demanda à divisão responsável via e-Protocolo",
+            "responsavel": "Coordenador(a) Administrativo(a)",
+            "sistema": "e-Protocolo",
+            "artefato": "Demanda administrativa (e-Protocolo)",
+            "prazo": "A definir",
+            "evento": "Demanda encaminhada",
             "fontes": [
               "pb-sec-administrativa"
             ]
+          },
+          {
+            "acao": "Acompanhar o andamento da demanda até a conclusão",
+            "responsavel": "Coordenador(a) Administrativo(a)",
+            "sistema": "e-Protocolo",
+            "artefato": "Demanda administrativa (e-Protocolo)",
+            "prazo": "A definir",
+            "evento": "Andamento acompanhado",
+            "fontes": [
+              "pb-sec-administrativa"
+            ],
+            "n": 5
+          },
+          {
+            "acao": "Escalar à Direção Geral as demandas não resolvidas no prazo ou que exijam decisão superior",
+            "responsavel": "Coordenador(a) Administrativo(a)",
+            "sistema": "e-Protocolo",
+            "artefato": "Demanda administrativa (e-Protocolo)",
+            "prazo": "A definir",
+            "evento": "Demanda escalada",
+            "fontes": [
+              "pb-sec-administrativa"
+            ],
+            "n": 6
+          },
+          {
+            "acao": "Consolidar o status das demandas das divisões administrativas",
+            "responsavel": "Coordenador(a) Administrativo(a)",
+            "sistema": "e-Protocolo",
+            "artefato": "Consolidado de status das demandas",
+            "prazo": "A definir",
+            "evento": "Status consolidado",
+            "fontes": [
+              "pb-sec-administrativa"
+            ],
+            "n": 7
+          },
+          {
+            "acao": "Informar o resultado ao setor ou servidor solicitante",
+            "responsavel": "Coordenador(a) Administrativo(a)",
+            "sistema": "e-Protocolo",
+            "artefato": "Demanda administrativa (e-Protocolo)",
+            "prazo": "A definir",
+            "evento": "Solicitante informado",
+            "fontes": [
+              "pb-sec-administrativa"
+            ],
+            "n": 8
           }
         ],
-        "saida": []
+        "saida": [
+          "Demanda atendida pela divisão responsável e resultado informado ao solicitante"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
-      "pontos_atencao": [
-        "Divisões de Segurança e Transportes, Informática, Patrimônio, Apoio Técnico aos Laboratórios e Serviços de Apoio ainda em construção"
+      "artefatos": [
+        {
+          "nome": "Demanda administrativa (e-Protocolo)",
+          "tipo": "registro",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "setor solicitante",
+            "divisão responsável",
+            "status"
+          ],
+          "responsavel_preenchimento": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "nome": "Consolidado de status das demandas",
+          "tipo": "registro",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "período",
+            "divisão",
+            "quantidade de demandas",
+            "status"
+          ],
+          "responsavel_preenchimento": "Coordenador(a) Administrativo(a)"
+        }
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Sec. Administrativa — Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Coordenar as divisões administrativas do campus\"]\n    e3[\"Consultar o playbook específico de cada divisão\"]\n    e4[\"Encaminhar demandas administrativas via e-Protocolo\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+      "decisoes": [
+        {
+          "decisao": "A demanda foi resolvida pela divisão responsável dentro do prazo?",
+          "condicao": "Acompanhamento do andamento da demanda encaminhada",
+          "sim": "Informar o resultado ao solicitante",
+          "nao": "Escalar a demanda à Direção Geral"
+        }
+      ],
+      "pontos_atencao": [
+        "Divisões de Segurança e Transportes, Informática, Patrimônio, Apoio Técnico aos Laboratórios e Serviços de Apoio ainda em construção",
+        "A triagem correta da divisão responsável evita retrabalho e atraso no atendimento da demanda"
+      ],
+      "contingencia": [
+        "Se a divisão responsável não for identificada com clareza, consultar o organograma canônico ou a Direção Geral antes de encaminhar",
+        "Se a demanda não for resolvida no prazo esperado, escalar à Direção Geral com o histórico do andamento",
+        "Se a demanda envolver mais de uma divisão, coordenar o atendimento conjunto e designar um responsável principal"
+      ],
+      "checklist": [
+        "Demanda registrada no e-Protocolo",
+        "Divisão responsável identificada corretamente",
+        "Playbook/POP da divisão consultado antes do encaminhamento",
+        "Andamento da demanda acompanhado até a conclusão",
+        "Resultado informado ao solicitante"
+      ],
+      "kpis": [
+        {
+          "indicador": "Prazo médio de encaminhamento da demanda à divisão responsável",
+          "formula": "Data de encaminhamento − Data de recebimento",
+          "meta": "A definir",
+          "fonte": "e-Protocolo"
+        },
+        {
+          "indicador": "Percentual de demandas concluídas sem necessidade de escalonamento à Direção Geral",
+          "formula": "(Demandas concluídas sem escalonamento ÷ total de demandas) × 100",
+          "meta": "A definir",
+          "fonte": "e-Protocolo"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Sec. Administrativa — Geral",
+          "destino": "Div. de Licitação",
+          "relacao": "fornece",
+          "artefato": "Demanda administrativa encaminhada",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Sec. Administrativa — Geral",
+          "destino": "Div. de Recursos Humanos",
+          "relacao": "fornece",
+          "artefato": "Demanda administrativa encaminhada",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Sec. Administrativa — Geral",
+          "destino": "Div. de Manutenção e Conservação",
+          "relacao": "fornece",
+          "artefato": "Demanda administrativa encaminhada",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Sec. Administrativa — Geral",
+          "destino": "Direção Geral",
+          "relacao": "informa",
+          "artefato": "Demandas escaladas e status consolidado",
+          "canal": "e-Protocolo"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Coordenador(a) Administrativo(a)\"]\n    direction LR\n    e1((\"Recebimento de demanda administrativa própria ou de outro setor do ca…\"))\n    e2[\"Receber a demanda administrativa (própria ou de outro setor) via e-Pr…\"]\n    e3[\"Identificar a divisão responsável pelo atendimento da demanda\"]\n    e4[\"Consultar o playbook ou POP específico da divisão responsável\"]\n    e5[\"Encaminhar a demanda à divisão responsável via e-Protocolo\"]\n    e6[\"Acompanhar o andamento da demanda até a conclusão\"]\n    e7[\"Escalar à Direção Geral as demandas não resolvidas no prazo ou que ex…\"]\n    e8[\"Consolidar o status das demandas das divisões administrativas\"]\n    e9[\"Informar o resultado ao setor ou servidor solicitante\"]\n    e14(((\"Demanda atendida pela divisão responsável e resultado informado ao so…\")))\n  end\n  subgraph R2[\"Div. de Licitação\"]\n    direction LR\n    e10[[\"✉ Encaminhar a Div. de Licitação\"]]\n  end\n  subgraph R3[\"Div. de Recursos Humanos\"]\n    direction LR\n    e11[[\"✉ Encaminhar a Div. de Recursos Humanos\"]]\n  end\n  subgraph R4[\"Div. de Manutenção e Conservação\"]\n    direction LR\n    e12[[\"✉ Encaminhar a Div. de Manutenção e Conservação\"]]\n  end\n  subgraph R5[\"Direção Geral\"]\n    direction LR\n    e13[[\"✉ Informar Direção Geral\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e10,e11,e12,e13 captura\n  class e14 fim",
       "bpmn_spec": {
         "raias": [
-          "Sec. Administrativa — Geral"
+          "Coordenador(a) Administrativo(a)",
+          "Div. de Licitação",
+          "Div. de Recursos Humanos",
+          "Div. de Manutenção e Conservação",
+          "Direção Geral"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "Sec. Administrativa — Geral"
+            "label": "Recebimento de demanda administrativa própria ou de outro setor do campus",
+            "raia": "Coordenador(a) Administrativo(a)"
           },
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "Coordenar as divisões administrativas do campus",
-            "raia": "Sec. Administrativa — Geral"
+            "label": "Receber a demanda administrativa (própria ou de outro setor) via e-Protocolo",
+            "raia": "Coordenador(a) Administrativo(a)"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Consultar o playbook específico de cada divisão",
-            "raia": "Sec. Administrativa — Geral"
+            "label": "Identificar a divisão responsável pelo atendimento da demanda",
+            "raia": "Coordenador(a) Administrativo(a)"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Encaminhar demandas administrativas via e-Protocolo",
-            "raia": "Sec. Administrativa — Geral"
+            "label": "Consultar o playbook ou POP específico da divisão responsável",
+            "raia": "Coordenador(a) Administrativo(a)"
           },
           {
             "id": "e5",
+            "tipo": "atividade",
+            "label": "Encaminhar a demanda à divisão responsável via e-Protocolo",
+            "raia": "Coordenador(a) Administrativo(a)"
+          },
+          {
+            "id": "e6",
+            "tipo": "atividade",
+            "label": "Acompanhar o andamento da demanda até a conclusão",
+            "raia": "Coordenador(a) Administrativo(a)"
+          },
+          {
+            "id": "e7",
+            "tipo": "atividade",
+            "label": "Escalar à Direção Geral as demandas não resolvidas no prazo ou que exijam decisão superior",
+            "raia": "Coordenador(a) Administrativo(a)"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Consolidar o status das demandas das divisões administrativas",
+            "raia": "Coordenador(a) Administrativo(a)"
+          },
+          {
+            "id": "e9",
+            "tipo": "atividade",
+            "label": "Informar o resultado ao setor ou servidor solicitante",
+            "raia": "Coordenador(a) Administrativo(a)"
+          },
+          {
+            "id": "e10",
+            "tipo": "captura",
+            "label": "Encaminhar a Div. de Licitação",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e11",
+            "tipo": "captura",
+            "label": "Encaminhar a Div. de Recursos Humanos",
+            "raia": "Div. de Recursos Humanos"
+          },
+          {
+            "id": "e12",
+            "tipo": "captura",
+            "label": "Encaminhar a Div. de Manutenção e Conservação",
+            "raia": "Div. de Manutenção e Conservação"
+          },
+          {
+            "id": "e13",
+            "tipo": "captura",
+            "label": "Informar Direção Geral",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e14",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "Sec. Administrativa — Geral"
+            "label": "Demanda atendida pela divisão responsável e resultado informado ao solicitante",
+            "raia": "Coordenador(a) Administrativo(a)"
           }
         ],
         "conexoes": [
@@ -30184,9 +30428,45 @@
           {
             "de": "e4",
             "para": "e5"
+          },
+          {
+            "de": "e5",
+            "para": "e6"
+          },
+          {
+            "de": "e6",
+            "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
+          },
+          {
+            "de": "e13",
+            "para": "e14"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -30201,6 +30481,43 @@
             "pb-sec-administrativa"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo adicionado após 2: Consultar o playbook ou POP específico da divisão responsável",
+            "Passo adicionado após 3: Acompanhar o andamento da demanda até a conclusão",
+            "Passo adicionado após 3: Escalar à Direção Geral as demandas não resolvidas no prazo ou que exijam decisã",
+            "Passo adicionado após 3: Consolidar o status das demandas das divisões administrativas",
+            "Passo adicionado após 3: Informar o resultado ao setor ou servidor solicitante",
+            "entrada_nova: +1",
+            "saida_nova: +1",
+            "artefatos_novos: +2",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +4",
+            "pontos_atencao_novos: +1",
+            "contingencia_nova: +3",
+            "checklist_novo: +5",
+            "glossario_novo: +1",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Fluxograma regenerado a partir dos passos",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "pb-sec-administrativa"
+          ],
+          "motivo": "Detalhamento do playbook geral da Secretaria Administrativa a partir do playbook evidenciado no Canvas: recebimento, triagem e encaminhamento de demandas administrativas às divisões via e-Protocolo, com acompanhamento, escalonamento à Direção Geral e consolidação de status. Responsável inferido da normativa já registrada ('Coordenação Administrativa')."
         }
       ],
       "validacao": {
@@ -30213,16 +30530,12 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
         "prazo"
       ],
       "observacoes": "",
@@ -30231,9 +30544,9 @@
       ],
       "hash_fontes": "e4b6eb4586a98db600343eaa4352b80394f9fd5bfaa02718185e2711720600e7",
       "agente": "",
-      "versao_diretrizes": "1.0",
+      "versao_diretrizes": "1.8",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:56:40Z"
     },
     {
       "id": "pop-sfin-00",
