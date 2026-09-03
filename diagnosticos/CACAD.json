@@ -68,7 +68,7 @@
         "interface_setorial",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "CACAD-01",
       "justificativa": "Fonte primária (manual oficial da PROEX); maior detalhamento sobre modalidades e fomento externo que a visão geral."
     },
@@ -108,7 +108,7 @@
         "interface_setorial",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "CACAD-00",
       "justificativa": "Visão consolidada com boa cobertura textual, alinhada ao manual oficial da PROEX (CACAD-01); recomenda-se completar o playbook."
     }
@@ -118,5 +118,5 @@
     "SLA de deliberação da PROEX não evidenciado"
   ],
   "licoes_propostas": [],
-  "observacoes": "Nenhum processo adicional de extensão foi evidenciado no Canvas além dos dois já mapeados em POP (visão geral e fluxo detalhado PROEX)."
+  "observacoes": "Nenhum processo adicional de extensão foi evidenciado no Canvas além dos dois já mapeados em POP (visão geral e fluxo detalhado PROEX). Ambos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido."
 }

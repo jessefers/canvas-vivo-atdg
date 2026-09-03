@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:44:26Z",
+  "sincronizado_em": "2026-09-03T01:45:25Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -5187,66 +5187,386 @@
       "setor": "Div. de Almoxarifado",
       "setor_codigo": "S03.04-ALM",
       "sigla": "ALM",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Almoxarifado",
-        "descricao": "Inventário Geral — Inventário anual, TCE-PR. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+        "descricao": "Realiza a contagem física total anual de todo o estoque do Almoxarifado, apura e ajusta divergências e obtém aprovação da PRAF antes de encaminhar o relatório para a conciliação físico-contábil (ALM-06) e a prestação de contas (ALM-08).",
         "dominio": "Suprimentos e Materiais",
-        "subdominio": "Inventário Geral",
+        "subdominio": "Inventário geral anual",
         "tipo_subdominio": "core",
         "contexto": "S03.04-ALM",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Inventário geral",
+            "definicao": "Contagem física total anual de todo o estoque do Almoxarifado, base da conciliação físico-contábil e da prestação de contas.",
+            "sistema": "GMS/ERP"
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
-        "normativa": [],
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "periodicidade": "Anual, no encerramento do exercício",
+        "normativa": [
+          "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+          "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)",
+          "Normativas do TCE-PR"
+        ],
         "subordinacao": "Secretaria Administrativa",
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-05<br/>Inventário Geral\"]\n  S03_04_ALM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-05<br/>Inventário Geral\"]\n  S03_04_ALM --> P\n  V1[\"PRAF\"]\n  P -. interface .-> V1\n  V2[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Cronograma/determinação de inventário geral anual (encerramento do exercício)",
+          "origem": "PRAF / Chefia da Divisão de Almoxarifado"
         },
-        "entrada": [],
-        "passos": [],
-        "saida": []
+        "entrada": [
+          "Cronograma/determinação de inventário geral anual (encerramento do exercício)"
+        ],
+        "passos": [
+          {
+            "acao": "Receber o cronograma de inventário geral anual",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "e-Protocolo",
+            "artefato": "",
+            "prazo": "Anual",
+            "evento": "Cronograma de inventário geral recebido",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 1
+          },
+          {
+            "acao": "Constituir a comissão/equipe de contagem para o inventário geral",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "",
+            "artefato": "",
+            "prazo": "Antes do início da contagem",
+            "evento": "Equipe constituída",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 2
+          },
+          {
+            "acao": "Realizar a contagem física total de todo o estoque",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "",
+            "artefato": "Formulário de contagem geral",
+            "prazo": "Conforme cronograma anual",
+            "evento": "Contagem geral concluída",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 3
+          },
+          {
+            "acao": "Comparar o resultado da contagem com o saldo do GMS/ERP",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Relatório de inventário geral",
+            "prazo": "Após a contagem",
+            "evento": "Divergências apuradas",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 4
+          },
+          {
+            "acao": "Apurar a causa da divergência relevante e propor o ajuste, quando houver",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Relatório de inventário geral",
+            "prazo": "A definir",
+            "evento": "Ajuste proposto",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 5
+          },
+          {
+            "acao": "Submeter o resultado do inventário geral, com eventuais ajustes, à aprovação da Chefia",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Relatório de inventário geral",
+            "prazo": "A definir",
+            "evento": "Resultado aprovado internamente",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 6
+          },
+          {
+            "acao": "Obter a aprovação da PRAF para o resultado do inventário geral",
+            "responsavel": "PRAF",
+            "sistema": "e-Protocolo",
+            "artefato": "Relatório de inventário geral",
+            "prazo": "A definir",
+            "evento": "Inventário geral aprovado pela PRAF",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 7
+          },
+          {
+            "acao": "Encaminhar o relatório de inventário geral aprovado à Sec. Financeira/Contabilidade para conciliação (ALM-06)",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "e-Protocolo",
+            "artefato": "Relatório de inventário geral",
+            "prazo": "Após aprovação da PRAF",
+            "evento": "Relatório encaminhado para conciliação",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 8
+          }
+        ],
+        "saida": [
+          "Relatório de inventário geral anual aprovado, encaminhado para conciliação físico-contábil (ALM-06)"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
-      "pontos_atencao": [],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Almoxarifado\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+      "artefatos": [
+        {
+          "nome": "Formulário de contagem geral",
+          "tipo": "formulario",
+          "sistema": "",
+          "campos_chave": [
+            "item",
+            "quantidade contada",
+            "conferente",
+            "data"
+          ],
+          "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "nome": "Relatório de inventário geral",
+          "tipo": "registro",
+          "sistema": "GMS/ERP",
+          "campos_chave": [
+            "saldo físico total",
+            "saldo sistêmico total",
+            "divergências",
+            "ajustes",
+            "aprovação PRAF"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "Há divergência relevante entre a contagem física geral e o saldo no GMS/ERP?",
+          "condicao": "Comparação entre o resultado da contagem geral e o saldo sistêmico",
+          "sim": "Apurar a causa, propor o ajuste e submeter à aprovação da Chefia antes de encaminhar à PRAF",
+          "nao": "Encaminhar o relatório de inventário geral diretamente para aprovação da PRAF"
+        }
+      ],
+      "pontos_atencao": [
+        "O inventário geral é a base da conciliação físico-contábil (ALM-06) e da prestação de contas (ALM-08); atrasos afetam todo o encerramento do exercício",
+        "A aprovação da PRAF é condição para o encaminhamento do relatório à Contabilidade"
+      ],
+      "contingencia": [
+        "Impossibilidade de concluir a contagem geral no prazo do cronograma anual: comunicar à Chefia e à PRAF, com novo prazo estimado",
+        "Divergência relevante não explicada: registrar a ocorrência e escalar à Chefia e, se necessário, à PRAF antes da aprovação",
+        "Indisponibilidade de pessoal para compor a comissão de contagem: solicitar apoio de outros setores da Secretaria Administrativa"
+      ],
+      "checklist": [
+        "Comissão/equipe de contagem constituída antes do início do inventário",
+        "Contagem física total registrada em formulário próprio, item a item",
+        "Divergências apuradas, investigadas e ajustadas mediante aprovação da Chefia",
+        "Relatório de inventário geral aprovado pela PRAF antes do encaminhamento à Contabilidade"
+      ],
+      "kpis": [
+        {
+          "indicador": "Percentual de itens com divergência no inventário geral",
+          "formula": "Nº de itens com divergência / nº total de itens inventariados",
+          "meta": "A definir",
+          "fonte": "GMS/ERP"
+        },
+        {
+          "indicador": "Prazo de conclusão do inventário geral em relação ao cronograma anual",
+          "formula": "Data de conclusão real menos data prevista no cronograma",
+          "meta": "A definir",
+          "fonte": "Cronograma anual de inventário"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Almoxarifado",
+          "destino": "PRAF",
+          "relacao": "valida",
+          "artefato": "Relatório de inventário geral",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Almoxarifado",
+          "destino": "Sec. Financeira/Contabilidade",
+          "relacao": "fornece",
+          "artefato": "Relatório de inventário geral aprovado",
+          "canal": "e-Protocolo"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e1((\"Cronograma/determinação de inventário geral anual\"))\n    e2[\"Receber o cronograma de inventário geral\"]\n    e3[\"Constituir a comissão/equipe de contagem\"]\n    e8[\"Submeter o resultado (com ajustes) à aprovação da Chefia\"]\n  end\n  subgraph R2[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e4[\"Realizar a contagem física total do estoque\"]\n    e5[\"Comparar o resultado da contagem com o saldo no GMS/ERP\"]\n    e6{\"Há divergência relevante entre físico e sistema?\"}\n    e7[\"Apurar a causa e propor o ajuste\"]\n  end\n  subgraph R3[\"PRAF\"]\n    direction LR\n    e9[[\"✉ Relatório de inventário geral encaminhado à PRAF\"]]\n    e10([\"⏱ Aguardar aprovação da PRAF\"])\n    e11[\"Aprovar o resultado do inventário geral\"]\n  end\n  subgraph R4[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e12[[\"✉ Relatório de inventário geral aprovado\"]]\n    e13(((\"Relatório de inventário geral encaminhado para conciliação (ALM-06)\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 -- Sim --> e7\n  e7 --> e8\n  e8 --> e9\n  e6 -- Não --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e7,e8,e11 atividade\n  class e6 decisao\n  class e9,e12 captura\n  class e10 pausa\n  class e13 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Almoxarifado"
+          "Div. de Almoxarifado",
+          "Chefe da Divisão de Almoxarifado",
+          "Agente Universitário do Almoxarifado",
+          "PRAF",
+          "Sec. Financeira/Contabilidade"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "Div. de Almoxarifado"
+            "label": "Cronograma/determinação de inventário geral anual",
+            "raia": "Chefe da Divisão de Almoxarifado"
           },
           {
             "id": "e2",
+            "tipo": "atividade",
+            "label": "Receber o cronograma de inventário geral",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e3",
+            "tipo": "atividade",
+            "label": "Constituir a comissão/equipe de contagem",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e4",
+            "tipo": "atividade",
+            "label": "Realizar a contagem física total do estoque",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e5",
+            "tipo": "atividade",
+            "label": "Comparar o resultado da contagem com o saldo no GMS/ERP",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e6",
+            "tipo": "decisao",
+            "label": "Há divergência relevante entre físico e sistema?",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e7",
+            "tipo": "atividade",
+            "label": "Apurar a causa e propor o ajuste",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Submeter o resultado (com ajustes) à aprovação da Chefia",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e9",
+            "tipo": "captura",
+            "label": "Relatório de inventário geral encaminhado à PRAF",
+            "raia": "PRAF"
+          },
+          {
+            "id": "e10",
+            "tipo": "pausa",
+            "label": "Aguardar aprovação da PRAF",
+            "raia": "PRAF"
+          },
+          {
+            "id": "e11",
+            "tipo": "atividade",
+            "label": "Aprovar o resultado do inventário geral",
+            "raia": "PRAF"
+          },
+          {
+            "id": "e12",
+            "tipo": "captura",
+            "label": "Relatório de inventário geral aprovado",
+            "raia": "Sec. Financeira/Contabilidade"
+          },
+          {
+            "id": "e13",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "Div. de Almoxarifado"
+            "label": "Relatório de inventário geral encaminhado para conciliação (ALM-06)",
+            "raia": "Sec. Financeira/Contabilidade"
           }
         ],
         "conexoes": [
           {
             "de": "e1",
             "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          },
+          {
+            "de": "e3",
+            "para": "e4"
+          },
+          {
+            "de": "e4",
+            "para": "e5"
+          },
+          {
+            "de": "e5",
+            "para": "e6"
+          },
+          {
+            "de": "e6",
+            "para": "e7",
+            "label": "Sim"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e6",
+            "para": "e9",
+            "label": "Não"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
           }
         ],
         "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -5262,6 +5582,49 @@
           ],
           "fontes": [],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote ALM)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo adicionado após 1: Receber o cronograma de inventário geral anual",
+            "Passo adicionado após 1: Constituir a comissão/equipe de contagem para o inventário geral",
+            "Passo adicionado após 1: Realizar a contagem física total de todo o estoque",
+            "Passo adicionado após 1: Comparar o resultado da contagem com o saldo do GMS/ERP",
+            "Passo adicionado após 1: Apurar a causa da divergência relevante e propor o ajuste, quando houver",
+            "Passo adicionado após 1: Submeter o resultado do inventário geral, com eventuais ajustes, à aprovação da ",
+            "Passo adicionado após 1: Obter a aprovação da PRAF para o resultado do inventário geral",
+            "Passo adicionado após 1: Encaminhar o relatório de inventário geral aprovado à Sec. Financeira/Contabilid",
+            "entrada_nova: +1",
+            "saida_nova: +1",
+            "artefatos_novos: +2",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +2",
+            "pontos_atencao_novos: +2",
+            "contingencia_nova: +3",
+            "checklist_novo: +4",
+            "glossario_novo: +1",
+            "normativa_nova: +3",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Campo observacoes atualizado",
+            "Raias adicionadas: Chefe da Divisão de Almoxarifado, Agente Universitário do Almoxarifado, PRAF, Sec. Financeira/Contabilidade",
+            "Elementos BPMN removidos: e1, e2",
+            "Elementos BPMN adicionados: 13",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "motivo": "Documentar o passo a passo do inventário geral anual (constituição da equipe, contagem total, apuração de divergências, aprovação da PRAF e encaminhamento para conciliação), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
         }
       ],
       "validacao": {
@@ -5274,27 +5637,22 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003"
       ],
-      "lacunas": [
-        "passos",
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
-        "prazo",
-        "normativa"
+      "lacunas": [],
+      "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) composição e formalização da comissão/equipe de contagem geral; (2) alçada e formato exatos da aprovação da PRAF (despacho, ata, sistema), não detalhados nas fontes disponíveis.",
+      "fontes_entradas": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
       ],
-      "observacoes": "",
-      "fontes_entradas": [],
-      "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:44:54Z"
     },
     {
       "id": "pop-alm-06",
@@ -6713,21 +7071,37 @@
       "setor": "CCSA — Direção de Centro",
       "setor_codigo": "S07-CCSA",
       "sigla": "CCSA",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Centro de Ciências Sociais Aplicadas — Direção de Centro",
         "departamento": "Centro de Ciências Sociais Aplicadas — Direção de Centro",
-        "descricao": "Visão do Centro de Ciências Sociais Aplicadas: colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo, núcleos (NPJ, NUTUR, NUPESA) e contatos por função.",
+        "descricao": "Consolida a visão geral do Centro de Ciências Sociais Aplicadas — Direção de Centro: a articulação da Direção com os colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo e com os núcleos NPJ, NUTUR e NUPESA, a manutenção da base de contatos por função e o encaminhamento e acompanhamento das demandas do Centro, nos termos dos arts. 37 e 41 do Estatuto (Res. 017/99-COU).",
         "dominio": "Ensino, Pesquisa e Extensão (Centro)",
-        "subdominio": "Visão geral do setor (playbook)",
+        "subdominio": "Articulação e governança do Centro de Ciências Sociais Aplicadas",
         "tipo_subdominio": "core",
         "contexto": "S07-CCSA",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "NPJ",
+            "definicao": "Núcleo do CCSA vinculado ao curso de Direito (sigla não expandida nas fontes consultadas — a confirmar).",
+            "sistema": ""
+          },
+          {
+            "termo": "NUTUR",
+            "definicao": "Núcleo do CCSA vinculado à área de Turismo (sigla não expandida nas fontes consultadas — a confirmar).",
+            "sistema": ""
+          },
+          {
+            "termo": "NUPESA",
+            "definicao": "Núcleo do CCSA (sigla não expandida nas fontes consultadas — a confirmar).",
+            "sistema": ""
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
+        "responsavel": "Diretor(a) de Centro",
+        "periodicidade": "Contínua, conforme calendário acadêmico e demandas dos colegiados e núcleos do Centro",
         "normativa": [
           "Estatuto (Res. 017/99-COU) art. 37 e 41"
         ],
@@ -6735,98 +7109,250 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S07_CCSA[\"S07-CCSA<br/>Centro de Ciências Sociais Aplicadas — Direção de Centro\"]\n  S01_DG --> S07_CCSA\n  P[\"CCSA-00<br/>Visão geral — Centro de Ciências Sociais Aplicadas — Direçã…\"]\n  S07_CCSA --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S07_CCSA setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S07_CCSA[\"S07-CCSA<br/>Centro de Ciências Sociais Aplicadas — Direção de Centro\"]\n  S01_DG --> S07_CCSA\n  P[\"CCSA-00<br/>Visão geral — Centro de Ciências Sociais Aplicadas — Direçã…\"]\n  S07_CCSA --> P\n  V1[\"Direção Geral de Campus\"]\n  P -. interface .-> V1\n  V2[\"Colegiado de Curso\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S07_CCSA setor\n  class P destaque\n  class V1,V2 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Necessidade de articulação entre a Direção de Centro e os colegiados/núcleos, atualização da base de contatos ou encaminhamento de demanda do Centro",
+          "origem": "Diretor(a) de Centro, Coordenador(a) de Curso, Colegiado/NDE ou núcleos (NPJ, NUTUR, NUPESA)"
         },
-        "entrada": [],
+        "entrada": [
+          "Solicitação ou demanda de colegiado, núcleo, coordenação ou órgão superior",
+          "Comunicado de troca de coordenação, direção ou responsável de núcleo"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "Articular Direção de Centro, colegiados e coordenações",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
-            "prazo": "A definir",
-            "evento": "",
+            "acao": "Articular a Direção de Centro com os colegiados de curso e as coordenações de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo",
+            "responsavel": "Diretor(a) de Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Ata/registro de articulação",
+            "prazo": "Conforme demanda",
+            "evento": "Colegiados e coordenações articulados",
             "fontes": [
               "pb-ccsa"
             ]
           },
           {
-            "n": 2,
-            "acao": "Manter a base de contatos por função do Centro",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
-            "prazo": "A definir",
-            "evento": "",
+            "acao": "Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA",
+            "responsavel": "Diretor(a) de Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Ata/registro de articulação",
+            "prazo": "Conforme demanda",
+            "evento": "Núcleos articulados",
             "fontes": [
-              "pb-ccsa"
-            ]
+              "1780963200012"
+            ],
+            "n": 2
           },
           {
             "n": 3,
-            "acao": "Encaminhar demandas do Centro via e-Protocolo",
-            "responsavel": "A definir",
+            "acao": "Manter atualizada a base de contatos por função do Centro (coordenadores de curso, de estágio e de TCC, agentes universitários e núcleos)",
+            "responsavel": "Diretor(a) de Centro",
             "sistema": "",
-            "artefato": "",
-            "prazo": "A definir",
-            "evento": "",
+            "artefato": "Lista de contatos por função do CCSA",
+            "prazo": "A cada troca de coordenação, direção ou responsável de núcleo",
+            "evento": "Base de contatos atualizada",
             "fontes": [
               "pb-ccsa"
             ]
+          },
+          {
+            "acao": "Validar com cada colegiado e núcleo a exatidão dos contatos informados",
+            "responsavel": "Coordenador(a) de Curso",
+            "sistema": "",
+            "artefato": "Confirmação de contatos",
+            "prazo": "Anual ou a cada alteração",
+            "evento": "Contatos validados",
+            "fontes": [
+              "1780963200012"
+            ],
+            "n": 4
+          },
+          {
+            "n": 5,
+            "acao": "Encaminhar as demandas do Centro aos colegiados, núcleos ou órgãos superiores via e-Protocolo",
+            "responsavel": "Diretor(a) de Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Ofício/memorando de encaminhamento",
+            "prazo": "Conforme demanda",
+            "evento": "Demanda encaminhada",
+            "fontes": [
+              "pb-ccsa"
+            ]
+          },
+          {
+            "acao": "Acompanhar a tramitação e a resposta às demandas encaminhadas",
+            "responsavel": "Diretor(a) de Centro",
+            "sistema": "e-Protocolo",
+            "artefato": "Registro de acompanhamento",
+            "prazo": "Conforme prazo da demanda",
+            "evento": "Demanda respondida ou pendência identificada",
+            "fontes": [
+              "pb-ccsa"
+            ],
+            "n": 6
           }
         ],
-        "saida": []
+        "saida": [
+          "Base de contatos por função do Centro atualizada",
+          "Demanda do Centro encaminhada e acompanhada até a resposta"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
+      "artefatos": [
+        {
+          "nome": "Lista de contatos por função do CCSA",
+          "tipo": "registro",
+          "sistema": "",
+          "campos_chave": [
+            "colegiado/núcleo",
+            "função",
+            "e-mail institucional"
+          ],
+          "responsavel_preenchimento": "Diretor(a) de Centro"
+        },
+        {
+          "nome": "Ofício/memorando de encaminhamento de demanda do Centro",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "assunto",
+            "destinatário",
+            "prazo de resposta"
+          ],
+          "responsavel_preenchimento": "Diretor(a) de Centro"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "A demanda encaminhada foi respondida no prazo?",
+          "condicao": "Acompanhamento da tramitação no e-Protocolo",
+          "sim": "Registrar a resposta e encerrar o acompanhamento",
+          "nao": "Reiterar a demanda ao destinatário e, se necessário, escalar à Direção Geral de Campus"
+        }
+      ],
       "pontos_atencao": [
         "Contatos institucionais — uso interno (LGPD)",
-        "Atualizar a cada troca de coordenação/direção"
+        "Atualizar a cada troca de coordenação/direção",
+        "Contatos institucionais dos colegiados e núcleos são dados pessoais de uso interno (LGPD); não divulgar externamente sem anonimização.",
+        "Atualizar a base de contatos a cada troca de coordenação, direção ou responsável de núcleo, sob pena de falha de comunicação.",
+        "As competências gerais da Direção de Centro (representação, indicação de representantes, condução do Conselho de Centro, articulação com PROGRAD/PROEX) seguem o POP transversal DCEN-00; este documento trata das particularidades do CCSA."
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"CCSA — Direção de Centro\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Articular Direção de Centro, colegiados e coordenações\"]\n    e3[\"Manter a base de contatos por função do Centro\"]\n    e4[\"Encaminhar demandas do Centro via e-Protocolo\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+      "contingencia": [
+        "Se o contato informado por um colegiado ou núcleo estiver desatualizado, o Diretor(a) de Centro solicita a atualização diretamente à coordenação responsável antes de reencaminhar a demanda.",
+        "Se uma demanda encaminhada via e-Protocolo não for respondida no prazo, reiterar ao destinatário e, persistindo a omissão, escalar à Direção Geral de Campus.",
+        "Se um colegiado, coordenação ou núcleo estiver temporariamente sem responsável designado, encaminhar a demanda à Direção de Centro para indicação de responsável interino."
+      ],
+      "checklist": [
+        "Lista de contatos por função do CCSA revisada e atualizada",
+        "Demandas do Centro registradas e encaminhadas via e-Protocolo",
+        "Tramitação das demandas acompanhada até a resposta",
+        "Colegiados e núcleos (NPJ, NUTUR, NUPESA) cientes das articulações e decisões da Direção de Centro"
+      ],
+      "kpis": [
+        {
+          "indicador": "Percentual da lista de contatos do CCSA atualizada no semestre",
+          "formula": "Contatos confirmados no período / total de funções mapeadas × 100",
+          "meta": "A definir",
+          "fonte": "Lista de contatos por função do CCSA"
+        },
+        {
+          "indicador": "Prazo médio de resposta às demandas encaminhadas pela Direção de Centro",
+          "formula": "Média (data de resposta − data de encaminhamento)",
+          "meta": "A definir",
+          "fonte": "e-Protocolo"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "CCSA — Direção de Centro",
+          "destino": "Direção Geral de Campus",
+          "relacao": "informa",
+          "artefato": "Demandas e deliberações do Centro",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "CCSA — Direção de Centro",
+          "destino": "Colegiado de Curso",
+          "relacao": "informa",
+          "artefato": "Diretrizes e demandas da Direção de Centro aos colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo",
+          "canal": "e-Protocolo/e-mail institucional"
+        },
+        {
+          "origem": "Colegiado de Curso",
+          "destino": "CCSA — Direção de Centro",
+          "relacao": "fornece",
+          "artefato": "Solicitações e demandas dos colegiados de curso do Centro",
+          "canal": "e-Protocolo"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Diretor(a) de Centro\"]\n    direction LR\n    e1((\"Necessidade de articulação entre a Direção de Centro e os colegiados/…\"))\n    e2[\"Articular a Direção de Centro com os colegiados de curso e as coorden…\"]\n    e3[\"Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA\"]\n    e4[\"Manter atualizada a base de contatos por função do Centro (coordenado…\"]\n    e6[\"Encaminhar as demandas do Centro aos colegiados, núcleos ou órgãos su…\"]\n    e7[\"Acompanhar a tramitação e a resposta às demandas encaminhadas\"]\n    e10(((\"Base de contatos por função do Centro atualizada\")))\n  end\n  subgraph R2[\"Coordenador(a) de Curso\"]\n    direction LR\n    e5[\"Validar com cada colegiado e núcleo a exatidão dos contatos informados\"]\n  end\n  subgraph R3[\"Direção Geral de Campus\"]\n    direction LR\n    e8[[\"✉ Informar Direção Geral de Campus\"]]\n  end\n  subgraph R4[\"Colegiado de Curso\"]\n    direction LR\n    e9[[\"✉ Informar Colegiado de Curso\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
       "bpmn_spec": {
         "raias": [
-          "CCSA — Direção de Centro"
+          "Diretor(a) de Centro",
+          "Coordenador(a) de Curso",
+          "Direção Geral de Campus",
+          "Colegiado de Curso"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "CCSA — Direção de Centro"
+            "label": "Necessidade de articulação entre a Direção de Centro e os colegiados/núcleos, atualização da base de contatos ou encaminhamento de demanda do Centro",
+            "raia": "Diretor(a) de Centro"
           },
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "Articular Direção de Centro, colegiados e coordenações",
-            "raia": "CCSA — Direção de Centro"
+            "label": "Articular a Direção de Centro com os colegiados de curso e as coordenações de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo",
+            "raia": "Diretor(a) de Centro"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Manter a base de contatos por função do Centro",
-            "raia": "CCSA — Direção de Centro"
+            "label": "Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA",
+            "raia": "Diretor(a) de Centro"
           },
           {
             "id": "e4",
             "tipo": "atividade",
-            "label": "Encaminhar demandas do Centro via e-Protocolo",
-            "raia": "CCSA — Direção de Centro"
+            "label": "Manter atualizada a base de contatos por função do Centro (coordenadores de curso, de estágio e de TCC, agentes universitários e núcleos)",
+            "raia": "Diretor(a) de Centro"
           },
           {
             "id": "e5",
+            "tipo": "atividade",
+            "label": "Validar com cada colegiado e núcleo a exatidão dos contatos informados",
+            "raia": "Coordenador(a) de Curso"
+          },
+          {
+            "id": "e6",
+            "tipo": "atividade",
+            "label": "Encaminhar as demandas do Centro aos colegiados, núcleos ou órgãos superiores via e-Protocolo",
+            "raia": "Diretor(a) de Centro"
+          },
+          {
+            "id": "e7",
+            "tipo": "atividade",
+            "label": "Acompanhar a tramitação e a resposta às demandas encaminhadas",
+            "raia": "Diretor(a) de Centro"
+          },
+          {
+            "id": "e8",
+            "tipo": "captura",
+            "label": "Informar Direção Geral de Campus",
+            "raia": "Direção Geral de Campus"
+          },
+          {
+            "id": "e9",
+            "tipo": "captura",
+            "label": "Informar Colegiado de Curso",
+            "raia": "Colegiado de Curso"
+          },
+          {
+            "id": "e10",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "CCSA — Direção de Centro"
+            "label": "Base de contatos por função do Centro atualizada",
+            "raia": "Diretor(a) de Centro"
           }
         ],
         "conexoes": [
@@ -6845,9 +7371,29 @@
           {
             "de": "e4",
             "para": "e5"
+          },
+          {
+            "de": "e5",
+            "para": "e6"
+          },
+          {
+            "de": "e6",
+            "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
           }
         ],
-        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+        "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
       },
       "changelog": [
         {
@@ -6862,6 +7408,43 @@
             "pb-ccsa"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote D2)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo adicionado após 3: Acompanhar a tramitação e a resposta às demandas encaminhadas",
+            "Passo adicionado após 2: Validar com cada colegiado e núcleo a exatidão dos contatos informados",
+            "Passo adicionado após 1: Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA",
+            "entrada_nova: +2",
+            "saida_nova: +2",
+            "artefatos_novos: +2",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +3",
+            "pontos_atencao_novos: +3",
+            "contingencia_nova: +3",
+            "checklist_novo: +4",
+            "glossario_novo: +3",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Campo observacoes atualizado",
+            "Fluxograma regenerado a partir dos passos",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "pb-ccsa",
+            "1780963200012"
+          ],
+          "motivo": "Completar a visão geral do Centro de Ciências Sociais Aplicadas (responsável, gatilho, entradas/saídas, artefatos, decisão, KPIs, contingência, checklist e mapa de contexto) a partir da lista de contatos por função dos colegiados e núcleos e do playbook do Centro, tornando o POP apto à validação."
         }
       ],
       "validacao": {
@@ -6874,27 +7457,25 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
         "formulario",
-        "prazo"
+        "dados_pessoais_lgpd"
       ],
-      "observacoes": "",
+      "observacoes": "Visão geral elaborada a partir da lista de contatos dos colegiados do CCSA (Administração, Ciências Contábeis, Direito, Hotelaria e Turismo) e dos núcleos NPJ, NUTUR e NUPESA. As rotinas específicas de gestão acadêmica, estágio e TCC de cada colegiado são detalhadas no POP transversal COLEG-00; as competências gerais da Direção de Centro seguem o POP transversal DCEN-00. Siglas NPJ/NUTUR/NUPESA não expandidas nas fontes consultadas — a confirmar com a Direção de Centro.",
       "fontes_entradas": [
-        "pb-ccsa"
+        "pb-ccsa",
+        "1780963200012"
       ],
-      "hash_fontes": "01ce32c92ac7ab48bc395e61f163d0ec936fa8beec5226a01f517aa60df7c08e",
+      "hash_fontes": "ad8ee7601b832c7d1c0ca33cef3a5ad10e321dfc6a90e8848768f93379a40f29",
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:55Z",
-      "atualizado_em": "2026-09-02T17:55:55Z"
+      "atualizado_em": "2026-09-03T01:44:47Z"
     },
     {
       "id": "pop-cece-00",
@@ -15371,7 +15952,7 @@
       "setor": "Div. de Licitação",
       "setor_codigo": "S03.06-DLIC",
       "sigla": "DLIC",
-      "versao": "1.0.0",
+      "versao": "1.1.0",
       "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
@@ -15489,24 +16070,24 @@
             ]
           },
           {
-            "acao": "Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo",
-            "responsavel": "Fiscal do contrato",
-            "sistema": "GMS",
-            "artefato": "Nota fiscal de aquisição",
-            "prazo": "Até o recebimento definitivo dos itens",
-            "evento": "Recebimento definitivo confirmado",
-            "fontes": [
-              "1780963200054"
-            ],
-            "n": 7
-          },
-          {
             "acao": "Solicitar a aquisição e a entrega dos itens contratados",
             "responsavel": "Gestor do contrato",
             "sistema": "GMS",
             "artefato": "Solicitação de entrega",
             "prazo": "A definir",
             "evento": "Entrega solicitada",
+            "fontes": [
+              "1780963200054"
+            ],
+            "n": 7
+          },
+          {
+            "acao": "Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo",
+            "responsavel": "Fiscal do contrato",
+            "sistema": "GMS",
+            "artefato": "Nota fiscal de aquisição",
+            "prazo": "Até o recebimento definitivo dos itens",
+            "evento": "Recebimento definitivo confirmado",
             "fontes": [
               "1780963200054"
             ],
@@ -15889,6 +16470,20 @@
             "1780963200054"
           ],
           "motivo": "Detalhamento do fluxo de contrato de aquisição a partir da entrada do Canvas (1780963200054): separação das ações compostas em passos atômicos, definição de responsável, verificação de regularidade fiscal, empenho, recebimento e conferência de notas fiscais."
+        },
+        {
+          "versao": "1.1.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "minor",
+          "mudancas": [
+            "Passo 7 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 8 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)"
+          ],
+          "fontes": [
+            "1780963200054"
+          ],
+          "motivo": "Correção da ordem lógica dos passos 7 e 8: a solicitação de aquisição/entrega dos itens deve preceder o acompanhamento da entrega e a conferência das notas fiscais."
         }
       ],
       "validacao": {
@@ -15917,7 +16512,7 @@
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-03T01:43:39Z"
+      "atualizado_em": "2026-09-03T01:44:33Z"
     },
     {
       "id": "pop-dlic-02",
@@ -21199,7 +21794,7 @@
             "interface_setorial",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "CACAD-01",
           "justificativa": "Fonte primária (manual oficial da PROEX); maior detalhamento sobre modalidades e fomento externo que a visão geral."
         },
@@ -21239,7 +21834,7 @@
             "interface_setorial",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "CACAD-00",
           "justificativa": "Visão consolidada com boa cobertura textual, alinhada ao manual oficial da PROEX (CACAD-01); recomenda-se completar o playbook."
         }
@@ -21249,7 +21844,7 @@
         "SLA de deliberação da PROEX não evidenciado"
       ],
       "licoes_propostas": [],
-      "observacoes": "Nenhum processo adicional de extensão foi evidenciado no Canvas além dos dois já mapeados em POP (visão geral e fluxo detalhado PROEX)."
+      "observacoes": "Nenhum processo adicional de extensão foi evidenciado no Canvas além dos dois já mapeados em POP (visão geral e fluxo detalhado PROEX). Ambos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido."
     },
     {
       "id": "diag-dae-20260903",
@@ -21616,7 +22211,7 @@
             "sistema",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DFIN-02",
           "justificativa": "Fluxo específico correlato às diárias; mesma limitação de cobertura por ser documento-imagem."
         },
@@ -21661,7 +22256,7 @@
             "sistema",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DFIN-03",
           "justificativa": "Visão consolidada de baixo detalhamento próprio (aponta para os fluxos específicos); recomenda-se manter como POP roteador."
         }
@@ -21678,7 +22273,7 @@
           "origem": "diagnostico"
         }
       ],
-      "observacoes": "Os fluxogramas do Campus Foz (DFIN-01/02/03) são arquivos em PDF no formato de imagem, sem texto extraível; a cobertura textual desses processos permanece parcial até nova leitura visual/transcrição."
+      "observacoes": "Os fluxogramas do Campus Foz (DFIN-01/02/03) são arquivos em PDF no formato de imagem, sem texto extraível; a cobertura textual desses processos permanece parcial até nova leitura visual/transcrição. DFIN-02 e DFIN-03 pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido; a recomendação numérica orienta o aprofundamento futuro (nova leitura visual dos fluxogramas)."
     },
     {
       "id": "diag-dgrad-20260903",
@@ -21753,7 +22348,7 @@
             "interface_setorial",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DGRAD-01",
           "justificativa": "Fonte primária (manual oficial da PROGRAD), com maior detalhamento dos tipos de processo de ensino; há cópia duplicada do mesmo arquivo no acervo (ver lição proposta)."
         },
@@ -21795,7 +22390,7 @@
             "interface_setorial",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DGRAD-00",
           "justificativa": "Visão consolidada alinhada ao manual oficial da PROGRAD (DGRAD-01); alta criticidade por afetar credenciamento/reconhecimento de cursos."
         }
@@ -21812,7 +22407,7 @@
           "origem": "diagnostico"
         }
       ],
-      "observacoes": "Nenhum processo adicional de ensino foi evidenciado no Canvas além dos dois já mapeados em POP; a entrada 1780963200064 é cópia idêntica de 1780963200038 e não constitui processo distinto."
+      "observacoes": "Nenhum processo adicional de ensino foi evidenciado no Canvas além dos dois já mapeados em POP; a entrada 1780963200064 é cópia idêntica de 1780963200038 e não constitui processo distinto. Ambos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido."
     },
     {
       "id": "diag-dpg-20260903",
@@ -21892,7 +22487,7 @@
             "interface_setorial",
             "dados_pessoais_lgpd"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DPG-02",
           "justificativa": "Alto risco ético/regulatório (bem-estar animal, sigilo de propriedade intelectual); baixa frequência mas alta criticidade."
         },
@@ -21931,7 +22526,7 @@
             "sistema",
             "interface_setorial"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DPG-00",
           "justificativa": "Consolida os cinco fluxos específicos já evidenciados (01 a 05); alta criticidade por envolver afastamento docente, ética em pesquisa e credenciamento de cursos."
         },
@@ -21971,7 +22566,7 @@
             "interface_setorial",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DPG-01",
           "justificativa": "Processo de alto impacto em RH e orçamento (afastamento docente com ônus); requisitos adicionais para o exterior aumentam o risco de não conformidade."
         },
@@ -22010,7 +22605,7 @@
             "interface_setorial",
             "dados_pessoais_lgpd"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DPG-03",
           "justificativa": "Espelha o fluxo do CEUA para animais de produção; risco ético/regulatório equivalente, frequência ainda menor."
         },
@@ -22050,7 +22645,7 @@
             "interface_setorial",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DPG-05",
           "justificativa": "Impacta credenciamento/avaliação de programas de mestrado e doutorado; documentação ampliada para novos programas."
         },
@@ -22090,7 +22685,7 @@
             "interface_setorial",
             "versao_documento"
           ],
-          "recomendacao": "gerar_pop",
+          "recomendacao": "coletar_mais",
           "pop_existente": "DPG-04",
           "justificativa": "Envolve gestão financeira de cursos (planilha) e credenciamento; risco de conformidade moderado-alto."
         }
@@ -22100,7 +22695,7 @@
         "SLA de deliberação da PRPPG e dos comitês de ética não evidenciado"
       ],
       "licoes_propostas": [],
-      "observacoes": "Os cinco fluxos específicos (01 a 05) e a visão geral (00) cobrem integralmente os temas evidenciados no Canvas para a Div. de Pós-Graduação; nenhum processo adicional sem POP foi identificado nesta leva."
+      "observacoes": "Os cinco fluxos específicos (01 a 05) e a visão geral (00) cobrem integralmente os temas evidenciados no Canvas para a Div. de Pós-Graduação; nenhum processo adicional sem POP foi identificado nesta leva. Todos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido."
     },
     {
       "id": "diag-sfin-20260903",

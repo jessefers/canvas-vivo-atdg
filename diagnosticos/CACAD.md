@@ -25,8 +25,8 @@ versao_diretrizes: "1.0"
 
 | Prior. | Código | Processo | Tipo | Mat. | Crit. | Freq. | Risco | Cob. | Recomendação | POP |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 0.56 | CACAD-01 | Fluxos e-Protocolo — Extensão (PROEX) | processo | 2 | 0.6 | 0.5 | 0.55 | 0.6 | gerar_pop | CACAD-01 |
-| 0.55 | CACAD-00 | Visão geral — extensão (e-Protocolo/PROEX) | processo | 2 | 0.6 | 0.5 | 0.5 | 0.55 | gerar_pop | CACAD-00 |
+| 0.56 | CACAD-01 | Fluxos e-Protocolo — Extensão (PROEX) | processo | 2 | 0.6 | 0.5 | 0.55 | 0.6 | coletar_mais | CACAD-01 |
+| 0.55 | CACAD-00 | Visão geral — extensão (e-Protocolo/PROEX) | processo | 2 | 0.6 | 0.5 | 0.5 | 0.55 | coletar_mais | CACAD-00 |
 
 ### CACAD-01 — Fluxos e-Protocolo — Extensão (PROEX)
 
@@ -69,7 +69,7 @@ Guia consolidado da tramitação de atividades de extensão (programas, projetos
 
 — Nenhuma
 
-> Nenhum processo adicional de extensão foi evidenciado no Canvas além dos dois já mapeados em POP (visão geral e fluxo detalhado PROEX).
+> Nenhum processo adicional de extensão foi evidenciado no Canvas além dos dois já mapeados em POP (visão geral e fluxo detalhado PROEX). Ambos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido.
 
 ---
 _Gerado por `scripts/render_diag.py` a partir de `diagnosticos/CACAD.json` (diretrizes v1.0)._

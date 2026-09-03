@@ -71,7 +71,7 @@
         "interface_setorial",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DGRAD-01",
       "justificativa": "Fonte primária (manual oficial da PROGRAD), com maior detalhamento dos tipos de processo de ensino; há cópia duplicada do mesmo arquivo no acervo (ver lição proposta)."
     },
@@ -113,7 +113,7 @@
         "interface_setorial",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DGRAD-00",
       "justificativa": "Visão consolidada alinhada ao manual oficial da PROGRAD (DGRAD-01); alta criticidade por afetar credenciamento/reconhecimento de cursos."
     }
@@ -130,5 +130,5 @@
       "origem": "diagnostico"
     }
   ],
-  "observacoes": "Nenhum processo adicional de ensino foi evidenciado no Canvas além dos dois já mapeados em POP; a entrada 1780963200064 é cópia idêntica de 1780963200038 e não constitui processo distinto."
+  "observacoes": "Nenhum processo adicional de ensino foi evidenciado no Canvas além dos dois já mapeados em POP; a entrada 1780963200064 é cópia idêntica de 1780963200038 e não constitui processo distinto. Ambos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido."
 }

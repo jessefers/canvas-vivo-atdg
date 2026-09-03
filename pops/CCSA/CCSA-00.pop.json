@@ -5,21 +5,37 @@
   "setor": "CCSA — Direção de Centro",
   "setor_codigo": "S07-CCSA",
   "sigla": "CCSA",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Centro de Ciências Sociais Aplicadas — Direção de Centro",
     "departamento": "Centro de Ciências Sociais Aplicadas — Direção de Centro",
-    "descricao": "Visão do Centro de Ciências Sociais Aplicadas: colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo, núcleos (NPJ, NUTUR, NUPESA) e contatos por função.",
+    "descricao": "Consolida a visão geral do Centro de Ciências Sociais Aplicadas — Direção de Centro: a articulação da Direção com os colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo e com os núcleos NPJ, NUTUR e NUPESA, a manutenção da base de contatos por função e o encaminhamento e acompanhamento das demandas do Centro, nos termos dos arts. 37 e 41 do Estatuto (Res. 017/99-COU).",
     "dominio": "Ensino, Pesquisa e Extensão (Centro)",
-    "subdominio": "Visão geral do setor (playbook)",
+    "subdominio": "Articulação e governança do Centro de Ciências Sociais Aplicadas",
     "tipo_subdominio": "core",
     "contexto": "S07-CCSA",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "NPJ",
+        "definicao": "Núcleo do CCSA vinculado ao curso de Direito (sigla não expandida nas fontes consultadas — a confirmar).",
+        "sistema": ""
+      },
+      {
+        "termo": "NUTUR",
+        "definicao": "Núcleo do CCSA vinculado à área de Turismo (sigla não expandida nas fontes consultadas — a confirmar).",
+        "sistema": ""
+      },
+      {
+        "termo": "NUPESA",
+        "definicao": "Núcleo do CCSA (sigla não expandida nas fontes consultadas — a confirmar).",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "responsavel": "Diretor(a) de Centro",
+    "periodicidade": "Contínua, conforme calendário acadêmico e demandas dos colegiados e núcleos do Centro",
     "normativa": [
       "Estatuto (Res. 017/99-COU) art. 37 e 41"
     ],
@@ -27,98 +43,250 @@
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S07_CCSA[\"S07-CCSA<br/>Centro de Ciências Sociais Aplicadas — Direção de Centro\"]\n  S01_DG --> S07_CCSA\n  P[\"CCSA-00<br/>Visão geral — Centro de Ciências Sociais Aplicadas — Direçã…\"]\n  S07_CCSA --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S07_CCSA setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S07_CCSA[\"S07-CCSA<br/>Centro de Ciências Sociais Aplicadas — Direção de Centro\"]\n  S01_DG --> S07_CCSA\n  P[\"CCSA-00<br/>Visão geral — Centro de Ciências Sociais Aplicadas — Direçã…\"]\n  S07_CCSA --> P\n  V1[\"Direção Geral de Campus\"]\n  P -. interface .-> V1\n  V2[\"Colegiado de Curso\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S07_CCSA setor\n  class P destaque\n  class V1,V2 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Necessidade de articulação entre a Direção de Centro e os colegiados/núcleos, atualização da base de contatos ou encaminhamento de demanda do Centro",
+      "origem": "Diretor(a) de Centro, Coordenador(a) de Curso, Colegiado/NDE ou núcleos (NPJ, NUTUR, NUPESA)"
     },
-    "entrada": [],
+    "entrada": [
+      "Solicitação ou demanda de colegiado, núcleo, coordenação ou órgão superior",
+      "Comunicado de troca de coordenação, direção ou responsável de núcleo"
+    ],
     "passos": [
       {
         "n": 1,
-        "acao": "Articular Direção de Centro, colegiados e coordenações",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Articular a Direção de Centro com os colegiados de curso e as coordenações de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Ata/registro de articulação",
+        "prazo": "Conforme demanda",
+        "evento": "Colegiados e coordenações articulados",
         "fontes": [
           "pb-ccsa"
         ]
       },
       {
-        "n": 2,
-        "acao": "Manter a base de contatos por função do Centro",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Ata/registro de articulação",
+        "prazo": "Conforme demanda",
+        "evento": "Núcleos articulados",
         "fontes": [
-          "pb-ccsa"
-        ]
+          "1780963200012"
+        ],
+        "n": 2
       },
       {
         "n": 3,
-        "acao": "Encaminhar demandas do Centro via e-Protocolo",
-        "responsavel": "A definir",
+        "acao": "Manter atualizada a base de contatos por função do Centro (coordenadores de curso, de estágio e de TCC, agentes universitários e núcleos)",
+        "responsavel": "Diretor(a) de Centro",
         "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "artefato": "Lista de contatos por função do CCSA",
+        "prazo": "A cada troca de coordenação, direção ou responsável de núcleo",
+        "evento": "Base de contatos atualizada",
         "fontes": [
           "pb-ccsa"
         ]
+      },
+      {
+        "acao": "Validar com cada colegiado e núcleo a exatidão dos contatos informados",
+        "responsavel": "Coordenador(a) de Curso",
+        "sistema": "",
+        "artefato": "Confirmação de contatos",
+        "prazo": "Anual ou a cada alteração",
+        "evento": "Contatos validados",
+        "fontes": [
+          "1780963200012"
+        ],
+        "n": 4
+      },
+      {
+        "n": 5,
+        "acao": "Encaminhar as demandas do Centro aos colegiados, núcleos ou órgãos superiores via e-Protocolo",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Ofício/memorando de encaminhamento",
+        "prazo": "Conforme demanda",
+        "evento": "Demanda encaminhada",
+        "fontes": [
+          "pb-ccsa"
+        ]
+      },
+      {
+        "acao": "Acompanhar a tramitação e a resposta às demandas encaminhadas",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Registro de acompanhamento",
+        "prazo": "Conforme prazo da demanda",
+        "evento": "Demanda respondida ou pendência identificada",
+        "fontes": [
+          "pb-ccsa"
+        ],
+        "n": 6
       }
     ],
-    "saida": []
+    "saida": [
+      "Base de contatos por função do Centro atualizada",
+      "Demanda do Centro encaminhada e acompanhada até a resposta"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "Lista de contatos por função do CCSA",
+      "tipo": "registro",
+      "sistema": "",
+      "campos_chave": [
+        "colegiado/núcleo",
+        "função",
+        "e-mail institucional"
+      ],
+      "responsavel_preenchimento": "Diretor(a) de Centro"
+    },
+    {
+      "nome": "Ofício/memorando de encaminhamento de demanda do Centro",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "assunto",
+        "destinatário",
+        "prazo de resposta"
+      ],
+      "responsavel_preenchimento": "Diretor(a) de Centro"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A demanda encaminhada foi respondida no prazo?",
+      "condicao": "Acompanhamento da tramitação no e-Protocolo",
+      "sim": "Registrar a resposta e encerrar o acompanhamento",
+      "nao": "Reiterar a demanda ao destinatário e, se necessário, escalar à Direção Geral de Campus"
+    }
+  ],
   "pontos_atencao": [
     "Contatos institucionais — uso interno (LGPD)",
-    "Atualizar a cada troca de coordenação/direção"
+    "Atualizar a cada troca de coordenação/direção",
+    "Contatos institucionais dos colegiados e núcleos são dados pessoais de uso interno (LGPD); não divulgar externamente sem anonimização.",
+    "Atualizar a base de contatos a cada troca de coordenação, direção ou responsável de núcleo, sob pena de falha de comunicação.",
+    "As competências gerais da Direção de Centro (representação, indicação de representantes, condução do Conselho de Centro, articulação com PROGRAD/PROEX) seguem o POP transversal DCEN-00; este documento trata das particularidades do CCSA."
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"CCSA — Direção de Centro\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Articular Direção de Centro, colegiados e coordenações\"]\n    e3[\"Manter a base de contatos por função do Centro\"]\n    e4[\"Encaminhar demandas do Centro via e-Protocolo\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+  "contingencia": [
+    "Se o contato informado por um colegiado ou núcleo estiver desatualizado, o Diretor(a) de Centro solicita a atualização diretamente à coordenação responsável antes de reencaminhar a demanda.",
+    "Se uma demanda encaminhada via e-Protocolo não for respondida no prazo, reiterar ao destinatário e, persistindo a omissão, escalar à Direção Geral de Campus.",
+    "Se um colegiado, coordenação ou núcleo estiver temporariamente sem responsável designado, encaminhar a demanda à Direção de Centro para indicação de responsável interino."
+  ],
+  "checklist": [
+    "Lista de contatos por função do CCSA revisada e atualizada",
+    "Demandas do Centro registradas e encaminhadas via e-Protocolo",
+    "Tramitação das demandas acompanhada até a resposta",
+    "Colegiados e núcleos (NPJ, NUTUR, NUPESA) cientes das articulações e decisões da Direção de Centro"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual da lista de contatos do CCSA atualizada no semestre",
+      "formula": "Contatos confirmados no período / total de funções mapeadas × 100",
+      "meta": "A definir",
+      "fonte": "Lista de contatos por função do CCSA"
+    },
+    {
+      "indicador": "Prazo médio de resposta às demandas encaminhadas pela Direção de Centro",
+      "formula": "Média (data de resposta − data de encaminhamento)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "CCSA — Direção de Centro",
+      "destino": "Direção Geral de Campus",
+      "relacao": "informa",
+      "artefato": "Demandas e deliberações do Centro",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "CCSA — Direção de Centro",
+      "destino": "Colegiado de Curso",
+      "relacao": "informa",
+      "artefato": "Diretrizes e demandas da Direção de Centro aos colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo",
+      "canal": "e-Protocolo/e-mail institucional"
+    },
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "CCSA — Direção de Centro",
+      "relacao": "fornece",
+      "artefato": "Solicitações e demandas dos colegiados de curso do Centro",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Diretor(a) de Centro\"]\n    direction LR\n    e1((\"Necessidade de articulação entre a Direção de Centro e os colegiados/…\"))\n    e2[\"Articular a Direção de Centro com os colegiados de curso e as coorden…\"]\n    e3[\"Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA\"]\n    e4[\"Manter atualizada a base de contatos por função do Centro (coordenado…\"]\n    e6[\"Encaminhar as demandas do Centro aos colegiados, núcleos ou órgãos su…\"]\n    e7[\"Acompanhar a tramitação e a resposta às demandas encaminhadas\"]\n    e10(((\"Base de contatos por função do Centro atualizada\")))\n  end\n  subgraph R2[\"Coordenador(a) de Curso\"]\n    direction LR\n    e5[\"Validar com cada colegiado e núcleo a exatidão dos contatos informados\"]\n  end\n  subgraph R3[\"Direção Geral de Campus\"]\n    direction LR\n    e8[[\"✉ Informar Direção Geral de Campus\"]]\n  end\n  subgraph R4[\"Colegiado de Curso\"]\n    direction LR\n    e9[[\"✉ Informar Colegiado de Curso\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
   "bpmn_spec": {
     "raias": [
-      "CCSA — Direção de Centro"
+      "Diretor(a) de Centro",
+      "Coordenador(a) de Curso",
+      "Direção Geral de Campus",
+      "Colegiado de Curso"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "CCSA — Direção de Centro"
+        "label": "Necessidade de articulação entre a Direção de Centro e os colegiados/núcleos, atualização da base de contatos ou encaminhamento de demanda do Centro",
+        "raia": "Diretor(a) de Centro"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "Articular Direção de Centro, colegiados e coordenações",
-        "raia": "CCSA — Direção de Centro"
+        "label": "Articular a Direção de Centro com os colegiados de curso e as coordenações de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo",
+        "raia": "Diretor(a) de Centro"
       },
       {
         "id": "e3",
         "tipo": "atividade",
-        "label": "Manter a base de contatos por função do Centro",
-        "raia": "CCSA — Direção de Centro"
+        "label": "Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA",
+        "raia": "Diretor(a) de Centro"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Encaminhar demandas do Centro via e-Protocolo",
-        "raia": "CCSA — Direção de Centro"
+        "label": "Manter atualizada a base de contatos por função do Centro (coordenadores de curso, de estágio e de TCC, agentes universitários e núcleos)",
+        "raia": "Diretor(a) de Centro"
       },
       {
         "id": "e5",
+        "tipo": "atividade",
+        "label": "Validar com cada colegiado e núcleo a exatidão dos contatos informados",
+        "raia": "Coordenador(a) de Curso"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Encaminhar as demandas do Centro aos colegiados, núcleos ou órgãos superiores via e-Protocolo",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Acompanhar a tramitação e a resposta às demandas encaminhadas",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Informar Direção Geral de Campus",
+        "raia": "Direção Geral de Campus"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Informar Colegiado de Curso",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e10",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "CCSA — Direção de Centro"
+        "label": "Base de contatos por função do Centro atualizada",
+        "raia": "Diretor(a) de Centro"
       }
     ],
     "conexoes": [
@@ -137,9 +305,29 @@
       {
         "de": "e4",
         "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -154,6 +342,43 @@
         "pb-ccsa"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D2)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 3: Acompanhar a tramitação e a resposta às demandas encaminhadas",
+        "Passo adicionado após 2: Validar com cada colegiado e núcleo a exatidão dos contatos informados",
+        "Passo adicionado após 1: Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +3",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +3",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-ccsa",
+        "1780963200012"
+      ],
+      "motivo": "Completar a visão geral do Centro de Ciências Sociais Aplicadas (responsável, gatilho, entradas/saídas, artefatos, decisão, KPIs, contingência, checklist e mapa de contexto) a partir da lista de contatos por função dos colegiados e núcleos e do playbook do Centro, tornando o POP apto à validação."
     }
   ],
   "validacao": {
@@ -166,25 +391,23 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
     "formulario",
-    "prazo"
+    "dados_pessoais_lgpd"
   ],
-  "observacoes": "",
+  "observacoes": "Visão geral elaborada a partir da lista de contatos dos colegiados do CCSA (Administração, Ciências Contábeis, Direito, Hotelaria e Turismo) e dos núcleos NPJ, NUTUR e NUPESA. As rotinas específicas de gestão acadêmica, estágio e TCC de cada colegiado são detalhadas no POP transversal COLEG-00; as competências gerais da Direção de Centro seguem o POP transversal DCEN-00. Siglas NPJ/NUTUR/NUPESA não expandidas nas fontes consultadas — a confirmar com a Direção de Centro.",
   "fontes_entradas": [
-    "pb-ccsa"
+    "pb-ccsa",
+    "1780963200012"
   ],
-  "hash_fontes": "01ce32c92ac7ab48bc395e61f163d0ec936fa8beec5226a01f517aa60df7c08e",
+  "hash_fontes": "ad8ee7601b832c7d1c0ca33cef3a5ad10e321dfc6a90e8848768f93379a40f29",
   "agente": "",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:55Z",
-  "atualizado_em": "2026-09-02T17:55:55Z"
+  "atualizado_em": "2026-09-03T01:44:47Z"
 }

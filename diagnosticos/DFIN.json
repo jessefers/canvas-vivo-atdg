@@ -218,7 +218,7 @@
         "sistema",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DFIN-02",
       "justificativa": "Fluxo específico correlato às diárias; mesma limitação de cobertura por ser documento-imagem."
     },
@@ -263,7 +263,7 @@
         "sistema",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DFIN-03",
       "justificativa": "Visão consolidada de baixo detalhamento próprio (aponta para os fluxos específicos); recomenda-se manter como POP roteador."
     }
@@ -280,5 +280,5 @@
       "origem": "diagnostico"
     }
   ],
-  "observacoes": "Os fluxogramas do Campus Foz (DFIN-01/02/03) são arquivos em PDF no formato de imagem, sem texto extraível; a cobertura textual desses processos permanece parcial até nova leitura visual/transcrição."
+  "observacoes": "Os fluxogramas do Campus Foz (DFIN-01/02/03) são arquivos em PDF no formato de imagem, sem texto extraível; a cobertura textual desses processos permanece parcial até nova leitura visual/transcrição. DFIN-02 e DFIN-03 pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido; a recomendação numérica orienta o aprofundamento futuro (nova leitura visual dos fluxogramas)."
 }

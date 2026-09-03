@@ -1,18 +1,18 @@
 ---
 codigo: DLIC-01
 titulo: "Fluxo — Contrato de Aquisição (Licitação)"
-versao: "1.0.0"
+versao: "1.1.0"
 status: em_validacao
 setor_codigo: S03.06-DLIC
 setor: "Div. de Licitação"
-atualizado_em: "2026-09-03T01:43:39Z"
+atualizado_em: "2026-09-03T01:44:33Z"
 agente: —
 versao_diretrizes: "1.0"
 ---
 
 # POP DLIC-01 — Fluxo — Contrato de Aquisição (Licitação)
 
-> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **1.0.0** · Status **em_validacao** · Atualizado em 2026-09-03
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **1.1.0** · Status **em_validacao** · Atualizado em 2026-09-03
 
 ## 0. Cabeçalho DDD
 
@@ -95,8 +95,8 @@ graph TD
 | 4 | Emitir e publicar as portarias de Gestor e Fiscal do contrato | Direção Geral | e-Protocolo | Portaria de Gestor; Portaria de Fiscal | A definir | Portarias publicadas |
 | 5 | Registrar o contrato e as portarias no Planejamento (GMS) | Planejamento | GMS | Registro do contrato no GMS | A definir | Contrato registrado |
 | 6 | Solicitar o empenho à Sec. Financeira/Contabilidade | Gestor do contrato | GMS | Nota de empenho | A definir | Empenho solicitado |
-| 7 | Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo | Fiscal do contrato | GMS | Nota fiscal de aquisição | Até o recebimento definitivo dos itens | Recebimento definitivo confirmado |
-| 8 | Solicitar a aquisição e a entrega dos itens contratados | Gestor do contrato | GMS | Solicitação de entrega | A definir | Entrega solicitada |
+| 7 | Solicitar a aquisição e a entrega dos itens contratados | Gestor do contrato | GMS | Solicitação de entrega | A definir | Entrega solicitada |
+| 8 | Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo | Fiscal do contrato | GMS | Nota fiscal de aquisição | Até o recebimento definitivo dos itens | Recebimento definitivo confirmado |
 
 ### 3.4 Saída (entregáveis)
 
@@ -275,6 +275,7 @@ _Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões
 |---|---|---|---|---|---|
 | 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200054 | 1780963200054 |
 | 1.0.0 | 2026-09-03 | agente:construtor-pop (lote C) | major | Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo adicionado após 5: Solicitar a aquisição e a entrega dos itens contratados; Passo adicionado após 5: Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo; Passo adicionado após 1: Verificar a regularidade fiscal do contratado antes da assinatura; entrada_nova: +2; saida_nova: +2; artefatos_novos: +6; decisoes_novas: +1; kpis_novos: +2; mapa_contexto_novo: +4; pontos_atencao_novos: +2; contingencia_nova: +4; checklist_novo: +6; glossario_novo: +2; Campo identificacao.responsavel atualizado; Campo identificacao.periodicidade atualizado; Campo ddd.descricao atualizado; Campo ddd.subdominio atualizado; Campo playbook.gatilho atualizado; Raias adicionadas: Direção Geral, Planejamento, Gestor do contrato, Fiscal do contrato; Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7; Elementos BPMN adicionados: 16; Status promovido a em_validacao (≥ 3 passos e responsável definido) | 1780963200054 |
+| 1.1.0 | 2026-09-03 | agente:construtor-pop (lote C) | minor | Passo 7 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 8 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes) | 1780963200054 |
 
 ## 13. Validação e aprovação
 

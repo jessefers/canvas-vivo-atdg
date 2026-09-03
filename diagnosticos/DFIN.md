@@ -28,8 +28,8 @@ versao_diretrizes: "1.0"
 | 0.74 | DFIN-04 | Procedimento — Diárias Nacionais | processo | 2 | 0.8 | 0.7 | 0.85 | 0.65 | gerar_pop | DFIN-04 |
 | 0.71 | DFIN-01 | Fluxo Despesas Campus Foz — Diárias Nacionais | processo | 2 | 0.8 | 0.7 | 0.8 | 0.5 | gerar_pop | DFIN-01 |
 | 0.70 | DFIN-00 | Visão geral — execução de despesas | processo | 2 | 0.8 | 0.6 | 0.8 | 0.6 | gerar_pop | DFIN-00 |
-| 0.67 | DFIN-02 | Fluxo Despesas Campus Foz — Passagem e Hospedagem | processo | 2 | 0.75 | 0.6 | 0.75 | 0.5 | gerar_pop | DFIN-02 |
-| 0.59 | DFIN-03 | Fluxo Despesas Campus Foz — Geral | processo | 1 | 0.6 | 0.5 | 0.6 | 0.45 | gerar_pop | DFIN-03 |
+| 0.67 | DFIN-02 | Fluxo Despesas Campus Foz — Passagem e Hospedagem | processo | 2 | 0.75 | 0.6 | 0.75 | 0.5 | coletar_mais | DFIN-02 |
+| 0.59 | DFIN-03 | Fluxo Despesas Campus Foz — Geral | processo | 1 | 0.6 | 0.5 | 0.6 | 0.45 | coletar_mais | DFIN-03 |
 
 ### DFIN-04 — Procedimento — Diárias Nacionais
 
@@ -122,7 +122,7 @@ Fluxograma geral consolidado das despesas do Campus Foz tramitadas via e-Protoco
 |---|---|---|
 | Documentos de referência de outras instituições (ex.: Hospital Padre Germano Lauck) foram anexados ao acervo do setor como exemplo metodológico, sem detalhar o processo real da Unioeste. | Registrar documentos de outras instituições apenas em ecossistema.benchmarks do diagnóstico, nunca como evidência de processo próprio nem como normativa institucional. | DFIN — entradas 1780963200036 e 1780963200037 |
 
-> Os fluxogramas do Campus Foz (DFIN-01/02/03) são arquivos em PDF no formato de imagem, sem texto extraível; a cobertura textual desses processos permanece parcial até nova leitura visual/transcrição.
+> Os fluxogramas do Campus Foz (DFIN-01/02/03) são arquivos em PDF no formato de imagem, sem texto extraível; a cobertura textual desses processos permanece parcial até nova leitura visual/transcrição. DFIN-02 e DFIN-03 pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido; a recomendação numérica orienta o aprofundamento futuro (nova leitura visual dos fluxogramas).
 
 ---
 _Gerado por `scripts/render_diag.py` a partir de `diagnosticos/DFIN.json` (diretrizes v1.0)._

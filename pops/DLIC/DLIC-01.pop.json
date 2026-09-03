@@ -5,7 +5,7 @@
   "setor": "Div. de Licitação",
   "setor_codigo": "S03.06-DLIC",
   "sigla": "DLIC",
-  "versao": "1.0.0",
+  "versao": "1.1.0",
   "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
@@ -123,24 +123,24 @@
         ]
       },
       {
-        "acao": "Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo",
-        "responsavel": "Fiscal do contrato",
-        "sistema": "GMS",
-        "artefato": "Nota fiscal de aquisição",
-        "prazo": "Até o recebimento definitivo dos itens",
-        "evento": "Recebimento definitivo confirmado",
-        "fontes": [
-          "1780963200054"
-        ],
-        "n": 7
-      },
-      {
         "acao": "Solicitar a aquisição e a entrega dos itens contratados",
         "responsavel": "Gestor do contrato",
         "sistema": "GMS",
         "artefato": "Solicitação de entrega",
         "prazo": "A definir",
         "evento": "Entrega solicitada",
+        "fontes": [
+          "1780963200054"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo",
+        "responsavel": "Fiscal do contrato",
+        "sistema": "GMS",
+        "artefato": "Nota fiscal de aquisição",
+        "prazo": "Até o recebimento definitivo dos itens",
+        "evento": "Recebimento definitivo confirmado",
         "fontes": [
           "1780963200054"
         ],
@@ -523,6 +523,20 @@
         "1780963200054"
       ],
       "motivo": "Detalhamento do fluxo de contrato de aquisição a partir da entrada do Canvas (1780963200054): separação das ações compostas em passos atômicos, definição de responsável, verificação de regularidade fiscal, empenho, recebimento e conferência de notas fiscais."
+    },
+    {
+      "versao": "1.1.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo 7 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 8 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)"
+      ],
+      "fontes": [
+        "1780963200054"
+      ],
+      "motivo": "Correção da ordem lógica dos passos 7 e 8: a solicitação de aquisição/entrega dos itens deve preceder o acompanhamento da entrega e a conferência das notas fiscais."
     }
   ],
   "validacao": {
@@ -551,5 +565,5 @@
   "agente": "",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-03T01:43:39Z"
+  "atualizado_em": "2026-09-03T01:44:33Z"
 }

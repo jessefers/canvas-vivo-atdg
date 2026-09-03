@@ -1,45 +1,78 @@
 {
   "setor": "CCSA — Direção de Centro",
   "codigo": "CCSA-00",
-  "gerado_em": "2026-09-02T17:55:55Z",
+  "gerado_em": "2026-09-03T01:44:47Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CCSA-00 — Visão geral — Centro de Ciências Sociais Aplicadas — Direção de Centro",
-      "descricao": "Visão do Centro de Ciências Sociais Aplicadas: colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo, núcleos (NPJ, NUTUR, NUPESA) e contatos por função.",
+      "descricao": "Consolida a visão geral do Centro de Ciências Sociais Aplicadas — Direção de Centro: a articulação da Direção com os colegiados de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo e com os núcleos NPJ, NUTUR e NUPESA, a manutenção da base de contatos por função e o encaminhamento e acompanhamento das demandas do Centro, nos termos dos arts. 37 e 41 do Estatuto (Res. 017/99-COU).",
       "raias": [
-        "CCSA — Direção de Centro"
+        "Diretor(a) de Centro",
+        "Coordenador(a) de Curso",
+        "Direção Geral de Campus",
+        "Colegiado de Curso"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "CCSA — Direção de Centro"
+          "label": "Necessidade de articulação entre a Direção de Centro e os colegiados/núcleos, atualização da base de contatos ou encaminhamento de demanda do Centro",
+          "raia": "Diretor(a) de Centro"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Articular Direção de Centro, colegiados e coordenações",
-          "raia": "CCSA — Direção de Centro"
+          "label": "Articular a Direção de Centro com os colegiados de curso e as coordenações de Administração, Ciências Contábeis, Direito, Hotelaria e Turismo",
+          "raia": "Diretor(a) de Centro"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Manter a base de contatos por função do Centro",
-          "raia": "CCSA — Direção de Centro"
+          "label": "Articular a Direção de Centro com os núcleos NPJ, NUTUR e NUPESA",
+          "raia": "Diretor(a) de Centro"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Encaminhar demandas do Centro via e-Protocolo",
-          "raia": "CCSA — Direção de Centro"
+          "label": "Manter atualizada a base de contatos por função do Centro (coordenadores de curso, de estágio e de TCC, agentes universitários e núcleos)",
+          "raia": "Diretor(a) de Centro"
         },
         {
           "id": "e5",
+          "tipo": "atividade",
+          "label": "Validar com cada colegiado e núcleo a exatidão dos contatos informados",
+          "raia": "Coordenador(a) de Curso"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Encaminhar as demandas do Centro aos colegiados, núcleos ou órgãos superiores via e-Protocolo",
+          "raia": "Diretor(a) de Centro"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Acompanhar a tramitação e a resposta às demandas encaminhadas",
+          "raia": "Diretor(a) de Centro"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Informar Direção Geral de Campus",
+          "raia": "Direção Geral de Campus"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Informar Colegiado de Curso",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e10",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "CCSA — Direção de Centro"
+          "label": "Base de contatos por função do Centro atualizada",
+          "raia": "Diretor(a) de Centro"
         }
       ],
       "conexoes": [
@@ -58,9 +91,29 @@
         {
           "de": "e4",
           "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

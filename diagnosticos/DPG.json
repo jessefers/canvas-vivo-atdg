@@ -76,7 +76,7 @@
         "interface_setorial",
         "dados_pessoais_lgpd"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DPG-02",
       "justificativa": "Alto risco ético/regulatório (bem-estar animal, sigilo de propriedade intelectual); baixa frequência mas alta criticidade."
     },
@@ -115,7 +115,7 @@
         "sistema",
         "interface_setorial"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DPG-00",
       "justificativa": "Consolida os cinco fluxos específicos já evidenciados (01 a 05); alta criticidade por envolver afastamento docente, ética em pesquisa e credenciamento de cursos."
     },
@@ -155,7 +155,7 @@
         "interface_setorial",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DPG-01",
       "justificativa": "Processo de alto impacto em RH e orçamento (afastamento docente com ônus); requisitos adicionais para o exterior aumentam o risco de não conformidade."
     },
@@ -194,7 +194,7 @@
         "interface_setorial",
         "dados_pessoais_lgpd"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DPG-03",
       "justificativa": "Espelha o fluxo do CEUA para animais de produção; risco ético/regulatório equivalente, frequência ainda menor."
     },
@@ -234,7 +234,7 @@
         "interface_setorial",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DPG-05",
       "justificativa": "Impacta credenciamento/avaliação de programas de mestrado e doutorado; documentação ampliada para novos programas."
     },
@@ -274,7 +274,7 @@
         "interface_setorial",
         "versao_documento"
       ],
-      "recomendacao": "gerar_pop",
+      "recomendacao": "coletar_mais",
       "pop_existente": "DPG-04",
       "justificativa": "Envolve gestão financeira de cursos (planilha) e credenciamento; risco de conformidade moderado-alto."
     }
@@ -284,5 +284,5 @@
     "SLA de deliberação da PRPPG e dos comitês de ética não evidenciado"
   ],
   "licoes_propostas": [],
-  "observacoes": "Os cinco fluxos específicos (01 a 05) e a visão geral (00) cobrem integralmente os temas evidenciados no Canvas para a Div. de Pós-Graduação; nenhum processo adicional sem POP foi identificado nesta leva."
+  "observacoes": "Os cinco fluxos específicos (01 a 05) e a visão geral (00) cobrem integralmente os temas evidenciados no Canvas para a Div. de Pós-Graduação; nenhum processo adicional sem POP foi identificado nesta leva. Todos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido."
 }

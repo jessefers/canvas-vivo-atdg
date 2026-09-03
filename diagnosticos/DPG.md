@@ -25,12 +25,12 @@ versao_diretrizes: "1.0"
 
 | Prior. | Código | Processo | Tipo | Mat. | Crit. | Freq. | Risco | Cob. | Recomendação | POP |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 0.62 | DPG-02 | Fluxos e-Protocolo — PRPPG CEUA | processo | 2 | 0.8 | 0.3 | 0.8 | 0.55 | gerar_pop | DPG-02 |
-| 0.59 | DPG-00 | Visão geral — pós-graduação e pesquisa (PRPPG) | processo | 2 | 0.7 | 0.4 | 0.7 | 0.55 | gerar_pop | DPG-00 |
-| 0.58 | DPG-01 | Fluxos e-Protocolo — PRPPG Capacitação de Servidores | processo | 2 | 0.75 | 0.3 | 0.65 | 0.55 | gerar_pop | DPG-01 |
-| 0.58 | DPG-03 | Fluxos e-Protocolo — PRPPG CEUAP | processo | 2 | 0.75 | 0.2 | 0.8 | 0.55 | gerar_pop | DPG-03 |
-| 0.58 | DPG-05 | Fluxos e-Protocolo — PRPPG Stricto Sensu | processo | 2 | 0.75 | 0.25 | 0.75 | 0.5 | gerar_pop | DPG-05 |
-| 0.56 | DPG-04 | Fluxos e-Protocolo — PRPPG Lato Sensu | processo | 2 | 0.7 | 0.3 | 0.7 | 0.5 | gerar_pop | DPG-04 |
+| 0.62 | DPG-02 | Fluxos e-Protocolo — PRPPG CEUA | processo | 2 | 0.8 | 0.3 | 0.8 | 0.55 | coletar_mais | DPG-02 |
+| 0.59 | DPG-00 | Visão geral — pós-graduação e pesquisa (PRPPG) | processo | 2 | 0.7 | 0.4 | 0.7 | 0.55 | coletar_mais | DPG-00 |
+| 0.58 | DPG-01 | Fluxos e-Protocolo — PRPPG Capacitação de Servidores | processo | 2 | 0.75 | 0.3 | 0.65 | 0.55 | coletar_mais | DPG-01 |
+| 0.58 | DPG-03 | Fluxos e-Protocolo — PRPPG CEUAP | processo | 2 | 0.75 | 0.2 | 0.8 | 0.55 | coletar_mais | DPG-03 |
+| 0.58 | DPG-05 | Fluxos e-Protocolo — PRPPG Stricto Sensu | processo | 2 | 0.75 | 0.25 | 0.75 | 0.5 | coletar_mais | DPG-05 |
+| 0.56 | DPG-04 | Fluxos e-Protocolo — PRPPG Lato Sensu | processo | 2 | 0.7 | 0.3 | 0.7 | 0.5 | coletar_mais | DPG-04 |
 
 ### DPG-02 — Fluxos e-Protocolo — PRPPG CEUA
 
@@ -137,7 +137,7 @@ Fluxos de proposta, alteração/prorrogação, mudança de cronograma/docentes, 
 
 — Nenhuma
 
-> Os cinco fluxos específicos (01 a 05) e a visão geral (00) cobrem integralmente os temas evidenciados no Canvas para a Div. de Pós-Graduação; nenhum processo adicional sem POP foi identificado nesta leva.
+> Os cinco fluxos específicos (01 a 05) e a visão geral (00) cobrem integralmente os temas evidenciados no Canvas para a Div. de Pós-Graduação; nenhum processo adicional sem POP foi identificado nesta leva. Todos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido.
 
 ---
 _Gerado por `scripts/render_diag.py` a partir de `diagnosticos/DPG.json` (diretrizes v1.0)._

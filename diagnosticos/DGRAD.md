@@ -25,8 +25,8 @@ versao_diretrizes: "1.0"
 
 | Prior. | Código | Processo | Tipo | Mat. | Crit. | Freq. | Risco | Cob. | Recomendação | POP |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 0.63 | DGRAD-01 | Fluxos e-Protocolo — Ensino (PROGRAD) | processo | 2 | 0.75 | 0.5 | 0.65 | 0.6 | gerar_pop | DGRAD-01 |
-| 0.60 | DGRAD-00 | Visão geral — ensino de graduação (PROGRAD) | processo | 2 | 0.7 | 0.5 | 0.6 | 0.55 | gerar_pop | DGRAD-00 |
+| 0.63 | DGRAD-01 | Fluxos e-Protocolo — Ensino (PROGRAD) | processo | 2 | 0.75 | 0.5 | 0.65 | 0.6 | coletar_mais | DGRAD-01 |
+| 0.60 | DGRAD-00 | Visão geral — ensino de graduação (PROGRAD) | processo | 2 | 0.7 | 0.5 | 0.6 | 0.55 | coletar_mais | DGRAD-00 |
 
 ### DGRAD-01 — Fluxos e-Protocolo — Ensino (PROGRAD)
 
@@ -71,7 +71,7 @@ Guia consolidado da tramitação dos processos de ensino de graduação (PPP, re
 |---|---|---|
 | O manual de Fluxos e-Protocolo — Ensino (PROGRAD) está duplicado no acervo do Canvas em duas pastas distintas ('Ensino' e 'Fluxos Internos'), com o mesmo arquivo-fonte. | Ao identificar duplicidade de arquivo-fonte entre pastas do Canvas, registrar nas fontes do POP apenas o arquivo mestre e citar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar um processo/POP separado para a cópia. | DGRAD-01 — entradas 1780963200038 (original) e 1780963200064 (cópia) |
 
-> Nenhum processo adicional de ensino foi evidenciado no Canvas além dos dois já mapeados em POP; a entrada 1780963200064 é cópia idêntica de 1780963200038 e não constitui processo distinto.
+> Nenhum processo adicional de ensino foi evidenciado no Canvas além dos dois já mapeados em POP; a entrada 1780963200064 é cópia idêntica de 1780963200038 e não constitui processo distinto. Ambos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido.
 
 ---
 _Gerado por `scripts/render_diag.py` a partir de `diagnosticos/DGRAD.json` (diretrizes v1.0)._
