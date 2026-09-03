@@ -5,8 +5,8 @@
   "setor": "Div. de Pós-Graduação",
   "setor_codigo": "S05.01-DPG",
   "sigla": "DPG",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Coordenação Acadêmica",
     "departamento": "Div. de Pós-Graduação",
@@ -15,129 +15,346 @@
     "subdominio": "Fluxos e-Protocolo — PRPPG Stricto Sensu",
     "tipo_subdominio": "core",
     "contexto": "S05.01-DPG",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "e-Protocolo",
+        "definicao": "Sistema institucional de tramitação eletrônica de processos e documentos da Unioeste.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "PRPPG",
+        "definicao": "Pró-Reitoria de Pesquisa e Pós-Graduação da Unioeste, responsável por deliberar sobre afastamento/capacitação docente, cursos de pós-graduação e ética em pesquisa.",
+        "sistema": ""
+      },
+      {
+        "termo": "CEUA",
+        "definicao": "Comitê de Ética no Uso de Animais, responsável por autorizar e acompanhar projetos de pesquisa que envolvam animais.",
+        "sistema": ""
+      },
+      {
+        "termo": "CEUAP",
+        "definicao": "Comitê de Ética no Uso de Animais de Produção, responsável por autorizar e acompanhar projetos que envolvam animais de produção.",
+        "sistema": ""
+      },
+      {
+        "termo": "Lato sensu",
+        "definicao": "Pós-graduação de especialização, com carga horária e regras próprias definidas pela Resolução nº 071/2021-CEPE.",
+        "sistema": ""
+      },
+      {
+        "termo": "Stricto sensu",
+        "definicao": "Pós-graduação de mestrado ou doutorado, com programas regidos pela Resolução nº 078/2016-CEPE.",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
+    "responsavel": "Coordenação Acadêmica",
     "periodicidade": "A definir",
     "normativa": [
       "Resolução nº 078/2016-CEPE",
-      "Manual de Fluxos e-Protocolo PRPPG"
+      "Manual de Fluxos e-Protocolo PRPPG",
+      "FLUXO_-_PRPPG_-_Stricto_Sensu.pdf — Manual da Comissão e-Protocolo (documento-fonte)"
     ],
     "subordinacao": "Coordenação Acadêmica",
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  S05_01_DPG[\"S05.01-DPG<br/>Div. de Pós-Graduação\"]\n  S05_CACAD --> S05_01_DPG\n  P[\"DPG-05<br/>Fluxos e-Protocolo — PRPPG Stricto Sensu\"]\n  S05_01_DPG --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD,S05_01_DPG setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  S05_01_DPG[\"S05.01-DPG<br/>Div. de Pós-Graduação\"]\n  S05_CACAD --> S05_01_DPG\n  P[\"DPG-05<br/>Fluxos e-Protocolo — PRPPG Stricto Sensu\"]\n  S05_01_DPG --> P\n  V1[\"Proponente/Coordenador da atividade\"]\n  P -. interface .-> V1\n  V2[\"Coordenação Acadêmica\"]\n  P -. interface .-> V2\n  V3[\"PRPPG\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD,S05_01_DPG setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Proposta ou alteração de programa/curso de pós-graduação stricto sensu",
+      "origem": "Proponente/Coordenador da atividade"
     },
-    "entrada": [],
+    "entrada": [
+      "Proposta/alteração de programa, projeto pedagógico, regulamento ou disciplina stricto sensu"
+    ],
     "passos": [
       {
         "n": 1,
-        "acao": "Identificar o ato (proposta, implantação, modificação, disciplina)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Identificar o ato (proposta de novo programa/curso, implantação, modificação de projeto pedagógico/regulamento ou criação de disciplina)",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Projeto pedagógico/regulamento do programa",
+        "prazo": "Antes da abertura do e-Protocolo",
+        "evento": "Ato identificado",
         "fontes": [
           "1780963200047"
         ]
       },
       {
-        "n": 2,
-        "acao": "Abrir o e-Protocolo conforme o fluxo específico",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Reunir a documentação ampliada exigida quando se tratar de proposta de novo programa/curso (Resolução nº 078/2016-CEPE)",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Documentação ampliada de novo programa",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Documentação ampliada reunida",
         "fontes": [
           "1780963200047"
-        ]
+        ],
+        "n": 2
       },
       {
-        "n": 3,
-        "acao": "Anexar projeto pedagógico/regulamento conforme exigido",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Verificar se o projeto/proposta envolve propriedade intelectual e, em caso positivo, marcar como sigiloso",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo (sigiloso)",
+        "prazo": "No ato da abertura do e-Protocolo",
+        "evento": "Sigilo classificado",
         "fontes": [
           "1780963200047"
-        ]
+        ],
+        "n": 3
       },
       {
         "n": 4,
-        "acao": "Encaminhar à PRPPG para deliberação",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Abrir o e-Protocolo conforme o fluxo específico do ato",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "e-Protocolo aberto",
         "fontes": [
           "1780963200047"
         ]
+      },
+      {
+        "n": 5,
+        "acao": "Anexar o projeto pedagógico/regulamento conforme exigido pelo ato",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Projeto pedagógico/regulamento do programa",
+        "prazo": "Antes do encaminhamento à Coordenação Acadêmica",
+        "evento": "Documentação anexada",
+        "fontes": [
+          "1780963200047"
+        ]
+      },
+      {
+        "acao": "Encaminhar o processo à Coordenação Acadêmica",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado",
+        "fontes": [
+          "1780963200047"
+        ],
+        "n": 6
+      },
+      {
+        "n": 7,
+        "acao": "Encaminhar à PRPPG para deliberação",
+        "responsavel": "Coordenação Acadêmica",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado",
+        "fontes": [
+          "1780963200047"
+        ]
+      },
+      {
+        "acao": "Registrar a deliberação da PRPPG e comunicar ao proponente/coordenador do programa",
+        "responsavel": "Coordenação Acadêmica",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Deliberação comunicada",
+        "fontes": [
+          "1780963200047"
+        ],
+        "n": 8
       }
     ],
-    "saida": []
+    "saida": [
+      "Proposta/alteração deliberada pela PRPPG"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "Projeto pedagógico de programa stricto sensu",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "linhas de pesquisa",
+        "corpo docente permanente",
+        "matriz curricular",
+        "infraestrutura"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    },
+    {
+      "nome": "Regulamento do programa",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "normas de credenciamento docente",
+        "critérios de seleção",
+        "normas de defesa"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "É proposta de novo programa/curso (mestrado ou doutorado)?",
+      "condicao": "Trata-se de proposta de novo programa ou curso de mestrado/doutorado (e não de modificação de programa existente)",
+      "sim": "Reunir a documentação ampliada exigida pela Resolução nº 078/2016-CEPE",
+      "nao": "Instruir como modificação de projeto pedagógico, regulamento ou criação de disciplina do programa existente"
+    },
+    {
+      "decisao": "Projeto/proposta envolve propriedade intelectual?",
+      "condicao": "A proposta envolve propriedade intelectual",
+      "sim": "Marcar e tramitar o e-Protocolo como sigiloso",
+      "nao": "Tramitar pelo fluxo ordinário (não sigiloso)"
+    }
+  ],
   "pontos_atencao": [
     "Observar a Resolução nº 078/2016-CEPE",
     "Propostas de novo programa exigem documentação ampliada"
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Pós-Graduação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Identificar o ato (proposta, implantação, modificação, disciplina)\"]\n    e3[\"Abrir o e-Protocolo conforme o fluxo específico\"]\n    e4[\"Anexar projeto pedagógico/regulamento conforme exigido\"]\n    e5[\"Encaminhar à PRPPG para deliberação\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+  "contingencia": [
+    "Se o e-Protocolo estiver indisponível, registrar a solicitação em meio alternativo e regularizar a tramitação eletrônica assim que o sistema for restabelecido.",
+    "Se a documentação estiver incompleta, devolver ao proponente/coordenador com a relação de pendências antes de encaminhar à PRPPG.",
+    "Em caso de dúvida sobre o fluxo aplicável, consultar a Comissão e-Protocolo ou a PRPPG antes de tramitar."
+  ],
+  "checklist": [
+    "Ato/modalidade corretamente identificado",
+    "e-Protocolo aberto conforme o fluxo específico",
+    "Documentação obrigatória anexada",
+    "Classificação de sigilo (propriedade intelectual) verificada, quando aplicável",
+    "Encaminhamento à PRPPG realizado e acompanhamento registrado"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de tramitação (abertura no e-Protocolo → deliberação da PRPPG)",
+      "formula": "Σ(data da deliberação − data de abertura) / nº de processos no período",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de processos devolvidos por pendência documental ou fluxo incorreto",
+      "formula": "processos devolvidos / total de processos abertos × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Proponente/Coordenador da atividade",
+      "destino": "Coordenação Acadêmica",
+      "relacao": "fornece",
+      "artefato": "Processo instruído (afastamento/curso/projeto)",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Coordenação Acadêmica",
+      "destino": "PRPPG",
+      "relacao": "aprova",
+      "artefato": "Processo encaminhado à PRPPG",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "PRPPG",
+      "destino": "Coordenação Acadêmica",
+      "relacao": "informa",
+      "artefato": "Deliberação da PRPPG",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Proposta ou alteração de programa/curso stricto sensu\"))\n    e2[\"Identificar o ato (proposta de novo programa, implantação, modificaçã…\"]\n    e3{\"É proposta de novo programa/curso (mestrado ou doutorado)?\"}\n    e4[\"Reunir a documentação ampliada exigida para novo programa (Resolução…\"]\n    e5{\"Projeto/proposta envolve propriedade intelectual?\"}\n    e6[\"Marcar o processo como sigiloso no e-Protocolo\"]\n    e7[\"Abrir o e-Protocolo conforme o fluxo específico\"]\n    e8[\"Anexar projeto pedagógico/regulamento conforme exigido\"]\n  end\n  subgraph R2[\"Coordenação Acadêmica\"]\n    direction LR\n    e9[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e12[[\"✉ Informar deliberação à Coordenação Acadêmica\"]]\n    e13[\"Registrar a deliberação e comunicar ao proponente\"]\n    e14(((\"Proposta/alteração deliberada pela PRPPG\")))\n  end\n  subgraph R3[\"PRPPG\"]\n    direction LR\n    e10[[\"✉ Encaminhar à PRPPG para deliberação\"]]\n    e11([\"⏱ Aguardar deliberação da PRPPG\"])\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 -- Sim --> e6\n  e6 --> e7\n  e5 -- Não --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e6,e7,e8,e13 atividade\n  class e3,e5 decisao\n  class e9,e10,e12 captura\n  class e11 pausa\n  class e14 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Pós-Graduação"
+      "Div. de Pós-Graduação",
+      "Proponente/Coordenador da atividade",
+      "Coordenação Acadêmica",
+      "PRPPG"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Div. de Pós-Graduação"
+        "label": "Proposta ou alteração de programa/curso stricto sensu",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "Identificar o ato (proposta, implantação, modificação, disciplina)",
-        "raia": "Div. de Pós-Graduação"
+        "label": "Identificar o ato (proposta de novo programa, implantação, modificação de projeto pedagógico/regulamento, criação de disciplina)",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e3",
-        "tipo": "atividade",
-        "label": "Abrir o e-Protocolo conforme o fluxo específico",
-        "raia": "Div. de Pós-Graduação"
+        "tipo": "decisao",
+        "label": "É proposta de novo programa/curso (mestrado ou doutorado)?",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Anexar projeto pedagógico/regulamento conforme exigido",
-        "raia": "Div. de Pós-Graduação"
+        "label": "Reunir a documentação ampliada exigida para novo programa (Resolução nº 078/2016-CEPE)",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e5",
-        "tipo": "atividade",
-        "label": "Encaminhar à PRPPG para deliberação",
-        "raia": "Div. de Pós-Graduação"
+        "tipo": "decisao",
+        "label": "Projeto/proposta envolve propriedade intelectual?",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e6",
+        "tipo": "atividade",
+        "label": "Marcar o processo como sigiloso no e-Protocolo",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Abrir o e-Protocolo conforme o fluxo específico",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Anexar projeto pedagógico/regulamento conforme exigido",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar à Coordenação Acadêmica",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Encaminhar à PRPPG para deliberação",
+        "raia": "PRPPG"
+      },
+      {
+        "id": "e11",
+        "tipo": "pausa",
+        "label": "Aguardar deliberação da PRPPG",
+        "raia": "PRPPG"
+      },
+      {
+        "id": "e12",
+        "tipo": "captura",
+        "label": "Informar deliberação à Coordenação Acadêmica",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e13",
+        "tipo": "atividade",
+        "label": "Registrar a deliberação e comunicar ao proponente",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e14",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "Div. de Pós-Graduação"
+        "label": "Proposta/alteração deliberada pela PRPPG",
+        "raia": "Coordenação Acadêmica"
       }
     ],
     "conexoes": [
@@ -151,15 +368,59 @@
       },
       {
         "de": "e3",
-        "para": "e4"
+        "para": "e4",
+        "label": "Sim"
       },
       {
         "de": "e4",
         "para": "e5"
       },
       {
+        "de": "e3",
+        "para": "e5",
+        "label": "Não"
+      },
+      {
         "de": "e5",
-        "para": "e6"
+        "para": "e6",
+        "label": "Sim"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e5",
+        "para": "e7",
+        "label": "Não"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -177,6 +438,43 @@
         "1780963200047"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D1)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 1: Reunir a documentação ampliada exigida quando se tratar de proposta de novo prog",
+        "Passo adicionado após 1: Verificar se o projeto/proposta envolve propriedade intelectual e, em caso posit",
+        "Passo adicionado após 3: Encaminhar o processo à Coordenação Acadêmica",
+        "Passo adicionado após 4: Registrar a deliberação da PRPPG e comunicar ao proponente/coordenador do progra",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +2",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +6",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Proponente/Coordenador da atividade, Coordenação Acadêmica, PRPPG",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 14",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200047"
+      ],
+      "motivo": "Completar o fluxo de pós-graduação stricto sensu (Resolução nº 078/2016-CEPE) com a distinção entre proposta de novo programa e modificação de programa existente, a decisão de sigilo por propriedade intelectual e o encaminhamento à PRPPG."
     }
   ],
   "validacao": {
@@ -189,17 +487,13 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
-    "prazo"
+    "interface_setorial",
+    "versao_documento"
   ],
   "observacoes": "",
   "fontes_entradas": [
@@ -207,7 +501,7 @@
   ],
   "hash_fontes": "b2ae9178b836fb9023f2c024a68b6d848c17c2b404b0b2a9ff3bced0b9c209b0",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.2",
   "criado_em": "2026-09-02T17:55:55Z",
-  "atualizado_em": "2026-09-02T17:55:55Z"
+  "atualizado_em": "2026-09-03T01:52:54Z"
 }

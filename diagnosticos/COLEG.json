@@ -1,0 +1,322 @@
+{
+  "id": "diag-coleg-20260903",
+  "setor": "Colegiado de Curso",
+  "setor_codigo": "S12-COLEG",
+  "sigla": "COLEG",
+  "data": "2026-09-03T02:00:00Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-colegiado",
+    "1780963200002",
+    "1780963200003",
+    "1780963200004",
+    "1780963200005",
+    "1780963200006",
+    "1780963200007",
+    "1780963200008",
+    "1780963200009",
+    "1780963200010",
+    "1780963200018",
+    "1780963200019",
+    "1780963200020",
+    "1780963200021",
+    "1780963200032"
+  ],
+  "hash_fontes": "7175dc7d7cb8c240a17be8d4221f650ea681fc5bf3dd86ce5f0ccfcf1231f540",
+  "ecossistema": {
+    "dominio": "Colegiados e Cursos",
+    "subdominios": [
+      "Comunicação, atendimento e protocolo (agente universitário)",
+      "Gestão acadêmica e órgãos colegiados (coordenação de curso)",
+      "Coordenação de estágio",
+      "Coordenação de TCC"
+    ],
+    "contextos_vizinhos": [
+      "CCSA — Direção de Centro",
+      "CECE — Direção de Centro",
+      "Direção de Centro (competências gerais)",
+      "PROGRAD",
+      "Biblioteca"
+    ],
+    "sistemas": [
+      "Academus",
+      "e-Protocolo",
+      "Microsoft Forms"
+    ],
+    "normas": [
+      "Estatuto (Res. 017/99-COU) art. 41",
+      "Lei nº 11.788/2008",
+      "Regimento de Cursos",
+      "Regulamentos de Estágio e TCC dos cursos"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "COLEG-00",
+      "nome": "Visão geral — Colegiado de Curso (transversal)",
+      "tipo": "processo",
+      "descricao": "Consolida as rotinas dos colegiados e coordenações de curso, estágio e TCC e do agente universitário: comunicação e protocolo, condução do Colegiado e do NDE, gestão acadêmica no Academus, formalização de termos e bancas de estágio, e orientação, bancas e envio de TCC à Biblioteca.",
+      "tipo_subdominio": "core",
+      "gatilho": "Solicitação de discente/docente/concedente, pauta do Colegiado/NDE ou marco do calendário acadêmico/cronograma de estágio e TCC",
+      "saida": "Atendimento, deliberações, gestão acadêmica, termos de estágio e TCC concluídos conforme o calendário acadêmico",
+      "atores": [
+        "Coordenador(a) de Curso",
+        "Agente Universitário do Colegiado",
+        "Coordenador(a) de Estágio",
+        "Coordenador(a) de TCC",
+        "Colegiado/NDE"
+      ],
+      "sistemas": [
+        "Academus",
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Pauta e ata do Colegiado/NDE",
+        "Termo de compromisso de estágio",
+        "Ata de banca de TCC"
+      ],
+      "interfaces": [
+        "PROGRAD",
+        "Biblioteca",
+        "Direção de Centro",
+        "Concedentes de estágio"
+      ],
+      "evidencias": [
+        "pb-colegiado",
+        "1780963200002",
+        "1780963200003",
+        "1780963200004",
+        "1780963200005",
+        "1780963200006",
+        "1780963200007",
+        "1780963200008",
+        "1780963200009",
+        "1780963200010",
+        "1780963200018",
+        "1780963200019",
+        "1780963200020",
+        "1780963200021",
+        "1780963200032"
+      ],
+      "maturidade": 3,
+      "criticidade": 0.85,
+      "frequencia": 0.8,
+      "risco_conformidade": 0.7,
+      "cobertura": 0.75,
+      "prioridade": 0.73,
+      "lacunas": [
+        "versao_documento",
+        "dados_pessoais_lgpd"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "pop-coleg-00",
+      "justificativa": "POP transversal completado nesta rodada (v1.0.0, em_validação) com 8 passos, 2 decisões, KPIs, contingência e mapa de contexto, a partir de 15 entradas (questionários, consolidação em aba DADOS e fluxogramas por função). Dada a alta criticidade e frequência (gestão acadêmica, estágio com exposição legal, TCC), recomenda-se desdobrar em POPs específicos por função (COLEG-01 a COLEG-04, abaixo) antes da promoção a 'aprovado'."
+    },
+    {
+      "codigo_sugerido": "COLEG-03",
+      "nome": "Coordenação de estágio",
+      "tipo": "processo",
+      "descricao": "Articulação com instituições concedentes, formalização de termos de compromisso e aditivos, organização de bancas de estágio supervisionado e observância do calendário e da legislação de estágio.",
+      "tipo_subdominio": "core",
+      "gatilho": "Solicitação de estágio de discente ou concedente, ou vencimento/alteração de termo de compromisso vigente",
+      "saida": "Termo de compromisso ou aditivo formalizado e banca de estágio supervisionado realizada",
+      "atores": [
+        "Coordenador(a) de Estágio",
+        "Colegiado de Curso"
+      ],
+      "sistemas": [
+        "Academus"
+      ],
+      "artefatos": [
+        "Termo de compromisso de estágio",
+        "Aditivo de termo de compromisso",
+        "Ata de banca de estágio"
+      ],
+      "interfaces": [
+        "Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)",
+        "Colegiado de Curso"
+      ],
+      "evidencias": [
+        "1780963200007",
+        "1780963200008",
+        "1780963200020"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.85,
+      "frequencia": 0.7,
+      "risco_conformidade": 0.8,
+      "cobertura": 0.4,
+      "prioridade": 0.72,
+      "lacunas": [
+        "sistema",
+        "prazo",
+        "kpi",
+        "contingencia",
+        "interface_setorial"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "",
+      "justificativa": "Processo de maior exposição legal do lote (Lei nº 11.788/2008), com articulação documentada com concedentes variados (hotéis, escolas, NRE, SEED, Itaipu) e fluxograma próprio; recomenda-se POP específico com o passo a passo de formalização e rescisão de termos e a condução de bancas de estágio."
+    },
+    {
+      "codigo_sugerido": "COLEG-02",
+      "nome": "Gestão acadêmica da coordenação de curso",
+      "tipo": "processo",
+      "descricao": "Gestão acadêmica no Academus (planos de ensino, matrícula, notas, horários e distribuição de disciplinas), condução do Colegiado e do NDE e deliberações via e-Protocolo (transferências, segunda chamada, dispensa, exercício domiciliar), conforme o art. 41 do Estatuto e o Regimento de Cursos.",
+      "tipo_subdominio": "core",
+      "gatilho": "Pauta de reunião do Colegiado/NDE, marco do calendário acadêmico ou solicitação de deliberação",
+      "saida": "Gestão acadêmica do período concluída no Academus e deliberações do Colegiado/NDE registradas em ata",
+      "atores": [
+        "Coordenador(a) de Curso",
+        "Colegiado/NDE",
+        "Assistente da coordenação"
+      ],
+      "sistemas": [
+        "Academus",
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Pauta e ata do Colegiado/NDE",
+        "Plano de ensino",
+        "Ata de deliberação"
+      ],
+      "interfaces": [
+        "PROGRAD",
+        "Direção de Centro",
+        "Docentes"
+      ],
+      "evidencias": [
+        "1780963200004",
+        "1780963200005",
+        "1780963200006",
+        "1780963200019",
+        "1780963200032"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.8,
+      "frequencia": 0.85,
+      "risco_conformidade": 0.6,
+      "cobertura": 0.4,
+      "prioridade": 0.7,
+      "lacunas": [
+        "sistema",
+        "prazo",
+        "kpi",
+        "contingencia",
+        "interface_setorial"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "",
+      "justificativa": "Função mais detalhadamente evidenciada do lote: questionário respondido, planilha de consolidação com aba DADOS (percentuais por bloco de atividade) e mapeamento de tarefas da coordenação por art. 41, além de fluxograma próprio. Alta criticidade e frequência (matrícula, notas, deliberações do Colegiado/NDE); recomenda-se POP específico com o passo a passo das deliberações e da gestão acadêmica no Academus."
+    },
+    {
+      "codigo_sugerido": "COLEG-04",
+      "nome": "Coordenação de TCC",
+      "tipo": "processo",
+      "descricao": "Indicação de orientadores, organização de bancas e defesas, editais, atas e declarações, lançamento de notas e frequências no Academus, envio da versão final à Biblioteca e cronograma anual de TCC.",
+      "tipo_subdominio": "core",
+      "gatilho": "Abertura do cronograma anual de TCC ou solicitação de orientação/defesa de discente",
+      "saida": "TCC defendido, notas lançadas no Academus e versão final enviada à Biblioteca",
+      "atores": [
+        "Coordenador(a) de TCC",
+        "Colegiado de Curso"
+      ],
+      "sistemas": [
+        "Academus"
+      ],
+      "artefatos": [
+        "Edital de TCC",
+        "Ata de banca de defesa",
+        "Declaração de entrega à Biblioteca"
+      ],
+      "interfaces": [
+        "Biblioteca",
+        "Colegiado de Curso"
+      ],
+      "evidencias": [
+        "1780963200009",
+        "1780963200010",
+        "1780963200021"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.7,
+      "frequencia": 0.6,
+      "risco_conformidade": 0.5,
+      "cobertura": 0.4,
+      "prioridade": 0.59,
+      "lacunas": [
+        "sistema",
+        "prazo",
+        "kpi",
+        "contingencia",
+        "interface_setorial"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "",
+      "justificativa": "Rotina bem descrita no questionário respondido (indicação de orientadores, editais, atas, envio à Biblioteca) e em fluxograma próprio, com exposição normativa menor que a do estágio; recomenda-se complementar com o Regulamento de TCC de cada curso antes de gerar o POP específico."
+    },
+    {
+      "codigo_sugerido": "COLEG-01",
+      "nome": "Rotinas do Agente Universitário do Colegiado",
+      "tipo": "processo",
+      "descricao": "Comunicação e atendimento a discentes, docentes e concedentes, gestão de documentos e protocolo (e-Protocolo) e apoio acadêmico às coordenações de curso, estágio e TCC, exercidos pelo Agente Universitário do Colegiado.",
+      "tipo_subdominio": "suporte",
+      "gatilho": "Solicitação de discente, docente, concedente ou coordenação que demande atendimento, protocolo ou apoio acadêmico",
+      "saida": "Atendimento realizado, documento protocolado e apoio acadêmico prestado às coordenações",
+      "atores": [
+        "Agente Universitário do Colegiado",
+        "Coordenador(a) de Curso"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "Academus"
+      ],
+      "artefatos": [
+        "Protocolo/registro de atendimento"
+      ],
+      "interfaces": [
+        "Discentes e docentes",
+        "Concedentes de estágio",
+        "Coordenações de curso, estágio e TCC"
+      ],
+      "evidencias": [
+        "1780963200002",
+        "1780963200003",
+        "1780963200018"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.5,
+      "frequencia": 0.8,
+      "risco_conformidade": 0.3,
+      "cobertura": 0.35,
+      "prioridade": 0.57,
+      "lacunas": [
+        "responsavel",
+        "sistema",
+        "prazo",
+        "kpi",
+        "contingencia"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "",
+      "justificativa": "Rotina evidenciada em dois questionários de mapeamento (mesmo instrumento, respostas e cópia — tratados como uma única evidência, lição L-005) e em fluxograma próprio entregue como imagem sem texto extraível; já resumida em COLEG-00, mas sem POP operacional detalhado. Recomenda-se revisar visualmente o fluxograma antes de gerar o POP específico."
+    }
+  ],
+  "lacunas_setor": [
+    "Fluxogramas por função (agente universitário, coordenador de curso, de estágio e de TCC) fornecidos como imagem, sem texto extraível — requerem revisão visual detalhada",
+    "Regulamentos de estágio e de TCC variam entre cursos/colegiados e não foram individualmente coletados neste lote",
+    "Cópias e planilhas de resposta vazias dos questionários de mapeamento foram identificadas e tratadas como uma única evidência por função (lição L-005)",
+    "Política de tratamento de dados pessoais de discentes/docentes no Academus não formalizada neste levantamento"
+  ],
+  "licoes_propostas": [
+    {
+      "licao": "Fluxogramas entregues apenas como imagem incorporada ao documento (sem texto extraível) impedem a extração automática do passo a passo do processo.",
+      "regra": "Sempre que um fluxograma for entregue apenas como imagem, registrar a lacuna 'passos' no processo correspondente e agendar revisão visual manual antes de elevar sua maturidade além do nível já coberto pelo questionário.",
+      "exemplo": "COLEG-01 a COLEG-04 — fluxogramas em .docx sem texto extraível (fontes 1780963200018 a 1780963200021)",
+      "origem": "diagnostico"
+    }
+  ],
+  "observacoes": "Questionários e planilhas em branco (apenas coluna 'ID') do mesmo instrumento foram agrupados como uma única evidência por função, conforme a lição L-005, evitando dupla contagem na qualificação de maturidade e cobertura."
+}

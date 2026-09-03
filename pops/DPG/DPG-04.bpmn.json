@@ -1,51 +1,102 @@
 {
   "setor": "Div. de Pós-Graduação",
   "codigo": "DPG-04",
-  "gerado_em": "2026-09-02T17:55:55Z",
+  "gerado_em": "2026-09-03T01:52:54Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DPG-04 — Fluxos e-Protocolo — PRPPG Lato Sensu",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos dos cursos de pós-graduação lato sensu, conforme a Resolução nº 071/2021-CEPE. Cobre proposta de curso (presencial/semipresencial, residência, EAD), alteração/prorrogação, mudança de cronograma e inclusão de docentes, substituição de coordenador e alteração de planilha financeira. Orienta a tramitação correta no e-Protocolo.",
       "raias": [
-        "Div. de Pós-Graduação"
+        "Div. de Pós-Graduação",
+        "Proponente/Coordenador da atividade",
+        "Coordenação Acadêmica",
+        "PRPPG"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Proposta de curso, alteração ou substituição na pós-graduação lato sensu",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Identificar a modalidade/ato (proposta, alteração, substituição)",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Identificar a modalidade/ato (proposta de curso, alteração/prorrogação, substituição de coordenador, alteração financeira)",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e3",
-          "tipo": "atividade",
-          "label": "Abrir o e-Protocolo conforme o fluxo específico",
-          "raia": "Div. de Pós-Graduação"
+          "tipo": "decisao",
+          "label": "É proposta de novo curso (e não alteração de curso existente)?",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Anexar projeto, cronograma e planilha financeira",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Elaborar o projeto do novo curso conforme a Resolução nº 071/2021-CEPE",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e5",
-          "tipo": "atividade",
-          "label": "Encaminhar à PRPPG para deliberação",
-          "raia": "Div. de Pós-Graduação"
+          "tipo": "decisao",
+          "label": "Há alteração de planilha financeira?",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e6",
+          "tipo": "atividade",
+          "label": "Anexar a planilha financeira revisada",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Abrir o e-Protocolo conforme o fluxo específico",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Anexar projeto, cronograma e planilha financeira",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Encaminhar à PRPPG para deliberação",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e11",
+          "tipo": "pausa",
+          "label": "Aguardar deliberação da PRPPG",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Informar deliberação à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Registrar a deliberação e comunicar ao proponente",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e14",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Proposta/alteração deliberada pela PRPPG",
+          "raia": "Coordenação Acadêmica"
         }
       ],
       "conexoes": [
@@ -59,15 +110,59 @@
         },
         {
           "de": "e3",
-          "para": "e4"
+          "para": "e4",
+          "label": "Sim"
         },
         {
           "de": "e4",
-          "para": "e5"
+          "para": "e7"
+        },
+        {
+          "de": "e3",
+          "para": "e5",
+          "label": "Não"
         },
         {
           "de": "e5",
-          "para": "e6"
+          "para": "e6",
+          "label": "Sim"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e5",
+          "para": "e7",
+          "label": "Não"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."

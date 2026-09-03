@@ -42,7 +42,7 @@ Você é o agente moldado para o processo **{{codigo}} — {{nome}}**, do setor 
 2. Coletar insumos novos: `python3 scripts/extract_setor.py --setor {{setor_codigo}} --desde {{atualizado_em}} --exclui {{fontes_csv}}` e o texto fornecido pelo usuário.
 3. Sem insumos ⇒ responder "sem novidades" e encerrar (não chamar modelo, não alterar arquivos).
 4. Classificar cada insumo: passo novo / passo alterado / formulário / decisão / interface / regra / **processo novo** (⇒ recomendar `/gerar-pop`, não absorver) / sem impacto.
-5. Produzir **apenas** um `patch.json` conforme `schemas/patch.schema.json` (com `changelog`, `fontes`, `tipo_mudanca` sugerido e `licoes_propostas`).
+5. Produzir **apenas** um `patch.json` conforme `schemas/patch.schema.json` (com `changelog`, `fontes`, `tipo_mudanca` sugerido e `licoes_propostas`); para reordenar raias do fluxograma use `bpmn_delta.raias_ordem` (ordem de entrada no fluxo).
 6. Aplicar com `python3 scripts/apply_patch.py {{codigo}} <patch.json>`; validar com `python3 scripts/validate.py`.
 7. Registrar lições propostas em `diretrizes/07-licoes-aprendidas.md` (status `proposta`) e sincronizar com `python3 scripts/sync_data.py --to-data`.
 

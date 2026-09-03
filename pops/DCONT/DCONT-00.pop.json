@@ -5,7 +5,7 @@
   "setor": "Div. de Contabilidade",
   "setor_codigo": "S04.02-DCONT",
   "sigla": "DCONT",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "status": "rascunho",
   "ddd": {
     "divisao": "Secretaria Financeira",
@@ -28,7 +28,7 @@
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S04_SFIN[\"S04-SFIN<br/>Secretaria Financeira\"]\n  S01_DG --> S04_SFIN\n  S04_02_DCONT[\"S04.02-DCONT<br/>Div. de Contabilidade\"]\n  S04_SFIN --> S04_02_DCONT\n  P[\"DCONT-00<br/>Visão geral — Div. de Contabilidade\"]\n  S04_02_DCONT --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S04_SFIN,S04_02_DCONT setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S04_SFIN[\"S04-SFIN<br/>Secretaria Financeira\"]\n  S01_DG --> S04_SFIN\n  S04_02_DCONT[\"S04.02-DCONT<br/>Div. de Contabilidade\"]\n  S04_SFIN --> S04_02_DCONT\n  P[\"DCONT-00<br/>Visão geral — Div. de Contabilidade\"]\n  S04_02_DCONT --> P\n  V1[\"Div. de Finanças\"]\n  P -. interface .-> V1\n  V2[\"Sec. Financeira — Geral\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral de Campus\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S04_SFIN,S04_02_DCONT setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
       "evento": "A definir",
@@ -41,7 +41,7 @@
         "acao": "A documentar: levantar atividades e rotinas da área",
         "responsavel": "A definir",
         "sistema": "",
-        "artefato": "",
+        "artefato": "Roteiro de levantamento (checklist ATDG)",
         "prazo": "A definir",
         "evento": "",
         "fontes": [
@@ -53,7 +53,7 @@
         "acao": "Mapear fluxos e responsáveis por etapa",
         "responsavel": "A definir",
         "sistema": "",
-        "artefato": "",
+        "artefato": "Mapa de fluxos preliminar",
         "prazo": "A definir",
         "evento": "",
         "fontes": [
@@ -65,7 +65,7 @@
         "acao": "Identificar normas aplicáveis e pontos de atenção",
         "responsavel": "A definir",
         "sistema": "",
-        "artefato": "",
+        "artefato": "Lista de normas aplicáveis (TCE-PR, normas contábeis)",
         "prazo": "A definir",
         "evento": "",
         "fontes": [
@@ -75,19 +75,79 @@
     ],
     "saida": []
   },
-  "artefatos": [],
+  "artefatos": [
+    {
+      "nome": "Roteiro de levantamento (checklist ATDG)",
+      "tipo": "documento",
+      "sistema": "Canvas Vivo ATDG",
+      "campos_chave": [
+        "processo",
+        "responsável",
+        "sistema",
+        "artefato",
+        "prazo"
+      ],
+      "responsavel_preenchimento": "A definir"
+    }
+  ],
   "decisoes": [],
   "pontos_atencao": [
     "Área ainda não mapeada — playbook em construção"
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Contabilidade\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+  "contingencia": [
+    "Caso não haja retorno do setor para a entrevista de levantamento, escalar a solicitação à Secretaria Financeira ou à Direção Geral do Campus.",
+    "Na ausência de normativa própria confirmada, registrar como lacuna e citar apenas as referências genéricas já identificadas (normas contábeis públicas; TCE-PR) até validação.",
+    "Se o processo de empenho depender de informação da Div. de Finanças ainda não documentada, registrar a dependência e priorizar o levantamento conjunto dos dois setores."
+  ],
+  "checklist": [
+    "Confirmar com o setor a função/cargo responsável pela Div. de Contabilidade",
+    "Levantar os sistemas efetivamente utilizados para empenho e prestação de contas",
+    "Coletar modelos de documentos/registros de empenho e conformidade",
+    "Registrar interfaces com a Div. de Finanças e a Secretaria Financeira"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de passos do playbook com responsável e sistema definidos",
+      "formula": "passos completos / total de passos × 100",
+      "meta": "100% até a validação do POP",
+      "fonte": "pop.json do setor"
+    },
+    {
+      "indicador": "Tempo até a primeira validação do roteiro de coleta",
+      "formula": "data da 1ª entrevista de levantamento − data de criação do roteiro",
+      "meta": "A definir",
+      "fonte": "Registro de acompanhamento ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Contabilidade",
+      "destino": "Div. de Finanças",
+      "relacao": "recebe",
+      "artefato": "Processo de despesa com fonte/conta indicada (para empenho)",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Contabilidade",
+      "destino": "Sec. Financeira — Geral",
+      "relacao": "informa",
+      "artefato": "Roteiro de levantamento de processos contábeis",
+      "canal": "Canvas Vivo ATDG"
+    },
+    {
+      "origem": "Div. de Contabilidade",
+      "destino": "Direção Geral de Campus",
+      "relacao": "informa",
+      "artefato": "Status do mapeamento de processos",
+      "canal": "e-mail institucional"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Contabilidade\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e7(((\"Concluído\")))\n  end\n  subgraph R2[\"Sec. Financeira — Geral\"]\n    direction LR\n    e5[[\"✉ Informar Sec. Financeira — Geral\"]]\n  end\n  subgraph R3[\"Direção Geral de Campus\"]\n    direction LR\n    e6[[\"✉ Informar Direção Geral de Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5,e6 captura\n  class e7 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Contabilidade"
+      "Div. de Contabilidade",
+      "Sec. Financeira — Geral",
+      "Direção Geral de Campus"
     ],
     "elementos": [
       {
@@ -116,6 +176,18 @@
       },
       {
         "id": "e5",
+        "tipo": "captura",
+        "label": "Informar Sec. Financeira — Geral",
+        "raia": "Sec. Financeira — Geral"
+      },
+      {
+        "id": "e6",
+        "tipo": "captura",
+        "label": "Informar Direção Geral de Campus",
+        "raia": "Direção Geral de Campus"
+      },
+      {
+        "id": "e7",
         "tipo": "fim",
         "label": "Concluído",
         "raia": "Div. de Contabilidade"
@@ -137,9 +209,17 @@
       {
         "de": "e4",
         "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -154,6 +234,28 @@
         "pb-contabilidade"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D1)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo 1 alterado (sistema, artefato)",
+        "Passo 2 alterado (sistema, artefato)",
+        "Passo 3 alterado (sistema, artefato)",
+        "artefatos_novos: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [
+        "pb-contabilidade"
+      ],
+      "motivo": "Completar os passos genéricos do roteiro de coleta da Div. de Contabilidade com sistema/artefato, contingência e checklist de levantamento, mantendo o responsável como 'A definir' até validação do setor."
     }
   ],
   "validacao": {
@@ -166,7 +268,9 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
     "responsavel",
@@ -176,15 +280,16 @@
     "kpi",
     "contingencia",
     "formulario",
-    "prazo"
+    "prazo",
+    "interface_setorial"
   ],
-  "observacoes": "",
+  "observacoes": "Setor ainda não mapeado — roteiro de coleta.",
   "fontes_entradas": [
     "pb-contabilidade"
   ],
   "hash_fontes": "8260000998ed45119ddacad49a9a35adb854acfc8b69c690696dffa639073537",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.2",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:52:53Z"
 }

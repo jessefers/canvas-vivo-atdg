@@ -5,8 +5,8 @@
   "setor": "Div. de Finanças",
   "setor_codigo": "S04.01-DFIN",
   "sigla": "DFIN",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Financeira",
     "departamento": "Div. de Finanças",
@@ -15,147 +15,407 @@
     "subdominio": "Procedimento — Diárias Nacionais",
     "tipo_subdominio": "core",
     "contexto": "S04.01-DFIN",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Cadin",
+        "definicao": "Cadastro Informativo de créditos não quitados do setor público federal; consulta obrigatória para verificar pendências do beneficiário antes da concessão de diárias ou despesas de viagem.",
+        "sistema": "Cadin"
+      },
+      {
+        "termo": "e-Protocolo",
+        "definicao": "Sistema institucional de tramitação eletrônica de processos e documentos da Unioeste, usado para abrir, assinar e encaminhar solicitações de despesa.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "Empenho",
+        "definicao": "Ato administrativo que reserva o crédito orçamentário para a despesa, formalizado pela Div. de Contabilidade após a indicação de fonte e conta pela Secretaria Financeira.",
+        "sistema": "Sistema orçamentário/contábil"
+      },
+      {
+        "termo": "PRAF",
+        "definicao": "Pró-Reitoria de Administração e Finanças da Unioeste, responsável pelos formulários e procedimentos oficiais de despesas, diárias e viagens.",
+        "sistema": ""
+      },
+      {
+        "termo": "Folder/justificativa",
+        "definicao": "Documento que detalha objetivo, roteiro e justificativa institucional da viagem ou despesa solicitada, anexado ao processo no e-Protocolo.",
+        "sistema": "e-Protocolo"
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
+    "responsavel": "Chefe da Divisão de Finanças",
     "periodicidade": "A definir",
     "normativa": [
-      "Procedimentos de diárias — PRAF/Unioeste"
+      "Procedimentos de diárias — PRAF/Unioeste",
+      "Formulário e instrução de assinaturas — Diárias Nacionais (documento-fonte: Diárias_Nacionais.pdf)"
     ],
     "subordinacao": "Secretaria Financeira",
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S04_SFIN[\"S04-SFIN<br/>Secretaria Financeira\"]\n  S01_DG --> S04_SFIN\n  S04_01_DFIN[\"S04.01-DFIN<br/>Div. de Finanças\"]\n  S04_SFIN --> S04_01_DFIN\n  P[\"DFIN-04<br/>Procedimento — Diárias Nacionais\"]\n  S04_01_DFIN --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S04_SFIN,S04_01_DFIN setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S04_SFIN[\"S04-SFIN<br/>Secretaria Financeira\"]\n  S01_DG --> S04_SFIN\n  S04_01_DFIN[\"S04.01-DFIN<br/>Div. de Finanças\"]\n  S04_SFIN --> S04_01_DFIN\n  P[\"DFIN-04<br/>Procedimento — Diárias Nacionais\"]\n  S04_01_DFIN --> P\n  V1[\"Servidor/Requisitante\"]\n  P -. interface .-> V1\n  V2[\"Div. de Contabilidade\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S04_SFIN,S04_01_DFIN setor\n  class P destaque\n  class V1,V2 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Necessidade de viagem a serviço no território nacional",
+      "origem": "Servidor/Requisitante"
     },
-    "entrada": [],
+    "entrada": [
+      "Solicitação de diárias nacionais com dados da viagem"
+    ],
     "passos": [
       {
         "n": 1,
-        "acao": "Preencher formulário de diárias nacionais (link PRAF)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Preencher o formulário de diárias nacionais (link oficial PRAF)",
+        "responsavel": "Servidor/Requisitante",
+        "sistema": "e-Protocolo",
+        "artefato": "Formulário de Diárias Nacionais",
+        "prazo": "Até a data-limite definida pela PRAF",
+        "evento": "Formulário preenchido",
         "fontes": [
           "1780963200049"
         ]
       },
       {
         "n": 2,
-        "acao": "Assinar e solicitar assinaturas via e-Protocolo",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Assinar e solicitar as demais assinaturas via e-Protocolo",
+        "responsavel": "Chefia imediata",
+        "sistema": "e-Protocolo",
+        "artefato": "Formulário assinado",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Formulário assinado",
         "fontes": [
           "1780963200049"
         ]
       },
       {
         "n": 3,
-        "acao": "Anexar folder/justificativa e consulta ao Cadin do interessado",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Anexar folder/justificativa e a consulta ao Cadin do interessado",
+        "responsavel": "Servidor/Requisitante",
+        "sistema": "e-Protocolo",
+        "artefato": "Folder/justificativa; Consulta Cadin",
+        "prazo": "Antes do encaminhamento à Secretaria Financeira",
+        "evento": "Documentação anexada",
         "fontes": [
           "1780963200049"
         ]
       },
       {
         "n": 4,
-        "acao": "Encaminhar (C27) à Secretária Financeira para conferência e fonte",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Encaminhar (C27) à Secretária Financeira para conferência e indicação de fonte",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de diárias nacionais",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Processo conferido",
         "fontes": [
           "1780963200049"
         ]
       },
       {
-        "n": 5,
-        "acao": "Encaminhar à Contabilidade para empenho",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Conferir a regularidade do Cadin do interessado",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "Cadin",
+        "artefato": "Consulta Cadin",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Cadin conferido",
+        "fontes": [
+          "1780963200049"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Verificar a disponibilidade orçamentária e financeira",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "e-Protocolo",
+        "artefato": "Declaração de Disponibilidade Orçamentária e Financeira (DDF)",
+        "prazo": "A definir",
+        "evento": "Disponibilidade confirmada",
+        "fontes": [
+          "1780963200049"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Indicar a fonte e a conta orçamentária da diária",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "e-Protocolo",
+        "artefato": "Declaração de Disponibilidade Orçamentária e Financeira (DDF)",
+        "prazo": "A definir",
+        "evento": "Fonte/conta indicada",
+        "fontes": [
+          "1780963200049"
+        ],
+        "n": 7
+      },
+      {
+        "n": 8,
+        "acao": "Encaminhar à Div. de Contabilidade para empenho",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de diárias nacionais",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado à Contabilidade",
         "fontes": [
           "1780963200049"
         ]
+      },
+      {
+        "acao": "Emitir a nota de empenho da diária nacional",
+        "responsavel": "Div. de Contabilidade",
+        "sistema": "Sistema orçamentário/contábil",
+        "artefato": "Nota de Empenho",
+        "prazo": "A definir",
+        "evento": "Diária nacional empenhada",
+        "fontes": [
+          "1780963200049"
+        ],
+        "n": 9
       }
     ],
-    "saida": []
+    "saida": [
+      "Processo de diárias nacionais encaminhado à Contabilidade com fonte/conta indicada e empenhado"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "Formulário de Diárias Nacionais",
+      "tipo": "formulario",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "dados do servidor",
+        "destino e período da viagem",
+        "quantidade de diárias",
+        "justificativa/folder",
+        "fonte e conta orçamentária"
+      ],
+      "responsavel_preenchimento": "Servidor/Requisitante"
+    },
+    {
+      "nome": "Folder/justificativa da viagem",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "objetivo da viagem",
+        "programação/roteiro",
+        "vínculo institucional do evento"
+      ],
+      "responsavel_preenchimento": "Servidor/Requisitante"
+    },
+    {
+      "nome": "Consulta Cadin",
+      "tipo": "registro",
+      "sistema": "Cadin",
+      "campos_chave": [
+        "CPF do beneficiário",
+        "situação (regular/irregular)",
+        "data da consulta"
+      ],
+      "responsavel_preenchimento": "Servidor/Requisitante"
+    },
+    {
+      "nome": "Declaração de Disponibilidade Orçamentária e Financeira (DDF)",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "fonte de recursos",
+        "conta/elemento de despesa",
+        "valor disponível"
+      ],
+      "responsavel_preenchimento": "Secretaria Financeira"
+    },
+    {
+      "nome": "Nota de Empenho",
+      "tipo": "registro",
+      "sistema": "Sistema orçamentário/contábil",
+      "campos_chave": [
+        "número do empenho",
+        "credor",
+        "valor",
+        "fonte de recursos"
+      ],
+      "responsavel_preenchimento": "Div. de Contabilidade"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Cadin regular?",
+      "condicao": "A consulta ao Cadin do interessado retorna situação regular",
+      "sim": "Prosseguir com a verificação de disponibilidade orçamentária e financeira",
+      "nao": "Notificar/devolver ao requisitante até a regularização"
+    },
+    {
+      "decisao": "Disponibilidade orçamentária e financeira confirmada?",
+      "condicao": "Há saldo na fonte/conta indicada para a diária",
+      "sim": "Secretaria Financeira indica fonte/conta e encaminha à Div. de Contabilidade",
+      "nao": "Devolver ao requisitante ou acionar remanejamento orçamentário"
+    }
+  ],
   "pontos_atencao": [
     "Consulta ao Cadin é obrigatória (interessado e conferência)",
     "Verificar disponibilidade orçamentária antes do encaminhamento",
-    "Usar os links oficiais de formulário e instrução de assinatura"
+    "Usar os links oficiais de formulário e instrução de assinatura",
+    "A consulta ao Cadin é obrigatória e deve ser conferida tanto pelo interessado quanto pela Secretaria Financeira antes do encaminhamento à Contabilidade.",
+    "Utilizar sempre os links e formulários oficiais da PRAF vigentes; versões desatualizadas geram devolução do processo.",
+    "Os formulários e a consulta ao Cadin contêm dados pessoais (CPF, nome); observar a LGPD no manuseio, na tramitação e no arquivamento.",
+    "Usar sempre os links oficiais de formulário e de instrução de assinatura vigentes da PRAF."
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Finanças\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Preencher formulário de diárias nacionais (link PRAF)\"]\n    e3[\"Assinar e solicitar assinaturas via e-Protocolo\"]\n    e4[\"Anexar folder/justificativa e consulta ao Cadin do interessado\"]\n    e5[\"Encaminhar (C27) à Secretária Financeira para conferência e fonte\"]\n    e6[\"Encaminhar à Contabilidade para empenho\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+  "contingencia": [
+    "Se a consulta ao Cadin indicar situação irregular, suspender o processo e notificar o interessado até a regularização.",
+    "Se não houver disponibilidade orçamentária na fonte indicada, devolver o processo ao requisitante ou acionar a Secretaria Financeira para remanejamento antes do empenho.",
+    "Se o e-Protocolo estiver indisponível, registrar a solicitação em meio alternativo (papel/e-mail institucional) e regularizar a tramitação eletrônica assim que o sistema for restabelecido.",
+    "Em caso de urgência da viagem, priorizar a conferência do Cadin e da disponibilidade orçamentária para evitar atraso no empenho."
+  ],
+  "checklist": [
+    "Formulário preenchido com todos os dados obrigatórios do servidor e da viagem/despesa",
+    "Assinaturas coletadas via e-Protocolo (servidor e chefia imediata)",
+    "Folder/justificativa anexado",
+    "Consulta ao Cadin realizada e anexada, com situação regular",
+    "Disponibilidade orçamentária conferida e fonte/conta indicada",
+    "Processo encaminhado à Contabilidade com todos os anexos"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de tramitação da despesa (abertura → empenho)",
+      "formula": "Σ(data do empenho − data de abertura no e-Protocolo) / nº de processos no período",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de processos devolvidos por pendência no Cadin ou na documentação",
+      "formula": "processos devolvidos / total de processos abertos × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Servidor/Requisitante",
+      "destino": "Div. de Finanças",
+      "relacao": "fornece",
+      "artefato": "Formulário de despesa e documentação anexa",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Finanças",
+      "destino": "Div. de Contabilidade",
+      "relacao": "fornece",
+      "artefato": "Processo de despesa com fonte/conta indicada",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Contabilidade",
+      "destino": "Div. de Finanças",
+      "relacao": "informa",
+      "artefato": "Nota de empenho",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Servidor/Requisitante\"]\n    direction LR\n    e1((\"Necessidade de viagem a serviço no território nacional\"))\n    e2[\"Preencher o formulário de diárias nacionais (link PRAF)\"]\n    e4[\"Anexar folder/justificativa da viagem\"]\n    e5[\"Consultar o Cadin do interessado e anexar comprovante\"]\n  end\n  subgraph R2[\"Chefia imediata\"]\n    direction LR\n    e3[\"Assinar e solicitar assinaturas via e-Protocolo\"]\n  end\n  subgraph R3[\"Secretaria Financeira\"]\n    direction LR\n    e6[[\"✉ Encaminhar (C27) à Secretária Financeira para conferência e fonte\"]]\n    e7{\"Cadin regular?\"}\n    e8[\"Notificar/devolver ao requisitante para regularização\"]\n    e9(((\"Processo suspenso até regularização do Cadin\")))\n    e10{\"Disponibilidade orçamentária e financeira confirmada?\"}\n    e11[\"Solicitar remanejamento ou devolver ao requisitante\"]\n    e12(((\"Processo pendente de disponibilidade orçamentária\")))\n    e13[\"Indicar fonte e conta orçamentária\"]\n  end\n  subgraph R4[\"Div. de Contabilidade\"]\n    direction LR\n    e14[[\"✉ Encaminhar à Div. de Contabilidade para empenho\"]]\n    e15[\"Emitir nota de empenho\"]\n    e16(((\"Diária nacional empenhada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 -- Não --> e8\n  e8 --> e9\n  e7 -- Sim --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e10 -- Sim --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e8,e11,e13,e15 atividade\n  class e6,e14 captura\n  class e7,e10 decisao\n  class e9,e12,e16 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Finanças"
+      "Div. de Finanças",
+      "Servidor/Requisitante",
+      "Chefia imediata",
+      "Secretaria Financeira",
+      "Div. de Contabilidade"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Div. de Finanças"
+        "label": "Necessidade de viagem a serviço no território nacional",
+        "raia": "Servidor/Requisitante"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "Preencher formulário de diárias nacionais (link PRAF)",
-        "raia": "Div. de Finanças"
+        "label": "Preencher o formulário de diárias nacionais (link PRAF)",
+        "raia": "Servidor/Requisitante"
       },
       {
         "id": "e3",
         "tipo": "atividade",
         "label": "Assinar e solicitar assinaturas via e-Protocolo",
-        "raia": "Div. de Finanças"
+        "raia": "Chefia imediata"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Anexar folder/justificativa e consulta ao Cadin do interessado",
-        "raia": "Div. de Finanças"
+        "label": "Anexar folder/justificativa da viagem",
+        "raia": "Servidor/Requisitante"
       },
       {
         "id": "e5",
         "tipo": "atividade",
-        "label": "Encaminhar (C27) à Secretária Financeira para conferência e fonte",
-        "raia": "Div. de Finanças"
+        "label": "Consultar o Cadin do interessado e anexar comprovante",
+        "raia": "Servidor/Requisitante"
       },
       {
         "id": "e6",
-        "tipo": "atividade",
-        "label": "Encaminhar à Contabilidade para empenho",
-        "raia": "Div. de Finanças"
+        "tipo": "captura",
+        "label": "Encaminhar (C27) à Secretária Financeira para conferência e fonte",
+        "raia": "Secretaria Financeira"
       },
       {
         "id": "e7",
+        "tipo": "decisao",
+        "label": "Cadin regular?",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Notificar/devolver ao requisitante para regularização",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e9",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "Div. de Finanças"
+        "label": "Processo suspenso até regularização do Cadin",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e10",
+        "tipo": "decisao",
+        "label": "Disponibilidade orçamentária e financeira confirmada?",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Solicitar remanejamento ou devolver ao requisitante",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e12",
+        "tipo": "fim",
+        "label": "Processo pendente de disponibilidade orçamentária",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e13",
+        "tipo": "atividade",
+        "label": "Indicar fonte e conta orçamentária",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e14",
+        "tipo": "captura",
+        "label": "Encaminhar à Div. de Contabilidade para empenho",
+        "raia": "Div. de Contabilidade"
+      },
+      {
+        "id": "e15",
+        "tipo": "atividade",
+        "label": "Emitir nota de empenho",
+        "raia": "Div. de Contabilidade"
+      },
+      {
+        "id": "e16",
+        "tipo": "fim",
+        "label": "Diária nacional empenhada",
+        "raia": "Div. de Contabilidade"
       }
     ],
     "conexoes": [
@@ -182,6 +442,46 @@
       {
         "de": "e6",
         "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8",
+        "label": "Não"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e7",
+        "para": "e10",
+        "label": "Sim"
+      },
+      {
+        "de": "e10",
+        "para": "e11",
+        "label": "Não"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e10",
+        "para": "e13",
+        "label": "Sim"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15"
+      },
+      {
+        "de": "e15",
+        "para": "e16"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -199,6 +499,44 @@
         "1780963200049"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D1)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 4: Conferir a regularidade do Cadin do interessado",
+        "Passo adicionado após 4: Verificar a disponibilidade orçamentária e financeira",
+        "Passo adicionado após 4: Indicar a fonte e a conta orçamentária da diária",
+        "Passo adicionado após 5: Emitir a nota de empenho da diária nacional",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +5",
+        "decisoes_novas: +2",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +4",
+        "contingencia_nova: +4",
+        "checklist_novo: +6",
+        "glossario_novo: +5",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Servidor/Requisitante, Chefia imediata, Secretaria Financeira, Div. de Contabilidade",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7",
+        "Elementos BPMN adicionados: 16",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200049"
+      ],
+      "motivo": "Completar o esqueleto do procedimento textual de Diárias Nacionais — o mais detalhado do conjunto DFIN — com decisões, artefatos e mapa de contexto explícitos, mantendo o encaminhamento C27 já evidenciado."
     }
   ],
   "validacao": {
@@ -211,17 +549,13 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
-    "prazo"
+    "versao_documento",
+    "dados_pessoais_lgpd"
   ],
   "observacoes": "",
   "fontes_entradas": [
@@ -229,7 +563,7 @@
   ],
   "hash_fontes": "f45c1544efde07ad6995116620f05f10b1a5321a543805c61f78e5a4fbd83b96",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.2",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:52:53Z"
 }

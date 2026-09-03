@@ -1,7 +1,7 @@
 ---
 id: diretriz-07
 titulo: Lições aprendidas (log append-only)
-versao: "1.2"
+versao: "1.5"
 atualizado_em: "2026-09-03"
 ---
 
@@ -27,6 +27,9 @@ Log **append-only**. Somente lições com `status: aprovada` são injetadas nos 
 |---|---|---|---|---|---|
 | L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |
 | L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |
+| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |
+| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |
+| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |
 
 ## Rejeitadas
 

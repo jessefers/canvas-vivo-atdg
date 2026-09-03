@@ -1,51 +1,107 @@
 {
   "setor": "Div. de Pós-Graduação",
   "codigo": "DPG-03",
-  "gerado_em": "2026-09-02T17:55:55Z",
+  "gerado_em": "2026-09-03T01:52:54Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DPG-03 — Fluxos e-Protocolo — PRPPG CEUAP",
       "descricao": "Manual da Comissão e-Protocolo com os fluxos do Comitê de Ética no Uso de Animais de Produção (CEUAP). Define a tramitação para projetos novos, alteração de projetos e relatórios finais, com abertura pelo docente responsável (protocolo unificado e termo de responsabilidade) e encaminhamento ao responsável pelo campo de estudo/coordenador. Projetos com propriedade intelectual tramitam como sigilosos.",
       "raias": [
-        "Div. de Pós-Graduação"
+        "Div. de Pós-Graduação",
+        "Proponente/Coordenador da atividade",
+        "CEUA/CEUAP"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Proposição de projeto de pesquisa com uso de animais de produção",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Abrir e-Protocolo com protocolo unificado e termo de responsabilidade",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Elaborar o protocolo unificado e o termo de responsabilidade",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e3",
-          "tipo": "atividade",
-          "label": "Encaminhar ao responsável pelo campo de estudo/coordenador",
-          "raia": "Div. de Pós-Graduação"
+          "tipo": "decisao",
+          "label": "Projeto envolve propriedade intelectual?",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Tramitar ao Presidente do CEUAP para autorização",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Marcar o processo como sigiloso no e-Protocolo",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Submeter alterações e relatórios finais pelos fluxos próprios",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Abrir o e-Protocolo com o protocolo unificado e o termo de responsabilidade",
+          "raia": "Proponente/Coordenador da atividade"
         },
         {
           "id": "e6",
+          "tipo": "captura",
+          "label": "Encaminhar ao responsável pelo campo de estudo/coordenador",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Analisar o protocolo e solicitar ajustes, se necessário",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Tramitar ao Presidente do CEUAP para autorização",
+          "raia": "CEUA/CEUAP"
+        },
+        {
+          "id": "e9",
+          "tipo": "pausa",
+          "label": "Aguardar autorização do Presidente do CEUAP",
+          "raia": "CEUA/CEUAP"
+        },
+        {
+          "id": "e10",
+          "tipo": "decisao",
+          "label": "Presidente do CEUAP autoriza?",
+          "raia": "CEUA/CEUAP"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Devolver ao proponente para ajustes e nova submissão",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e12",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Div. de Pós-Graduação"
+          "label": "Projeto devolvido para ajustes",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Executar o projeto sob acompanhamento do CEUAP",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e14",
+          "tipo": "captura",
+          "label": "Submeter alterações e relatório final ao CEUAP pelos fluxos próprios",
+          "raia": "CEUA/CEUAP"
+        },
+        {
+          "id": "e15",
+          "tipo": "fim",
+          "label": "Projeto autorizado e encerrado com relatório final",
+          "raia": "CEUA/CEUAP"
         }
       ],
       "conexoes": [
@@ -59,15 +115,59 @@
         },
         {
           "de": "e3",
-          "para": "e4"
+          "para": "e4",
+          "label": "Sim"
         },
         {
           "de": "e4",
           "para": "e5"
         },
         {
+          "de": "e3",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
           "de": "e5",
           "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11",
+          "label": "Não"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e10",
+          "para": "e13",
+          "label": "Sim"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."

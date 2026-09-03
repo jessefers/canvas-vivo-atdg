@@ -1,14 +1,16 @@
 {
   "setor": "Div. de Assistência Estudantil",
   "codigo": "DAE-00",
-  "gerado_em": "2026-09-02T17:55:55Z",
+  "gerado_em": "2026-09-03T01:52:54Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DAE-00 — Visão geral — Div. de Assistência Estudantil",
       "descricao": "Divisão de Assistência Estudantil da Coordenação Acadêmica. Playbook em construção.",
       "raias": [
-        "Div. de Assistência Estudantil"
+        "Div. de Assistência Estudantil",
+        "Coordenação Acadêmica — Geral",
+        "Direção Geral de Campus"
       ],
       "elementos": [
         {
@@ -37,6 +39,18 @@
         },
         {
           "id": "e5",
+          "tipo": "captura",
+          "label": "Informar Coordenação Acadêmica — Geral",
+          "raia": "Coordenação Acadêmica — Geral"
+        },
+        {
+          "id": "e6",
+          "tipo": "captura",
+          "label": "Informar Direção Geral de Campus",
+          "raia": "Direção Geral de Campus"
+        },
+        {
+          "id": "e7",
           "tipo": "fim",
           "label": "Concluído",
           "raia": "Div. de Assistência Estudantil"
@@ -58,9 +72,17 @@
         {
           "de": "e4",
           "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

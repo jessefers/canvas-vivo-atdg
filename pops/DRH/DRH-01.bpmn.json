@@ -1,51 +1,107 @@
 {
   "setor": "Div. de Recursos Humanos",
   "codigo": "DRH-01",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:52:45Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DRH-01 — Fluxos e-Protocolo — RH (PRORH)",
-      "descricao": "Versão 3.0 (set/2024) do manual da Comissão e-Protocolo com os fluxos da área de Recursos Humanos. É a versão mais recente do conjunto de fluxos de RH (licenças, afastamentos, frequência, progressões e demais demandas funcionais), substituindo a versão 2.0 de mai/2023. Referência preferencial para a instrução de processos de RH no e-Protocolo.",
+      "descricao": "Instrui, no e-Protocolo, os processos funcionais de RH (licenças, afastamentos, progressões e demais demandas) conforme a versão vigente do Manual de Fluxos e-Protocolo da PRORH (v3.0, set/2024), que substitui a versão 2.0 (mai/2023) e suas cópias, até a análise e deliberação da PRORH.",
       "raias": [
-        "Div. de Recursos Humanos"
+        "Div. de Recursos Humanos",
+        "Servidor",
+        "PRORH"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Recursos Humanos"
+          "label": "Solicitação de processo funcional de RH",
+          "raia": "Servidor"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Identificar o tipo de processo de RH",
-          "raia": "Div. de Recursos Humanos"
+          "label": "Solicitar o processo funcional de RH",
+          "raia": "Servidor"
         },
         {
           "id": "e3",
-          "tipo": "atividade",
-          "label": "Instruir o e-Protocolo conforme o fluxo da v3.0",
+          "tipo": "captura",
+          "label": "Encaminhar solicitação à Div. de Recursos Humanos",
           "raia": "Div. de Recursos Humanos"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Anexar documentação funcional exigida",
+          "label": "Identificar o tipo de processo e o fluxo aplicável (v3.0)",
           "raia": "Div. de Recursos Humanos"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Encaminhar às instâncias de RH/PRORH",
+          "label": "Abrir o processo no e-Protocolo",
           "raia": "Div. de Recursos Humanos"
         },
         {
           "id": "e6",
-          "tipo": "fim",
-          "label": "Concluído",
+          "tipo": "atividade",
+          "label": "Instruir o e-Protocolo conforme o fluxo vigente (v3.0)",
           "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Solicitar documentação complementar ao servidor",
+          "raia": "Servidor"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Anexar a documentação funcional exigida",
+          "raia": "Servidor"
+        },
+        {
+          "id": "e9",
+          "tipo": "decisao",
+          "label": "Processo está instruído conforme o fluxo vigente?",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e10",
+          "tipo": "pausa",
+          "label": "Aguardar correção da instrução",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Encaminhar o processo às instâncias de RH/PRORH",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Receber processo na PRORH",
+          "raia": "PRORH"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Analisar o processo conforme o fluxo vigente",
+          "raia": "PRORH"
+        },
+        {
+          "id": "e14",
+          "tipo": "atividade",
+          "label": "Deliberar e comunicar a decisão",
+          "raia": "PRORH"
+        },
+        {
+          "id": "e15",
+          "tipo": "fim",
+          "label": "Processo de RH concluído",
+          "raia": "PRORH"
         }
       ],
       "conexoes": [
@@ -68,6 +124,48 @@
         {
           "de": "e5",
           "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10",
+          "label": "Não"
+        },
+        {
+          "de": "e10",
+          "para": "e6"
+        },
+        {
+          "de": "e9",
+          "para": "e11",
+          "label": "Sim"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."

@@ -140,6 +140,12 @@ def aplicar(pop, patch, org=None, data=None):
                 spec['raias'].append(r)
         tipo = cl.max_tipo(tipo, 'major')
         mudancas.append('Raias adicionadas: %s' % ', '.join(delta['raias_add']))
+    if delta.get('raias_ordem'):
+        ordem = [r for r in delta['raias_ordem'] if r in spec['raias']] + [r for r in spec['raias'] if r not in delta['raias_ordem']]
+        if ordem != spec['raias']:
+            spec['raias'] = ordem
+            mudancas.append('Raias reordenadas: %s' % ' → '.join(ordem))
+            tipo = cl.max_tipo(tipo, 'patch')
     if delta.get('elementos_rm'):
         rm = set(delta['elementos_rm'])
         spec['elementos'] = [e for e in spec['elementos'] if e['id'] not in rm]

@@ -5,8 +5,8 @@
   "setor": "Coordenação Acadêmica — Geral",
   "setor_codigo": "S05-CACAD",
   "sigla": "CACAD",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Coordenação Acadêmica",
     "departamento": "Coordenação Acadêmica",
@@ -15,128 +15,348 @@
     "subdominio": "Fluxos e-Protocolo — Extensão (PROEX)",
     "tipo_subdominio": "core",
     "contexto": "S05-CACAD",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "e-Protocolo",
+        "definicao": "Sistema institucional de tramitação eletrônica de processos e documentos da Unioeste.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "PROEX",
+        "definicao": "Pró-Reitoria de Extensão da Unioeste, responsável por aprovar e acompanhar as atividades de extensão (programas, projetos, cursos e eventos).",
+        "sistema": ""
+      },
+      {
+        "termo": "Fomento externo",
+        "definicao": "Financiamento de atividade de extensão por agência ou instituição externa à Unioeste, que segue fluxo próprio de tramitação no e-Protocolo.",
+        "sistema": ""
+      },
+      {
+        "termo": "Atividade de extensão",
+        "definicao": "Programa, projeto, curso ou evento de extensão universitária, com ou sem recursos financeiros, proposto por docente ou agente universitário.",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
+    "responsavel": "Coordenação Acadêmica",
     "periodicidade": "A definir",
     "normativa": [
-      "Manual de Fluxos e-Protocolo — PROEX/Unioeste"
+      "Manual de Fluxos e-Protocolo — PROEX/Unioeste",
+      "FLUXO_PROEX_-_ATUAL.pdf — Manual da Comissão e-Protocolo (documento-fonte, PROEX)"
     ],
     "subordinacao": "Direção Geral de Campus",
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  P[\"CACAD-01<br/>Fluxos e-Protocolo — Extensão (PROEX)\"]\n  S05_CACAD --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  P[\"CACAD-01<br/>Fluxos e-Protocolo — Extensão (PROEX)\"]\n  S05_CACAD --> P\n  V1[\"Proponente/Coordenador da atividade\"]\n  P -. interface .-> V1\n  V2[\"Coordenação Acadêmica\"]\n  P -. interface .-> V2\n  V3[\"PROEX\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Abertura de nova atividade de extensão pelo proponente",
+      "origem": "Proponente/Coordenador da atividade"
     },
-    "entrada": [],
+    "entrada": [
+      "Proposta de atividade de extensão (programa, projeto, curso ou evento), com ou sem recursos, de docente ou agente universitário"
+    ],
     "passos": [
       {
         "n": 1,
-        "acao": "Classificar a atividade de extensão (com/sem recursos; proponente)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Classificar a atividade de extensão quanto à modalidade (programa/projeto/curso/evento) e ao proponente (docente ou agente universitário)",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Formulário de Atividade de Extensão",
+        "prazo": "Antes da abertura do e-Protocolo",
+        "evento": "Atividade classificada",
         "fontes": [
           "1780963200039"
         ]
       },
       {
-        "n": 2,
-        "acao": "Abrir o e-Protocolo conforme o fluxo da modalidade",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Confirmar a possibilidade de proposição por agente universitário para a modalidade escolhida, quando aplicável",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Formulário de Atividade de Extensão",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Proponente confirmado",
         "fontes": [
           "1780963200039"
-        ]
+        ],
+        "n": 2
       },
       {
-        "n": 3,
-        "acao": "Anexar documentação e encaminhar às instâncias previstas",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Verificar se a atividade prevê recursos financeiros e/ou fomento externo",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Formulário de Atividade de Extensão",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Recursos/fomento verificados",
         "fontes": [
           "1780963200039"
-        ]
+        ],
+        "n": 3
       },
       {
         "n": 4,
-        "acao": "Acompanhar aprovação na PROEX",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Abrir o e-Protocolo conforme o fluxo da modalidade identificada",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "e-Protocolo aberto",
         "fontes": [
           "1780963200039"
         ]
+      },
+      {
+        "n": 5,
+        "acao": "Anexar o projeto/plano de trabalho e a documentação exigida pela modalidade e encaminhar às instâncias previstas",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Documentação da atividade de extensão",
+        "prazo": "Antes do encaminhamento à Coordenação Acadêmica",
+        "evento": "Documentação anexada",
+        "fontes": [
+          "1780963200039"
+        ]
+      },
+      {
+        "acao": "Encaminhar o processo à Coordenação Acadêmica",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado",
+        "fontes": [
+          "1780963200039"
+        ],
+        "n": 6
+      },
+      {
+        "n": 7,
+        "acao": "Acompanhar a aprovação na PROEX",
+        "responsavel": "Coordenação Acadêmica",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Aprovação acompanhada",
+        "fontes": [
+          "1780963200039"
+        ]
+      },
+      {
+        "acao": "Registrar o resultado da deliberação da PROEX e comunicar ao proponente",
+        "responsavel": "Coordenação Acadêmica",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Resultado comunicado",
+        "fontes": [
+          "1780963200039"
+        ],
+        "n": 8
       }
     ],
-    "saida": []
+    "saida": [
+      "Atividade de extensão aprovada pela PROEX e apta a ser executada"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "Formulário de Atividade de Extensão",
+      "tipo": "formulario",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "modalidade (programa/projeto/curso/evento)",
+        "proponente",
+        "com/sem recursos",
+        "fomento externo (S/N)"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    },
+    {
+      "nome": "Documentação da atividade de extensão",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "projeto/plano de trabalho",
+        "cronograma",
+        "público-alvo"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Proponente é agente universitário (e não docente)?",
+      "condicao": "A atividade é proposta por servidor técnico-administrativo (agente universitário)",
+      "sim": "Confirmar a possibilidade de proposição por agente universitário para a modalidade escolhida antes de abrir o e-Protocolo",
+      "nao": "Seguir o fluxo padrão de proposição por docente"
+    },
+    {
+      "decisao": "Atividade com recursos financeiros?",
+      "condicao": "A atividade de extensão prevê captação/uso de recursos financeiros",
+      "sim": "Instruir o e-Protocolo pelo fluxo de atividade COM recursos (inclui análise orçamentária/financeira)",
+      "nao": "Instruir o e-Protocolo pelo fluxo de atividade SEM recursos"
+    },
+    {
+      "decisao": "Há fomento externo?",
+      "condicao": "A atividade é financiada por agência de fomento externa à Unioeste",
+      "sim": "Seguir o fluxo próprio de atividades com fomento externo",
+      "nao": "Seguir o fluxo padrão da modalidade (programa/projeto/curso/evento)"
+    }
+  ],
   "pontos_atencao": [
     "Distinguir corretamente atividades com e sem recursos financeiros",
     "Atividades com fomento externo têm fluxo próprio"
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Coordenação Acadêmica — Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Classificar a atividade de extensão (com/sem recursos; proponente)\"]\n    e3[\"Abrir o e-Protocolo conforme o fluxo da modalidade\"]\n    e4[\"Anexar documentação e encaminhar às instâncias previstas\"]\n    e5[\"Acompanhar aprovação na PROEX\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+  "contingencia": [
+    "Se o e-Protocolo estiver indisponível, registrar a solicitação em meio alternativo e regularizar a tramitação eletrônica assim que o sistema for restabelecido.",
+    "Se a documentação estiver incompleta, devolver ao proponente/coordenador com a relação de pendências antes de encaminhar à PROEX.",
+    "Em caso de dúvida sobre o fluxo aplicável à modalidade, consultar a Comissão e-Protocolo ou a PROEX antes de tramitar.",
+    "Atividades com fomento externo abertas erroneamente pelo fluxo padrão devem ser reclassificadas e reabertas pelo fluxo próprio de fomento externo."
+  ],
+  "checklist": [
+    "Modalidade da atividade de extensão corretamente identificada (programa, projeto, curso ou evento)",
+    "Classificação quanto a recursos financeiros e fomento externo definida",
+    "e-Protocolo aberto conforme o fluxo específico da modalidade",
+    "Documentação obrigatória anexada",
+    "Encaminhamento às instâncias na ordem prevista"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de tramitação (abertura no e-Protocolo → deliberação da PROEX)",
+      "formula": "Σ(data da deliberação − data de abertura) / nº de processos no período",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de processos devolvidos por pendência documental ou fluxo incorreto",
+      "formula": "processos devolvidos / total de processos abertos × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Proponente/Coordenador da atividade",
+      "destino": "Coordenação Acadêmica",
+      "relacao": "fornece",
+      "artefato": "Proposta de atividade de extensão",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Coordenação Acadêmica",
+      "destino": "PROEX",
+      "relacao": "aprova",
+      "artefato": "Processo de extensão instruído",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "PROEX",
+      "destino": "Coordenação Acadêmica",
+      "relacao": "informa",
+      "artefato": "Decisão da PROEX sobre a atividade",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Abertura de nova atividade de extensão pelo proponente\"))\n    e2[\"Classificar a modalidade da atividade (programa/projeto/curso/evento)\"]\n    e3{\"Proponente é agente universitário (e não docente)?\"}\n    e4[\"Confirmar a possibilidade de proposição por agente universitário para…\"]\n    e5{\"Atividade com recursos financeiros?\"}\n    e6{\"Há fomento externo?\"}\n    e8[\"Abrir o e-Protocolo conforme o fluxo da modalidade\"]\n    e9[\"Anexar o projeto/plano de trabalho conforme a modalidade\"]\n  end\n  subgraph R2[\"PROEX\"]\n    direction LR\n    e7[[\"✉ Encaminhar pelo fluxo de fomento externo\"]]\n    e12[[\"✉ Encaminhar à PROEX para aprovação\"]]\n    e13([\"⏱ Aguardar deliberação da PROEX\"])\n  end\n  subgraph R3[\"Coordenação Acadêmica\"]\n    direction LR\n    e10[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e11[\"Encaminhar o processo às instâncias previstas\"]\n    e14[[\"✉ Informar resultado à Coordenação Acadêmica\"]]\n    e15(((\"Atividade de extensão aprovada pela PROEX\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 -- Sim --> e6\n  e5 -- Não --> e8\n  e6 -- Sim --> e7\n  e6 -- Não --> e8\n  e7 --> e9\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e8,e9,e11 atividade\n  class e3,e5,e6 decisao\n  class e7,e10,e12,e14 captura\n  class e13 pausa\n  class e15 fim",
   "bpmn_spec": {
     "raias": [
-      "Coordenação Acadêmica — Geral"
+      "Coordenação Acadêmica — Geral",
+      "Proponente/Coordenador da atividade",
+      "PROEX",
+      "Coordenação Acadêmica"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Coordenação Acadêmica — Geral"
+        "label": "Abertura de nova atividade de extensão pelo proponente",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "Classificar a atividade de extensão (com/sem recursos; proponente)",
-        "raia": "Coordenação Acadêmica — Geral"
+        "label": "Classificar a modalidade da atividade (programa/projeto/curso/evento)",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e3",
-        "tipo": "atividade",
-        "label": "Abrir o e-Protocolo conforme o fluxo da modalidade",
-        "raia": "Coordenação Acadêmica — Geral"
+        "tipo": "decisao",
+        "label": "Proponente é agente universitário (e não docente)?",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Anexar documentação e encaminhar às instâncias previstas",
-        "raia": "Coordenação Acadêmica — Geral"
+        "label": "Confirmar a possibilidade de proposição por agente universitário para a modalidade escolhida",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e5",
-        "tipo": "atividade",
-        "label": "Acompanhar aprovação na PROEX",
-        "raia": "Coordenação Acadêmica — Geral"
+        "tipo": "decisao",
+        "label": "Atividade com recursos financeiros?",
+        "raia": "Proponente/Coordenador da atividade"
       },
       {
         "id": "e6",
+        "tipo": "decisao",
+        "label": "Há fomento externo?",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e7",
+        "tipo": "captura",
+        "label": "Encaminhar pelo fluxo de fomento externo",
+        "raia": "PROEX"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Abrir o e-Protocolo conforme o fluxo da modalidade",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Anexar o projeto/plano de trabalho conforme a modalidade",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Encaminhar à Coordenação Acadêmica",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Encaminhar o processo às instâncias previstas",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e12",
+        "tipo": "captura",
+        "label": "Encaminhar à PROEX para aprovação",
+        "raia": "PROEX"
+      },
+      {
+        "id": "e13",
+        "tipo": "pausa",
+        "label": "Aguardar deliberação da PROEX",
+        "raia": "PROEX"
+      },
+      {
+        "id": "e14",
+        "tipo": "captura",
+        "label": "Informar resultado à Coordenação Acadêmica",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e15",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "Coordenação Acadêmica — Geral"
+        "label": "Atividade de extensão aprovada pela PROEX",
+        "raia": "Coordenação Acadêmica"
       }
     ],
     "conexoes": [
@@ -150,15 +370,69 @@
       },
       {
         "de": "e3",
-        "para": "e4"
+        "para": "e4",
+        "label": "Sim"
       },
       {
         "de": "e4",
         "para": "e5"
       },
       {
+        "de": "e3",
+        "para": "e5",
+        "label": "Não"
+      },
+      {
         "de": "e5",
-        "para": "e6"
+        "para": "e6",
+        "label": "Sim"
+      },
+      {
+        "de": "e5",
+        "para": "e8",
+        "label": "Não"
+      },
+      {
+        "de": "e6",
+        "para": "e7",
+        "label": "Sim"
+      },
+      {
+        "de": "e6",
+        "para": "e8",
+        "label": "Não"
+      },
+      {
+        "de": "e7",
+        "para": "e9"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -176,6 +450,43 @@
         "1780963200039"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D1)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 1: Confirmar a possibilidade de proposição por agente universitário para a modalida",
+        "Passo adicionado após 1: Verificar se a atividade prevê recursos financeiros e/ou fomento externo",
+        "Passo adicionado após 3: Encaminhar o processo à Coordenação Acadêmica",
+        "Passo adicionado após 4: Registrar o resultado da deliberação da PROEX e comunicar ao proponente",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +3",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +4",
+        "checklist_novo: +5",
+        "glossario_novo: +4",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Proponente/Coordenador da atividade, PROEX, Coordenação Acadêmica",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 15",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200039"
+      ],
+      "motivo": "Completar o fluxo detalhado de extensão (PROEX) — fonte primária: manual oficial da Comissão e-Protocolo — com a distinção de proponente (docente/agente universitário), decisões de recursos/fomento externo, artefatos e mapa de contexto."
     }
   ],
   "validacao": {
@@ -188,17 +499,13 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
-    "prazo"
+    "interface_setorial",
+    "versao_documento"
   ],
   "observacoes": "",
   "fontes_entradas": [
@@ -206,7 +513,7 @@
   ],
   "hash_fontes": "7e528d3379c8b610c05e847f74ee03d4cba5d4c43d71d4b8ac85bcecb2a35b0d",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.2",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:52:54Z"
 }

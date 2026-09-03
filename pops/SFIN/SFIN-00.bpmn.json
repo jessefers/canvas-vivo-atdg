@@ -1,14 +1,16 @@
 {
   "setor": "Sec. Financeira — Geral",
   "codigo": "SFIN-00",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:52:53Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "SFIN-00 — Visão geral — Secretaria Financeira",
       "descricao": "Visão geral da Secretaria Financeira do Campus, que reúne as divisões de Finanças e de Contabilidade. A Divisão de Finanças já possui playbook (execução de despesas e diárias); Contabilidade em construção.",
       "raias": [
-        "Sec. Financeira — Geral"
+        "Sec. Financeira — Geral",
+        "Div. de Contabilidade",
+        "Direção Geral de Campus"
       ],
       "elementos": [
         {
@@ -37,6 +39,18 @@
         },
         {
           "id": "e5",
+          "tipo": "captura",
+          "label": "Informar Div. de Contabilidade",
+          "raia": "Div. de Contabilidade"
+        },
+        {
+          "id": "e6",
+          "tipo": "captura",
+          "label": "Informar Direção Geral de Campus",
+          "raia": "Direção Geral de Campus"
+        },
+        {
+          "id": "e7",
           "tipo": "fim",
           "label": "Concluído",
           "raia": "Sec. Financeira — Geral"
@@ -58,9 +72,17 @@
         {
           "de": "e4",
           "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

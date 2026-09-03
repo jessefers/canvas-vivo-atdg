@@ -1,14 +1,16 @@
 {
   "setor": "Div. de Contabilidade",
   "codigo": "DCONT-00",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:52:53Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DCONT-00 — Visão geral — Div. de Contabilidade",
       "descricao": "Divisão de Contabilidade da Secretaria Financeira. Playbook em construção (empenho, conformidade e prestação de contas).",
       "raias": [
-        "Div. de Contabilidade"
+        "Div. de Contabilidade",
+        "Sec. Financeira — Geral",
+        "Direção Geral de Campus"
       ],
       "elementos": [
         {
@@ -37,6 +39,18 @@
         },
         {
           "id": "e5",
+          "tipo": "captura",
+          "label": "Informar Sec. Financeira — Geral",
+          "raia": "Sec. Financeira — Geral"
+        },
+        {
+          "id": "e6",
+          "tipo": "captura",
+          "label": "Informar Direção Geral de Campus",
+          "raia": "Direção Geral de Campus"
+        },
+        {
+          "id": "e7",
           "tipo": "fim",
           "label": "Concluído",
           "raia": "Div. de Contabilidade"
@@ -58,9 +72,17 @@
         {
           "de": "e4",
           "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

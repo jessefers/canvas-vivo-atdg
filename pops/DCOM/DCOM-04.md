@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S03.10-DCOM
 setor: "Div. de Compras"
 atualizado_em: "2026-09-03T01:46:19Z"
-agente: —
+agente: pop-dcom-04
 versao_diretrizes: "1.0"
 ---
 
@@ -49,7 +49,7 @@ versao_diretrizes: "1.0"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | 1780963200053 |
 | Lacunas abertas | prazo, versao_documento, sistema |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dcom-04 |
 
 ## 2. Organograma
 
