@@ -1,0 +1,73 @@
+{
+  "id": "diag-dcont-20260903",
+  "setor": "Div. de Contabilidade",
+  "setor_codigo": "S04.02-DCONT",
+  "sigla": "DCONT",
+  "data": "2026-09-03T01:41:28Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-contabilidade"
+  ],
+  "hash_fontes": "8260000998ed45119ddacad49a9a35adb854acfc8b69c690696dffa639073537",
+  "ecossistema": {
+    "dominio": "Finanças e Orçamento",
+    "subdominios": [
+      "Empenho, conformidade e prestação de contas (a mapear)"
+    ],
+    "contextos_vizinhos": [
+      "Div. de Finanças",
+      "Secretaria Financeira",
+      "Direção Geral de Campus"
+    ],
+    "sistemas": [],
+    "normas": [],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DCONT-00",
+      "nome": "Visão geral — Div. de Contabilidade",
+      "tipo": "processo",
+      "descricao": "Playbook em construção da Div. de Contabilidade (empenho, conformidade e prestação de contas); sem entradas operacionais próprias no Canvas.",
+      "tipo_subdominio": "core",
+      "gatilho": "A definir",
+      "saida": "A definir",
+      "atores": [
+        "Div. de Contabilidade"
+      ],
+      "sistemas": [],
+      "artefatos": [],
+      "interfaces": [
+        "Div. de Finanças"
+      ],
+      "evidencias": [
+        "pb-contabilidade"
+      ],
+      "maturidade": 0,
+      "criticidade": 0.6,
+      "frequencia": 0.2,
+      "risco_conformidade": 0.6,
+      "cobertura": 0.1,
+      "prioridade": 0.51,
+      "lacunas": [
+        "responsavel",
+        "normativa",
+        "gatilho",
+        "entrada",
+        "saida",
+        "sistema",
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "DCONT-00",
+      "justificativa": "Setor com alta criticidade e risco de conformidade (empenho, TCE-PR) mas sem qualquer evidência operacional própria no Canvas — apenas o apontamento de que recebe processos da Div. de Finanças para empenho."
+    }
+  ],
+  "lacunas_setor": [
+    "sem entradas no Canvas"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "DCONT-00 permanece como POP-roteiro de coleta; recomenda-se levantamento presencial com a Div. de Contabilidade para mapear o recebimento de processos de despesa (DFIN), o empenho, a conformidade e a prestação de contas."
+}

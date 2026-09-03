@@ -1,0 +1,84 @@
+{
+  "id": "diag-sfin-20260903",
+  "setor": "Sec. Financeira — Geral",
+  "setor_codigo": "S04-SFIN",
+  "sigla": "SFIN",
+  "data": "2026-09-03T01:41:28Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-sec-financeira"
+  ],
+  "hash_fontes": "bc32dbe5defa69c7214deecc5c8b8342165705056ec776970818bc0f83d07706",
+  "ecossistema": {
+    "dominio": "Finanças e Orçamento",
+    "subdominios": [
+      "Coordenação de despesas e diárias do campus",
+      "Interlocução com Div. de Finanças e Div. de Contabilidade"
+    ],
+    "contextos_vizinhos": [
+      "Div. de Finanças",
+      "Div. de Contabilidade",
+      "Direção Geral de Campus",
+      "PRAF (Pró-Reitoria de Administração e Finanças)"
+    ],
+    "sistemas": [
+      "e-Protocolo"
+    ],
+    "normas": [
+      "Estrutura conforme organograma do Campus Foz (Secretaria Financeira)"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "SFIN-00",
+      "nome": "Visão geral — Secretaria Financeira",
+      "tipo": "processo",
+      "descricao": "Coordenação, pela Secretaria Financeira, das divisões de Finanças e de Contabilidade e roteamento de demandas financeiras do campus via e-Protocolo.",
+      "tipo_subdominio": "core",
+      "gatilho": "A definir",
+      "saida": "A definir",
+      "atores": [
+        "Secretaria Financeira",
+        "Div. de Finanças",
+        "Div. de Contabilidade"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [],
+      "interfaces": [
+        "Div. de Finanças",
+        "Div. de Contabilidade",
+        "Direção Geral de Campus"
+      ],
+      "evidencias": [
+        "pb-sec-financeira"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.45,
+      "frequencia": 0.3,
+      "risco_conformidade": 0.4,
+      "cobertura": 0.15,
+      "prioridade": 0.43,
+      "lacunas": [
+        "responsavel",
+        "gatilho",
+        "entrada",
+        "saida",
+        "sistema",
+        "interface_setorial"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "SFIN-00",
+      "justificativa": "Único registro é um roteiro de coordenação de alto nível, sem evidência operacional própria; a Secretaria Financeira já delega a execução detalhada às divisões subordinadas (DFIN, com playbook consolidado; DCONT, ainda não mapeada)."
+    }
+  ],
+  "lacunas_setor": [
+    "Setor mapeado apenas em nível de coordenação (playbook-roteiro); sem evidências operacionais próprias no Canvas além do apontamento às divisões subordinadas",
+    "Responsável nominal (função) pela Secretaria Financeira ainda não identificado"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "SFIN-00 permanece como POP-roteiro de coleta (visão geral de coordenação); a substância operacional financeira do campus está documentada nos POPs da Div. de Finanças (DFIN) e, quando mapeada, da Div. de Contabilidade (DCONT)."
+}

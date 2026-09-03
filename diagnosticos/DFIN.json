@@ -1,0 +1,284 @@
+{
+  "id": "diag-dfin-20260903",
+  "setor": "Div. de Finanças",
+  "setor_codigo": "S04.01-DFIN",
+  "sigla": "DFIN",
+  "data": "2026-09-03T01:41:28Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "1780963200036",
+    "1780963200037",
+    "1780963200040",
+    "1780963200041",
+    "1780963200042",
+    "1780963200049",
+    "pb-financas"
+  ],
+  "hash_fontes": "8bfecfc6f37ddb03f71bf9d71cd40ea9c0e5fb82b8b546a45e448822ad7911dc",
+  "ecossistema": {
+    "dominio": "Finanças e Orçamento",
+    "subdominios": [
+      "Execução de despesas do campus (diárias, passagens, hospedagem)",
+      "Tramitação de despesas no e-Protocolo até o empenho"
+    ],
+    "contextos_vizinhos": [
+      "Div. de Contabilidade",
+      "Secretaria Financeira",
+      "Direção Geral de Campus",
+      "PRAF (Pró-Reitoria de Administração e Finanças)"
+    ],
+    "sistemas": [
+      "e-Protocolo",
+      "Cadin"
+    ],
+    "normas": [
+      "Procedimentos PRAF/Secretaria Financeira",
+      "Fluxos de despesas do Campus Foz (e-Protocolo)"
+    ],
+    "benchmarks": [
+      "Descrição de subprocesso financeiro — Contas a Pagar (Hospital Padre Germano Lauck, 2018) — referência metodológica externa, não norma da Unioeste",
+      "Fluxograma financeiro genérico (documento de referência externa) — adaptado apenas como modelo de representação visual"
+    ]
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DFIN-04",
+      "nome": "Procedimento — Diárias Nacionais",
+      "tipo": "processo",
+      "descricao": "Procedimento textual detalhado de solicitação de diárias nacionais, da abertura à indicação de fonte/conta pela Secretaria Financeira e ao empenho pela Contabilidade.",
+      "tipo_subdominio": "core",
+      "gatilho": "Necessidade de viagem a serviço no território nacional",
+      "saida": "Processo de diárias nacionais encaminhado à Contabilidade com fonte/conta indicada",
+      "atores": [
+        "Servidor/Requisitante",
+        "Chefia imediata",
+        "Secretaria Financeira",
+        "Div. de Contabilidade"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "Cadin"
+      ],
+      "artefatos": [
+        "Formulário de despesa",
+        "Folder/justificativa",
+        "Consulta Cadin",
+        "Declaração de Disponibilidade Orçamentária e Financeira"
+      ],
+      "interfaces": [
+        "Div. de Contabilidade",
+        "Secretaria Financeira"
+      ],
+      "evidencias": [
+        "1780963200049"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.8,
+      "frequencia": 0.7,
+      "risco_conformidade": 0.85,
+      "cobertura": 0.65,
+      "prioridade": 0.74,
+      "lacunas": [
+        "sistema",
+        "dados_pessoais_lgpd"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "DFIN-04",
+      "justificativa": "Procedimento mais detalhado e acionável do conjunto (inclui consulta obrigatória ao Cadin e verificação orçamentária); maior cobertura textual."
+    },
+    {
+      "codigo_sugerido": "DFIN-01",
+      "nome": "Fluxo Despesas Campus Foz — Diárias Nacionais",
+      "tipo": "processo",
+      "descricao": "Fluxograma específico do Campus Foz para diárias nacionais no e-Protocolo (documento-fonte em imagem).",
+      "tipo_subdominio": "core",
+      "gatilho": "Necessidade de viagem a serviço no território nacional",
+      "saida": "Processo de diárias nacionais empenhado",
+      "atores": [
+        "Servidor/Requisitante",
+        "Chefia imediata",
+        "Secretaria Financeira",
+        "Div. de Contabilidade"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "Cadin"
+      ],
+      "artefatos": [
+        "Formulário de despesa",
+        "Folder/justificativa",
+        "Consulta Cadin",
+        "Declaração de Disponibilidade Orçamentária e Financeira"
+      ],
+      "interfaces": [
+        "Div. de Contabilidade",
+        "Secretaria Financeira"
+      ],
+      "evidencias": [
+        "1780963200040"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.8,
+      "frequencia": 0.7,
+      "risco_conformidade": 0.8,
+      "cobertura": 0.5,
+      "prioridade": 0.71,
+      "lacunas": [
+        "sistema",
+        "versao_documento"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "DFIN-01",
+      "justificativa": "Fluxo específico de alta frequência (viagens a serviço); documento-fonte é imagem, sem texto extraível — cobertura parcial."
+    },
+    {
+      "codigo_sugerido": "DFIN-00",
+      "nome": "Visão geral — execução de despesas",
+      "tipo": "processo",
+      "descricao": "Guia consolidado da execução de despesas do campus (diárias, passagens, hospedagem e pagamentos), com tramitação no e-Protocolo até o empenho.",
+      "tipo_subdominio": "core",
+      "gatilho": "Necessidade de despesa do servidor (diária, passagem, hospedagem ou pagamento)",
+      "saida": "Despesa empenhada pela Div. de Contabilidade",
+      "atores": [
+        "Servidor/Requisitante",
+        "Chefia imediata",
+        "Secretaria Financeira",
+        "Div. de Contabilidade"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "Cadin"
+      ],
+      "artefatos": [
+        "Formulário de despesa",
+        "Folder/justificativa",
+        "Consulta Cadin",
+        "Declaração de Disponibilidade Orçamentária e Financeira"
+      ],
+      "interfaces": [
+        "Div. de Contabilidade",
+        "Secretaria Financeira"
+      ],
+      "evidencias": [
+        "pb-financas"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.8,
+      "frequencia": 0.6,
+      "risco_conformidade": 0.8,
+      "cobertura": 0.6,
+      "prioridade": 0.7,
+      "lacunas": [
+        "sistema",
+        "interface_setorial"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "DFIN-00",
+      "justificativa": "Consolida os fluxos específicos (diárias, passagem/hospedagem) já evidenciados; alta criticidade orçamentária e risco de conformidade (Cadin, disponibilidade)."
+    },
+    {
+      "codigo_sugerido": "DFIN-02",
+      "nome": "Fluxo Despesas Campus Foz — Passagem e Hospedagem",
+      "tipo": "processo",
+      "descricao": "Fluxograma específico do Campus Foz para passagem e hospedagem no e-Protocolo (documento-fonte em imagem).",
+      "tipo_subdominio": "core",
+      "gatilho": "Necessidade de passagem e/ou hospedagem para viagem a serviço",
+      "saida": "Processo de passagem/hospedagem empenhado",
+      "atores": [
+        "Servidor/Requisitante",
+        "Chefia imediata",
+        "Secretaria Financeira",
+        "Div. de Contabilidade"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "Cadin"
+      ],
+      "artefatos": [
+        "Formulário de despesa",
+        "Folder/justificativa",
+        "Consulta Cadin",
+        "Declaração de Disponibilidade Orçamentária e Financeira"
+      ],
+      "interfaces": [
+        "Div. de Contabilidade",
+        "Secretaria Financeira"
+      ],
+      "evidencias": [
+        "1780963200041"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.75,
+      "frequencia": 0.6,
+      "risco_conformidade": 0.75,
+      "cobertura": 0.5,
+      "prioridade": 0.67,
+      "lacunas": [
+        "sistema",
+        "versao_documento"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "DFIN-02",
+      "justificativa": "Fluxo específico correlato às diárias; mesma limitação de cobertura por ser documento-imagem."
+    },
+    {
+      "codigo_sugerido": "DFIN-03",
+      "nome": "Fluxo Despesas Campus Foz — Geral",
+      "tipo": "processo",
+      "descricao": "Fluxograma geral consolidado das despesas do Campus Foz tramitadas via e-Protocolo (documento-fonte em imagem).",
+      "tipo_subdominio": "core",
+      "gatilho": "Abertura de qualquer pedido de despesa do Campus Foz no e-Protocolo",
+      "saida": "Pedido de despesa direcionado ao fluxo específico aplicável",
+      "atores": [
+        "Servidor/Requisitante",
+        "Chefia imediata",
+        "Secretaria Financeira",
+        "Div. de Contabilidade"
+      ],
+      "sistemas": [
+        "e-Protocolo",
+        "Cadin"
+      ],
+      "artefatos": [
+        "Formulário de despesa",
+        "Folder/justificativa",
+        "Consulta Cadin",
+        "Declaração de Disponibilidade Orçamentária e Financeira"
+      ],
+      "interfaces": [
+        "Div. de Contabilidade",
+        "Secretaria Financeira"
+      ],
+      "evidencias": [
+        "1780963200042"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.6,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.6,
+      "cobertura": 0.45,
+      "prioridade": 0.59,
+      "lacunas": [
+        "sistema",
+        "versao_documento"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "DFIN-03",
+      "justificativa": "Visão consolidada de baixo detalhamento próprio (aponta para os fluxos específicos); recomenda-se manter como POP roteador."
+    }
+  ],
+  "lacunas_setor": [
+    "Responsável nominal (função) da Div. de Finanças ainda não formalizado no POP",
+    "Prazos (SLA) de análise da Secretaria Financeira e de empenho pela Contabilidade não evidenciados em dias"
+  ],
+  "licoes_propostas": [
+    {
+      "licao": "Documentos de referência de outras instituições (ex.: Hospital Padre Germano Lauck) foram anexados ao acervo do setor como exemplo metodológico, sem detalhar o processo real da Unioeste.",
+      "regra": "Registrar documentos de outras instituições apenas em ecossistema.benchmarks do diagnóstico, nunca como evidência de processo próprio nem como normativa institucional.",
+      "exemplo": "DFIN — entradas 1780963200036 e 1780963200037",
+      "origem": "diagnostico"
+    }
+  ],
+  "observacoes": "Os fluxogramas do Campus Foz (DFIN-01/02/03) são arquivos em PDF no formato de imagem, sem texto extraível; a cobertura textual desses processos permanece parcial até nova leitura visual/transcrição."
+}

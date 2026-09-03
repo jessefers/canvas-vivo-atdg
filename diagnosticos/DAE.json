@@ -1,0 +1,72 @@
+{
+  "id": "diag-dae-20260903",
+  "setor": "Div. de Assistência Estudantil",
+  "setor_codigo": "S05.03-DAE",
+  "sigla": "DAE",
+  "data": "2026-09-03T01:41:28Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-assistencia-estudantil"
+  ],
+  "hash_fontes": "238b2a9528e1d70a9b82fc803abb5069b49012ce25d7e4c21259d7737712fd98",
+  "ecossistema": {
+    "dominio": "Gestão Acadêmica",
+    "subdominios": [
+      "Assistência e apoio estudantil (a mapear)"
+    ],
+    "contextos_vizinhos": [
+      "Coordenação Acadêmica — Geral",
+      "Direção Geral de Campus"
+    ],
+    "sistemas": [],
+    "normas": [],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DAE-00",
+      "nome": "Visão geral — Div. de Assistência Estudantil",
+      "tipo": "processo",
+      "descricao": "Playbook em construção da Div. de Assistência Estudantil; sem entradas operacionais próprias no Canvas.",
+      "tipo_subdominio": "suporte",
+      "gatilho": "A definir",
+      "saida": "A definir",
+      "atores": [
+        "Div. de Assistência Estudantil"
+      ],
+      "sistemas": [],
+      "artefatos": [],
+      "interfaces": [
+        "Coordenação Acadêmica — Geral"
+      ],
+      "evidencias": [
+        "pb-assistencia-estudantil"
+      ],
+      "maturidade": 0,
+      "criticidade": 0.5,
+      "frequencia": 0.2,
+      "risco_conformidade": 0.4,
+      "cobertura": 0.1,
+      "prioridade": 0.44,
+      "lacunas": [
+        "responsavel",
+        "normativa",
+        "gatilho",
+        "entrada",
+        "saida",
+        "sistema",
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "DAE-00",
+      "justificativa": "Setor de suporte a estudantes (potencial sensibilidade social e de dados pessoais) sem qualquer evidência operacional própria no Canvas."
+    }
+  ],
+  "lacunas_setor": [
+    "sem entradas no Canvas"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "DAE-00 permanece como POP-roteiro de coleta; recomenda-se levantamento presencial com a Div. de Assistência Estudantil, com atenção a dados pessoais sensíveis (LGPD) dos estudantes atendidos."
+}

@@ -5,14 +5,14 @@
   "setor": "Div. Circulação, Referência e Acervo",
   "setor_codigo": "S06.01-DCRA",
   "sigla": "DCRA",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "status": "rascunho",
   "ddd": {
     "divisao": "Biblioteca",
     "departamento": "Div. Circulação, Referência e Acervo",
-    "descricao": "Divisão de Circulação, Referência, Preservação e Conservação do Acervo (Biblioteca). Playbook em construção.",
+    "descricao": "Estabelece o roteiro de coleta para o mapeamento das rotinas de circulação, referência, preservação e conservação do acervo da Biblioteca, a ser aplicado pela ATDG até que a Divisão tenha responsável, fluxos e normas formalmente definidos.",
     "dominio": "Informação e Acervo",
-    "subdominio": "Visão geral do setor (playbook)",
+    "subdominio": "Roteiro de coleta para mapeamento de processos (setor ainda não mapeado)",
     "tipo_subdominio": "suporte",
     "contexto": "S06.01-DCRA",
     "glossario": []
@@ -27,96 +27,258 @@
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S06_BIB[\"S06-BIB<br/>Biblioteca\"]\n  S01_DG --> S06_BIB\n  S06_01_DCRA[\"S06.01-DCRA<br/>Div. Circulação, Referência e Acervo\"]\n  S06_BIB --> S06_01_DCRA\n  P[\"DCRA-00<br/>Visão geral — Div. Circulação, Referência e Acervo\"]\n  S06_01_DCRA --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S06_BIB,S06_01_DCRA setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S06_BIB[\"S06-BIB<br/>Biblioteca\"]\n  S01_DG --> S06_BIB\n  S06_01_DCRA[\"S06.01-DCRA<br/>Div. Circulação, Referência e Acervo\"]\n  S06_BIB --> S06_01_DCRA\n  P[\"DCRA-00<br/>Visão geral — Div. Circulação, Referência e Acervo\"]\n  S06_01_DCRA --> P\n  V1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n  P -. interface .-> V1\n  V2[\"Biblioteca\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S06_BIB,S06_01_DCRA setor\n  class P destaque\n  class V1,V2 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Inclusão da Div. Circulação, Referência e Acervo no cronograma de mapeamento de processos da ATDG",
+      "origem": "ATDG — Assessoria Técnica da Direção Geral"
     },
-    "entrada": [],
+    "entrada": [
+      "Cronograma de mapeamento de processos da ATDG, com o questionário de atividades a ser respondido pela Divisão",
+      "Contato institucional da Chefia da Divisão"
+    ],
     "passos": [
       {
         "n": 1,
-        "acao": "A documentar: levantar atividades e rotinas da área",
+        "acao": "Levantar, junto à Chefia da Divisão, as atividades e rotinas de circulação, referência e acervo",
         "responsavel": "A definir",
         "sistema": "",
-        "artefato": "",
+        "artefato": "Roteiro de coleta preenchido",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Atividades e rotinas levantadas",
         "fontes": [
           "pb-biblioteca-acervo"
         ]
       },
       {
         "n": 2,
-        "acao": "Mapear fluxos e responsáveis por etapa",
+        "acao": "Mapear os fluxos e os responsáveis por etapa das rotinas de circulação, referência e preservação do acervo",
         "responsavel": "A definir",
         "sistema": "",
-        "artefato": "",
+        "artefato": "Esboço de fluxo por rotina",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Fluxos e responsáveis mapeados",
         "fontes": [
           "pb-biblioteca-acervo"
         ]
       },
       {
         "n": 3,
-        "acao": "Identificar normas aplicáveis e pontos de atenção",
+        "acao": "Identificar as normas aplicáveis (regulamentos do Sistema de Bibliotecas) e os pontos de atenção da Divisão",
         "responsavel": "A definir",
         "sistema": "",
-        "artefato": "",
+        "artefato": "Lista de normas e pontos de atenção",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Normas e pontos de atenção identificados",
         "fontes": [
           "pb-biblioteca-acervo"
         ]
+      },
+      {
+        "acao": "Aplicar questionário de mapeamento de atividades à Chefia da Divisão de Circulação, Referência e Acervo",
+        "responsavel": "A definir",
+        "sistema": "Microsoft Forms",
+        "artefato": "Questionário de mapeamento de atividades",
+        "prazo": "A definir",
+        "evento": "Questionário aplicado",
+        "fontes": [
+          "pb-biblioteca-acervo"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Consolidar as respostas do questionário e as evidências documentais coletadas",
+        "responsavel": "A definir",
+        "sistema": "Microsoft Forms",
+        "artefato": "Planilha de consolidação de respostas",
+        "prazo": "A definir",
+        "evento": "Respostas consolidadas",
+        "fontes": [
+          "pb-biblioteca-acervo"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Elaborar playbook preliminar da Divisão com as lacunas identificadas",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "Playbook preliminar",
+        "prazo": "A definir",
+        "evento": "Playbook preliminar elaborado",
+        "fontes": [
+          "pb-biblioteca-acervo"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para validação",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "Playbook preliminar validado",
+        "prazo": "A definir",
+        "evento": "Roteiro validado pela Chefia",
+        "fontes": [
+          "pb-biblioteca-acervo"
+        ],
+        "n": 7
       }
     ],
-    "saida": []
+    "saida": [
+      "Roteiro de coleta aplicado, com respostas e evidências documentais consolidadas",
+      "Playbook preliminar da Divisão submetido à validação da Chefia da Biblioteca"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [
-    "Área ainda não mapeada — playbook em construção"
+  "artefatos": [
+    {
+      "nome": "Questionário de mapeamento de atividades — Div. Circulação, Referência e Acervo",
+      "tipo": "formulario",
+      "sistema": "Microsoft Forms",
+      "campos_chave": [
+        "atividade",
+        "frequência",
+        "sistema utilizado",
+        "norma aplicável"
+      ],
+      "responsavel_preenchimento": "Bibliotecário(a)/Chefia da Divisão"
+    },
+    {
+      "nome": "Playbook preliminar — Div. Circulação, Referência e Acervo",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [
+        "atividades levantadas",
+        "fluxos",
+        "lacunas"
+      ],
+      "responsavel_preenchimento": "ATDG — Assessoria Técnica da Direção Geral"
+    }
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. Circulação, Referência e Acervo\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"A documentar: levantar atividades e rotinas da área\"]\n    e3[\"Mapear fluxos e responsáveis por etapa\"]\n    e4[\"Identificar normas aplicáveis e pontos de atenção\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+  "decisoes": [
+    {
+      "decisao": "A Chefia da Biblioteca validou o playbook preliminar da Divisão?",
+      "condicao": "Análise da Chefia da Biblioteca sobre o conteúdo levantado no roteiro de coleta da Divisão",
+      "sim": "Consolidar o playbook preliminar como base para a elaboração do POP definitivo da Divisão",
+      "nao": "Retornar à Chefia da Divisão para complementação das informações e reaplicar o questionário nos pontos pendentes"
+    }
+  ],
+  "pontos_atencao": [
+    "Área ainda não mapeada — playbook em construção",
+    "Divisão ainda não possui responsável formalmente designado nem normativa própria além do regulamento do Sistema de Bibliotecas (a definir).",
+    "Enquanto o roteiro de coleta não for concluído, este documento não substitui um POP operacional de circulação, referência e acervo."
+  ],
+  "contingencia": [
+    "Se a Chefia da Divisão não responder ao questionário no prazo combinado, a ATDG reenvia o formulário e registra o atraso nas lacunas do setor.",
+    "Se não houver Chefia da Divisão formalmente designada no momento da coleta, aplicar o questionário à Chefia da Biblioteca.",
+    "Se as evidências coletadas forem insuficientes para elaborar o playbook preliminar, registrar a lacuna e agendar nova rodada de coleta."
+  ],
+  "checklist": [
+    "Cronograma de mapeamento da Divisão confirmado com a ATDG",
+    "Questionário de mapeamento de atividades aplicado à Chefia da Divisão",
+    "Respostas e evidências consolidadas em planilha",
+    "Playbook preliminar elaborado e submetido à validação da Chefia da Biblioteca"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de questionários de mapeamento respondidos pela Divisão",
+      "formula": "Questionários respondidos / questionários aplicados × 100",
+      "meta": "A definir",
+      "fonte": "Microsoft Forms"
+    },
+    {
+      "indicador": "Prazo decorrido até a validação do playbook preliminar pela Chefia da Biblioteca",
+      "formula": "Data de validação − data de aplicação do questionário",
+      "meta": "A definir",
+      "fonte": "Registro da ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. Circulação, Referência e Acervo",
+      "destino": "ATDG — Assessoria Técnica da Direção Geral",
+      "relacao": "fornece",
+      "artefato": "Respostas do questionário de mapeamento e evidências documentais",
+      "canal": "Microsoft Forms"
+    },
+    {
+      "origem": "Div. Circulação, Referência e Acervo",
+      "destino": "Biblioteca",
+      "relacao": "informa",
+      "artefato": "Resultado do roteiro de coleta e playbook preliminar da Divisão",
+      "canal": "Reunião/e-mail institucional"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. Circulação, Referência e Acervo\"]\n    direction LR\n    e1((\"Inclusão da Div. Circulação, Referência e Acervo no cronograma de map…\"))\n    e2[\"Levantar, junto à Chefia da Divisão, as atividades e rotinas de circu…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa das rotinas de circulaçã…\"]\n    e4[\"Identificar as normas aplicáveis (regulamentos do Sistema de Bibliote…\"]\n    e5[\"Aplicar questionário de mapeamento de atividades à Chefia da Divisão…\"]\n    e6[\"Consolidar as respostas do questionário e as evidências documentais c…\"]\n    e7[\"Elaborar playbook preliminar da Divisão com as lacunas identificadas\"]\n    e8[\"Submeter o roteiro de coleta e o playbook preliminar à Chefia da Bibl…\"]\n    e11(((\"Roteiro de coleta aplicado, com respostas e evidências documentais co…\")))\n  end\n  subgraph R2[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e9[[\"✉ Encaminhar a ATDG — Assessoria Técnica da Direção Geral\"]]\n  end\n  subgraph R3[\"Biblioteca\"]\n    direction LR\n    e10[[\"✉ Informar Biblioteca\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. Circulação, Referência e Acervo"
+      "Div. Circulação, Referência e Acervo",
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Biblioteca"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
+        "label": "Inclusão da Div. Circulação, Referência e Acervo no cronograma de mapeamento de processos da ATDG",
         "raia": "Div. Circulação, Referência e Acervo"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "A documentar: levantar atividades e rotinas da área",
+        "label": "Levantar, junto à Chefia da Divisão, as atividades e rotinas de circulação, referência e acervo",
         "raia": "Div. Circulação, Referência e Acervo"
       },
       {
         "id": "e3",
         "tipo": "atividade",
-        "label": "Mapear fluxos e responsáveis por etapa",
+        "label": "Mapear os fluxos e os responsáveis por etapa das rotinas de circulação, referência e preservação do acervo",
         "raia": "Div. Circulação, Referência e Acervo"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Identificar normas aplicáveis e pontos de atenção",
+        "label": "Identificar as normas aplicáveis (regulamentos do Sistema de Bibliotecas) e os pontos de atenção da Divisão",
         "raia": "Div. Circulação, Referência e Acervo"
       },
       {
         "id": "e5",
+        "tipo": "atividade",
+        "label": "Aplicar questionário de mapeamento de atividades à Chefia da Divisão de Circulação, Referência e Acervo",
+        "raia": "Div. Circulação, Referência e Acervo"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Consolidar as respostas do questionário e as evidências documentais coletadas",
+        "raia": "Div. Circulação, Referência e Acervo"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Elaborar playbook preliminar da Divisão com as lacunas identificadas",
+        "raia": "Div. Circulação, Referência e Acervo"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para validação",
+        "raia": "Div. Circulação, Referência e Acervo"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar a ATDG — Assessoria Técnica da Direção Geral",
+        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Informar Biblioteca",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e11",
         "tipo": "fim",
-        "label": "Concluído",
+        "label": "Roteiro de coleta aplicado, com respostas e evidências documentais consolidadas",
         "raia": "Div. Circulação, Referência e Acervo"
       }
     ],
@@ -136,9 +298,33 @@
       {
         "de": "e4",
         "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -153,6 +339,39 @@
         "pb-biblioteca-acervo"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D2)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo 1 alterado (acao, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 3: Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para",
+        "Passo adicionado após 3: Elaborar playbook preliminar da Divisão com as lacunas identificadas",
+        "Passo adicionado após 3: Consolidar as respostas do questionário e as evidências documentais coletadas",
+        "Passo adicionado após 3: Aplicar questionário de mapeamento de atividades à Chefia da Divisão de Circulaç",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [
+        "pb-biblioteca-acervo"
+      ],
+      "motivo": "Área ainda não mapeada (playbook em construção): converter o esqueleto genérico em roteiro de coleta para o mapeamento das rotinas de circulação, referência, preservação e conservação do acervo, com gatilho, entradas/saídas, KPIs, contingência e checklist do próprio levantamento, mantendo o responsável do processo como 'A definir' até a designação formal pela Chefia da Divisão."
     }
   ],
   "validacao": {
@@ -165,19 +384,17 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
   ],
   "lacunas": [
     "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
     "formulario",
     "prazo"
   ],
-  "observacoes": "",
+  "observacoes": "Setor ainda não mapeado — roteiro de coleta.",
   "fontes_entradas": [
     "pb-biblioteca-acervo"
   ],
@@ -185,5 +402,5 @@
   "agente": "",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:55Z",
-  "atualizado_em": "2026-09-02T17:55:55Z"
+  "atualizado_em": "2026-09-03T01:42:57Z"
 }

@@ -1,33 +1,128 @@
 {
   "setor": "Div. de Almoxarifado",
   "codigo": "ALM-03",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:42:29Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "ALM-03 — Distribuição para Departamentos",
-      "descricao": "Distribuição para Departamentos — Saída, requisição, entrega, registro. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+      "descricao": "Atende requisições de materiais de consumo dos departamentos do Campus, verifica a disponibilidade em estoque, entrega o material e registra a baixa no GMS/ERP, conforme o Manual de Gestão do Almoxarifado.",
       "raias": [
-        "Div. de Almoxarifado"
+        "Div. de Almoxarifado",
+        "Requisitante/Departamento",
+        "Agente Universitário do Almoxarifado",
+        "Chefe da Divisão de Almoxarifado"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Almoxarifado"
+          "label": "Requisição de material apresentada pelo Departamento",
+          "raia": "Requisitante/Departamento"
         },
         {
           "id": "e2",
+          "tipo": "atividade",
+          "label": "Registrar a requisição de material",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Verificar a disponibilidade do material em estoque",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e4",
+          "tipo": "decisao",
+          "label": "Material disponível e requisição dentro dos critérios de distribuição?",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e5",
+          "tipo": "captura",
+          "label": "Indisponibilidade ou necessidade de ajuste da requisição",
+          "raia": "Requisitante/Departamento"
+        },
+        {
+          "id": "e6",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Div. de Almoxarifado"
+          "label": "Requisição não atendida ou pendente de ajuste",
+          "raia": "Requisitante/Departamento"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Separar o material solicitado",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Entregar o material ao Requisitante",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Material entregue ao Requisitante",
+          "raia": "Requisitante/Departamento"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Registrar a baixa do material no GMS/ERP",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e11",
+          "tipo": "fim",
+          "label": "Baixa registrada; requisição atendida",
+          "raia": "Agente Universitário do Almoxarifado"
         }
       ],
       "conexoes": [
         {
           "de": "e1",
           "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e4",
+          "para": "e7",
+          "label": "Sim"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
