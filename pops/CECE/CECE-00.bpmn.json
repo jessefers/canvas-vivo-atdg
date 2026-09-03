@@ -1,45 +1,78 @@
 {
   "setor": "CECE — Direção de Centro",
   "codigo": "CECE-00",
-  "gerado_em": "2026-09-02T17:55:55Z",
+  "gerado_em": "2026-09-03T01:45:49Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CECE-00 — Visão geral — Centro de Engenharias e Ciências Exatas — Direção de Centro",
-      "descricao": "Visão do Centro de Engenharias e Ciências Exatas: colegiados de Ciência da Computação, Engenharia Elétrica, Engenharia Mecânica, Matemática e mestrados, além dos laboratórios.",
+      "descricao": "Consolida a visão geral do Centro de Engenharias e Ciências Exatas — Direção de Centro: a articulação da Direção com os colegiados de Ciência da Computação, Engenharia Elétrica, Engenharia Mecânica e Matemática, com os Mestrados (PPGEEC e PPGTGS) e com os laboratórios do Centro, a manutenção da base de contatos por função (coordenador, suplente e técnico administrativo) e o encaminhamento e acompanhamento das demandas do Centro, nos termos dos arts. 37 e 41 do Estatuto (Res. 017/99-COU).",
       "raias": [
-        "CECE — Direção de Centro"
+        "Diretor(a) de Centro",
+        "Coordenador(a) de Curso",
+        "Direção Geral de Campus",
+        "Colegiado de Curso"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "CECE — Direção de Centro"
+          "label": "Necessidade de articulação entre a Direção de Centro e os colegiados/mestrados/laboratórios, atualização da base de contatos ou encaminhamento de demanda do Centro",
+          "raia": "Diretor(a) de Centro"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Articular Direção de Centro, colegiados e coordenações",
-          "raia": "CECE — Direção de Centro"
+          "label": "Articular a Direção de Centro com os colegiados de Ciência da Computação, Engenharia Elétrica, Engenharia Mecânica e Matemática",
+          "raia": "Diretor(a) de Centro"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Manter a base de contatos por função do Centro",
-          "raia": "CECE — Direção de Centro"
+          "label": "Articular a Direção de Centro com os Mestrados (PPGEEC e PPGTGS) e com os laboratórios do Centro",
+          "raia": "Diretor(a) de Centro"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Encaminhar demandas do Centro via e-Protocolo",
-          "raia": "CECE — Direção de Centro"
+          "label": "Manter atualizada a base de contatos por função do Centro (coordenador, suplente, técnico administrativo e coordenadores de TCC e de estágio de cada colegiado)",
+          "raia": "Diretor(a) de Centro"
         },
         {
           "id": "e5",
+          "tipo": "atividade",
+          "label": "Validar com cada colegiado e mestrado a exatidão dos contatos informados",
+          "raia": "Coordenador(a) de Curso"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Encaminhar as demandas do Centro aos colegiados, mestrados, laboratórios ou órgãos superiores via e-Protocolo",
+          "raia": "Diretor(a) de Centro"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Acompanhar a tramitação e a resposta às demandas encaminhadas",
+          "raia": "Diretor(a) de Centro"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Informar Direção Geral de Campus",
+          "raia": "Direção Geral de Campus"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Informar Colegiado de Curso",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e10",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "CECE — Direção de Centro"
+          "label": "Base de contatos por função do Centro atualizada",
+          "raia": "Diretor(a) de Centro"
         }
       ],
       "conexoes": [
@@ -58,9 +91,29 @@
         {
           "de": "e4",
           "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

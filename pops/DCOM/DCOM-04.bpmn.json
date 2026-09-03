@@ -1,63 +1,166 @@
 {
   "setor": "Div. de Compras",
   "codigo": "DCOM-04",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:46:19Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DCOM-04 — Fluxo — Inexigibilidade (com Ordem de Compra)",
-      "descricao": "Fluxo da contratação por inexigibilidade com ordem de compra. O interessado elabora termo de referência, cotações e carta de exclusividade e envia ao Planejamento, que submete à Direção Geral. Compras pesquisa preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro faz a DDF; a Licitação publica o aviso, aguarda 3 dias e publica a inexigibilidade, retornando o processo a Compras para a Ordem de Compra.",
+      "descricao": "Contratação direta por inexigibilidade de licitação (fornecedor exclusivo), formalizada por Ordem de Compra. A Div. de Compras verifica a regularidade fiscal do fornecedor, subsidiando a Assessoria Jurídica e a Sec. Financeira/Contabilidade, até a publicação do aviso de inexigibilidade pela Div. de Licitação, o decurso do prazo de 3 dias para impugnação, a ratificação da inexigibilidade e a emissão e publicação da Ordem de Compra pela Div. de Compras, nos termos do art. 74 da Lei nº 14.133/2021.",
       "raias": [
-        "Div. de Compras"
+        "Div. de Compras",
+        "Requisitante/Interessado",
+        "Fornecedor",
+        "Planejamento",
+        "Direção Geral",
+        "Assessoria Jurídica",
+        "Sec. Financeira/Contabilidade",
+        "Div. de Licitação"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Compras"
+          "label": "Necessidade de contratação de fornecedor exclusivo identificada",
+          "raia": "Requisitante/Interessado"
         },
         {
           "id": "e2",
-          "tipo": "atividade",
-          "label": "Interessado elabora termo de referência, cotações e carta de exclusividade",
-          "raia": "Div. de Compras"
+          "tipo": "captura",
+          "label": "Fornecedor emite a carta de exclusividade",
+          "raia": "Fornecedor"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Planejamento analisa e submete à Direção Geral",
-          "raia": "Div. de Compras"
+          "label": "Elaborar o TR e as cotações, instruindo o processo com a carta de exclusividade",
+          "raia": "Requisitante/Interessado"
         },
         {
           "id": "e4",
-          "tipo": "atividade",
-          "label": "Compras pesquisa preços e verifica regularidade fiscal",
-          "raia": "Div. de Compras"
+          "tipo": "captura",
+          "label": "Encaminhar processo ao Planejamento",
+          "raia": "Planejamento"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Jurídico emite parecer; Financeiro faz a DDF",
-          "raia": "Div. de Compras"
+          "label": "Analisar a instrução processual e submeter à Direção Geral",
+          "raia": "Planejamento"
         },
         {
           "id": "e6",
-          "tipo": "atividade",
-          "label": "Licitação publica aviso, aguarda 3 dias e publica a inexigibilidade",
-          "raia": "Div. de Compras"
+          "tipo": "captura",
+          "label": "Encaminhar processo à Direção Geral",
+          "raia": "Direção Geral"
         },
         {
           "id": "e7",
-          "tipo": "atividade",
-          "label": "Compras emite a Ordem de Compra",
-          "raia": "Div. de Compras"
+          "tipo": "decisao",
+          "label": "Exclusividade comprovada (carta válida)?",
+          "raia": "Direção Geral"
         },
         {
           "id": "e8",
-          "tipo": "fim",
-          "label": "Concluído",
+          "tipo": "atividade",
+          "label": "Autorizar a contratação direta por inexigibilidade",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar processo autorizado à Div. de Compras",
           "raia": "Div. de Compras"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Pesquisar preços de mercado e verificar regularidade fiscal do fornecedor exclusivo",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e11",
+          "tipo": "decisao",
+          "label": "Regularidade fiscal comprovada?",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Encaminhar processo à Assessoria Jurídica",
+          "raia": "Assessoria Jurídica"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Emitir parecer jurídico sobre a inexigibilidade",
+          "raia": "Assessoria Jurídica"
+        },
+        {
+          "id": "e14",
+          "tipo": "captura",
+          "label": "Encaminhar processo com parecer favorável à Sec. Financeira/Contabilidade",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e15",
+          "tipo": "atividade",
+          "label": "Formalizar a DDF (comprometimento financeiro)",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e16",
+          "tipo": "captura",
+          "label": "Encaminhar processo à Div. de Licitação",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e17",
+          "tipo": "atividade",
+          "label": "Publicar o aviso de inexigibilidade",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e18",
+          "tipo": "pausa",
+          "label": "Aguardar 3 dias do aviso de inexigibilidade",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e19",
+          "tipo": "decisao",
+          "label": "Houve impugnação no prazo de 3 dias?",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e20",
+          "tipo": "atividade",
+          "label": "Publicar a ratificação da inexigibilidade",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e21",
+          "tipo": "captura",
+          "label": "Encaminhar processo com inexigibilidade ratificada à Div. de Compras",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e22",
+          "tipo": "atividade",
+          "label": "Emitir a Ordem de Compra e publicá-la no DIOE",
+          "raia": "Div. de Compras"
+        },
+        {
+          "id": "e23",
+          "tipo": "captura",
+          "label": "Fornecedor recebe a Ordem de Compra",
+          "raia": "Fornecedor"
+        },
+        {
+          "id": "e24",
+          "tipo": "fim",
+          "label": "Ordem de Compra emitida e fornecimento/prestação iniciado",
+          "raia": "Fornecedor"
         }
       ],
       "conexoes": [
@@ -87,7 +190,89 @@
         },
         {
           "de": "e7",
-          "para": "e8"
+          "para": "e8",
+          "label": "Sim"
+        },
+        {
+          "de": "e7",
+          "para": "e3",
+          "label": "Não"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12",
+          "label": "Sim"
+        },
+        {
+          "de": "e11",
+          "para": "e10",
+          "label": "Não"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        },
+        {
+          "de": "e15",
+          "para": "e16"
+        },
+        {
+          "de": "e16",
+          "para": "e17"
+        },
+        {
+          "de": "e17",
+          "para": "e18"
+        },
+        {
+          "de": "e18",
+          "para": "e19"
+        },
+        {
+          "de": "e19",
+          "para": "e20",
+          "label": "Não"
+        },
+        {
+          "de": "e19",
+          "para": "e12",
+          "label": "Sim"
+        },
+        {
+          "de": "e20",
+          "para": "e21"
+        },
+        {
+          "de": "e21",
+          "para": "e22"
+        },
+        {
+          "de": "e22",
+          "para": "e23"
+        },
+        {
+          "de": "e23",
+          "para": "e24"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
