@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:28:19Z",
+  "sincronizado_em": "2026-09-03T01:31:44Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -16406,6 +16406,564 @@
       ],
       "licoes_propostas": [],
       "observacoes": "Diagnóstico do lote DCOM (5 processos de contratações diretas) realizado a partir de fluxogramas institucionais (PDF) já convertidos em esqueletos de POP (v0.1.0, status rascunho). Os 5 processos foram qualificados como 'core', de alto risco de conformidade (Lei nº 14.133/2021), e recomendados para geração de POP completo na Tarefa 2 deste lote."
+    },
+    {
+      "id": "diag-alm-20260903",
+      "setor": "Div. de Almoxarifado",
+      "setor_codigo": "S03.04-ALM",
+      "sigla": "ALM",
+      "data": "2026-09-03T01:29:30Z",
+      "modelo": "claude-sonnet (subagente construtor)",
+      "versao_diretrizes": "1.0",
+      "fontes_entradas": [
+        "1780963200000",
+        "1780963200001",
+        "pb-almoxarifado"
+      ],
+      "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
+      "ecossistema": {
+        "dominio": "Suprimentos e Materiais",
+        "subdominios": [
+          "Recebimento e conferência de materiais",
+          "Armazenagem e guarda",
+          "Distribuição para departamentos",
+          "Inventário rotativo",
+          "Inventário geral",
+          "Conciliação físico-contábil",
+          "Desfazimento de materiais inservíveis",
+          "Relatórios e prestação de contas"
+        ],
+        "contextos_vizinhos": [
+          "PRAF",
+          "Fornecedor",
+          "Div. de Patrimônio e Equipamentos (S03.05-DPAT)",
+          "Div. de Contabilidade (S04.02-DCONT)",
+          "Div. de Licitação (S03.06-DLIC)",
+          "Requisitante/Departamento"
+        ],
+        "sistemas": [
+          "GMS/ERP",
+          "e-Protocolo",
+          "planilha de controle"
+        ],
+        "normas": [
+          "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz, obrigatório)",
+          "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)",
+          "Legislação federal de materiais (referência genérica nas entradas do Canvas, sem número específico evidenciado)",
+          "Normativas do TCE-PR (referência genérica nas entradas do Canvas, sem número específico evidenciado)",
+          "Lei nº 14.133/2021 (Lei de Licitações e Contratos Administrativos), no que for pertinente ao recebimento de materiais decorrentes de contratações públicas e ao desfazimento/alienação de bens"
+        ],
+        "benchmarks": [
+          "Boas práticas de outras universidades estaduais do Paraná, citadas de forma genérica no Manual de Gestão do Almoxarifado, sem identificação nominal das instituições"
+        ]
+      },
+      "processos": [
+        {
+          "codigo_sugerido": "ALM-01",
+          "nome": "Recebimento de Materiais",
+          "tipo": "processo",
+          "descricao": "Recebe e confere materiais de consumo (quantitativa e qualitativamente) contra a nota fiscal, lança no GMS/ERP e obtém confirmação da PRAF antes do armazenamento definitivo.",
+          "tipo_subdominio": "core",
+          "gatilho": "Chegada de material acompanhado de nota fiscal, entregue pelo Fornecedor no Almoxarifado",
+          "saida": "Material conferido e lançado no GMS/ERP, apto ao encaminhamento para armazenagem (ALM-02)",
+          "atores": [
+            "Agente Universitário do Almoxarifado",
+            "Chefe da Divisão de Almoxarifado",
+            "Fornecedor",
+            "PRAF"
+          ],
+          "sistemas": [
+            "GMS/ERP"
+          ],
+          "artefatos": [
+            "Nota Fiscal",
+            "Termo de recebimento",
+            "Formulário de conferência"
+          ],
+          "interfaces": [
+            "Fornecedor",
+            "PRAF",
+            "Div. de Licitação (origem contratual da NF)"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.95,
+          "frequencia": 0.9,
+          "risco_conformidade": 0.85,
+          "cobertura": 0.15,
+          "prioridade": 0.82,
+          "lacunas": [
+            "passos",
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial",
+            "versao_documento",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-01",
+          "justificativa": "Processo de maior frequência e criticidade do setor — porta de entrada de todo material de consumo. O manual determina lançamento no GMS/ERP e confirmação da PRAF antes do armazenamento, mas o POP não tem nenhum passo, responsável ou artefato documentado."
+        },
+        {
+          "codigo_sugerido": "ALM-08",
+          "nome": "Relatórios e Prestação de Contas",
+          "tipo": "processo",
+          "descricao": "Consolida indicadores e resultados dos demais processos do Almoxarifado (recebimento, armazenagem, distribuição, inventários, desfazimento) em relatórios gerenciais e de prestação de contas periódicos.",
+          "tipo_subdominio": "core",
+          "gatilho": "Cronograma de emissão de relatórios (mensal/anual) ou solicitação da PRAF",
+          "saida": "Relatório de prestação de contas emitido e encaminhado à PRAF",
+          "atores": [
+            "Chefe da Divisão de Almoxarifado",
+            "PRAF"
+          ],
+          "sistemas": [
+            "GMS/ERP",
+            "planilha de controle"
+          ],
+          "artefatos": [
+            "Relatório de prestação de contas"
+          ],
+          "interfaces": [
+            "PRAF",
+            "Div. de Contabilidade (S04.02-DCONT)"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.85,
+          "frequencia": 0.6,
+          "risco_conformidade": 0.9,
+          "cobertura": 0.2,
+          "prioridade": 0.73,
+          "lacunas": [
+            "passos",
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial",
+            "versao_documento",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-08",
+          "justificativa": "Processo de encerramento do ciclo de gestão do Almoxarifado, com alto risco de conformidade perante PRAF/TCE-PR; sem estrutura de indicadores nem passos documentados."
+        },
+        {
+          "codigo_sugerido": "ALM-02",
+          "nome": "Armazenagem",
+          "tipo": "processo",
+          "descricao": "Organiza, localiza e conserva no espaço físico do Almoxarifado os materiais já conferidos e lançados no GMS/ERP, mantendo correspondência entre estoque físico e registro sistêmico.",
+          "tipo_subdominio": "core",
+          "gatilho": "Material conferido e lançado no GMS/ERP (saída de ALM-01)",
+          "saida": "Material armazenado, conservado e localizado no mapa de estoque, disponível para distribuição (ALM-03)",
+          "atores": [
+            "Agente Universitário do Almoxarifado",
+            "Chefe da Divisão de Almoxarifado"
+          ],
+          "sistemas": [
+            "GMS/ERP",
+            "planilha de controle"
+          ],
+          "artefatos": [
+            "Mapa de estoque"
+          ],
+          "interfaces": [
+            "ALM-01 Recebimento de Materiais (entrada)",
+            "ALM-03 Distribuição para Departamentos (saída)"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.8,
+          "frequencia": 0.85,
+          "risco_conformidade": 0.65,
+          "cobertura": 0.15,
+          "prioridade": 0.72,
+          "lacunas": [
+            "passos",
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial",
+            "versao_documento",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-02",
+          "justificativa": "Responsável pela conservação e localização dos materiais após o recebimento; manual não detalha critérios de organização por classe de material, e o POP está sem qualquer passo documentado."
+        },
+        {
+          "codigo_sugerido": "ALM-00",
+          "nome": "Visão geral — Div. de Almoxarifado",
+          "tipo": "processo",
+          "descricao": "Guia operacional consolidado do Almoxarifado, do recebimento ao desfazimento de materiais de consumo; organiza os oito processos do setor (ALM-01 a ALM-08) segundo o Manual de Gestão e o Manual de Mapeamento de Processos.",
+          "tipo_subdominio": "core",
+          "gatilho": "Necessidade de orientação consolidada sobre o funcionamento do Almoxarifado (integração de servidor, auditoria, revisão de processo)",
+          "saida": "Visão consolidada dos 8 processos do Almoxarifado, com remissão aos POPs específicos (ALM-01 a ALM-08)",
+          "atores": [
+            "Chefe da Divisão de Almoxarifado",
+            "Agente Universitário do Almoxarifado"
+          ],
+          "sistemas": [
+            "GMS/ERP"
+          ],
+          "artefatos": [
+            "Manual de Gestão do Almoxarifado",
+            "Manual de Mapeamento de Processos do Almoxarifado"
+          ],
+          "interfaces": [
+            "Requisitante/Departamento",
+            "PRAF",
+            "Fornecedor",
+            "Sec. Financeira/Contabilidade",
+            "Div. de Patrimônio"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.85,
+          "frequencia": 0.65,
+          "risco_conformidade": 0.75,
+          "cobertura": 0.25,
+          "prioridade": 0.71,
+          "lacunas": [
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "kpi",
+            "contingencia",
+            "formulario",
+            "prazo",
+            "interface_setorial",
+            "versao_documento"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-00",
+          "justificativa": "Documento obrigatório (Manual de Gestão) que organiza os demais 8 processos do setor; esqueleto já lista os 8 macroprocessos, mas ainda sem responsável, gatilho, entradas/saídas nem indicadores definidos."
+        },
+        {
+          "codigo_sugerido": "ALM-03",
+          "nome": "Distribuição para Departamentos",
+          "tipo": "processo",
+          "descricao": "Atende requisições de materiais de consumo dos departamentos do Campus, entrega o material e registra a saída (baixa) no GMS/ERP.",
+          "tipo_subdominio": "core",
+          "gatilho": "Requisição de material de consumo apresentada por um Departamento",
+          "saida": "Material entregue ao requisitante e baixa registrada no GMS/ERP",
+          "atores": [
+            "Requisitante/Departamento",
+            "Agente Universitário do Almoxarifado",
+            "Chefe da Divisão de Almoxarifado"
+          ],
+          "sistemas": [
+            "GMS/ERP"
+          ],
+          "artefatos": [
+            "Requisição de material",
+            "Termo/comprovante de entrega"
+          ],
+          "interfaces": [
+            "Requisitante/Departamento"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.8,
+          "frequencia": 0.85,
+          "risco_conformidade": 0.6,
+          "cobertura": 0.15,
+          "prioridade": 0.71,
+          "lacunas": [
+            "passos",
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial",
+            "versao_documento",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-03",
+          "justificativa": "Processo de saída de materiais, de alta frequência e visibilidade para os demais setores do Campus; sem critérios documentados de aprovação de requisição nem de limites por departamento."
+        },
+        {
+          "codigo_sugerido": "ALM-05",
+          "nome": "Inventário Geral",
+          "tipo": "processo",
+          "descricao": "Realiza a contagem física total anual de todo o estoque do Almoxarifado, base da conciliação físico-contábil, da prestação de contas e da auditoria do TCE-PR.",
+          "tipo_subdominio": "core",
+          "gatilho": "Cronograma anual de inventário geral (encerramento do exercício)",
+          "saida": "Relatório de inventário geral anual consolidado",
+          "atores": [
+            "Chefe da Divisão de Almoxarifado",
+            "Agente Universitário do Almoxarifado",
+            "PRAF"
+          ],
+          "sistemas": [
+            "GMS/ERP",
+            "planilha de controle"
+          ],
+          "artefatos": [
+            "Relatório de inventário geral"
+          ],
+          "interfaces": [
+            "PRAF",
+            "Div. de Contabilidade (S04.02-DCONT)",
+            "TCE-PR (auditoria externa)"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.95,
+          "frequencia": 0.35,
+          "risco_conformidade": 0.95,
+          "cobertura": 0.25,
+          "prioridade": 0.71,
+          "lacunas": [
+            "passos",
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial",
+            "versao_documento",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-05",
+          "justificativa": "Processo anual obrigatório e o mais exposto à auditoria externa (TCE-PR); frequência baixa, mas criticidade e risco de conformidade máximos, sem nenhum passo documentado."
+        },
+        {
+          "codigo_sugerido": "ALM-06",
+          "nome": "Conciliação Físico-Contábil",
+          "tipo": "processo",
+          "descricao": "Confronta os saldos físicos do Almoxarifado (apurados em ALM-04/ALM-05) com os registros contábeis, apurando e regularizando divergências junto à Contabilidade.",
+          "tipo_subdominio": "core",
+          "gatilho": "Fechamento de inventário rotativo ou geral, ou cronograma de conciliação contábil",
+          "saida": "Relatório de conciliação físico-contábil sem divergências pendentes",
+          "atores": [
+            "Chefe da Divisão de Almoxarifado",
+            "Sec. Financeira/Contabilidade"
+          ],
+          "sistemas": [
+            "GMS/ERP"
+          ],
+          "artefatos": [
+            "Relatório de conciliação"
+          ],
+          "interfaces": [
+            "Sec. Financeira/Contabilidade (Div. de Contabilidade, S04.02-DCONT)"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.85,
+          "frequencia": 0.55,
+          "risco_conformidade": 0.9,
+          "cobertura": 0.15,
+          "prioridade": 0.71,
+          "lacunas": [
+            "passos",
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial",
+            "versao_documento",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-06",
+          "justificativa": "Interliga o controle físico do Almoxarifado ao registro contábil institucional; risco de conformidade elevado (TCE-PR) e nenhuma etapa documentada."
+        },
+        {
+          "codigo_sugerido": "ALM-07",
+          "nome": "Desfazimento de Materiais Inservíveis",
+          "tipo": "processo",
+          "descricao": "Identifica, classifica e regulariza a baixa de materiais inservíveis, obsoletos ou danificados, por meio de desfazimento regulamentado (doação, alienação ou descarte).",
+          "tipo_subdominio": "core",
+          "gatilho": "Identificação de material inservível (por inventário, avaria ou obsolescência)",
+          "saida": "Termo de desfazimento emitido e baixa formalizada no GMS/ERP",
+          "atores": [
+            "Chefe da Divisão de Almoxarifado",
+            "Div. de Patrimônio",
+            "PRAF"
+          ],
+          "sistemas": [
+            "GMS/ERP",
+            "e-Protocolo"
+          ],
+          "artefatos": [
+            "Termo de desfazimento"
+          ],
+          "interfaces": [
+            "Div. de Patrimônio (S03.05-DPAT)",
+            "PRAF"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.95,
+          "frequencia": 0.35,
+          "risco_conformidade": 0.95,
+          "cobertura": 0.25,
+          "prioridade": 0.71,
+          "lacunas": [
+            "passos",
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial",
+            "versao_documento",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-07",
+          "justificativa": "Processo regulamentado com a maior exposição legal e patrimonial do lote; frequência baixa, mas risco de conformidade muito alto, sem qualquer passo documentado."
+        },
+        {
+          "codigo_sugerido": "ALM-04",
+          "nome": "Inventário Rotativo",
+          "tipo": "processo",
+          "descricao": "Realiza contagens periódicas por amostragem dos itens em estoque para identificar e corrigir divergências entre o físico e o sistema, dentro do checklist de supervisão mensal previsto no Manual de Gestão.",
+          "tipo_subdominio": "core",
+          "gatilho": "Cronograma periódico de contagem (checklist de supervisão mensal)",
+          "saida": "Relatório de inventário rotativo com divergências apontadas e regularizadas",
+          "atores": [
+            "Agente Universitário do Almoxarifado",
+            "Chefe da Divisão de Almoxarifado"
+          ],
+          "sistemas": [
+            "GMS/ERP",
+            "planilha de controle"
+          ],
+          "artefatos": [
+            "Relatório de inventário"
+          ],
+          "interfaces": [
+            "Div. de Contabilidade (S04.02-DCONT), quando há divergência relevante"
+          ],
+          "evidencias": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "maturidade": 1,
+          "criticidade": 0.8,
+          "frequencia": 0.65,
+          "risco_conformidade": 0.8,
+          "cobertura": 0.15,
+          "prioridade": 0.7,
+          "lacunas": [
+            "passos",
+            "responsavel",
+            "gatilho",
+            "entrada",
+            "saida",
+            "sistema",
+            "formulario",
+            "prazo",
+            "kpi",
+            "contingencia",
+            "interface_setorial",
+            "versao_documento",
+            "normativa"
+          ],
+          "recomendacao": "gerar_pop",
+          "pop_existente": "pop-alm-04",
+          "justificativa": "O Manual de Gestão prevê checklist de supervisão mensal e inventário rotativo, mas o POP não detalha amostragem, critérios de divergência nem responsável pela execução."
+        }
+      ],
+      "lacunas_setor": [
+        "Nenhum POP específico (ALM-01 a ALM-08) tem passo a passo documentado; apenas a visão geral (ALM-00) lista os 8 macroprocessos",
+        "Responsável funcional de cada processo não formalizado em identificacao.responsavel (todos em \"A definir\")",
+        "Mapa de contexto (interfaces com PRAF, Div. de Patrimônio, Div. de Contabilidade, Div. de Licitação e Fornecedores) ausente em todos os POPs",
+        "Indicadores (KPIs) por processo não definidos em nenhum POP do setor",
+        "Planos de contingência e checklists operacionais ausentes em todos os POPs",
+        "Normativa específica (identificacao.normativa) não preenchida nos POPs ALM-01 a ALM-08, apenas em ALM-00",
+        "Nenhum POP passou de status \"rascunho\"/versão 0.1.0"
+      ],
+      "licoes_propostas": [
+        {
+          "licao": "Playbooks multiprocesso (um POP-00 de visão geral mais N POPs específicos) nascem do scaffold com o macroprocesso já listado em ALM-00, mas os POPs específicos (ALM-01 a ALM-08) não herdam automaticamente gatilho, entrada ou saída aproximados do mesmo manual institucional.",
+          "regra": "Ao gerar esqueletos de setores com Manual de Mapeamento próprio, herdar de ALM-00 (ou do manual-fonte) ao menos um gatilho e uma saída provisórios por processo específico, reduzindo lacunas de \"gatilho\"/\"saida\" já na criação do esqueleto.",
+          "exemplo": "ALM-01 a ALM-08 nasceram com playbook.gatilho = \"A definir\" mesmo com o Manual de Mapeamento descrevendo o fluxo de cada um",
+          "origem": "diagnostico"
+        },
+        {
+          "licao": "Processos de baixa frequência mas altíssimo risco de conformidade (inventário geral anual, desfazimento regulamentado) ficam próximos do limiar de priorização porque a frequência pesa tanto quanto o risco na fórmula padrão.",
+          "regra": "Quando risco_conformidade ≥ 0,90 e há evidência de auditoria externa (TCE-PR/PRAF) nas fontes, considerar piso de prioridade de 0,70 independentemente da frequência, evitando subpriorização de processos anuais/obrigatórios.",
+          "exemplo": "ALM-05 (Inventário Geral) e ALM-07 (Desfazimento) — frequência 0,35, mas risco_conformidade 0,95",
+          "origem": "diagnostico"
+        }
+      ],
+      "observacoes": "Diagnóstico elaborado a partir de 3 entradas do Canvas Vivo (playbook do Almoxarifado e os dois Manuais — Mapeamento e Gestão), que descrevem os 8 processos em nível macro (passo a passo geral, responsáveis por função, indicadores e riscos por processo), mas sem o detalhamento operacional linha a linha necessário para o POP. Todos os 9 itens (ALM-00 a ALM-08) atingiram prioridade ≥ 0,70 e recomendação \"gerar_pop\", coerente com o lote de patches gerado na sequência (Tarefa 2). Maturidade 1 e cobertura baixa (0,15–0,25) refletem o estágio de esqueleto (rascunho v0.1.0) de todos os POPs antes da aplicação dos patches."
     }
   ],
   "agentes": [
