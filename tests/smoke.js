@@ -68,7 +68,7 @@ function mockFor(body) { const txt = JSON.stringify(body.messages || ''); let pa
     // Diagnóstico (mock) → gerar POP (mock patch)
     await page.click('#agTabs button[data-sub="diag"]'); await sleep(300);
     await page.selectOption('#agSetorSel', 'S03.04-ALM'); await page.click('#agContent button:has-text("Diagnosticar")'); await sleep(1500);
-    ok('Diagnóstico gravado', (await page.evaluate(() => JSON.parse(localStorage.getItem('cv-atdg-diag-v1') || '[]').length)) === 1);
+    ok('Diagnóstico gravado', await page.evaluate(() => { const ds = JSON.parse(localStorage.getItem('cv-atdg-diag-v1') || '[]').filter(d => d.setor_codigo === 'S03.04-ALM'); return ds.length === 1 && (ds[0].processos || []).some(p => p.codigo_sugerido === 'ALM-09'); }));
     ok('Diagnóstico lista processo com prioridade', (await page.locator('#agContent table.pop-table tbody tr').count()) >= 1);
     ok('Lição proposta registrada', (await page.evaluate(() => JSON.parse(localStorage.getItem('cv-atdg-licoes-v1') || '[]').filter(l => l.status === 'proposta').length)) >= 1);
     await page.click('#agContent button:has-text("Gerar POP")'); await sleep(2500);
