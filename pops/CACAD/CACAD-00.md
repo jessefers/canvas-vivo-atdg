@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S05-CACAD
 setor: "Coordenação Acadêmica — Geral"
 atualizado_em: "2026-09-03T01:52:53Z"
-agente: —
+agente: pop-cacad-00
 versao_diretrizes: "1.2"
 ---
 
@@ -47,7 +47,7 @@ versao_diretrizes: "1.2"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-coord-academica |
 | Lacunas abertas | interface_setorial, versao_documento |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-cacad-00 |
 
 ## 2. Organograma
 

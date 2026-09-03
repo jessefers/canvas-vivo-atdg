@@ -170,6 +170,10 @@ def aplicar(pop, patch, org=None, data=None):
             if c not in spec['conexoes']:
                 spec['conexoes'].append(c)
         tipo = cl.max_tipo(tipo, 'minor')
+    # raias sem elementos são removidas da especificação (evita colunas vazias no Miro)
+    usadas = set(e.get('raia') for e in spec.get('elementos') or [])
+    if any(r not in usadas for r in spec.get('raias') or []):
+        spec['raias'] = [r for r in spec['raias'] if r in usadas]
     # lacunas e lições
     if patch.get('lacunas_resolvidas'):
         pop['lacunas'] = [l for l in pop.get('lacunas') or [] if l not in set(patch['lacunas_resolvidas'])]

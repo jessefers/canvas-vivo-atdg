@@ -1,7 +1,7 @@
 ---
 id: diretriz-07
 titulo: Lições aprendidas (log append-only)
-versao: "1.6"
+versao: "1.8"
 atualizado_em: "2026-09-03"
 ---
 
@@ -31,6 +31,8 @@ Log **append-only**. Somente lições com `status: aprovada` são injetadas nos 
 | L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |
 | L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |
 | L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |
+| L-014 | 2026-09-03 | lote D1 | Documentos de outras instituições (ex.: subprocesso financeiro de hospital) foram anexados ao acervo como exemplo metodológico, sem descrever processo real da Unioeste. | Registrar documentos de outras instituições apenas em ecossistema.benchmarks; nunca como evidência de processo próprio nem como normativa institucional. | proposta |
+| L-015 | 2026-09-03 | lote D1 | Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte). | Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado. | proposta |
 
 ## Rejeitadas
 

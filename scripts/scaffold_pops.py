@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""scaffold_pops — cria POPs-esqueleto determinísticos (sem IA) para setores do organograma canônico.
+"""scaffold_pops — cria POPs-esqueleto determinísticos (sem IA) para setores do organograma canônico (e, com --de-diagnosticos, para processos identificados nos diagnósticos sem POP).
 
 Para cada setor que gera POP:
   • <SIGLA>-00  visão geral do setor, a partir do playbook (entrada pb-*) quando existir;
@@ -37,7 +37,7 @@ def normas_de(texto):
     return out
 
 
-def make_pop(org, node, codigo, titulo, descricao, fontes, passos_txt=(), normativa='', atencoes=(), subdominio='', escopo=''):
+def make_pop(org, node, codigo, titulo, descricao, fontes, passos_txt=(), normativa='', atencoes=(), subdominio='', escopo='', heranca=None):
     chain = org.chain(node['codigo'])
     divisao = node['nome'] if node['codigo'] == 'S01-DG' or len(chain) < 2 else chain[1]['nome']
     pai = org.by_codigo.get(node.get('pai')) if node.get('pai') else None
@@ -60,7 +60,8 @@ def make_pop(org, node, codigo, titulo, descricao, fontes, passos_txt=(), normat
         'identificacao': {'responsavel': 'A definir', 'periodicidade': 'A definir', 'normativa': normas, 'subordinacao': subordinacao,
                           'produto_atdg': 'POP', 'pasta_onedrive': node.get('pasta_onedrive', '03_MAPEAMENTO DE PROCESSOS')},
         'organograma_mermaid': '',
-        'playbook': {'gatilho': {'evento': 'A definir', 'origem': ''}, 'entrada': [], 'passos': passos, 'saida': []},
+        'playbook': {'gatilho': {'evento': (heranca or {}).get('gatilho') or 'A definir', 'origem': (heranca or {}).get('origem', '')},
+                     'entrada': list((heranca or {}).get('entrada') or []), 'passos': passos, 'saida': list((heranca or {}).get('saida') or [])},
         'artefatos': [], 'decisoes': [], 'pontos_atencao': [a for a in atencoes if str(a).strip()], 'contingencia': [], 'checklist': [], 'kpis': [], 'mapa_contexto': [],
         'fluxograma_mermaid': '', 'bpmn_spec': {'raias': [], 'elementos': [], 'conexoes': [], 'observacoes_construcao_miro': ''},
         'changelog': [{'versao': '0.1.0', 'data': now[:10], 'autor': AUTOR, 'tipo': 'patch',
@@ -71,8 +72,58 @@ def make_pop(org, node, codigo, titulo, descricao, fontes, passos_txt=(), normat
         'fontes_entradas': list(ids), 'hash_fontes': cl.hash_fontes(fontes), 'agente': '',
         'versao_diretrizes': cl.diretrizes_versao(), 'criado_em': now, 'atualizado_em': now,
     }
+    if heranca:
+        h = heranca
+        if h.get('gatilho'):
+            pop['lacunas'] = [l for l in pop['lacunas'] if l != 'gatilho']
+        if h.get('saida'):
+            pop['lacunas'] = [l for l in pop['lacunas'] if l != 'saida']
+        if h.get('entrada'):
+            pop['lacunas'] = [l for l in pop['lacunas'] if l != 'entrada']
+        if h.get('artefatos'):
+            pop['artefatos'] = [{'nome': a, 'tipo': 'documento', 'sistema': '', 'campos_chave': [], 'responsavel_preenchimento': ''} for a in h['artefatos']]
+        if h.get('interfaces'):
+            pop['mapa_contexto'] = [{'origem': node['id_app'], 'destino': i, 'relacao': 'informa', 'artefato': '', 'canal': 'A definir'} for i in h['interfaces'] if i and i != node['id_app']]
+        if h.get('lacunas'):
+            for l in h['lacunas']:
+                if l not in pop['lacunas']:
+                    pop['lacunas'].append(l)
+        pop['observacoes'] = 'Esqueleto herdado do diagnóstico %s (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).' % h.get('diag_id', '')
+        pop['changelog'][0]['mudancas'] = ['Esqueleto gerado a partir do diagnóstico %s (recomendação: %s)' % (h.get('diag_id', ''), h.get('recomendacao', ''))]
+        pop['changelog'][0]['motivo'] = 'Processo identificado no diagnóstico do setor sem POP correspondente'
     bm.refresh_mermaid(pop, org)
     return pop
+
+
+def de_diagnosticos(org, data, dry_run=False):
+    """Cria esqueletos para processos dos diagnósticos sem POP (pop_existente vazio e código sem arquivo)."""
+    import glob as _glob
+    existentes = {p['codigo']: p for p in cl.iter_pops()}
+    criados = []
+    for f in sorted(_glob.glob(os.path.join(cl.DIAG_DIR, '*.json'))):
+        diag = cl.load_json(f)
+        node = org.by_codigo.get(diag.get('setor_codigo'))
+        if not node or not node.get('gera_pop', True):
+            continue
+        for proc in diag.get('processos') or []:
+            codigo = (proc.get('codigo_sugerido') or '').strip().upper()
+            if not codigo or proc.get('pop_existente') or codigo in existentes or proc.get('recomendacao') == 'descartar':
+                continue
+            if cl.sigla_of_code(codigo) != node['sigla'] or not re.match(r'^[A-Z0-9-]+-\d{2}$', codigo):
+                continue
+            fontes = [e for e in data['entries'] if e.get('id') in set(proc.get('evidencias') or [])]
+            heranca = {'gatilho': proc.get('gatilho', ''), 'origem': '', 'saida': [proc['saida']] if proc.get('saida') else [], 'entrada': [],
+                       'artefatos': proc.get('artefatos') or [], 'interfaces': proc.get('interfaces') or [], 'lacunas': proc.get('lacunas') or [],
+                       'diag_id': diag.get('id', ''), 'recomendacao': proc.get('recomendacao', '')}
+            pop = make_pop(org, node, codigo, proc.get('nome') or codigo, proc.get('descricao') or '', fontes, [], '', [], proc.get('nome') or '', '', heranca)
+            if proc.get('tipo_subdominio') in ('core', 'suporte', 'generico'):
+                pop['ddd']['tipo_subdominio'] = proc['tipo_subdominio']
+            existentes[codigo] = pop
+            criados.append(codigo)
+            if not dry_run:
+                cl.save_json(cl.pop_paths(codigo)[0], pop)
+                rp.render_pop(pop, org)
+    return criados
 
 
 def candidatos(org, node, entries, existentes):
@@ -161,11 +212,17 @@ def main():
     ap.add_argument('--setor', action='append', default=[])
     ap.add_argument('--todos', action='store_true')
     ap.add_argument('--dry-run', action='store_true')
+    ap.add_argument('--de-diagnosticos', action='store_true', help='cria esqueletos para processos identificados nos diagnósticos sem POP')
     a = ap.parse_args()
-    if not a.setor and not a.todos:
-        ap.error('informe --setor X ou --todos')
+    if not a.setor and not a.todos and not a.de_diagnosticos:
+        ap.error('informe --setor X, --todos ou --de-diagnosticos')
     org = cl.Org()
     data = cl.load_data()
+    if a.de_diagnosticos:
+        criados = de_diagnosticos(org, data, a.dry_run)
+        print('%s%d esqueleto(s) criados a partir dos diagnósticos: %s' % ('[dry-run] ' if a.dry_run else '', len(criados), ', '.join(criados) or '—'))
+        if not a.setor and not a.todos:
+            return
     criados, pulados = scaffold(org, data, a.setor or None, a.dry_run)
     print('%s%d POP(s) criados, %d já existentes' % ('[dry-run] ' if a.dry_run else '', len(criados), len(pulados)))
     for c in criados:

@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S04.01-DFIN
 setor: "Div. de Finanças"
 atualizado_em: "2026-09-03T01:52:53Z"
-agente: —
+agente: pop-dfin-03
 versao_diretrizes: "1.2"
 ---
 
@@ -48,7 +48,7 @@ versao_diretrizes: "1.2"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | 1780963200042 |
 | Lacunas abertas | versao_documento, dados_pessoais_lgpd |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dfin-03 |
 
 ## 2. Organograma
 

@@ -2872,6 +2872,7 @@ function applyPopPatch(popIn,patch,entriesAll){
   if((delta.elementos_add||[]).length){const ids=new Set(spec.elementos.map(e=>e.id));delta.elementos_add.forEach(e=>{if(!ids.has(e.id)){spec.elementos.push(e);ids.add(e.id);if(e.raia&&!spec.raias.includes(e.raia))spec.raias.push(e.raia);}});tipo=maxTipo(tipo,'minor');mud.push('Elementos BPMN adicionados: '+delta.elementos_add.length);}
   if((delta.conexoes_rm||[]).length){const rmc=new Set(delta.conexoes_rm.map(c=>c.de+'>'+c.para));spec.conexoes=spec.conexoes.filter(c=>!rmc.has(c.de+'>'+c.para));}
   if((delta.conexoes_add||[]).length){delta.conexoes_add.forEach(c=>{if(!spec.conexoes.some(x=>x.de===c.de&&x.para===c.para&&(x.label||'')===(c.label||'')))spec.conexoes.push(c);});tipo=maxTipo(tipo,'minor');}
+  {const usadas=new Set((spec.elementos||[]).map(e=>e.raia));spec.raias=(spec.raias||[]).filter(r=>usadas.has(r));}
   if((patch.lacunas_resolvidas||[]).length){const r=new Set(patch.lacunas_resolvidas);pop.lacunas=(pop.lacunas||[]).filter(l=>!r.has(l));}
   (patch.lacunas_novas||[]).forEach(l=>{pop.lacunas=pop.lacunas||[];if(!pop.lacunas.includes(l))pop.lacunas.push(l);});
   (patch.licoes_aplicadas||[]).forEach(l=>{pop.licoes_aplicadas=pop.licoes_aplicadas||[];if(!pop.licoes_aplicadas.includes(l))pop.licoes_aplicadas.push(l);});

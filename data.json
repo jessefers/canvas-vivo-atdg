@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:55:14Z",
+  "sincronizado_em": "2026-09-03T01:56:22Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -2811,9 +2811,9 @@
       "id": "diretriz-07",
       "arquivo": "diretrizes/07-licoes-aprendidas.md",
       "titulo": "Lições aprendidas (log append-only)",
-      "versao": "1.6",
+      "versao": "1.8",
       "atualizado_em": "2026-09-03",
-      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.6\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |\n| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |\n| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |\n| L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
+      "conteudo": "---\nid: diretriz-07\ntitulo: Lições aprendidas (log append-only)\nversao: \"1.8\"\natualizado_em: \"2026-09-03\"\n---\n\n# 07 — Lições aprendidas\n\nLog **append-only**. Somente lições com `status: aprovada` são injetadas nos prompts dos agentes e do app. Ids sequenciais `L-NNN`. Nunca editar linhas anteriores: para reverter, registrar nova lição com `substitui: L-NNN`.\n\n## Regras vigentes (aprovadas)\n\n| id | data | origem | lição | regra | status |\n|---|---|---|---|---|---|\n| L-001 | 2026-09-02 | curador | POPs anteriores citavam servidores pelo nome, expondo dados pessoais em documentos amplamente distribuídos. | Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD). | aprovada |\n| L-002 | 2026-09-02 | curador | Passos compostos (\"conferir e lançar\") dificultam a atribuição de responsável e a medição. | Um passo = uma ação; ações compostas viram passos distintos. | aprovada |\n| L-003 | 2026-09-02 | curador | Interfaces com outros setores apareciam só no texto e sumiam do fluxograma. | Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino. | aprovada |\n| L-004 | 2026-09-02 | curador | Manuais regenerados do zero perdiam ajustes validados pelo setor. | Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão. | aprovada |\n| L-005 | 2026-09-02 | curador | Entradas do Canvas repetiam documentos com versões duplicadas (\"(2)\", \"cópia\", \"teste\"). | No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`. | aprovada |\n| L-006 | 2026-09-02 | curador | Códigos legados (CON-01, CTR-01, Almoxarifado 01–08) já circulam no manual institucional. | Preservar códigos legados como códigos de processo; não renumerar. | aprovada |\n| L-007 | 2026-09-02 | curador | Referências externas (UFPR, UFABC, UNILA, IFPR) foram tratadas como norma em rascunhos. | Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis. | aprovada |\n\n## Propostas pendentes\n\n| id | data | origem | lição | regra proposta | status |\n|---|---|---|---|---|---|\n| L-008 | 2026-09-03 | lote ALM | Playbooks multiprocesso (ex.: ALM-00 + ALM-01..08) nascem do scaffold sem herdar gatilho, entrada e saída do manual-fonte. | O scaffold de processos conhecidos deve herdar do manual-fonte, quando existir, gatilho e saída provisórios por processo (marcados como inferência). | proposta |\n| L-009 | 2026-09-03 | lote ALM | Processos de baixa frequência e altíssimo risco de conformidade (inventário geral, desfazimento) ficam no limiar de priorização porque a frequência pesa tanto quanto o risco. | Quando risco_conformidade ≥ 0,90 com evidência de auditoria externa, aplicar piso de prioridade 0,70 independentemente da frequência. | proposta |\n| L-010 | 2026-09-03 | lote DCOM | Passos do esqueleto frequentemente unem ações de responsáveis diferentes numa só frase (ponto e vírgula). | Todo passo com mais de um responsável no texto deve ser desdobrado em passos distintos (alterar o existente e adicionar os demais com apos_n); nunca manter responsável ambíguo. | proposta |\n| L-011 | 2026-09-03 | lote DCOM | Prazos de espera explícitos (aguardar N dias) aparecem fundidos com a ação seguinte, ocultando a pausa exigida por norma. | Todo prazo de espera explícito gera um elemento BPMN pausa dedicado e, quando houver condição de prosseguimento, uma decisão Sim/Não correspondente. | proposta |\n| L-012 | 2026-09-03 | lote DCOM | Siglas do setor (ex.: DDF) aparecem sem expansão nas fontes. | O glossário do POP registra a função observada da sigla e marca a expansão como pendente de confirmação; nunca presumir o significado. | proposta |\n| L-013 | 2026-09-03 | lote D2 | Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo. | Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo. | proposta |\n| L-014 | 2026-09-03 | lote D1 | Documentos de outras instituições (ex.: subprocesso financeiro de hospital) foram anexados ao acervo como exemplo metodológico, sem descrever processo real da Unioeste. | Registrar documentos de outras instituições apenas em ecossistema.benchmarks; nunca como evidência de processo próprio nem como normativa institucional. | proposta |\n| L-015 | 2026-09-03 | lote D1 | Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte). | Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado. | proposta |\n\n## Rejeitadas\n\n| id | data | origem | lição | motivo da rejeição | status |\n|---|---|---|---|---|---|\n"
     },
     {
       "id": "diretriz-08",
@@ -2947,6 +2947,24 @@
       "origem": "lote D2",
       "licao": "Fluxogramas entregues apenas como imagem (sem texto extraível) impedem a extração automática do passo a passo.",
       "regra": "Registrar a lacuna passos e agendar revisão visual manual do fluxograma antes de elevar a maturidade do processo.",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
+    },
+    {
+      "id": "L-014",
+      "data": "2026-09-03",
+      "origem": "lote D1",
+      "licao": "Documentos de outras instituições (ex.: subprocesso financeiro de hospital) foram anexados ao acervo como exemplo metodológico, sem descrever processo real da Unioeste.",
+      "regra": "Registrar documentos de outras instituições apenas em ecossistema.benchmarks; nunca como evidência de processo próprio nem como normativa institucional.",
+      "status": "proposta",
+      "atualizado_em": "2026-09-03"
+    },
+    {
+      "id": "L-015",
+      "data": "2026-09-03",
+      "origem": "lote D1",
+      "licao": "Manual PROGRAD duplicado em duas pastas do Canvas (mesmo arquivo-fonte).",
+      "regra": "Ao identificar duplicidade de arquivo-fonte, citar apenas o arquivo mestre nas fontes do POP e registrar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar POP separado.",
       "status": "proposta",
       "atualizado_em": "2026-09-03"
     }
@@ -7938,7 +7956,7 @@
         "pb-coord-academica"
       ],
       "hash_fontes": "b49b774185f098dbb4415fb63c00ef2af2fc84d3e3903a04c8702406c805c8f0",
-      "agente": "",
+      "agente": "pop-cacad-00",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
@@ -8456,7 +8474,7 @@
         "1780963200039"
       ],
       "hash_fontes": "7e528d3379c8b610c05e847f74ee03d4cba5d4c43d71d4b8ac85bcecb2a35b0d",
-      "agente": "",
+      "agente": "pop-cacad-01",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -11879,7 +11897,7 @@
         "pb-assistencia-estudantil"
       ],
       "hash_fontes": "238b2a9528e1d70a9b82fc803abb5069b49012ce25d7e4c21259d7737712fd98",
-      "agente": "",
+      "agente": "pop-dae-00",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -16393,7 +16411,7 @@
         "pb-contabilidade"
       ],
       "hash_fontes": "8260000998ed45119ddacad49a9a35adb854acfc8b69c690696dffa639073537",
-      "agente": "",
+      "agente": "pop-dcont-00",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
@@ -17404,7 +17422,7 @@
         "pb-financas"
       ],
       "hash_fontes": "277b9db19aa10e41f2e283791ea68d805333e3c89631e49115cf7ee482282ca7",
-      "agente": "",
+      "agente": "pop-dfin-00",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
@@ -17972,7 +17990,7 @@
         "1780963200049"
       ],
       "hash_fontes": "16d69e41c1a588551048d19d0881f6c3b9d2513a86866734ceb02160f73a257c",
-      "agente": "",
+      "agente": "pop-dfin-01",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
@@ -18515,7 +18533,7 @@
         "1780963200041"
       ],
       "hash_fontes": "b775d86b243d207539c08eea74109b72d68c54542e064fdf0f55ec7a53f51201",
-      "agente": "",
+      "agente": "pop-dfin-02",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
@@ -19019,7 +19037,7 @@
         "1780963200042"
       ],
       "hash_fontes": "c213bfab497f9ea13befb8647c3ef806f5ea4919a64c8d172fdf205c3c25b991",
-      "agente": "",
+      "agente": "pop-dfin-03",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
@@ -19587,7 +19605,7 @@
         "1780963200049"
       ],
       "hash_fontes": "f45c1544efde07ad6995116620f05f10b1a5321a543805c61f78e5a4fbd83b96",
-      "agente": "",
+      "agente": "pop-dfin-04",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
@@ -20378,7 +20396,7 @@
         "pb-graduacao"
       ],
       "hash_fontes": "91c36ccbc5cae5b52bf2ca65b33e8eaa5184651911eef6fdb453fd31d602122f",
-      "agente": "",
+      "agente": "pop-dgrad-00",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -20861,7 +20879,7 @@
         "1780963200038"
       ],
       "hash_fontes": "143196e8a2e34ace027c06ad381f8f8e90ae9dbccdbbe21b214512ab40a7d334",
-      "agente": "",
+      "agente": "pop-dgrad-01",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -25310,7 +25328,7 @@
         "pb-pos-graduacao"
       ],
       "hash_fontes": "6444c5999c31a12d4da808aba8f63eece89553eaa617e1883ca79e510937c236",
-      "agente": "",
+      "agente": "pop-dpg-00",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -25813,7 +25831,7 @@
         "1780963200043"
       ],
       "hash_fontes": "5a47d66f34e19f24ff6ecaa3755cf13867f5c4d40e6ae8766177ebb78d96a639",
-      "agente": "",
+      "agente": "pop-dpg-01",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -26340,7 +26358,7 @@
         "1780963200044"
       ],
       "hash_fontes": "3da7d730f69a829f695f8eeda14117138208151a4b61b998a90c13119e872e92",
-      "agente": "",
+      "agente": "pop-dpg-02",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -26868,7 +26886,7 @@
         "1780963200045"
       ],
       "hash_fontes": "ad2a1834bff278781e95caae3b38b76c0dcbd447012a784a11700137f9f726e1",
-      "agente": "",
+      "agente": "pop-dpg-03",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -27374,7 +27392,7 @@
         "1780963200046"
       ],
       "hash_fontes": "15c150078eca16528748c1af20a4d0410365d4958ae646e6dc7678de37c74f63",
-      "agente": "",
+      "agente": "pop-dpg-04",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -27880,7 +27898,7 @@
         "1780963200047"
       ],
       "hash_fontes": "b2ae9178b836fb9023f2c024a68b6d848c17c2b404b0b2a9ff3bced0b9c209b0",
-      "agente": "",
+      "agente": "pop-dpg-05",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:55Z",
       "atualizado_em": "2026-09-03T01:52:54Z"
@@ -30506,7 +30524,7 @@
         "pb-sec-financeira"
       ],
       "hash_fontes": "bc32dbe5defa69c7214deecc5c8b8342165705056ec776970818bc0f83d07706",
-      "agente": "",
+      "agente": "pop-sfin-00",
       "versao_diretrizes": "1.2",
       "criado_em": "2026-09-02T17:55:54Z",
       "atualizado_em": "2026-09-03T01:52:53Z"
@@ -33561,6 +33579,258 @@
       "origem": "script",
       "criado_em": "2026-09-03T01:55:14Z",
       "atualizado_em": "2026-09-03T01:55:14Z"
+    },
+    {
+      "id": "agente-pop-sfin-00",
+      "codigo": "SFIN-00",
+      "pop_id": "pop-sfin-00",
+      "nome": "Agente do processo SFIN-00 — Visão geral — Secretaria Financeira",
+      "setor_codigo": "S04-SFIN",
+      "arquivo": ".claude/agents/pop-sfin-00.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "0.2.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:21Z",
+      "atualizado_em": "2026-09-03T01:56:21Z"
+    },
+    {
+      "id": "agente-pop-dfin-00",
+      "codigo": "DFIN-00",
+      "pop_id": "pop-dfin-00",
+      "nome": "Agente do processo DFIN-00 — Visão geral — Div. de Finanças",
+      "setor_codigo": "S04.01-DFIN",
+      "arquivo": ".claude/agents/pop-dfin-00.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dfin-01",
+      "codigo": "DFIN-01",
+      "pop_id": "pop-dfin-01",
+      "nome": "Agente do processo DFIN-01 — Fluxo Despesas Campus Foz — Diárias Nacionais",
+      "setor_codigo": "S04.01-DFIN",
+      "arquivo": ".claude/agents/pop-dfin-01.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dfin-02",
+      "codigo": "DFIN-02",
+      "pop_id": "pop-dfin-02",
+      "nome": "Agente do processo DFIN-02 — Fluxo Despesas Campus Foz — Passagem e Hospedagem",
+      "setor_codigo": "S04.01-DFIN",
+      "arquivo": ".claude/agents/pop-dfin-02.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dfin-03",
+      "codigo": "DFIN-03",
+      "pop_id": "pop-dfin-03",
+      "nome": "Agente do processo DFIN-03 — Fluxo Despesas Campus Foz — Geral",
+      "setor_codigo": "S04.01-DFIN",
+      "arquivo": ".claude/agents/pop-dfin-03.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dfin-04",
+      "codigo": "DFIN-04",
+      "pop_id": "pop-dfin-04",
+      "nome": "Agente do processo DFIN-04 — Procedimento — Diárias Nacionais",
+      "setor_codigo": "S04.01-DFIN",
+      "arquivo": ".claude/agents/pop-dfin-04.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dcont-00",
+      "codigo": "DCONT-00",
+      "pop_id": "pop-dcont-00",
+      "nome": "Agente do processo DCONT-00 — Visão geral — Div. de Contabilidade",
+      "setor_codigo": "S04.02-DCONT",
+      "arquivo": ".claude/agents/pop-dcont-00.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "0.2.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-cacad-00",
+      "codigo": "CACAD-00",
+      "pop_id": "pop-cacad-00",
+      "nome": "Agente do processo CACAD-00 — Visão geral — Coordenação Acadêmica",
+      "setor_codigo": "S05-CACAD",
+      "arquivo": ".claude/agents/pop-cacad-00.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-cacad-01",
+      "codigo": "CACAD-01",
+      "pop_id": "pop-cacad-01",
+      "nome": "Agente do processo CACAD-01 — Fluxos e-Protocolo — Extensão (PROEX)",
+      "setor_codigo": "S05-CACAD",
+      "arquivo": ".claude/agents/pop-cacad-01.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dpg-00",
+      "codigo": "DPG-00",
+      "pop_id": "pop-dpg-00",
+      "nome": "Agente do processo DPG-00 — Visão geral — Div. de Pós-Graduação",
+      "setor_codigo": "S05.01-DPG",
+      "arquivo": ".claude/agents/pop-dpg-00.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dpg-01",
+      "codigo": "DPG-01",
+      "pop_id": "pop-dpg-01",
+      "nome": "Agente do processo DPG-01 — Fluxos e-Protocolo — PRPPG Capacitação de Servidores",
+      "setor_codigo": "S05.01-DPG",
+      "arquivo": ".claude/agents/pop-dpg-01.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dpg-02",
+      "codigo": "DPG-02",
+      "pop_id": "pop-dpg-02",
+      "nome": "Agente do processo DPG-02 — Fluxos e-Protocolo — PRPPG CEUA",
+      "setor_codigo": "S05.01-DPG",
+      "arquivo": ".claude/agents/pop-dpg-02.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dpg-03",
+      "codigo": "DPG-03",
+      "pop_id": "pop-dpg-03",
+      "nome": "Agente do processo DPG-03 — Fluxos e-Protocolo — PRPPG CEUAP",
+      "setor_codigo": "S05.01-DPG",
+      "arquivo": ".claude/agents/pop-dpg-03.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dpg-04",
+      "codigo": "DPG-04",
+      "pop_id": "pop-dpg-04",
+      "nome": "Agente do processo DPG-04 — Fluxos e-Protocolo — PRPPG Lato Sensu",
+      "setor_codigo": "S05.01-DPG",
+      "arquivo": ".claude/agents/pop-dpg-04.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dpg-05",
+      "codigo": "DPG-05",
+      "pop_id": "pop-dpg-05",
+      "nome": "Agente do processo DPG-05 — Fluxos e-Protocolo — PRPPG Stricto Sensu",
+      "setor_codigo": "S05.01-DPG",
+      "arquivo": ".claude/agents/pop-dpg-05.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dgrad-00",
+      "codigo": "DGRAD-00",
+      "pop_id": "pop-dgrad-00",
+      "nome": "Agente do processo DGRAD-00 — Visão geral — Div. de Graduação",
+      "setor_codigo": "S05.02-DGRAD",
+      "arquivo": ".claude/agents/pop-dgrad-00.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dgrad-01",
+      "codigo": "DGRAD-01",
+      "pop_id": "pop-dgrad-01",
+      "nome": "Agente do processo DGRAD-01 — Fluxos e-Protocolo — Ensino (PROGRAD)",
+      "setor_codigo": "S05.02-DGRAD",
+      "arquivo": ".claude/agents/pop-dgrad-01.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "1.0.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
+    },
+    {
+      "id": "agente-pop-dae-00",
+      "codigo": "DAE-00",
+      "pop_id": "pop-dae-00",
+      "nome": "Agente do processo DAE-00 — Visão geral — Div. de Assistência Estudantil",
+      "setor_codigo": "S05.03-DAE",
+      "arquivo": ".claude/agents/pop-dae-00.md",
+      "versao_diretrizes": "1.8",
+      "versao_pop": "0.2.0",
+      "modelo": "sonnet",
+      "origem": "script",
+      "criado_em": "2026-09-03T01:56:22Z",
+      "atualizado_em": "2026-09-03T01:56:22Z"
     }
   ]
 }

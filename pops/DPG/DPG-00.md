@@ -6,7 +6,7 @@ status: em_validacao
 setor_codigo: S05.01-DPG
 setor: "Div. de Pós-Graduação"
 atualizado_em: "2026-09-03T01:52:54Z"
-agente: —
+agente: pop-dpg-00
 versao_diretrizes: "1.2"
 ---
 
@@ -49,7 +49,7 @@ versao_diretrizes: "1.2"
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-pos-graduacao |
 | Lacunas abertas | interface_setorial, versao_documento |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dpg-00 |
 
 ## 2. Organograma
 

@@ -6,7 +6,7 @@ status: rascunho
 setor_codigo: S04.02-DCONT
 setor: "Div. de Contabilidade"
 atualizado_em: "2026-09-03T01:52:53Z"
-agente: —
+agente: pop-dcont-00
 versao_diretrizes: "1.2"
 ---
 
@@ -42,7 +42,7 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-contabilidade |
 | Lacunas abertas | responsavel, gatilho, entrada, saida, kpi, contingencia, formulario, prazo, interface_setorial |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dcont-00 |
 
 ## 2. Organograma
 

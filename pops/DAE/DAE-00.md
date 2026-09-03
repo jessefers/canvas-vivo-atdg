@@ -6,7 +6,7 @@ status: rascunho
 setor_codigo: S05.03-DAE
 setor: "Div. de Assistência Estudantil"
 atualizado_em: "2026-09-03T01:52:54Z"
-agente: —
+agente: pop-dae-00
 versao_diretrizes: "1.2"
 ---
 
@@ -42,7 +42,7 @@ Herda integralmente o glossário institucional (`diretrizes/09-glossario-institu
 | Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
 | Fontes (entradas do Canvas) | pb-assistencia-estudantil |
 | Lacunas abertas | responsavel, gatilho, entrada, saida, kpi, contingencia, formulario, prazo, interface_setorial, dados_pessoais_lgpd |
-| Agente responsável | — (não moldado) |
+| Agente responsável | pop-dae-00 |
 
 ## 2. Organograma
 
