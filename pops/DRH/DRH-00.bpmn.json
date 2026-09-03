@@ -1,50 +1,131 @@
 {
   "setor": "Div. de Recursos Humanos",
   "codigo": "DRH-00",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:51:35Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DRH-00 — Visão geral — Div. de Recursos Humanos",
-      "descricao": "Guia do regime funcional, do controle de frequência (ponto eletrônico) e da tramitação dos processos de RH no e-Protocolo conforme os fluxos da PRORH.",
+      "descricao": "Coordena o controle diário e semanal de frequência por ponto eletrônico (IS 001/2024-DRH/Foz e Instrução 002/2019) e a instrução dos processos funcionais de RH (licenças, afastamentos, progressões) no e-Protocolo conforme o fluxo vigente da PRORH (v3.0), nos termos da Lei nº 6.174/1970 e do Edital 096/2023-GRE.",
       "raias": [
-        "Div. de Recursos Humanos"
+        "Div. de Recursos Humanos",
+        "Servidor",
+        "Chefia imediata",
+        "PRORH"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Recursos Humanos"
+          "label": "Início da jornada de trabalho / necessidade de processo de RH",
+          "raia": "Servidor"
         },
         {
           "id": "e2",
           "tipo": "atividade",
-          "label": "Registrar ponto eletrônico diário (entrada, saída, intervalos)",
-          "raia": "Div. de Recursos Humanos"
+          "label": "Registrar o ponto eletrônico diário",
+          "raia": "Servidor"
         },
         {
           "id": "e3",
-          "tipo": "atividade",
-          "label": "Apuração semanal da frequência pela chefia imediata",
-          "raia": "Div. de Recursos Humanos"
+          "tipo": "captura",
+          "label": "Encaminhar registro para apuração semanal",
+          "raia": "Chefia imediata"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Comunicar falhas e justificativas em até 48h via e-Protocolo",
-          "raia": "Div. de Recursos Humanos"
+          "label": "Apurar semanalmente a frequência registrada",
+          "raia": "Chefia imediata"
         },
         {
           "id": "e5",
-          "tipo": "atividade",
-          "label": "Instruir processos de RH (licenças, afastamentos, progressões) pelo fluxo PRORH",
-          "raia": "Div. de Recursos Humanos"
+          "tipo": "decisao",
+          "label": "Há falha ou divergência no registro de ponto?",
+          "raia": "Chefia imediata"
         },
         {
           "id": "e6",
+          "tipo": "atividade",
+          "label": "Comunicar falha e justificar em até 48h via e-Protocolo",
+          "raia": "Servidor"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Encaminhar frequência à Div. de Recursos Humanos",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Consolidar a frequência do período",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Solicitar processo funcional de RH, quando necessário",
+          "raia": "Servidor"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Receber solicitação de processo funcional",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Instruir o processo no e-Protocolo (fluxo PRORH v3.0)",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Encaminhar processo à PRORH",
+          "raia": "PRORH"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Analisar e deliberar sobre o processo",
+          "raia": "PRORH"
+        },
+        {
+          "id": "e14",
+          "tipo": "decisao",
+          "label": "PRORH aprova o processo funcional solicitado?",
+          "raia": "PRORH"
+        },
+        {
+          "id": "e15",
+          "tipo": "pausa",
+          "label": "Aguardar complementação de documentação",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e16",
+          "tipo": "atividade",
+          "label": "Comunicar a decisão ao servidor e à chefia imediata",
+          "raia": "PRORH"
+        },
+        {
+          "id": "e17",
+          "tipo": "captura",
+          "label": "Retornar decisão à Div. de Recursos Humanos",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e18",
+          "tipo": "atividade",
+          "label": "Arquivar e atualizar o registro funcional do servidor",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e19",
           "tipo": "fim",
-          "label": "Concluído",
+          "label": "Frequência apurada e processo funcional concluído",
           "raia": "Div. de Recursos Humanos"
         }
       ],
@@ -67,7 +148,71 @@
         },
         {
           "de": "e5",
-          "para": "e6"
+          "para": "e6",
+          "label": "Sim"
+        },
+        {
+          "de": "e5",
+          "para": "e7",
+          "label": "Não"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15",
+          "label": "Não"
+        },
+        {
+          "de": "e15",
+          "para": "e11"
+        },
+        {
+          "de": "e14",
+          "para": "e16",
+          "label": "Sim"
+        },
+        {
+          "de": "e16",
+          "para": "e17"
+        },
+        {
+          "de": "e17",
+          "para": "e18"
+        },
+        {
+          "de": "e18",
+          "para": "e19"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."

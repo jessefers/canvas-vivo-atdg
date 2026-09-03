@@ -5,21 +5,32 @@
   "setor": "Div. de Recursos Humanos",
   "setor_codigo": "S03.07-DRH",
   "sigla": "DRH",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
     "departamento": "Div. de Recursos Humanos",
-    "descricao": "Guia do regime funcional, do controle de frequência (ponto eletrônico) e da tramitação dos processos de RH no e-Protocolo conforme os fluxos da PRORH.",
+    "descricao": "Coordena o controle diário e semanal de frequência por ponto eletrônico (IS 001/2024-DRH/Foz e Instrução 002/2019) e a instrução dos processos funcionais de RH (licenças, afastamentos, progressões) no e-Protocolo conforme o fluxo vigente da PRORH (v3.0), nos termos da Lei nº 6.174/1970 e do Edital 096/2023-GRE.",
     "dominio": "Gestão de Pessoas",
-    "subdominio": "Visão geral do setor (playbook)",
+    "subdominio": "Controle de frequência e instrução de processos funcionais de RH",
     "tipo_subdominio": "core",
     "contexto": "S03.07-DRH",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "PRORH",
+        "definicao": "Comissão/fluxo de Procedimentos de Recursos Humanos que tramita os processos funcionais no e-Protocolo.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "IS 001/2024-DRH/Foz",
+        "definicao": "Instrução de Serviço que disciplina o controle de frequência por ponto eletrônico no Campus Foz.",
+        "sistema": "ponto eletrônico"
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "responsavel": "Chefe da Divisão de Recursos Humanos",
+    "periodicidade": "Diária (registro de ponto) e semanal (apuração); processos funcionais por demanda",
     "normativa": [
       "Lei nº 6.174/1970",
       "IS 001/2024-DRH/Foz",
@@ -31,116 +42,384 @@
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_07_DRH[\"S03.07-DRH<br/>Div. de Recursos Humanos\"]\n  S03_SADM --> S03_07_DRH\n  P[\"DRH-00<br/>Visão geral — Div. de Recursos Humanos\"]\n  S03_07_DRH --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_07_DRH setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_07_DRH[\"S03.07-DRH<br/>Div. de Recursos Humanos\"]\n  S03_SADM --> S03_07_DRH\n  P[\"DRH-00<br/>Visão geral — Div. de Recursos Humanos\"]\n  S03_07_DRH --> P\n  V1[\"Chefia imediata\"]\n  P -. interface .-> V1\n  V2[\"Servidor\"]\n  P -. interface .-> V2\n  V3[\"PRORH\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_07_DRH setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Início da jornada de trabalho do servidor ou necessidade de instruir processo funcional de RH",
+      "origem": "Servidor / Chefia imediata"
     },
-    "entrada": [],
+    "entrada": [
+      "Registro de ponto eletrônico do dia",
+      "Solicitação de processo funcional (quando houver)"
+    ],
     "passos": [
       {
         "n": 1,
-        "acao": "Registrar ponto eletrônico diário (entrada, saída, intervalos)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Registrar o ponto eletrônico diário (entrada, saída, intervalos)",
+        "responsavel": "Servidor",
+        "sistema": "ponto eletrônico",
+        "artefato": "Registro de ponto",
+        "prazo": "Diário",
+        "evento": "Ponto registrado",
         "fontes": [
-          "pb-rh"
+          "pb-rh",
+          "1780963200026"
         ]
       },
       {
         "n": 2,
-        "acao": "Apuração semanal da frequência pela chefia imediata",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Apurar semanalmente a frequência registrada",
+        "responsavel": "Chefia imediata",
+        "sistema": "ponto eletrônico",
+        "artefato": "Apuração semanal de frequência",
+        "prazo": "Semanal",
+        "evento": "Frequência apurada",
         "fontes": [
-          "pb-rh"
+          "pb-rh",
+          "1780963200026"
         ]
       },
       {
-        "n": 3,
-        "acao": "Comunicar falhas e justificativas em até 48h via e-Protocolo",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Consolidar a frequência do período",
+        "responsavel": "Chefe da Divisão de Recursos Humanos",
+        "sistema": "ponto eletrônico",
+        "artefato": "Consolidado de frequência",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Frequência consolidada",
         "fontes": [
           "pb-rh"
-        ]
+        ],
+        "n": 3
       },
       {
         "n": 4,
-        "acao": "Instruir processos de RH (licenças, afastamentos, progressões) pelo fluxo PRORH",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
-        "prazo": "A definir",
-        "evento": "",
+        "acao": "Comunicar falha ou divergência de registro e apresentar justificativa em até 48h via e-Protocolo",
+        "responsavel": "Servidor",
+        "sistema": "e-Protocolo",
+        "artefato": "Justificativa de frequência",
+        "prazo": "Até 48h da falha",
+        "evento": "Falha justificada",
         "fontes": [
-          "pb-rh"
+          "pb-rh",
+          "1780963200026"
         ]
+      },
+      {
+        "acao": "Solicitar processo funcional de RH (licença, afastamento, progressão), quando necessário",
+        "responsavel": "Servidor",
+        "sistema": "e-Protocolo",
+        "artefato": "Solicitação de processo funcional",
+        "prazo": "A definir",
+        "evento": "Processo funcional solicitado",
+        "fontes": [
+          "pb-rh",
+          "1780963200048",
+          "1780963200065"
+        ],
+        "n": 5
+      },
+      {
+        "n": 6,
+        "acao": "Instruir o processo de RH no e-Protocolo conforme o fluxo PRORH vigente (v3.0)",
+        "responsavel": "Chefe da Divisão de Recursos Humanos",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo de RH",
+        "prazo": "A definir",
+        "evento": "Processo instruído",
+        "fontes": [
+          "pb-rh",
+          "1780963200065"
+        ]
+      },
+      {
+        "acao": "Analisar e deliberar sobre o processo",
+        "responsavel": "PRORH",
+        "sistema": "e-Protocolo",
+        "artefato": "Deliberação da PRORH",
+        "prazo": "A definir",
+        "evento": "Processo deliberado",
+        "fontes": [
+          "1780963200048",
+          "1780963200065"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Comunicar a decisão ao servidor e à chefia imediata",
+        "responsavel": "PRORH",
+        "sistema": "e-Protocolo",
+        "artefato": "Comunicação de decisão",
+        "prazo": "A definir",
+        "evento": "Decisão comunicada",
+        "fontes": [
+          "1780963200065"
+        ],
+        "n": 8
+      },
+      {
+        "acao": "Arquivar e atualizar o registro funcional do servidor",
+        "responsavel": "Chefe da Divisão de Recursos Humanos",
+        "sistema": "e-Protocolo",
+        "artefato": "Registro funcional atualizado",
+        "prazo": "A definir",
+        "evento": "Registro funcional atualizado",
+        "fontes": [
+          "1780963200065"
+        ],
+        "n": 9
       }
     ],
-    "saida": []
+    "saida": [
+      "Frequência apurada e, quando houver falha, justificada dentro do prazo",
+      "Processo funcional de RH instruído, deliberado pela PRORH e registro atualizado"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "Registro de ponto",
+      "tipo": "registro",
+      "sistema": "ponto eletrônico",
+      "campos_chave": [
+        "matrícula",
+        "data",
+        "horários registrados"
+      ],
+      "responsavel_preenchimento": "Servidor"
+    },
+    {
+      "nome": "Apuração semanal de frequência",
+      "tipo": "registro",
+      "sistema": "ponto eletrônico",
+      "campos_chave": [
+        "semana de referência",
+        "ocorrências",
+        "status"
+      ],
+      "responsavel_preenchimento": "Chefia imediata"
+    },
+    {
+      "nome": "Justificativa de frequência",
+      "tipo": "formulario",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "data da falha",
+        "motivo",
+        "documento comprobatório"
+      ],
+      "responsavel_preenchimento": "Servidor"
+    },
+    {
+      "nome": "Processo e-Protocolo de RH",
+      "tipo": "registro",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "tipo de processo",
+        "servidor requerente",
+        "documentação anexada"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Recursos Humanos"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Há falha ou divergência no registro de ponto?",
+      "condicao": "Verificação do registro pela chefia na apuração semanal",
+      "sim": "Servidor comunica a falha e justifica em até 48h via e-Protocolo",
+      "nao": "Frequência do período é consolidada normalmente"
+    },
+    {
+      "decisao": "PRORH aprova o processo funcional solicitado?",
+      "condicao": "Análise da documentação e do enquadramento legal do pedido",
+      "sim": "Chefe da Divisão de Recursos Humanos arquiva e atualiza o registro funcional",
+      "nao": "Processo é devolvido para complementação de documentação"
+    }
+  ],
   "pontos_atencao": [
     "Vedada prestação de serviço sem registro de ponto",
     "Usar o fluxo PRORH v3.0 (set/2024), não a v2.0",
-    "Lei 6.174/70 possui alterações posteriores — verificar vigência"
+    "Lei 6.174/70 possui alterações posteriores — verificar vigência",
+    "A Lei nº 6.174/1970 possui alterações posteriores não mapeadas — confirmar vigência antes de fundamentar decisões",
+    "O fluxo PRORH deve seguir a versão vigente (v3.0); versões e cópias anteriores servem apenas de referência histórica"
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Recursos Humanos\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Registrar ponto eletrônico diário (entrada, saída, intervalos)\"]\n    e3[\"Apuração semanal da frequência pela chefia imediata\"]\n    e4[\"Comunicar falhas e justificativas em até 48h via e-Protocolo\"]\n    e5[\"Instruir processos de RH (licenças, afastamentos, progressões) pelo f…\"]\n    e6(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5 atividade\n  class e6 fim",
+  "contingencia": [
+    "Se o servidor não comunicar a falha de registro em até 48h, a chefia deve registrar a ocorrência e orientar a regularização",
+    "Se a documentação do processo funcional estiver incompleta, a PRORH devolve o processo para complementação",
+    "Se houver dúvida sobre a norma aplicável em razão de alterações da Lei nº 6.174/1970, consultar a Assessoria Jurídica antes de decidir",
+    "Se o servidor não puder registrar o ponto por motivo justificado, a chefia imediata deve formalizar a exceção conforme a IS 001/2024-DRH/Foz"
+  ],
+  "checklist": [
+    "Ponto eletrônico registrado diariamente",
+    "Frequência apurada semanalmente pela chefia imediata",
+    "Justificativas de falha comunicadas em até 48h",
+    "Processo de RH instruído no e-Protocolo conforme o fluxo PRORH v3.0",
+    "Decisão da PRORH comunicada ao servidor e à chefia",
+    "Registro funcional do servidor atualizado"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de justificativas de frequência apresentadas dentro do prazo de 48h",
+      "formula": "(Justificativas dentro do prazo ÷ total de falhas) × 100",
+      "meta": "100%",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Prazo médio de tramitação dos processos de RH no e-Protocolo",
+      "formula": "Data de conclusão − Data de abertura do processo",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Recursos Humanos",
+      "destino": "Chefia imediata",
+      "relacao": "recebe",
+      "artefato": "Apuração semanal de frequência",
+      "canal": "ponto eletrônico"
+    },
+    {
+      "origem": "Div. de Recursos Humanos",
+      "destino": "Servidor",
+      "relacao": "recebe",
+      "artefato": "Justificativa de frequência / solicitação de processo funcional",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Recursos Humanos",
+      "destino": "PRORH",
+      "relacao": "fornece",
+      "artefato": "Processo de RH instruído",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Recursos Humanos",
+      "destino": "PRORH",
+      "relacao": "recebe",
+      "artefato": "Decisão sobre o processo funcional",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Recursos Humanos\"]\n    direction LR\n    e7[[\"✉ Encaminhar frequência à Div. de Recursos Humanos\"]]\n    e8[\"Consolidar a frequência do período\"]\n    e10[[\"✉ Receber solicitação de processo funcional\"]]\n    e11[\"Instruir o processo no e-Protocolo (fluxo PRORH v3.0)\"]\n    e15([\"⏱ Aguardar complementação de documentação\"])\n    e17[[\"✉ Retornar decisão à Div. de Recursos Humanos\"]]\n    e18[\"Arquivar e atualizar o registro funcional do servidor\"]\n    e19(((\"Frequência apurada e processo funcional concluído\")))\n  end\n  subgraph R2[\"Servidor\"]\n    direction LR\n    e1((\"Início da jornada de trabalho / necessidade de processo de RH\"))\n    e2[\"Registrar o ponto eletrônico diário\"]\n    e6[\"Comunicar falha e justificar em até 48h via e-Protocolo\"]\n    e9[\"Solicitar processo funcional de RH, quando necessário\"]\n  end\n  subgraph R3[\"Chefia imediata\"]\n    direction LR\n    e3[[\"✉ Encaminhar registro para apuração semanal\"]]\n    e4[\"Apurar semanalmente a frequência registrada\"]\n    e5{\"Há falha ou divergência no registro de ponto?\"}\n  end\n  subgraph R4[\"PRORH\"]\n    direction LR\n    e12[[\"✉ Encaminhar processo à PRORH\"]]\n    e13[\"Analisar e deliberar sobre o processo\"]\n    e14{\"PRORH aprova o processo funcional solicitado?\"}\n    e16[\"Comunicar a decisão ao servidor e à chefia imediata\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 -- Sim --> e6\n  e5 -- Não --> e7\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 -- Não --> e15\n  e15 --> e11\n  e14 -- Sim --> e16\n  e16 --> e17\n  e17 --> e18\n  e18 --> e19\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e6,e8,e9,e11,e13,e16,e18 atividade\n  class e3,e7,e10,e12,e17 captura\n  class e5,e14 decisao\n  class e15 pausa\n  class e19 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Recursos Humanos"
+      "Div. de Recursos Humanos",
+      "Servidor",
+      "Chefia imediata",
+      "PRORH"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Div. de Recursos Humanos"
+        "label": "Início da jornada de trabalho / necessidade de processo de RH",
+        "raia": "Servidor"
       },
       {
         "id": "e2",
         "tipo": "atividade",
-        "label": "Registrar ponto eletrônico diário (entrada, saída, intervalos)",
-        "raia": "Div. de Recursos Humanos"
+        "label": "Registrar o ponto eletrônico diário",
+        "raia": "Servidor"
       },
       {
         "id": "e3",
-        "tipo": "atividade",
-        "label": "Apuração semanal da frequência pela chefia imediata",
-        "raia": "Div. de Recursos Humanos"
+        "tipo": "captura",
+        "label": "Encaminhar registro para apuração semanal",
+        "raia": "Chefia imediata"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Comunicar falhas e justificativas em até 48h via e-Protocolo",
-        "raia": "Div. de Recursos Humanos"
+        "label": "Apurar semanalmente a frequência registrada",
+        "raia": "Chefia imediata"
       },
       {
         "id": "e5",
-        "tipo": "atividade",
-        "label": "Instruir processos de RH (licenças, afastamentos, progressões) pelo fluxo PRORH",
-        "raia": "Div. de Recursos Humanos"
+        "tipo": "decisao",
+        "label": "Há falha ou divergência no registro de ponto?",
+        "raia": "Chefia imediata"
       },
       {
         "id": "e6",
+        "tipo": "atividade",
+        "label": "Comunicar falha e justificar em até 48h via e-Protocolo",
+        "raia": "Servidor"
+      },
+      {
+        "id": "e7",
+        "tipo": "captura",
+        "label": "Encaminhar frequência à Div. de Recursos Humanos",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Consolidar a frequência do período",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Solicitar processo funcional de RH, quando necessário",
+        "raia": "Servidor"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Receber solicitação de processo funcional",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Instruir o processo no e-Protocolo (fluxo PRORH v3.0)",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e12",
+        "tipo": "captura",
+        "label": "Encaminhar processo à PRORH",
+        "raia": "PRORH"
+      },
+      {
+        "id": "e13",
+        "tipo": "atividade",
+        "label": "Analisar e deliberar sobre o processo",
+        "raia": "PRORH"
+      },
+      {
+        "id": "e14",
+        "tipo": "decisao",
+        "label": "PRORH aprova o processo funcional solicitado?",
+        "raia": "PRORH"
+      },
+      {
+        "id": "e15",
+        "tipo": "pausa",
+        "label": "Aguardar complementação de documentação",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e16",
+        "tipo": "atividade",
+        "label": "Comunicar a decisão ao servidor e à chefia imediata",
+        "raia": "PRORH"
+      },
+      {
+        "id": "e17",
+        "tipo": "captura",
+        "label": "Retornar decisão à Div. de Recursos Humanos",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e18",
+        "tipo": "atividade",
+        "label": "Arquivar e atualizar o registro funcional do servidor",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e19",
         "tipo": "fim",
-        "label": "Concluído",
+        "label": "Frequência apurada e processo funcional concluído",
         "raia": "Div. de Recursos Humanos"
       }
     ],
@@ -163,7 +442,71 @@
       },
       {
         "de": "e5",
-        "para": "e6"
+        "para": "e6",
+        "label": "Sim"
+      },
+      {
+        "de": "e5",
+        "para": "e7",
+        "label": "Não"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15",
+        "label": "Não"
+      },
+      {
+        "de": "e15",
+        "para": "e11"
+      },
+      {
+        "de": "e14",
+        "para": "e16",
+        "label": "Sim"
+      },
+      {
+        "de": "e16",
+        "para": "e17"
+      },
+      {
+        "de": "e17",
+        "para": "e18"
+      },
+      {
+        "de": "e18",
+        "para": "e19"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -181,6 +524,52 @@
         "pb-rh"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 2: Consolidar a frequência do período",
+        "Passo adicionado após 3: Solicitar processo funcional de RH (licença, afastamento, progressão), quando ne",
+        "Passo adicionado após 4: Analisar e deliberar sobre o processo",
+        "Passo adicionado após 4: Comunicar a decisão ao servidor e à chefia imediata",
+        "Passo adicionado após 4: Arquivar e atualizar o registro funcional do servidor",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +4",
+        "decisoes_novas: +2",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +4",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +4",
+        "checklist_novo: +6",
+        "glossario_novo: +2",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Servidor, Chefia imediata, PRORH",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 19",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-rh",
+        "1780963200022",
+        "1780963200025",
+        "1780963200026",
+        "1780963200027",
+        "1780963200048",
+        "1780963200065"
+      ],
+      "motivo": "Detalhamento do playbook geral de Recursos Humanos a partir do playbook e das normas evidenciadas no Canvas: controle diário/semanal de frequência (IS 001/2024-DRH/Foz, Instrução 002/2019, Lei nº 6.174/1970) e instrução de processos funcionais de RH no e-Protocolo pelo fluxo PRORH vigente (v3.0)."
     }
   ],
   "validacao": {
@@ -193,25 +582,27 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
     "prazo"
   ],
   "observacoes": "",
   "fontes_entradas": [
-    "pb-rh"
+    "pb-rh",
+    "1780963200022",
+    "1780963200025",
+    "1780963200026",
+    "1780963200027",
+    "1780963200048",
+    "1780963200065"
   ],
-  "hash_fontes": "1baca201c5481108812bf52220a3a0b34bc1d0dd60b6b1dabdb8fe07abca226c",
+  "hash_fontes": "3c25121b8b916bc1c3d9f4b2be145a8fdc8ca263417ee87b3ef8bd800ad3d2fd",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.2",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:51:35Z"
 }
