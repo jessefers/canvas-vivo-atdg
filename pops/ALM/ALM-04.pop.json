@@ -5,66 +5,380 @@
   "setor": "Div. de Almoxarifado",
   "setor_codigo": "S03.04-ALM",
   "sigla": "ALM",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Secretaria Administrativa",
     "departamento": "Div. de Almoxarifado",
-    "descricao": "Inventário Rotativo — Contagem periódica, conciliação. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "descricao": "Realiza contagens periódicas por amostragem dos itens em estoque, comparando o saldo físico ao saldo do GMS/ERP, e ajusta divergências mediante aprovação da Chefia, dentro do checklist de supervisão mensal do Manual de Gestão do Almoxarifado.",
     "dominio": "Suprimentos e Materiais",
-    "subdominio": "Inventário Rotativo",
+    "subdominio": "Inventário rotativo por amostragem",
     "tipo_subdominio": "core",
     "contexto": "S03.04-ALM",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Inventário rotativo",
+        "definicao": "Contagem periódica por amostragem de parte do estoque, para identificar e corrigir divergências entre o físico e o sistema.",
+        "sistema": "GMS/ERP"
+      },
+      {
+        "termo": "Checklist de supervisão",
+        "definicao": "Instrumento mensal do Manual de Gestão que programa, entre outras verificações, os ciclos de inventário rotativo.",
+        "sistema": "planilha de controle"
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
-    "normativa": [],
+    "responsavel": "Chefe da Divisão de Almoxarifado",
+    "periodicidade": "Mensal (ciclos de amostragem), conforme checklist de supervisão do Manual de Gestão",
+    "normativa": [
+      "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+      "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)",
+      "Normativas do TCE-PR"
+    ],
     "subordinacao": "Secretaria Administrativa",
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-04<br/>Inventário Rotativo\"]\n  S03_04_ALM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-04<br/>Inventário Rotativo\"]\n  S03_04_ALM --> P\n  V1[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V1\n  V2[\"Chefe da Divisão de Almoxarifado\"]\n  P -. interface .-> V2\n  V3[\"Agente Universitário do Almoxarifado\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Cronograma mensal de contagem por amostragem (checklist de supervisão)",
+      "origem": "Chefe da Divisão de Almoxarifado"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Cronograma mensal de contagem por amostragem (checklist de supervisão do Manual de Gestão)"
+    ],
+    "passos": [
+      {
+        "acao": "Elaborar o cronograma mensal de contagem por amostragem",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "planilha de controle",
+        "artefato": "Cronograma de inventário rotativo",
+        "prazo": "Mensal",
+        "evento": "Cronograma definido",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Selecionar os itens a serem contados no ciclo (amostragem)",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "planilha de controle",
+        "artefato": "",
+        "prazo": "Conforme cronograma",
+        "evento": "Itens selecionados",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Contar fisicamente os itens selecionados",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "",
+        "artefato": "Formulário de contagem de inventário rotativo",
+        "prazo": "Conforme cronograma",
+        "evento": "Contagem realizada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Comparar a contagem física com o saldo no GMS/ERP",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de inventário rotativo",
+        "prazo": "Após a contagem",
+        "evento": "Divergências apuradas",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Investigar a causa da divergência identificada, quando houver",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de inventário rotativo",
+        "prazo": "A definir",
+        "evento": "Causa da divergência apurada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Registrar o ajuste no GMS/ERP mediante aprovação da Chefia",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de inventário rotativo",
+        "prazo": "A definir",
+        "evento": "Ajuste registrado no GMS/ERP",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Comunicar divergências relevantes à Sec. Financeira/Contabilidade",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "e-Protocolo",
+        "artefato": "Relatório de inventário rotativo",
+        "prazo": "A definir",
+        "evento": "Contabilidade informada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Consolidar e arquivar o relatório do ciclo de inventário rotativo",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de inventário rotativo",
+        "prazo": "Ao final do ciclo mensal",
+        "evento": "Ciclo de inventário rotativo encerrado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 8
+      }
+    ],
+    "saida": [
+      "Relatório de inventário rotativo com divergências apuradas e regularizadas"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Almoxarifado\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Cronograma de inventário rotativo",
+      "tipo": "documento",
+      "sistema": "planilha de controle",
+      "campos_chave": [
+        "itens/categoria do ciclo",
+        "data prevista",
+        "responsável pela contagem"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+    },
+    {
+      "nome": "Formulário de contagem de inventário rotativo",
+      "tipo": "formulario",
+      "sistema": "planilha de controle",
+      "campos_chave": [
+        "item",
+        "quantidade contada",
+        "saldo sistêmico no momento da contagem"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    },
+    {
+      "nome": "Relatório de inventário rotativo",
+      "tipo": "registro",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "itens contados",
+        "saldo físico",
+        "saldo sistêmico",
+        "divergência",
+        "ajuste realizado"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Há divergência entre a contagem física e o saldo no GMS/ERP?",
+      "condicao": "Comparação entre a contagem física do ciclo e o saldo sistêmico",
+      "sim": "Investigar a causa, registrar o ajuste mediante aprovação da Chefia e comunicar divergências relevantes à Contabilidade",
+      "nao": "Consolidar e arquivar o relatório do ciclo sem ajustes"
+    }
+  ],
+  "pontos_atencao": [
+    "O ajuste de saldo no GMS/ERP depende de aprovação da Chefia da Divisão de Almoxarifado",
+    "Divergências recorrentes no mesmo item/categoria devem ser tratadas como sinal de risco e escaladas para revisão da armazenagem ou da distribuição"
+  ],
+  "contingencia": [
+    "Divergência não explicada entre físico e sistema: registrar a ocorrência e escalar à Chefia da Divisão de Almoxarifado para apuração",
+    "Indisponibilidade do GMS/ERP durante a contagem: registrar a contagem em planilha de controle e lançar a comparação assim que o sistema for restabelecido",
+    "Impossibilidade de cumprir o cronograma mensal (ex.: falta de pessoal): remarcar o ciclo e registrar o motivo do atraso"
+  ],
+  "checklist": [
+    "Cronograma mensal de contagem por amostragem elaborado e cumprido",
+    "Contagem física comparada ao saldo do GMS/ERP em todos os itens do ciclo",
+    "Divergências identificadas, investigadas e ajustadas mediante aprovação da Chefia",
+    "Divergências relevantes comunicadas à Sec. Financeira/Contabilidade"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de itens do ciclo com divergência",
+      "formula": "Nº de itens com divergência / nº de itens contados no ciclo",
+      "meta": "A definir",
+      "fonte": "GMS/ERP"
+    },
+    {
+      "indicador": "Cumprimento do cronograma mensal de inventário rotativo",
+      "formula": "Nº de ciclos realizados no prazo / nº de ciclos previstos no período",
+      "meta": "A definir",
+      "fonte": "Cronograma de inventário rotativo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Almoxarifado",
+      "destino": "Sec. Financeira/Contabilidade",
+      "relacao": "informa",
+      "artefato": "Relatório de inventário rotativo (divergências relevantes)",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Chefe da Divisão de Almoxarifado",
+      "destino": "Agente Universitário do Almoxarifado",
+      "relacao": "aprova",
+      "artefato": "Ajuste de estoque no GMS/ERP",
+      "canal": "GMS/ERP"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e3[\"Selecionar os itens a serem contados no ciclo\"]\n    e4[\"Contar fisicamente os itens selecionados\"]\n    e5[\"Comparar a contagem física com o saldo no GMS/ERP\"]\n    e6{\"Há divergência entre o físico e o sistema?\"}\n    e7[\"Investigar a causa da divergência\"]\n  end\n  subgraph R2[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e1((\"Cronograma mensal de contagem (checklist de supervisão)\"))\n    e2[\"Elaborar o cronograma de contagem por amostragem\"]\n    e8[\"Registrar o ajuste no GMS/ERP mediante aprovação da Chefia\"]\n    e10[\"Consolidar e arquivar o relatório do ciclo\"]\n    e11(((\"Ciclo de inventário rotativo encerrado\")))\n  end\n  subgraph R3[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e9[[\"✉ Divergência relevante comunicada\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 -- Sim --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e6 -- Não --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e7,e8,e10 atividade\n  class e6 decisao\n  class e9 captura\n  class e11 fim",
   "bpmn_spec": {
     "raias": [
-      "Div. de Almoxarifado"
+      "Div. de Almoxarifado",
+      "Agente Universitário do Almoxarifado",
+      "Chefe da Divisão de Almoxarifado",
+      "Sec. Financeira/Contabilidade"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Div. de Almoxarifado"
+        "label": "Cronograma mensal de contagem (checklist de supervisão)",
+        "raia": "Chefe da Divisão de Almoxarifado"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Elaborar o cronograma de contagem por amostragem",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Selecionar os itens a serem contados no ciclo",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Contar fisicamente os itens selecionados",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Comparar a contagem física com o saldo no GMS/ERP",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e6",
+        "tipo": "decisao",
+        "label": "Há divergência entre o físico e o sistema?",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Investigar a causa da divergência",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Registrar o ajuste no GMS/ERP mediante aprovação da Chefia",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Divergência relevante comunicada",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Consolidar e arquivar o relatório do ciclo",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e11",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "Div. de Almoxarifado"
+        "label": "Ciclo de inventário rotativo encerrado",
+        "raia": "Chefe da Divisão de Almoxarifado"
       }
     ],
     "conexoes": [
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7",
+        "label": "Sim"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e6",
+        "para": "e10",
+        "label": "Não"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -80,6 +394,49 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote ALM)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 1: Elaborar o cronograma mensal de contagem por amostragem",
+        "Passo adicionado após 1: Selecionar os itens a serem contados no ciclo (amostragem)",
+        "Passo adicionado após 1: Contar fisicamente os itens selecionados",
+        "Passo adicionado após 1: Comparar a contagem física com o saldo no GMS/ERP",
+        "Passo adicionado após 1: Investigar a causa da divergência identificada, quando houver",
+        "Passo adicionado após 1: Registrar o ajuste no GMS/ERP mediante aprovação da Chefia",
+        "Passo adicionado após 1: Comunicar divergências relevantes à Sec. Financeira/Contabilidade",
+        "Passo adicionado após 1: Consolidar e arquivar o relatório do ciclo de inventário rotativo",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +3",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +2",
+        "normativa_nova: +3",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Raias adicionadas: Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado, Sec. Financeira/Contabilidade",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 11",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "motivo": "Documentar o passo a passo do inventário rotativo (cronograma de amostragem, contagem, apuração de divergências, ajuste e comunicação à Contabilidade), a partir do checklist de supervisão mensal do Manual de Gestão do Almoxarifado."
     }
   ],
   "validacao": {
@@ -92,25 +449,20 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
-  "lacunas": [
-    "passos",
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
-    "formulario",
-    "prazo",
-    "normativa"
+  "lacunas": [],
+  "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) critério de amostragem (percentual/categoria de itens por ciclo) e limiar de divergência que caracteriza escalonamento à Contabilidade, não detalhados nas fontes disponíveis; (2) alçada de aprovação do ajuste de saldo no GMS/ERP.",
+  "fontes_entradas": [
+    "pb-almoxarifado",
+    "1780963200000",
+    "1780963200001"
   ],
-  "observacoes": "",
-  "fontes_entradas": [],
-  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
   "agente": "",
   "versao_diretrizes": "1.0",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T01:43:50Z"
 }

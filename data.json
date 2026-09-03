@@ -2749,7 +2749,7 @@
     }
   ],
   "versao": "Canvas Vivo ATDG v5",
-  "sincronizado_em": "2026-09-03T01:43:25Z",
+  "sincronizado_em": "2026-09-03T01:44:26Z",
   "diretrizes": [
     {
       "id": "diretriz-00",
@@ -4719,66 +4719,380 @@
       "setor": "Div. de Almoxarifado",
       "setor_codigo": "S03.04-ALM",
       "sigla": "ALM",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Almoxarifado",
-        "descricao": "Inventário Rotativo — Contagem periódica, conciliação. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+        "descricao": "Realiza contagens periódicas por amostragem dos itens em estoque, comparando o saldo físico ao saldo do GMS/ERP, e ajusta divergências mediante aprovação da Chefia, dentro do checklist de supervisão mensal do Manual de Gestão do Almoxarifado.",
         "dominio": "Suprimentos e Materiais",
-        "subdominio": "Inventário Rotativo",
+        "subdominio": "Inventário rotativo por amostragem",
         "tipo_subdominio": "core",
         "contexto": "S03.04-ALM",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Inventário rotativo",
+            "definicao": "Contagem periódica por amostragem de parte do estoque, para identificar e corrigir divergências entre o físico e o sistema.",
+            "sistema": "GMS/ERP"
+          },
+          {
+            "termo": "Checklist de supervisão",
+            "definicao": "Instrumento mensal do Manual de Gestão que programa, entre outras verificações, os ciclos de inventário rotativo.",
+            "sistema": "planilha de controle"
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
-        "normativa": [],
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "periodicidade": "Mensal (ciclos de amostragem), conforme checklist de supervisão do Manual de Gestão",
+        "normativa": [
+          "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+          "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)",
+          "Normativas do TCE-PR"
+        ],
         "subordinacao": "Secretaria Administrativa",
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-04<br/>Inventário Rotativo\"]\n  S03_04_ALM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-04<br/>Inventário Rotativo\"]\n  S03_04_ALM --> P\n  V1[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V1\n  V2[\"Chefe da Divisão de Almoxarifado\"]\n  P -. interface .-> V2\n  V3[\"Agente Universitário do Almoxarifado\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2,V3 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Cronograma mensal de contagem por amostragem (checklist de supervisão)",
+          "origem": "Chefe da Divisão de Almoxarifado"
         },
-        "entrada": [],
-        "passos": [],
-        "saida": []
+        "entrada": [
+          "Cronograma mensal de contagem por amostragem (checklist de supervisão do Manual de Gestão)"
+        ],
+        "passos": [
+          {
+            "acao": "Elaborar o cronograma mensal de contagem por amostragem",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "planilha de controle",
+            "artefato": "Cronograma de inventário rotativo",
+            "prazo": "Mensal",
+            "evento": "Cronograma definido",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 1
+          },
+          {
+            "acao": "Selecionar os itens a serem contados no ciclo (amostragem)",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "planilha de controle",
+            "artefato": "",
+            "prazo": "Conforme cronograma",
+            "evento": "Itens selecionados",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 2
+          },
+          {
+            "acao": "Contar fisicamente os itens selecionados",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "",
+            "artefato": "Formulário de contagem de inventário rotativo",
+            "prazo": "Conforme cronograma",
+            "evento": "Contagem realizada",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 3
+          },
+          {
+            "acao": "Comparar a contagem física com o saldo no GMS/ERP",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Relatório de inventário rotativo",
+            "prazo": "Após a contagem",
+            "evento": "Divergências apuradas",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 4
+          },
+          {
+            "acao": "Investigar a causa da divergência identificada, quando houver",
+            "responsavel": "Agente Universitário do Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Relatório de inventário rotativo",
+            "prazo": "A definir",
+            "evento": "Causa da divergência apurada",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 5
+          },
+          {
+            "acao": "Registrar o ajuste no GMS/ERP mediante aprovação da Chefia",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Relatório de inventário rotativo",
+            "prazo": "A definir",
+            "evento": "Ajuste registrado no GMS/ERP",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 6
+          },
+          {
+            "acao": "Comunicar divergências relevantes à Sec. Financeira/Contabilidade",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "e-Protocolo",
+            "artefato": "Relatório de inventário rotativo",
+            "prazo": "A definir",
+            "evento": "Contabilidade informada",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 7
+          },
+          {
+            "acao": "Consolidar e arquivar o relatório do ciclo de inventário rotativo",
+            "responsavel": "Chefe da Divisão de Almoxarifado",
+            "sistema": "GMS/ERP",
+            "artefato": "Relatório de inventário rotativo",
+            "prazo": "Ao final do ciclo mensal",
+            "evento": "Ciclo de inventário rotativo encerrado",
+            "fontes": [
+              "pb-almoxarifado",
+              "1780963200000",
+              "1780963200001"
+            ],
+            "n": 8
+          }
+        ],
+        "saida": [
+          "Relatório de inventário rotativo com divergências apuradas e regularizadas"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
-      "pontos_atencao": [],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Almoxarifado\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+      "artefatos": [
+        {
+          "nome": "Cronograma de inventário rotativo",
+          "tipo": "documento",
+          "sistema": "planilha de controle",
+          "campos_chave": [
+            "itens/categoria do ciclo",
+            "data prevista",
+            "responsável pela contagem"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "nome": "Formulário de contagem de inventário rotativo",
+          "tipo": "formulario",
+          "sistema": "planilha de controle",
+          "campos_chave": [
+            "item",
+            "quantidade contada",
+            "saldo sistêmico no momento da contagem"
+          ],
+          "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "nome": "Relatório de inventário rotativo",
+          "tipo": "registro",
+          "sistema": "GMS/ERP",
+          "campos_chave": [
+            "itens contados",
+            "saldo físico",
+            "saldo sistêmico",
+            "divergência",
+            "ajuste realizado"
+          ],
+          "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "Há divergência entre a contagem física e o saldo no GMS/ERP?",
+          "condicao": "Comparação entre a contagem física do ciclo e o saldo sistêmico",
+          "sim": "Investigar a causa, registrar o ajuste mediante aprovação da Chefia e comunicar divergências relevantes à Contabilidade",
+          "nao": "Consolidar e arquivar o relatório do ciclo sem ajustes"
+        }
+      ],
+      "pontos_atencao": [
+        "O ajuste de saldo no GMS/ERP depende de aprovação da Chefia da Divisão de Almoxarifado",
+        "Divergências recorrentes no mesmo item/categoria devem ser tratadas como sinal de risco e escaladas para revisão da armazenagem ou da distribuição"
+      ],
+      "contingencia": [
+        "Divergência não explicada entre físico e sistema: registrar a ocorrência e escalar à Chefia da Divisão de Almoxarifado para apuração",
+        "Indisponibilidade do GMS/ERP durante a contagem: registrar a contagem em planilha de controle e lançar a comparação assim que o sistema for restabelecido",
+        "Impossibilidade de cumprir o cronograma mensal (ex.: falta de pessoal): remarcar o ciclo e registrar o motivo do atraso"
+      ],
+      "checklist": [
+        "Cronograma mensal de contagem por amostragem elaborado e cumprido",
+        "Contagem física comparada ao saldo do GMS/ERP em todos os itens do ciclo",
+        "Divergências identificadas, investigadas e ajustadas mediante aprovação da Chefia",
+        "Divergências relevantes comunicadas à Sec. Financeira/Contabilidade"
+      ],
+      "kpis": [
+        {
+          "indicador": "Percentual de itens do ciclo com divergência",
+          "formula": "Nº de itens com divergência / nº de itens contados no ciclo",
+          "meta": "A definir",
+          "fonte": "GMS/ERP"
+        },
+        {
+          "indicador": "Cumprimento do cronograma mensal de inventário rotativo",
+          "formula": "Nº de ciclos realizados no prazo / nº de ciclos previstos no período",
+          "meta": "A definir",
+          "fonte": "Cronograma de inventário rotativo"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Almoxarifado",
+          "destino": "Sec. Financeira/Contabilidade",
+          "relacao": "informa",
+          "artefato": "Relatório de inventário rotativo (divergências relevantes)",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Chefe da Divisão de Almoxarifado",
+          "destino": "Agente Universitário do Almoxarifado",
+          "relacao": "aprova",
+          "artefato": "Ajuste de estoque no GMS/ERP",
+          "canal": "GMS/ERP"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e3[\"Selecionar os itens a serem contados no ciclo\"]\n    e4[\"Contar fisicamente os itens selecionados\"]\n    e5[\"Comparar a contagem física com o saldo no GMS/ERP\"]\n    e6{\"Há divergência entre o físico e o sistema?\"}\n    e7[\"Investigar a causa da divergência\"]\n  end\n  subgraph R2[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e1((\"Cronograma mensal de contagem (checklist de supervisão)\"))\n    e2[\"Elaborar o cronograma de contagem por amostragem\"]\n    e8[\"Registrar o ajuste no GMS/ERP mediante aprovação da Chefia\"]\n    e10[\"Consolidar e arquivar o relatório do ciclo\"]\n    e11(((\"Ciclo de inventário rotativo encerrado\")))\n  end\n  subgraph R3[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e9[[\"✉ Divergência relevante comunicada\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 -- Sim --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e6 -- Não --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e7,e8,e10 atividade\n  class e6 decisao\n  class e9 captura\n  class e11 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Almoxarifado"
+          "Div. de Almoxarifado",
+          "Agente Universitário do Almoxarifado",
+          "Chefe da Divisão de Almoxarifado",
+          "Sec. Financeira/Contabilidade"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "Div. de Almoxarifado"
+            "label": "Cronograma mensal de contagem (checklist de supervisão)",
+            "raia": "Chefe da Divisão de Almoxarifado"
           },
           {
             "id": "e2",
+            "tipo": "atividade",
+            "label": "Elaborar o cronograma de contagem por amostragem",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e3",
+            "tipo": "atividade",
+            "label": "Selecionar os itens a serem contados no ciclo",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e4",
+            "tipo": "atividade",
+            "label": "Contar fisicamente os itens selecionados",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e5",
+            "tipo": "atividade",
+            "label": "Comparar a contagem física com o saldo no GMS/ERP",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e6",
+            "tipo": "decisao",
+            "label": "Há divergência entre o físico e o sistema?",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e7",
+            "tipo": "atividade",
+            "label": "Investigar a causa da divergência",
+            "raia": "Agente Universitário do Almoxarifado"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Registrar o ajuste no GMS/ERP mediante aprovação da Chefia",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e9",
+            "tipo": "captura",
+            "label": "Divergência relevante comunicada",
+            "raia": "Sec. Financeira/Contabilidade"
+          },
+          {
+            "id": "e10",
+            "tipo": "atividade",
+            "label": "Consolidar e arquivar o relatório do ciclo",
+            "raia": "Chefe da Divisão de Almoxarifado"
+          },
+          {
+            "id": "e11",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "Div. de Almoxarifado"
+            "label": "Ciclo de inventário rotativo encerrado",
+            "raia": "Chefe da Divisão de Almoxarifado"
           }
         ],
         "conexoes": [
           {
             "de": "e1",
             "para": "e2"
+          },
+          {
+            "de": "e2",
+            "para": "e3"
+          },
+          {
+            "de": "e3",
+            "para": "e4"
+          },
+          {
+            "de": "e4",
+            "para": "e5"
+          },
+          {
+            "de": "e5",
+            "para": "e6"
+          },
+          {
+            "de": "e6",
+            "para": "e7",
+            "label": "Sim"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e6",
+            "para": "e10",
+            "label": "Não"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
           }
         ],
         "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -4794,6 +5108,49 @@
           ],
           "fontes": [],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote ALM)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo adicionado após 1: Elaborar o cronograma mensal de contagem por amostragem",
+            "Passo adicionado após 1: Selecionar os itens a serem contados no ciclo (amostragem)",
+            "Passo adicionado após 1: Contar fisicamente os itens selecionados",
+            "Passo adicionado após 1: Comparar a contagem física com o saldo no GMS/ERP",
+            "Passo adicionado após 1: Investigar a causa da divergência identificada, quando houver",
+            "Passo adicionado após 1: Registrar o ajuste no GMS/ERP mediante aprovação da Chefia",
+            "Passo adicionado após 1: Comunicar divergências relevantes à Sec. Financeira/Contabilidade",
+            "Passo adicionado após 1: Consolidar e arquivar o relatório do ciclo de inventário rotativo",
+            "entrada_nova: +1",
+            "saida_nova: +1",
+            "artefatos_novos: +3",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +2",
+            "pontos_atencao_novos: +2",
+            "contingencia_nova: +3",
+            "checklist_novo: +4",
+            "glossario_novo: +2",
+            "normativa_nova: +3",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Campo observacoes atualizado",
+            "Raias adicionadas: Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado, Sec. Financeira/Contabilidade",
+            "Elementos BPMN removidos: e1, e2",
+            "Elementos BPMN adicionados: 11",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "pb-almoxarifado",
+            "1780963200000",
+            "1780963200001"
+          ],
+          "motivo": "Documentar o passo a passo do inventário rotativo (cronograma de amostragem, contagem, apuração de divergências, ajuste e comunicação à Contabilidade), a partir do checklist de supervisão mensal do Manual de Gestão do Almoxarifado."
         }
       ],
       "validacao": {
@@ -4806,27 +5163,22 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003"
       ],
-      "lacunas": [
-        "passos",
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
-        "prazo",
-        "normativa"
+      "lacunas": [],
+      "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) critério de amostragem (percentual/categoria de itens por ciclo) e limiar de divergência que caracteriza escalonamento à Contabilidade, não detalhados nas fontes disponíveis; (2) alçada de aprovação do ajuste de saldo no GMS/ERP.",
+      "fontes_entradas": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
       ],
-      "observacoes": "",
-      "fontes_entradas": [],
-      "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:43:50Z"
     },
     {
       "id": "pop-alm-05",
@@ -10769,21 +11121,52 @@
       "setor": "Div. de Compras",
       "setor_codigo": "S03.10-DCOM",
       "sigla": "DCOM",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Compras",
-        "descricao": "Fluxo da contratação por inexigibilidade com contrato. O interessado elabora termo de referência com cotação e carta de exclusividade do fornecedor e envia ao Planejamento, que submete à Direção Geral. Compras faz pesquisa de preços e checa regularidade fiscal; o Jurídico emite parecer; o Financeiro faz a DDF; a Licitação publica o aviso de inexigibilidade, aguarda 3 dias e, sem impugnação, emite/publica o contrato, com portarias pela Direção Geral.",
+        "descricao": "Contratação direta por inexigibilidade de licitação (fornecedor exclusivo), formalizada por contrato administrativo. A Div. de Compras verifica a regularidade fiscal do fornecedor, subsidiando a Assessoria Jurídica e a Sec. Financeira/Contabilidade, até a publicação do aviso de inexigibilidade pela Div. de Licitação, o decurso do prazo de 3 dias para impugnação e a assinatura e publicação do contrato no DIOE, nos termos do art. 74 da Lei nº 14.133/2021.",
         "dominio": "Contratações Públicas",
-        "subdominio": "Fluxo — Inexigibilidade (com Contrato)",
+        "subdominio": "Contratação direta por inexigibilidade com formalização de contrato",
         "tipo_subdominio": "core",
         "contexto": "S03.10-DCOM",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "TR",
+            "definicao": "Termo de Referência — documento que descreve o objeto, as especificações técnicas, a justificativa e os requisitos da contratação, elaborado pelo setor requisitante/interessado.",
+            "sistema": "e-Protocolo"
+          },
+          {
+            "termo": "DDF",
+            "definicao": "Sigla utilizada pelo setor para o registro de comprometimento orçamentário/financeiro que antecede a contratação por inexigibilidade (função análoga ao empenho, usado nas dispensas); expansão exata da sigla a confirmar com a Sec. Financeira/Contabilidade.",
+            "sistema": "GMS"
+          },
+          {
+            "termo": "DIOE",
+            "definicao": "Diário Oficial do Estado — veículo oficial de publicação dos atos administrativos (extratos de contrato, avisos de inexigibilidade, portarias); a publicação é condição de eficácia do ato.",
+            "sistema": "DIOE"
+          },
+          {
+            "termo": "Dispensa (de licitação)",
+            "definicao": "Hipótese de contratação direta, sem processo licitatório, prevista na Lei nº 14.133/2021, cabível nas situações legalmente definidas (como a emergência), mediante justificativa da situação que a fundamenta.",
+            "sistema": ""
+          },
+          {
+            "termo": "Inexigibilidade",
+            "definicao": "Hipótese de contratação direta, sem processo licitatório, cabível quando há inviabilidade de competição (art. 74 da Lei nº 14.133/2021), como no caso de fornecedor exclusivo comprovado por carta de exclusividade.",
+            "sistema": ""
+          },
+          {
+            "termo": "Carta de exclusividade",
+            "definicao": "Declaração emitida pelo fornecedor (ou por entidade representativa, quando aplicável) atestando que é o único capaz de fornecer o objeto pretendido, subsidiando a caracterização da inexigibilidade.",
+            "sistema": ""
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
+        "responsavel": "Chefe da Divisão de Compras",
+        "periodicidade": "Sob demanda — a cada identificação de fornecedor exclusivo que enseje contratação por inexigibilidade, sem periodicidade fixa",
         "normativa": [
           "Lei nº 14.133/2021, art. 74 (inexigibilidade)",
           "normas internas Unioeste"
@@ -10792,153 +11175,530 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_10_DCOM[\"S03.10-DCOM<br/>Div. de Compras\"]\n  S03_SADM --> S03_10_DCOM\n  P[\"DCOM-03<br/>Fluxo — Inexigibilidade (com Contrato)\"]\n  S03_10_DCOM --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_10_DCOM setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_10_DCOM[\"S03.10-DCOM<br/>Div. de Compras\"]\n  S03_SADM --> S03_10_DCOM\n  P[\"DCOM-03<br/>Fluxo — Inexigibilidade (com Contrato)\"]\n  S03_10_DCOM --> P\n  V1[\"Fornecedor\"]\n  P -. interface .-> V1\n  V2[\"Requisitante/Interessado\"]\n  P -. interface .-> V2\n  V3[\"Planejamento\"]\n  P -. interface .-> V3\n  V4[\"Direção Geral\"]\n  P -. interface .-> V4\n  V5[\"Assessoria Jurídica\"]\n  P -. interface .-> V5\n  V6[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V6\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_10_DCOM setor\n  class P destaque\n  class V1,V2,V3,V4,V5,V6 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Necessidade de contratação de fornecedor exclusivo identificada pela unidade requisitante, com previsão de formalização por contrato",
+          "origem": "Requisitante/Interessado"
         },
-        "entrada": [],
+        "entrada": [
+          "Termo de referência (TR)",
+          "Cotação do fornecedor exclusivo",
+          "Carta de exclusividade"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "Interessado elabora termo de referência, cotação e carta de exclusividade",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Elaborar o termo de referência (TR) e a cotação do fornecedor exclusivo, instruindo o processo com a carta de exclusividade",
+            "responsavel": "Requisitante/Interessado",
+            "sistema": "e-Protocolo",
+            "artefato": "TR, cotação e carta de exclusividade",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "TR instruído e protocolado",
             "fontes": [
               "1780963200052"
             ]
           },
           {
             "n": 2,
-            "acao": "Planejamento analisa e submete à Direção Geral",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Analisar a instrução processual e submeter à Direção Geral",
+            "responsavel": "Planejamento",
+            "sistema": "e-Protocolo",
+            "artefato": "Processo analisado por Planejamento",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Processo submetido à Direção Geral",
             "fontes": [
               "1780963200052"
             ]
           },
           {
-            "n": 3,
-            "acao": "Compras pesquisa preços e verifica regularidade fiscal",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Autorizar a contratação direta por inexigibilidade",
+            "responsavel": "Direção Geral",
+            "sistema": "e-Protocolo",
+            "artefato": "Despacho de autorização",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Autorização concedida",
             "fontes": [
               "1780963200052"
-            ]
+            ],
+            "n": 3
           },
           {
             "n": 4,
-            "acao": "Jurídico emite parecer; Financeiro faz a DDF",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Pesquisar preços de mercado e verificar a regularidade fiscal do fornecedor exclusivo",
+            "responsavel": "Div. de Compras",
+            "sistema": "ComprasNet/PNCP",
+            "artefato": "Certidões de regularidade fiscal",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Regularidade fiscal verificada",
             "fontes": [
               "1780963200052"
             ]
           },
           {
             "n": 5,
-            "acao": "Licitação publica aviso de inexigibilidade e aguarda 3 dias",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Emitir parecer jurídico sobre a inexigibilidade",
+            "responsavel": "Assessoria Jurídica",
+            "sistema": "e-Protocolo",
+            "artefato": "Parecer jurídico",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Parecer jurídico emitido",
             "fontes": [
               "1780963200052"
             ]
           },
           {
-            "n": 6,
-            "acao": "Não havendo impugnação, emite/publica contrato; DG emite portarias",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Formalizar a DDF (registro do comprometimento financeiro da despesa)",
+            "responsavel": "Sec. Financeira/Contabilidade",
+            "sistema": "GMS",
+            "artefato": "DDF",
+            "prazo": "Após parecer jurídico favorável e antes da publicação do aviso de inexigibilidade",
+            "evento": "DDF formalizada",
+            "fontes": [
+              "1780963200052"
+            ],
+            "n": 6
+          },
+          {
+            "n": 7,
+            "acao": "Publicar o aviso de inexigibilidade",
+            "responsavel": "Div. de Licitação",
+            "sistema": "ComprasNet/PNCP",
+            "artefato": "Aviso de inexigibilidade",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Aviso de inexigibilidade publicado",
             "fontes": [
               "1780963200052"
             ]
+          },
+          {
+            "acao": "Aguardar o prazo de 3 dias para eventual impugnação ao aviso de inexigibilidade",
+            "responsavel": "Div. de Licitação",
+            "sistema": "A definir",
+            "artefato": "Registro de decurso de prazo",
+            "prazo": "3 dias após a publicação do aviso de inexigibilidade",
+            "evento": "Prazo de impugnação decorrido",
+            "fontes": [
+              "1780963200052"
+            ],
+            "n": 8
+          },
+          {
+            "n": 9,
+            "acao": "Emitir e publicar o contrato administrativo no DIOE, não havendo impugnação ao aviso de inexigibilidade",
+            "responsavel": "Div. de Licitação",
+            "sistema": "DIOE",
+            "artefato": "Contrato administrativo e extrato de publicação",
+            "prazo": "A definir",
+            "evento": "Contrato publicado no DIOE (condição de eficácia)",
+            "fontes": [
+              "1780963200052"
+            ]
+          },
+          {
+            "acao": "Emitir as portarias de Gestor e Fiscal do contrato",
+            "responsavel": "Direção Geral",
+            "sistema": "e-Protocolo",
+            "artefato": "Portarias de Gestor e Fiscal",
+            "prazo": "A definir",
+            "evento": "Portarias emitidas",
+            "fontes": [
+              "1780963200052"
+            ],
+            "n": 10
           }
         ],
-        "saida": []
+        "saida": [
+          "Contrato administrativo assinado e publicado no DIOE",
+          "Portarias de Gestor e Fiscal do contrato"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
+      "artefatos": [
+        {
+          "nome": "Termo de referência (TR)",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "objeto",
+            "justificativa",
+            "especificação técnica",
+            "valor estimado"
+          ],
+          "responsavel_preenchimento": "Requisitante/Interessado"
+        },
+        {
+          "nome": "Carta de exclusividade",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "fornecedor",
+            "objeto exclusivo",
+            "declaração de exclusividade"
+          ],
+          "responsavel_preenchimento": "Fornecedor"
+        },
+        {
+          "nome": "Cotação do fornecedor exclusivo",
+          "tipo": "formulario",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "fornecedor",
+            "valor cotado",
+            "condições"
+          ],
+          "responsavel_preenchimento": "Requisitante/Interessado"
+        },
+        {
+          "nome": "Certidões de regularidade fiscal",
+          "tipo": "documento",
+          "sistema": "ComprasNet/PNCP",
+          "campos_chave": [
+            "CNPJ do fornecedor",
+            "validade das certidões",
+            "situação (regular/irregular)"
+          ],
+          "responsavel_preenchimento": "Div. de Compras"
+        },
+        {
+          "nome": "Parecer jurídico",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "fundamentação legal (art. 74)",
+            "conclusão (favorável/desfavorável)",
+            "ressalvas"
+          ],
+          "responsavel_preenchimento": "Assessoria Jurídica"
+        },
+        {
+          "nome": "DDF",
+          "tipo": "registro",
+          "sistema": "GMS",
+          "campos_chave": [
+            "número do registro",
+            "dotação orçamentária",
+            "valor"
+          ],
+          "responsavel_preenchimento": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "nome": "Aviso de inexigibilidade",
+          "tipo": "documento",
+          "sistema": "ComprasNet/PNCP",
+          "campos_chave": [
+            "objeto",
+            "fornecedor",
+            "data de publicação",
+            "prazo para impugnação"
+          ],
+          "responsavel_preenchimento": "Div. de Licitação"
+        },
+        {
+          "nome": "Contrato administrativo",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "partes",
+            "objeto",
+            "vigência",
+            "valor",
+            "assinaturas"
+          ],
+          "responsavel_preenchimento": "Div. de Licitação"
+        },
+        {
+          "nome": "Extrato de publicação (DIOE)",
+          "tipo": "registro",
+          "sistema": "DIOE",
+          "campos_chave": [
+            "número do extrato",
+            "data de publicação"
+          ],
+          "responsavel_preenchimento": "Div. de Licitação"
+        },
+        {
+          "nome": "Portarias de Gestor e Fiscal",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "função designada",
+            "número da portaria",
+            "data de publicação"
+          ],
+          "responsavel_preenchimento": "Direção Geral"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "Exclusividade do fornecedor comprovada (carta de exclusividade válida)?",
+          "condicao": "Após a instrução do processo com a carta de exclusividade e a submissão à Direção Geral",
+          "sim": "A Direção Geral autoriza a contratação direta por inexigibilidade",
+          "nao": "O processo retorna ao interessado para complementação da carta de exclusividade ou reavaliação da hipótese de contratação direta"
+        },
+        {
+          "decisao": "Regularidade fiscal do fornecedor comprovada?",
+          "condicao": "Após a pesquisa de preços e a consulta às certidões pela Div. de Compras",
+          "sim": "O processo segue à Assessoria Jurídica para parecer",
+          "nao": "A Div. de Compras notifica o fornecedor para regularização"
+        },
+        {
+          "decisao": "Houve impugnação ao aviso de inexigibilidade no prazo de 3 dias?",
+          "condicao": "Após o decurso do prazo de 3 dias da publicação do aviso de inexigibilidade",
+          "sim": "A Assessoria Jurídica reanalisa a impugnação antes de qualquer emissão de contrato",
+          "nao": "A Div. de Licitação emite e publica o contrato administrativo no DIOE"
+        }
+      ],
       "pontos_atencao": [
         "Carta de exclusividade é essencial para inexigibilidade",
         "Aguardar prazo de 3 dias após o aviso (impugnação)",
-        "Publicação no DIOE como condição de eficácia"
+        "Publicação no DIOE como condição de eficácia",
+        "O contrato só produz efeitos após a publicação do extrato no DIOE",
+        "O prazo de 3 dias após o aviso de inexigibilidade deve ser integralmente observado antes da emissão do contrato",
+        "A carta de exclusividade deve identificar precisamente o objeto e o fornecedor, sob pena de questionamento da inexigibilidade"
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Compras\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Interessado elabora termo de referência, cotação e carta de exclusivi…\"]\n    e3[\"Planejamento analisa e submete à Direção Geral\"]\n    e4[\"Compras pesquisa preços e verifica regularidade fiscal\"]\n    e5[\"Jurídico emite parecer; Financeiro faz a DDF\"]\n    e6[\"Licitação publica aviso de inexigibilidade e aguarda 3 dias\"]\n    e7[\"Não havendo impugnação, emite/publica contrato; DG emite portarias\"]\n    e8(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8 fim",
+      "contingencia": [
+        "Se a carta de exclusividade for insuficiente ou questionável, o processo retorna ao interessado/Div. de Compras para complementação da comprovação de exclusividade.",
+        "Se a certidão de regularidade fiscal estiver vencida ou irregular, a Div. de Compras solicita a regularização ao fornecedor.",
+        "Se houver impugnação ao aviso de inexigibilidade dentro do prazo de 3 dias, a Assessoria Jurídica analisa a impugnação antes de qualquer emissão de contrato.",
+        "Se o parecer jurídico apontar impedimento, o processo retorna à Div. de Compras/Planejamento para ajuste da instrução antes de nova submissão à Assessoria Jurídica."
+      ],
+      "checklist": [
+        "TR, cotação e carta de exclusividade anexados ao processo",
+        "Regularidade fiscal do fornecedor exclusivo verificada, com certidões válidas anexadas",
+        "Parecer jurídico favorável emitido e anexado ao processo",
+        "DDF formalizada antes da publicação do aviso de inexigibilidade",
+        "Prazo de 3 dias após o aviso de inexigibilidade decorrido sem impugnação (ou impugnação analisada)",
+        "Extrato do contrato publicado no DIOE",
+        "Portarias de Gestor e Fiscal emitidas"
+      ],
+      "kpis": [
+        {
+          "indicador": "Tempo médio de tramitação da inexigibilidade (do protocolo do TR à assinatura do contrato)",
+          "formula": "Média de (data de assinatura do contrato − data de protocolo do TR), em dias corridos",
+          "meta": "A definir",
+          "fonte": "e-Protocolo"
+        },
+        {
+          "indicador": "Taxa de avisos de inexigibilidade impugnados no prazo de 3 dias",
+          "formula": "(Nº de avisos impugnados ÷ total de avisos de inexigibilidade publicados no período) × 100",
+          "meta": "A definir",
+          "fonte": "ComprasNet/PNCP"
+        },
+        {
+          "indicador": "Taxa de publicação tempestiva do extrato no DIOE",
+          "formula": "(Nº de contratos publicados no DIOE dentro do prazo interno ÷ total de contratos assinados no período) × 100",
+          "meta": "A definir",
+          "fonte": "DIOE"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Fornecedor",
+          "destino": "Requisitante/Interessado",
+          "relacao": "informa",
+          "artefato": "Carta de exclusividade",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Requisitante/Interessado",
+          "destino": "Planejamento",
+          "relacao": "fornece",
+          "artefato": "TR, cotação e carta de exclusividade",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Planejamento",
+          "destino": "Direção Geral",
+          "relacao": "fornece",
+          "artefato": "Processo analisado",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Direção Geral",
+          "destino": "Div. de Compras",
+          "relacao": "aprova",
+          "artefato": "Autorização da contratação por inexigibilidade",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Compras",
+          "destino": "Assessoria Jurídica",
+          "relacao": "fornece",
+          "artefato": "Processo com pesquisa de preços e regularidade fiscal",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Assessoria Jurídica",
+          "destino": "Sec. Financeira/Contabilidade",
+          "relacao": "fornece",
+          "artefato": "Parecer jurídico favorável",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Sec. Financeira/Contabilidade",
+          "destino": "Div. de Licitação",
+          "relacao": "fornece",
+          "artefato": "Processo com DDF formalizada",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Direção Geral",
+          "relacao": "informa",
+          "artefato": "Contrato assinado e publicado no DIOE",
+          "canal": "DIOE"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Compras\"]\n    direction LR\n    e9[[\"✉ Encaminhar processo autorizado à Div. de Compras\"]]\n    e10[\"Pesquisar preços de mercado e verificar regularidade fiscal do fornec…\"]\n    e11{\"Regularidade fiscal comprovada?\"}\n  end\n  subgraph R2[\"Requisitante/Interessado\"]\n    direction LR\n    e1((\"Necessidade de contratação de fornecedor exclusivo identificada\"))\n    e3[\"Elaborar o TR e a cotação, instruindo o processo com a carta de exclu…\"]\n  end\n  subgraph R3[\"Fornecedor\"]\n    direction LR\n    e2[[\"✉ Fornecedor emite a carta de exclusividade\"]]\n  end\n  subgraph R4[\"Planejamento\"]\n    direction LR\n    e4[[\"✉ Encaminhar processo ao Planejamento\"]]\n    e5[\"Analisar a instrução processual e submeter à Direção Geral\"]\n  end\n  subgraph R5[\"Direção Geral\"]\n    direction LR\n    e6[[\"✉ Encaminhar processo à Direção Geral\"]]\n    e7{\"Exclusividade comprovada (carta válida)?\"}\n    e8[\"Autorizar a contratação direta por inexigibilidade\"]\n    e21[[\"✉ Encaminhar contrato publicado à Direção Geral\"]]\n    e22[\"Emitir as portarias de Gestor e Fiscal do contrato\"]\n    e23(((\"Contrato vigente, com Gestor e Fiscal designados\")))\n  end\n  subgraph R6[\"Assessoria Jurídica\"]\n    direction LR\n    e12[[\"✉ Encaminhar processo à Assessoria Jurídica\"]]\n    e13[\"Emitir parecer jurídico sobre a inexigibilidade\"]\n  end\n  subgraph R7[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e14[[\"✉ Encaminhar processo com parecer favorável à Sec. Financeira/Contabili…\"]]\n    e15[\"Formalizar a DDF (comprometimento financeiro)\"]\n  end\n  subgraph R8[\"Div. de Licitação\"]\n    direction LR\n    e16[[\"✉ Encaminhar processo à Div. de Licitação\"]]\n    e17[\"Publicar o aviso de inexigibilidade\"]\n    e18([\"⏱ Aguardar 3 dias do aviso de inexigibilidade\"])\n    e19{\"Houve impugnação no prazo de 3 dias?\"}\n    e20[\"Emitir e publicar o contrato administrativo no DIOE\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 -- Sim --> e8\n  e7 -- Não --> e3\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 -- Sim --> e12\n  e11 -- Não --> e10\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  e16 --> e17\n  e17 --> e18\n  e18 --> e19\n  e19 -- Não --> e20\n  e19 -- Sim --> e12\n  e20 --> e21\n  e21 --> e22\n  e22 --> e23\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e6,e9,e12,e14,e16,e21 captura\n  class e3,e5,e8,e10,e13,e15,e17,e20,e22 atividade\n  class e7,e11,e19 decisao\n  class e18 pausa\n  class e23 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Compras"
+          "Div. de Compras",
+          "Requisitante/Interessado",
+          "Fornecedor",
+          "Planejamento",
+          "Direção Geral",
+          "Assessoria Jurídica",
+          "Sec. Financeira/Contabilidade",
+          "Div. de Licitação"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
-            "raia": "Div. de Compras"
+            "label": "Necessidade de contratação de fornecedor exclusivo identificada",
+            "raia": "Requisitante/Interessado"
           },
           {
             "id": "e2",
-            "tipo": "atividade",
-            "label": "Interessado elabora termo de referência, cotação e carta de exclusividade",
-            "raia": "Div. de Compras"
+            "tipo": "captura",
+            "label": "Fornecedor emite a carta de exclusividade",
+            "raia": "Fornecedor"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Planejamento analisa e submete à Direção Geral",
-            "raia": "Div. de Compras"
+            "label": "Elaborar o TR e a cotação, instruindo o processo com a carta de exclusividade",
+            "raia": "Requisitante/Interessado"
           },
           {
             "id": "e4",
-            "tipo": "atividade",
-            "label": "Compras pesquisa preços e verifica regularidade fiscal",
-            "raia": "Div. de Compras"
+            "tipo": "captura",
+            "label": "Encaminhar processo ao Planejamento",
+            "raia": "Planejamento"
           },
           {
             "id": "e5",
             "tipo": "atividade",
-            "label": "Jurídico emite parecer; Financeiro faz a DDF",
-            "raia": "Div. de Compras"
+            "label": "Analisar a instrução processual e submeter à Direção Geral",
+            "raia": "Planejamento"
           },
           {
             "id": "e6",
-            "tipo": "atividade",
-            "label": "Licitação publica aviso de inexigibilidade e aguarda 3 dias",
-            "raia": "Div. de Compras"
+            "tipo": "captura",
+            "label": "Encaminhar processo à Direção Geral",
+            "raia": "Direção Geral"
           },
           {
             "id": "e7",
-            "tipo": "atividade",
-            "label": "Não havendo impugnação, emite/publica contrato; DG emite portarias",
-            "raia": "Div. de Compras"
+            "tipo": "decisao",
+            "label": "Exclusividade comprovada (carta válida)?",
+            "raia": "Direção Geral"
           },
           {
             "id": "e8",
-            "tipo": "fim",
-            "label": "Concluído",
+            "tipo": "atividade",
+            "label": "Autorizar a contratação direta por inexigibilidade",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e9",
+            "tipo": "captura",
+            "label": "Encaminhar processo autorizado à Div. de Compras",
             "raia": "Div. de Compras"
+          },
+          {
+            "id": "e10",
+            "tipo": "atividade",
+            "label": "Pesquisar preços de mercado e verificar regularidade fiscal do fornecedor exclusivo",
+            "raia": "Div. de Compras"
+          },
+          {
+            "id": "e11",
+            "tipo": "decisao",
+            "label": "Regularidade fiscal comprovada?",
+            "raia": "Div. de Compras"
+          },
+          {
+            "id": "e12",
+            "tipo": "captura",
+            "label": "Encaminhar processo à Assessoria Jurídica",
+            "raia": "Assessoria Jurídica"
+          },
+          {
+            "id": "e13",
+            "tipo": "atividade",
+            "label": "Emitir parecer jurídico sobre a inexigibilidade",
+            "raia": "Assessoria Jurídica"
+          },
+          {
+            "id": "e14",
+            "tipo": "captura",
+            "label": "Encaminhar processo com parecer favorável à Sec. Financeira/Contabilidade",
+            "raia": "Sec. Financeira/Contabilidade"
+          },
+          {
+            "id": "e15",
+            "tipo": "atividade",
+            "label": "Formalizar a DDF (comprometimento financeiro)",
+            "raia": "Sec. Financeira/Contabilidade"
+          },
+          {
+            "id": "e16",
+            "tipo": "captura",
+            "label": "Encaminhar processo à Div. de Licitação",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e17",
+            "tipo": "atividade",
+            "label": "Publicar o aviso de inexigibilidade",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e18",
+            "tipo": "pausa",
+            "label": "Aguardar 3 dias do aviso de inexigibilidade",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e19",
+            "tipo": "decisao",
+            "label": "Houve impugnação no prazo de 3 dias?",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e20",
+            "tipo": "atividade",
+            "label": "Emitir e publicar o contrato administrativo no DIOE",
+            "raia": "Div. de Licitação"
+          },
+          {
+            "id": "e21",
+            "tipo": "captura",
+            "label": "Encaminhar contrato publicado à Direção Geral",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e22",
+            "tipo": "atividade",
+            "label": "Emitir as portarias de Gestor e Fiscal do contrato",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e23",
+            "tipo": "fim",
+            "label": "Contrato vigente, com Gestor e Fiscal designados",
+            "raia": "Direção Geral"
           }
         ],
         "conexoes": [
@@ -10968,7 +11728,85 @@
           },
           {
             "de": "e7",
-            "para": "e8"
+            "para": "e8",
+            "label": "Sim"
+          },
+          {
+            "de": "e7",
+            "para": "e3",
+            "label": "Não"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12",
+            "label": "Sim"
+          },
+          {
+            "de": "e11",
+            "para": "e10",
+            "label": "Não"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
+          },
+          {
+            "de": "e13",
+            "para": "e14"
+          },
+          {
+            "de": "e14",
+            "para": "e15"
+          },
+          {
+            "de": "e15",
+            "para": "e16"
+          },
+          {
+            "de": "e16",
+            "para": "e17"
+          },
+          {
+            "de": "e17",
+            "para": "e18"
+          },
+          {
+            "de": "e18",
+            "para": "e19"
+          },
+          {
+            "de": "e19",
+            "para": "e20",
+            "label": "Não"
+          },
+          {
+            "de": "e19",
+            "para": "e12",
+            "label": "Sim"
+          },
+          {
+            "de": "e20",
+            "para": "e21"
+          },
+          {
+            "de": "e21",
+            "para": "e22"
+          },
+          {
+            "de": "e22",
+            "para": "e23"
           }
         ],
         "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -10986,6 +11824,48 @@
             "1780963200052"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote DCOM)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo 6 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+            "Passo adicionado após 6: Emitir as portarias de Gestor e Fiscal do contrato",
+            "Passo adicionado após 5: Aguardar o prazo de 3 dias para eventual impugnação ao aviso de inexigibilidade",
+            "Passo adicionado após 4: Formalizar a DDF (registro do comprometimento financeiro da despesa)",
+            "Passo adicionado após 2: Autorizar a contratação direta por inexigibilidade",
+            "entrada_nova: +3",
+            "saida_nova: +2",
+            "artefatos_novos: +10",
+            "decisoes_novas: +3",
+            "kpis_novos: +3",
+            "mapa_contexto_novo: +8",
+            "pontos_atencao_novos: +3",
+            "contingencia_nova: +4",
+            "checklist_novo: +7",
+            "glossario_novo: +6",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Campo observacoes atualizado",
+            "Raias adicionadas: Requisitante/Interessado, Fornecedor, Planejamento, Direção Geral, Assessoria Jurídica, Sec. Financeira/Contabilidade, Div. de Licitação",
+            "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7, e8",
+            "Elementos BPMN adicionados: 23",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "1780963200052"
+          ],
+          "motivo": "Completar o esqueleto do fluxo de inexigibilidade com contrato: desdobrar o passo composto de parecer/DDF e o passo de impugnação/portarias, definir responsáveis/sistemas/artefatos/prazos, decisões, a pausa de 3 dias, contingência, checklist, KPIs, mapa de contexto e fluxograma BPMN multirraia, a partir da fonte 1780963200052 e do playbook pb-compras."
         }
       ],
       "validacao": {
@@ -10998,19 +11878,16 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003"
       ],
       "lacunas": [
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
-        "prazo"
+        "prazo",
+        "versao_documento",
+        "sistema"
       ],
-      "observacoes": "",
+      "observacoes": "Inferência a validar com a Divisão de Compras: atribuição dos sistemas de apoio (e-Protocolo para tramitação; ComprasNet/PNCP para pesquisa de preços, regularidade fiscal e publicação do aviso; GMS para a DDF; DIOE para publicação do contrato) e dos responsáveis por função, inferidos a partir do fluxograma institucional (fonte 1780963200052) e do playbook do setor (pb-compras); prazos específicos das demais etapas (além dos 3 dias do aviso) permanecem 'A definir' até confirmação formal da Divisão.",
       "fontes_entradas": [
         "1780963200052"
       ],
@@ -11018,7 +11895,7 @@
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:44:00Z"
     },
     {
       "id": "pop-dcom-04",
@@ -14494,21 +15371,32 @@
       "setor": "Div. de Licitação",
       "setor_codigo": "S03.06-DLIC",
       "sigla": "DLIC",
-      "versao": "0.1.0",
-      "status": "rascunho",
+      "versao": "1.0.0",
+      "status": "em_validacao",
       "ddd": {
         "divisao": "Secretaria Administrativa",
         "departamento": "Div. de Licitação",
-        "descricao": "Fluxo do contrato de aquisição decorrente de licitação. A CPL/Licitação gera o contrato, verifica regularidade fiscal, lança no GMS e, após assinado, publica no DIOE, encaminhando à Direção Geral. Esta emite e publica as portarias de Gestor e Fiscal; o Planejamento registra o contrato e inclui portarias no GMS; o Gestor solicita o empenho ao Financeiro e a aquisição dos itens, e o Fiscal acompanha a entrega e as notas fiscais.",
+        "descricao": "Formaliza o contrato de aquisição decorrente de licitação homologada: geração do contrato, verificação da regularidade fiscal, publicação no DIOE, emissão de portarias de Gestor e Fiscal, registro no Planejamento, solicitação de empenho e acompanhamento da entrega e das notas fiscais até o recebimento definitivo.",
         "dominio": "Contratações Públicas",
-        "subdominio": "Fluxo — Contrato de Aquisição (Licitação)",
+        "subdominio": "Formalização e execução de contrato de aquisição",
         "tipo_subdominio": "core",
         "contexto": "S03.06-DLIC",
-        "glossario": []
+        "glossario": [
+          {
+            "termo": "Empenho",
+            "definicao": "Ato administrativo que reserva o crédito orçamentário para a despesa contratada.",
+            "sistema": "GMS"
+          },
+          {
+            "termo": "Recebimento definitivo",
+            "definicao": "Confirmação de que os itens adquiridos atendem às especificações do contrato.",
+            "sistema": ""
+          }
+        ]
       },
       "identificacao": {
-        "responsavel": "A definir",
-        "periodicidade": "A definir",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "periodicidade": "Por contrato de aquisição formalizado",
         "normativa": [
           "Lei nº 14.133/2021",
           "normas internas Unioeste"
@@ -14517,135 +15405,366 @@
         "produto_atdg": "POP",
         "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
       },
-      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-01<br/>Fluxo — Contrato de Aquisição (Licitação)\"]\n  S03_06_DLIC --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque",
+      "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-01<br/>Fluxo — Contrato de Aquisição (Licitação)\"]\n  S03_06_DLIC --> P\n  V1[\"Direção Geral\"]\n  P -. interface .-> V1\n  V2[\"Planejamento\"]\n  P -. interface .-> V2\n  V3[\"Gestor/Fiscal do contrato\"]\n  P -. interface .-> V3\n  V4[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
       "playbook": {
         "gatilho": {
-          "evento": "A definir",
-          "origem": ""
+          "evento": "Homologação da licitação e necessidade de formalizar o contrato de aquisição",
+          "origem": "Div. de Licitação (processo licitatório homologado)"
         },
-        "entrada": [],
+        "entrada": [
+          "Processo licitatório homologado",
+          "Minuta do contrato de aquisição"
+        ],
         "passos": [
           {
             "n": 1,
-            "acao": "Licitação gera contrato, verifica regularidade fiscal e lança no GMS",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Gerar o contrato de aquisição no GMS",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "GMS",
+            "artefato": "Contrato de aquisição",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Contrato gerado",
             "fontes": [
               "1780963200054"
             ]
           },
           {
-            "n": 2,
-            "acao": "Publicar contrato assinado no DIOE",
-            "responsavel": "A definir",
+            "acao": "Verificar a regularidade fiscal do contratado antes da assinatura",
+            "responsavel": "Chefe da Divisão de Licitação",
             "sistema": "",
-            "artefato": "",
+            "artefato": "Certidões de regularidade fiscal",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Regularidade fiscal verificada",
             "fontes": [
               "1780963200054"
-            ]
+            ],
+            "n": 2
           },
           {
             "n": 3,
-            "acao": "Direção Geral emite portarias de Gestor e Fiscal",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Publicar o contrato assinado no Diário Oficial do Estado (DIOE)",
+            "responsavel": "Chefe da Divisão de Licitação",
+            "sistema": "DIOE",
+            "artefato": "Extrato de publicação no DIOE",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Contrato publicado",
             "fontes": [
               "1780963200054"
             ]
           },
           {
             "n": 4,
-            "acao": "Planejamento registra contrato e inclui portarias no GMS",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Emitir e publicar as portarias de Gestor e Fiscal do contrato",
+            "responsavel": "Direção Geral",
+            "sistema": "e-Protocolo",
+            "artefato": "Portaria de Gestor; Portaria de Fiscal",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Portarias publicadas",
             "fontes": [
               "1780963200054"
             ]
           },
           {
             "n": 5,
-            "acao": "Gestor solicita empenho e aquisição; Fiscal acompanha entrega/NF",
-            "responsavel": "A definir",
-            "sistema": "",
-            "artefato": "",
+            "acao": "Registrar o contrato e as portarias no Planejamento (GMS)",
+            "responsavel": "Planejamento",
+            "sistema": "GMS",
+            "artefato": "Registro do contrato no GMS",
             "prazo": "A definir",
-            "evento": "",
+            "evento": "Contrato registrado",
             "fontes": [
               "1780963200054"
             ]
+          },
+          {
+            "n": 6,
+            "acao": "Solicitar o empenho à Sec. Financeira/Contabilidade",
+            "responsavel": "Gestor do contrato",
+            "sistema": "GMS",
+            "artefato": "Nota de empenho",
+            "prazo": "A definir",
+            "evento": "Empenho solicitado",
+            "fontes": [
+              "1780963200054"
+            ]
+          },
+          {
+            "acao": "Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo",
+            "responsavel": "Fiscal do contrato",
+            "sistema": "GMS",
+            "artefato": "Nota fiscal de aquisição",
+            "prazo": "Até o recebimento definitivo dos itens",
+            "evento": "Recebimento definitivo confirmado",
+            "fontes": [
+              "1780963200054"
+            ],
+            "n": 7
+          },
+          {
+            "acao": "Solicitar a aquisição e a entrega dos itens contratados",
+            "responsavel": "Gestor do contrato",
+            "sistema": "GMS",
+            "artefato": "Solicitação de entrega",
+            "prazo": "A definir",
+            "evento": "Entrega solicitada",
+            "fontes": [
+              "1780963200054"
+            ],
+            "n": 8
           }
         ],
-        "saida": []
+        "saida": [
+          "Contrato de aquisição publicado, registrado e com portarias emitidas",
+          "Itens adquiridos recebidos e notas fiscais conferidas"
+        ]
       },
-      "artefatos": [],
-      "decisoes": [],
+      "artefatos": [
+        {
+          "nome": "Contrato de aquisição",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "nº do contrato",
+            "objeto",
+            "fornecedor",
+            "valor",
+            "prazo de entrega"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+        },
+        {
+          "nome": "Certidões de regularidade fiscal",
+          "tipo": "documento",
+          "sistema": "",
+          "campos_chave": [
+            "CNPJ",
+            "validade",
+            "situação"
+          ],
+          "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+        },
+        {
+          "nome": "Portaria de Gestor do contrato",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "nº da portaria",
+            "servidor designado"
+          ],
+          "responsavel_preenchimento": "Direção Geral"
+        },
+        {
+          "nome": "Portaria de Fiscal do contrato",
+          "tipo": "documento",
+          "sistema": "e-Protocolo",
+          "campos_chave": [
+            "nº da portaria",
+            "servidor designado"
+          ],
+          "responsavel_preenchimento": "Direção Geral"
+        },
+        {
+          "nome": "Nota de empenho",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "nº do empenho",
+            "valor",
+            "elemento de despesa"
+          ],
+          "responsavel_preenchimento": "Gestor do contrato"
+        },
+        {
+          "nome": "Nota fiscal de aquisição",
+          "tipo": "documento",
+          "sistema": "GMS",
+          "campos_chave": [
+            "nº da NF",
+            "itens",
+            "quantidade",
+            "valor"
+          ],
+          "responsavel_preenchimento": "Fiscal do contrato"
+        }
+      ],
+      "decisoes": [
+        {
+          "decisao": "Contratado está com a regularidade fiscal em dia?",
+          "condicao": "Conferência das certidões de regularidade fiscal do contratado",
+          "sim": "Prossegue para publicação do contrato no DIOE",
+          "nao": "Assinatura/execução suspensa até a regularização"
+        }
+      ],
       "pontos_atencao": [
         "Portarias de Gestor e Fiscal são obrigatórias",
         "Verificar regularidade fiscal em cada etapa de pagamento",
-        "Registro no GMS e publicação no DIOE"
+        "Registro no GMS e publicação no DIOE",
+        "Aquisição de bens exige recebimento provisório e definitivo conforme o objeto contratado",
+        "Divergência entre a nota de empenho e a nota fiscal deve ser resolvida antes do pagamento"
       ],
-      "contingencia": [],
-      "checklist": [],
-      "kpis": [],
-      "mapa_contexto": [],
-      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Licitação gera contrato, verifica regularidade fiscal e lança no GMS\"]\n    e3[\"Publicar contrato assinado no DIOE\"]\n    e4[\"Direção Geral emite portarias de Gestor e Fiscal\"]\n    e5[\"Planejamento registra contrato e inclui portarias no GMS\"]\n    e6[\"Gestor solicita empenho e aquisição; Fiscal acompanha entrega/NF\"]\n    e7(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6 atividade\n  class e7 fim",
+      "contingencia": [
+        "Se o contratado não apresentar regularidade fiscal, suspender a assinatura até a regularização ou aplicar as sanções cabíveis",
+        "Se a Direção Geral não emitir as portarias em tempo hábil, reiterar o pedido antes do início da execução",
+        "Se a nota fiscal apresentar divergência com o empenho, o Fiscal deve notificar o fornecedor e suspender o pagamento",
+        "Se os itens não forem entregues no prazo contratual, o Fiscal deve notificar o fornecedor e registrar a ocorrência"
+      ],
+      "checklist": [
+        "Regularidade fiscal do contratado verificada antes da assinatura",
+        "Contrato publicado no DIOE",
+        "Portarias de Gestor e Fiscal emitidas",
+        "Contrato registrado no Planejamento (GMS)",
+        "Empenho solicitado e nota de empenho emitida",
+        "Notas fiscais conferidas pelo Fiscal do contrato"
+      ],
+      "kpis": [
+        {
+          "indicador": "Prazo médio entre homologação e assinatura do contrato de aquisição",
+          "formula": "Data de assinatura − Data de homologação",
+          "meta": "A definir",
+          "fonte": "GMS"
+        },
+        {
+          "indicador": "Percentual de notas fiscais conferidas sem divergência",
+          "formula": "(NF sem divergência ÷ total de NF) × 100",
+          "meta": "100%",
+          "fonte": "GMS"
+        }
+      ],
+      "mapa_contexto": [
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Direção Geral",
+          "relacao": "informa",
+          "artefato": "Contrato de aquisição assinado",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Planejamento",
+          "relacao": "fornece",
+          "artefato": "Registro do contrato e portarias",
+          "canal": "GMS"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Gestor/Fiscal do contrato",
+          "relacao": "informa",
+          "artefato": "Contrato de aquisição para gestão",
+          "canal": "e-Protocolo"
+        },
+        {
+          "origem": "Div. de Licitação",
+          "destino": "Sec. Financeira/Contabilidade",
+          "relacao": "recebe",
+          "artefato": "Empenho da despesa",
+          "canal": "GMS"
+        }
+      ],
+      "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"Homologação da licitação e necessidade de formalizar o contrato\"))\n    e2[\"Gerar o contrato de aquisição no GMS\"]\n    e3[\"Verificar a regularidade fiscal do contratado\"]\n    e4{\"Contratado está com a regularidade fiscal em dia?\"}\n    e5([\"⏱ Aguardar regularização fiscal do contratado\"])\n    e6[\"Publicar o contrato assinado no DIOE\"]\n  end\n  subgraph R2[\"Direção Geral\"]\n    direction LR\n    e7[[\"✉ Encaminhar contrato à Direção Geral para portarias\"]]\n    e8[\"Emitir e publicar as portarias de Gestor e Fiscal\"]\n  end\n  subgraph R3[\"Planejamento\"]\n    direction LR\n    e9[[\"✉ Encaminhar contrato e portarias ao Planejamento\"]]\n    e10[\"Registrar o contrato e as portarias no Planejamento (GMS)\"]\n  end\n  subgraph R4[\"Gestor do contrato\"]\n    direction LR\n    e11[[\"✉ Informar Gestor do contrato assinado\"]]\n    e12[\"Solicitar o empenho à Sec. Financeira/Contabilidade\"]\n    e13[\"Solicitar a aquisição e a entrega dos itens\"]\n  end\n  subgraph R5[\"Fiscal do contrato\"]\n    direction LR\n    e14[[\"✉ Informar Fiscal do contrato assinado\"]]\n    e15[\"Acompanhar a entrega e conferir as notas fiscais\"]\n    e16(((\"Recebimento definitivo confirmado\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e6\n  e4 -- Não --> e5\n  e5 --> e3\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e6,e8,e10,e12,e13,e15 atividade\n  class e4 decisao\n  class e5 pausa\n  class e7,e9,e11,e14 captura\n  class e16 fim",
       "bpmn_spec": {
         "raias": [
-          "Div. de Licitação"
+          "Div. de Licitação",
+          "Direção Geral",
+          "Planejamento",
+          "Gestor do contrato",
+          "Fiscal do contrato"
         ],
         "elementos": [
           {
             "id": "e1",
             "tipo": "inicio",
-            "label": "A definir",
+            "label": "Homologação da licitação e necessidade de formalizar o contrato",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e2",
             "tipo": "atividade",
-            "label": "Licitação gera contrato, verifica regularidade fiscal e lança no GMS",
+            "label": "Gerar o contrato de aquisição no GMS",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e3",
             "tipo": "atividade",
-            "label": "Publicar contrato assinado no DIOE",
+            "label": "Verificar a regularidade fiscal do contratado",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e4",
-            "tipo": "atividade",
-            "label": "Direção Geral emite portarias de Gestor e Fiscal",
+            "tipo": "decisao",
+            "label": "Contratado está com a regularidade fiscal em dia?",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e5",
-            "tipo": "atividade",
-            "label": "Planejamento registra contrato e inclui portarias no GMS",
+            "tipo": "pausa",
+            "label": "Aguardar regularização fiscal do contratado",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e6",
             "tipo": "atividade",
-            "label": "Gestor solicita empenho e aquisição; Fiscal acompanha entrega/NF",
+            "label": "Publicar o contrato assinado no DIOE",
             "raia": "Div. de Licitação"
           },
           {
             "id": "e7",
+            "tipo": "captura",
+            "label": "Encaminhar contrato à Direção Geral para portarias",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e8",
+            "tipo": "atividade",
+            "label": "Emitir e publicar as portarias de Gestor e Fiscal",
+            "raia": "Direção Geral"
+          },
+          {
+            "id": "e9",
+            "tipo": "captura",
+            "label": "Encaminhar contrato e portarias ao Planejamento",
+            "raia": "Planejamento"
+          },
+          {
+            "id": "e10",
+            "tipo": "atividade",
+            "label": "Registrar o contrato e as portarias no Planejamento (GMS)",
+            "raia": "Planejamento"
+          },
+          {
+            "id": "e11",
+            "tipo": "captura",
+            "label": "Informar Gestor do contrato assinado",
+            "raia": "Gestor do contrato"
+          },
+          {
+            "id": "e12",
+            "tipo": "atividade",
+            "label": "Solicitar o empenho à Sec. Financeira/Contabilidade",
+            "raia": "Gestor do contrato"
+          },
+          {
+            "id": "e13",
+            "tipo": "atividade",
+            "label": "Solicitar a aquisição e a entrega dos itens",
+            "raia": "Gestor do contrato"
+          },
+          {
+            "id": "e14",
+            "tipo": "captura",
+            "label": "Informar Fiscal do contrato assinado",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e15",
+            "tipo": "atividade",
+            "label": "Acompanhar a entrega e conferir as notas fiscais",
+            "raia": "Fiscal do contrato"
+          },
+          {
+            "id": "e16",
             "tipo": "fim",
-            "label": "Concluído",
-            "raia": "Div. de Licitação"
+            "label": "Recebimento definitivo confirmado",
+            "raia": "Fiscal do contrato"
           }
         ],
         "conexoes": [
@@ -14663,15 +15782,57 @@
           },
           {
             "de": "e4",
-            "para": "e5"
+            "para": "e6",
+            "label": "Sim"
+          },
+          {
+            "de": "e4",
+            "para": "e5",
+            "label": "Não"
           },
           {
             "de": "e5",
-            "para": "e6"
+            "para": "e3"
           },
           {
             "de": "e6",
             "para": "e7"
+          },
+          {
+            "de": "e7",
+            "para": "e8"
+          },
+          {
+            "de": "e8",
+            "para": "e9"
+          },
+          {
+            "de": "e9",
+            "para": "e10"
+          },
+          {
+            "de": "e10",
+            "para": "e11"
+          },
+          {
+            "de": "e11",
+            "para": "e12"
+          },
+          {
+            "de": "e12",
+            "para": "e13"
+          },
+          {
+            "de": "e13",
+            "para": "e14"
+          },
+          {
+            "de": "e14",
+            "para": "e15"
+          },
+          {
+            "de": "e15",
+            "para": "e16"
           }
         ],
         "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -14689,6 +15850,45 @@
             "1780963200054"
           ],
           "motivo": "Scaffold do piloto (todos os setores do organograma)"
+        },
+        {
+          "versao": "1.0.0",
+          "data": "2026-09-03",
+          "autor": "agente:construtor-pop (lote C)",
+          "tipo": "major",
+          "mudancas": [
+            "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+            "Passo adicionado após 5: Solicitar a aquisição e a entrega dos itens contratados",
+            "Passo adicionado após 5: Acompanhar a entrega e conferir as notas fiscais até o recebimento definitivo",
+            "Passo adicionado após 1: Verificar a regularidade fiscal do contratado antes da assinatura",
+            "entrada_nova: +2",
+            "saida_nova: +2",
+            "artefatos_novos: +6",
+            "decisoes_novas: +1",
+            "kpis_novos: +2",
+            "mapa_contexto_novo: +4",
+            "pontos_atencao_novos: +2",
+            "contingencia_nova: +4",
+            "checklist_novo: +6",
+            "glossario_novo: +2",
+            "Campo identificacao.responsavel atualizado",
+            "Campo identificacao.periodicidade atualizado",
+            "Campo ddd.descricao atualizado",
+            "Campo ddd.subdominio atualizado",
+            "Campo playbook.gatilho atualizado",
+            "Raias adicionadas: Direção Geral, Planejamento, Gestor do contrato, Fiscal do contrato",
+            "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7",
+            "Elementos BPMN adicionados: 16",
+            "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+          ],
+          "fontes": [
+            "1780963200054"
+          ],
+          "motivo": "Detalhamento do fluxo de contrato de aquisição a partir da entrada do Canvas (1780963200054): separação das ações compostas em passos atômicos, definição de responsável, verificação de regularidade fiscal, empenho, recebimento e conferência de notas fiscais."
         }
       ],
       "validacao": {
@@ -14701,16 +15901,12 @@
         "L-001",
         "L-004",
         "L-006",
-        "L-007"
+        "L-007",
+        "L-002",
+        "L-003",
+        "L-005"
       ],
       "lacunas": [
-        "responsavel",
-        "gatilho",
-        "entrada",
-        "saida",
-        "kpi",
-        "contingencia",
-        "formulario",
         "prazo"
       ],
       "observacoes": "",
@@ -14721,7 +15917,7 @@
       "agente": "",
       "versao_diretrizes": "1.0",
       "criado_em": "2026-09-02T17:55:54Z",
-      "atualizado_em": "2026-09-02T17:55:54Z"
+      "atualizado_em": "2026-09-03T01:43:39Z"
     },
     {
       "id": "pop-dlic-02",
