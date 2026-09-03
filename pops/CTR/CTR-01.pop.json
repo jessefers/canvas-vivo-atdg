@@ -5,7 +5,7 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.03-CTR",
   "sigla": "CTR",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "status": "rascunho",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -15,49 +15,275 @@
     "subdominio": "Auditoria TCE-PR",
     "tipo_subdominio": "core",
     "contexto": "S02.03-CTR",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Diligência",
+        "definicao": "Solicitação formal de informações, documentos ou esclarecimentos feita por órgão de controle, como o TCE-PR.",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
     "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "periodicidade": "Sob demanda",
     "normativa": [],
     "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
     "produto_atdg": "POP",
     "pasta_onedrive": "02_CONTROLADORIA"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_03_CTR[\"S02.03-CTR<br/>ATDG — Controladoria e Compliance\"]\n  S02_ATDG --> S02_03_CTR\n  P[\"CTR-01<br/>Auditoria TCE-PR\"]\n  S02_03_CTR --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_03_CTR setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_03_CTR[\"S02.03-CTR<br/>ATDG — Controladoria e Compliance\"]\n  S02_ATDG --> S02_03_CTR\n  P[\"CTR-01<br/>Auditoria TCE-PR\"]\n  S02_03_CTR --> P\n  V1[\"TCE-PR\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Setor respondente\"]\n  P -. interface .-> V3\n  V4[\"Direção Geral do Campus\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_03_CTR setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Recebimento de demanda, notificação ou diligência do TCE-PR dirigida ao Campus",
+      "origem": "TCE-PR"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Notificação/diligência do TCE-PR",
+      "Documentação e informações solicitadas"
+    ],
+    "passos": [
+      {
+        "acao": "Receber e registrar a demanda/diligência do TCE-PR",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Notificação/diligência do TCE-PR",
+        "prazo": "A definir",
+        "evento": "Demanda registrada",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Identificar o(s) setor(es) responsável(is) pelas informações solicitadas",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Notificação/diligência do TCE-PR",
+        "prazo": "A definir",
+        "evento": "Setor(es) identificado(s)",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Solicitar aos setores responsáveis a documentação e as informações exigidas",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Solicitação de informações",
+        "prazo": "A definir",
+        "evento": "Informações solicitadas",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Reunir e conferir a documentação e as informações recebidas",
+        "responsavel": "Setor respondente",
+        "sistema": "e-Protocolo",
+        "artefato": "Documentação e informações",
+        "prazo": "A definir",
+        "evento": "Documentação reunida",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Elaborar a resposta formal à demanda do TCE-PR",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Minuta de resposta ao TCE-PR",
+        "prazo": "A definir",
+        "evento": "Resposta elaborada",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Submeter a resposta à Direção Geral do Campus para validação",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Minuta de resposta ao TCE-PR",
+        "prazo": "A definir",
+        "evento": "Resposta submetida",
+        "fontes": [],
+        "n": 6
+      },
+      {
+        "acao": "Encaminhar a resposta formal ao TCE-PR dentro do prazo estabelecido",
+        "responsavel": "Direção Geral do Campus",
+        "sistema": "e-Protocolo",
+        "artefato": "Resposta formal ao TCE-PR",
+        "prazo": "A definir",
+        "evento": "Resposta encaminhada",
+        "fontes": [],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Resposta formal encaminhada ao TCE-PR dentro do prazo",
+      "Registro da demanda e da resposta arquivado"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Registro de demandas do TCE-PR",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "demanda",
+        "data de recebimento",
+        "prazo",
+        "situação"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Resposta formal ao TCE-PR",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "demanda respondida",
+        "fundamentação",
+        "documentos anexados"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A documentação reunida atende integralmente ao solicitado pelo TCE-PR?",
+      "condicao": "Conferência da documentação e das informações recebidas dos setores",
+      "sim": "Elaborar a resposta formal e submetê-la à validação da Direção Geral",
+      "nao": "Solicitar complementação aos setores responsáveis antes de elaborar a resposta"
+    }
+  ],
+  "pontos_atencao": [
+    "Prazos do TCE-PR são improrrogáveis, salvo pedido de prorrogação tempestivo e fundamentado",
+    "Manter registro centralizado de todas as demandas do TCE-PR para consulta em auditorias futuras"
+  ],
+  "contingencia": [
+    "Setor não responde à solicitação de informações no prazo interno: escalar à Direção Geral do Campus",
+    "Prazo do TCE-PR insuficiente para reunir toda a documentação: protocolar pedido de prorrogação antes do vencimento",
+    "Resposta formal devolvida pelo TCE-PR para complementação: revisar e reencaminhar dentro do novo prazo fixado"
+  ],
+  "checklist": [
+    "Demanda/diligência do TCE-PR registrada no e-Protocolo",
+    "Setores responsáveis identificados e acionados",
+    "Documentação e informações conferidas antes da resposta",
+    "Resposta formal validada pela Direção Geral do Campus",
+    "Resposta encaminhada ao TCE-PR dentro do prazo"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de respostas ao TCE-PR entregues dentro do prazo",
+      "formula": "(Respostas entregues no prazo / total de demandas recebidas) × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Tempo médio de elaboração da resposta formal ao TCE-PR",
+      "formula": "Média (data de encaminhamento da resposta − data de registro da demanda)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "TCE-PR",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "informa",
+      "artefato": "Notificação/diligência",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Setor respondente",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Documentação e informações solicitadas",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Direção Geral do Campus",
+      "destino": "TCE-PR",
+      "relacao": "informa",
+      "artefato": "Resposta formal",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Recebimento de demanda, notificação ou diligência do TCE-PR dirigida…\"))\n    e12(((\"Resposta formal encaminhada ao TCE-PR dentro do prazo\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Receber e registrar a demanda/diligência do TCE-PR\"]\n    e3[\"Identificar o(s) setor(es) responsável(is) pelas informações solicita…\"]\n    e4[\"Solicitar aos setores responsáveis a documentação e as informações ex…\"]\n    e6[\"Elaborar a resposta formal à demanda do TCE-PR\"]\n    e7[\"Submeter a resposta à Direção Geral do Campus para validação\"]\n    e9[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor respondente\"]\n    direction LR\n    e5[\"Reunir e conferir a documentação e as informações recebidas\"]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e8[\"Encaminhar a resposta formal ao TCE-PR dentro do prazo estabelecido\"]\n  end\n  subgraph R5[\"TCE-PR\"]\n    direction LR\n    e11[[\"✉ Informar TCE-PR\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral"
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor respondente",
+      "Direção Geral do Campus",
+      "TCE-PR"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
+        "label": "Recebimento de demanda, notificação ou diligência do TCE-PR dirigida ao Campus",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Receber e registrar a demanda/diligência do TCE-PR",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Identificar o(s) setor(es) responsável(is) pelas informações solicitadas",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Solicitar aos setores responsáveis a documentação e as informações exigidas",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Reunir e conferir a documentação e as informações recebidas",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Elaborar a resposta formal à demanda do TCE-PR",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Submeter a resposta à Direção Geral do Campus para validação",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Encaminhar a resposta formal ao TCE-PR dentro do prazo estabelecido",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Informar Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Informar TCE-PR",
+        "raia": "TCE-PR"
+      },
+      {
+        "id": "e12",
         "tipo": "fim",
-        "label": "Concluído",
+        "label": "Resposta formal encaminhada ao TCE-PR dentro do prazo",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       }
     ],
@@ -65,9 +291,49 @@
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -80,6 +346,37 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Receber e registrar a demanda/diligência do TCE-PR",
+        "Passo adicionado após 1: Identificar o(s) setor(es) responsável(is) pelas informações solicitadas",
+        "Passo adicionado após 2: Solicitar aos setores responsáveis a documentação e as informações exigidas",
+        "Passo adicionado após 3: Reunir e conferir a documentação e as informações recebidas",
+        "Passo adicionado após 4: Elaborar a resposta formal à demanda do TCE-PR",
+        "Passo adicionado após 5: Submeter a resposta à Direção Geral do Campus para validação",
+        "Passo adicionado após 6: Encaminhar a resposta formal ao TCE-PR dentro do prazo estabelecido",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Auditoria TCE-PR (demandas, prazos, respostas formais) a partir do escopo do manual institucional da ATDG."
     }
   ],
   "validacao": {
@@ -92,25 +389,22 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "passos",
     "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
     "kpi",
-    "contingencia",
     "formulario",
     "prazo",
     "normativa"
   ],
-  "observacoes": "",
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
   "fontes_entradas": [],
   "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T02:01:05Z"
 }

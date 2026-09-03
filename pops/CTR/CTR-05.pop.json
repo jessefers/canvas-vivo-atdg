@@ -5,7 +5,7 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.03-CTR",
   "sigla": "CTR",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "status": "rascunho",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -15,49 +15,262 @@
     "subdominio": "Gestão de Riscos",
     "tipo_subdominio": "core",
     "contexto": "S02.03-CTR",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Criticidade",
+        "definicao": "Medida que combina probabilidade e impacto para priorizar riscos institucionais na matriz de riscos.",
+        "sistema": "OneDrive ATDG"
+      }
+    ]
   },
   "identificacao": {
     "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "periodicidade": "Periódica — A definir (ciclo anual proposto)",
     "normativa": [],
     "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
     "produto_atdg": "POP",
     "pasta_onedrive": "02_CONTROLADORIA"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_03_CTR[\"S02.03-CTR<br/>ATDG — Controladoria e Compliance\"]\n  S02_ATDG --> S02_03_CTR\n  P[\"CTR-05<br/>Gestão de Riscos\"]\n  S02_03_CTR --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_03_CTR setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_03_CTR[\"S02.03-CTR<br/>ATDG — Controladoria e Compliance\"]\n  S02_ATDG --> S02_03_CTR\n  P[\"CTR-05<br/>Gestão de Riscos\"]\n  S02_03_CTR --> P\n  V1[\"Setor demandante\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_03_CTR setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Definição do ciclo periódico de gestão de riscos institucionais pela Direção Geral/ATDG",
+      "origem": "Direção Geral do Campus"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Estrutura de setores e processos do Campus (mapeamento de processos — MAP)",
+      "Histórico de riscos e não conformidades anteriores"
+    ],
+    "passos": [
+      {
+        "acao": "Definir o escopo e os setores/processos a serem avaliados no ciclo de gestão de riscos",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Escopo do ciclo de gestão de riscos",
+        "prazo": "A definir",
+        "evento": "Escopo definido",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Levantar os riscos institucionais junto aos setores demandantes",
+        "responsavel": "Setor demandante",
+        "sistema": "e-Protocolo",
+        "artefato": "Relação de riscos identificados",
+        "prazo": "A definir",
+        "evento": "Riscos levantados",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Classificar cada risco quanto à probabilidade de ocorrência",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Matriz de riscos",
+        "prazo": "A definir",
+        "evento": "Probabilidade classificada",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Classificar cada risco quanto ao impacto institucional",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Matriz de riscos",
+        "prazo": "A definir",
+        "evento": "Impacto classificado",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Calcular a criticidade e priorizar os riscos institucionais",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Matriz de riscos priorizada",
+        "prazo": "A definir",
+        "evento": "Riscos priorizados",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Submeter a matriz de riscos priorizada à Direção Geral do Campus",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Matriz de riscos",
+        "prazo": "A definir",
+        "evento": "Matriz submetida",
+        "fontes": [],
+        "n": 6
+      },
+      {
+        "acao": "Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos setores para os planos de mitigação (CTR-02)",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Relatório de gestão de riscos",
+        "prazo": "A definir",
+        "evento": "Relatório consolidado",
+        "fontes": [],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Matriz de riscos institucionais atualizada",
+      "Relatório de gestão de riscos do ciclo"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Matriz de riscos institucionais (ciclo de mapeamento)",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "setor",
+        "risco",
+        "probabilidade",
+        "impacto",
+        "criticidade"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Relatório de gestão de riscos do ciclo",
+      "tipo": "documento",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "ciclo",
+        "riscos priorizados",
+        "recomendações"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A Direção Geral do Campus aprova a priorização de riscos da matriz?",
+      "condicao": "Matriz de riscos priorizada submetida pela ATDG",
+      "sim": "Consolidar o relatório do ciclo e encaminhar aos setores para os planos de mitigação",
+      "nao": "Revisar os critérios de classificação e priorização com a ATDG"
+    }
+  ],
+  "pontos_atencao": [
+    "Alinhar o ciclo de gestão de riscos com o cronograma do projeto de Mapeamento de Processos (MAP) para reaproveitar o levantamento de processos por setor",
+    "Riscos de alta criticidade identificados neste mapeamento alimentam os planos de mitigação de CTR-02"
+  ],
+  "contingencia": [
+    "Setor não levanta seus riscos dentro do prazo do ciclo: estimar com base no histórico e sinalizar como lacuna a validar",
+    "Critério de classificação de probabilidade/impacto gerar resultados inconsistentes entre setores: padronizar a escala com apoio da Direção Geral",
+    "Matriz de riscos desatualizada em relação à estrutura vigente do Campus: revisar junto ao mapeamento de processos (MAP-01)"
+  ],
+  "checklist": [
+    "Escopo do ciclo de gestão de riscos definido",
+    "Riscos levantados junto aos setores demandantes",
+    "Riscos classificados por probabilidade e impacto",
+    "Matriz de riscos priorizada e aprovada pela Direção Geral",
+    "Relatório do ciclo consolidado e encaminhado para os planos de mitigação"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de setores com riscos institucionais mapeados no ciclo",
+      "formula": "(Setores com riscos mapeados / total de setores do escopo) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    },
+    {
+      "indicador": "Número de riscos de criticidade alta identificados por ciclo",
+      "formula": "Contagem de riscos com criticidade alta na matriz do ciclo",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor demandante",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Relação de riscos identificados pelo setor",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "aprova",
+      "artefato": "Matriz de riscos priorizada",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Definição do ciclo periódico de gestão de riscos institucionais pela…\"))\n    e11(((\"Matriz de riscos institucionais atualizada\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Definir o escopo e os setores/processos a serem avaliados no ciclo de…\"]\n    e4[\"Classificar cada risco quanto à probabilidade de ocorrência\"]\n    e5[\"Classificar cada risco quanto ao impacto institucional\"]\n    e6[\"Calcular a criticidade e priorizar os riscos institucionais\"]\n    e7[\"Submeter a matriz de riscos priorizada à Direção Geral do Campus\"]\n    e8[\"Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos…\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e3[\"Levantar os riscos institucionais junto aos setores demandantes\"]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e10[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral"
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor demandante",
+      "Direção Geral do Campus"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
+        "label": "Definição do ciclo periódico de gestão de riscos institucionais pela Direção Geral/ATDG",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Definir o escopo e os setores/processos a serem avaliados no ciclo de gestão de riscos",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Levantar os riscos institucionais junto aos setores demandantes",
+        "raia": "Setor demandante"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Classificar cada risco quanto à probabilidade de ocorrência",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Classificar cada risco quanto ao impacto institucional",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Calcular a criticidade e priorizar os riscos institucionais",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Submeter a matriz de riscos priorizada à Direção Geral do Campus",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos setores para os planos de mitigação (CTR-02)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Aprovação por Direção Geral do Campus",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e11",
         "tipo": "fim",
-        "label": "Concluído",
+        "label": "Matriz de riscos institucionais atualizada",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       }
     ],
@@ -65,9 +278,45 @@
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -80,6 +329,37 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Definir o escopo e os setores/processos a serem avaliados no ciclo de gestão de ",
+        "Passo adicionado após 1: Levantar os riscos institucionais junto aos setores demandantes",
+        "Passo adicionado após 2: Classificar cada risco quanto à probabilidade de ocorrência",
+        "Passo adicionado após 3: Classificar cada risco quanto ao impacto institucional",
+        "Passo adicionado após 4: Calcular a criticidade e priorizar os riscos institucionais",
+        "Passo adicionado após 5: Submeter a matriz de riscos priorizada à Direção Geral do Campus",
+        "Passo adicionado após 6: Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos setores par",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Gestão de Riscos (mapeamento, probabilidade, impacto) a partir do escopo do manual institucional da ATDG."
     }
   ],
   "validacao": {
@@ -92,25 +372,22 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "passos",
     "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
     "kpi",
-    "contingencia",
     "formulario",
     "prazo",
     "normativa"
   ],
-  "observacoes": "",
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
   "fontes_entradas": [],
   "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T02:01:05Z"
 }

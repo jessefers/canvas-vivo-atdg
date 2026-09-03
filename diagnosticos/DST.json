@@ -1,0 +1,55 @@
+{
+  "id": "diag-dst-20260903",
+  "setor": "Div. de Segurança e Transportes",
+  "setor_codigo": "S03.02-DST",
+  "sigla": "DST",
+  "data": "2026-09-03T01:59:01Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": ["pb-seguranca-transportes"],
+  "hash_fontes": "dc6392f2f1f05961954427e41f8527f1b3caaa8f1561d82bddd7fd818c4954ac",
+  "ecossistema": {
+    "dominio": "Infraestrutura e Serviços",
+    "subdominios": ["A definir (playbook em construção)"],
+    "contextos_vizinhos": ["A definir"],
+    "sistemas": [],
+    "normas": [],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DST-00",
+      "nome": "Visão geral — Div. de Segurança e Transportes (roteiro de coleta)",
+      "tipo": "processo",
+      "descricao": "Setor sem mapeamento de processos no Canvas; o único registro é o playbook-esqueleto genérico apontando para o levantamento inicial de atividades, fluxos e normas aplicáveis.",
+      "tipo_subdominio": "suporte",
+      "gatilho": "A definir",
+      "saida": "A definir",
+      "atores": ["A definir"],
+      "sistemas": [],
+      "artefatos": [],
+      "interfaces": [],
+      "evidencias": ["pb-seguranca-transportes"],
+      "maturidade": 0,
+      "criticidade": 0.40,
+      "frequencia": 0.30,
+      "risco_conformidade": 0.40,
+      "cobertura": 0.05,
+      "prioridade": 0.43,
+      "lacunas": ["responsavel", "normativa", "gatilho", "entrada", "saida", "passos", "sistema", "formulario", "prazo", "kpi", "contingencia", "interface_setorial"],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "DST-00",
+      "justificativa": "Nenhuma entrada real do Canvas além do playbook-esqueleto genérico ('classe PLAYBOOK', sem procedimento específico); o POP foi tratado como roteiro de coleta (contingência e checklist de levantamento), mantendo o status rascunho até que atividades reais sejam mapeadas."
+    }
+  ],
+  "lacunas_setor": ["sem entradas no Canvas"],
+  "licoes_propostas": [
+    {
+      "licao": "Setores como DST, DINF, DPAT, DATL e DSA têm apenas um registro de playbook-esqueleto genérico (mesmo texto padrão 'A documentar: levantar atividades...'), sem nenhuma entrada real do Canvas.",
+      "regra": "Quando o hash de fontes de um setor corresponder apenas a um único registro de classe 'PLAYBOOK' genérico e sem procedimento específico, tratar o patch como roteiro de coleta (sistema/artefato nos 3 passos genéricos, contingência e checklist de levantamento, responsável 'A definir'), com tipo_mudanca 'minor' e sem promover o status — nunca como POP operacional completo.",
+      "exemplo": "DST-00, DINF-00, DPAT-00, DATL-00, DSA-00",
+      "origem": "diagnostico:DST"
+    }
+  ],
+  "observacoes": "Setor ainda não mapeado — roteiro de coleta. A mesma situação se repete em DINF, DPAT, DATL e DSA (ver lição proposta)."
+}

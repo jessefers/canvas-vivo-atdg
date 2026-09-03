@@ -5,8 +5,8 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.06-MAP",
   "sigla": "MAP",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
     "departamento": "ATDG — Mapeamento de Processos",
@@ -15,56 +15,303 @@
     "subdominio": "Levantamento de setores, cargos, funções e servidores",
     "tipo_subdominio": "core",
     "contexto": "S02.06-MAP",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Setor respondente",
+        "definicao": "Setor, colegiado ou função que fornece e valida os dados levantados no mapeamento.",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
-    "normativa": [],
+    "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+    "periodicidade": "Por ciclo do projeto de Mapeamento de Processos",
+    "normativa": [
+      "Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)"
+    ],
     "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_06_MAP[\"S02.06-MAP<br/>ATDG — Mapeamento de Processos\"]\n  S02_ATDG --> S02_06_MAP\n  P[\"MAP-01<br/>Levantamento de setores, cargos, funções e servidores\"]\n  S02_06_MAP --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_06_MAP setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_06_MAP[\"S02.06-MAP<br/>ATDG — Mapeamento de Processos\"]\n  S02_ATDG --> S02_06_MAP\n  P[\"MAP-01<br/>Levantamento de setores, cargos, funções e servidores\"]\n  S02_06_MAP --> P\n  V1[\"Setor respondente\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_06_MAP setor\n  class P destaque\n  class V1,V2 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Início de novo ciclo de mapeamento de processos definido pela ATDG/Direção Geral",
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Organograma do Campus",
+      "Lista de contatos institucionais por função"
+    ],
+    "passos": [
+      {
+        "acao": "Levantar a estrutura de setores, centros e colegiados do Campus",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Organograma do Campus",
+        "prazo": "A definir",
+        "evento": "Estrutura levantada",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Identificar cargos e funções existentes em cada setor",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Relação de cargos e funções",
+        "prazo": "A definir",
+        "evento": "Cargos e funções identificados",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Levantar o quantitativo de servidores por setor e função",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Quantitativo de servidores",
+        "prazo": "A definir",
+        "evento": "Quantitativo levantado",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Consolidar e atualizar a lista de contatos institucionais por função",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Lista de contatos por função",
+        "prazo": "A definir",
+        "evento": "Contatos atualizados",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Validar a relação de setores, cargos, funções e servidores com o setor respondente",
+        "responsavel": "Setor respondente",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Relação consolidada",
+        "prazo": "A definir",
+        "evento": "Relação validada",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Disponibilizar a relação consolidada para o restante do projeto de mapeamento",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Relação consolidada",
+        "prazo": "A definir",
+        "evento": "Relação disponibilizada",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 6
+      }
+    ],
+    "saida": [
+      "Relação consolidada de setores, cargos, funções e quantitativo de servidores",
+      "Lista de contatos por função atualizada"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Relação de setores, cargos, funções e servidores",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "setor",
+        "centro/colegiado",
+        "cargo",
+        "função",
+        "quantitativo de servidores"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Lista de contatos institucionais por função",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "função",
+        "e-mail institucional",
+        "centro"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A relação de setores, cargos e funções está completa e atualizada?",
+      "condicao": "Relação consolidada de setores, cargos, funções e servidores levantada pela ATDG",
+      "sim": "Disponibilizar a relação para as demais etapas do mapeamento (MAP-02)",
+      "nao": "Retornar ao setor para complementação das informações faltantes"
+    }
+  ],
+  "pontos_atencao": [
+    "Lista de contatos contém e-mails institucionais de servidores — tratar conforme a LGPD e evitar divulgação externa",
+    "Manter a relação sincronizada com alterações de estrutura (criação/extinção de colegiados e centros)"
+  ],
+  "contingencia": [
+    "Divergência entre o organograma formal e a estrutura em funcionamento: registrar a divergência e confirmar com a Direção Geral",
+    "Contato desatualizado impede o envio de formulários: buscar contato alternativo junto à chefia imediata",
+    "Setor não confirma o quantitativo de servidores: estimar com base no último levantamento e sinalizar como lacuna"
+  ],
+  "checklist": [
+    "Estrutura de setores, centros e colegiados levantada",
+    "Cargos e funções identificados por setor",
+    "Quantitativo de servidores levantado",
+    "Lista de contatos por função atualizada e validada",
+    "Relação consolidada validada pelo setor respondente"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de setores com dados de estrutura, cargos e funções levantados",
+      "formula": "(Setores levantados / total de setores do Campus) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    },
+    {
+      "indicador": "Percentual de contatos por função atualizados no último ciclo",
+      "formula": "(Contatos atualizados / total de contatos) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor respondente",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Dados de setor, cargos, funções e servidores",
+      "canal": "e-mail institucional/OneDrive ATDG"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Setor respondente",
+      "relacao": "valida",
+      "artefato": "Relação consolidada de setores, cargos e funções",
+      "canal": "OneDrive ATDG"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Novo ciclo de mapeamento iniciado\"))\n    e2[\"Levantar estrutura de setores, centros e colegiados\"]\n    e3[\"Identificar cargos, funções e quantitativo de servidores\"]\n    e5[\"Consolidar e atualizar a lista de contatos por função\"]\n    e8[\"Complementar dados faltantes junto ao setor\"]\n    e9[\"Disponibilizar a relação para as demais etapas do mapeamento\"]\n    e10(((\"Relação de setores, cargos e funções disponibilizada\")))\n  end\n  subgraph R2[\"Setor respondente\"]\n    direction LR\n    e4[[\"✉ Fornecer dados de setor, cargos e funções\"]]\n    e6[[\"✉ Validar a relação consolidada\"]]\n    e7{\"Relação está completa e atualizada?\"}\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 -- Não --> e8\n  e8 --> e6\n  e7 -- Sim --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e5,e8,e9 atividade\n  class e4,e6 captura\n  class e7 decisao\n  class e10 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral"
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor respondente"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        "label": "Novo ciclo de mapeamento iniciado",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Levantar estrutura de setores, centros e colegiados",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Identificar cargos, funções e quantitativo de servidores",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "captura",
+        "label": "Fornecer dados de setor, cargos e funções",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Consolidar e atualizar a lista de contatos por função",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "captura",
+        "label": "Validar a relação consolidada",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e7",
+        "tipo": "decisao",
+        "label": "Relação está completa e atualizada?",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Complementar dados faltantes junto ao setor",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Disponibilizar a relação para as demais etapas do mapeamento",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        "label": "Relação de setores, cargos e funções disponibilizada",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       }
     ],
     "conexoes": [
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8",
+        "label": "Não"
+      },
+      {
+        "de": "e8",
+        "para": "e6"
+      },
+      {
+        "de": "e7",
+        "para": "e9",
+        "label": "Sim"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -80,6 +327,45 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 0: Levantar a estrutura de setores, centros e colegiados do Campus",
+        "Passo adicionado após 1: Identificar cargos e funções existentes em cada setor",
+        "Passo adicionado após 2: Levantar o quantitativo de servidores por setor e função",
+        "Passo adicionado após 3: Consolidar e atualizar a lista de contatos institucionais por função",
+        "Passo adicionado após 4: Validar a relação de setores, cargos, funções e servidores com o setor responden",
+        "Passo adicionado após 5: Disponibilizar a relação consolidada para o restante do projeto de mapeamento",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Assessoria Técnica da Direção Geral (ATDG), Setor respondente",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 10",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-atdg",
+        "1780963200014",
+        "1780963200031",
+        "1780963200035"
+      ],
+      "motivo": "Elaboração do playbook de levantamento de setores, cargos, funções e servidores, primeira etapa do ciclo de Mapeamento de Processos da ATDG."
     }
   ],
   "validacao": {
@@ -92,25 +378,24 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "passos",
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
     "formulario",
-    "prazo",
-    "normativa"
+    "prazo"
   ],
   "observacoes": "",
-  "fontes_entradas": [],
-  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "fontes_entradas": [
+    "pb-atdg",
+    "1780963200014",
+    "1780963200031",
+    "1780963200035"
+  ],
+  "hash_fontes": "df49c749512aea2a91ac79fe0f27f94aaa59b1fc030c1c211e8c6f749041d0da",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T02:01:04Z"
 }

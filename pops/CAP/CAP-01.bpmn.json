@@ -1,26 +1,88 @@
 {
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "codigo": "CAP-01",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T02:01:05Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CAP-01 — Captação de Recursos Externos",
       "descricao": "Captação de Recursos Externos — Editais, Fundação Araucária, SETI. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
       "raias": [
-        "ATDG — Assessoria Técnica da Direção Geral"
+        "ATDG — Assessoria Técnica da Direção Geral",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Fundação Araucária"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
+          "label": "Publicação de edital de fomento (Fundação Araucária, SETI ou outro órgão) de interesse do Campus",
           "raia": "ATDG — Assessoria Técnica da Direção Geral"
         },
         {
           "id": "e2",
+          "tipo": "atividade",
+          "label": "Identificar e divulgar editais de fomento de interesse do Campus",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Receber a manifestação de interesse do setor demandante em submeter proposta",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Orientar a elaboração da proposta técnica conforme as exigências do edital",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Conferir a documentação exigida pelo edital antes da submissão",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Submeter a proposta ao órgão de fomento (Fundação Araucária/SETI)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Acompanhar o resultado da análise do órgão de fomento",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Registrar o resultado da submissão e comunicar ao setor demandante",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Informar Fundação Araucária",
+          "raia": "Fundação Araucária"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Informar Assessoria Técnica da Direção Geral (ATDG)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e12",
           "tipo": "fim",
-          "label": "Concluído",
+          "label": "Proposta submetida ao edital",
           "raia": "ATDG — Assessoria Técnica da Direção Geral"
         }
       ],
@@ -28,9 +90,49 @@
         {
           "de": "e1",
           "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

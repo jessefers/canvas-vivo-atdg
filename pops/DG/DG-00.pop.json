@@ -5,121 +5,336 @@
   "setor": "Direção Geral de Campus",
   "setor_codigo": "S01-DG",
   "sigla": "DG",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "Direção Geral de Campus",
     "departamento": "Direção Geral de Campus",
-    "descricao": "Referência das normas institucionais estruturantes aplicadas no campus: Estatuto da Unioeste e Instruções de Serviço do Gabinete da Reitoria (GRE).",
+    "descricao": "Mantém e disponibiliza o acervo normativo institucional (Estatuto da Unioeste e Instruções de Serviço do GRE) e responde a consultas de setores do Campus sobre sua aplicação, sob validação da Direção Geral.",
     "dominio": "Governança e Direção do Campus",
     "subdominio": "Visão geral do setor (playbook)",
     "tipo_subdominio": "core",
     "contexto": "S01-DG",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "IS-GRE",
+        "definicao": "Instrução de Serviço do Gabinete da Reitoria — ato normativo interno da Reitoria da Unioeste com orientações de caráter geral ou específico.",
+        "sistema": ""
+      },
+      {
+        "termo": "Acervo normativo",
+        "definicao": "Conjunto indexado de normas institucionais (Estatuto, Instruções de Serviço) mantido pela ATDG para consulta.",
+        "sistema": "OneDrive ATDG"
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "responsavel": "Direção Geral do Campus",
+    "periodicidade": "Sob demanda (consulta ou norma nova/alterada)",
     "normativa": [
       "Resoluções 017/99-COU e 194/2024-COU (Estatuto)",
-      "Instruções de Serviço GRE"
+      "Instruções de Serviço GRE",
+      "Resolução nº 017/1999-COU (Estatuto da Unioeste)",
+      "Resolução nº 194/2024-COU (altera a Resolução nº 017/1999-COU)",
+      "Instruções de Serviço do Gabinete da Reitoria (GRE)"
     ],
     "subordinacao": "Reitoria da Unioeste",
     "produto_atdg": "POP",
     "pasta_onedrive": "01_ADMINISTRATIVO"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  P[\"DG-00<br/>Visão geral — Direção Geral de Campus\"]\n  S01_DG --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  P[\"DG-00<br/>Visão geral — Direção Geral de Campus\"]\n  S01_DG --> P\n  V1[\"Setor demandante\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Norma institucional nova, revisada ou consultada (Estatuto ou Instrução de Serviço do GRE) identificada pela Direção Geral, pela ATDG ou por setor do Campus",
+      "origem": "Setor demandante ou Gabinete da Reitoria (GRE)"
     },
-    "entrada": [],
+    "entrada": [
+      "Estatuto da Unioeste (Res. 017/99-COU e alterações)",
+      "Instruções de Serviço do GRE",
+      "Consulta de setor sobre aplicação normativa"
+    ],
     "passos": [
       {
-        "n": 1,
-        "acao": "Consultar o Estatuto para competências de órgãos e funções",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Receber e registrar a norma ou a consulta normativa recebida",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Ofício/memorando/consulta",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Consulta ou norma registrada",
         "fontes": [
           "pb-direcao-geral"
-        ]
+        ],
+        "n": 1
       },
       {
         "n": 2,
-        "acao": "Aplicar as Instruções de Serviço do GRE pertinentes",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Consultar o Estatuto para competências de órgãos e funções",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Estatuto da Unioeste (Res. 017/99-COU e 194/2024-COU)",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Norma localizada e consultada",
         "fontes": [
-          "pb-direcao-geral"
+          "pb-direcao-geral",
+          "1780963200023",
+          "1780963200024",
+          "1780963200028",
+          "1780963200029"
         ]
       },
       {
         "n": 3,
-        "acao": "Observar as alterações do Estatuto (Res. 194/2024-COU)",
-        "responsavel": "A definir",
-        "sistema": "",
-        "artefato": "",
+        "acao": "Aplicar as Instruções de Serviço do GRE pertinentes",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Instrução de Serviço do GRE aplicável",
         "prazo": "A definir",
-        "evento": "",
+        "evento": "Norma identificada como aplicável",
+        "fontes": [
+          "pb-direcao-geral",
+          "1780963200023",
+          "1780963200024",
+          "1780963200028",
+          "1780963200029"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Observar as alterações do Estatuto (Res. 194/2024-COU)",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Quadro comparativo de alterações estatutárias",
+        "prazo": "A definir",
+        "evento": "Alteração normativa registrada",
+        "fontes": [
+          "pb-direcao-geral",
+          "1780963200023",
+          "1780963200024",
+          "1780963200028",
+          "1780963200029"
+        ]
+      },
+      {
+        "acao": "Indexar e catalogar a norma no acervo normativo da ATDG",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Índice do acervo normativo",
+        "prazo": "A definir",
+        "evento": "Norma indexada",
         "fontes": [
           "pb-direcao-geral"
-        ]
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Elaborar resposta técnica ou orientação com base no acervo normativo, quando houver consulta",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Nota técnica/orientação",
+        "prazo": "A definir",
+        "evento": "Resposta técnica elaborada",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Submeter a resposta técnica à Direção Geral do Campus para validação e formalização",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Nota técnica/orientação",
+        "prazo": "A definir",
+        "evento": "Resposta submetida à validação",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Comunicar a orientação normativa ao setor demandante e arquivar o precedente",
+        "responsavel": "Direção Geral do Campus",
+        "sistema": "e-Protocolo",
+        "artefato": "Ofício de resposta/registro de precedente",
+        "prazo": "A definir",
+        "evento": "Orientação comunicada e precedente arquivado",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 8
       }
     ],
-    "saida": []
+    "saida": [
+      "Acervo normativo consolidado e indexado (OneDrive ATDG)",
+      "Resposta/orientação formal à consulta normativa do setor"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
+  "artefatos": [
+    {
+      "nome": "Acervo normativo da ATDG (Estatuto e Instruções de Serviço do GRE)",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "norma",
+        "número/ano",
+        "data de vigência",
+        "situação (vigente/alterada/revogada)"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Nota técnica/orientação normativa",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "norma aplicável",
+        "situação analisada",
+        "conclusão/orientação"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A Direção Geral valida a orientação normativa elaborada pela ATDG?",
+      "condicao": "Nota técnica/orientação elaborada pela ATDG em resposta a consulta ou à identificação de norma aplicável",
+      "sim": "Formalizar o despacho/orientação e comunicar ao setor demandante",
+      "nao": "Devolver a nota técnica à ATDG para revisão e complementação"
+    }
+  ],
   "pontos_atencao": [
     "Estatuto alterado pela Resolução 194/2024-COU",
-    "Algumas normas estão em PDF imagem — consultar o original"
+    "Algumas normas estão em PDF imagem — consultar o original",
+    "Confirmar a vigência da norma antes de aplicá-la a um caso concreto, dada a existência de alterações estatutárias (Res. 194/2024-COU)",
+    "Normas digitalizadas em PDF-imagem exigem consulta ao documento original, pois não são indexáveis por texto"
   ],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Direção Geral de Campus\"]\n    direction LR\n    e1((\"A definir\"))\n    e2[\"Consultar o Estatuto para competências de órgãos e funções\"]\n    e3[\"Aplicar as Instruções de Serviço do GRE pertinentes\"]\n    e4[\"Observar as alterações do Estatuto (Res. 194/2024-COU)\"]\n    e5(((\"Concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 atividade\n  class e5 fim",
+  "contingencia": [
+    "Norma citada em consulta não localizada no acervo: solicitar cópia oficial ao Gabinete da Reitoria (GRE) antes de responder",
+    "Divergência de interpretação entre ATDG e setor demandante: submeter a questão à Direção Geral do Campus para decisão",
+    "PDF da norma ilegível ou corrompido: registrar a ocorrência e buscar via oficial junto à Reitoria/GRE"
+  ],
+  "checklist": [
+    "Consulta ou norma registrada no e-Protocolo",
+    "Norma localizada e vigência confirmada",
+    "Nota técnica/orientação elaborada com fundamentação normativa explícita",
+    "Validação da Direção Geral obtida antes da resposta ao setor demandante",
+    "Precedente arquivado no acervo normativo da ATDG"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de resposta a consultas normativas",
+      "formula": "Média (data da resposta − data de registro da consulta)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de consultas com precedente registrado no acervo normativo",
+      "formula": "(Consultas com registro no acervo / total de consultas) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor demandante",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Consulta sobre aplicação normativa",
+      "canal": "e-Protocolo/e-mail institucional"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "aprova",
+      "artefato": "Nota técnica/orientação",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Direção Geral do Campus",
+      "destino": "Setor demandante",
+      "relacao": "informa",
+      "artefato": "Despacho/orientação formal",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Consulta ou norma identificada\"))\n    e2[[\"✉ Receber consulta do setor demandante\"]]\n    e3[\"Registrar a consulta/norma no e-Protocolo\"]\n    e4[\"Consultar o Estatuto e as IS-GRE aplicáveis\"]\n    e5[\"Indexar a norma no acervo normativo\"]\n    e6[\"Elaborar nota técnica/orientação\"]\n    e9[\"Revisar nota técnica conforme observações\"]\n  end\n  subgraph R2[\"Direção Geral do Campus\"]\n    direction LR\n    e7[[\"✉ Submeter nota técnica à Direção Geral\"]]\n    e8{\"Direção Geral valida a orientação?\"}\n    e10[\"Formalizar despacho/orientação\"]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e11[[\"✉ Receber despacho/orientação formal\"]]\n    e12(((\"Orientação normativa aplicada e precedente arquivado\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 -- Não --> e9\n  e9 --> e7\n  e8 -- Sim --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e7,e11 captura\n  class e3,e4,e5,e6,e9,e10 atividade\n  class e8 decisao\n  class e12 fim",
   "bpmn_spec": {
     "raias": [
-      "Direção Geral de Campus"
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Direção Geral do Campus",
+      "Setor demandante"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "Direção Geral de Campus"
+        "label": "Consulta ou norma identificada",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       },
       {
         "id": "e2",
-        "tipo": "atividade",
-        "label": "Consultar o Estatuto para competências de órgãos e funções",
-        "raia": "Direção Geral de Campus"
+        "tipo": "captura",
+        "label": "Receber consulta do setor demandante",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       },
       {
         "id": "e3",
         "tipo": "atividade",
-        "label": "Aplicar as Instruções de Serviço do GRE pertinentes",
-        "raia": "Direção Geral de Campus"
+        "label": "Registrar a consulta/norma no e-Protocolo",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       },
       {
         "id": "e4",
         "tipo": "atividade",
-        "label": "Observar as alterações do Estatuto (Res. 194/2024-COU)",
-        "raia": "Direção Geral de Campus"
+        "label": "Consultar o Estatuto e as IS-GRE aplicáveis",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       },
       {
         "id": "e5",
+        "tipo": "atividade",
+        "label": "Indexar a norma no acervo normativo",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Elaborar nota técnica/orientação",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "captura",
+        "label": "Submeter nota técnica à Direção Geral",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e8",
+        "tipo": "decisao",
+        "label": "Direção Geral valida a orientação?",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Revisar nota técnica conforme observações",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Formalizar despacho/orientação",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Receber despacho/orientação formal",
+        "raia": "Setor demandante"
+      },
+      {
+        "id": "e12",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "Direção Geral de Campus"
+        "label": "Orientação normativa aplicada e precedente arquivado",
+        "raia": "Setor demandante"
       }
     ],
     "conexoes": [
@@ -138,6 +353,40 @@
       {
         "de": "e4",
         "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9",
+        "label": "Não"
+      },
+      {
+        "de": "e9",
+        "para": "e7"
+      },
+      {
+        "de": "e8",
+        "para": "e10",
+        "label": "Sim"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -155,6 +404,49 @@
         "pb-direcao-geral"
       ],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 0: Receber e registrar a norma ou a consulta normativa recebida",
+        "Passo adicionado após 3: Indexar e catalogar a norma no acervo normativo da ATDG",
+        "Passo adicionado após 4: Elaborar resposta técnica ou orientação com base no acervo normativo, quando hou",
+        "Passo adicionado após 5: Submeter a resposta técnica à Direção Geral do Campus para validação e formaliza",
+        "Passo adicionado após 6: Comunicar a orientação normativa ao setor demandante e arquivar o precedente",
+        "entrada_nova: +3",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +2",
+        "normativa_nova: +3",
+        "Campo ddd.descricao atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Assessoria Técnica da Direção Geral (ATDG), Direção Geral do Campus, Setor demandante",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5",
+        "Elementos BPMN adicionados: 12",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-direcao-geral",
+        "1780963200023",
+        "1780963200024",
+        "1780963200028",
+        "1780963200029"
+      ],
+      "motivo": "Consolidação do playbook de referência normativa da Direção Geral (Estatuto e Instruções de Serviço do GRE) como acervo consultável pela ATDG, com fluxo de registro, indexação e resposta a consultas normativas."
     }
   ],
   "validacao": {
@@ -167,25 +459,25 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
     "formulario",
     "prazo"
   ],
   "observacoes": "",
   "fontes_entradas": [
-    "pb-direcao-geral"
+    "pb-direcao-geral",
+    "1780963200023",
+    "1780963200024",
+    "1780963200028",
+    "1780963200029"
   ],
-  "hash_fontes": "22ef07d9a96a356900b7d849cb8637e5b5cee9a0bdfa6965643a5765675c5a14",
+  "hash_fontes": "b9b63cf1a01f0f71abea90f7cb3ce8724699237a011a0230346bb0b05e2f7ed1",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T02:01:04Z"
 }

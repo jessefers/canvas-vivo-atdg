@@ -1,45 +1,89 @@
 {
   "setor": "Direção Geral de Campus",
   "codigo": "DG-00",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T02:01:04Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DG-00 — Visão geral — Direção Geral de Campus",
-      "descricao": "Referência das normas institucionais estruturantes aplicadas no campus: Estatuto da Unioeste e Instruções de Serviço do Gabinete da Reitoria (GRE).",
+      "descricao": "Mantém e disponibiliza o acervo normativo institucional (Estatuto da Unioeste e Instruções de Serviço do GRE) e responde a consultas de setores do Campus sobre sua aplicação, sob validação da Direção Geral.",
       "raias": [
-        "Direção Geral de Campus"
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus",
+        "Setor demandante"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Direção Geral de Campus"
+          "label": "Consulta ou norma identificada",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         },
         {
           "id": "e2",
-          "tipo": "atividade",
-          "label": "Consultar o Estatuto para competências de órgãos e funções",
-          "raia": "Direção Geral de Campus"
+          "tipo": "captura",
+          "label": "Receber consulta do setor demandante",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         },
         {
           "id": "e3",
           "tipo": "atividade",
-          "label": "Aplicar as Instruções de Serviço do GRE pertinentes",
-          "raia": "Direção Geral de Campus"
+          "label": "Registrar a consulta/norma no e-Protocolo",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         },
         {
           "id": "e4",
           "tipo": "atividade",
-          "label": "Observar as alterações do Estatuto (Res. 194/2024-COU)",
-          "raia": "Direção Geral de Campus"
+          "label": "Consultar o Estatuto e as IS-GRE aplicáveis",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         },
         {
           "id": "e5",
+          "tipo": "atividade",
+          "label": "Indexar a norma no acervo normativo",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Elaborar nota técnica/orientação",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Submeter nota técnica à Direção Geral",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e8",
+          "tipo": "decisao",
+          "label": "Direção Geral valida a orientação?",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Revisar nota técnica conforme observações",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Formalizar despacho/orientação",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Receber despacho/orientação formal",
+          "raia": "Setor demandante"
+        },
+        {
+          "id": "e12",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Direção Geral de Campus"
+          "label": "Orientação normativa aplicada e precedente arquivado",
+          "raia": "Setor demandante"
         }
       ],
       "conexoes": [
@@ -58,6 +102,40 @@
         {
           "de": "e4",
           "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9",
+          "label": "Não"
+        },
+        {
+          "de": "e9",
+          "para": "e7"
+        },
+        {
+          "de": "e8",
+          "para": "e10",
+          "label": "Sim"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."

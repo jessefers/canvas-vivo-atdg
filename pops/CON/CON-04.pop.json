@@ -5,7 +5,7 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.01-CON",
   "sigla": "CON",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "status": "rascunho",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -15,49 +15,262 @@
     "subdominio": "Prestação de Contas de Convênio",
     "tipo_subdominio": "core",
     "contexto": "S02.01-CON",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "TCE-PR",
+        "definicao": "Tribunal de Contas do Estado do Paraná, órgão de controle externo responsável pela fiscalização da aplicação de recursos públicos, incluindo convênios.",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
     "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "periodicidade": "Sob demanda",
     "normativa": [],
     "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
     "produto_atdg": "POP",
     "pasta_onedrive": "01_ADMINISTRATIVO"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_01_CON[\"S02.01-CON<br/>ATDG — Convênios e Parcerias\"]\n  S02_ATDG --> S02_01_CON\n  P[\"CON-04<br/>Prestação de Contas de Convênio\"]\n  S02_01_CON --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_01_CON setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_01_CON[\"S02.01-CON<br/>ATDG — Convênios e Parcerias\"]\n  S02_ATDG --> S02_01_CON\n  P[\"CON-04<br/>Prestação de Contas de Convênio\"]\n  S02_01_CON --> P\n  V1[\"Setor demandante\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"TCE-PR\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_01_CON setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Encerramento da vigência ou do objeto do convênio, exigindo prestação de contas financeira e técnica",
+      "origem": "Setor demandante"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Convênio encerrado ou em fase final de execução",
+      "Comprovantes de despesas e relatório técnico de execução"
+    ],
+    "passos": [
+      {
+        "acao": "Reunir os comprovantes de despesa e o relatório técnico final de execução",
+        "responsavel": "Setor demandante",
+        "sistema": "e-Protocolo",
+        "artefato": "Comprovantes de despesa e relatório técnico",
+        "prazo": "A definir",
+        "evento": "Documentação reunida",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Conferir a compatibilidade entre despesas realizadas e o plano de trabalho aprovado",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Planilha de conferência financeira",
+        "prazo": "A definir",
+        "evento": "Despesas conferidas",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Elaborar a prestação de contas financeira e técnica",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Prestação de contas",
+        "prazo": "A definir",
+        "evento": "Prestação de contas elaborada",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Submeter a prestação de contas à Direção Geral do Campus",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Prestação de contas",
+        "prazo": "A definir",
+        "evento": "Prestação submetida",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Aprovar a prestação de contas",
+        "responsavel": "Direção Geral do Campus",
+        "sistema": "e-Protocolo",
+        "artefato": "Despacho de aprovação",
+        "prazo": "A definir",
+        "evento": "Prestação aprovada",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Encaminhar a prestação de contas ao órgão concedente/SETI",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Prestação de contas",
+        "prazo": "A definir",
+        "evento": "Prestação encaminhada",
+        "fontes": [],
+        "n": 6
+      },
+      {
+        "acao": "Aguardar e responder eventuais diligências do TCE-PR sobre a prestação de contas",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Resposta a diligência",
+        "prazo": "A definir",
+        "evento": "Diligência respondida",
+        "fontes": [],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Prestação de contas financeira e técnica aprovada",
+      "Prestação de contas registrada e disponível para o TCE-PR"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Prestação de contas financeira e técnica",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "despesas realizadas",
+        "metas executadas",
+        "conclusão"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Planilha de conferência financeira",
+      "tipo": "registro",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "item de despesa",
+        "valor previsto",
+        "valor executado",
+        "compatibilidade"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "As despesas realizadas são compatíveis com o plano de trabalho aprovado?",
+      "condicao": "Conferência financeira da prestação de contas",
+      "sim": "Elaborar e submeter a prestação de contas para aprovação",
+      "nao": "Solicitar esclarecimentos ou complementação ao setor demandante antes de prosseguir"
+    }
+  ],
+  "pontos_atencao": [
+    "Prestação de contas com pendências pode motivar diligência do TCE-PR e risco de imputação de responsabilidade",
+    "Prazo de guarda da documentação financeira deve observar as exigências do órgão concedente e do TCE-PR"
+  ],
+  "contingencia": [
+    "Despesa incompatível com o plano de trabalho: solicitar justificativa ao setor demandante ou glosar o valor",
+    "Comprovantes de despesa incompletos: notificar o setor demandante para regularização antes do envio",
+    "Diligência do TCE-PR não respondida no prazo: escalar à Direção Geral do Campus para providências imediatas"
+  ],
+  "checklist": [
+    "Comprovantes de despesa e relatório técnico reunidos",
+    "Despesas conferidas com o plano de trabalho aprovado",
+    "Prestação de contas elaborada e aprovada pela Direção Geral",
+    "Prestação de contas encaminhada ao órgão concedente/SETI",
+    "Eventuais diligências do TCE-PR respondidas dentro do prazo"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de prestações de contas aprovadas sem diligência do TCE-PR",
+      "formula": "(Prestações aprovadas sem diligência / total de prestações de contas) × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Tempo médio de resposta a diligências do TCE-PR",
+      "formula": "Média (data da resposta − data de recebimento da diligência)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor demandante",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Comprovantes de despesa e relatório técnico final",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "TCE-PR",
+      "relacao": "informa",
+      "artefato": "Prestação de contas financeira e técnica",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Encerramento da vigência ou do objeto do convênio, exigindo prestação…\"))\n    e11(((\"Prestação de contas financeira e técnica aprovada\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e2[\"Reunir os comprovantes de despesa e o relatório técnico final de exec…\"]\n  end\n  subgraph R3[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e3[\"Conferir a compatibilidade entre despesas realizadas e o plano de tra…\"]\n    e4[\"Elaborar a prestação de contas financeira e técnica\"]\n    e5[\"Submeter a prestação de contas à Direção Geral do Campus\"]\n    e7[\"Encaminhar a prestação de contas ao órgão concedente/SETI\"]\n    e8[\"Aguardar e responder eventuais diligências do TCE-PR sobre a prestaçã…\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e6[\"Aprovar a prestação de contas\"]\n  end\n  subgraph R5[\"TCE-PR\"]\n    direction LR\n    e10[[\"✉ Informar TCE-PR\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral"
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Setor demandante",
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Direção Geral do Campus",
+      "TCE-PR"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
+        "label": "Encerramento da vigência ou do objeto do convênio, exigindo prestação de contas financeira e técnica",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Reunir os comprovantes de despesa e o relatório técnico final de execução",
+        "raia": "Setor demandante"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Conferir a compatibilidade entre despesas realizadas e o plano de trabalho aprovado",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Elaborar a prestação de contas financeira e técnica",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Submeter a prestação de contas à Direção Geral do Campus",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Aprovar a prestação de contas",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Encaminhar a prestação de contas ao órgão concedente/SETI",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Aguardar e responder eventuais diligências do TCE-PR sobre a prestação de contas",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Informar TCE-PR",
+        "raia": "TCE-PR"
+      },
+      {
+        "id": "e11",
         "tipo": "fim",
-        "label": "Concluído",
+        "label": "Prestação de contas financeira e técnica aprovada",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       }
     ],
@@ -65,9 +278,45 @@
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -80,6 +329,37 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Reunir os comprovantes de despesa e o relatório técnico final de execução",
+        "Passo adicionado após 1: Conferir a compatibilidade entre despesas realizadas e o plano de trabalho aprov",
+        "Passo adicionado após 2: Elaborar a prestação de contas financeira e técnica",
+        "Passo adicionado após 3: Submeter a prestação de contas à Direção Geral do Campus",
+        "Passo adicionado após 4: Aprovar a prestação de contas",
+        "Passo adicionado após 5: Encaminhar a prestação de contas ao órgão concedente/SETI",
+        "Passo adicionado após 6: Aguardar e responder eventuais diligências do TCE-PR sobre a prestação de contas",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Prestação de Contas de Convênio (financeira e técnica, TCE-PR) a partir do escopo do manual institucional da ATDG."
     }
   ],
   "validacao": {
@@ -92,25 +372,22 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "passos",
     "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
     "kpi",
-    "contingencia",
     "formulario",
     "prazo",
     "normativa"
   ],
-  "observacoes": "",
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
   "fontes_entradas": [],
   "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T02:01:05Z"
 }

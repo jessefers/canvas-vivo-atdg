@@ -1,26 +1,77 @@
 {
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "codigo": "CON-03",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T02:01:05Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CON-03 — Execução de Convênio",
       "descricao": "Execução de Convênio — Acompanhamento, relatórios parciais. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
       "raias": [
-        "ATDG — Assessoria Técnica da Direção Geral"
+        "ATDG — Assessoria Técnica da Direção Geral",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor demandante",
+        "SETI"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
+          "label": "Convênio celebrado e vigente, com execução do objeto em curso pelo setor demandante/partícipe",
           "raia": "ATDG — Assessoria Técnica da Direção Geral"
         },
         {
           "id": "e2",
+          "tipo": "atividade",
+          "label": "Acompanhar a execução física e financeira do objeto do convênio",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Solicitar ao setor demandante os dados de execução para o relatório parcial",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Elaborar o relatório parcial de execução",
+          "raia": "Setor demandante"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Revisar e consolidar o relatório parcial",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Submeter o relatório parcial ao órgão concedente/SETI, quando exigido",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Monitorar prazos e alertar sobre riscos de descumprimento do cronograma físico-financeiro",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Informar SETI",
+          "raia": "SETI"
+        },
+        {
+          "id": "e10",
           "tipo": "fim",
-          "label": "Concluído",
+          "label": "Relatório parcial de execução aprovado",
           "raia": "ATDG — Assessoria Técnica da Direção Geral"
         }
       ],
@@ -28,9 +79,41 @@
         {
           "de": "e1",
           "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

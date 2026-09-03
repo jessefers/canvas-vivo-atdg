@@ -1,0 +1,52 @@
+{
+  "id": "diag-sadm-20260903",
+  "setor": "Sec. Administrativa — Geral",
+  "setor_codigo": "S03-SADM",
+  "sigla": "SADM",
+  "data": "2026-09-03T01:59:01Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": ["pb-sec-administrativa"],
+  "hash_fontes": "e4b6eb4586a98db600343eaa4352b80394f9fd5bfaa02718185e2711720600e7",
+  "ecossistema": {
+    "dominio": "Administração e Suprimentos",
+    "subdominios": ["Coordenação das divisões administrativas", "Triagem e encaminhamento de demandas via e-Protocolo"],
+    "contextos_vizinhos": ["Direção Geral do Campus", "Div. de Licitação", "Div. de Recursos Humanos", "Div. de Manutenção e Conservação", "Div. de Almoxarifado", "Div. de Compras"],
+    "sistemas": ["e-Protocolo"],
+    "normas": ["Estrutura conforme organograma do Campus Foz (Coordenação Administrativa)"],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "SADM-00",
+      "nome": "Playbook — Secretaria Administrativa (visão geral)",
+      "tipo": "processo",
+      "descricao": "Coordenação das divisões administrativas do Campus e triagem/encaminhamento de demandas administrativas via e-Protocolo.",
+      "tipo_subdominio": "suporte",
+      "gatilho": "Recebimento de demanda administrativa própria ou de outro setor do campus",
+      "saida": "Demanda atendida pela divisão responsável e resultado informado ao solicitante",
+      "atores": ["Coordenador(a) Administrativo(a)", "Direção Geral"],
+      "sistemas": ["e-Protocolo"],
+      "artefatos": ["Demanda administrativa (e-Protocolo)", "Consolidado de status das demandas"],
+      "interfaces": ["Sec. Administrativa — Geral ↔ Div. de Licitação", "Sec. Administrativa — Geral ↔ Div. de Recursos Humanos", "Sec. Administrativa — Geral ↔ Div. de Manutenção e Conservação", "Sec. Administrativa — Geral ↔ Direção Geral"],
+      "evidencias": ["pb-sec-administrativa"],
+      "maturidade": 1,
+      "criticidade": 0.50,
+      "frequencia": 0.60,
+      "risco_conformidade": 0.30,
+      "cobertura": 0.30,
+      "prioridade": 0.51,
+      "lacunas": ["responsavel", "gatilho", "entrada", "saida", "kpi", "contingencia", "formulario", "prazo"],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "SADM-00",
+      "justificativa": "Processo de coordenação/roteamento (não finalístico), com criticidade e risco moderados; o próprio playbook não nomeia uma função específica de coordenação, apenas a estrutura organizacional ('Coordenação Administrativa'), o que limita a maturidade mensurável. Recomenda-se confirmar a função responsável em campo antes de aprovar o POP."
+    }
+  ],
+  "lacunas_setor": [
+    "Nenhuma entrada do Canvas nomeia a função responsável pela coordenação da Secretaria Administrativa (apenas a estrutura 'Coordenação Administrativa' no organograma)",
+    "Não há evidência de prazo-padrão para atendimento das demandas encaminhadas às divisões",
+    "Interfaces com Div. de Almoxarifado e Div. de Compras citadas na descrição do setor mas sem fluxo próprio evidenciado"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "SADM-00 é a visão geral que aponta para os playbooks das divisões (Almoxarifado, Compras, Licitação, RH, Manutenção e Conservação); o responsável foi inferido como 'Coordenador(a) Administrativo(a)' a partir da normativa já registrada ('Coordenação Administrativa'), sem criar título não evidenciado. Recomenda-se validação em campo desse título com a Direção Geral."
+}

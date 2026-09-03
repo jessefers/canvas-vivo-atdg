@@ -1,26 +1,90 @@
 {
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "codigo": "CTR-01",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T02:01:05Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CTR-01 — Auditoria TCE-PR",
       "descricao": "Auditoria TCE-PR — Demandas, prazos, respostas formais. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
       "raias": [
-        "ATDG — Assessoria Técnica da Direção Geral"
+        "ATDG — Assessoria Técnica da Direção Geral",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente",
+        "Direção Geral do Campus",
+        "TCE-PR"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
+          "label": "Recebimento de demanda, notificação ou diligência do TCE-PR dirigida ao Campus",
           "raia": "ATDG — Assessoria Técnica da Direção Geral"
         },
         {
           "id": "e2",
+          "tipo": "atividade",
+          "label": "Receber e registrar a demanda/diligência do TCE-PR",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Identificar o(s) setor(es) responsável(is) pelas informações solicitadas",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Solicitar aos setores responsáveis a documentação e as informações exigidas",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Reunir e conferir a documentação e as informações recebidas",
+          "raia": "Setor respondente"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Elaborar a resposta formal à demanda do TCE-PR",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Submeter a resposta à Direção Geral do Campus para validação",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Encaminhar a resposta formal ao TCE-PR dentro do prazo estabelecido",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Informar Assessoria Técnica da Direção Geral (ATDG)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Informar TCE-PR",
+          "raia": "TCE-PR"
+        },
+        {
+          "id": "e12",
           "tipo": "fim",
-          "label": "Concluído",
+          "label": "Resposta formal encaminhada ao TCE-PR dentro do prazo",
           "raia": "ATDG — Assessoria Técnica da Direção Geral"
         }
       ],
@@ -28,9 +92,49 @@
         {
           "de": "e1",
           "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

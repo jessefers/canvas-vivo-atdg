@@ -5,7 +5,7 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.01-CON",
   "sigla": "CON",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "status": "rascunho",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -15,49 +15,284 @@
     "subdominio": "Instrução de Convênio",
     "tipo_subdominio": "core",
     "contexto": "S02.01-CON",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "SETI",
+        "definicao": "Secretaria de Estado da Ciência, Tecnologia e Ensino Superior do Paraná, que analisa e acompanha convênios das universidades estaduais.",
+        "sistema": ""
+      },
+      {
+        "termo": "Plano de trabalho",
+        "definicao": "Documento que detalha objeto, metas, cronograma e recursos de um convênio, exigido para sua instrução.",
+        "sistema": "e-Protocolo"
+      }
+    ]
   },
   "identificacao": {
     "responsavel": "A definir",
-    "periodicidade": "A definir",
-    "normativa": [],
+    "periodicidade": "Sob demanda",
+    "normativa": [
+      "Lei nº 14.133/2021 (Lei de Licitações e Contratos Administrativos), no que for pertinente à formalização de convênios"
+    ],
     "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
     "produto_atdg": "POP",
     "pasta_onedrive": "01_ADMINISTRATIVO"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_01_CON[\"S02.01-CON<br/>ATDG — Convênios e Parcerias\"]\n  S02_ATDG --> S02_01_CON\n  P[\"CON-01<br/>Instrução de Convênio\"]\n  S02_01_CON --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_01_CON setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_01_CON[\"S02.01-CON<br/>ATDG — Convênios e Parcerias\"]\n  S02_ATDG --> S02_01_CON\n  P[\"CON-01<br/>Instrução de Convênio\"]\n  S02_01_CON --> P\n  V1[\"Setor demandante\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  V4[\"SETI\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_01_CON setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Manifestação de interesse do setor demandante em celebrar convênio com órgão/entidade externa, ou publicação de edital/chamamento que enseje convênio",
+      "origem": "Setor demandante"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Manifestação de interesse do setor demandante",
+      "Plano de trabalho proposto",
+      "Documentação de habilitação do partícipe externo"
+    ],
+    "passos": [
+      {
+        "acao": "Receber e registrar a manifestação de interesse do setor demandante",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Ofício/memorando de manifestação de interesse",
+        "prazo": "A definir",
+        "evento": "Manifestação registrada",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Orientar o setor demandante na elaboração do plano de trabalho",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Plano de trabalho",
+        "prazo": "A definir",
+        "evento": "Plano de trabalho orientado",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Reunir a documentação de habilitação do partícipe externo",
+        "responsavel": "Setor demandante",
+        "sistema": "e-Protocolo",
+        "artefato": "Documentação de habilitação",
+        "prazo": "A definir",
+        "evento": "Documentação reunida",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Elaborar a minuta de convênio e o processo de instrução",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Minuta de convênio",
+        "prazo": "A definir",
+        "evento": "Minuta elaborada",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Submeter o processo instruído à pré-aprovação da Direção Geral do Campus",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de convênio instruído",
+        "prazo": "A definir",
+        "evento": "Processo submetido",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Pré-aprovar o processo e autorizar o encaminhamento à SETI",
+        "responsavel": "Direção Geral do Campus",
+        "sistema": "e-Protocolo",
+        "artefato": "Despacho de pré-aprovação",
+        "prazo": "A definir",
+        "evento": "Processo pré-aprovado",
+        "fontes": [],
+        "n": 6
+      },
+      {
+        "acao": "Encaminhar a minuta e o plano de trabalho à SETI para análise",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Ofício de encaminhamento à SETI",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado à SETI",
+        "fontes": [],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Processo de convênio instruído e pré-aprovado pela Direção Geral",
+      "Minuta de convênio e plano de trabalho encaminhados à SETI para análise"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Plano de trabalho",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "objeto",
+        "metas",
+        "cronograma físico-financeiro",
+        "partícipes"
+      ],
+      "responsavel_preenchimento": "Setor demandante"
+    },
+    {
+      "nome": "Minuta de convênio",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "partícipes",
+        "objeto",
+        "vigência",
+        "cláusulas"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A documentação de habilitação do partícipe externo está completa?",
+      "condicao": "Documentação de habilitação reunida pelo setor demandante",
+      "sim": "Elaborar a minuta de convênio e o processo de instrução",
+      "nao": "Devolver ao setor demandante para complementação da documentação"
+    }
+  ],
+  "pontos_atencao": [
+    "Confirmar exigências específicas da SETI para instrução de convênios antes do encaminhamento",
+    "Verificar completude da documentação de habilitação para evitar devolução do processo"
+  ],
+  "contingencia": [
+    "Documentação de habilitação incompleta: devolver ao setor demandante com prazo para regularização",
+    "Processo devolvido pela SETI para ajustes: revisar a minuta/plano de trabalho e reencaminhar",
+    "Setor demandante não atende à orientação da ATDG dentro do prazo: escalar à Direção Geral do Campus"
+  ],
+  "checklist": [
+    "Manifestação de interesse registrada no e-Protocolo",
+    "Plano de trabalho elaborado com orientação da ATDG",
+    "Documentação de habilitação do partícipe externo conferida",
+    "Processo pré-aprovado pela Direção Geral do Campus",
+    "Processo encaminhado à SETI com toda a documentação exigida"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de instrução do processo até o encaminhamento à SETI",
+      "formula": "Média (data de encaminhamento à SETI − data de registro da manifestação)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de processos devolvidos pela SETI por documentação incompleta",
+      "formula": "(Processos devolvidos / total de processos encaminhados) × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor demandante",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Manifestação de interesse e plano de trabalho",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "aprova",
+      "artefato": "Processo de convênio instruído",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "SETI",
+      "relacao": "informa",
+      "artefato": "Minuta de convênio e plano de trabalho",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Manifestação de interesse do setor demandante em celebrar convênio co…\"))\n    e12(((\"Processo de convênio instruído e pré-aprovado pela Direção Geral\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Receber e registrar a manifestação de interesse do setor demandante\"]\n    e3[\"Orientar o setor demandante na elaboração do plano de trabalho\"]\n    e5[\"Elaborar a minuta de convênio e o processo de instrução\"]\n    e6[\"Submeter o processo instruído à pré-aprovação da Direção Geral do Cam…\"]\n    e8[\"Encaminhar a minuta e o plano de trabalho à SETI para análise\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e4[\"Reunir a documentação de habilitação do partícipe externo\"]\n  end\n  subgraph R4[\"Direção Geral do Campus\"]\n    direction LR\n    e7[\"Pré-aprovar o processo e autorizar o encaminhamento à SETI\"]\n    e10[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  subgraph R5[\"SETI\"]\n    direction LR\n    e11[[\"✉ Informar SETI\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral"
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor demandante",
+      "Direção Geral do Campus",
+      "SETI"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
+        "label": "Manifestação de interesse do setor demandante em celebrar convênio com órgão/entidade externa, ou publicação de edital/chamamento que enseje convênio",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Receber e registrar a manifestação de interesse do setor demandante",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Orientar o setor demandante na elaboração do plano de trabalho",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Reunir a documentação de habilitação do partícipe externo",
+        "raia": "Setor demandante"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Elaborar a minuta de convênio e o processo de instrução",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Submeter o processo instruído à pré-aprovação da Direção Geral do Campus",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Pré-aprovar o processo e autorizar o encaminhamento à SETI",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Encaminhar a minuta e o plano de trabalho à SETI para análise",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Aprovação por Direção Geral do Campus",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Informar SETI",
+        "raia": "SETI"
+      },
+      {
+        "id": "e12",
         "tipo": "fim",
-        "label": "Concluído",
+        "label": "Processo de convênio instruído e pré-aprovado pela Direção Geral",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       }
     ],
@@ -65,9 +300,49 @@
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -80,6 +355,38 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Receber e registrar a manifestação de interesse do setor demandante",
+        "Passo adicionado após 1: Orientar o setor demandante na elaboração do plano de trabalho",
+        "Passo adicionado após 2: Reunir a documentação de habilitação do partícipe externo",
+        "Passo adicionado após 3: Elaborar a minuta de convênio e o processo de instrução",
+        "Passo adicionado após 4: Submeter o processo instruído à pré-aprovação da Direção Geral do Campus",
+        "Passo adicionado após 5: Pré-aprovar o processo e autorizar o encaminhamento à SETI",
+        "Passo adicionado após 6: Encaminhar a minuta e o plano de trabalho à SETI para análise",
+        "entrada_nova: +3",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +2",
+        "normativa_nova: +1",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Instrução de Convênio (pré-aprovação, documentação e encaminhamento à SETI) a partir do escopo do manual institucional da ATDG."
     }
   ],
   "validacao": {
@@ -92,25 +399,22 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "passos",
     "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
     "kpi",
-    "contingencia",
     "formulario",
     "prazo",
     "normativa"
   ],
-  "observacoes": "",
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
   "fontes_entradas": [],
   "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T02:01:05Z"
 }

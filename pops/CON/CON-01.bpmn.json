@@ -1,26 +1,90 @@
 {
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "codigo": "CON-01",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T02:01:05Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "CON-01 — Instrução de Convênio",
       "descricao": "Instrução de Convênio — Pré-aprovação, documentação, SETI. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
       "raias": [
-        "ATDG — Assessoria Técnica da Direção Geral"
+        "ATDG — Assessoria Técnica da Direção Geral",
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor demandante",
+        "Direção Geral do Campus",
+        "SETI"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
+          "label": "Manifestação de interesse do setor demandante em celebrar convênio com órgão/entidade externa, ou publicação de edital/chamamento que enseje convênio",
           "raia": "ATDG — Assessoria Técnica da Direção Geral"
         },
         {
           "id": "e2",
+          "tipo": "atividade",
+          "label": "Receber e registrar a manifestação de interesse do setor demandante",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Orientar o setor demandante na elaboração do plano de trabalho",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Reunir a documentação de habilitação do partícipe externo",
+          "raia": "Setor demandante"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Elaborar a minuta de convênio e o processo de instrução",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Submeter o processo instruído à pré-aprovação da Direção Geral do Campus",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Pré-aprovar o processo e autorizar o encaminhamento à SETI",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Encaminhar a minuta e o plano de trabalho à SETI para análise",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Aprovação por Direção Geral do Campus",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Informar SETI",
+          "raia": "SETI"
+        },
+        {
+          "id": "e12",
           "tipo": "fim",
-          "label": "Concluído",
+          "label": "Processo de convênio instruído e pré-aprovado pela Direção Geral",
           "raia": "ATDG — Assessoria Técnica da Direção Geral"
         }
       ],
@@ -28,9 +92,49 @@
         {
           "de": "e1",
           "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
         }
       ],
-      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
     }
   ]
 }

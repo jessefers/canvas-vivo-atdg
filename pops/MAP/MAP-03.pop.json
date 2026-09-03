@@ -5,8 +5,8 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.06-MAP",
   "sigla": "MAP",
-  "versao": "0.1.0",
-  "status": "rascunho",
+  "versao": "1.0.0",
+  "status": "em_validacao",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
     "departamento": "ATDG — Mapeamento de Processos",
@@ -15,56 +15,304 @@
     "subdominio": "Consolidação e padronização das respostas do mapeamento",
     "tipo_subdominio": "core",
     "contexto": "S02.06-MAP",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Consolidação",
+        "definicao": "Etapa de normalização, agrupamento e padronização das respostas do checklist em uma base única por função.",
+        "sistema": "OneDrive ATDG"
+      }
+    ]
   },
   "identificacao": {
-    "responsavel": "A definir",
-    "periodicidade": "A definir",
-    "normativa": [],
+    "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+    "periodicidade": "Por ciclo do projeto de Mapeamento de Processos",
+    "normativa": [
+      "Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)"
+    ],
     "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
     "produto_atdg": "POP",
     "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_06_MAP[\"S02.06-MAP<br/>ATDG — Mapeamento de Processos\"]\n  S02_ATDG --> S02_06_MAP\n  P[\"MAP-03<br/>Consolidação e padronização das respostas do mapeamento\"]\n  S02_06_MAP --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_06_MAP setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_06_MAP[\"S02.06-MAP<br/>ATDG — Mapeamento de Processos\"]\n  S02_ATDG --> S02_06_MAP\n  P[\"MAP-03<br/>Consolidação e padronização das respostas do mapeamento\"]\n  S02_06_MAP --> P\n  V1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V1\n  V2[\"Setor respondente\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_06_MAP setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Base de respostas do checklist exportada (MAP-02) para consolidação",
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Base de respostas do checklist exportada (MAP-02)",
+      "Relação de setores, cargos e funções (MAP-01)"
+    ],
+    "passos": [
+      {
+        "acao": "Importar a base de respostas exportada do Microsoft Forms",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Base de respostas",
+        "prazo": "A definir",
+        "evento": "Base importada",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Normalizar os campos de setor, cargo e função das respostas",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Planilha em consolidação",
+        "prazo": "A definir",
+        "evento": "Campos normalizados",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Agrupar as atividades declaradas por função e identificar duplicidades",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Planilha em consolidação",
+        "prazo": "A definir",
+        "evento": "Atividades agrupadas",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Padronizar a descrição das atividades em linguagem de processo",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Planilha consolidada",
+        "prazo": "A definir",
+        "evento": "Descrição padronizada",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Validar a consolidação com o setor respondente",
+        "responsavel": "Setor respondente",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Planilha consolidada",
+        "prazo": "A definir",
+        "evento": "Consolidação validada",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Controlar a versão final da planilha consolidada e arquivar as versões anteriores",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Planilha consolidada (versão final)",
+        "prazo": "A definir",
+        "evento": "Versão final controlada",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 6
+      }
+    ],
+    "saida": [
+      "Planilha consolidada e padronizada de processos por função",
+      "Lista de atividades padronizadas por processo"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Planilha consolidada de atividades por função",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "setor",
+        "função",
+        "atividade padronizada",
+        "periodicidade"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Controle de versões da consolidação",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "versão",
+        "data",
+        "responsável pela alteração",
+        "status (em elaboração/final)"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "O setor respondente confirma que a consolidação reflete corretamente as atividades declaradas?",
+      "condicao": "Planilha consolidada e padronizada de atividades por função",
+      "sim": "Controlar a versão final e encaminhar para elaboração de POP/IT/Manual/Fluxo (MAP-04)",
+      "nao": "Ajustar a consolidação conforme as observações do setor respondente"
+    }
+  ],
+  "pontos_atencao": [
+    "Existência de versões de teste e cópias de planilhas de consolidação — usar somente a versão final controlada",
+    "Dados pessoais dos respondentes nas respostas originais — restringir acesso à planilha consolidada conforme a LGPD"
+  ],
+  "contingencia": [
+    "Atividades divergentes entre respondentes da mesma função: consolidar com o setor respondente antes de padronizar",
+    "Planilha de consolidação corrompida: recuperar a partir do controle de versões no OneDrive ATDG",
+    "Setor não valida a consolidação no prazo: registrar a pendência e prosseguir com ressalva para revisão posterior"
+  ],
+  "checklist": [
+    "Base de respostas importada e normalizada",
+    "Atividades agrupadas e duplicidades identificadas",
+    "Descrição das atividades padronizada",
+    "Consolidação validada pelo setor respondente",
+    "Versão final controlada e versões anteriores arquivadas"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de funções com atividades consolidadas e padronizadas",
+      "formula": "(Funções consolidadas / total de funções respondentes) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    },
+    {
+      "indicador": "Percentual de consolidações validadas pelo setor respondente sem retrabalho",
+      "formula": "(Consolidações aprovadas na 1ª validação / total de consolidações) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Setor respondente",
+      "relacao": "valida",
+      "artefato": "Planilha consolidada de atividades por função",
+      "canal": "OneDrive ATDG"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "informa",
+      "artefato": "Relatório de consolidação do ciclo de mapeamento",
+      "canal": "OneDrive ATDG"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Base de respostas exportada\"))\n    e2[\"Importar e normalizar a base de respostas\"]\n    e3[\"Agrupar atividades e identificar duplicidades\"]\n    e4[\"Padronizar a descrição das atividades\"]\n    e7[\"Ajustar a consolidação conforme observações\"]\n    e8[\"Controlar a versão final da planilha consolidada\"]\n  end\n  subgraph R2[\"Setor respondente\"]\n    direction LR\n    e5[[\"✉ Validar a consolidação\"]]\n    e6{\"Setor respondente confirma a consolidação?\"}\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e9[[\"✉ Informar Direção Geral sobre a consolidação do ciclo\"]]\n    e10(((\"Consolidação concluída e pronta para elaboração de POP/IT/Manual/Fluxo\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 -- Não --> e7\n  e7 --> e5\n  e6 -- Sim --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e7,e8 atividade\n  class e5,e9 captura\n  class e6 decisao\n  class e10 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral"
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor respondente",
+      "Direção Geral do Campus"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
-        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        "label": "Base de respostas exportada",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Importar e normalizar a base de respostas",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Agrupar atividades e identificar duplicidades",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Padronizar a descrição das atividades",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e5",
+        "tipo": "captura",
+        "label": "Validar a consolidação",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e6",
+        "tipo": "decisao",
+        "label": "Setor respondente confirma a consolidação?",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Ajustar a consolidação conforme observações",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Controlar a versão final da planilha consolidada",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Informar Direção Geral sobre a consolidação do ciclo",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e10",
         "tipo": "fim",
-        "label": "Concluído",
-        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+        "label": "Consolidação concluída e pronta para elaboração de POP/IT/Manual/Fluxo",
+        "raia": "Direção Geral do Campus"
       }
     ],
     "conexoes": [
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7",
+        "label": "Não"
+      },
+      {
+        "de": "e7",
+        "para": "e5"
+      },
+      {
+        "de": "e6",
+        "para": "e8",
+        "label": "Sim"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
       }
     ],
     "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
@@ -80,6 +328,46 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 0: Importar a base de respostas exportada do Microsoft Forms",
+        "Passo adicionado após 1: Normalizar os campos de setor, cargo e função das respostas",
+        "Passo adicionado após 2: Agrupar as atividades declaradas por função e identificar duplicidades",
+        "Passo adicionado após 3: Padronizar a descrição das atividades em linguagem de processo",
+        "Passo adicionado após 4: Validar a consolidação com o setor respondente",
+        "Passo adicionado após 5: Controlar a versão final da planilha consolidada e arquivar as versões anteriore",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Assessoria Técnica da Direção Geral (ATDG), Setor respondente, Direção Geral do Campus",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 10",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-atdg",
+        "1780963200015",
+        "1780963200016",
+        "1780963200017",
+        "1780963200031"
+      ],
+      "motivo": "Elaboração do playbook de consolidação e padronização das respostas do checklist, terceira etapa do ciclo de Mapeamento de Processos."
     }
   ],
   "validacao": {
@@ -92,25 +380,26 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "passos",
-    "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
-    "kpi",
-    "contingencia",
     "formulario",
     "prazo",
-    "normativa"
+    "versao_documento"
   ],
   "observacoes": "",
-  "fontes_entradas": [],
-  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "fontes_entradas": [
+    "pb-atdg",
+    "1780963200015",
+    "1780963200016",
+    "1780963200017",
+    "1780963200031"
+  ],
+  "hash_fontes": "822ba66b85225a8edce9d6bade1bc185bbbe40a8498b9023d8739aad7c4275d0",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T02:01:04Z"
 }

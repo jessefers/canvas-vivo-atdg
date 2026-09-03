@@ -5,7 +5,7 @@
   "setor": "ATDG — Assessoria Técnica da Direção Geral",
   "setor_codigo": "S02.01-CON",
   "sigla": "CON",
-  "versao": "0.1.0",
+  "versao": "0.2.0",
   "status": "rascunho",
   "ddd": {
     "divisao": "ATDG — Assessoria Técnica da Direção Geral",
@@ -15,49 +15,246 @@
     "subdominio": "Execução de Convênio",
     "tipo_subdominio": "core",
     "contexto": "S02.01-CON",
-    "glossario": []
+    "glossario": [
+      {
+        "termo": "Cronograma físico-financeiro",
+        "definicao": "Instrumento do plano de trabalho que detalha metas e desembolsos previstos ao longo da execução do convênio.",
+        "sistema": ""
+      }
+    ]
   },
   "identificacao": {
     "responsavel": "A definir",
-    "periodicidade": "A definir",
+    "periodicidade": "Sob demanda",
     "normativa": [],
     "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
     "produto_atdg": "POP",
     "pasta_onedrive": "01_ADMINISTRATIVO"
   },
-  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_01_CON[\"S02.01-CON<br/>ATDG — Convênios e Parcerias\"]\n  S02_ATDG --> S02_01_CON\n  P[\"CON-03<br/>Execução de Convênio\"]\n  S02_01_CON --> P\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_01_CON setor\n  class P destaque",
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_01_CON[\"S02.01-CON<br/>ATDG — Convênios e Parcerias\"]\n  S02_ATDG --> S02_01_CON\n  P[\"CON-03<br/>Execução de Convênio\"]\n  S02_01_CON --> P\n  V1[\"Setor demandante\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"SETI\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_01_CON setor\n  class P destaque\n  class V1,V2,V3 vizinho",
   "playbook": {
     "gatilho": {
-      "evento": "A definir",
-      "origem": ""
+      "evento": "Convênio celebrado e vigente, com execução do objeto em curso pelo setor demandante/partícipe",
+      "origem": "Setor demandante"
     },
-    "entrada": [],
-    "passos": [],
-    "saida": []
+    "entrada": [
+      "Convênio celebrado e plano de trabalho aprovado",
+      "Registros de execução física e financeira do objeto"
+    ],
+    "passos": [
+      {
+        "acao": "Acompanhar a execução física e financeira do objeto do convênio",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Registro de acompanhamento",
+        "prazo": "A definir",
+        "evento": "Execução acompanhada",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Solicitar ao setor demandante os dados de execução para o relatório parcial",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Solicitação de dados de execução",
+        "prazo": "A definir",
+        "evento": "Dados solicitados",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Elaborar o relatório parcial de execução",
+        "responsavel": "Setor demandante",
+        "sistema": "e-Protocolo",
+        "artefato": "Relatório parcial",
+        "prazo": "A definir",
+        "evento": "Relatório elaborado",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Revisar e consolidar o relatório parcial",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Relatório parcial consolidado",
+        "prazo": "A definir",
+        "evento": "Relatório consolidado",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Submeter o relatório parcial ao órgão concedente/SETI, quando exigido",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Relatório parcial",
+        "prazo": "A definir",
+        "evento": "Relatório submetido",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Monitorar prazos e alertar sobre riscos de descumprimento do cronograma físico-financeiro",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Alerta de prazo/risco",
+        "prazo": "A definir",
+        "evento": "Risco monitorado",
+        "fontes": [],
+        "n": 6
+      }
+    ],
+    "saida": [
+      "Relatório parcial de execução aprovado",
+      "Registro de acompanhamento do convênio atualizado"
+    ]
   },
-  "artefatos": [],
-  "decisoes": [],
-  "pontos_atencao": [],
-  "contingencia": [],
-  "checklist": [],
-  "kpis": [],
-  "mapa_contexto": [],
-  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"A definir\"))\n    e2(((\"Concluído\")))\n  end\n  e1 --> e2\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 fim",
+  "artefatos": [
+    {
+      "nome": "Relatório parcial de execução",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "período",
+        "metas executadas",
+        "valores executados",
+        "pendências"
+      ],
+      "responsavel_preenchimento": "Setor demandante"
+    },
+    {
+      "nome": "Registro de acompanhamento do convênio",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "convênio",
+        "data",
+        "situação",
+        "riscos identificados"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A execução está em conformidade com o cronograma físico-financeiro do plano de trabalho?",
+      "condicao": "Acompanhamento da execução física e financeira do convênio",
+      "sim": "Elaborar e submeter o relatório parcial de execução",
+      "nao": "Registrar o desvio, notificar o setor demandante e avaliar necessidade de termo aditivo"
+    }
+  ],
+  "pontos_atencao": [
+    "Desvios do cronograma físico-financeiro podem exigir termo aditivo ou justificativa formal ao órgão concedente",
+    "Relatórios parciais em atraso expõem o convênio a risco de suspensão de repasses"
+  ],
+  "contingencia": [
+    "Execução em desconformidade com o plano de trabalho: notificar o setor demandante e avaliar termo aditivo",
+    "Setor demandante não fornece dados de execução no prazo: escalar à Direção Geral do Campus",
+    "Relatório parcial rejeitado pelo órgão concedente/SETI: revisar e reencaminhar com as correções apontadas"
+  ],
+  "checklist": [
+    "Execução física e financeira acompanhada periodicamente",
+    "Dados de execução solicitados e recebidos do setor demandante",
+    "Relatório parcial elaborado e consolidado",
+    "Relatório submetido ao órgão concedente/SETI quando exigido",
+    "Riscos de descumprimento do cronograma monitorados"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de relatórios parciais entregues dentro do prazo",
+      "formula": "(Relatórios entregues no prazo / total de relatórios exigidos) × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de execução física do cronograma do plano de trabalho",
+      "formula": "(Metas físicas executadas / metas físicas previstas) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor demandante",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Dados de execução física e financeira",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "SETI",
+      "relacao": "informa",
+      "artefato": "Relatório parcial de execução",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e1((\"Convênio celebrado e vigente, com execução do objeto em curso pelo se…\"))\n    e10(((\"Relatório parcial de execução aprovado\")))\n  end\n  subgraph R2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e2[\"Acompanhar a execução física e financeira do objeto do convênio\"]\n    e3[\"Solicitar ao setor demandante os dados de execução para o relatório p…\"]\n    e5[\"Revisar e consolidar o relatório parcial\"]\n    e6[\"Submeter o relatório parcial ao órgão concedente/SETI, quando exigido\"]\n    e7[\"Monitorar prazos e alertar sobre riscos de descumprimento do cronogra…\"]\n    e8[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e4[\"Elaborar o relatório parcial de execução\"]\n  end\n  subgraph R4[\"SETI\"]\n    direction LR\n    e9[[\"✉ Informar SETI\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
   "bpmn_spec": {
     "raias": [
-      "ATDG — Assessoria Técnica da Direção Geral"
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor demandante",
+      "SETI"
     ],
     "elementos": [
       {
         "id": "e1",
         "tipo": "inicio",
-        "label": "A definir",
+        "label": "Convênio celebrado e vigente, com execução do objeto em curso pelo setor demandante/partícipe",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       },
       {
         "id": "e2",
+        "tipo": "atividade",
+        "label": "Acompanhar a execução física e financeira do objeto do convênio",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Solicitar ao setor demandante os dados de execução para o relatório parcial",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Elaborar o relatório parcial de execução",
+        "raia": "Setor demandante"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Revisar e consolidar o relatório parcial",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Submeter o relatório parcial ao órgão concedente/SETI, quando exigido",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Monitorar prazos e alertar sobre riscos de descumprimento do cronograma físico-financeiro",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Informar SETI",
+        "raia": "SETI"
+      },
+      {
+        "id": "e10",
         "tipo": "fim",
-        "label": "Concluído",
+        "label": "Relatório parcial de execução aprovado",
         "raia": "ATDG — Assessoria Técnica da Direção Geral"
       }
     ],
@@ -65,9 +262,41 @@
       {
         "de": "e1",
         "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
       }
     ],
-    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
   },
   "changelog": [
     {
@@ -80,6 +309,36 @@
       ],
       "fontes": [],
       "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Acompanhar a execução física e financeira do objeto do convênio",
+        "Passo adicionado após 1: Solicitar ao setor demandante os dados de execução para o relatório parcial",
+        "Passo adicionado após 2: Elaborar o relatório parcial de execução",
+        "Passo adicionado após 3: Revisar e consolidar o relatório parcial",
+        "Passo adicionado após 4: Submeter o relatório parcial ao órgão concedente/SETI, quando exigido",
+        "Passo adicionado após 5: Monitorar prazos e alertar sobre riscos de descumprimento do cronograma físico-f",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Execução de Convênio (acompanhamento e relatórios parciais) a partir do escopo do manual institucional da ATDG."
     }
   ],
   "validacao": {
@@ -92,25 +351,22 @@
     "L-001",
     "L-004",
     "L-006",
-    "L-007"
+    "L-007",
+    "L-002",
+    "L-003"
   ],
   "lacunas": [
-    "passos",
     "responsavel",
-    "gatilho",
-    "entrada",
-    "saida",
     "kpi",
-    "contingencia",
     "formulario",
     "prazo",
     "normativa"
   ],
-  "observacoes": "",
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
   "fontes_entradas": [],
   "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "agente": "",
-  "versao_diretrizes": "1.0",
+  "versao_diretrizes": "1.8",
   "criado_em": "2026-09-02T17:55:54Z",
-  "atualizado_em": "2026-09-02T17:55:54Z"
+  "atualizado_em": "2026-09-03T02:01:05Z"
 }

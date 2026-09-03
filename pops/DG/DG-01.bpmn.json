@@ -1,33 +1,131 @@
 {
   "setor": "Direção Geral de Campus",
   "codigo": "DG-01",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T02:01:04Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "DG-01 — Aplicação do Estatuto e das Instruções de Serviço do GRE",
       "descricao": "Aplicação do Estatuto e das Instruções de Serviço do GRE. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
       "raias": [
-        "Direção Geral de Campus"
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Direção Geral do Campus",
+        "Setor demandante"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Direção Geral de Campus"
+          "label": "Situação que exige aplicação normativa identificada",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
         },
         {
           "id": "e2",
+          "tipo": "captura",
+          "label": "Receber solicitação do setor demandante",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Registrar a solicitação no e-Protocolo",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Identificar o dispositivo do Estatuto/IS-GRE aplicável",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Elaborar parecer técnico de enquadramento normativo",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "decisao",
+          "label": "Situação enquadrada em norma vigente?",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Consultar o Gabinete da Reitoria (GRE) sobre a lacuna normativa",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Submeter parecer à Direção Geral",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Decidir e formalizar despacho/portaria",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Receber despacho/portaria",
+          "raia": "Setor demandante"
+        },
+        {
+          "id": "e11",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Direção Geral de Campus"
+          "label": "Norma aplicada e precedente registrado",
+          "raia": "Setor demandante"
         }
       ],
       "conexoes": [
         {
           "de": "e1",
           "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7",
+          "label": "Não"
+        },
+        {
+          "de": "e7",
+          "para": "e5"
+        },
+        {
+          "de": "e6",
+          "para": "e8",
+          "label": "Sim"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
