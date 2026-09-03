@@ -1,69 +1,75 @@
 {
   "setor": "Div. de Almoxarifado",
   "codigo": "ALM-00",
-  "gerado_em": "2026-09-02T17:55:54Z",
+  "gerado_em": "2026-09-03T01:34:48Z",
   "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
   "processos": [
     {
       "nome": "ALM-00 — Visão geral — Div. de Almoxarifado",
-      "descricao": "Guia operacional do Almoxarifado, do recebimento ao desfazimento de materiais de consumo. Integra o Manual de Gestão (regras) e o Manual de Mapeamento (fluxos e indicadores), com 8 processos em BPMN 2.0.",
+      "descricao": "Consolida, para a equipe da Divisão de Almoxarifado e para fins de auditoria (PRAF/TCE-PR), a visão geral dos 8 processos do setor — do recebimento ao desfazimento de materiais de consumo — integrando o Manual de Gestão (regras) e o Manual de Mapeamento de Processos (fluxos e indicadores).",
       "raias": [
-        "Div. de Almoxarifado"
+        "Chefe da Divisão de Almoxarifado"
       ],
       "elementos": [
         {
           "id": "e1",
           "tipo": "inicio",
-          "label": "A definir",
-          "raia": "Div. de Almoxarifado"
+          "label": "Necessidade de orientação consolidada sobre o funcionamento do Almoxarifado (integração de servidor, auditoria, revisão de processo)",
+          "raia": "Chefe da Divisão de Almoxarifado"
         },
         {
           "id": "e2",
           "tipo": "atividade",
           "label": "Recebimento de materiais (conferência da NF, quantitativa e qualitativa, lançamento no GMS/ERP)",
-          "raia": "Div. de Almoxarifado"
+          "raia": "Chefe da Divisão de Almoxarifado"
         },
         {
           "id": "e3",
           "tipo": "atividade",
           "label": "Armazenagem e guarda",
-          "raia": "Div. de Almoxarifado"
+          "raia": "Chefe da Divisão de Almoxarifado"
         },
         {
           "id": "e4",
           "tipo": "atividade",
           "label": "Distribuição para departamentos",
-          "raia": "Div. de Almoxarifado"
+          "raia": "Chefe da Divisão de Almoxarifado"
         },
         {
           "id": "e5",
           "tipo": "atividade",
-          "label": "Inventário rotativo e geral",
-          "raia": "Div. de Almoxarifado"
+          "label": "Realizar inventário rotativo (contagem periódica por amostragem) do estoque",
+          "raia": "Chefe da Divisão de Almoxarifado"
         },
         {
           "id": "e6",
           "tipo": "atividade",
-          "label": "Conciliação físico-contábil",
-          "raia": "Div. de Almoxarifado"
+          "label": "Realizar inventário geral anual do estoque físico",
+          "raia": "Chefe da Divisão de Almoxarifado"
         },
         {
           "id": "e7",
           "tipo": "atividade",
-          "label": "Desfazimento regulamentado de inservíveis",
-          "raia": "Div. de Almoxarifado"
+          "label": "Conciliação físico-contábil",
+          "raia": "Chefe da Divisão de Almoxarifado"
         },
         {
           "id": "e8",
           "tipo": "atividade",
-          "label": "Relatórios e prestação de contas",
-          "raia": "Div. de Almoxarifado"
+          "label": "Desfazimento regulamentado de inservíveis",
+          "raia": "Chefe da Divisão de Almoxarifado"
         },
         {
           "id": "e9",
+          "tipo": "atividade",
+          "label": "Relatórios e prestação de contas",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e10",
           "tipo": "fim",
-          "label": "Concluído",
-          "raia": "Div. de Almoxarifado"
+          "label": "Visão consolidada dos 8 processos do Almoxarifado, com remissão aos POPs específicos (ALM-01 a ALM-08)",
+          "raia": "Chefe da Divisão de Almoxarifado"
         }
       ],
       "conexoes": [
@@ -98,6 +104,10 @@
         {
           "de": "e8",
           "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
         }
       ],
       "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
