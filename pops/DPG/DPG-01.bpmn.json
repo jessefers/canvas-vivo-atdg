@@ -1,0 +1,166 @@
+{
+  "setor": "Div. de Pós-Graduação",
+  "codigo": "DPG-01",
+  "gerado_em": "2026-09-03T01:56:22Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DPG-01 — Fluxos e-Protocolo — PRPPG Capacitação de Servidores",
+      "descricao": "Manual da Comissão e-Protocolo com os fluxos da PRPPG relativos à capacitação de servidores, com foco no afastamento e qualificação docente (Resolução nº 029/2013-CEPE). Cobre afastamento parcial/integral, afastamento para o exterior, prorrogação, transformação, troca de programa e retorno com/sem conclusão. Orienta a tramitação de cada situação no e-Protocolo.",
+      "raias": [
+        "Proponente/Coordenador da atividade",
+        "Coordenação Acadêmica",
+        "PRPPG"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Interesse do docente em afastamento/qualificação",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Identificar a modalidade de afastamento/qualificação (parcial, integral, prorrogação, transformação, troca de programa)",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e3",
+          "tipo": "decisao",
+          "label": "Afastamento é para o exterior?",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Reunir os requisitos adicionais exigidos para afastamento ao exterior",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Abrir o e-Protocolo conforme o fluxo aplicável",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Anexar documentação exigida (plano de trabalho, aceite, comprovantes)",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Encaminhar à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Encaminhar à PRPPG para deliberação",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e9",
+          "tipo": "pausa",
+          "label": "Aguardar deliberação da PRPPG",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e10",
+          "tipo": "decisao",
+          "label": "PRPPG defere o afastamento/qualificação?",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Notificar o docente e orientar novo pedido/recurso",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e12",
+          "tipo": "fim",
+          "label": "Afastamento/qualificação indeferido",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Acompanhar o afastamento até o retorno (com ou sem conclusão)",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e14",
+          "tipo": "fim",
+          "label": "Afastamento/qualificação deliberado e acompanhado até o retorno",
+          "raia": "Coordenação Acadêmica"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4",
+          "label": "Sim"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e3",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11",
+          "label": "Não"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e10",
+          "para": "e13",
+          "label": "Sim"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "setor": "Div. de Serviços de Apoio",
+  "codigo": "DSA-00",
+  "gerado_em": "2026-09-03T02:05:27Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DSA-00 — Visão geral — Div. de Serviços de Apoio",
+      "descricao": "Divisão de Serviços de Apoio da Secretaria Administrativa. Playbook em construção.",
+      "raias": [
+        "Div. de Serviços de Apoio"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Serviços de Apoio"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
+          "raia": "Div. de Serviços de Apoio"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Mapear os fluxos e os responsáveis por etapa",
+          "raia": "Div. de Serviços de Apoio"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Identificar as normas aplicáveis e os pontos de atenção",
+          "raia": "Div. de Serviços de Apoio"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Serviços de Apoio"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

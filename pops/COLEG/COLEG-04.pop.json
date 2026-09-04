@@ -1,0 +1,167 @@
+{
+  "id": "pop-coleg-04",
+  "codigo": "COLEG-04",
+  "titulo": "Coordenação de TCC",
+  "setor": "Colegiado de Curso",
+  "setor_codigo": "S12-COLEG",
+  "sigla": "COLEG",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Colegiado de Curso (transversal)",
+    "departamento": "Colegiado de Curso (transversal)",
+    "descricao": "Indicação de orientadores, organização de bancas e defesas, editais, atas e declarações, lançamento de notas e frequências no Academus, envio da versão final à Biblioteca e cronograma anual de TCC.",
+    "dominio": "Colegiados e Cursos",
+    "subdominio": "Coordenação de TCC",
+    "tipo_subdominio": "core",
+    "contexto": "S12-COLEG",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [],
+    "subordinacao": "Direção Geral de Campus",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S12_COLEG[\"S12-COLEG<br/>Colegiado de Curso (transversal)\"]\n  S01_DG --> S12_COLEG\n  P[\"COLEG-04<br/>Coordenação de TCC\"]\n  S12_COLEG --> P\n  V1[\"Biblioteca\"]\n  P -. interface .-> V1\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S12_COLEG setor\n  class P destaque\n  class V1 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Abertura do cronograma anual de TCC ou solicitação de orientação/defesa de discente",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [],
+    "saida": [
+      "TCC defendido, notas lançadas no Academus e versão final enviada à Biblioteca"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Edital de TCC",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [],
+      "responsavel_preenchimento": ""
+    },
+    {
+      "nome": "Ata de banca de defesa",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [],
+      "responsavel_preenchimento": ""
+    },
+    {
+      "nome": "Declaração de entrega à Biblioteca",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [],
+      "responsavel_preenchimento": ""
+    }
+  ],
+  "decisoes": [],
+  "pontos_atencao": [],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "Biblioteca",
+      "relacao": "informa",
+      "artefato": "",
+      "canal": "A definir"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Abertura do cronograma anual de TCC ou solicitação de orientação/defe…\"))\n    e3(((\"TCC defendido, notas lançadas no Academus e versão final enviada à Bi…\")))\n  end\n  subgraph R2[\"Biblioteca\"]\n    direction LR\n    e2[[\"✉ Informar Biblioteca\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2 captura\n  class e3 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Colegiado de Curso",
+      "Biblioteca"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Abertura do cronograma anual de TCC ou solicitação de orientação/defesa de discente",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e2",
+        "tipo": "captura",
+        "label": "Informar Biblioteca",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e3",
+        "tipo": "fim",
+        "label": "TCC defendido, notas lançadas no Academus e versão final enviada à Biblioteca",
+        "raia": "Colegiado de Curso"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-03",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto gerado a partir do diagnóstico diag-coleg-20260903 (recomendação: coletar_mais)"
+      ],
+      "fontes": [
+        "1780963200009",
+        "1780963200010",
+        "1780963200021"
+      ],
+      "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "passos",
+    "responsavel",
+    "entrada",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo",
+    "normativa",
+    "sistema",
+    "interface_setorial"
+  ],
+  "observacoes": "Esqueleto herdado do diagnóstico diag-coleg-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+  "fontes_entradas": [
+    "1780963200009",
+    "1780963200010",
+    "1780963200021"
+  ],
+  "hash_fontes": "50c44e0ab2cda78f002a411d91ccf00a25c19e0c5052fef3662becaf66d09493",
+  "agente": "pop-coleg-04",
+  "versao_diretrizes": "1.12",
+  "criado_em": "2026-09-03T02:08:03Z",
+  "atualizado_em": "2026-09-03T02:08:03Z"
+}

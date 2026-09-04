@@ -1,0 +1,188 @@
+{
+  "id": "pop-coleg-01",
+  "codigo": "COLEG-01",
+  "titulo": "Rotinas do Agente Universitário do Colegiado",
+  "setor": "Colegiado de Curso",
+  "setor_codigo": "S12-COLEG",
+  "sigla": "COLEG",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Colegiado de Curso (transversal)",
+    "departamento": "Colegiado de Curso (transversal)",
+    "descricao": "Comunicação e atendimento a discentes, docentes e concedentes, gestão de documentos e protocolo (e-Protocolo) e apoio acadêmico às coordenações de curso, estágio e TCC, exercidos pelo Agente Universitário do Colegiado.",
+    "dominio": "Colegiados e Cursos",
+    "subdominio": "Rotinas do Agente Universitário do Colegiado",
+    "tipo_subdominio": "suporte",
+    "contexto": "S12-COLEG",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [],
+    "subordinacao": "Direção Geral de Campus",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S12_COLEG[\"S12-COLEG<br/>Colegiado de Curso (transversal)\"]\n  S01_DG --> S12_COLEG\n  P[\"COLEG-01<br/>Rotinas do Agente Universitário do Colegiado\"]\n  S12_COLEG --> P\n  V1[\"Discentes e docentes\"]\n  P -. interface .-> V1\n  V2[\"Concedentes de estágio\"]\n  P -. interface .-> V2\n  V3[\"Coordenações de curso, estágio e TCC\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S12_COLEG setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Solicitação de discente, docente, concedente ou coordenação que demande atendimento, protocolo ou apoio acadêmico",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [],
+    "saida": [
+      "Atendimento realizado, documento protocolado e apoio acadêmico prestado às coordenações"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Protocolo/registro de atendimento",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [],
+      "responsavel_preenchimento": ""
+    }
+  ],
+  "decisoes": [],
+  "pontos_atencao": [],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "Discentes e docentes",
+      "relacao": "informa",
+      "artefato": "",
+      "canal": "A definir"
+    },
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "Concedentes de estágio",
+      "relacao": "informa",
+      "artefato": "",
+      "canal": "A definir"
+    },
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "Coordenações de curso, estágio e TCC",
+      "relacao": "informa",
+      "artefato": "",
+      "canal": "A definir"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Solicitação de discente, docente, concedente ou coordenação que deman…\"))\n    e5(((\"Atendimento realizado, documento protocolado e apoio acadêmico presta…\")))\n  end\n  subgraph R2[\"Discentes e docentes\"]\n    direction LR\n    e2[[\"✉ Informar Discentes e docentes\"]]\n  end\n  subgraph R3[\"Concedentes de estágio\"]\n    direction LR\n    e3[[\"✉ Informar Concedentes de estágio\"]]\n  end\n  subgraph R4[\"Coordenações de curso, estágio e TCC\"]\n    direction LR\n    e4[[\"✉ Informar Coordenações de curso, estágio e TCC\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4 captura\n  class e5 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Colegiado de Curso",
+      "Discentes e docentes",
+      "Concedentes de estágio",
+      "Coordenações de curso, estágio e TCC"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Solicitação de discente, docente, concedente ou coordenação que demande atendimento, protocolo ou apoio acadêmico",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e2",
+        "tipo": "captura",
+        "label": "Informar Discentes e docentes",
+        "raia": "Discentes e docentes"
+      },
+      {
+        "id": "e3",
+        "tipo": "captura",
+        "label": "Informar Concedentes de estágio",
+        "raia": "Concedentes de estágio"
+      },
+      {
+        "id": "e4",
+        "tipo": "captura",
+        "label": "Informar Coordenações de curso, estágio e TCC",
+        "raia": "Coordenações de curso, estágio e TCC"
+      },
+      {
+        "id": "e5",
+        "tipo": "fim",
+        "label": "Atendimento realizado, documento protocolado e apoio acadêmico prestado às coordenações",
+        "raia": "Colegiado de Curso"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-03",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto gerado a partir do diagnóstico diag-coleg-20260903 (recomendação: coletar_mais)"
+      ],
+      "fontes": [
+        "1780963200002",
+        "1780963200003",
+        "1780963200018"
+      ],
+      "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "passos",
+    "responsavel",
+    "entrada",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo",
+    "normativa",
+    "sistema"
+  ],
+  "observacoes": "Esqueleto herdado do diagnóstico diag-coleg-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+  "fontes_entradas": [
+    "1780963200002",
+    "1780963200003",
+    "1780963200018"
+  ],
+  "hash_fontes": "8392441b96f92f76da38e34ceeee3fa536fe78a9c89b114d16a0b8465f7c4b9c",
+  "agente": "pop-coleg-01",
+  "versao_diretrizes": "1.12",
+  "criado_em": "2026-09-03T02:08:03Z",
+  "atualizado_em": "2026-09-03T02:08:03Z"
+}

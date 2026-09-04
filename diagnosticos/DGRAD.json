@@ -1,0 +1,134 @@
+{
+  "id": "diag-dgrad-20260903",
+  "setor": "Div. de Graduação",
+  "setor_codigo": "S05.02-DGRAD",
+  "sigla": "DGRAD",
+  "data": "2026-09-03T01:41:28Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "1780963200038",
+    "1780963200064",
+    "pb-graduacao"
+  ],
+  "hash_fontes": "019626e05ffd90c32e61c733b9fbbc294357c4d347e19d0a70ee1c2cddedcf19",
+  "ecossistema": {
+    "dominio": "Gestão Acadêmica",
+    "subdominios": [
+      "Tramitação de processos de ensino de graduação no e-Protocolo (PROGRAD)"
+    ],
+    "contextos_vizinhos": [
+      "PROGRAD (Pró-Reitoria de Ensino)",
+      "Colegiado de Curso",
+      "Direção de Centro",
+      "Coordenação Acadêmica — Geral"
+    ],
+    "sistemas": [
+      "e-Protocolo"
+    ],
+    "normas": [
+      "Manual de Fluxos e-Protocolo — PROGRAD/Unioeste"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DGRAD-01",
+      "nome": "Fluxos e-Protocolo — Ensino (PROGRAD)",
+      "tipo": "processo",
+      "descricao": "Manual da Comissão e-Protocolo com os fluxos de ensino sob a PROGRAD: alteração de resoluções/regulamentos, PPP, reconhecimento/renovação de curso, regulamentos de estágio/TCC/internato, projetos de ensino e monitorias.",
+      "tipo_subdominio": "core",
+      "gatilho": "Abertura de processo de ensino de graduação no e-Protocolo",
+      "saida": "Processo deliberado pela PROGRAD, com arquivamento ou retorno para ajustes",
+      "atores": [
+        "Colegiado de Curso",
+        "Direção de Centro",
+        "Coordenação Acadêmica",
+        "PROGRAD"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Processo de ensino (PPP/regulamento/projeto/monitoria)"
+      ],
+      "interfaces": [
+        "Direção de Centro",
+        "PROGRAD"
+      ],
+      "evidencias": [
+        "1780963200038",
+        "1780963200064"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.75,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.65,
+      "cobertura": 0.6,
+      "prioridade": 0.63,
+      "lacunas": [
+        "sistema",
+        "interface_setorial",
+        "versao_documento"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "DGRAD-01",
+      "justificativa": "Fonte primária (manual oficial da PROGRAD), com maior detalhamento dos tipos de processo de ensino; há cópia duplicada do mesmo arquivo no acervo (ver lição proposta)."
+    },
+    {
+      "codigo_sugerido": "DGRAD-00",
+      "nome": "Visão geral — ensino de graduação (PROGRAD)",
+      "tipo": "processo",
+      "descricao": "Guia consolidado da tramitação dos processos de ensino de graduação (PPP, reconhecimento de curso, regulamentos, projetos de ensino e monitorias) no e-Protocolo (PROGRAD).",
+      "tipo_subdominio": "core",
+      "gatilho": "Necessidade de tramitar processo de ensino de graduação",
+      "saida": "Processo deliberado pela PROGRAD e arquivado/publicado",
+      "atores": [
+        "Colegiado de Curso",
+        "Direção de Centro",
+        "Coordenação Acadêmica",
+        "PROGRAD"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Processo de ensino (PPP/regulamento/projeto/monitoria)"
+      ],
+      "interfaces": [
+        "Direção de Centro",
+        "PROGRAD"
+      ],
+      "evidencias": [
+        "pb-graduacao"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.7,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.6,
+      "cobertura": 0.55,
+      "prioridade": 0.6,
+      "lacunas": [
+        "sistema",
+        "interface_setorial",
+        "versao_documento"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "DGRAD-00",
+      "justificativa": "Visão consolidada alinhada ao manual oficial da PROGRAD (DGRAD-01); alta criticidade por afetar credenciamento/reconhecimento de cursos."
+    }
+  ],
+  "lacunas_setor": [
+    "Responsável nominal (função) da Div. de Graduação ainda não formalizado",
+    "SLA de deliberação da PROGRAD e do Colegiado de Curso não evidenciado"
+  ],
+  "licoes_propostas": [
+    {
+      "licao": "O manual de Fluxos e-Protocolo — Ensino (PROGRAD) está duplicado no acervo do Canvas em duas pastas distintas ('Ensino' e 'Fluxos Internos'), com o mesmo arquivo-fonte.",
+      "regra": "Ao identificar duplicidade de arquivo-fonte entre pastas do Canvas, registrar nas fontes do POP apenas o arquivo mestre e citar a duplicata como ponto de atenção (risco de divergência de versão), sem gerar um processo/POP separado para a cópia.",
+      "exemplo": "DGRAD-01 — entradas 1780963200038 (original) e 1780963200064 (cópia)",
+      "origem": "diagnostico"
+    }
+  ],
+  "observacoes": "Nenhum processo adicional de ensino foi evidenciado no Canvas além dos dois já mapeados em POP; a entrada 1780963200064 é cópia idêntica de 1780963200038 e não constitui processo distinto. Ambos pontuam 'coletar_mais' pela fórmula (prioridade < 0,70), mas, por integrarem o esqueleto já existente do Lote D1, seus POPs são completados nesta leva conforme escopo definido."
+}

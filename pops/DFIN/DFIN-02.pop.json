@@ -1,0 +1,543 @@
+{
+  "id": "pop-dfin-02",
+  "codigo": "DFIN-02",
+  "titulo": "Fluxo Despesas Campus Foz — Passagem e Hospedagem",
+  "setor": "Div. de Finanças",
+  "setor_codigo": "S04.01-DFIN",
+  "sigla": "DFIN",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Financeira",
+    "departamento": "Div. de Finanças",
+    "descricao": "Fluxograma específico do Campus Foz para despesas de passagem e hospedagem no e-Protocolo. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Define a tramitação local desses pedidos; requer leitura visual para detalhar as etapas e responsáveis.",
+    "dominio": "Finanças e Orçamento",
+    "subdominio": "Fluxo Despesas Campus Foz — Passagem e Hospedagem",
+    "tipo_subdominio": "core",
+    "contexto": "S04.01-DFIN",
+    "glossario": [
+      {
+        "termo": "Cadin",
+        "definicao": "Cadastro Informativo de créditos não quitados do setor público federal; consulta obrigatória para verificar pendências do beneficiário antes da concessão de diárias ou despesas de viagem.",
+        "sistema": "Cadin"
+      },
+      {
+        "termo": "e-Protocolo",
+        "definicao": "Sistema institucional de tramitação eletrônica de processos e documentos da Unioeste, usado para abrir, assinar e encaminhar solicitações de despesa.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "Empenho",
+        "definicao": "Ato administrativo que reserva o crédito orçamentário para a despesa, formalizado pela Div. de Contabilidade após a indicação de fonte e conta pela Secretaria Financeira.",
+        "sistema": "Sistema orçamentário/contábil"
+      },
+      {
+        "termo": "PRAF",
+        "definicao": "Pró-Reitoria de Administração e Finanças da Unioeste, responsável pelos formulários e procedimentos oficiais de despesas, diárias e viagens.",
+        "sistema": ""
+      },
+      {
+        "termo": "Folder/justificativa",
+        "definicao": "Documento que detalha objetivo, roteiro e justificativa institucional da viagem ou despesa solicitada, anexado ao processo no e-Protocolo.",
+        "sistema": "e-Protocolo"
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Finanças",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Procedimentos de despesas de viagem — PRAF/Unioeste",
+      "Fluxograma: Fluxos e-Protocolo — Despesas, Campus Foz do Iguaçu: Passagem e Hospedagem (documento-fonte, formato imagem)"
+    ],
+    "subordinacao": "Secretaria Financeira",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S04_SFIN[\"S04-SFIN<br/>Secretaria Financeira\"]\n  S01_DG --> S04_SFIN\n  S04_01_DFIN[\"S04.01-DFIN<br/>Div. de Finanças\"]\n  S04_SFIN --> S04_01_DFIN\n  P[\"DFIN-02<br/>Fluxo Despesas Campus Foz — Passagem e Hospedagem\"]\n  S04_01_DFIN --> P\n  V1[\"Servidor/Requisitante\"]\n  P -. interface .-> V1\n  V2[\"Div. de Contabilidade\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S04_SFIN,S04_01_DFIN setor\n  class P destaque\n  class V1,V2 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Necessidade de passagem e/ou hospedagem para viagem a serviço",
+      "origem": "Servidor/Requisitante"
+    },
+    "entrada": [
+      "Solicitação de passagem e/ou hospedagem"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Abrir o arquivo do fluxograma para leitura visual do fluxo local",
+        "responsavel": "Servidor/Requisitante",
+        "sistema": "e-Protocolo",
+        "artefato": "Fluxograma — Passagem e Hospedagem (Campus Foz)",
+        "prazo": "A definir",
+        "evento": "Fluxo consultado",
+        "fontes": [
+          "1780963200041"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Preencher o formulário de passagem/hospedagem e coletar assinaturas via e-Protocolo",
+        "responsavel": "Servidor/Requisitante",
+        "sistema": "e-Protocolo",
+        "artefato": "Formulário de Passagem e Hospedagem",
+        "prazo": "Até a data-limite definida pela PRAF",
+        "evento": "Formulário assinado",
+        "fontes": [
+          "1780963200041"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Anexar folder/justificativa e a consulta ao Cadin",
+        "responsavel": "Servidor/Requisitante",
+        "sistema": "e-Protocolo",
+        "artefato": "Folder/justificativa; Consulta Cadin",
+        "prazo": "Antes do encaminhamento à Secretaria Financeira",
+        "evento": "Documentação anexada",
+        "fontes": [
+          "1780963200041"
+        ]
+      },
+      {
+        "acao": "Conferir a documentação de viagem (folder, trecho/datas e Cadin) na Secretaria Financeira",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de passagem/hospedagem",
+        "prazo": "A definir",
+        "evento": "Documentação conferida",
+        "fontes": [
+          "1780963200041"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Verificar a disponibilidade orçamentária para a passagem/hospedagem",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "e-Protocolo",
+        "artefato": "Declaração de Disponibilidade Orçamentária e Financeira (DDF)",
+        "prazo": "A definir",
+        "evento": "Disponibilidade confirmada",
+        "fontes": [
+          "1780963200041"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Indicar a fonte e a conta orçamentária",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "e-Protocolo",
+        "artefato": "Declaração de Disponibilidade Orçamentária e Financeira (DDF)",
+        "prazo": "A definir",
+        "evento": "Fonte/conta indicada",
+        "fontes": [
+          "1780963200041"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Encaminhar o processo à Div. de Contabilidade para empenho",
+        "responsavel": "Secretaria Financeira",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de passagem/hospedagem",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado à Contabilidade",
+        "fontes": [
+          "1780963200041"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Emitir a nota de empenho da passagem/hospedagem",
+        "responsavel": "Div. de Contabilidade",
+        "sistema": "Sistema orçamentário/contábil",
+        "artefato": "Nota de Empenho",
+        "prazo": "A definir",
+        "evento": "Passagem/hospedagem empenhada",
+        "fontes": [
+          "1780963200041"
+        ],
+        "n": 8
+      }
+    ],
+    "saida": [
+      "Processo de passagem/hospedagem empenhado pela Div. de Contabilidade"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Formulário de Passagem e Hospedagem",
+      "tipo": "formulario",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "dados do servidor",
+        "trecho/destino",
+        "datas de ida e volta",
+        "justificativa",
+        "fonte e conta orçamentária"
+      ],
+      "responsavel_preenchimento": "Servidor/Requisitante"
+    },
+    {
+      "nome": "Folder/justificativa da viagem",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "objetivo da viagem",
+        "programação/roteiro",
+        "vínculo institucional do evento"
+      ],
+      "responsavel_preenchimento": "Servidor/Requisitante"
+    },
+    {
+      "nome": "Consulta Cadin",
+      "tipo": "registro",
+      "sistema": "Cadin",
+      "campos_chave": [
+        "CPF do beneficiário",
+        "situação (regular/irregular)",
+        "data da consulta"
+      ],
+      "responsavel_preenchimento": "Servidor/Requisitante"
+    },
+    {
+      "nome": "Declaração de Disponibilidade Orçamentária e Financeira (DDF)",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "fonte de recursos",
+        "conta/elemento de despesa",
+        "valor disponível"
+      ],
+      "responsavel_preenchimento": "Secretaria Financeira"
+    },
+    {
+      "nome": "Nota de Empenho",
+      "tipo": "registro",
+      "sistema": "Sistema orçamentário/contábil",
+      "campos_chave": [
+        "número do empenho",
+        "credor",
+        "valor",
+        "fonte de recursos"
+      ],
+      "responsavel_preenchimento": "Div. de Contabilidade"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Documentação de viagem completa (folder, datas e Cadin regular)?",
+      "condicao": "Folder/justificativa, trecho/datas e consulta ao Cadin conferem com a solicitação e estão regulares",
+      "sim": "Prosseguir para a verificação de disponibilidade orçamentária",
+      "nao": "Solicitar complementação ao requisitante"
+    },
+    {
+      "decisao": "Disponibilidade orçamentária confirmada?",
+      "condicao": "Há saldo na fonte/conta indicada para a despesa",
+      "sim": "Secretaria Financeira indica fonte/conta e encaminha à Div. de Contabilidade",
+      "nao": "Devolver ao requisitante ou acionar remanejamento orçamentário"
+    }
+  ],
+  "pontos_atencao": [
+    "PDF em imagem — não indexável por texto",
+    "Fluxo específico do Campus Foz",
+    "A consulta ao Cadin é obrigatória e deve ser conferida tanto pelo interessado quanto pela Secretaria Financeira antes do encaminhamento à Contabilidade.",
+    "Utilizar sempre os links e formulários oficiais da PRAF vigentes; versões desatualizadas geram devolução do processo.",
+    "Os formulários e a consulta ao Cadin contêm dados pessoais (CPF, nome); observar a LGPD no manuseio, na tramitação e no arquivamento.",
+    "Fluxo específico do Campus Foz; documento-fonte em PDF-imagem, sem texto extraível."
+  ],
+  "contingencia": [
+    "Se a consulta ao Cadin indicar situação irregular, suspender o processo e notificar o interessado até a regularização.",
+    "Se não houver disponibilidade orçamentária na fonte indicada, devolver o processo ao requisitante ou acionar a Secretaria Financeira para remanejamento antes do empenho.",
+    "Se o e-Protocolo estiver indisponível, registrar a solicitação em meio alternativo (papel/e-mail institucional) e regularizar a tramitação eletrônica assim que o sistema for restabelecido.",
+    "Em caso de urgência da viagem, priorizar a conferência do Cadin e da disponibilidade orçamentária para evitar atraso no empenho."
+  ],
+  "checklist": [
+    "Formulário preenchido com todos os dados obrigatórios do servidor e da viagem/despesa",
+    "Assinaturas coletadas via e-Protocolo (servidor e chefia imediata)",
+    "Folder/justificativa anexado",
+    "Consulta ao Cadin realizada e anexada, com situação regular",
+    "Disponibilidade orçamentária conferida e fonte/conta indicada",
+    "Processo encaminhado à Contabilidade com todos os anexos"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de tramitação da despesa (abertura → empenho)",
+      "formula": "Σ(data do empenho − data de abertura no e-Protocolo) / nº de processos no período",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de processos devolvidos por pendência no Cadin ou na documentação",
+      "formula": "processos devolvidos / total de processos abertos × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Servidor/Requisitante",
+      "destino": "Div. de Finanças",
+      "relacao": "fornece",
+      "artefato": "Formulário de despesa e documentação anexa",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Finanças",
+      "destino": "Div. de Contabilidade",
+      "relacao": "fornece",
+      "artefato": "Processo de despesa com fonte/conta indicada",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Contabilidade",
+      "destino": "Div. de Finanças",
+      "relacao": "informa",
+      "artefato": "Nota de empenho",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Servidor/Requisitante\"]\n    direction LR\n    e1((\"Necessidade de passagem e/ou hospedagem para viagem a serviço\"))\n    e2[\"Abrir o arquivo do fluxograma para leitura visual do fluxo local\"]\n    e3[\"Preencher o formulário de passagem/hospedagem e coletar assinaturas v…\"]\n    e4[\"Anexar folder/justificativa e a consulta ao Cadin\"]\n  end\n  subgraph R2[\"Secretaria Financeira\"]\n    direction LR\n    e5[[\"✉ Encaminhar a Secretaria Financeira\"]]\n    e6{\"Documentação de viagem completa (folder, datas e Cadin regular)?\"}\n    e7[\"Solicitar complementação ao requisitante\"]\n    e8(((\"Processo pendente de complementação documental\")))\n    e9{\"Disponibilidade orçamentária confirmada?\"}\n    e10[\"Solicitar remanejamento ou devolver ao requisitante\"]\n    e11(((\"Processo pendente de disponibilidade orçamentária\")))\n    e12[\"Indicar fonte e conta orçamentária\"]\n  end\n  subgraph R3[\"Div. de Contabilidade\"]\n    direction LR\n    e13[[\"✉ Encaminhar a Div. de Contabilidade\"]]\n    e14[\"Emitir nota de empenho\"]\n    e15(((\"Passagem/hospedagem empenhada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 -- Não --> e7\n  e7 --> e8\n  e6 -- Sim --> e9\n  e9 -- Não --> e10\n  e10 --> e11\n  e9 -- Sim --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e7,e10,e12,e14 atividade\n  class e5,e13 captura\n  class e6,e9 decisao\n  class e8,e11,e15 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Servidor/Requisitante",
+      "Secretaria Financeira",
+      "Div. de Contabilidade"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Necessidade de passagem e/ou hospedagem para viagem a serviço",
+        "raia": "Servidor/Requisitante"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Abrir o arquivo do fluxograma para leitura visual do fluxo local",
+        "raia": "Servidor/Requisitante"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Preencher o formulário de passagem/hospedagem e coletar assinaturas via e-Protocolo",
+        "raia": "Servidor/Requisitante"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Anexar folder/justificativa e a consulta ao Cadin",
+        "raia": "Servidor/Requisitante"
+      },
+      {
+        "id": "e5",
+        "tipo": "captura",
+        "label": "Encaminhar a Secretaria Financeira",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e6",
+        "tipo": "decisao",
+        "label": "Documentação de viagem completa (folder, datas e Cadin regular)?",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Solicitar complementação ao requisitante",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e8",
+        "tipo": "fim",
+        "label": "Processo pendente de complementação documental",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e9",
+        "tipo": "decisao",
+        "label": "Disponibilidade orçamentária confirmada?",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Solicitar remanejamento ou devolver ao requisitante",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e11",
+        "tipo": "fim",
+        "label": "Processo pendente de disponibilidade orçamentária",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e12",
+        "tipo": "atividade",
+        "label": "Indicar fonte e conta orçamentária",
+        "raia": "Secretaria Financeira"
+      },
+      {
+        "id": "e13",
+        "tipo": "captura",
+        "label": "Encaminhar a Div. de Contabilidade",
+        "raia": "Div. de Contabilidade"
+      },
+      {
+        "id": "e14",
+        "tipo": "atividade",
+        "label": "Emitir nota de empenho",
+        "raia": "Div. de Contabilidade"
+      },
+      {
+        "id": "e15",
+        "tipo": "fim",
+        "label": "Passagem/hospedagem empenhada",
+        "raia": "Div. de Contabilidade"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7",
+        "label": "Não"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e6",
+        "para": "e9",
+        "label": "Sim"
+      },
+      {
+        "de": "e9",
+        "para": "e10",
+        "label": "Não"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e9",
+        "para": "e12",
+        "label": "Sim"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200041"
+      ],
+      "fontes": [
+        "1780963200041"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D1)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 3: Conferir a documentação de viagem (folder, trecho/datas e Cadin) na Secretaria F",
+        "Passo adicionado após 3: Verificar a disponibilidade orçamentária para a passagem/hospedagem",
+        "Passo adicionado após 3: Indicar a fonte e a conta orçamentária",
+        "Passo adicionado após 3: Encaminhar o processo à Div. de Contabilidade para empenho",
+        "Passo adicionado após 3: Emitir a nota de empenho da passagem/hospedagem",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +5",
+        "decisoes_novas: +2",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +4",
+        "contingencia_nova: +4",
+        "checklist_novo: +6",
+        "glossario_novo: +5",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Servidor/Requisitante, Secretaria Financeira, Div. de Contabilidade",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5",
+        "Elementos BPMN adicionados: 15",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200041"
+      ],
+      "motivo": "Completar o esqueleto do fluxo de passagem e hospedagem do Campus Foz com o detalhamento operacional evidenciado (Cadin, disponibilidade orçamentária, encaminhamento à Contabilidade)."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "versao_documento",
+    "dados_pessoais_lgpd"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "1780963200041"
+  ],
+  "hash_fontes": "b775d86b243d207539c08eea74109b72d68c54542e064fdf0f55ec7a53f51201",
+  "agente": "pop-dfin-02",
+  "versao_diretrizes": "1.2",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:52:53Z"
+}

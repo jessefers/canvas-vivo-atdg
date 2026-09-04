@@ -1,0 +1,422 @@
+{
+  "id": "pop-alm-03",
+  "codigo": "ALM-03",
+  "titulo": "Distribuição para Departamentos",
+  "setor": "Div. de Almoxarifado",
+  "setor_codigo": "S03.04-ALM",
+  "sigla": "ALM",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Almoxarifado",
+    "descricao": "Atende requisições de materiais de consumo dos departamentos do Campus, verifica a disponibilidade em estoque, entrega o material e registra a baixa no GMS/ERP, conforme o Manual de Gestão do Almoxarifado.",
+    "dominio": "Suprimentos e Materiais",
+    "subdominio": "Distribuição de materiais de consumo aos departamentos",
+    "tipo_subdominio": "core",
+    "contexto": "S03.04-ALM",
+    "glossario": [
+      {
+        "termo": "Requisição de material",
+        "definicao": "Documento pelo qual um Departamento solicita materiais de consumo ao Almoxarifado.",
+        "sistema": "GMS/ERP"
+      },
+      {
+        "termo": "Baixa",
+        "definicao": "Registro da saída de um item do estoque do Almoxarifado no GMS/ERP.",
+        "sistema": "GMS/ERP"
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Almoxarifado",
+    "periodicidade": "Conforme requisições dos Departamentos (sob demanda, contínuo)",
+    "normativa": [
+      "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+      "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-03<br/>Distribuição para Departamentos\"]\n  S03_04_ALM --> P\n  V1[\"Requisitante/Departamento\"]\n  P -. interface .-> V1\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Requisição de material de consumo apresentada por um Departamento",
+      "origem": "Requisitante/Departamento"
+    },
+    "entrada": [
+      "Requisição de material apresentada por um Departamento"
+    ],
+    "passos": [
+      {
+        "acao": "Registrar a requisição de material apresentada pelo Departamento",
+        "responsavel": "Requisitante/Departamento",
+        "sistema": "GMS/ERP",
+        "artefato": "Requisição de material",
+        "prazo": "Conforme necessidade do Departamento",
+        "evento": "Requisição registrada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Verificar a disponibilidade do material em estoque",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Mapa de estoque",
+        "prazo": "No ato da análise da requisição",
+        "evento": "Disponibilidade verificada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Informar ao Requisitante a indisponibilidade ou a necessidade de ajuste da requisição, quando aplicável",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "",
+        "prazo": "A definir",
+        "evento": "Requisitante informado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Separar o material solicitado",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "",
+        "artefato": "",
+        "prazo": "Após verificação da disponibilidade",
+        "evento": "Material separado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Entregar o material ao Requisitante",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "",
+        "artefato": "Termo/comprovante de entrega",
+        "prazo": "No ato da entrega",
+        "evento": "Material entregue",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Registrar a baixa (saída) do material no GMS/ERP",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Termo/comprovante de entrega",
+        "prazo": "No ato da entrega",
+        "evento": "Baixa registrada no GMS/ERP",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 6
+      }
+    ],
+    "saida": [
+      "Material entregue ao Requisitante e baixa registrada no GMS/ERP"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Requisição de material",
+      "tipo": "formulario",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "departamento requisitante",
+        "itens solicitados",
+        "quantidade",
+        "justificativa"
+      ],
+      "responsavel_preenchimento": "Requisitante/Departamento"
+    },
+    {
+      "nome": "Termo/comprovante de entrega",
+      "tipo": "registro",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "itens entregues",
+        "quantidade",
+        "data",
+        "requisitante"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Material disponível em estoque e requisição dentro dos critérios de distribuição?",
+      "condicao": "Verificação de disponibilidade e de eventuais limites de quantidade por requisição",
+      "sim": "Separar e entregar o material ao Requisitante",
+      "nao": "Informar ao Requisitante a indisponibilidade ou a necessidade de ajuste da requisição"
+    }
+  ],
+  "pontos_atencao": [
+    "Requisições que excedam eventuais limites de quantidade ou periodicidade devem ser encaminhadas à Chefia da Divisão de Almoxarifado para análise",
+    "A baixa no GMS/ERP deve ocorrer no mesmo ato da entrega, para manter a correspondência entre estoque físico e sistêmico"
+  ],
+  "contingencia": [
+    "Material indisponível em estoque no momento da requisição: informar o Requisitante e registrar a demanda para eventual processo de aquisição (fora do escopo deste POP)",
+    "Indisponibilidade do GMS/ERP no ato da entrega: registrar a saída em planilha de controle e lançar a baixa assim que o sistema for restabelecido",
+    "Divergência entre a quantidade requisitada e a quantidade disponível: entregar parcialmente, registrar o saldo pendente e comunicar o Requisitante"
+  ],
+  "checklist": [
+    "Requisição registrada antes da separação do material",
+    "Disponibilidade em estoque verificada antes da confirmação ao Requisitante",
+    "Termo/comprovante de entrega emitido e confirmado pelo Requisitante",
+    "Baixa do material registrada no GMS/ERP no ato da entrega"
+  ],
+  "kpis": [
+    {
+      "indicador": "Prazo médio de atendimento da requisição",
+      "formula": "Soma dos tempos entre registro da requisição e entrega do material / nº de requisições atendidas no período",
+      "meta": "A definir",
+      "fonte": "GMS/ERP"
+    },
+    {
+      "indicador": "Percentual de requisições atendidas integralmente",
+      "formula": "Nº de requisições atendidas sem indisponibilidade / nº total de requisições no período",
+      "meta": "A definir",
+      "fonte": "GMS/ERP"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Requisitante/Departamento",
+      "destino": "Div. de Almoxarifado",
+      "relacao": "fornece",
+      "artefato": "Requisição de material",
+      "canal": "GMS/ERP"
+    },
+    {
+      "origem": "Div. de Almoxarifado",
+      "destino": "Requisitante/Departamento",
+      "relacao": "informa",
+      "artefato": "Termo/comprovante de entrega ou indisponibilidade",
+      "canal": "GMS/ERP"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Requisitante/Departamento\"]\n    direction LR\n    e1((\"Requisição de material apresentada pelo Departamento\"))\n    e5[[\"✉ Indisponibilidade ou necessidade de ajuste da requisição\"]]\n    e6(((\"Requisição não atendida ou pendente de ajuste\")))\n    e9[[\"✉ Material entregue ao Requisitante\"]]\n  end\n  subgraph R2[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e2[\"Registrar a requisição de material\"]\n    e3[\"Verificar a disponibilidade do material em estoque\"]\n    e4{\"Material disponível e requisição dentro dos critérios de distribuição?\"}\n    e7[\"Separar o material solicitado\"]\n    e8[\"Entregar o material ao Requisitante\"]\n    e10[\"Registrar a baixa do material no GMS/ERP\"]\n    e11(((\"Baixa registrada; requisição atendida\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Não --> e5\n  e5 --> e6\n  e4 -- Sim --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e7,e8,e10 atividade\n  class e4 decisao\n  class e5,e9 captura\n  class e6,e11 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Almoxarifado",
+      "Requisitante/Departamento",
+      "Agente Universitário do Almoxarifado",
+      "Chefe da Divisão de Almoxarifado"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Requisição de material apresentada pelo Departamento",
+        "raia": "Requisitante/Departamento"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Registrar a requisição de material",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Verificar a disponibilidade do material em estoque",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e4",
+        "tipo": "decisao",
+        "label": "Material disponível e requisição dentro dos critérios de distribuição?",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e5",
+        "tipo": "captura",
+        "label": "Indisponibilidade ou necessidade de ajuste da requisição",
+        "raia": "Requisitante/Departamento"
+      },
+      {
+        "id": "e6",
+        "tipo": "fim",
+        "label": "Requisição não atendida ou pendente de ajuste",
+        "raia": "Requisitante/Departamento"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Separar o material solicitado",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Entregar o material ao Requisitante",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Material entregue ao Requisitante",
+        "raia": "Requisitante/Departamento"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Registrar a baixa do material no GMS/ERP",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e11",
+        "tipo": "fim",
+        "label": "Baixa registrada; requisição atendida",
+        "raia": "Agente Universitário do Almoxarifado"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5",
+        "label": "Não"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e4",
+        "para": "e7",
+        "label": "Sim"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir do escopo \"Saída, requisição, entrega, registro\""
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote ALM)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 1: Registrar a requisição de material apresentada pelo Departamento",
+        "Passo adicionado após 1: Verificar a disponibilidade do material em estoque",
+        "Passo adicionado após 1: Informar ao Requisitante a indisponibilidade ou a necessidade de ajuste da requi",
+        "Passo adicionado após 1: Separar o material solicitado",
+        "Passo adicionado após 1: Entregar o material ao Requisitante",
+        "Passo adicionado após 1: Registrar a baixa (saída) do material no GMS/ERP",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +2",
+        "normativa_nova: +2",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Raias adicionadas: Requisitante/Departamento, Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 11",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "motivo": "Documentar o passo a passo da distribuição de materiais aos departamentos (requisição, verificação de disponibilidade, entrega e baixa), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [],
+  "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) existência e valor de eventuais limites de quantidade/periodicidade por requisição, não detalhados nas fontes disponíveis; (2) fluxo de tratamento de requisições atendidas apenas parcialmente por indisponibilidade de estoque.",
+  "fontes_entradas": [
+    "pb-almoxarifado",
+    "1780963200000",
+    "1780963200001"
+  ],
+  "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
+  "agente": "pop-alm-03",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:42:29Z"
+}

@@ -1,0 +1,410 @@
+{
+  "id": "pop-map-04",
+  "codigo": "MAP-04",
+  "titulo": "Elaboração de POP, Instrução de Trabalho, Manual e Fluxos",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.06-MAP",
+  "sigla": "MAP",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "ATDG — Assessoria Técnica da Direção Geral",
+    "departamento": "ATDG — Mapeamento de Processos",
+    "descricao": "Elaboração de POP, Instrução de Trabalho, Manual e Fluxos. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "dominio": "Assessoria Técnica e Gestão por Processos",
+    "subdominio": "Elaboração de POP, Instrução de Trabalho, Manual e Fluxos",
+    "tipo_subdominio": "core",
+    "contexto": "S02.06-MAP",
+    "glossario": [
+      {
+        "termo": "Instrução de Trabalho (IT)",
+        "definicao": "Documento complementar ao POP que detalha o passo a passo operacional de uma atividade específica.",
+        "sistema": "OneDrive ATDG"
+      },
+      {
+        "termo": "Manual de Gestão de Processos",
+        "definicao": "Documento consolidado que reúne os POPs, ITs e fluxos de todos os processos mapeados do Campus.",
+        "sistema": "OneDrive ATDG"
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+    "periodicidade": "Contínuo, por processo consolidado no ciclo de mapeamento",
+    "normativa": [
+      "Plano Diretor Unioeste 2017-2026"
+    ],
+    "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_06_MAP[\"S02.06-MAP<br/>ATDG — Mapeamento de Processos\"]\n  S02_ATDG --> S02_06_MAP\n  P[\"MAP-04<br/>Elaboração de POP, Instrução de Trabalho, Manual e Fluxos\"]\n  S02_06_MAP --> P\n  V1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V1\n  V2[\"Setor respondente\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_06_MAP setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Planilha consolidada e padronizada de atividades por função disponível (MAP-03)",
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    "entrada": [
+      "Planilha consolidada de atividades por função (MAP-03)",
+      "Modelo/template de POP, IT, Manual e Fluxo"
+    ],
+    "passos": [
+      {
+        "acao": "Selecionar o processo a documentar a partir da planilha consolidada",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Planilha consolidada",
+        "prazo": "A definir",
+        "evento": "Processo selecionado",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Elaborar o Procedimento Operacional Padrão (POP) do processo",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "POP",
+        "prazo": "A definir",
+        "evento": "POP elaborado",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Elaborar a Instrução de Trabalho (IT), quando aplicável",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Instrução de Trabalho",
+        "prazo": "A definir",
+        "evento": "IT elaborada",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Elaborar o fluxograma do processo (BPMN)",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Fluxograma do processo",
+        "prazo": "A definir",
+        "evento": "Fluxograma elaborado",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Submeter POP, IT e Fluxo ao setor respondente para validação de conteúdo",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "POP/IT/Fluxo",
+        "prazo": "A definir",
+        "evento": "Documentos submetidos",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Validar o conteúdo técnico do processo documentado",
+        "responsavel": "Setor respondente",
+        "sistema": "OneDrive ATDG",
+        "artefato": "POP/IT/Fluxo validado",
+        "prazo": "A definir",
+        "evento": "Conteúdo validado",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Publicar o POP/IT/Fluxo e consolidar no Manual de Gestão de Processos do Campus",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Manual de Gestão de Processos",
+        "prazo": "A definir",
+        "evento": "Documento publicado e manual atualizado",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "POP, Instrução de Trabalho, Manual e Fluxo do processo publicados",
+      "Manual de Gestão de Processos do Campus atualizado"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Procedimento Operacional Padrão (POP)",
+      "tipo": "documento",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "identificação",
+        "playbook",
+        "artefatos",
+        "fluxograma",
+        "versão"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Manual de Gestão de Processos do Campus",
+      "tipo": "documento",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "setor",
+        "processos documentados",
+        "versão"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "O setor respondente valida o conteúdo técnico do POP/IT/Fluxo elaborado?",
+      "condicao": "POP, Instrução de Trabalho e Fluxo elaborados pela ATDG a partir da planilha consolidada",
+      "sim": "Publicar o documento e consolidá-lo no Manual de Gestão de Processos",
+      "nao": "Revisar o documento conforme as observações do setor respondente"
+    }
+  ],
+  "pontos_atencao": [
+    "Manter numeração/codificação de processos legados sem renumerar",
+    "Controlar versionamento dos documentos publicados, evitando cópias e versões de teste em circulação"
+  ],
+  "contingencia": [
+    "Processo documentado diverge da prática real do setor: retornar ao setor respondente para nova validação antes de publicar",
+    "Template de POP/IT desatualizado: atualizar a partir do modelo vigente antes de nova elaboração",
+    "Documento publicado precisa de correção pontual: aplicar patch incremental sem regenerar o POP"
+  ],
+  "checklist": [
+    "Processo selecionado a partir da planilha consolidada",
+    "POP elaborado com playbook, artefatos e fluxograma",
+    "Instrução de Trabalho elaborada quando aplicável",
+    "Conteúdo validado pelo setor respondente",
+    "Documento publicado e Manual de Gestão de Processos atualizado"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de processos consolidados com POP publicado",
+      "formula": "(Processos com POP publicado / total de processos consolidados) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    },
+    {
+      "indicador": "Percentual de POPs validados pelo setor respondente na primeira submissão",
+      "formula": "(POPs aprovados na 1ª submissão / total de POPs submetidos) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Setor respondente",
+      "relacao": "valida",
+      "artefato": "POP/IT/Fluxo elaborado",
+      "canal": "OneDrive ATDG"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "informa",
+      "artefato": "Manual de Gestão de Processos atualizado",
+      "canal": "OneDrive ATDG"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Planilha consolidada disponível\"))\n    e2[\"Selecionar o processo a documentar\"]\n    e3[\"Elaborar POP, IT e Fluxograma do processo\"]\n    e6[\"Revisar o documento conforme observações\"]\n    e7[\"Publicar o documento e consolidar no Manual de Gestão de Processos\"]\n  end\n  subgraph R2[\"Setor respondente\"]\n    direction LR\n    e4[[\"✉ Submeter documentos para validação\"]]\n    e5{\"Setor respondente valida o conteúdo técnico?\"}\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e8[[\"✉ Informar Direção Geral sobre o Manual atualizado\"]]\n    e9(((\"Processo documentado e publicado\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 -- Não --> e6\n  e6 --> e4\n  e5 -- Sim --> e7\n  e7 --> e8\n  e8 --> e9\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e6,e7 atividade\n  class e4,e8 captura\n  class e5 decisao\n  class e9 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor respondente",
+      "Direção Geral do Campus"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Planilha consolidada disponível",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Selecionar o processo a documentar",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Elaborar POP, IT e Fluxograma do processo",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "captura",
+        "label": "Submeter documentos para validação",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e5",
+        "tipo": "decisao",
+        "label": "Setor respondente valida o conteúdo técnico?",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Revisar o documento conforme observações",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Publicar o documento e consolidar no Manual de Gestão de Processos",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Informar Direção Geral sobre o Manual atualizado",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e9",
+        "tipo": "fim",
+        "label": "Processo documentado e publicado",
+        "raia": "Direção Geral do Campus"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6",
+        "label": "Não"
+      },
+      {
+        "de": "e6",
+        "para": "e4"
+      },
+      {
+        "de": "e5",
+        "para": "e7",
+        "label": "Sim"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente"
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 0: Selecionar o processo a documentar a partir da planilha consolidada",
+        "Passo adicionado após 1: Elaborar o Procedimento Operacional Padrão (POP) do processo",
+        "Passo adicionado após 2: Elaborar a Instrução de Trabalho (IT), quando aplicável",
+        "Passo adicionado após 3: Elaborar o fluxograma do processo (BPMN)",
+        "Passo adicionado após 4: Submeter POP, IT e Fluxo ao setor respondente para validação de conteúdo",
+        "Passo adicionado após 5: Validar o conteúdo técnico do processo documentado",
+        "Passo adicionado após 6: Publicar o POP/IT/Fluxo e consolidar no Manual de Gestão de Processos do Campus",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +2",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Assessoria Técnica da Direção Geral (ATDG), Setor respondente, Direção Geral do Campus",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 9",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-atdg",
+        "1780963200034",
+        "1780963200035",
+        "1780963200031"
+      ],
+      "motivo": "Elaboração do playbook de produção de POP, Instrução de Trabalho, Manual e Fluxos, etapa final do ciclo de Mapeamento de Processos."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-atdg",
+    "1780963200034",
+    "1780963200035",
+    "1780963200031"
+  ],
+  "hash_fontes": "68eec753957733b9efcb025747bae33a271b03bed7780485788b0b7a074296da",
+  "agente": "pop-map-04",
+  "versao_diretrizes": "1.8",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T02:01:05Z"
+}

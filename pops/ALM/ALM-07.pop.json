@@ -1,0 +1,493 @@
+{
+  "id": "pop-alm-07",
+  "codigo": "ALM-07",
+  "titulo": "Desfazimento de Materiais Inservíveis",
+  "setor": "Div. de Almoxarifado",
+  "setor_codigo": "S03.04-ALM",
+  "sigla": "ALM",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Almoxarifado",
+    "descricao": "Identifica, classifica e regulariza a baixa de materiais inservíveis, obsoletos ou danificados, por meio de desfazimento regulamentado (doação, alienação ou descarte), com aprovação da PRAF e, quando pertinente, articulação com a Div. de Patrimônio.",
+    "dominio": "Suprimentos e Materiais",
+    "subdominio": "Desfazimento regulamentado de materiais inservíveis",
+    "tipo_subdominio": "core",
+    "contexto": "S03.04-ALM",
+    "glossario": [
+      {
+        "termo": "Desfazimento",
+        "definicao": "Processo regulamentado de baixa de material inservível, obsoleto ou danificado, por doação, alienação ou descarte.",
+        "sistema": "GMS/ERP"
+      },
+      {
+        "termo": "Material inservível",
+        "definicao": "Item que perdeu utilidade para a Administração por avaria, obsolescência, ociosidade ou antieconomicidade.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Almoxarifado",
+    "periodicidade": "Conforme necessidade (identificação de material inservível)",
+    "normativa": [
+      "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+      "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)",
+      "Normativas do TCE-PR",
+      "Lei nº 14.133/2021 (Lei de Licitações e Contratos Administrativos), no que for pertinente ao desfazimento/alienação de bens da Administração Pública"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-07<br/>Desfazimento de Materiais Inservíveis\"]\n  S03_04_ALM --> P\n  V1[\"Div. de Patrimônio\"]\n  P -. interface .-> V1\n  V2[\"PRAF\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Identificação de material inservível, obsoleto ou danificado (por inventário, avaria ou obsolescência)",
+      "origem": "Agente Universitário do Almoxarifado / ALM-04 Inventário Rotativo / ALM-05 Inventário Geral"
+    },
+    "entrada": [
+      "Material identificado como inservível, obsoleto ou danificado (por inventário, avaria ou obsolescência)"
+    ],
+    "passos": [
+      {
+        "acao": "Identificar o material inservível, obsoleto ou danificado",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Registro de material inservível",
+        "prazo": "Conforme identificação",
+        "evento": "Material inservível identificado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Classificar o material quanto à natureza (consumo/patrimônio) e ao estado",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Registro de material inservível",
+        "prazo": "A definir",
+        "evento": "Material classificado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Comunicar à Div. de Patrimônio quando o item tiver característica de bem permanente",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "e-Protocolo",
+        "artefato": "Registro de material inservível",
+        "prazo": "A definir",
+        "evento": "Div. de Patrimônio comunicada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Instruir o processo de desfazimento (justificativa, classificação, relação de itens)",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de desfazimento",
+        "prazo": "A definir",
+        "evento": "Processo de desfazimento instruído",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Submeter o processo de desfazimento à aprovação da PRAF",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de desfazimento",
+        "prazo": "A definir",
+        "evento": "Processo submetido à PRAF",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Aguardar a decisão da PRAF quanto à modalidade de desfazimento (doação, alienação ou descarte)",
+        "responsavel": "PRAF",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de desfazimento",
+        "prazo": "A definir",
+        "evento": "Modalidade de desfazimento definida",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Executar a modalidade de desfazimento aprovada",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "e-Protocolo",
+        "artefato": "Termo de desfazimento",
+        "prazo": "Conforme decisão da PRAF",
+        "evento": "Desfazimento executado",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Registrar a baixa definitiva do material no GMS/ERP",
+        "responsavel": "Agente Universitário do Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Termo de desfazimento",
+        "prazo": "Após execução do desfazimento",
+        "evento": "Baixa definitiva registrada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 8
+      }
+    ],
+    "saida": [
+      "Termo de desfazimento emitido e baixa definitiva registrada no GMS/ERP"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Registro de material inservível",
+      "tipo": "registro",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "item",
+        "motivo (avaria/obsolescência/inservibilidade)",
+        "classificação",
+        "natureza (consumo/patrimônio)"
+      ],
+      "responsavel_preenchimento": "Agente Universitário do Almoxarifado"
+    },
+    {
+      "nome": "Processo de desfazimento",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "justificativa",
+        "relação de itens",
+        "classificação",
+        "modalidade proposta"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+    },
+    {
+      "nome": "Termo de desfazimento",
+      "tipo": "registro",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "modalidade executada (doação/alienação/descarte)",
+        "itens",
+        "data",
+        "destinatário, quando houver"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "O item tem característica de bem permanente (patrimoniável)?",
+      "condicao": "Classificação do material inservível quanto à natureza",
+      "sim": "Comunicar e tramitar o desfazimento em conjunto com a Div. de Patrimônio",
+      "nao": "Tramitar o desfazimento diretamente como material de consumo"
+    }
+  ],
+  "pontos_atencao": [
+    "O desfazimento de item com característica de bem permanente deve ser conduzido em conjunto com a Div. de Patrimônio",
+    "A execução do desfazimento (doação, alienação ou descarte) depende de decisão prévia da PRAF quanto à modalidade"
+  ],
+  "contingencia": [
+    "PRAF não se manifesta sobre a modalidade de desfazimento no prazo esperado: a Chefia da Divisão de Almoxarifado reitera a solicitação e registra o atraso",
+    "Material classificado incorretamente quanto à natureza (consumo/patrimônio): corrigir a classificação junto à Div. de Patrimônio antes de prosseguir",
+    "Ausência de destinatário para doação ou de interessado em alienação: reencaminhar o processo à PRAF para definição de nova modalidade (ex.: descarte)"
+  ],
+  "checklist": [
+    "Material inservível identificado e classificado quanto à natureza e ao estado",
+    "Itens patrimoniáveis comunicados à Div. de Patrimônio antes da instrução do processo",
+    "Processo de desfazimento aprovado pela PRAF antes da execução de qualquer modalidade",
+    "Baixa definitiva registrada no GMS/ERP após a execução do desfazimento"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de tramitação do processo de desfazimento",
+      "formula": "Soma dos tempos entre instrução e execução do desfazimento / nº de processos concluídos",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de itens inservíveis com desfazimento concluído no exercício",
+      "formula": "Nº de itens com baixa definitiva / nº total de itens identificados como inservíveis no período",
+      "meta": "A definir",
+      "fonte": "GMS/ERP"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Almoxarifado",
+      "destino": "Div. de Patrimônio",
+      "relacao": "informa",
+      "artefato": "Comunicação de item patrimoniável para desfazimento conjunto",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Almoxarifado",
+      "destino": "PRAF",
+      "relacao": "aprova",
+      "artefato": "Processo de desfazimento",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Agente Universitário do Almoxarifado\"]\n    direction LR\n    e1((\"Material inservível, obsoleto ou danificado identificado\"))\n    e2[\"Identificar o material inservível\"]\n    e12[\"Registrar a baixa definitiva do material no GMS/ERP\"]\n    e13(((\"Baixa definitiva registrada; desfazimento concluído\")))\n  end\n  subgraph R2[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e3[\"Classificar o material quanto à natureza e ao estado\"]\n    e4{\"Item tem característica de bem permanente (patrimoniável)?\"}\n    e6[\"Instruir o processo de desfazimento\"]\n    e10[[\"✉ Modalidade de desfazimento definida\"]]\n    e11[\"Executar a modalidade de desfazimento aprovada\"]\n  end\n  subgraph R3[\"Div. de Patrimônio\"]\n    direction LR\n    e5[[\"✉ Comunicação de item patrimoniável\"]]\n  end\n  subgraph R4[\"PRAF\"]\n    direction LR\n    e7[[\"✉ Processo de desfazimento submetido\"]]\n    e8([\"⏱ Aguardar decisão da PRAF quanto à modalidade de desfazimento\"])\n    e9[\"Decidir a modalidade de desfazimento (doação, alienação ou descarte)\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e5\n  e5 --> e6\n  e4 -- Não --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e6,e9,e11,e12 atividade\n  class e4 decisao\n  class e5,e7,e10 captura\n  class e8 pausa\n  class e13 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Almoxarifado",
+      "Agente Universitário do Almoxarifado",
+      "Chefe da Divisão de Almoxarifado",
+      "Div. de Patrimônio",
+      "PRAF"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Material inservível, obsoleto ou danificado identificado",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Identificar o material inservível",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Classificar o material quanto à natureza e ao estado",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e4",
+        "tipo": "decisao",
+        "label": "Item tem característica de bem permanente (patrimoniável)?",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e5",
+        "tipo": "captura",
+        "label": "Comunicação de item patrimoniável",
+        "raia": "Div. de Patrimônio"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Instruir o processo de desfazimento",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e7",
+        "tipo": "captura",
+        "label": "Processo de desfazimento submetido",
+        "raia": "PRAF"
+      },
+      {
+        "id": "e8",
+        "tipo": "pausa",
+        "label": "Aguardar decisão da PRAF quanto à modalidade de desfazimento",
+        "raia": "PRAF"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Decidir a modalidade de desfazimento (doação, alienação ou descarte)",
+        "raia": "PRAF"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Modalidade de desfazimento definida",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Executar a modalidade de desfazimento aprovada",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e12",
+        "tipo": "atividade",
+        "label": "Registrar a baixa definitiva do material no GMS/ERP",
+        "raia": "Agente Universitário do Almoxarifado"
+      },
+      {
+        "id": "e13",
+        "tipo": "fim",
+        "label": "Baixa definitiva registrada; desfazimento concluído",
+        "raia": "Agente Universitário do Almoxarifado"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5",
+        "label": "Sim"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e4",
+        "para": "e6",
+        "label": "Não"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir do escopo \"Descarte, doação, leilão, baixa\""
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote ALM)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 1: Identificar o material inservível, obsoleto ou danificado",
+        "Passo adicionado após 1: Classificar o material quanto à natureza (consumo/patrimônio) e ao estado",
+        "Passo adicionado após 1: Comunicar à Div. de Patrimônio quando o item tiver característica de bem permane",
+        "Passo adicionado após 1: Instruir o processo de desfazimento (justificativa, classificação, relação de it",
+        "Passo adicionado após 1: Submeter o processo de desfazimento à aprovação da PRAF",
+        "Passo adicionado após 1: Aguardar a decisão da PRAF quanto à modalidade de desfazimento (doação, alienaçã",
+        "Passo adicionado após 1: Executar a modalidade de desfazimento aprovada",
+        "Passo adicionado após 1: Registrar a baixa definitiva do material no GMS/ERP",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +3",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +2",
+        "normativa_nova: +4",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Raias adicionadas: Agente Universitário do Almoxarifado, Chefe da Divisão de Almoxarifado, Div. de Patrimônio, PRAF",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 13",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "motivo": "Documentar o passo a passo do desfazimento de materiais inservíveis (identificação, classificação, articulação com a Div. de Patrimônio, aprovação da PRAF e execução da modalidade), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "formulario"
+  ],
+  "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) rito exato de classificação do material (ocioso, recuperável, antieconômico, irrecuperável) e critérios de escolha da modalidade de desfazimento, inferidos de prática comum de gestão patrimonial pública e não detalhados nas fontes disponíveis; (2) fluxo de articulação com a Div. de Patrimônio para itens com característica de bem permanente.",
+  "fontes_entradas": [
+    "pb-almoxarifado",
+    "1780963200000",
+    "1780963200001"
+  ],
+  "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
+  "agente": "pop-alm-07",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:47:09Z"
+}

@@ -1,0 +1,418 @@
+{
+  "id": "pop-cap-01",
+  "codigo": "CAP-01",
+  "titulo": "Captação de Recursos Externos",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.02-CAP",
+  "sigla": "CAP",
+  "versao": "0.2.1",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "ATDG — Assessoria Técnica da Direção Geral",
+    "departamento": "ATDG — Captação de Recursos",
+    "descricao": "Captação de Recursos Externos — Editais, Fundação Araucária, SETI. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "dominio": "Convênios, Parcerias e Captação",
+    "subdominio": "Captação de Recursos Externos",
+    "tipo_subdominio": "core",
+    "contexto": "S02.02-CAP",
+    "glossario": [
+      {
+        "termo": "Fundação Araucária",
+        "definicao": "Fundação de apoio ao desenvolvimento científico e tecnológico do Estado do Paraná, financiadora de editais de fomento à pesquisa e extensão.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "Conforme calendário de editais de fomento",
+    "normativa": [],
+    "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "01_ADMINISTRATIVO"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_02_CAP[\"S02.02-CAP<br/>ATDG — Captação de Recursos\"]\n  S02_ATDG --> S02_02_CAP\n  P[\"CAP-01<br/>Captação de Recursos Externos\"]\n  S02_02_CAP --> P\n  V1[\"Setor demandante\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Fundação Araucária\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_02_CAP setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Publicação de edital de fomento (Fundação Araucária, SETI ou outro órgão) de interesse do Campus",
+      "origem": "Fundação Araucária"
+    },
+    "entrada": [
+      "Edital de fomento publicado",
+      "Proposta técnica do setor demandante"
+    ],
+    "passos": [
+      {
+        "acao": "Identificar e divulgar editais de fomento de interesse do Campus",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "A definir",
+        "artefato": "Edital de fomento",
+        "prazo": "A definir",
+        "evento": "Edital identificado e divulgado",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Receber a manifestação de interesse do setor demandante em submeter proposta",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Manifestação de interesse",
+        "prazo": "A definir",
+        "evento": "Manifestação recebida",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Orientar a elaboração da proposta técnica conforme as exigências do edital",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Proposta técnica",
+        "prazo": "A definir",
+        "evento": "Proposta orientada",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Conferir a documentação exigida pelo edital antes da submissão",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Checklist de exigências do edital",
+        "prazo": "A definir",
+        "evento": "Documentação conferida",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Submeter a proposta ao órgão de fomento (Fundação Araucária/SETI)",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "A definir",
+        "artefato": "Proposta submetida",
+        "prazo": "A definir",
+        "evento": "Proposta submetida",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Acompanhar o resultado da análise do órgão de fomento",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "A definir",
+        "artefato": "Resultado da análise",
+        "prazo": "A definir",
+        "evento": "Resultado acompanhado",
+        "fontes": [],
+        "n": 6
+      },
+      {
+        "acao": "Registrar o resultado da submissão e comunicar ao setor demandante",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Registro de captação de recursos",
+        "prazo": "A definir",
+        "evento": "Resultado registrado e comunicado",
+        "fontes": [],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Proposta submetida ao edital",
+      "Registro de resultado da submissão (aprovação/reprovação)"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Checklist de exigências do edital",
+      "tipo": "formulario",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "item exigido",
+        "documento correspondente",
+        "situação"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Registro de captação de recursos externos",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "edital",
+        "órgão de fomento",
+        "situação",
+        "valor pleiteado"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A documentação da proposta atende integralmente às exigências do edital?",
+      "condicao": "Checklist de exigências do edital conferido antes da submissão",
+      "sim": "Submeter a proposta ao órgão de fomento",
+      "nao": "Devolver ao setor demandante para complementação da proposta"
+    }
+  ],
+  "pontos_atencao": [
+    "Editais de fomento têm prazos improrrogáveis de submissão — monitorar datas-limite",
+    "Confirmar contrapartida institucional exigida pelo edital antes da submissão"
+  ],
+  "contingencia": [
+    "Prazo do edital próximo do vencimento sem proposta concluída: priorizar a conclusão ou desistir formalmente da submissão",
+    "Documentação exigida pelo edital incompleta: devolver ao setor demandante com prazo interno de regularização",
+    "Proposta reprovada pelo órgão de fomento: registrar os motivos e avaliar nova submissão em edital futuro"
+  ],
+  "checklist": [
+    "Edital de fomento identificado e divulgado ao Campus",
+    "Manifestação de interesse do setor demandante registrada",
+    "Proposta técnica elaborada conforme exigências do edital",
+    "Documentação conferida antes da submissão",
+    "Resultado da submissão registrado e comunicado"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de propostas submetidas dentro do prazo do edital",
+      "formula": "(Propostas submetidas no prazo / total de propostas iniciadas) × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Taxa de aprovação de propostas submetidas a editais de fomento",
+      "formula": "(Propostas aprovadas / total de propostas submetidas) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor demandante",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Proposta técnica para o edital de fomento",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Fundação Araucária",
+      "relacao": "informa",
+      "artefato": "Proposta submetida ao edital",
+      "canal": "A definir"
+    },
+    {
+      "origem": "Fundação Araucária",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "informa",
+      "artefato": "Resultado da análise da proposta",
+      "canal": "A definir"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Publicação de edital de fomento (Fundação Araucária, SETI ou outro ór…\"))\n    e2[\"Identificar e divulgar editais de fomento de interesse do Campus\"]\n    e3[\"Receber a manifestação de interesse do setor demandante em submeter p…\"]\n    e4[\"Orientar a elaboração da proposta técnica conforme as exigências do e…\"]\n    e5[\"Conferir a documentação exigida pelo edital antes da submissão\"]\n    e6[\"Submeter a proposta ao órgão de fomento (Fundação Araucária/SETI)\"]\n    e7[\"Acompanhar o resultado da análise do órgão de fomento\"]\n    e8[\"Registrar o resultado da submissão e comunicar ao setor demandante\"]\n    e9[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e12(((\"Proposta submetida ao edital\")))\n  end\n  subgraph R2[\"Fundação Araucária\"]\n    direction LR\n    e10[[\"✉ Informar Fundação Araucária\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Fundação Araucária"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Publicação de edital de fomento (Fundação Araucária, SETI ou outro órgão) de interesse do Campus",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Identificar e divulgar editais de fomento de interesse do Campus",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Receber a manifestação de interesse do setor demandante em submeter proposta",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Orientar a elaboração da proposta técnica conforme as exigências do edital",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Conferir a documentação exigida pelo edital antes da submissão",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Submeter a proposta ao órgão de fomento (Fundação Araucária/SETI)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Acompanhar o resultado da análise do órgão de fomento",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Registrar o resultado da submissão e comunicar ao setor demandante",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Informar Fundação Araucária",
+        "raia": "Fundação Araucária"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Informar Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e12",
+        "tipo": "fim",
+        "label": "Proposta submetida ao edital",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir do escopo \"Editais, Fundação Araucária, SETI\""
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Identificar e divulgar editais de fomento de interesse do Campus",
+        "Passo adicionado após 1: Receber a manifestação de interesse do setor demandante em submeter proposta",
+        "Passo adicionado após 2: Orientar a elaboração da proposta técnica conforme as exigências do edital",
+        "Passo adicionado após 3: Conferir a documentação exigida pelo edital antes da submissão",
+        "Passo adicionado após 4: Submeter a proposta ao órgão de fomento (Fundação Araucária/SETI)",
+        "Passo adicionado após 5: Acompanhar o resultado da análise do órgão de fomento",
+        "Passo adicionado após 6: Registrar o resultado da submissão e comunicar ao setor demandante",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Captação de Recursos Externos (editais, Fundação Araucária, SETI) a partir do escopo do manual institucional da ATDG."
+    },
+    {
+      "versao": "0.2.1",
+      "data": "2026-09-03",
+      "autor": "agente:curador-diretrizes",
+      "tipo": "patch",
+      "mudancas": [
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "responsavel",
+    "kpi",
+    "formulario",
+    "prazo",
+    "normativa"
+  ],
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de captação de recursos e parcerias em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
+  "fontes_entradas": [],
+  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "agente": "pop-cap-01",
+  "versao_diretrizes": "1.12",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T02:08:02Z"
+}

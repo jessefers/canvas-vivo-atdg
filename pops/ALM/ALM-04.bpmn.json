@@ -1,0 +1,135 @@
+{
+  "setor": "Div. de Almoxarifado",
+  "codigo": "ALM-04",
+  "gerado_em": "2026-09-03T01:51:30Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "ALM-04 — Inventário Rotativo",
+      "descricao": "Realiza contagens periódicas por amostragem dos itens em estoque, comparando o saldo físico ao saldo do GMS/ERP, e ajusta divergências mediante aprovação da Chefia, dentro do checklist de supervisão mensal do Manual de Gestão do Almoxarifado.",
+      "raias": [
+        "Div. de Almoxarifado",
+        "Agente Universitário do Almoxarifado",
+        "Chefe da Divisão de Almoxarifado",
+        "Sec. Financeira/Contabilidade"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Cronograma mensal de contagem (checklist de supervisão)",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Elaborar o cronograma de contagem por amostragem",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Selecionar os itens a serem contados no ciclo",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Contar fisicamente os itens selecionados",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Comparar a contagem física com o saldo no GMS/ERP",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e6",
+          "tipo": "decisao",
+          "label": "Há divergência entre o físico e o sistema?",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Investigar a causa da divergência",
+          "raia": "Agente Universitário do Almoxarifado"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Registrar o ajuste no GMS/ERP mediante aprovação da Chefia",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Divergência relevante comunicada",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Consolidar e arquivar o relatório do ciclo",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e11",
+          "tipo": "fim",
+          "label": "Ciclo de inventário rotativo encerrado",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7",
+          "label": "Sim"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e6",
+          "para": "e10",
+          "label": "Não"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

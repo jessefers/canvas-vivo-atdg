@@ -1,0 +1,129 @@
+{
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "codigo": "CON-04",
+  "gerado_em": "2026-09-03T02:08:02Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "CON-04 — Prestação de Contas de Convênio",
+      "descricao": "Prestação de Contas de Convênio — Financeira e técnica, TCE-PR. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+      "raias": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor demandante",
+        "Direção Geral do Campus",
+        "TCE-PR"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Encerramento da vigência ou do objeto do convênio, exigindo prestação de contas financeira e técnica",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Reunir os comprovantes de despesa e o relatório técnico final de execução",
+          "raia": "Setor demandante"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Conferir a compatibilidade entre despesas realizadas e o plano de trabalho aprovado",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Elaborar a prestação de contas financeira e técnica",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Submeter a prestação de contas à Direção Geral do Campus",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Aprovar a prestação de contas",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Encaminhar a prestação de contas ao órgão concedente/SETI",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Aguardar e responder eventuais diligências do TCE-PR sobre a prestação de contas",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Informar TCE-PR",
+          "raia": "TCE-PR"
+        },
+        {
+          "id": "e11",
+          "tipo": "fim",
+          "label": "Prestação de contas financeira e técnica aprovada",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

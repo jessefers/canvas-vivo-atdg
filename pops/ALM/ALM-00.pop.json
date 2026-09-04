@@ -1,0 +1,433 @@
+{
+  "id": "pop-alm-00",
+  "codigo": "ALM-00",
+  "titulo": "Visão geral — Div. de Almoxarifado",
+  "setor": "Div. de Almoxarifado",
+  "setor_codigo": "S03.04-ALM",
+  "sigla": "ALM",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Almoxarifado",
+    "descricao": "Consolida, para a equipe da Divisão de Almoxarifado e para fins de auditoria (PRAF/TCE-PR), a visão geral dos 8 processos do setor — do recebimento ao desfazimento de materiais de consumo — integrando o Manual de Gestão (regras) e o Manual de Mapeamento de Processos (fluxos e indicadores).",
+    "dominio": "Suprimentos e Materiais",
+    "subdominio": "Visão geral consolidada dos processos do Almoxarifado (playbook)",
+    "tipo_subdominio": "core",
+    "contexto": "S03.04-ALM",
+    "glossario": [
+      {
+        "termo": "GMS/ERP",
+        "definicao": "Sistema de gestão de materiais/ERP institucional usado para registrar recebimento, armazenagem, distribuição, inventário, conciliação e baixa de materiais do Almoxarifado.",
+        "sistema": "GMS/ERP"
+      },
+      {
+        "termo": "PRAF",
+        "definicao": "Instância responsável pela confirmação e acompanhamento da conformidade dos processos de materiais do Almoxarifado, conforme os Manuais de Gestão e de Mapeamento.",
+        "sistema": ""
+      },
+      {
+        "termo": "Playbook do Almoxarifado",
+        "definicao": "Conjunto dos 8 processos operacionais do setor (ALM-01 a ALM-08), descritos em BPMN 2.0 a partir do Manual de Gestão e do Manual de Mapeamento de Processos.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Almoxarifado",
+    "periodicidade": "Consulta contínua; revisão sempre que houver alteração relevante em algum dos 8 processos (ALM-01 a ALM-08)",
+    "normativa": [
+      "Manuais de Gestão e de Mapeamento do Almoxarifado",
+      "legislação federal de materiais",
+      "normativas TCE-PR",
+      "Lei nº 14.133/2021 (Lei de Licitações e Contratos Administrativos), no que for pertinente às contratações que originam os materiais recebidos e ao desfazimento/alienação de bens"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-00<br/>Visão geral — Div. de Almoxarifado\"]\n  S03_04_ALM --> P\n  V1[\"Requisitante/Departamento\"]\n  P -. interface .-> V1\n  V2[\"PRAF\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1,V2 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Necessidade de orientação consolidada sobre o funcionamento do Almoxarifado (integração de servidor, auditoria, revisão de processo)",
+      "origem": "Chefe da Divisão de Almoxarifado, PRAF ou novo servidor do setor"
+    },
+    "entrada": [
+      "Necessidade de consulta ao funcionamento consolidado do Almoxarifado (integração de servidor, auditoria, revisão de processo)"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Recebimento de materiais (conferência da NF, quantitativa e qualitativa, lançamento no GMS/ERP)",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Termo de recebimento / NF conferida (ver ALM-01)",
+        "prazo": "Conforme o POP ALM-01 (a definir)",
+        "evento": "Material conferido e registrado no GMS/ERP",
+        "fontes": [
+          "pb-almoxarifado"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Armazenagem e guarda",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Mapa de estoque (ver ALM-02)",
+        "prazo": "Conforme o POP ALM-02 (a definir)",
+        "evento": "Material armazenado e localizado no mapa de estoque",
+        "fontes": [
+          "pb-almoxarifado"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Distribuição para departamentos",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Requisição de material atendida (ver ALM-03)",
+        "prazo": "Conforme o POP ALM-03 (a definir)",
+        "evento": "Material entregue ao requisitante e baixa registrada",
+        "fontes": [
+          "pb-almoxarifado"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Realizar inventário rotativo (contagem periódica por amostragem) do estoque",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de inventário rotativo (ver ALM-04)",
+        "prazo": "Mensal, conforme checklist de supervisão (POP ALM-04)",
+        "evento": "Divergências do inventário rotativo apuradas e regularizadas",
+        "fontes": [
+          "pb-almoxarifado"
+        ]
+      },
+      {
+        "acao": "Realizar inventário geral anual do estoque físico",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de inventário geral (ver ALM-05)",
+        "prazo": "Anual, conforme o POP ALM-05 (a definir)",
+        "evento": "Inventário geral concluído e relatório emitido",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 5
+      },
+      {
+        "n": 6,
+        "acao": "Conciliação físico-contábil",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de conciliação físico-contábil (ver ALM-06)",
+        "prazo": "Conforme o POP ALM-06 (a definir)",
+        "evento": "Saldos físico e contábil conciliados",
+        "fontes": [
+          "pb-almoxarifado"
+        ]
+      },
+      {
+        "n": 7,
+        "acao": "Desfazimento regulamentado de inservíveis",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Termo de desfazimento (ver ALM-07)",
+        "prazo": "Conforme necessidade, sob o POP ALM-07 (a definir)",
+        "evento": "Baixa de material inservível formalizada",
+        "fontes": [
+          "pb-almoxarifado"
+        ]
+      },
+      {
+        "n": 8,
+        "acao": "Relatórios e prestação de contas",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de prestação de contas (ver ALM-08)",
+        "prazo": "Mensal/anual, conforme o POP ALM-08 (a definir)",
+        "evento": "Relatório de prestação de contas emitido e encaminhado",
+        "fontes": [
+          "pb-almoxarifado"
+        ]
+      }
+    ],
+    "saida": [
+      "Visão consolidada dos 8 processos do Almoxarifado, com remissão aos POPs específicos (ALM-01 a ALM-08)"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Manual de Gestão do Almoxarifado",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [
+        "normas",
+        "responsabilidades",
+        "procedimentos"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+    },
+    {
+      "nome": "Manual de Mapeamento de Processos do Almoxarifado",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [
+        "fluxos",
+        "indicadores",
+        "riscos por processo"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A necessidade envolve um dos 8 processos específicos do Almoxarifado?",
+      "condicao": "Consulta à visão geral (ALM-00)",
+      "sim": "Consultar o POP específico correspondente (ALM-01 a ALM-08)",
+      "nao": "Escalar à Chefia da Divisão de Almoxarifado"
+    }
+  ],
+  "pontos_atencao": [
+    "Material só vai ao armazenamento definitivo após registro no sistema",
+    "Conhecimento obrigatório de toda a equipe do setor",
+    "Sujeito a auditorias e conformidade TCE-PR/PRAF",
+    "Cada um dos 8 processos específicos (ALM-01 a ALM-08) tem responsável, sistema, artefatos e prazo próprios; este documento é apenas a visão consolidada",
+    "Alterações em qualquer processo específico devem ser refletidas nesta visão geral (ALM-00) para evitar divergência entre os documentos"
+  ],
+  "contingencia": [
+    "Indisponibilidade do GMS/ERP: registrar as movimentações provisoriamente em planilha de controle e lançar retroativamente no sistema assim que restabelecido",
+    "Dúvida sobre qual POP específico se aplica a uma situação concreta: consultar a Chefia da Divisão de Almoxarifado antes de agir",
+    "Divergência entre esta visão geral e um POP específico: prevalece o POP específico (ALM-01 a ALM-08); reportar a divergência à Chefia para atualização deste documento"
+  ],
+  "checklist": [
+    "Os 8 processos específicos (ALM-01 a ALM-08) estão referenciados e resumidos nesta visão geral",
+    "Cada processo específico tem POP próprio vigente e acessível à equipe do setor",
+    "Equipe do setor conhece o Manual de Gestão e o Manual de Mapeamento de Processos",
+    "Data de atualização desta visão geral é posterior à última atualização de cada POP específico"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de processos do Almoxarifado com POP aprovado",
+      "formula": "Nº de POPs (ALM-01 a ALM-08) em status aprovado / 8",
+      "meta": "A definir",
+      "fonte": "Canvas Vivo ATDG"
+    },
+    {
+      "indicador": "Percentual de conformidade nas auditorias PRAF/TCE-PR sobre o Almoxarifado",
+      "formula": "Nº de apontamentos sanados / Nº de apontamentos totais no período",
+      "meta": "A definir",
+      "fonte": "Relatórios de auditoria PRAF/TCE-PR"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Requisitante/Departamento",
+      "destino": "Div. de Almoxarifado",
+      "relacao": "fornece",
+      "artefato": "Requisição de material",
+      "canal": "GMS/ERP"
+    },
+    {
+      "origem": "PRAF",
+      "destino": "Div. de Almoxarifado",
+      "relacao": "informa",
+      "artefato": "Diretrizes e resultados de auditoria",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e1((\"Necessidade de orientação consolidada sobre o funcionamento do Almoxa…\"))\n    e2[\"Recebimento de materiais (conferência da NF, quantitativa e qualitati…\"]\n    e3[\"Armazenagem e guarda\"]\n    e4[\"Distribuição para departamentos\"]\n    e5[\"Realizar inventário rotativo (contagem periódica por amostragem) do e…\"]\n    e6[\"Realizar inventário geral anual do estoque físico\"]\n    e7[\"Conciliação físico-contábil\"]\n    e8[\"Desfazimento regulamentado de inservíveis\"]\n    e9[\"Relatórios e prestação de contas\"]\n    e10(((\"Visão consolidada dos 8 processos do Almoxarifado, com remissão aos P…\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e10 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Chefe da Divisão de Almoxarifado"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Necessidade de orientação consolidada sobre o funcionamento do Almoxarifado (integração de servidor, auditoria, revisão de processo)",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Recebimento de materiais (conferência da NF, quantitativa e qualitativa, lançamento no GMS/ERP)",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Armazenagem e guarda",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Distribuição para departamentos",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Realizar inventário rotativo (contagem periódica por amostragem) do estoque",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Realizar inventário geral anual do estoque físico",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Conciliação físico-contábil",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Desfazimento regulamentado de inservíveis",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Relatórios e prestação de contas",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e10",
+        "tipo": "fim",
+        "label": "Visão consolidada dos 8 processos do Almoxarifado, com remissão aos POPs específicos (ALM-01 a ALM-08)",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-almoxarifado"
+      ],
+      "fontes": [
+        "pb-almoxarifado"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote ALM)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 5 alterado (responsavel, sistema, artefato, prazo, evento)",
+        "Passo 6 alterado (responsavel, sistema, artefato, prazo, evento)",
+        "Passo 7 alterado (responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 4: Realizar inventário geral anual do estoque físico",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +3",
+        "normativa_nova: +1",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "motivo": "Completar a visão geral do Almoxarifado (responsável, gatilho, entradas/saídas, KPIs, contingência, checklist e mapa de contexto) a partir do playbook e dos dois manuais institucionais do setor, alinhando os 8 passos macro 1:1 com os POPs ALM-01 a ALM-08."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "formulario"
+  ],
+  "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) atribuição da Chefia como responsável único desta visão geral (os 8 processos específicos podem ter responsáveis distintos, definidos em cada POP ALM-01 a ALM-08); (2) uso do e-Protocolo como canal padrão de comunicação com a PRAF, não citado nominalmente pelos manuais-fonte; (3) desmembramento do passo original \"Inventário rotativo e geral\" em dois passos distintos (rotativo e geral), para alinhar 1:1 com os POPs ALM-04 e ALM-05.",
+  "fontes_entradas": [
+    "pb-almoxarifado",
+    "1780963200000",
+    "1780963200001"
+  ],
+  "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
+  "agente": "pop-alm-00",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:34:48Z"
+}

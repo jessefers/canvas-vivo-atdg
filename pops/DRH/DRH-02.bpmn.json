@@ -1,0 +1,58 @@
+{
+  "setor": "Div. de Recursos Humanos",
+  "codigo": "DRH-02",
+  "gerado_em": "2026-09-03T02:08:03Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DRH-02 — Registro e apuração de frequência (ponto eletrônico)",
+      "descricao": "Registro diário do ponto eletrônico, apuração semanal pela chefia imediata e comunicação de falhas/justificativas em até 48h via e-Protocolo, conforme IS 001/2024-DRH/Foz e Instrução 002/2019.",
+      "raias": [
+        "Div. de Recursos Humanos",
+        "Div. de Recursos Humanos ↔ Chefia imediata",
+        "Div. de Recursos Humanos ↔ Servidor"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Início da jornada de trabalho do servidor",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e2",
+          "tipo": "captura",
+          "label": "Informar Div. de Recursos Humanos ↔ Chefia imediata",
+          "raia": "Div. de Recursos Humanos ↔ Chefia imediata"
+        },
+        {
+          "id": "e3",
+          "tipo": "captura",
+          "label": "Informar Div. de Recursos Humanos ↔ Servidor",
+          "raia": "Div. de Recursos Humanos ↔ Servidor"
+        },
+        {
+          "id": "e4",
+          "tipo": "fim",
+          "label": "Frequência apurada e eventuais falhas justificadas e registradas dentro do prazo",
+          "raia": "Div. de Recursos Humanos"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

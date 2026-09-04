@@ -1,0 +1,217 @@
+{
+  "setor": "Div. de Licitação",
+  "codigo": "DLIC-00",
+  "gerado_em": "2026-09-03T02:05:27Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DLIC-00 — Visão geral — Div. de Licitação",
+      "descricao": "Coordena o ciclo de aquisições e contratações da Unioeste Foz, do Termo de Referência à autorização da Direção Geral, licitação, formalização do contrato, emissão de portarias de Gestor e Fiscal e acompanhamento da execução até o encerramento da vigência, nos termos da Lei nº 14.133/2021 e das normas internas da Unioeste.",
+      "raias": [
+        "Div. de Licitação",
+        "Requisitante",
+        "Direção Geral",
+        "Sec. Financeira/Contabilidade",
+        "Planejamento",
+        "Gestor/Fiscal do contrato"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Recebimento de demanda de aquisição ou contratação de serviço",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Elaborar o TR e realizar cotações de preços",
+          "raia": "Requisitante"
+        },
+        {
+          "id": "e3",
+          "tipo": "captura",
+          "label": "Encaminhar TR e cotações à Direção Geral",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e4",
+          "tipo": "decisao",
+          "label": "Direção Geral autoriza o TR e as cotações?",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Catalogar o item/serviço no GMS",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Realizar pesquisa de preços de mercado",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Encaminhar elementos de despesa à Sec. Financeira/Contabilidade",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Indicar elementos de despesa e elaborar a DDF",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Elaborar o edital e cadastrar no GMS e ComprasNet/PNCP",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Conduzir a sessão pública e apurar o resultado",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Gerar o contrato e verificar regularidade fiscal",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e12",
+          "tipo": "atividade",
+          "label": "Publicar o contrato assinado no DIOE",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e13",
+          "tipo": "captura",
+          "label": "Encaminhar processo à Direção Geral para portarias",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e14",
+          "tipo": "atividade",
+          "label": "Emitir e publicar as portarias de Gestor e Fiscal",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e15",
+          "tipo": "captura",
+          "label": "Encaminhar contrato e portarias ao Planejamento",
+          "raia": "Planejamento"
+        },
+        {
+          "id": "e16",
+          "tipo": "atividade",
+          "label": "Registrar o contrato e as portarias no Planejamento (GMS)",
+          "raia": "Planejamento"
+        },
+        {
+          "id": "e17",
+          "tipo": "captura",
+          "label": "Informar Gestor e Fiscal do contrato assinado",
+          "raia": "Gestor/Fiscal do contrato"
+        },
+        {
+          "id": "e18",
+          "tipo": "atividade",
+          "label": "Acompanhar execução, entregas e notas fiscais",
+          "raia": "Gestor/Fiscal do contrato"
+        },
+        {
+          "id": "e19",
+          "tipo": "fim",
+          "label": "Execução contratual encerrada",
+          "raia": "Gestor/Fiscal do contrato"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5",
+          "label": "Sim"
+        },
+        {
+          "de": "e4",
+          "para": "e2",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        },
+        {
+          "de": "e15",
+          "para": "e16"
+        },
+        {
+          "de": "e16",
+          "para": "e17"
+        },
+        {
+          "de": "e17",
+          "para": "e18"
+        },
+        {
+          "de": "e18",
+          "para": "e19"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

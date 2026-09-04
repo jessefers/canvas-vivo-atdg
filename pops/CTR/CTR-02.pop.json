@@ -1,0 +1,388 @@
+{
+  "id": "pop-ctr-02",
+  "codigo": "CTR-02",
+  "titulo": "Compliance Institucional",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.03-CTR",
+  "sigla": "CTR",
+  "versao": "0.2.1",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "ATDG — Assessoria Técnica da Direção Geral",
+    "departamento": "ATDG — Controladoria e Compliance",
+    "descricao": "Compliance Institucional — Riscos, planos de mitigação, monitoramento. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "dominio": "Controladoria, Compliance e Riscos",
+    "subdominio": "Compliance Institucional",
+    "tipo_subdominio": "core",
+    "contexto": "S02.03-CTR",
+    "glossario": [
+      {
+        "termo": "Matriz de riscos",
+        "definicao": "Instrumento que registra, classifica por probabilidade e impacto, e acompanha os riscos de conformidade institucional.",
+        "sistema": "OneDrive ATDG"
+      },
+      {
+        "termo": "Compliance institucional",
+        "definicao": "Conjunto de práticas voltadas à conformidade da instituição com normas legais e institucionais.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "Contínuo/sob demanda",
+    "normativa": [],
+    "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "02_CONTROLADORIA"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_03_CTR[\"S02.03-CTR<br/>ATDG — Controladoria e Compliance\"]\n  S02_ATDG --> S02_03_CTR\n  P[\"CTR-02<br/>Compliance Institucional\"]\n  S02_03_CTR --> P\n  V1[\"Setor demandante\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_03_CTR setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Identificação de risco de conformidade ou de não conformidade institucional pela ATDG, por setor ou por órgão de controle",
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    "entrada": [
+      "Risco ou não conformidade identificado",
+      "Matriz de riscos institucionais vigente"
+    ],
+    "passos": [
+      {
+        "acao": "Registrar o risco ou a não conformidade identificado",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Matriz de riscos",
+        "prazo": "A definir",
+        "evento": "Risco registrado",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Avaliar a probabilidade e o impacto do risco/não conformidade",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Matriz de riscos",
+        "prazo": "A definir",
+        "evento": "Risco avaliado",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Elaborar o plano de mitigação com o setor responsável",
+        "responsavel": "Setor demandante",
+        "sistema": "e-Protocolo",
+        "artefato": "Plano de mitigação",
+        "prazo": "A definir",
+        "evento": "Plano elaborado",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Submeter o plano de mitigação à Direção Geral do Campus para aprovação",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Plano de mitigação",
+        "prazo": "A definir",
+        "evento": "Plano submetido",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Monitorar a implementação das ações de mitigação",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Registro de monitoramento",
+        "prazo": "A definir",
+        "evento": "Implementação monitorada",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Atualizar a matriz de riscos institucionais com o resultado do monitoramento",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Matriz de riscos",
+        "prazo": "A definir",
+        "evento": "Matriz atualizada",
+        "fontes": [],
+        "n": 6
+      }
+    ],
+    "saida": [
+      "Plano de mitigação de risco/não conformidade aprovado",
+      "Matriz de riscos institucionais atualizada"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Matriz de riscos institucionais",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "risco",
+        "probabilidade",
+        "impacto",
+        "criticidade",
+        "status"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Plano de mitigação de risco",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "risco",
+        "ações de mitigação",
+        "responsável",
+        "prazo"
+      ],
+      "responsavel_preenchimento": "Setor demandante"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "O plano de mitigação foi implementado dentro do prazo definido?",
+      "condicao": "Monitoramento da implementação das ações de mitigação",
+      "sim": "Atualizar a matriz de riscos como risco mitigado/monitorado",
+      "nao": "Notificar o setor responsável e reavaliar o plano de mitigação"
+    }
+  ],
+  "pontos_atencao": [
+    "Priorizar riscos de maior probabilidade e impacto na alocação de esforços de mitigação",
+    "Compliance institucional deve dialogar com os achados de auditorias do TCE-PR (CTR-01) e da fiscalização externa (CTR-04)"
+  ],
+  "contingencia": [
+    "Setor responsável não implementa o plano de mitigação no prazo: escalar à Direção Geral do Campus",
+    "Risco se concretiza antes da conclusão da mitigação: acionar plano de contingência específico e comunicar a Direção Geral",
+    "Matriz de riscos desatualizada em relação à estrutura do Campus: revisar em conjunto com o mapeamento de processos (MAP)"
+  ],
+  "checklist": [
+    "Risco ou não conformidade registrado na matriz de riscos",
+    "Probabilidade e impacto do risco avaliados",
+    "Plano de mitigação elaborado com o setor responsável",
+    "Plano de mitigação aprovado pela Direção Geral",
+    "Implementação monitorada e matriz de riscos atualizada"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de riscos com plano de mitigação implementado no prazo",
+      "formula": "(Riscos mitigados no prazo / total de riscos com plano aprovado) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    },
+    {
+      "indicador": "Número de riscos de alta criticidade em aberto na matriz de riscos",
+      "formula": "Contagem de riscos com criticidade alta e status em aberto",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor demandante",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Informações sobre o risco/não conformidade identificado",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "aprova",
+      "artefato": "Plano de mitigação de risco",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Identificação de risco de conformidade ou de não conformidade institu…\"))\n    e2[\"Registrar o risco ou a não conformidade identificado\"]\n    e3[\"Avaliar a probabilidade e o impacto do risco/não conformidade\"]\n    e5[\"Submeter o plano de mitigação à Direção Geral do Campus para aprovação\"]\n    e6[\"Monitorar a implementação das ações de mitigação\"]\n    e7[\"Atualizar a matriz de riscos institucionais com o resultado do monito…\"]\n    e8[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10(((\"Plano de mitigação de risco/não conformidade aprovado\")))\n  end\n  subgraph R2[\"Setor demandante\"]\n    direction LR\n    e4[\"Elaborar o plano de mitigação com o setor responsável\"]\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e9[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9 captura\n  class e10 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor demandante",
+      "Direção Geral do Campus"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Identificação de risco de conformidade ou de não conformidade institucional pela ATDG, por setor ou por órgão de controle",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Registrar o risco ou a não conformidade identificado",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Avaliar a probabilidade e o impacto do risco/não conformidade",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Elaborar o plano de mitigação com o setor responsável",
+        "raia": "Setor demandante"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Submeter o plano de mitigação à Direção Geral do Campus para aprovação",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Monitorar a implementação das ações de mitigação",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Atualizar a matriz de riscos institucionais com o resultado do monitoramento",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Aprovação por Direção Geral do Campus",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e10",
+        "tipo": "fim",
+        "label": "Plano de mitigação de risco/não conformidade aprovado",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir do escopo \"Riscos, planos de mitigação, monitoramento\""
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Registrar o risco ou a não conformidade identificado",
+        "Passo adicionado após 1: Avaliar a probabilidade e o impacto do risco/não conformidade",
+        "Passo adicionado após 2: Elaborar o plano de mitigação com o setor responsável",
+        "Passo adicionado após 3: Submeter o plano de mitigação à Direção Geral do Campus para aprovação",
+        "Passo adicionado após 4: Monitorar a implementação das ações de mitigação",
+        "Passo adicionado após 5: Atualizar a matriz de riscos institucionais com o resultado do monitoramento",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +2",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Compliance Institucional (riscos, planos de mitigação, monitoramento) a partir do escopo do manual institucional da ATDG."
+    },
+    {
+      "versao": "0.2.1",
+      "data": "2026-09-03",
+      "autor": "agente:curador-diretrizes",
+      "tipo": "patch",
+      "mudancas": [
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "responsavel",
+    "kpi",
+    "formulario",
+    "prazo",
+    "normativa"
+  ],
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
+  "fontes_entradas": [],
+  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "agente": "pop-ctr-02",
+  "versao_diretrizes": "1.12",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T02:08:02Z"
+}

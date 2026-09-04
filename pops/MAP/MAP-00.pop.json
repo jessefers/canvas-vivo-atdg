@@ -1,0 +1,469 @@
+{
+  "id": "pop-map-00",
+  "codigo": "MAP-00",
+  "titulo": "Visão geral — ATDG — Mapeamento de Processos",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.06-MAP",
+  "sigla": "MAP",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "ATDG — Assessoria Técnica da Direção Geral",
+    "departamento": "ATDG — Mapeamento de Processos",
+    "descricao": "Conduz o ciclo de Mapeamento de Processos do Campus: define escopo, levanta setores/funções, aplica checklist (Microsoft Forms), consolida respostas e elabora POP/IT/Manual/Fluxo de cada processo, validados pelo setor respondente.",
+    "dominio": "Assessoria Técnica e Gestão por Processos",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "core",
+    "contexto": "S02.06-MAP",
+    "glossario": [
+      {
+        "termo": "Checklist de atividades",
+        "definicao": "Questionário aplicado via Microsoft Forms para levantar as atividades exercidas por cada função do Campus.",
+        "sistema": "Microsoft Forms"
+      },
+      {
+        "termo": "Setor respondente",
+        "definicao": "Setor, colegiado ou função que responde ao checklist e valida o conteúdo do processo mapeado.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+    "periodicidade": "Por ciclo do projeto de Mapeamento de Processos",
+    "normativa": [
+      "Projeto de Mapeamento de Processos — ATDG",
+      "Plano Diretor Unioeste 2017-2026",
+      "Estatuto (Res. 017/99-COU)",
+      "Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)"
+    ],
+    "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_06_MAP[\"S02.06-MAP<br/>ATDG — Mapeamento de Processos\"]\n  S02_ATDG --> S02_06_MAP\n  P[\"MAP-00<br/>Visão geral — ATDG — Mapeamento de Processos\"]\n  S02_06_MAP --> P\n  V1[\"Setor respondente\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_06_MAP setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Definição, pela Direção Geral ou pela ATDG, do início ou de novo ciclo do projeto de Mapeamento de Processos do Campus",
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    "entrada": [
+      "Organograma do Campus e relação de setores, cargos e funções",
+      "Formulário/checklist de levantamento (Microsoft Forms)",
+      "Respostas dos setores/colegiados ao checklist"
+    ],
+    "passos": [
+      {
+        "acao": "Definir com a Direção Geral o escopo e o cronograma do ciclo de mapeamento",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Cronograma do projeto de mapeamento",
+        "prazo": "A definir",
+        "evento": "Escopo e cronograma definidos",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 1
+      },
+      {
+        "n": 2,
+        "acao": "Levantar setores, cargos, funções e quantitativo de servidores",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Relação de setores, cargos e funções",
+        "prazo": "A definir",
+        "evento": "Levantamento concluído",
+        "fontes": [
+          "pb-atdg"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Aplicar checklist/questionário por função (Microsoft Forms)",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "Microsoft Forms",
+        "artefato": "Checklist de atividades por função",
+        "prazo": "A definir",
+        "evento": "Checklist aplicado",
+        "fontes": [
+          "pb-atdg"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Consolidar e padronizar as respostas",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Planilha consolidada de respostas",
+        "prazo": "A definir",
+        "evento": "Respostas consolidadas",
+        "fontes": [
+          "pb-atdg"
+        ]
+      },
+      {
+        "n": 5,
+        "acao": "Elaborar POP, Instrução de Trabalho, Manual e Fluxos de cada processo",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "POP/IT/Manual/Fluxo",
+        "prazo": "A definir",
+        "evento": "Documento elaborado",
+        "fontes": [
+          "pb-atdg"
+        ]
+      },
+      {
+        "acao": "Submeter os documentos elaborados à validação do setor respondente",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "POP/IT/Manual/Fluxo em validação",
+        "prazo": "A definir",
+        "evento": "Documento submetido à validação",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Validar o conteúdo do processo mapeado",
+        "responsavel": "Setor respondente",
+        "sistema": "OneDrive ATDG",
+        "artefato": "POP/IT/Manual/Fluxo validado",
+        "prazo": "A definir",
+        "evento": "Conteúdo validado",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Consolidar os documentos validados no Manual de Gestão de Processos do Campus",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Manual de Gestão de Processos",
+        "prazo": "A definir",
+        "evento": "Manual atualizado",
+        "fontes": [
+          "pb-atdg"
+        ],
+        "n": 8
+      }
+    ],
+    "saida": [
+      "POP, Instrução de Trabalho, Manual e Fluxo de cada processo mapeado",
+      "Manual de Gestão de Processos do Campus Foz consolidado"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Checklist de atividades por função",
+      "tipo": "formulario",
+      "sistema": "Microsoft Forms",
+      "campos_chave": [
+        "setor",
+        "cargo",
+        "função",
+        "chefia imediata",
+        "atividades por periodicidade"
+      ],
+      "responsavel_preenchimento": "Setor respondente"
+    },
+    {
+      "nome": "Planilha consolidada de respostas do mapeamento",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "setor",
+        "curso/centro",
+        "cargo",
+        "função",
+        "atividades declaradas"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "O setor respondente valida o conteúdo do processo mapeado (POP/IT/Manual/Fluxo)?",
+      "condicao": "Documento elaborado pela ATDG a partir das respostas consolidadas do checklist",
+      "sim": "Consolidar o documento no Manual de Gestão de Processos do Campus",
+      "nao": "Revisar o documento com o setor respondente e reencaminhar para nova validação"
+    }
+  ],
+  "pontos_atencao": [
+    "Dados pessoais dos respondentes (LGPD)",
+    "Controlar versionamento (há artefatos 'em elaboração' e cópias)",
+    "Manter os contatos por função atualizados",
+    "Coleta de dados pessoais de servidores respondentes exige tratamento conforme a LGPD (Lei nº 13.709/2018)"
+  ],
+  "contingencia": [
+    "Setor não responde ao checklist no prazo: reiterar contato por meio da chefia imediata",
+    "Respostas divergentes de servidores da mesma função: consolidar com o setor respondente antes de padronizar",
+    "Versão de planilha de consolidação corrompida ou desatualizada: recuperar a partir da versão anterior controlada no OneDrive ATDG"
+  ],
+  "checklist": [
+    "Escopo e cronograma do ciclo de mapeamento definidos",
+    "Checklist aplicado a todos os setores/funções do escopo",
+    "Respostas consolidadas e padronizadas",
+    "Documento (POP/IT/Manual/Fluxo) validado pelo setor respondente",
+    "Dados pessoais dos respondentes tratados conforme a LGPD"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de setores/funções com checklist respondido",
+      "formula": "(Funções respondidas / total de funções do escopo) × 100",
+      "meta": "A definir",
+      "fonte": "Microsoft Forms"
+    },
+    {
+      "indicador": "Percentual de processos mapeados com documento validado pelo setor respondente",
+      "formula": "(Processos validados / total de processos mapeados) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor respondente",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Respostas do checklist/questionário (Microsoft Forms)",
+      "canal": "Microsoft Forms"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Setor respondente",
+      "relacao": "valida",
+      "artefato": "POP/IT/Manual/Fluxo elaborado",
+      "canal": "OneDrive ATDG"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "informa",
+      "artefato": "Manual de Gestão de Processos consolidado",
+      "canal": "OneDrive ATDG"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Escopo do ciclo de mapeamento definido\"))\n    e2[\"Levantar setores, cargos, funções e quantitativo de servidores\"]\n    e4[\"Consolidar e padronizar as respostas\"]\n    e5[\"Elaborar POP, Instrução de Trabalho, Manual e Fluxo do processo\"]\n    e8[\"Revisar documento conforme observações do setor\"]\n    e9[\"Consolidar documento validado no Manual de Gestão de Processos\"]\n  end\n  subgraph R2[\"Setor respondente\"]\n    direction LR\n    e3[[\"✉ Receber e responder o checklist (Microsoft Forms)\"]]\n    e6[[\"✉ Submeter documento para validação\"]]\n    e7{\"Setor respondente valida o conteúdo?\"}\n  end\n  subgraph R3[\"Direção Geral do Campus\"]\n    direction LR\n    e10[[\"✉ Informar Direção Geral sobre o Manual consolidado\"]]\n    e11(((\"Ciclo de mapeamento concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 -- Não --> e8\n  e8 --> e6\n  e7 -- Sim --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e5,e8,e9 atividade\n  class e3,e6,e10 captura\n  class e7 decisao\n  class e11 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor respondente",
+      "Direção Geral do Campus"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Escopo do ciclo de mapeamento definido",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Levantar setores, cargos, funções e quantitativo de servidores",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "captura",
+        "label": "Receber e responder o checklist (Microsoft Forms)",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Consolidar e padronizar as respostas",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Elaborar POP, Instrução de Trabalho, Manual e Fluxo do processo",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "captura",
+        "label": "Submeter documento para validação",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e7",
+        "tipo": "decisao",
+        "label": "Setor respondente valida o conteúdo?",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Revisar documento conforme observações do setor",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Consolidar documento validado no Manual de Gestão de Processos",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Informar Direção Geral sobre o Manual consolidado",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e11",
+        "tipo": "fim",
+        "label": "Ciclo de mapeamento concluído",
+        "raia": "Direção Geral do Campus"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8",
+        "label": "Não"
+      },
+      {
+        "de": "e8",
+        "para": "e6"
+      },
+      {
+        "de": "e7",
+        "para": "e9",
+        "label": "Sim"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-atdg"
+      ],
+      "fontes": [
+        "pb-atdg"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 4 alterado (responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 0: Definir com a Direção Geral o escopo e o cronograma do ciclo de mapeamento",
+        "Passo adicionado após 4: Submeter os documentos elaborados à validação do setor respondente",
+        "Passo adicionado após 5: Validar o conteúdo do processo mapeado",
+        "Passo adicionado após 6: Consolidar os documentos validados no Manual de Gestão de Processos do Campus",
+        "entrada_nova: +3",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +1",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +2",
+        "normativa_nova: +2",
+        "Campo ddd.descricao atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Assessoria Técnica da Direção Geral (ATDG), Setor respondente, Direção Geral do Campus",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 11",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-atdg",
+        "1780963200014",
+        "1780963200015",
+        "1780963200016",
+        "1780963200017",
+        "1780963200031",
+        "1780963200034",
+        "1780963200035"
+      ],
+      "motivo": "Consolidação do playbook geral do projeto de Mapeamento de Processos da ATDG, incluindo definição de escopo, validação do conteúdo pelo setor respondente e consolidação no Manual de Gestão de Processos."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "prazo",
+    "dados_pessoais_lgpd"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-atdg",
+    "1780963200014",
+    "1780963200015",
+    "1780963200016",
+    "1780963200017",
+    "1780963200031",
+    "1780963200034",
+    "1780963200035"
+  ],
+  "hash_fontes": "6c982fb325ddd4b7b97aceb1dbec7478108f12d6f92890ed31787a8febc505a2",
+  "agente": "pop-map-00",
+  "versao_diretrizes": "1.8",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T02:01:04Z"
+}

@@ -1,0 +1,69 @@
+{
+  "setor": "Colegiado de Curso",
+  "codigo": "COLEG-02",
+  "gerado_em": "2026-09-03T02:08:03Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "COLEG-02 — Gestão acadêmica da coordenação de curso",
+      "descricao": "Gestão acadêmica no Academus (planos de ensino, matrícula, notas, horários e distribuição de disciplinas), condução do Colegiado e do NDE e deliberações via e-Protocolo (transferências, segunda chamada, dispensa, exercício domiciliar), conforme o art. 41 do Estatuto e o Regimento de Cursos.",
+      "raias": [
+        "Colegiado de Curso",
+        "PROGRAD",
+        "Direção de Centro",
+        "Docentes"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Pauta de reunião do Colegiado/NDE, marco do calendário acadêmico ou solicitação de deliberação",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e2",
+          "tipo": "captura",
+          "label": "Informar PROGRAD",
+          "raia": "PROGRAD"
+        },
+        {
+          "id": "e3",
+          "tipo": "captura",
+          "label": "Informar Direção de Centro",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e4",
+          "tipo": "captura",
+          "label": "Informar Docentes",
+          "raia": "Docentes"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Gestão acadêmica do período concluída no Academus e deliberações do Colegiado/NDE registradas em ata",
+          "raia": "Colegiado de Curso"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

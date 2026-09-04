@@ -1,0 +1,406 @@
+{
+  "id": "pop-bib-00",
+  "codigo": "BIB-00",
+  "titulo": "Visão geral — Biblioteca",
+  "setor": "Biblioteca",
+  "setor_codigo": "S06-BIB",
+  "sigla": "BIB",
+  "versao": "0.2.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Biblioteca",
+    "departamento": "Biblioteca",
+    "descricao": "Estabelece o roteiro de coleta para o mapeamento das rotinas da Biblioteca do Campus (circulação, referência, preservação e conservação do acervo), a ser aplicado pela ATDG até que a área tenha responsável, fluxos e normas formalmente definidos.",
+    "dominio": "Informação e Acervo",
+    "subdominio": "Roteiro de coleta para mapeamento de processos (setor ainda não mapeado)",
+    "tipo_subdominio": "suporte",
+    "contexto": "S06-BIB",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [
+      "A definir (regulamentos do Sistema de Bibliotecas da Unioeste)"
+    ],
+    "subordinacao": "Direção Geral de Campus",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S06_BIB[\"S06-BIB<br/>Biblioteca\"]\n  S01_DG --> S06_BIB\n  P[\"BIB-00<br/>Visão geral — Biblioteca\"]\n  S06_BIB --> P\n  V1[\"ATDG — Assessoria Técnica da Direção Geral\"]\n  P -. interface .-> V1\n  V2[\"Div. Circulação, Referência e Acervo\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S06_BIB setor\n  class P destaque\n  class V1,V2 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Inclusão da Biblioteca no cronograma de mapeamento de processos da ATDG",
+      "origem": "ATDG — Assessoria Técnica da Direção Geral"
+    },
+    "entrada": [
+      "Cronograma de mapeamento de processos da ATDG, com o questionário de atividades a ser respondido pela Biblioteca",
+      "Contato institucional da Chefia da Biblioteca"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Levantar, junto à Chefia da Biblioteca, as atividades e rotinas do setor",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "Roteiro de coleta preenchido",
+        "prazo": "A definir",
+        "evento": "Atividades e rotinas levantadas",
+        "fontes": [
+          "pb-biblioteca"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Mapear os fluxos e os responsáveis por etapa das rotinas identificadas",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "Esboço de fluxo por rotina",
+        "prazo": "A definir",
+        "evento": "Fluxos e responsáveis mapeados",
+        "fontes": [
+          "pb-biblioteca"
+        ]
+      },
+      {
+        "n": 3,
+        "acao": "Identificar as normas aplicáveis e os pontos de atenção do setor",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "Lista de normas e pontos de atenção",
+        "prazo": "A definir",
+        "evento": "Normas e pontos de atenção identificados",
+        "fontes": [
+          "pb-biblioteca"
+        ]
+      },
+      {
+        "acao": "Aplicar questionário de mapeamento de atividades à Chefia da Biblioteca e à Divisão de Circulação, Referência e Acervo",
+        "responsavel": "A definir",
+        "sistema": "Microsoft Forms",
+        "artefato": "Questionário de mapeamento de atividades",
+        "prazo": "A definir",
+        "evento": "Questionário aplicado",
+        "fontes": [
+          "pb-biblioteca"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Consolidar as respostas do questionário e as evidências documentais coletadas",
+        "responsavel": "A definir",
+        "sistema": "Microsoft Forms",
+        "artefato": "Planilha de consolidação de respostas",
+        "prazo": "A definir",
+        "evento": "Respostas consolidadas",
+        "fontes": [
+          "pb-biblioteca"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Elaborar playbook preliminar da Biblioteca com as lacunas identificadas",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "Playbook preliminar",
+        "prazo": "A definir",
+        "evento": "Playbook preliminar elaborado",
+        "fontes": [
+          "pb-biblioteca"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para validação",
+        "responsavel": "A definir",
+        "sistema": "",
+        "artefato": "Playbook preliminar validado",
+        "prazo": "A definir",
+        "evento": "Roteiro validado pela Chefia",
+        "fontes": [
+          "pb-biblioteca"
+        ],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Roteiro de coleta aplicado, com respostas e evidências documentais consolidadas",
+      "Playbook preliminar da Biblioteca submetido à validação da Chefia"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Questionário de mapeamento de atividades — Biblioteca",
+      "tipo": "formulario",
+      "sistema": "Microsoft Forms",
+      "campos_chave": [
+        "atividade",
+        "frequência",
+        "sistema utilizado",
+        "norma aplicável"
+      ],
+      "responsavel_preenchimento": "Bibliotecário(a)/Chefia da Divisão"
+    },
+    {
+      "nome": "Playbook preliminar — Biblioteca",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [
+        "atividades levantadas",
+        "fluxos",
+        "lacunas"
+      ],
+      "responsavel_preenchimento": "ATDG — Assessoria Técnica da Direção Geral"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A Chefia da Biblioteca validou o playbook preliminar?",
+      "condicao": "Análise da Chefia da Biblioteca sobre o conteúdo levantado no roteiro de coleta",
+      "sim": "Consolidar o playbook preliminar como base para a elaboração do POP definitivo da Biblioteca",
+      "nao": "Retornar à Chefia para complementação das informações e reaplicar o questionário nos pontos pendentes"
+    }
+  ],
+  "pontos_atencao": [
+    "Área ainda não mapeada — playbook em construção",
+    "Setor ainda não possui responsável formalmente designado nem normativa própria além do regulamento do Sistema de Bibliotecas (a definir).",
+    "Enquanto o roteiro de coleta não for concluído, este documento não substitui um POP operacional da Biblioteca."
+  ],
+  "contingencia": [
+    "Se a Chefia da Biblioteca não responder ao questionário no prazo combinado, a ATDG reenvia o formulário e registra o atraso nas lacunas do setor.",
+    "Se não houver Chefia formalmente designada no momento da coleta, aplicar o questionário ao servidor indicado pela Direção Geral do Campus como responsável interino.",
+    "Se as evidências coletadas forem insuficientes para elaborar o playbook preliminar, registrar a lacuna e agendar nova rodada de coleta."
+  ],
+  "checklist": [
+    "Cronograma de mapeamento da Biblioteca confirmado com a ATDG",
+    "Questionário de mapeamento de atividades aplicado à Chefia da Biblioteca",
+    "Respostas e evidências consolidadas em planilha",
+    "Playbook preliminar elaborado e submetido à validação da Chefia"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de questionários de mapeamento respondidos pela Biblioteca",
+      "formula": "Questionários respondidos / questionários aplicados × 100",
+      "meta": "A definir",
+      "fonte": "Microsoft Forms"
+    },
+    {
+      "indicador": "Prazo decorrido até a validação do playbook preliminar pela Chefia",
+      "formula": "Data de validação − data de aplicação do questionário",
+      "meta": "A definir",
+      "fonte": "Registro da ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Biblioteca",
+      "destino": "ATDG — Assessoria Técnica da Direção Geral",
+      "relacao": "fornece",
+      "artefato": "Respostas do questionário de mapeamento e evidências documentais",
+      "canal": "Microsoft Forms"
+    },
+    {
+      "origem": "Biblioteca",
+      "destino": "Div. Circulação, Referência e Acervo",
+      "relacao": "informa",
+      "artefato": "Diretrizes e prioridades do roteiro de coleta",
+      "canal": "Reunião/e-mail institucional"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Biblioteca\"]\n    direction LR\n    e1((\"Inclusão da Biblioteca no cronograma de mapeamento de processos da AT…\"))\n    e2[\"Levantar, junto à Chefia da Biblioteca, as atividades e rotinas do se…\"]\n    e3[\"Mapear os fluxos e os responsáveis por etapa das rotinas identificadas\"]\n    e4[\"Identificar as normas aplicáveis e os pontos de atenção do setor\"]\n    e5[\"Aplicar questionário de mapeamento de atividades à Chefia da Bibliote…\"]\n    e6[\"Consolidar as respostas do questionário e as evidências documentais c…\"]\n    e7[\"Elaborar playbook preliminar da Biblioteca com as lacunas identificad…\"]\n    e8[\"Submeter o roteiro de coleta e o playbook preliminar à Chefia da Bibl…\"]\n    e11(((\"Roteiro de coleta aplicado, com respostas e evidências documentais co…\")))\n  end\n  subgraph R2[\"ATDG — Assessoria Técnica da Direção Geral\"]\n    direction LR\n    e9[[\"✉ Encaminhar a ATDG — Assessoria Técnica da Direção Geral\"]]\n  end\n  subgraph R3[\"Div. Circulação, Referência e Acervo\"]\n    direction LR\n    e10[[\"✉ Informar Div. Circulação, Referência e Acervo\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10 captura\n  class e11 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Biblioteca",
+      "ATDG — Assessoria Técnica da Direção Geral",
+      "Div. Circulação, Referência e Acervo"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Inclusão da Biblioteca no cronograma de mapeamento de processos da ATDG",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Levantar, junto à Chefia da Biblioteca, as atividades e rotinas do setor",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Mapear os fluxos e os responsáveis por etapa das rotinas identificadas",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Identificar as normas aplicáveis e os pontos de atenção do setor",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Aplicar questionário de mapeamento de atividades à Chefia da Biblioteca e à Divisão de Circulação, Referência e Acervo",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Consolidar as respostas do questionário e as evidências documentais coletadas",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Elaborar playbook preliminar da Biblioteca com as lacunas identificadas",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para validação",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar a ATDG — Assessoria Técnica da Direção Geral",
+        "raia": "ATDG — Assessoria Técnica da Direção Geral"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Informar Div. Circulação, Referência e Acervo",
+        "raia": "Div. Circulação, Referência e Acervo"
+      },
+      {
+        "id": "e11",
+        "tipo": "fim",
+        "label": "Roteiro de coleta aplicado, com respostas e evidências documentais consolidadas",
+        "raia": "Biblioteca"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-biblioteca"
+      ],
+      "fontes": [
+        "pb-biblioteca"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D2)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo 1 alterado (acao, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 3: Submeter o roteiro de coleta e o playbook preliminar à Chefia da Biblioteca para",
+        "Passo adicionado após 3: Elaborar playbook preliminar da Biblioteca com as lacunas identificadas",
+        "Passo adicionado após 3: Consolidar as respostas do questionário e as evidências documentais coletadas",
+        "Passo adicionado após 3: Aplicar questionário de mapeamento de atividades à Chefia da Biblioteca e à Divi",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [
+        "pb-biblioteca"
+      ],
+      "motivo": "Área ainda não mapeada (playbook em construção): converter o esqueleto genérico em roteiro de coleta para o mapeamento das rotinas da Biblioteca, com gatilho, entradas/saídas, KPIs, contingência e checklist do próprio levantamento, mantendo o responsável do processo como 'A definir' até a designação formal pela Chefia."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
+  ],
+  "lacunas": [
+    "responsavel",
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "Setor ainda não mapeado — roteiro de coleta.",
+  "fontes_entradas": [
+    "pb-biblioteca"
+  ],
+  "hash_fontes": "4d25f3fe1b6cd51e36901dd8cbdc53853f91d96103ec0664b5f1781c4acc25ca",
+  "agente": "pop-bib-00",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-03T01:42:22Z"
+}

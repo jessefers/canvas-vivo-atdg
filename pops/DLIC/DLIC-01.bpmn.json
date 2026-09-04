@@ -1,0 +1,186 @@
+{
+  "setor": "Div. de Licitação",
+  "codigo": "DLIC-01",
+  "gerado_em": "2026-09-03T02:05:27Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DLIC-01 — Fluxo — Contrato de Aquisição (Licitação)",
+      "descricao": "Formaliza o contrato de aquisição decorrente de licitação homologada: geração do contrato, verificação da regularidade fiscal, publicação no DIOE, emissão de portarias de Gestor e Fiscal, registro no Planejamento, solicitação de empenho e acompanhamento da entrega e das notas fiscais até o recebimento definitivo.",
+      "raias": [
+        "Div. de Licitação",
+        "Direção Geral",
+        "Planejamento",
+        "Gestor do contrato",
+        "Fiscal do contrato"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Homologação da licitação e necessidade de formalizar o contrato",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Gerar o contrato de aquisição no GMS",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Verificar a regularidade fiscal do contratado",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e4",
+          "tipo": "decisao",
+          "label": "Contratado está com a regularidade fiscal em dia?",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e5",
+          "tipo": "pausa",
+          "label": "Aguardar regularização fiscal do contratado",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Publicar o contrato assinado no DIOE",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Encaminhar contrato à Direção Geral para portarias",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Emitir e publicar as portarias de Gestor e Fiscal",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar contrato e portarias ao Planejamento",
+          "raia": "Planejamento"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Registrar o contrato e as portarias no Planejamento (GMS)",
+          "raia": "Planejamento"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Informar Gestor do contrato assinado",
+          "raia": "Gestor do contrato"
+        },
+        {
+          "id": "e12",
+          "tipo": "atividade",
+          "label": "Solicitar o empenho à Sec. Financeira/Contabilidade",
+          "raia": "Gestor do contrato"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Solicitar a aquisição e a entrega dos itens",
+          "raia": "Gestor do contrato"
+        },
+        {
+          "id": "e14",
+          "tipo": "captura",
+          "label": "Informar Fiscal do contrato assinado",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e15",
+          "tipo": "atividade",
+          "label": "Acompanhar a entrega e conferir as notas fiscais",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e16",
+          "tipo": "fim",
+          "label": "Recebimento definitivo confirmado",
+          "raia": "Fiscal do contrato"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e6",
+          "label": "Sim"
+        },
+        {
+          "de": "e4",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e3"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        },
+        {
+          "de": "e15",
+          "para": "e16"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

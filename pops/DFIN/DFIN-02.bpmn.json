@@ -1,0 +1,172 @@
+{
+  "setor": "Div. de Finanças",
+  "codigo": "DFIN-02",
+  "gerado_em": "2026-09-03T01:56:22Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DFIN-02 — Fluxo Despesas Campus Foz — Passagem e Hospedagem",
+      "descricao": "Fluxograma específico do Campus Foz para despesas de passagem e hospedagem no e-Protocolo. Arquivo em PDF no formato de imagem/diagrama, sem texto extraível automaticamente. Define a tramitação local desses pedidos; requer leitura visual para detalhar as etapas e responsáveis.",
+      "raias": [
+        "Servidor/Requisitante",
+        "Secretaria Financeira",
+        "Div. de Contabilidade"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Necessidade de passagem e/ou hospedagem para viagem a serviço",
+          "raia": "Servidor/Requisitante"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Abrir o arquivo do fluxograma para leitura visual do fluxo local",
+          "raia": "Servidor/Requisitante"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Preencher o formulário de passagem/hospedagem e coletar assinaturas via e-Protocolo",
+          "raia": "Servidor/Requisitante"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Anexar folder/justificativa e a consulta ao Cadin",
+          "raia": "Servidor/Requisitante"
+        },
+        {
+          "id": "e5",
+          "tipo": "captura",
+          "label": "Encaminhar a Secretaria Financeira",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e6",
+          "tipo": "decisao",
+          "label": "Documentação de viagem completa (folder, datas e Cadin regular)?",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Solicitar complementação ao requisitante",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e8",
+          "tipo": "fim",
+          "label": "Processo pendente de complementação documental",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e9",
+          "tipo": "decisao",
+          "label": "Disponibilidade orçamentária confirmada?",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Solicitar remanejamento ou devolver ao requisitante",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e11",
+          "tipo": "fim",
+          "label": "Processo pendente de disponibilidade orçamentária",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e12",
+          "tipo": "atividade",
+          "label": "Indicar fonte e conta orçamentária",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e13",
+          "tipo": "captura",
+          "label": "Encaminhar a Div. de Contabilidade",
+          "raia": "Div. de Contabilidade"
+        },
+        {
+          "id": "e14",
+          "tipo": "atividade",
+          "label": "Emitir nota de empenho",
+          "raia": "Div. de Contabilidade"
+        },
+        {
+          "id": "e15",
+          "tipo": "fim",
+          "label": "Passagem/hospedagem empenhada",
+          "raia": "Div. de Contabilidade"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7",
+          "label": "Não"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e6",
+          "para": "e9",
+          "label": "Sim"
+        },
+        {
+          "de": "e9",
+          "para": "e10",
+          "label": "Não"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e9",
+          "para": "e12",
+          "label": "Sim"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

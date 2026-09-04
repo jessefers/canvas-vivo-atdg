@@ -1,0 +1,91 @@
+{
+  "id": "diag-dcen-20260903",
+  "setor": "Direção de Centro",
+  "setor_codigo": "S13-DCEN",
+  "sigla": "DCEN",
+  "data": "2026-09-03T02:00:00Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-direcao-centro",
+    "1780963200033"
+  ],
+  "hash_fontes": "cacc150654c0050113032cbaff2d6bce5c2b7deee23d73fa738a4f43bfab84ad",
+  "ecossistema": {
+    "dominio": "Ensino, Pesquisa e Extensão (Centro)",
+    "subdominios": [
+      "Representação institucional do Centro",
+      "Delegação de competências às Assessorias (área, ensino e extensão)",
+      "Condução e deliberação do Conselho de Centro",
+      "Articulação do ensino com a PROGRAD e da extensão com a PROEX"
+    ],
+    "contextos_vizinhos": [
+      "CCSA — Direção de Centro",
+      "CECE — Direção de Centro",
+      "Colegiado de Curso",
+      "Direção Geral de Campus",
+      "PROGRAD",
+      "PROEX"
+    ],
+    "sistemas": [
+      "e-Protocolo"
+    ],
+    "normas": [
+      "Estatuto (Res. 017/99-COU) art. 37"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DCEN-00",
+      "nome": "Visão geral — Direção de Centro (competências gerais)",
+      "tipo": "processo",
+      "descricao": "Competências do(a) Diretor(a) de Centro e das Assessorias de área, de ensino e de extensão: representação institucional, indicação de representantes, delegação de atividades, condução e deliberação do Conselho de Centro e articulação do ensino com a PROGRAD e da extensão com a PROEX (art. 37 do Estatuto), aplicável de forma transversal às Direções dos Centros do Campus.",
+      "tipo_subdominio": "core",
+      "gatilho": "Necessidade de representação, indicação de representante, delegação de atividade ou deliberação de matéria do Conselho de Centro",
+      "saida": "Centro representado, representantes designados, deliberações do Conselho de Centro registradas e demandas de ensino/extensão articuladas com PROGRAD/PROEX",
+      "atores": [
+        "Diretor(a) de Centro",
+        "Assessoria de Ensino/Extensão do Centro",
+        "Conselho de Centro"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Mapeamento de tarefas da Direção de Centro",
+        "Ata do Conselho de Centro",
+        "Edital de convocação do Conselho de Centro"
+      ],
+      "interfaces": [
+        "PROGRAD",
+        "PROEX",
+        "Colegiado de Curso",
+        "Direção Geral de Campus"
+      ],
+      "evidencias": [
+        "pb-direcao-centro",
+        "1780963200033"
+      ],
+      "maturidade": 3,
+      "criticidade": 0.6,
+      "frequencia": 0.5,
+      "risco_conformidade": 0.5,
+      "cobertura": 0.75,
+      "prioridade": 0.54,
+      "lacunas": [
+        "formulario"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-dcen-00",
+      "justificativa": "POP transversal completado nesta rodada (v1.0.0, em_validação) com 8 passos (incluindo delegação às Assessorias e deliberação do Conselho de Centro), decisão, KPIs, contingência e mapa de contexto, a partir do mapeamento de tarefas da Direção de Centro (art. 37); resta confirmar com as Direções de Centro a periodicidade e o quórum regimentais do Conselho de Centro."
+    }
+  ],
+  "lacunas_setor": [
+    "Regimento do Conselho de Centro (periodicidade e quórum) não localizado nas fontes consultadas",
+    "Instrumento de substituição do Diretor(a) de Centro em caso de impedimento não evidenciado",
+    "Distinção fina de competências entre as Assessorias de área, de ensino e de extensão não detalhada nas fontes"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "POP transversal aplicável às Direções de Centro do Campus (CCSA e CECE); as particularidades de cada Centro constam dos playbooks próprios CCSA-00 e CECE-00."
+}

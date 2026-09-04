@@ -1,0 +1,396 @@
+{
+  "id": "pop-alm-06",
+  "codigo": "ALM-06",
+  "titulo": "Conciliação Físico-Contábil",
+  "setor": "Div. de Almoxarifado",
+  "setor_codigo": "S03.04-ALM",
+  "sigla": "ALM",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Almoxarifado",
+    "descricao": "Confronta os saldos físicos do Almoxarifado, apurados nos inventários rotativo (ALM-04) e geral (ALM-05), com os registros contábeis, apurando e regularizando divergências junto à Sec. Financeira/Contabilidade.",
+    "dominio": "Suprimentos e Materiais",
+    "subdominio": "Conciliação físico-contábil de materiais de consumo",
+    "tipo_subdominio": "core",
+    "contexto": "S03.04-ALM",
+    "glossario": [
+      {
+        "termo": "Conciliação físico-contábil",
+        "definicao": "Confronto entre o saldo físico do estoque do Almoxarifado e o saldo registrado na contabilidade, com apuração e regularização de eventuais divergências.",
+        "sistema": "GMS/ERP"
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Almoxarifado",
+    "periodicidade": "Conforme o fechamento de cada ciclo de inventário (rotativo ou geral)",
+    "normativa": [
+      "Manual de Gestão do Almoxarifado — Materiais de Consumo (Unioeste Foz)",
+      "Manual de Mapeamento de Processos do Almoxarifado (Unioeste Foz)",
+      "Normativas do TCE-PR"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_04_ALM[\"S03.04-ALM<br/>Div. de Almoxarifado\"]\n  S03_SADM --> S03_04_ALM\n  P[\"ALM-06<br/>Conciliação Físico-Contábil\"]\n  S03_04_ALM --> P\n  V1[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V1\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_04_ALM setor\n  class P destaque\n  class V1 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Fechamento de inventário rotativo ou geral, ou cronograma de conciliação contábil",
+      "origem": "ALM-04 Inventário Rotativo / ALM-05 Inventário Geral"
+    },
+    "entrada": [
+      "Relatório de inventário (rotativo ou geral) concluído"
+    ],
+    "passos": [
+      {
+        "acao": "Receber o relatório de inventário (rotativo ou geral) para conciliação",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de inventário",
+        "prazo": "Após conclusão de ALM-04 ou ALM-05",
+        "evento": "Relatório recebido para conciliação",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Confrontar o saldo físico do Almoxarifado com o registro contábil",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de conciliação físico-contábil",
+        "prazo": "Conforme cronograma de conciliação",
+        "evento": "Divergência apurada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Apurar a causa da divergência em conjunto com a Sec. Financeira/Contabilidade, quando houver",
+        "responsavel": "Sec. Financeira/Contabilidade",
+        "sistema": "e-Protocolo",
+        "artefato": "Formulário de apuração de divergência físico-contábil",
+        "prazo": "A definir",
+        "evento": "Causa da divergência apurada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Regularizar a divergência (ajuste físico ou contábil, conforme o caso)",
+        "responsavel": "Sec. Financeira/Contabilidade",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de conciliação físico-contábil",
+        "prazo": "A definir",
+        "evento": "Divergência regularizada",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Emitir o relatório de conciliação físico-contábil sem divergências pendentes",
+        "responsavel": "Chefe da Divisão de Almoxarifado",
+        "sistema": "GMS/ERP",
+        "artefato": "Relatório de conciliação físico-contábil",
+        "prazo": "Ao final do ciclo de conciliação",
+        "evento": "Conciliação concluída",
+        "fontes": [
+          "pb-almoxarifado",
+          "1780963200000",
+          "1780963200001"
+        ],
+        "n": 5
+      }
+    ],
+    "saida": [
+      "Relatório de conciliação físico-contábil sem divergências pendentes"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Relatório de conciliação físico-contábil",
+      "tipo": "registro",
+      "sistema": "GMS/ERP",
+      "campos_chave": [
+        "saldo físico",
+        "saldo contábil",
+        "divergência",
+        "regularização"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Almoxarifado"
+    },
+    {
+      "nome": "Formulário de apuração de divergência físico-contábil",
+      "tipo": "formulario",
+      "sistema": "",
+      "campos_chave": [
+        "item/conta",
+        "valor físico",
+        "valor contábil",
+        "causa apontada"
+      ],
+      "responsavel_preenchimento": "Sec. Financeira/Contabilidade"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Há divergência entre o saldo físico do Almoxarifado e o saldo contábil?",
+      "condicao": "Confronto entre o relatório de inventário e o registro contábil",
+      "sim": "Apurar a causa em conjunto com a Contabilidade e regularizar a divergência antes de emitir o relatório",
+      "nao": "Emitir o relatório de conciliação sem divergências pendentes"
+    }
+  ],
+  "pontos_atencao": [
+    "A conciliação físico-contábil depende da conclusão prévia do inventário rotativo (ALM-04) ou geral (ALM-05)",
+    "Divergências não regularizadas até o encerramento do exercício constituem risco direto de apontamento em auditoria do TCE-PR"
+  ],
+  "contingencia": [
+    "Divergência não regularizada dentro do prazo de encerramento do exercício: registrar a pendência e comunicar formalmente à PRAF e à Contabilidade",
+    "Discordância entre o Almoxarifado e a Contabilidade quanto à causa da divergência: escalar à Chefia da Divisão de Almoxarifado e à Div. de Finanças para decisão conjunta",
+    "Indisponibilidade do GMS/ERP para o confronto de saldos: realizar a conciliação com base no último relatório de inventário disponível e registrar a ressalva"
+  ],
+  "checklist": [
+    "Relatório de inventário (rotativo ou geral) recebido antes do início da conciliação",
+    "Saldo físico confrontado com o saldo contábil em todos os itens relevantes",
+    "Divergências apuradas em conjunto com a Sec. Financeira/Contabilidade",
+    "Relatório de conciliação emitido sem divergências pendentes ao final do ciclo"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de divergências físico-contábeis regularizadas no prazo",
+      "formula": "Nº de divergências regularizadas até o encerramento do ciclo / nº total de divergências apuradas",
+      "meta": "A definir",
+      "fonte": "Relatório de conciliação"
+    },
+    {
+      "indicador": "Tempo médio de regularização de divergência físico-contábil",
+      "formula": "Soma dos tempos entre apuração e regularização da divergência / nº de divergências regularizadas",
+      "meta": "A definir",
+      "fonte": "Relatório de conciliação"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Almoxarifado",
+      "destino": "Sec. Financeira/Contabilidade",
+      "relacao": "informa",
+      "artefato": "Relatório de conciliação físico-contábil",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Sec. Financeira/Contabilidade",
+      "destino": "Div. de Almoxarifado",
+      "relacao": "informa",
+      "artefato": "Regularização contábil da divergência",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Chefe da Divisão de Almoxarifado\"]\n    direction LR\n    e1((\"Relatório de inventário (rotativo ou geral) concluído\"))\n    e2[\"Receber o relatório de inventário para conciliação\"]\n    e3[\"Confrontar o saldo físico com o registro contábil\"]\n    e4{\"Há divergência entre físico e contábil?\"}\n    e8[[\"✉ Divergência regularizada\"]]\n    e9[\"Emitir o relatório de conciliação físico-contábil\"]\n    e10(((\"Conciliação físico-contábil concluída sem divergências pendentes\")))\n  end\n  subgraph R2[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e5[[\"✉ Divergência a apurar\"]]\n    e6[\"Apurar a causa da divergência em conjunto com a Contabilidade\"]\n    e7[\"Regularizar a divergência (ajuste físico ou contábil)\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e4 -- Não --> e9\n  e9 --> e10\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e6,e7,e9 atividade\n  class e4 decisao\n  class e5,e8 captura\n  class e10 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Almoxarifado",
+      "Chefe da Divisão de Almoxarifado",
+      "Sec. Financeira/Contabilidade"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Relatório de inventário (rotativo ou geral) concluído",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Receber o relatório de inventário para conciliação",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Confrontar o saldo físico com o registro contábil",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e4",
+        "tipo": "decisao",
+        "label": "Há divergência entre físico e contábil?",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e5",
+        "tipo": "captura",
+        "label": "Divergência a apurar",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Apurar a causa da divergência em conjunto com a Contabilidade",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Regularizar a divergência (ajuste físico ou contábil)",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Divergência regularizada",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Emitir o relatório de conciliação físico-contábil",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      },
+      {
+        "id": "e10",
+        "tipo": "fim",
+        "label": "Conciliação físico-contábil concluída sem divergências pendentes",
+        "raia": "Chefe da Divisão de Almoxarifado"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5",
+        "label": "Sim"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e4",
+        "para": "e9",
+        "label": "Não"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir do escopo \"Comparação física x PRAF\""
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote ALM)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 1: Receber o relatório de inventário (rotativo ou geral) para conciliação",
+        "Passo adicionado após 1: Confrontar o saldo físico do Almoxarifado com o registro contábil",
+        "Passo adicionado após 1: Apurar a causa da divergência em conjunto com a Sec. Financeira/Contabilidade, q",
+        "Passo adicionado após 1: Regularizar a divergência (ajuste físico ou contábil, conforme o caso)",
+        "Passo adicionado após 1: Emitir o relatório de conciliação físico-contábil sem divergências pendentes",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +1",
+        "normativa_nova: +3",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Raias adicionadas: Chefe da Divisão de Almoxarifado, Sec. Financeira/Contabilidade",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 10",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-almoxarifado",
+        "1780963200000",
+        "1780963200001"
+      ],
+      "motivo": "Documentar o passo a passo da conciliação físico-contábil (confronto de saldos, apuração e regularização de divergências junto à Contabilidade), a partir do Manual de Gestão e do Manual de Mapeamento de Processos do Almoxarifado."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [],
+  "observacoes": "Inferência a validar com a Chefia do Almoxarifado: (1) periodicidade exata da conciliação (mensal, trimestral, ou apenas após cada inventário), não detalhada nas fontes disponíveis; (2) rito de decisão conjunta com a Contabilidade em caso de discordância sobre a causa da divergência.",
+  "fontes_entradas": [
+    "pb-almoxarifado",
+    "1780963200000",
+    "1780963200001"
+  ],
+  "hash_fontes": "a802d9d68df32cb4cb956a0c24322c3d23badc6bb2a2d838248857eaa3587756",
+  "agente": "pop-alm-06",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:45:53Z"
+}

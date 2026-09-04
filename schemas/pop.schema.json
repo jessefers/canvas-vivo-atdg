@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "canvas-vivo-atdg/pop.schema.json",
+  "title": "POP em modo playbook (DDD híbrido) — Canvas Vivo ATDG",
+  "type": "object",
+  "required": ["id", "codigo", "titulo", "setor", "setor_codigo", "sigla", "versao", "status", "ddd", "identificacao", "organograma_mermaid", "playbook", "artefatos", "decisoes", "pontos_atencao", "contingencia", "checklist", "kpis", "mapa_contexto", "fluxograma_mermaid", "bpmn_spec", "changelog", "validacao", "licoes_aplicadas", "lacunas", "fontes_entradas", "hash_fontes", "versao_diretrizes", "criado_em", "atualizado_em"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^pop-[a-z0-9]+(-[a-z0-9]+)*-[0-9]{2}$"},
+    "codigo": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*(-[A-Z][A-Z0-9]*)*-[0-9]{2}$"},
+    "titulo": {"type": "string", "minLength": 3},
+    "setor": {"type": "string"},
+    "setor_codigo": {"type": "string", "pattern": "^S[0-9]{2}(\\.[0-9]{2})?-[A-Z0-9-]+$"},
+    "sigla": {"type": "string"},
+    "versao": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "status": {"type": "string", "enum": ["rascunho", "em_validacao", "aprovado", "obsoleto"]},
+    "substituido_por": {"type": "string"},
+    "ddd": {
+      "type": "object",
+      "required": ["divisao", "departamento", "descricao", "dominio", "subdominio", "tipo_subdominio", "contexto", "glossario"],
+      "properties": {
+        "divisao": {"type": "string"}, "departamento": {"type": "string"}, "descricao": {"type": "string"},
+        "dominio": {"type": "string"}, "subdominio": {"type": "string"},
+        "tipo_subdominio": {"type": "string", "enum": ["core", "suporte", "generico"]},
+        "contexto": {"type": "string"},
+        "glossario": {"type": "array", "items": {"type": "object", "required": ["termo", "definicao"], "properties": {"termo": {"type": "string"}, "definicao": {"type": "string"}, "sistema": {"type": "string"}}}}
+      }
+    },
+    "identificacao": {
+      "type": "object",
+      "required": ["responsavel", "periodicidade", "normativa", "subordinacao", "produto_atdg", "pasta_onedrive"],
+      "properties": {
+        "responsavel": {"type": "string"}, "periodicidade": {"type": "string"},
+        "normativa": {"type": "array", "items": {"type": "string"}},
+        "subordinacao": {"type": "string"}, "produto_atdg": {"type": "string"}, "pasta_onedrive": {"type": "string"}
+      }
+    },
+    "organograma_mermaid": {"type": "string"},
+    "playbook": {
+      "type": "object",
+      "required": ["gatilho", "entrada", "passos", "saida"],
+      "properties": {
+        "gatilho": {"type": "object", "required": ["evento"], "properties": {"evento": {"type": "string"}, "origem": {"type": "string"}}},
+        "entrada": {"type": "array", "items": {"type": "string"}},
+        "passos": {"type": "array", "items": {
+          "type": "object", "required": ["n", "acao", "responsavel"],
+          "properties": {"n": {"type": "integer", "minimum": 1}, "acao": {"type": "string", "minLength": 3}, "responsavel": {"type": "string"}, "sistema": {"type": "string"}, "artefato": {"type": "string"}, "prazo": {"type": "string"}, "evento": {"type": "string"}, "fontes": {"type": "array", "items": {"type": "string"}}}
+        }},
+        "saida": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "artefatos": {"type": "array", "items": {"type": "object", "required": ["nome", "tipo"], "properties": {"nome": {"type": "string"}, "tipo": {"type": "string", "enum": ["formulario", "documento", "registro", "sistema"]}, "sistema": {"type": "string"}, "campos_chave": {"type": "array", "items": {"type": "string"}}, "responsavel_preenchimento": {"type": "string"}}}},
+    "decisoes": {"type": "array", "items": {"type": "object", "required": ["decisao", "condicao"], "properties": {"decisao": {"type": "string"}, "condicao": {"type": "string"}, "sim": {"type": "string"}, "nao": {"type": "string"}}}},
+    "pontos_atencao": {"type": "array", "items": {"type": "string"}},
+    "contingencia": {"type": "array", "items": {"type": "string"}},
+    "checklist": {"type": "array", "items": {"type": "string"}},
+    "kpis": {"type": "array", "items": {"type": "object", "required": ["indicador"], "properties": {"indicador": {"type": "string"}, "formula": {"type": "string"}, "meta": {"type": "string"}, "fonte": {"type": "string"}}}},
+    "mapa_contexto": {"type": "array", "items": {"type": "object", "required": ["origem", "destino", "relacao"], "properties": {"origem": {"type": "string"}, "destino": {"type": "string"}, "relacao": {"type": "string", "enum": ["fornece", "recebe", "valida", "aprova", "informa"]}, "artefato": {"type": "string"}, "canal": {"type": "string"}}}},
+    "fluxograma_mermaid": {"type": "string"},
+    "bpmn_spec": {
+      "type": "object", "required": ["raias", "elementos", "conexoes"],
+      "properties": {
+        "raias": {"type": "array", "items": {"type": "string"}},
+        "elementos": {"type": "array", "items": {"type": "object", "required": ["id", "tipo", "label", "raia"], "properties": {"id": {"type": "string"}, "tipo": {"type": "string", "enum": ["inicio", "atividade", "decisao", "fim", "pausa", "captura"]}, "label": {"type": "string"}, "raia": {"type": "string"}}}},
+        "conexoes": {"type": "array", "items": {"type": "object", "required": ["de", "para"], "properties": {"de": {"type": "string"}, "para": {"type": "string"}, "label": {"type": "string"}}}},
+        "observacoes_construcao_miro": {"type": "string"}
+      }
+    },
+    "changelog": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["versao", "data", "autor", "tipo", "mudancas"], "properties": {"versao": {"type": "string"}, "data": {"type": "string"}, "autor": {"type": "string"}, "tipo": {"type": "string", "enum": ["patch", "minor", "major"]}, "mudancas": {"type": "array", "items": {"type": "string"}}, "fontes": {"type": "array", "items": {"type": "string"}}, "motivo": {"type": "string"}}}},
+    "validacao": {"type": "object", "required": ["elaboracao", "revisao", "aprovacao"], "properties": {"elaboracao": {"type": "string"}, "revisao": {"type": "string"}, "aprovacao": {"type": "string"}, "data_aprovacao": {"type": "string"}}},
+    "licoes_aplicadas": {"type": "array", "items": {"type": "string"}},
+    "lacunas": {"type": "array", "items": {"type": "string"}},
+    "observacoes": {"type": "string"},
+    "fontes_entradas": {"type": "array", "items": {"type": "string"}},
+    "hash_fontes": {"type": "string"},
+    "agente": {"type": "string"},
+    "versao_diretrizes": {"type": "string"},
+    "criado_em": {"type": "string"},
+    "atualizado_em": {"type": "string"}
+  }
+}

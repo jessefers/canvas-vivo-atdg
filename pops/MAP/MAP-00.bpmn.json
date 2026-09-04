@@ -1,0 +1,134 @@
+{
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "codigo": "MAP-00",
+  "gerado_em": "2026-09-03T02:08:02Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "MAP-00 — Visão geral — ATDG — Mapeamento de Processos",
+      "descricao": "Conduz o ciclo de Mapeamento de Processos do Campus: define escopo, levanta setores/funções, aplica checklist (Microsoft Forms), consolida respostas e elabora POP/IT/Manual/Fluxo de cada processo, validados pelo setor respondente.",
+      "raias": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Escopo do ciclo de mapeamento definido",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Levantar setores, cargos, funções e quantitativo de servidores",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "captura",
+          "label": "Receber e responder o checklist (Microsoft Forms)",
+          "raia": "Setor respondente"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Consolidar e padronizar as respostas",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Elaborar POP, Instrução de Trabalho, Manual e Fluxo do processo",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "captura",
+          "label": "Submeter documento para validação",
+          "raia": "Setor respondente"
+        },
+        {
+          "id": "e7",
+          "tipo": "decisao",
+          "label": "Setor respondente valida o conteúdo?",
+          "raia": "Setor respondente"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Revisar documento conforme observações do setor",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Consolidar documento validado no Manual de Gestão de Processos",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Informar Direção Geral sobre o Manual consolidado",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e11",
+          "tipo": "fim",
+          "label": "Ciclo de mapeamento concluído",
+          "raia": "Direção Geral do Campus"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8",
+          "label": "Não"
+        },
+        {
+          "de": "e8",
+          "para": "e6"
+        },
+        {
+          "de": "e7",
+          "para": "e9",
+          "label": "Sim"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

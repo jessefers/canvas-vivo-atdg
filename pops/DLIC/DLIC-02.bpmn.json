@@ -1,0 +1,254 @@
+{
+  "setor": "Div. de Licitação",
+  "codigo": "DLIC-02",
+  "gerado_em": "2026-09-03T02:05:27Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DLIC-02 — Fluxo — Contrato de Serviços Contínuos (Licitação)",
+      "descricao": "Formaliza e acompanha o contrato de serviços contínuos decorrente de licitação homologada: geração do contrato, verificação da regularidade fiscal e da disponibilidade orçamentária, publicação no DIOE, emissão de portarias de Gestor e Fiscal, registro no Planejamento e fiscalização mensal da execução (empenho, medições e notas fiscais) até a prorrogação ou o encerramento da vigência.",
+      "raias": [
+        "Div. de Licitação",
+        "Sec. Financeira/Contabilidade",
+        "Direção Geral",
+        "Planejamento",
+        "Fiscal do contrato"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Homologação da licitação e necessidade de formalizar o contrato",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Gerar o contrato de serviços contínuos no GMS",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Verificar a regularidade fiscal do contratado",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e4",
+          "tipo": "decisao",
+          "label": "Contratado está com a regularidade fiscal em dia?",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e5",
+          "tipo": "pausa",
+          "label": "Aguardar regularização fiscal do contratado",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e6",
+          "tipo": "captura",
+          "label": "Encaminhar consulta de disponibilidade orçamentária",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Confirmar a disponibilidade orçamentária",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Publicar o contrato assinado no DIOE",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar contrato à Direção Geral para portarias",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Emitir e publicar as portarias de Gestor e Fiscal",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Encaminhar contrato e portarias ao Planejamento",
+          "raia": "Planejamento"
+        },
+        {
+          "id": "e12",
+          "tipo": "atividade",
+          "label": "Registrar o contrato e as portarias no Planejamento (GMS)",
+          "raia": "Planejamento"
+        },
+        {
+          "id": "e13",
+          "tipo": "captura",
+          "label": "Informar Fiscal do contrato assinado",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e14",
+          "tipo": "atividade",
+          "label": "Solicitar o empenho do período de referência",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e15",
+          "tipo": "atividade",
+          "label": "Acompanhar a execução mensal do serviço",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e16",
+          "tipo": "atividade",
+          "label": "Conferir as medições e as notas fiscais mensais",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e17",
+          "tipo": "decisao",
+          "label": "O contrato está próximo do término da vigência?",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e18",
+          "tipo": "decisao",
+          "label": "Há prorrogação prevista e legalmente possível?",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e19",
+          "tipo": "atividade",
+          "label": "Formalizar a prorrogação do contrato",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e20",
+          "tipo": "fim",
+          "label": "Contrato prorrogado",
+          "raia": "Fiscal do contrato"
+        },
+        {
+          "id": "e21",
+          "tipo": "captura",
+          "label": "Encaminhar à Div. de Licitação para novo processo licitatório",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e22",
+          "tipo": "fim",
+          "label": "Vigência encerrada — novo processo licitatório a iniciar",
+          "raia": "Div. de Licitação"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e6",
+          "label": "Sim"
+        },
+        {
+          "de": "e4",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e3"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        },
+        {
+          "de": "e15",
+          "para": "e16"
+        },
+        {
+          "de": "e16",
+          "para": "e17"
+        },
+        {
+          "de": "e17",
+          "para": "e14",
+          "label": "Não"
+        },
+        {
+          "de": "e17",
+          "para": "e18",
+          "label": "Sim"
+        },
+        {
+          "de": "e18",
+          "para": "e19",
+          "label": "Sim"
+        },
+        {
+          "de": "e19",
+          "para": "e20"
+        },
+        {
+          "de": "e18",
+          "para": "e21",
+          "label": "Não"
+        },
+        {
+          "de": "e21",
+          "para": "e22"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

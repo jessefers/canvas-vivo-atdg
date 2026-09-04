@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "canvas-vivo-atdg/patch.schema.json",
+  "title": "Patch incremental de POP — Canvas Vivo ATDG",
+  "type": "object",
+  "required": [
+    "codigo",
+    "motivo",
+    "autor",
+    "fontes"
+  ],
+  "properties": {
+    "codigo": {
+      "type": "string"
+    },
+    "tipo_mudanca": {
+      "type": "string",
+      "enum": [
+        "patch",
+        "minor",
+        "major"
+      ]
+    },
+    "motivo": {
+      "type": "string"
+    },
+    "autor": {
+      "type": "string"
+    },
+    "fontes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "passos_adicionados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "passo"
+        ],
+        "properties": {
+          "apos_n": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "passo": {
+            "type": "object",
+            "required": [
+              "acao",
+              "responsavel"
+            ]
+          }
+        }
+      }
+    },
+    "passos_alterados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "n",
+          "campos"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "campos": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "passos_removidos": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "entrada_nova": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "saida_nova": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artefatos_novos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "nome",
+          "tipo"
+        ]
+      }
+    },
+    "decisoes_novas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "decisao",
+          "condicao"
+        ]
+      }
+    },
+    "pontos_atencao_novos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contingencia_nova": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checklist_novo": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "glossario_novo": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "termo",
+          "definicao"
+        ]
+      }
+    },
+    "kpis_novos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "indicador"
+        ]
+      }
+    },
+    "mapa_contexto_novo": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "origem",
+          "destino",
+          "relacao"
+        ]
+      }
+    },
+    "normativa_nova": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "campos": {
+      "type": "object",
+      "description": "Campos escalares/objetos a substituir, em notação pontilhada: identificacao.responsavel, identificacao.periodicidade, ddd.descricao, ddd.subdominio, playbook.gatilho, status, titulo"
+    },
+    "bpmn_delta": {
+      "type": "object",
+      "properties": {
+        "raias_add": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "elementos_add": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "tipo",
+              "label",
+              "raia"
+            ]
+          }
+        },
+        "elementos_rm": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "conexoes_add": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "de",
+              "para"
+            ]
+          }
+        },
+        "conexoes_rm": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "de",
+              "para"
+            ]
+          }
+        },
+        "regenerar_de_passos": {
+          "type": "boolean"
+        },
+        "raias_ordem": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Ordem final completa das raias (ordem de entrada no fluxo); raias existentes não listadas são mantidas ao final"
+        }
+      }
+    },
+    "lacunas_resolvidas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lacunas_novas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "licoes_propostas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "licao",
+          "regra"
+        ]
+      }
+    },
+    "licoes_aplicadas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

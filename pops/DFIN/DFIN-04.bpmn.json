@@ -1,0 +1,183 @@
+{
+  "setor": "Div. de Finanças",
+  "codigo": "DFIN-04",
+  "gerado_em": "2026-09-03T01:56:22Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DFIN-04 — Procedimento — Diárias Nacionais",
+      "descricao": "Procedimento textual para solicitação de diárias nacionais. O interessado preenche o formulário (link PRAF), coleta assinaturas via e-Protocolo, anexa folder/justificativa da viagem e consulta ao Cadin, e encaminha à Secretaria Financeira. Esta verifica o preenchimento e a disponibilidade orçamentária/financeira, indica fonte e conta, e encaminha à Contabilidade para empenho.",
+      "raias": [
+        "Servidor/Requisitante",
+        "Chefia imediata",
+        "Secretaria Financeira",
+        "Div. de Contabilidade"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Necessidade de viagem a serviço no território nacional",
+          "raia": "Servidor/Requisitante"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Preencher o formulário de diárias nacionais (link PRAF)",
+          "raia": "Servidor/Requisitante"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Assinar e solicitar assinaturas via e-Protocolo",
+          "raia": "Chefia imediata"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Anexar folder/justificativa da viagem",
+          "raia": "Servidor/Requisitante"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Consultar o Cadin do interessado e anexar comprovante",
+          "raia": "Servidor/Requisitante"
+        },
+        {
+          "id": "e6",
+          "tipo": "captura",
+          "label": "Encaminhar (C27) à Secretária Financeira para conferência e fonte",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e7",
+          "tipo": "decisao",
+          "label": "Cadin regular?",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Notificar/devolver ao requisitante para regularização",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e9",
+          "tipo": "fim",
+          "label": "Processo suspenso até regularização do Cadin",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e10",
+          "tipo": "decisao",
+          "label": "Disponibilidade orçamentária e financeira confirmada?",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Solicitar remanejamento ou devolver ao requisitante",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e12",
+          "tipo": "fim",
+          "label": "Processo pendente de disponibilidade orçamentária",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Indicar fonte e conta orçamentária",
+          "raia": "Secretaria Financeira"
+        },
+        {
+          "id": "e14",
+          "tipo": "captura",
+          "label": "Encaminhar à Div. de Contabilidade para empenho",
+          "raia": "Div. de Contabilidade"
+        },
+        {
+          "id": "e15",
+          "tipo": "atividade",
+          "label": "Emitir nota de empenho",
+          "raia": "Div. de Contabilidade"
+        },
+        {
+          "id": "e16",
+          "tipo": "fim",
+          "label": "Diária nacional empenhada",
+          "raia": "Div. de Contabilidade"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8",
+          "label": "Não"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e7",
+          "para": "e10",
+          "label": "Sim"
+        },
+        {
+          "de": "e10",
+          "para": "e11",
+          "label": "Não"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e10",
+          "para": "e13",
+          "label": "Sim"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        },
+        {
+          "de": "e15",
+          "para": "e16"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

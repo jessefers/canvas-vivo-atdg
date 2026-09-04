@@ -1,0 +1,108 @@
+{
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "codigo": "CON-05",
+  "gerado_em": "2026-09-03T02:08:02Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "CON-05 — Encerramento de Convênio",
+      "descricao": "Encerramento de Convênio — Baixa, arquivo, lições aprendidas. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+      "raias": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor demandante",
+        "Direção Geral do Campus"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Prestação de contas aprovada e convênio pronto para baixa e arquivamento",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Confirmar a aprovação da prestação de contas e a quitação de obrigações do convênio",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Dar baixa no convênio no controle da ATDG",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Arquivar a documentação completa do convênio (instrução, celebração, execução e prestação de contas)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Registrar as lições aprendidas na execução do convênio",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Comunicar o encerramento ao setor demandante",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Informar Setor demandante",
+          "raia": "Setor demandante"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Informar Direção Geral do Campus",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e9",
+          "tipo": "fim",
+          "label": "Convênio baixado e arquivado",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

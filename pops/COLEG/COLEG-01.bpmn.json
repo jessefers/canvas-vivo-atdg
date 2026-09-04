@@ -1,0 +1,69 @@
+{
+  "setor": "Colegiado de Curso",
+  "codigo": "COLEG-01",
+  "gerado_em": "2026-09-03T02:08:03Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "COLEG-01 — Rotinas do Agente Universitário do Colegiado",
+      "descricao": "Comunicação e atendimento a discentes, docentes e concedentes, gestão de documentos e protocolo (e-Protocolo) e apoio acadêmico às coordenações de curso, estágio e TCC, exercidos pelo Agente Universitário do Colegiado.",
+      "raias": [
+        "Colegiado de Curso",
+        "Discentes e docentes",
+        "Concedentes de estágio",
+        "Coordenações de curso, estágio e TCC"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Solicitação de discente, docente, concedente ou coordenação que demande atendimento, protocolo ou apoio acadêmico",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e2",
+          "tipo": "captura",
+          "label": "Informar Discentes e docentes",
+          "raia": "Discentes e docentes"
+        },
+        {
+          "id": "e3",
+          "tipo": "captura",
+          "label": "Informar Concedentes de estágio",
+          "raia": "Concedentes de estágio"
+        },
+        {
+          "id": "e4",
+          "tipo": "captura",
+          "label": "Informar Coordenações de curso, estágio e TCC",
+          "raia": "Coordenações de curso, estágio e TCC"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Atendimento realizado, documento protocolado e apoio acadêmico prestado às coordenações",
+          "raia": "Colegiado de Curso"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 4 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

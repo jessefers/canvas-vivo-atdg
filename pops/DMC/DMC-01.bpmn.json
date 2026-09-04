@@ -1,0 +1,148 @@
+{
+  "setor": "Div. de Manutenção e Conservação",
+  "codigo": "DMC-01",
+  "gerado_em": "2026-09-03T02:05:27Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DMC-01 — Controle Manual DSMC — Tempos de Limpeza",
+      "descricao": "Planilha operacional da Divisão de Serviços e Manutenção/Conservação (DSMC) que parametriza, por ambiente (auditórios, banheiros, corredores, salas, biblioteca etc.), o tipo de limpeza (faxina/normal), o tempo médio e a quantidade de pessoal necessária, além de aba de materiais. Subsidia o dimensionamento e o planejamento das rotinas de conservação.",
+      "raias": [
+        "Chefe da Divisão de Manutenção e Conservação",
+        "Almoxarifado",
+        "Equipe de limpeza (própria/terceirizada)"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Cadastrar os ambientes na planilha de controle (auditórios, banheiros, corredores, salas, biblioteca etc.)",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal)",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Registrar observações específicas por ambiente (ex.: piso especial, equipamentos sensíveis)",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Calcular a quantidade de pessoal necessária a partir dos tempos definidos",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Registrar o custo estimado de mão de obra a partir do dimensionamento",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Relacionar os materiais de limpeza por atividade na aba de materiais",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Validar a consistência da planilha antes de utilizá-la para o dimensionamento",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e10",
+          "tipo": "atividade",
+          "label": "Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão do contrato",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Encaminhar a Almoxarifado",
+          "raia": "Almoxarifado"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Encaminhar a Equipe de limpeza (própria/terceirizada)",
+          "raia": "Equipe de limpeza (própria/terceirizada)"
+        },
+        {
+          "id": "e13",
+          "tipo": "fim",
+          "label": "Planilha de controle validada, atualizada e disponível para consulta",
+          "raia": "Chefe da Divisão de Manutenção e Conservação"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

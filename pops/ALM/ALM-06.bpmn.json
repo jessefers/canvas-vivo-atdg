@@ -1,0 +1,124 @@
+{
+  "setor": "Div. de Almoxarifado",
+  "codigo": "ALM-06",
+  "gerado_em": "2026-09-03T01:51:30Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "ALM-06 — Conciliação Físico-Contábil",
+      "descricao": "Confronta os saldos físicos do Almoxarifado, apurados nos inventários rotativo (ALM-04) e geral (ALM-05), com os registros contábeis, apurando e regularizando divergências junto à Sec. Financeira/Contabilidade.",
+      "raias": [
+        "Div. de Almoxarifado",
+        "Chefe da Divisão de Almoxarifado",
+        "Sec. Financeira/Contabilidade"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Relatório de inventário (rotativo ou geral) concluído",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Receber o relatório de inventário para conciliação",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Confrontar o saldo físico com o registro contábil",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e4",
+          "tipo": "decisao",
+          "label": "Há divergência entre físico e contábil?",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e5",
+          "tipo": "captura",
+          "label": "Divergência a apurar",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Apurar a causa da divergência em conjunto com a Contabilidade",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Regularizar a divergência (ajuste físico ou contábil)",
+          "raia": "Sec. Financeira/Contabilidade"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Divergência regularizada",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Emitir o relatório de conciliação físico-contábil",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        },
+        {
+          "id": "e10",
+          "tipo": "fim",
+          "label": "Conciliação físico-contábil concluída sem divergências pendentes",
+          "raia": "Chefe da Divisão de Almoxarifado"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5",
+          "label": "Sim"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e4",
+          "para": "e9",
+          "label": "Não"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

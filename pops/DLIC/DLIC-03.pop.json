@@ -1,0 +1,705 @@
+{
+  "id": "pop-dlic-03",
+  "codigo": "DLIC-03",
+  "titulo": "Fluxo — Processo de Licitação",
+  "setor": "Div. de Licitação",
+  "setor_codigo": "S03.06-DLIC",
+  "sigla": "DLIC",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Licitação",
+    "descricao": "Conduz o processo licitatório desde a elaboração do TR e das cotações pelo Requisitante até a autorização da Direção Geral, a catalogação e a pesquisa de preços, os elementos de despesa e a DDF, a elaboração do edital e o cadastro no GMS e no ComprasNet/PNCP, a sessão pública e a homologação, encaminhando o resultado à formalização do contrato de aquisição ou de serviços contínuos.",
+    "dominio": "Contratações Públicas",
+    "subdominio": "Condução do processo licitatório (do Termo de Referência à homologação)",
+    "tipo_subdominio": "core",
+    "contexto": "S03.06-DLIC",
+    "glossario": [
+      {
+        "termo": "Homologação",
+        "definicao": "Ato da autoridade competente que confirma a regularidade do processo licitatório e autoriza a contratação.",
+        "sistema": "ComprasNet/PNCP"
+      },
+      {
+        "termo": "ComprasNet/PNCP",
+        "definicao": "Portal Nacional de Contratações Públicas utilizado para publicação de editais e sessões públicas.",
+        "sistema": "ComprasNet/PNCP"
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Licitação",
+    "periodicidade": "Por demanda de aquisição ou contratação de serviço",
+    "normativa": [
+      "Lei nº 14.133/2021",
+      "normas internas Unioeste"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-03<br/>Fluxo — Processo de Licitação\"]\n  S03_06_DLIC --> P\n  V1[\"Planejamento\"]\n  P -. interface .-> V1\n  V2[\"Direção Geral\"]\n  P -. interface .-> V2\n  V3[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Recebimento de memorando de solicitação de aquisição ou contratação de serviço",
+      "origem": "Requisitante (unidade demandante)"
+    },
+    "entrada": [
+      "Memorando de solicitação",
+      "Termo de Referência (TR) e cotações de preços"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Elaborar o memorando de solicitação e o Termo de Referência (TR)",
+        "responsavel": "Requisitante",
+        "sistema": "e-Protocolo",
+        "artefato": "Memorando; TR",
+        "prazo": "A definir",
+        "evento": "Memorando e TR elaborados",
+        "fontes": [
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Realizar cotações de preços e elaborar a tabela comparativa",
+        "responsavel": "Requisitante",
+        "sistema": "",
+        "artefato": "Tabela comparativa de cotações",
+        "prazo": "A definir",
+        "evento": "Cotações e tabela comparativa concluídas",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 2
+      },
+      {
+        "n": 3,
+        "acao": "Planejamento analisa a solicitação",
+        "responsavel": "Planejamento",
+        "sistema": "e-Protocolo",
+        "artefato": "Análise do Planejamento",
+        "prazo": "A definir",
+        "evento": "Solicitação analisada",
+        "fontes": [
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Submeter o processo à autorização da Direção Geral",
+        "responsavel": "Direção Geral",
+        "sistema": "e-Protocolo",
+        "artefato": "Autorização de abertura do processo",
+        "prazo": "A definir",
+        "evento": "Abertura do processo autorizada",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 4
+      },
+      {
+        "n": 5,
+        "acao": "Catalogar o item/serviço no GMS",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS",
+        "artefato": "Catalogação no GMS",
+        "prazo": "A definir",
+        "evento": "Item catalogado",
+        "fontes": [
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Realizar pesquisa de preços de mercado",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS",
+        "artefato": "Pesquisa de preços",
+        "prazo": "A definir",
+        "evento": "Pesquisa de preços concluída",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 6
+      },
+      {
+        "n": 7,
+        "acao": "Indicar os elementos de despesa",
+        "responsavel": "Sec. Financeira/Contabilidade",
+        "sistema": "GMS",
+        "artefato": "Elementos de despesa",
+        "prazo": "A definir",
+        "evento": "Elementos de despesa indicados",
+        "fontes": [
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Elaborar a Declaração de Disponibilidade Financeira (DDF)",
+        "responsavel": "Sec. Financeira/Contabilidade",
+        "sistema": "GMS",
+        "artefato": "Declaração de Disponibilidade Financeira (DDF)",
+        "prazo": "A definir",
+        "evento": "DDF emitida",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 8
+      },
+      {
+        "n": 9,
+        "acao": "Elaborar o edital",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS",
+        "artefato": "Edital de licitação",
+        "prazo": "A definir",
+        "evento": "Edital elaborado",
+        "fontes": [
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Cadastrar o processo no GMS e no ComprasNet/PNCP",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS, ComprasNet/PNCP",
+        "artefato": "Processo cadastrado no ComprasNet/PNCP",
+        "prazo": "A definir",
+        "evento": "Processo cadastrado",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 10
+      },
+      {
+        "n": 11,
+        "acao": "Direção Geral analisa e autoriza o prosseguimento do processo licitatório",
+        "responsavel": "Direção Geral",
+        "sistema": "e-Protocolo",
+        "artefato": "Autorização de prosseguimento",
+        "prazo": "A definir",
+        "evento": "Prosseguimento autorizado",
+        "fontes": [
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Conduzir a sessão pública e homologar o resultado da licitação",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "ComprasNet/PNCP",
+        "artefato": "Ata de sessão / termo de homologação",
+        "prazo": "A definir",
+        "evento": "Licitação homologada",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 12
+      }
+    ],
+    "saida": [
+      "Licitação homologada e encaminhada à formalização do contrato de aquisição ou de serviços contínuos"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Memorando de solicitação",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "unidade solicitante",
+        "objeto",
+        "justificativa"
+      ],
+      "responsavel_preenchimento": "Requisitante"
+    },
+    {
+      "nome": "Termo de Referência (TR)",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "objeto",
+        "especificações técnicas",
+        "estimativa de custo"
+      ],
+      "responsavel_preenchimento": "Requisitante"
+    },
+    {
+      "nome": "Tabela comparativa de cotações",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [
+        "fornecedores cotados",
+        "valores",
+        "menor preço"
+      ],
+      "responsavel_preenchimento": "Requisitante"
+    },
+    {
+      "nome": "Declaração de Disponibilidade Financeira (DDF)",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "elemento de despesa",
+        "fonte de recurso",
+        "valor"
+      ],
+      "responsavel_preenchimento": "Sec. Financeira/Contabilidade"
+    },
+    {
+      "nome": "Edital de licitação",
+      "tipo": "documento",
+      "sistema": "GMS, ComprasNet/PNCP",
+      "campos_chave": [
+        "modalidade",
+        "objeto",
+        "critério de julgamento",
+        "data da sessão"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Direção Geral autoriza a abertura do processo licitatório?",
+      "condicao": "Análise do memorando, do TR e das cotações apresentadas",
+      "sim": "O processo é encaminhado à Div. de Licitação para catalogação",
+      "nao": "Requisitante ajusta o TR e as cotações"
+    },
+    {
+      "decisao": "Direção Geral autoriza o prosseguimento do processo licitatório?",
+      "condicao": "Análise do edital elaborado e do processo cadastrado no GMS/ComprasNet",
+      "sim": "Div. de Licitação conduz a sessão pública",
+      "nao": "Div. de Licitação ajusta o edital"
+    },
+    {
+      "decisao": "Objeto licitado é aquisição de bens (não serviço contínuo)?",
+      "condicao": "Natureza do objeto definida no Termo de Referência",
+      "sim": "Encaminha-se à formalização do contrato de aquisição (DLIC-01)",
+      "nao": "Encaminha-se à formalização do contrato de serviços contínuos (DLIC-02)"
+    }
+  ],
+  "pontos_atencao": [
+    "Termo de Referência bem elaborado evita retrabalho",
+    "Cadastro correto no ComprasNet é essencial",
+    "Autorização da Direção Geral em pontos de decisão",
+    "O TR deve conter especificações técnicas suficientes para evitar impugnações ao edital",
+    "A modalidade licitatória deve ser escolhida conforme o valor estimado e a natureza do objeto (Lei nº 14.133/2021)"
+  ],
+  "contingencia": [
+    "Se a Direção Geral não autorizar a abertura, o Requisitante deve revisar o TR e as cotações antes de reencaminhar",
+    "Se não houver cotações suficientes para a tabela comparativa, ampliar a pesquisa antes de prosseguir",
+    "Se a Direção Geral não autorizar o prosseguimento após o edital, a Div. de Licitação deve ajustá-lo conforme as observações",
+    "Se a sessão pública for deserta ou fracassada, registrar o resultado e reavaliar o edital ou a modalidade"
+  ],
+  "checklist": [
+    "Memorando, TR e cotações anexados ao processo",
+    "Autorização da Direção Geral para abertura do processo registrada",
+    "Elementos de despesa e DDF emitidos",
+    "Edital cadastrado no GMS e no ComprasNet/PNCP",
+    "Autorização da Direção Geral para prosseguimento registrada",
+    "Resultado da sessão pública e homologação registrados"
+  ],
+  "kpis": [
+    {
+      "indicador": "Prazo médio entre a autorização de abertura e a publicação do edital",
+      "formula": "Data de publicação do edital − Data de autorização de abertura",
+      "meta": "A definir",
+      "fonte": "GMS"
+    },
+    {
+      "indicador": "Percentual de processos licitatórios homologados sem necessidade de novo certame",
+      "formula": "(Processos homologados na 1ª tentativa ÷ total de processos abertos) × 100",
+      "meta": "A definir",
+      "fonte": "ComprasNet/PNCP"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Planejamento",
+      "relacao": "recebe",
+      "artefato": "Solicitação analisada (TR, cotações)",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Direção Geral",
+      "relacao": "aprova",
+      "artefato": "Autorização de abertura do processo licitatório",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Sec. Financeira/Contabilidade",
+      "relacao": "recebe",
+      "artefato": "Elementos de despesa e DDF",
+      "canal": "GMS"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Direção Geral",
+      "relacao": "aprova",
+      "artefato": "Autorização de prosseguimento (edital)",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e9[[\"✉ Encaminhar processo autorizado à Div. de Licitação\"]]\n    e10[\"Catalogar o item/serviço no GMS\"]\n    e11[\"Realizar pesquisa de preços de mercado\"]\n    e15[\"Elaborar o edital\"]\n    e16[\"Cadastrar o processo no GMS e no ComprasNet/PNCP\"]\n    e19([\"⏱ Aguardar ajuste do edital\"])\n    e20[\"Conduzir a sessão pública e homologar\"]\n    e21{\"Objeto licitado é aquisição de bens (não serviço contínuo)?\"}\n    e22[[\"✉ Encaminhar à formalização do contrato de aquisição (DLIC-01)\"]]\n    e23(((\"Licitação homologada — contrato de aquisição a formalizar\")))\n    e24[[\"✉ Encaminhar à formalização do contrato de serviços contínuos (DLIC-02)\"]]\n    e25(((\"Licitação homologada — contrato de serviços contínuos a formalizar\")))\n  end\n  subgraph R2[\"Requisitante\"]\n    direction LR\n    e1((\"Recebimento de memorando de solicitação\"))\n    e2[\"Elaborar o memorando e o TR\"]\n    e3[\"Realizar cotações e elaborar a tabela comparativa\"]\n    e8([\"⏱ Aguardar ajuste do TR e das cotações\"])\n  end\n  subgraph R3[\"Planejamento\"]\n    direction LR\n    e4[[\"✉ Encaminhar solicitação ao Planejamento\"]]\n    e5[\"Analisar a solicitação\"]\n  end\n  subgraph R4[\"Direção Geral\"]\n    direction LR\n    e6[[\"✉ Submeter à autorização da Direção Geral\"]]\n    e7{\"Direção Geral autoriza a abertura do processo?\"}\n    e17[[\"✉ Submeter o edital à autorização da Direção Geral\"]]\n    e18{\"Direção Geral autoriza o prosseguimento?\"}\n  end\n  subgraph R5[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e12[[\"✉ Encaminhar elementos de despesa à Sec. Financeira/Contabilidade\"]]\n    e13[\"Indicar os elementos de despesa\"]\n    e14[\"Elaborar a DDF\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 -- Sim --> e9\n  e7 -- Não --> e8\n  e8 --> e2\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  e16 --> e17\n  e17 --> e18\n  e18 -- Sim --> e20\n  e18 -- Não --> e19\n  e19 --> e15\n  e20 --> e21\n  e21 -- Sim --> e22\n  e22 --> e23\n  e21 -- Não --> e24\n  e24 --> e25\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e5,e10,e11,e13,e14,e15,e16,e20 atividade\n  class e4,e6,e9,e12,e17,e22,e24 captura\n  class e7,e18,e21 decisao\n  class e8,e19 pausa\n  class e23,e25 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Licitação",
+      "Requisitante",
+      "Planejamento",
+      "Direção Geral",
+      "Sec. Financeira/Contabilidade"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Recebimento de memorando de solicitação",
+        "raia": "Requisitante"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Elaborar o memorando e o TR",
+        "raia": "Requisitante"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Realizar cotações e elaborar a tabela comparativa",
+        "raia": "Requisitante"
+      },
+      {
+        "id": "e4",
+        "tipo": "captura",
+        "label": "Encaminhar solicitação ao Planejamento",
+        "raia": "Planejamento"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Analisar a solicitação",
+        "raia": "Planejamento"
+      },
+      {
+        "id": "e6",
+        "tipo": "captura",
+        "label": "Submeter à autorização da Direção Geral",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e7",
+        "tipo": "decisao",
+        "label": "Direção Geral autoriza a abertura do processo?",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e8",
+        "tipo": "pausa",
+        "label": "Aguardar ajuste do TR e das cotações",
+        "raia": "Requisitante"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar processo autorizado à Div. de Licitação",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Catalogar o item/serviço no GMS",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Realizar pesquisa de preços de mercado",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e12",
+        "tipo": "captura",
+        "label": "Encaminhar elementos de despesa à Sec. Financeira/Contabilidade",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e13",
+        "tipo": "atividade",
+        "label": "Indicar os elementos de despesa",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e14",
+        "tipo": "atividade",
+        "label": "Elaborar a DDF",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e15",
+        "tipo": "atividade",
+        "label": "Elaborar o edital",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e16",
+        "tipo": "atividade",
+        "label": "Cadastrar o processo no GMS e no ComprasNet/PNCP",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e17",
+        "tipo": "captura",
+        "label": "Submeter o edital à autorização da Direção Geral",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e18",
+        "tipo": "decisao",
+        "label": "Direção Geral autoriza o prosseguimento?",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e19",
+        "tipo": "pausa",
+        "label": "Aguardar ajuste do edital",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e20",
+        "tipo": "atividade",
+        "label": "Conduzir a sessão pública e homologar",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e21",
+        "tipo": "decisao",
+        "label": "Objeto licitado é aquisição de bens (não serviço contínuo)?",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e22",
+        "tipo": "captura",
+        "label": "Encaminhar à formalização do contrato de aquisição (DLIC-01)",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e23",
+        "tipo": "fim",
+        "label": "Licitação homologada — contrato de aquisição a formalizar",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e24",
+        "tipo": "captura",
+        "label": "Encaminhar à formalização do contrato de serviços contínuos (DLIC-02)",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e25",
+        "tipo": "fim",
+        "label": "Licitação homologada — contrato de serviços contínuos a formalizar",
+        "raia": "Div. de Licitação"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e9",
+        "label": "Sim"
+      },
+      {
+        "de": "e7",
+        "para": "e8",
+        "label": "Não"
+      },
+      {
+        "de": "e8",
+        "para": "e2"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15"
+      },
+      {
+        "de": "e15",
+        "para": "e16"
+      },
+      {
+        "de": "e16",
+        "para": "e17"
+      },
+      {
+        "de": "e17",
+        "para": "e18"
+      },
+      {
+        "de": "e18",
+        "para": "e20",
+        "label": "Sim"
+      },
+      {
+        "de": "e18",
+        "para": "e19",
+        "label": "Não"
+      },
+      {
+        "de": "e19",
+        "para": "e15"
+      },
+      {
+        "de": "e20",
+        "para": "e21"
+      },
+      {
+        "de": "e21",
+        "para": "e22",
+        "label": "Sim"
+      },
+      {
+        "de": "e22",
+        "para": "e23"
+      },
+      {
+        "de": "e21",
+        "para": "e24",
+        "label": "Não"
+      },
+      {
+        "de": "e24",
+        "para": "e25"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200056"
+      ],
+      "fontes": [
+        "1780963200056"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 6 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 6: Conduzir a sessão pública e homologar o resultado da licitação",
+        "Passo adicionado após 5: Cadastrar o processo no GMS e no ComprasNet/PNCP",
+        "Passo adicionado após 4: Elaborar a Declaração de Disponibilidade Financeira (DDF)",
+        "Passo adicionado após 3: Realizar pesquisa de preços de mercado",
+        "Passo adicionado após 2: Submeter o processo à autorização da Direção Geral",
+        "Passo adicionado após 1: Realizar cotações de preços e elaborar a tabela comparativa",
+        "entrada_nova: +2",
+        "saida_nova: +1",
+        "artefatos_novos: +5",
+        "decisoes_novas: +3",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +4",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +4",
+        "checklist_novo: +6",
+        "glossario_novo: +2",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Requisitante, Planejamento, Direção Geral, Sec. Financeira/Contabilidade",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7, e8",
+        "Elementos BPMN adicionados: 25",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200056"
+      ],
+      "motivo": "Detalhamento do fluxo do processo de licitação a partir da entrada do Canvas (1780963200056): separação das ações compostas em passos atômicos, duas decisões de autorização da Direção Geral e encaminhamento, após a homologação, à formalização do contrato de aquisição (DLIC-01) ou de serviços contínuos (DLIC-02)."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
+  ],
+  "lacunas": [
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "1780963200056"
+  ],
+  "hash_fontes": "9be5453a42e6e6603c7e05086281866e3c6988966eae3823e6d72c138db18bea",
+  "agente": "pop-dlic-03",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:48:59Z"
+}

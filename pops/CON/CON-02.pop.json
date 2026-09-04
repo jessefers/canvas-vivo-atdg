@@ -1,0 +1,403 @@
+{
+  "id": "pop-con-02",
+  "codigo": "CON-02",
+  "titulo": "Celebração de Convênio",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.01-CON",
+  "sigla": "CON",
+  "versao": "0.2.1",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "ATDG — Assessoria Técnica da Direção Geral",
+    "departamento": "ATDG — Convênios e Parcerias",
+    "descricao": "Celebração de Convênio — Assinaturas, publicação, registro. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "dominio": "Convênios, Parcerias e Captação",
+    "subdominio": "Celebração de Convênio",
+    "tipo_subdominio": "core",
+    "contexto": "S02.01-CON",
+    "glossario": [
+      {
+        "termo": "Extrato de convênio",
+        "definicao": "Resumo do instrumento de convênio publicado para conferir eficácia e publicidade ao ato.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "Sob demanda",
+    "normativa": [
+      "Lei nº 14.133/2021 (Lei de Licitações e Contratos Administrativos), no que for pertinente à formalização de convênios"
+    ],
+    "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "01_ADMINISTRATIVO"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_01_CON[\"S02.01-CON<br/>ATDG — Convênios e Parcerias\"]\n  S02_ATDG --> S02_01_CON\n  P[\"CON-02<br/>Celebração de Convênio\"]\n  S02_01_CON --> P\n  V1[\"SETI\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  V4[\"Setor demandante\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_01_CON setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Aprovação da minuta de convênio pela SETI (ou órgão concedente) recebida",
+      "origem": "SETI"
+    },
+    "entrada": [
+      "Minuta de convênio aprovada pela SETI",
+      "Plano de trabalho aprovado"
+    ],
+    "passos": [
+      {
+        "acao": "Receber a aprovação da minuta de convênio pela SETI",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Ofício de aprovação da SETI",
+        "prazo": "A definir",
+        "evento": "Aprovação recebida",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Preparar a via definitiva do convênio para assinatura",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Convênio (via definitiva)",
+        "prazo": "A definir",
+        "evento": "Via definitiva preparada",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Colher a assinatura da Direção Geral do Campus (ou autoridade competente)",
+        "responsavel": "Direção Geral do Campus",
+        "sistema": "e-Protocolo",
+        "artefato": "Convênio assinado pela Unioeste",
+        "prazo": "A definir",
+        "evento": "Convênio assinado pela Unioeste",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Colher a assinatura do partícipe externo",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Convênio assinado por ambas as partes",
+        "prazo": "A definir",
+        "evento": "Convênio assinado por ambas as partes",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Publicar o extrato do convênio",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "A definir",
+        "artefato": "Extrato de publicação",
+        "prazo": "A definir",
+        "evento": "Extrato publicado",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Registrar o convênio celebrado no controle da ATDG",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Registro de convênios",
+        "prazo": "A definir",
+        "evento": "Convênio registrado",
+        "fontes": [],
+        "n": 6
+      }
+    ],
+    "saida": [
+      "Convênio assinado pelos partícipes",
+      "Extrato de convênio publicado",
+      "Convênio registrado no controle da ATDG"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Convênio (instrumento assinado)",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "partícipes",
+        "objeto",
+        "vigência",
+        "assinaturas"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Registro de convênios",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "número do convênio",
+        "partícipes",
+        "vigência",
+        "status"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Os partícipes assinaram o convênio sem alterações em relação à minuta aprovada pela SETI?",
+      "condicao": "Convênio preparado para assinatura após aprovação da SETI",
+      "sim": "Publicar o extrato e registrar o convênio celebrado",
+      "nao": "Reencaminhar o convênio à SETI para nova análise antes da publicação"
+    }
+  ],
+  "pontos_atencao": [
+    "Confirmar o veículo oficial de publicação do extrato de convênio antes de formalizar o registro",
+    "Verificar se há necessidade de designação de gestor/fiscal do convênio nesta etapa"
+  ],
+  "contingencia": [
+    "Partícipe externo não assina no prazo previsto: reiterar contato e comunicar a Direção Geral do Campus",
+    "Divergência entre o texto assinado e a minuta aprovada pela SETI: suspender a publicação e consultar a SETI",
+    "Falha na publicação do extrato: reemitir a publicação e registrar a ocorrência"
+  ],
+  "checklist": [
+    "Aprovação da SETI recebida e conferida",
+    "Via definitiva do convênio preparada sem divergências da minuta aprovada",
+    "Assinaturas de ambos os partícipes colhidas",
+    "Extrato de convênio publicado",
+    "Convênio registrado no controle da ATDG"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio entre a aprovação da SETI e a assinatura do convênio",
+      "formula": "Média (data de assinatura − data de aprovação da SETI)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de convênios publicados dentro do prazo institucional",
+      "formula": "(Convênios publicados no prazo / total de convênios celebrados) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "SETI",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "informa",
+      "artefato": "Aprovação da minuta de convênio",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "aprova",
+      "artefato": "Convênio para assinatura",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Setor demandante",
+      "relacao": "informa",
+      "artefato": "Convênio celebrado e publicado",
+      "canal": "e-Protocolo/OneDrive ATDG"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Aprovação da minuta de convênio pela SETI (ou órgão concedente) receb…\"))\n    e2[\"Receber a aprovação da minuta de convênio pela SETI\"]\n    e3[\"Preparar a via definitiva do convênio para assinatura\"]\n    e5[\"Colher a assinatura do partícipe externo\"]\n    e6[\"Publicar o extrato do convênio\"]\n    e7[\"Registrar o convênio celebrado no controle da ATDG\"]\n    e8[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11(((\"Convênio assinado pelos partícipes\")))\n  end\n  subgraph R2[\"Direção Geral do Campus\"]\n    direction LR\n    e4[\"Colher a assinatura da Direção Geral do Campus (ou autoridade compete…\"]\n    e9[[\"✉ Aprovação por Direção Geral do Campus\"]]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e10[[\"✉ Informar Setor demandante\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7 atividade\n  class e8,e9,e10 captura\n  class e11 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Direção Geral do Campus",
+      "Setor demandante"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Aprovação da minuta de convênio pela SETI (ou órgão concedente) recebida",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Receber a aprovação da minuta de convênio pela SETI",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Preparar a via definitiva do convênio para assinatura",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Colher a assinatura da Direção Geral do Campus (ou autoridade competente)",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Colher a assinatura do partícipe externo",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Publicar o extrato do convênio",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Registrar o convênio celebrado no controle da ATDG",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Informar Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Aprovação por Direção Geral do Campus",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Informar Setor demandante",
+        "raia": "Setor demandante"
+      },
+      {
+        "id": "e11",
+        "tipo": "fim",
+        "label": "Convênio assinado pelos partícipes",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir do escopo \"Assinaturas, publicação, registro\""
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Receber a aprovação da minuta de convênio pela SETI",
+        "Passo adicionado após 1: Preparar a via definitiva do convênio para assinatura",
+        "Passo adicionado após 2: Colher a assinatura da Direção Geral do Campus (ou autoridade competente)",
+        "Passo adicionado após 3: Colher a assinatura do partícipe externo",
+        "Passo adicionado após 4: Publicar o extrato do convênio",
+        "Passo adicionado após 5: Registrar o convênio celebrado no controle da ATDG",
+        "entrada_nova: +2",
+        "saida_nova: +3",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "normativa_nova: +1",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Celebração de Convênio (assinaturas, publicação e registro) a partir do escopo do manual institucional da ATDG."
+    },
+    {
+      "versao": "0.2.1",
+      "data": "2026-09-03",
+      "autor": "agente:curador-diretrizes",
+      "tipo": "patch",
+      "mudancas": [
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "responsavel",
+    "kpi",
+    "formulario",
+    "prazo",
+    "normativa"
+  ],
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de convênios em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
+  "fontes_entradas": [],
+  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "agente": "pop-con-02",
+  "versao_diretrizes": "1.12",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T02:08:01Z"
+}

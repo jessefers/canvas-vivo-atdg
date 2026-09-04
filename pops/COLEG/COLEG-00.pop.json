@@ -1,0 +1,542 @@
+{
+  "id": "pop-coleg-00",
+  "codigo": "COLEG-00",
+  "titulo": "Visão geral — Colegiado de Curso (transversal)",
+  "setor": "Colegiado de Curso",
+  "setor_codigo": "S12-COLEG",
+  "sigla": "COLEG",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Colegiado de Curso (transversal)",
+    "departamento": "Colegiado de Curso (transversal)",
+    "descricao": "Consolida as rotinas dos colegiados e coordenações de curso, estágio e TCC e do agente universitário: comunicação e protocolo, condução do Colegiado e do NDE, gestão acadêmica no Academus, formalização de termos e bancas de estágio, e orientação, bancas e envio de TCC à Biblioteca, nos termos do art. 41 do Estatuto (Res. 017/99-COU), do Regimento de Cursos, da Lei nº 11.788/2008 e dos regulamentos de estágio e de TCC de cada curso.",
+    "dominio": "Colegiados e Cursos",
+    "subdominio": "Gestão acadêmica e órgãos colegiados do curso",
+    "tipo_subdominio": "core",
+    "contexto": "S12-COLEG",
+    "glossario": [
+      {
+        "termo": "NDE",
+        "definicao": "Núcleo Docente Estruturante do curso, atuante em conjunto com o Colegiado na condução pedagógica do curso.",
+        "sistema": ""
+      },
+      {
+        "termo": "Agente Universitário",
+        "definicao": "Servidor técnico-administrativo que apoia a coordenação do curso/colegiado nas rotinas de comunicação, protocolo e apoio acadêmico.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Coordenador(a) de Curso",
+    "periodicidade": "Contínua, conforme calendário acadêmico e cronograma de estágio/TCC de cada curso",
+    "normativa": [
+      "Estatuto (Res. 017/99-COU) art. 41",
+      "Lei nº 11.788/2008",
+      "Regulamentos de Estágio e TCC dos cursos",
+      "Regimento de Cursos"
+    ],
+    "subordinacao": "Direção Geral de Campus",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S12_COLEG[\"S12-COLEG<br/>Colegiado de Curso (transversal)\"]\n  S01_DG --> S12_COLEG\n  P[\"COLEG-00<br/>Visão geral — Colegiado de Curso (transversal)\"]\n  S12_COLEG --> P\n  V1[\"PROGRAD\"]\n  P -. interface .-> V1\n  V2[\"Biblioteca\"]\n  P -. interface .-> V2\n  V3[\"Concedente de Estágio\"]\n  P -. interface .-> V3\n  V4[\"Direção de Centro\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S12_COLEG setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Solicitação de discente, docente ou concedente, pauta de reunião do Colegiado/NDE, ou marco do calendário acadêmico/cronograma de estágio e TCC",
+      "origem": "Discente, docente, concedente de estágio, Agente Universitário do Colegiado ou coordenações de curso, estágio e TCC"
+    },
+    "entrada": [
+      "Solicitação de discente, docente ou concedente (atendimento, matrícula, estágio, TCC)",
+      "Calendário acadêmico e cronograma de estágio/TCC do curso",
+      "Demanda de deliberação para o Colegiado/NDE"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Realizar o atendimento e a comunicação com discentes, docentes e concedentes, e protocolar os documentos recebidos",
+        "responsavel": "Agente Universitário do Colegiado",
+        "sistema": "e-Protocolo",
+        "artefato": "Protocolo/registro de atendimento",
+        "prazo": "Contínuo, conforme demanda",
+        "evento": "Atendimento realizado e documento protocolado",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Convocar e presidir as reuniões do Colegiado e do NDE, com pauta e ata",
+        "responsavel": "Coordenador(a) de Curso",
+        "sistema": "e-Protocolo",
+        "artefato": "Pauta e ata do Colegiado/NDE",
+        "prazo": "A definir (periodicidade regimental)",
+        "evento": "Colegiado/NDE reunido",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "acao": "Deliberar sobre as matérias em pauta no Colegiado (transferências, segunda chamada, dispensa, exercício domiciliar, entre outras)",
+        "responsavel": "Colegiado/NDE",
+        "sistema": "e-Protocolo",
+        "artefato": "Ata de deliberação",
+        "prazo": "Na sessão convocada",
+        "evento": "Matéria deliberada",
+        "fontes": [
+          "1780963200006",
+          "1780963200032"
+        ],
+        "n": 3
+      },
+      {
+        "n": 4,
+        "acao": "Realizar a gestão acadêmica no Academus (planos de ensino, matrícula, notas, horários e distribuição de disciplinas)",
+        "responsavel": "Coordenador(a) de Curso",
+        "sistema": "Academus",
+        "artefato": "Plano de ensino; horários; registros de notas e matrícula",
+        "prazo": "Conforme calendário acadêmico",
+        "evento": "Gestão acadêmica do período concluída",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "n": 5,
+        "acao": "Articular com as instituições concedentes e formalizar os termos de compromisso e os aditivos de estágio",
+        "responsavel": "Coordenador(a) de Estágio",
+        "sistema": "Academus",
+        "artefato": "Termo de compromisso de estágio; aditivo",
+        "prazo": "Conforme calendário do estágio e a Lei nº 11.788/2008",
+        "evento": "Termo de compromisso/aditivo formalizado",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "acao": "Organizar e realizar as bancas de estágio supervisionado",
+        "responsavel": "Coordenador(a) de Estágio",
+        "sistema": "",
+        "artefato": "Ata de banca de estágio",
+        "prazo": "Conforme calendário do estágio",
+        "evento": "Banca de estágio realizada",
+        "fontes": [
+          "1780963200008"
+        ],
+        "n": 6
+      },
+      {
+        "n": 7,
+        "acao": "Indicar orientadores e organizar as bancas e defesas de TCC",
+        "responsavel": "Coordenador(a) de TCC",
+        "sistema": "Academus",
+        "artefato": "Edital de TCC; ata de banca de defesa",
+        "prazo": "Conforme cronograma anual de TCC",
+        "evento": "Defesa de TCC realizada",
+        "fontes": [
+          "pb-colegiado"
+        ]
+      },
+      {
+        "acao": "Lançar as notas e frequências de TCC no Academus e enviar a versão final à Biblioteca",
+        "responsavel": "Coordenador(a) de TCC",
+        "sistema": "Academus",
+        "artefato": "Versão final do TCC; declaração de entrega à Biblioteca",
+        "prazo": "Até o prazo do calendário acadêmico para encerramento do período",
+        "evento": "TCC lançado no Academus e enviado à Biblioteca",
+        "fontes": [
+          "1780963200010"
+        ],
+        "n": 8
+      }
+    ],
+    "saida": [
+      "Atendimento realizado e documentos protocolados",
+      "Deliberações do Colegiado/NDE registradas em ata",
+      "Gestão acadêmica do período concluída no Academus",
+      "Termos de compromisso e aditivos de estágio formalizados",
+      "TCC defendido, lançado no Academus e enviado à Biblioteca"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Pauta e ata do Colegiado/NDE",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "data",
+        "matérias",
+        "deliberações"
+      ],
+      "responsavel_preenchimento": "Coordenador(a) de Curso"
+    },
+    {
+      "nome": "Termo de compromisso de estágio",
+      "tipo": "formulario",
+      "sistema": "Academus",
+      "campos_chave": [
+        "discente",
+        "concedente",
+        "plano de atividades",
+        "vigência"
+      ],
+      "responsavel_preenchimento": "Coordenador(a) de Estágio"
+    },
+    {
+      "nome": "Aditivo de termo de compromisso de estágio",
+      "tipo": "formulario",
+      "sistema": "Academus",
+      "campos_chave": [
+        "termo original",
+        "alteração",
+        "vigência"
+      ],
+      "responsavel_preenchimento": "Coordenador(a) de Estágio"
+    },
+    {
+      "nome": "Ata de banca de TCC",
+      "tipo": "registro",
+      "sistema": "Academus",
+      "campos_chave": [
+        "discente",
+        "orientador",
+        "banca",
+        "resultado"
+      ],
+      "responsavel_preenchimento": "Coordenador(a) de TCC"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A matéria (transferência, segunda chamada, dispensa, exercício domiciliar etc.) é deferida pelo Colegiado?",
+      "condicao": "Análise do Colegiado/NDE quanto aos requisitos regimentais",
+      "sim": "Registrar o deferimento em ata e providenciar os efeitos acadêmicos no Academus",
+      "nao": "Registrar o indeferimento em ata, com a motivação, e comunicar ao interessado"
+    },
+    {
+      "decisao": "A documentação do termo de compromisso de estágio está completa?",
+      "condicao": "Conferência dos documentos exigidos pelo Regulamento de Estágio do curso e pela Lei nº 11.788/2008",
+      "sim": "Assinar e protocolar o termo de compromisso/aditivo",
+      "nao": "Devolver ao discente/concedente para complementação da documentação"
+    }
+  ],
+  "pontos_atencao": [
+    "Forte vínculo com prazos do calendário acadêmico",
+    "Observar a Lei de Estágio (11.788/2008) e os regulamentos dos cursos",
+    "Manter vínculos corretos no Academus; LGPD",
+    "Forte vínculo com prazos do calendário acadêmico e com o cronograma anual de estágio e de TCC.",
+    "Observar a Lei de Estágio (11.788/2008) e os regulamentos de estágio e de TCC de cada curso, que podem variar entre os colegiados do CCSA e do CECE.",
+    "Manter os vínculos corretos no Academus (matrícula, orientação, banca); dados de discentes e docentes sujeitos à LGPD."
+  ],
+  "contingencia": [
+    "Se a documentação do termo de compromisso de estágio estiver incompleta, o Coordenador(a) de Estágio devolve ao discente/concedente e suspende a assinatura até a regularização.",
+    "Se a concedente de estágio descumprir o plano de atividades, o Coordenador(a) de Estágio comunica o fato e avalia a rescisão do termo, conforme a Lei nº 11.788/2008.",
+    "Se um membro da banca de TCC não puder comparecer, o Coordenador(a) de TCC substitui o membro conforme o Regulamento de TCC do curso e reagenda a sessão, se necessário.",
+    "Se o Colegiado não atingir quórum, registrar a ausência de quórum em ata e reconvocar a sessão."
+  ],
+  "checklist": [
+    "Pauta e ata do Colegiado/NDE registradas e arquivadas",
+    "Planos de ensino, horários e matrícula do período lançados no Academus",
+    "Termos de compromisso e aditivos de estágio assinados e protocolados",
+    "Bancas de TCC realizadas, notas lançadas no Academus e versão final enviada à Biblioteca"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de termos de compromisso de estágio formalizados antes do início da atividade",
+      "formula": "Termos assinados antes do início / total de estágios iniciados × 100",
+      "meta": "A definir",
+      "fonte": "Academus"
+    },
+    {
+      "indicador": "Percentual de TCCs com versão final entregue à Biblioteca no prazo do calendário acadêmico",
+      "formula": "TCCs entregues no prazo / total de TCCs defendidos × 100",
+      "meta": "A definir",
+      "fonte": "Registro do Coordenador(a) de TCC"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "PROGRAD",
+      "relacao": "informa",
+      "artefato": "Planos de ensino e decisões acadêmicas do Colegiado",
+      "canal": "Academus/e-Protocolo"
+    },
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "Biblioteca",
+      "relacao": "fornece",
+      "artefato": "Versão final de TCC",
+      "canal": "e-mail institucional/sistema de bibliotecas"
+    },
+    {
+      "origem": "Concedente de Estágio",
+      "destino": "Colegiado de Curso",
+      "relacao": "fornece",
+      "artefato": "Plano de atividades e avaliação do estagiário",
+      "canal": "Termo de compromisso"
+    },
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "Direção de Centro",
+      "relacao": "informa",
+      "artefato": "Demandas e decisões do Colegiado encaminhadas à Direção de Centro",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Coordenador(a) de Curso\"]\n    direction LR\n    e1((\"Solicitação de discente, docente ou concedente, pauta de reunião do C…\"))\n    e3[\"Convocar e presidir as reuniões do Colegiado e do NDE, com pauta e ata\"]\n    e5[\"Realizar a gestão acadêmica no Academus (planos de ensino, matrícula,…\"]\n    e13(((\"Atendimento realizado e documentos protocolados\")))\n  end\n  subgraph R2[\"Agente Universitário do Colegiado\"]\n    direction LR\n    e2[\"Realizar o atendimento e a comunicação com discentes, docentes e conc…\"]\n  end\n  subgraph R3[\"Colegiado/NDE\"]\n    direction LR\n    e4[\"Deliberar sobre as matérias em pauta no Colegiado (transferências, se…\"]\n  end\n  subgraph R4[\"Coordenador(a) de Estágio\"]\n    direction LR\n    e6[\"Articular com as instituições concedentes e formalizar os termos de c…\"]\n    e7[\"Organizar e realizar as bancas de estágio supervisionado\"]\n  end\n  subgraph R5[\"Coordenador(a) de TCC\"]\n    direction LR\n    e8[\"Indicar orientadores e organizar as bancas e defesas de TCC\"]\n    e9[\"Lançar as notas e frequências de TCC no Academus e enviar a versão fi…\"]\n  end\n  subgraph R6[\"PROGRAD\"]\n    direction LR\n    e10[[\"✉ Informar PROGRAD\"]]\n  end\n  subgraph R7[\"Biblioteca\"]\n    direction LR\n    e11[[\"✉ Encaminhar a Biblioteca\"]]\n  end\n  subgraph R8[\"Direção de Centro\"]\n    direction LR\n    e12[[\"✉ Informar Direção de Centro\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e10,e11,e12 captura\n  class e13 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Coordenador(a) de Curso",
+      "Agente Universitário do Colegiado",
+      "Colegiado/NDE",
+      "Coordenador(a) de Estágio",
+      "Coordenador(a) de TCC",
+      "PROGRAD",
+      "Biblioteca",
+      "Direção de Centro"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Solicitação de discente, docente ou concedente, pauta de reunião do Colegiado/NDE, ou marco do calendário acadêmico/cronograma de estágio e TCC",
+        "raia": "Coordenador(a) de Curso"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Realizar o atendimento e a comunicação com discentes, docentes e concedentes, e protocolar os documentos recebidos",
+        "raia": "Agente Universitário do Colegiado"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Convocar e presidir as reuniões do Colegiado e do NDE, com pauta e ata",
+        "raia": "Coordenador(a) de Curso"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Deliberar sobre as matérias em pauta no Colegiado (transferências, segunda chamada, dispensa, exercício domiciliar, entre outras)",
+        "raia": "Colegiado/NDE"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Realizar a gestão acadêmica no Academus (planos de ensino, matrícula, notas, horários e distribuição de disciplinas)",
+        "raia": "Coordenador(a) de Curso"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Articular com as instituições concedentes e formalizar os termos de compromisso e os aditivos de estágio",
+        "raia": "Coordenador(a) de Estágio"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Organizar e realizar as bancas de estágio supervisionado",
+        "raia": "Coordenador(a) de Estágio"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Indicar orientadores e organizar as bancas e defesas de TCC",
+        "raia": "Coordenador(a) de TCC"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Lançar as notas e frequências de TCC no Academus e enviar a versão final à Biblioteca",
+        "raia": "Coordenador(a) de TCC"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Informar PROGRAD",
+        "raia": "PROGRAD"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Encaminhar a Biblioteca",
+        "raia": "Biblioteca"
+      },
+      {
+        "id": "e12",
+        "tipo": "captura",
+        "label": "Informar Direção de Centro",
+        "raia": "Direção de Centro"
+      },
+      {
+        "id": "e13",
+        "tipo": "fim",
+        "label": "Atendimento realizado e documentos protocolados",
+        "raia": "Coordenador(a) de Curso"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 8 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-colegiado"
+      ],
+      "fontes": [
+        "pb-colegiado"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D2)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 5: Lançar as notas e frequências de TCC no Academus e enviar a versão final à Bibli",
+        "Passo adicionado após 4: Organizar e realizar as bancas de estágio supervisionado",
+        "Passo adicionado após 2: Deliberar sobre as matérias em pauta no Colegiado (transferências, segunda chama",
+        "entrada_nova: +3",
+        "saida_nova: +5",
+        "artefatos_novos: +4",
+        "decisoes_novas: +2",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +4",
+        "pontos_atencao_novos: +3",
+        "contingencia_nova: +4",
+        "checklist_novo: +4",
+        "glossario_novo: +2",
+        "normativa_nova: +1",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-colegiado",
+        "1780963200002",
+        "1780963200003",
+        "1780963200004",
+        "1780963200005",
+        "1780963200006",
+        "1780963200007",
+        "1780963200008",
+        "1780963200009",
+        "1780963200010",
+        "1780963200018",
+        "1780963200019",
+        "1780963200020",
+        "1780963200021",
+        "1780963200032"
+      ],
+      "motivo": "Completar a visão geral transversal dos colegiados e coordenações de curso, estágio e TCC e do agente universitário (responsável, gatilho, entradas/saídas, artefatos, decisões, KPIs, contingência, checklist e mapa de contexto), a partir dos questionários de mapeamento de atividades, dos fluxogramas por função e do mapeamento de tarefas da coordenação, tornando o POP apto à validação."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
+  ],
+  "lacunas": [
+    "versao_documento",
+    "dados_pessoais_lgpd"
+  ],
+  "observacoes": "POP transversal aplicável a todos os colegiados de curso do Campus; consolida os quatro perfis de atuação levantados nos questionários de mapeamento (agente universitário, coordenador de curso, coordenador de estágio e coordenador de TCC) e nos fluxogramas correspondentes, além do mapeamento de tarefas da coordenação (art. 41 do Estatuto). Cópias, versões e planilhas de resposta vazias do mesmo questionário foram tratadas como uma única evidência por função (lição L-005).",
+  "fontes_entradas": [
+    "pb-colegiado",
+    "1780963200002",
+    "1780963200003",
+    "1780963200004",
+    "1780963200005",
+    "1780963200006",
+    "1780963200007",
+    "1780963200008",
+    "1780963200009",
+    "1780963200010",
+    "1780963200018",
+    "1780963200019",
+    "1780963200020",
+    "1780963200021",
+    "1780963200032"
+  ],
+  "hash_fontes": "7175dc7d7cb8c240a17be8d4221f650ea681fc5bf3dd86ce5f0ccfcf1231f540",
+  "agente": "pop-coleg-00",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-03T01:48:43Z"
+}

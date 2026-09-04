@@ -1,0 +1,170 @@
+{
+  "setor": "Div. de Pós-Graduação",
+  "codigo": "DPG-05",
+  "gerado_em": "2026-09-03T01:56:22Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DPG-05 — Fluxos e-Protocolo — PRPPG Stricto Sensu",
+      "descricao": "Manual da Comissão e-Protocolo com os fluxos dos programas de pós-graduação stricto sensu, conforme a Resolução nº 078/2016-CEPE. Abrange proposta de novo programa, curso de doutorado, implantação, modificação de projeto pedagógico e de regulamento, criação de disciplinas, entre outros atos. Orienta a tramitação no e-Protocolo das demandas de mestrado e doutorado.",
+      "raias": [
+        "Proponente/Coordenador da atividade",
+        "Coordenação Acadêmica",
+        "PRPPG"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Proposta ou alteração de programa/curso stricto sensu",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Identificar o ato (proposta de novo programa, implantação, modificação de projeto pedagógico/regulamento, criação de disciplina)",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e3",
+          "tipo": "decisao",
+          "label": "É proposta de novo programa/curso (mestrado ou doutorado)?",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Reunir a documentação ampliada exigida para novo programa (Resolução nº 078/2016-CEPE)",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e5",
+          "tipo": "decisao",
+          "label": "Projeto/proposta envolve propriedade intelectual?",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Marcar o processo como sigiloso no e-Protocolo",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Abrir o e-Protocolo conforme o fluxo específico",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Anexar projeto pedagógico/regulamento conforme exigido",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Encaminhar à PRPPG para deliberação",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e11",
+          "tipo": "pausa",
+          "label": "Aguardar deliberação da PRPPG",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Informar deliberação à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Registrar a deliberação e comunicar ao proponente",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e14",
+          "tipo": "fim",
+          "label": "Proposta/alteração deliberada pela PRPPG",
+          "raia": "Coordenação Acadêmica"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4",
+          "label": "Sim"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e3",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e6",
+          "label": "Sim"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e5",
+          "para": "e7",
+          "label": "Não"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

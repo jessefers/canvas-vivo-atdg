@@ -1,0 +1,81 @@
+{
+  "id": "diag-dpat-20260903",
+  "setor": "Div. de Patrimônio e Equipamentos",
+  "setor_codigo": "S03.05-DPAT",
+  "sigla": "DPAT",
+  "data": "2026-09-03T01:59:01Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-patrimonio"
+  ],
+  "hash_fontes": "4aaf5aa16ed9373c1b9e5ebd545b504823bb5bd22632687ced3264b79196242c",
+  "ecossistema": {
+    "dominio": "Suprimentos e Materiais",
+    "subdominios": [
+      "A definir (playbook em construção — tombamento, controle e desfazimento de bens)"
+    ],
+    "contextos_vizinhos": [
+      "A definir"
+    ],
+    "sistemas": [],
+    "normas": [
+      "A definir (normas de patrimônio; TCE-PR)"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DPAT-00",
+      "nome": "Visão geral — Div. de Patrimônio e Equipamentos (roteiro de coleta)",
+      "tipo": "processo",
+      "descricao": "Setor sem mapeamento de processos no Canvas; o único registro é o playbook-esqueleto genérico, que já cita tombamento, controle e desfazimento de bens como escopo provável, sem procedimento detalhado.",
+      "tipo_subdominio": "core",
+      "gatilho": "A definir",
+      "saida": "A definir",
+      "atores": [
+        "A definir"
+      ],
+      "sistemas": [],
+      "artefatos": [],
+      "interfaces": [],
+      "evidencias": [
+        "pb-patrimonio"
+      ],
+      "maturidade": 0,
+      "criticidade": 0.5,
+      "frequencia": 0.3,
+      "risco_conformidade": 0.55,
+      "cobertura": 0.05,
+      "prioridade": 0.49,
+      "lacunas": [
+        "responsavel",
+        "gatilho",
+        "entrada",
+        "saida",
+        "passos",
+        "sistema",
+        "formulario",
+        "prazo",
+        "kpi",
+        "contingencia",
+        "interface_setorial"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "DPAT-00",
+      "justificativa": "Nenhuma entrada real do Canvas além do playbook-esqueleto genérico; risco de conformidade um pouco mais alto que os demais setores em construção por envolver controle patrimonial sujeito a fiscalização do TCE-PR. POP tratado como roteiro de coleta, mantendo o status rascunho."
+    }
+  ],
+  "lacunas_setor": [
+    "sem entradas no Canvas"
+  ],
+  "licoes_propostas": [
+    {
+      "licao": "O campo de normativa do esqueleto de DPAT-00 ('A definir (normas de patrimônio; TCE-PR)') foi persistido como dois itens de array separados por vírgula ('A definir (normas de patrimônio' e 'TCE-PR)'), quebrando o parêntese ao meio.",
+      "regra": "Ao extrair automaticamente campos de normativa em texto livre para o esqueleto inicial, usar apenas ';' como separador de múltiplas normas (nunca ',') e validar que parênteses abertos sejam fechados no mesmo item antes de gravar o array.",
+      "exemplo": "pops/DPAT/DPAT-00.pop.json, identificacao.normativa",
+      "origem": "diagnostico:DPAT"
+    }
+  ],
+  "observacoes": "Setor ainda não mapeado — roteiro de coleta. Identificado defeito de formatação herdado do esqueleto original em identificacao.normativa (ver lição proposta); não corrigido neste lote por estar fora do escopo de campos autorizados para patch (campos.normativa não faz parte da lista de campos editáveis por este protocolo)."
+}

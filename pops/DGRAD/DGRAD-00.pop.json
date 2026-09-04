@@ -1,0 +1,484 @@
+{
+  "id": "pop-dgrad-00",
+  "codigo": "DGRAD-00",
+  "titulo": "Visão geral — Div. de Graduação",
+  "setor": "Div. de Graduação",
+  "setor_codigo": "S05.02-DGRAD",
+  "sigla": "DGRAD",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Coordenação Acadêmica",
+    "departamento": "Div. de Graduação",
+    "descricao": "Guia da tramitação dos processos de ensino de graduação no e-Protocolo (PROGRAD): PPP, reconhecimento de curso, regulamentos, projetos de ensino e monitorias.",
+    "dominio": "Gestão Acadêmica",
+    "subdominio": "Visão geral do setor (playbook)",
+    "tipo_subdominio": "core",
+    "contexto": "S05.02-DGRAD",
+    "glossario": [
+      {
+        "termo": "e-Protocolo",
+        "definicao": "Sistema institucional de tramitação eletrônica de processos e documentos da Unioeste.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "PROGRAD",
+        "definicao": "Pró-Reitoria de Ensino da Unioeste, responsável por deliberar sobre processos de ensino de graduação (PPP, reconhecimento de curso, regulamentos, projetos de ensino e monitorias).",
+        "sistema": ""
+      },
+      {
+        "termo": "PPP",
+        "definicao": "Projeto Pedagógico de Curso — documento que define a estrutura curricular e pedagógica de um curso de graduação.",
+        "sistema": ""
+      },
+      {
+        "termo": "Monitoria",
+        "definicao": "Atividade de apoio ao ensino exercida por discente, nas modalidades voluntária ou remunerada, vinculada a um projeto de ensino.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Coordenação Acadêmica",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Manual de Fluxos e-Protocolo — PROGRAD",
+      "Manual de Fluxos e-Protocolo — PROGRAD (fluxos consolidados de processos de ensino)"
+    ],
+    "subordinacao": "Coordenação Acadêmica",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  S05_02_DGRAD[\"S05.02-DGRAD<br/>Div. de Graduação\"]\n  S05_CACAD --> S05_02_DGRAD\n  P[\"DGRAD-00<br/>Visão geral — Div. de Graduação\"]\n  S05_02_DGRAD --> P\n  V1[\"Colegiado de Curso\"]\n  P -. interface .-> V1\n  V2[\"Direção de Centro\"]\n  P -. interface .-> V2\n  V3[\"PROGRAD\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD,S05_02_DGRAD setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Necessidade de tramitar processo de ensino de graduação (PPP, reconhecimento de curso, regulamento, projeto de ensino ou monitoria)",
+      "origem": "Colegiado de Curso"
+    },
+    "entrada": [
+      "Processo de ensino de graduação (PPP, reconhecimento de curso, regulamento, projeto de ensino ou monitoria)"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Identificar o tipo de processo de ensino (PPP, reconhecimento de curso, regulamento, projeto de ensino ou monitoria)",
+        "responsavel": "Colegiado de Curso",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo de ensino (PPP/regulamento/projeto/monitoria)",
+        "prazo": "Antes da abertura do e-Protocolo",
+        "evento": "Tipo de processo identificado",
+        "fontes": [
+          "pb-graduacao"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Instruir o e-Protocolo conforme o fluxo específico do processo de ensino",
+        "responsavel": "Colegiado de Curso",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "e-Protocolo instruído",
+        "fontes": [
+          "pb-graduacao"
+        ]
+      },
+      {
+        "acao": "Deliberar em reunião do Colegiado de Curso e registrar em ata, quando exigido pelo tipo de processo",
+        "responsavel": "Colegiado de Curso",
+        "sistema": "e-Protocolo",
+        "artefato": "Ata de deliberação do Colegiado de Curso",
+        "prazo": "A definir",
+        "evento": "Deliberação do Colegiado registrada",
+        "fontes": [
+          "pb-graduacao"
+        ],
+        "n": 3
+      },
+      {
+        "n": 4,
+        "acao": "Encaminhar às instâncias na ordem prevista (curso, centro, PROGRAD)",
+        "responsavel": "Direção de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado",
+        "fontes": [
+          "pb-graduacao"
+        ]
+      },
+      {
+        "acao": "Analisar o processo e emitir parecer da Direção de Centro",
+        "responsavel": "Direção de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Parecer da Direção de Centro",
+        "prazo": "A definir",
+        "evento": "Parecer emitido",
+        "fontes": [
+          "pb-graduacao"
+        ],
+        "n": 5
+      },
+      {
+        "n": 6,
+        "acao": "Acompanhar as deliberações e o arquivamento do processo",
+        "responsavel": "Coordenação Acadêmica",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Processo arquivado/publicado",
+        "fontes": [
+          "pb-graduacao"
+        ]
+      },
+      {
+        "acao": "Devolver ao Colegiado/Direção de Centro para ajustes quando a PROGRAD não aprovar",
+        "responsavel": "PROGRAD",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Processo devolvido para ajustes",
+        "fontes": [
+          "pb-graduacao"
+        ],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Processo deliberado pela PROGRAD e arquivado/publicado"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Processo de ensino (PPP/regulamento/projeto/monitoria)",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "tipo de processo",
+        "curso/centro",
+        "responsável pela instrução"
+      ],
+      "responsavel_preenchimento": "Colegiado de Curso"
+    },
+    {
+      "nome": "Ata de deliberação do Colegiado de Curso",
+      "tipo": "registro",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "data da reunião",
+        "deliberação",
+        "encaminhamentos"
+      ],
+      "responsavel_preenchimento": "Colegiado de Curso"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Processo depende de aprovação do Colegiado de Curso?",
+      "condicao": "O tipo de processo de ensino exige deliberação do Colegiado de Curso antes de seguir à Direção de Centro",
+      "sim": "Aguardar a ata de deliberação do Colegiado antes de encaminhar",
+      "nao": "Encaminhar diretamente à instância seguinte prevista no fluxo"
+    },
+    {
+      "decisao": "PROGRAD aprova o processo?",
+      "condicao": "A PROGRAD delibera favoravelmente ao processo de ensino",
+      "sim": "Arquivar/publicar a deliberação e comunicar ao curso/centro",
+      "nao": "Devolver ao Colegiado/Direção de Centro para ajustes"
+    }
+  ],
+  "pontos_atencao": [
+    "Seguir o fluxo correto evita devoluções",
+    "Verificar a versão atualizada do manual da Comissão e-Protocolo",
+    "Seguir o fluxo correto evita devoluções e atrasos",
+    "Verificar versão atualizada do manual da Comissão e-Protocolo"
+  ],
+  "contingencia": [
+    "Se o e-Protocolo estiver indisponível, registrar a solicitação em meio alternativo e regularizar a tramitação eletrônica assim que o sistema for restabelecido.",
+    "Se a documentação estiver incompleta, devolver ao curso/Colegiado com a relação de pendências antes de encaminhar à Direção de Centro.",
+    "Em caso de dúvida sobre o fluxo aplicável ao tipo de processo de ensino, consultar a Comissão e-Protocolo ou a PROGRAD antes de tramitar.",
+    "Se o Colegiado de Curso não deliberar dentro do prazo esperado, a Coordenação Acadêmica pode cobrar formalmente o andamento antes de escalar à Direção de Centro."
+  ],
+  "checklist": [
+    "Tipo de processo de ensino corretamente identificado",
+    "e-Protocolo aberto e instruído conforme o fluxo específico",
+    "Documentação obrigatória anexada",
+    "Deliberação do Colegiado de Curso registrada (ata), quando exigida",
+    "Encaminhamento às instâncias na ordem prevista (curso, centro, PROGRAD)"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de tramitação (abertura no e-Protocolo → deliberação da PROGRAD)",
+      "formula": "Σ(data da deliberação − data de abertura) / nº de processos no período",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de processos devolvidos por pendência documental ou fluxo incorreto",
+      "formula": "processos devolvidos / total de processos abertos × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "Direção de Centro",
+      "relacao": "fornece",
+      "artefato": "Processo de ensino deliberado pelo Colegiado",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Direção de Centro",
+      "destino": "PROGRAD",
+      "relacao": "aprova",
+      "artefato": "Processo de ensino encaminhado",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "PROGRAD",
+      "destino": "Colegiado de Curso",
+      "relacao": "informa",
+      "artefato": "Deliberação final da PROGRAD",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Colegiado de Curso\"]\n    direction LR\n    e1((\"Necessidade de tramitar processo de ensino de graduação\"))\n    e2[\"Identificar o tipo de processo de ensino (PPP, reconhecimento de curs…\"]\n    e3[\"Instruir o e-Protocolo conforme o fluxo específico\"]\n    e4{\"Processo depende de aprovação do Colegiado de Curso?\"}\n    e5[\"Deliberar em reunião do Colegiado e registrar em ata\"]\n    e11[[\"✉ Devolver ao Colegiado/Direção de Centro para ajustes\"]]\n    e12[\"Realizar os ajustes solicitados e reencaminhar\"]\n    e13[[\"✉ Arquivar/publicar a deliberação e comunicar ao curso/centro\"]]\n    e14(((\"Processo deliberado pela PROGRAD e arquivado/publicado\")))\n  end\n  subgraph R2[\"Direção de Centro\"]\n    direction LR\n    e6[[\"✉ Encaminhar à Direção de Centro\"]]\n    e7[\"Analisar o processo e emitir parecer do Centro\"]\n  end\n  subgraph R3[\"PROGRAD\"]\n    direction LR\n    e8[[\"✉ Encaminhar à PROGRAD para deliberação\"]]\n    e9([\"⏱ Aguardar deliberação da PROGRAD\"])\n    e10{\"PROGRAD aprova o processo?\"}\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e5\n  e5 --> e6\n  e4 -- Não --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e12 --> e3\n  e10 -- Sim --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e5,e7,e12 atividade\n  class e4,e10 decisao\n  class e6,e8,e11,e13 captura\n  class e9 pausa\n  class e14 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Colegiado de Curso",
+      "Direção de Centro",
+      "PROGRAD"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Necessidade de tramitar processo de ensino de graduação",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Identificar o tipo de processo de ensino (PPP, reconhecimento de curso, regulamento, projeto de ensino ou monitoria)",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Instruir o e-Protocolo conforme o fluxo específico",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e4",
+        "tipo": "decisao",
+        "label": "Processo depende de aprovação do Colegiado de Curso?",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Deliberar em reunião do Colegiado e registrar em ata",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e6",
+        "tipo": "captura",
+        "label": "Encaminhar à Direção de Centro",
+        "raia": "Direção de Centro"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Analisar o processo e emitir parecer do Centro",
+        "raia": "Direção de Centro"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Encaminhar à PROGRAD para deliberação",
+        "raia": "PROGRAD"
+      },
+      {
+        "id": "e9",
+        "tipo": "pausa",
+        "label": "Aguardar deliberação da PROGRAD",
+        "raia": "PROGRAD"
+      },
+      {
+        "id": "e10",
+        "tipo": "decisao",
+        "label": "PROGRAD aprova o processo?",
+        "raia": "PROGRAD"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Devolver ao Colegiado/Direção de Centro para ajustes",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e12",
+        "tipo": "atividade",
+        "label": "Realizar os ajustes solicitados e reencaminhar",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e13",
+        "tipo": "captura",
+        "label": "Arquivar/publicar a deliberação e comunicar ao curso/centro",
+        "raia": "Colegiado de Curso"
+      },
+      {
+        "id": "e14",
+        "tipo": "fim",
+        "label": "Processo deliberado pela PROGRAD e arquivado/publicado",
+        "raia": "Colegiado de Curso"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5",
+        "label": "Sim"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e4",
+        "para": "e6",
+        "label": "Não"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11",
+        "label": "Não"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e3"
+      },
+      {
+        "de": "e10",
+        "para": "e13",
+        "label": "Sim"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-graduacao"
+      ],
+      "fontes": [
+        "pb-graduacao"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D1)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 2: Deliberar em reunião do Colegiado de Curso e registrar em ata, quando exigido pe",
+        "Passo adicionado após 3: Analisar o processo e emitir parecer da Direção de Centro",
+        "Passo adicionado após 4: Devolver ao Colegiado/Direção de Centro para ajustes quando a PROGRAD não aprova",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +2",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +4",
+        "checklist_novo: +5",
+        "glossario_novo: +4",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Colegiado de Curso, Direção de Centro, PROGRAD",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 14",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-graduacao"
+      ],
+      "motivo": "Completar a visão geral da tramitação de processos de ensino de graduação (PROGRAD) com a deliberação do Colegiado de Curso, o parecer da Direção de Centro, a deliberação da PROGRAD e o mapa de contexto."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "interface_setorial",
+    "versao_documento"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-graduacao"
+  ],
+  "hash_fontes": "91c36ccbc5cae5b52bf2ca65b33e8eaa5184651911eef6fdb453fd31d602122f",
+  "agente": "pop-dgrad-00",
+  "versao_diretrizes": "1.2",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-03T01:52:54Z"
+}

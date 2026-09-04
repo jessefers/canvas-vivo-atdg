@@ -1,0 +1,47 @@
+{
+  "setor": "Colegiado de Curso",
+  "codigo": "COLEG-03",
+  "gerado_em": "2026-09-03T02:08:03Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "COLEG-03 — Coordenação de estágio",
+      "descricao": "Articulação com instituições concedentes, formalização de termos de compromisso e aditivos, organização de bancas de estágio supervisionado e observância do calendário e da legislação de estágio.",
+      "raias": [
+        "Colegiado de Curso",
+        "Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Solicitação de estágio de discente ou concedente, ou vencimento/alteração de termo de compromisso vigente",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e2",
+          "tipo": "captura",
+          "label": "Informar Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)",
+          "raia": "Concedentes de estágio (hotéis, escolas, NRE, SEED, Itaipu)"
+        },
+        {
+          "id": "e3",
+          "tipo": "fim",
+          "label": "Termo de compromisso ou aditivo formalizado e banca de estágio supervisionado realizada",
+          "raia": "Colegiado de Curso"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,0 +1,527 @@
+{
+  "id": "pop-dpg-02",
+  "codigo": "DPG-02",
+  "titulo": "Fluxos e-Protocolo — PRPPG CEUA",
+  "setor": "Div. de Pós-Graduação",
+  "setor_codigo": "S05.01-DPG",
+  "sigla": "DPG",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Coordenação Acadêmica",
+    "departamento": "Div. de Pós-Graduação",
+    "descricao": "Manual da Comissão e-Protocolo com os fluxos do Comitê de Ética no Uso de Animais (CEUA). Define a tramitação para projetos novos, alteração de projetos e relatórios finais. O docente responsável abre o e-Protocolo com 'protocolo unificado' e 'termo de responsabilidade' e encaminha ao responsável pelo campo de estudo/coordenador, sendo projetos com propriedade intelectual tramitados como sigilosos.",
+    "dominio": "Gestão Acadêmica",
+    "subdominio": "Fluxos e-Protocolo — PRPPG CEUA",
+    "tipo_subdominio": "core",
+    "contexto": "S05.01-DPG",
+    "glossario": [
+      {
+        "termo": "e-Protocolo",
+        "definicao": "Sistema institucional de tramitação eletrônica de processos e documentos da Unioeste.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "PRPPG",
+        "definicao": "Pró-Reitoria de Pesquisa e Pós-Graduação da Unioeste, responsável por deliberar sobre afastamento/capacitação docente, cursos de pós-graduação e ética em pesquisa.",
+        "sistema": ""
+      },
+      {
+        "termo": "CEUA",
+        "definicao": "Comitê de Ética no Uso de Animais, responsável por autorizar e acompanhar projetos de pesquisa que envolvam animais.",
+        "sistema": ""
+      },
+      {
+        "termo": "CEUAP",
+        "definicao": "Comitê de Ética no Uso de Animais de Produção, responsável por autorizar e acompanhar projetos que envolvam animais de produção.",
+        "sistema": ""
+      },
+      {
+        "termo": "Lato sensu",
+        "definicao": "Pós-graduação de especialização, com carga horária e regras próprias definidas pela Resolução nº 071/2021-CEPE.",
+        "sistema": ""
+      },
+      {
+        "termo": "Stricto sensu",
+        "definicao": "Pós-graduação de mestrado ou doutorado, com programas regidos pela Resolução nº 078/2016-CEPE.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Coordenação Acadêmica",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Manual de Fluxos e-Protocolo — PRPPG/CEUA",
+      "FLUXO_-_PRPPG_-_CEUA.pdf — Manual da Comissão e-Protocolo (documento-fonte)"
+    ],
+    "subordinacao": "Coordenação Acadêmica",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  S05_01_DPG[\"S05.01-DPG<br/>Div. de Pós-Graduação\"]\n  S05_CACAD --> S05_01_DPG\n  P[\"DPG-02<br/>Fluxos e-Protocolo — PRPPG CEUA\"]\n  S05_01_DPG --> P\n  V1[\"Proponente/Coordenador da atividade\"]\n  P -. interface .-> V1\n  V2[\"CEUA/CEUAP\"]\n  P -. interface .-> V2\n  V3[\"Coordenação Acadêmica\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD,S05_01_DPG setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Proposição de projeto de pesquisa com uso de animais",
+      "origem": "Proponente/Coordenador da atividade"
+    },
+    "entrada": [
+      "Protocolo unificado e termo de responsabilidade do projeto"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Abrir o e-Protocolo com o protocolo unificado e o termo de responsabilidade",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Protocolo unificado; Termo de responsabilidade",
+        "prazo": "Antes do início do projeto",
+        "evento": "e-Protocolo aberto",
+        "fontes": [
+          "1780963200044"
+        ]
+      },
+      {
+        "acao": "Verificar se o projeto envolve propriedade intelectual e, em caso positivo, marcar o processo como sigiloso",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo (sigiloso)",
+        "prazo": "No ato da abertura do e-Protocolo",
+        "evento": "Sigilo classificado",
+        "fontes": [
+          "1780963200044"
+        ],
+        "n": 2
+      },
+      {
+        "n": 3,
+        "acao": "Encaminhar ao responsável pelo campo de estudo/coordenador para análise",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Processo analisado",
+        "fontes": [
+          "1780963200044"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Tramitar ao Presidente do CEUA para autorização",
+        "responsavel": "CEUA/CEUAP",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Autorização solicitada",
+        "fontes": [
+          "1780963200044"
+        ]
+      },
+      {
+        "acao": "Aguardar a deliberação do Presidente do CEUA",
+        "responsavel": "CEUA/CEUAP",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Deliberação aguardada",
+        "fontes": [
+          "1780963200044"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Devolver ao proponente para ajustes quando o CEUA não autorizar",
+        "responsavel": "CEUA/CEUAP",
+        "sistema": "e-Protocolo",
+        "artefato": "Parecer do comitê",
+        "prazo": "A definir",
+        "evento": "Processo devolvido",
+        "fontes": [
+          "1780963200044"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Executar o projeto sob acompanhamento do CEUA quando autorizado",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "Conforme cronograma do projeto",
+        "evento": "Projeto em execução",
+        "fontes": [
+          "1780963200044"
+        ],
+        "n": 7
+      },
+      {
+        "n": 8,
+        "acao": "Submeter alterações e relatórios finais pelos fluxos próprios do CEUA",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Relatório final",
+        "prazo": "Conforme cronograma do projeto",
+        "evento": "Relatório final submetido",
+        "fontes": [
+          "1780963200044"
+        ]
+      }
+    ],
+    "saida": [
+      "Projeto autorizado (ou não) pelo Presidente do CEUA, com relatório final ao término"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Protocolo unificado",
+      "tipo": "formulario",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "proponente",
+        "campo de estudo",
+        "espécie/finalidade",
+        "sigilo (S/N)"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    },
+    {
+      "nome": "Termo de responsabilidade",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "responsável pelo projeto",
+        "compromissos éticos assumidos"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    },
+    {
+      "nome": "Relatório final de projeto",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "resultados",
+        "conformidade ética",
+        "data de encerramento"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Projeto envolve propriedade intelectual?",
+      "condicao": "O projeto de pesquisa envolve propriedade intelectual",
+      "sim": "Marcar e tramitar o e-Protocolo como sigiloso",
+      "nao": "Tramitar pelo fluxo ordinário (não sigiloso)"
+    },
+    {
+      "decisao": "Presidente do CEUA autoriza?",
+      "condicao": "O Presidente do CEUA aprova o protocolo unificado e o termo de responsabilidade",
+      "sim": "Executar o projeto sob acompanhamento do comitê e, ao final, submeter relatório final",
+      "nao": "Devolver ao proponente para ajustes e nova submissão"
+    }
+  ],
+  "pontos_atencao": [
+    "Projetos com propriedade intelectual: tramitar como sigiloso",
+    "Anexar os termos obrigatórios desde a abertura"
+  ],
+  "contingencia": [
+    "Se o e-Protocolo estiver indisponível, registrar a solicitação em meio alternativo e regularizar a tramitação eletrônica assim que o sistema for restabelecido.",
+    "Se a documentação estiver incompleta, devolver ao proponente/coordenador com a relação de pendências antes de encaminhar à PRPPG.",
+    "Em caso de dúvida sobre o fluxo aplicável, consultar a Comissão e-Protocolo ou a PRPPG antes de tramitar.",
+    "Projetos com propriedade intelectual devem ser marcados como sigilosos desde a abertura; se identificado após a abertura, corrigir a classificação de sigilo imediatamente."
+  ],
+  "checklist": [
+    "Ato/modalidade corretamente identificado",
+    "e-Protocolo aberto conforme o fluxo específico",
+    "Documentação obrigatória anexada",
+    "Classificação de sigilo (propriedade intelectual) verificada, quando aplicável",
+    "Encaminhamento à PRPPG realizado e acompanhamento registrado"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de tramitação (abertura no e-Protocolo → deliberação da PRPPG)",
+      "formula": "Σ(data da deliberação − data de abertura) / nº de processos no período",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de processos devolvidos por pendência documental ou fluxo incorreto",
+      "formula": "processos devolvidos / total de processos abertos × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de projetos corretamente classificados como sigilosos na abertura",
+      "formula": "projetos com classificação correta / total de projetos com propriedade intelectual × 100",
+      "meta": "100%",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Proponente/Coordenador da atividade",
+      "destino": "CEUA/CEUAP",
+      "relacao": "fornece",
+      "artefato": "Protocolo unificado e termo de responsabilidade",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "CEUA/CEUAP",
+      "destino": "Proponente/Coordenador da atividade",
+      "relacao": "aprova",
+      "artefato": "Autorização/parecer do comitê de ética",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Proponente/Coordenador da atividade",
+      "destino": "Coordenação Acadêmica",
+      "relacao": "informa",
+      "artefato": "Situação do projeto perante o comitê",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Proposição de projeto de pesquisa com uso de animais\"))\n    e2[\"Elaborar o protocolo unificado e o termo de responsabilidade\"]\n    e3{\"Projeto envolve propriedade intelectual?\"}\n    e4[\"Marcar o processo como sigiloso no e-Protocolo\"]\n    e5[\"Abrir o e-Protocolo com o protocolo unificado e o termo de responsabi…\"]\n    e6[[\"✉ Encaminhar ao responsável pelo campo de estudo/coordenador\"]]\n    e7[\"Analisar o protocolo e solicitar ajustes, se necessário\"]\n    e11[\"Devolver ao proponente para ajustes e nova submissão\"]\n    e12(((\"Projeto devolvido para ajustes\")))\n    e13[\"Executar o projeto sob acompanhamento do CEUA\"]\n  end\n  subgraph R2[\"CEUA/CEUAP\"]\n    direction LR\n    e8[[\"✉ Tramitar ao Presidente do CEUA para autorização\"]]\n    e9([\"⏱ Aguardar autorização do Presidente do CEUA\"])\n    e10{\"Presidente do CEUA autoriza?\"}\n    e14[[\"✉ Submeter alterações e relatório final ao CEUA pelos fluxos próprios\"]]\n    e15(((\"Projeto autorizado e encerrado com relatório final\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e10 -- Sim --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e5,e7,e11,e13 atividade\n  class e3,e10 decisao\n  class e6,e8,e14 captura\n  class e9 pausa\n  class e12,e15 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Proponente/Coordenador da atividade",
+      "CEUA/CEUAP"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Proposição de projeto de pesquisa com uso de animais",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Elaborar o protocolo unificado e o termo de responsabilidade",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e3",
+        "tipo": "decisao",
+        "label": "Projeto envolve propriedade intelectual?",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Marcar o processo como sigiloso no e-Protocolo",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Abrir o e-Protocolo com o protocolo unificado e o termo de responsabilidade",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e6",
+        "tipo": "captura",
+        "label": "Encaminhar ao responsável pelo campo de estudo/coordenador",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Analisar o protocolo e solicitar ajustes, se necessário",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Tramitar ao Presidente do CEUA para autorização",
+        "raia": "CEUA/CEUAP"
+      },
+      {
+        "id": "e9",
+        "tipo": "pausa",
+        "label": "Aguardar autorização do Presidente do CEUA",
+        "raia": "CEUA/CEUAP"
+      },
+      {
+        "id": "e10",
+        "tipo": "decisao",
+        "label": "Presidente do CEUA autoriza?",
+        "raia": "CEUA/CEUAP"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Devolver ao proponente para ajustes e nova submissão",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e12",
+        "tipo": "fim",
+        "label": "Projeto devolvido para ajustes",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e13",
+        "tipo": "atividade",
+        "label": "Executar o projeto sob acompanhamento do CEUA",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e14",
+        "tipo": "captura",
+        "label": "Submeter alterações e relatório final ao CEUA pelos fluxos próprios",
+        "raia": "CEUA/CEUAP"
+      },
+      {
+        "id": "e15",
+        "tipo": "fim",
+        "label": "Projeto autorizado e encerrado com relatório final",
+        "raia": "CEUA/CEUAP"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4",
+        "label": "Sim"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e3",
+        "para": "e5",
+        "label": "Não"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11",
+        "label": "Não"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e10",
+        "para": "e13",
+        "label": "Sim"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200044"
+      ],
+      "fontes": [
+        "1780963200044"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D1)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 1: Verificar se o projeto envolve propriedade intelectual e, em caso positivo, marc",
+        "Passo adicionado após 3: Aguardar a deliberação do Presidente do CEUA",
+        "Passo adicionado após 3: Devolver ao proponente para ajustes quando o CEUA não autorizar",
+        "Passo adicionado após 3: Executar o projeto sob acompanhamento do CEUA quando autorizado",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +3",
+        "decisoes_novas: +2",
+        "kpis_novos: +3",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +4",
+        "checklist_novo: +5",
+        "glossario_novo: +6",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Proponente/Coordenador da atividade, CEUA/CEUAP",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 15",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200044"
+      ],
+      "motivo": "Completar o fluxo do comitê de ética CEUA com a decisão de sigilo por propriedade intelectual, a autorização do Presidente do comitê e o encerramento por relatório final, conforme o manual oficial da Comissão e-Protocolo."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "interface_setorial",
+    "versao_documento"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "1780963200044"
+  ],
+  "hash_fontes": "3da7d730f69a829f695f8eeda14117138208151a4b61b998a90c13119e872e92",
+  "agente": "pop-dpg-02",
+  "versao_diretrizes": "1.2",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-03T01:52:54Z"
+}

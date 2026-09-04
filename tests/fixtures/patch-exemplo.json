@@ -1,0 +1,18 @@
+{
+  "codigo": "ALM-01",
+  "tipo_mudanca": "minor",
+  "motivo": "Exemplo de patch incremental: novo formulário de conferência e passo de registro fotográfico identificados em entrada do Canvas.",
+  "autor": "agente:pop-alm-01",
+  "fontes": ["1780963200000"],
+  "passos_adicionados": [
+    {"apos_n": 1, "passo": {"acao": "Registrar fotograficamente avarias identificadas na conferência", "responsavel": "Agente Universitário do Almoxarifado", "sistema": "GMS/ERP", "artefato": "Registro fotográfico de avaria", "prazo": "No ato do recebimento", "evento": "Avaria registrada"}}
+  ],
+  "artefatos_novos": [
+    {"nome": "Formulário de conferência de recebimento", "tipo": "formulario", "sistema": "GMS/ERP", "campos_chave": ["nº da NF", "quantidade conferida", "divergências"], "responsavel_preenchimento": "Agente Universitário do Almoxarifado"}
+  ],
+  "checklist_novo": ["Conferência quantitativa e qualitativa registrada no formulário"],
+  "lacunas_resolvidas": ["formulario"],
+  "licoes_propostas": [
+    {"licao": "Avarias detectadas na conferência não tinham evidência documental.", "regra": "Todo recebimento com divergência gera registro fotográfico anexado ao formulário de conferência.", "exemplo": "ALM-01, passo 2", "origem": "pop"}
+  ]
+}

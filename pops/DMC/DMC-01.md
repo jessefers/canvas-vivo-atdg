@@ -1,0 +1,261 @@
+---
+codigo: DMC-01
+titulo: "Controle Manual DSMC — Tempos de Limpeza"
+versao: "1.0.0"
+status: em_validacao
+setor_codigo: S03.01-DMC
+setor: "Div. de Manutenção e Conservação"
+atualizado_em: "2026-09-03T01:54:59Z"
+agente: pop-dmc-01
+versao_diretrizes: "1.5"
+---
+
+# POP DMC-01 — Controle Manual DSMC — Tempos de Limpeza
+
+> **Documento vivo** · ATDG — Assessoria Técnica da Direção Geral · UNIOESTE Campus Foz do Iguaçu · Formato DDD híbrido + BPMN 2.0 padrão Anne Bail · Versão **1.0.0** · Status **em_validacao** · Atualizado em 2026-09-03
+
+## 0. Cabeçalho DDD
+
+| Divisão | Departamento | Descrição |
+|---|---|---|
+| Secretaria Administrativa | Div. de Manutenção e Conservação | Planilha operacional da Divisão de Serviços e Manutenção/Conservação (DSMC) que parametriza, por ambiente (auditórios, banheiros, corredores, salas, biblioteca etc.), o tipo de limpeza (faxina/normal), o tempo médio e a quantidade de pessoal necessária, além de aba de materiais. Subsidia o dimensionamento e o planejamento das rotinas de conservação. |
+
+| Domínio | Subdomínio | Tipo | Contexto delimitado |
+|---|---|---|---|
+| Infraestrutura e Serviços | Manutenção da planilha de controle de tempos e dimensionamento de limpeza | suporte | S03.01-DMC |
+
+### 0.3 Linguagem ubíqua (glossário do processo)
+
+| Termo | Definição | Sistema |
+|---|---|---|
+| Tempo médio de limpeza | Estimativa de tempo necessário para a limpeza completa de um ambiente, usada para dimensionar a equipe. | planilha |
+
+## 1. Identificação
+
+| Campo | Valor |
+|---|---|
+| Código | DMC-01 |
+| Setor | Div. de Manutenção e Conservação (`S03.01-DMC`) |
+| Responsável (função) | Chefe da Divisão de Manutenção e Conservação |
+| Periodicidade | Atualização contínua, conforme necessidade |
+| Subordinação | Secretaria Administrativa |
+| Normativa | Contrato de prestação de serviços de limpeza/conservação; normas de saúde e segurança |
+| Produto ATDG | POP |
+| Pasta OneDrive | 03_MAPEAMENTO DE PROCESSOS |
+| Fontes (entradas do Canvas) | 1780963200030 |
+| Lacunas abertas | prazo |
+| Agente responsável | pop-dmc-01 |
+
+## 2. Organograma
+
+```mermaid
+graph TD
+  S01_DG["S01-DG<br/>Direção Geral de Campus"]
+  S03_SADM["S03-SADM<br/>Secretaria Administrativa"]
+  S01_DG --> S03_SADM
+  S03_01_DMC["S03.01-DMC<br/>Div. de Manutenção e Conservação"]
+  S03_SADM --> S03_01_DMC
+  P["DMC-01<br/>Controle Manual DSMC — Tempos de Limpeza"]
+  S03_01_DMC --> P
+  V1["Almoxarifado"]
+  P -. interface .-> V1
+  V2["Equipe de limpeza (própria/terceirizada)"]
+  P -. interface .-> V2
+  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747
+  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747
+  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66
+  class S01_DG,S03_SADM,S03_01_DMC setor
+  class P destaque
+  class V1,V2 vizinho
+```
+
+## 3. Playbook
+
+### 3.1 Gatilho (evento de domínio)
+
+**Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza** — origem: Chefe da Divisão de Manutenção e Conservação
+
+### 3.2 Entrada
+
+- Relação de ambientes do campus
+- Contrato de prestação de serviços de limpeza/conservação vigente
+
+### 3.3 Passo a passo
+
+| Nº | Ação | Responsável | Sistema | Artefato | Prazo | Evento |
+|---|---|---|---|---|---|---|
+| 1 | Cadastrar os ambientes na planilha de controle (auditórios, banheiros, corredores, salas, biblioteca etc.) | Chefe da Divisão de Manutenção e Conservação | planilha | Controle Manual DSMC (planilha) | A definir | Ambientes cadastrados |
+| 2 | Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal) | Chefe da Divisão de Manutenção e Conservação | planilha | Controle Manual DSMC (planilha) | A definir | Tempo médio definido |
+| 3 | Registrar observações específicas por ambiente (ex.: piso especial, equipamentos sensíveis) | Chefe da Divisão de Manutenção e Conservação | planilha | Controle Manual DSMC (planilha) | A definir | Observações registradas |
+| 4 | Calcular a quantidade de pessoal necessária a partir dos tempos definidos | Chefe da Divisão de Manutenção e Conservação | planilha | Controle Manual DSMC (planilha) | A definir | Pessoal calculado |
+| 5 | Registrar o custo estimado de mão de obra a partir do dimensionamento | Chefe da Divisão de Manutenção e Conservação | planilha | Controle Manual DSMC (planilha) | A definir | Custo estimado registrado |
+| 6 | Relacionar os materiais de limpeza por atividade na aba de materiais | Chefe da Divisão de Manutenção e Conservação | planilha | Relação de materiais por atividade | A definir | Materiais relacionados |
+| 7 | Validar a consistência da planilha antes de utilizá-la para o dimensionamento | Chefe da Divisão de Manutenção e Conservação | planilha | Controle Manual DSMC (planilha) | A definir | Planilha validada |
+| 8 | Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado | Chefe da Divisão de Manutenção e Conservação | planilha | Controle Manual DSMC (planilha) | A definir | Planilha disponibilizada |
+| 9 | Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão do contrato | Chefe da Divisão de Manutenção e Conservação | planilha | Controle Manual DSMC (planilha) | Contínua, conforme necessidade | Planilha atualizada |
+
+### 3.4 Saída (entregáveis)
+
+- Planilha de controle validada, atualizada e disponível para consulta
+
+## 4. Formulários e artefatos (agregados)
+
+| Nome | Tipo | Sistema | Campos-chave | Preenchimento |
+|---|---|---|---|---|
+| Controle Manual DSMC (planilha) | documento | planilha | ambiente, tipo de limpeza, tempo médio, quantidade de pessoal, materiais | Chefe da Divisão de Manutenção e Conservação |
+| Relação de materiais por atividade | documento | planilha | atividade, material, quantidade estimada | Chefe da Divisão de Manutenção e Conservação |
+
+## 5. Decisões, exceções e pontos de atenção
+
+| Decisão | Condição | Sim → | Não → |
+|---|---|---|---|
+| A planilha está consistente com os ambientes e o contrato vigente? | Conferência dos ambientes, tempos e materiais cadastrados frente à situação real e ao contrato | Disponibilizar a planilha para consulta | Corrigir os dados antes de disponibilizar |
+
+**Pontos de atenção**
+
+- Tempos são médias de referência — ajustar à realidade
+- Revisar dimensionamento conforme contrato terceirizado
+- A planilha deve ser a única fonte oficial de referência para tempos e dimensionamento, evitando versões paralelas desatualizadas
+
+## 6. Contingência
+
+- Se um ambiente novo não estiver cadastrado, incluí-lo na planilha antes de dimensionar a equipe para aquele espaço
+- Se houver divergência entre o tempo médio da planilha e a realidade observada, revisar o tempo antes de nova aplicação
+- Se o contrato terceirizado for alterado, revisar o dimensionamento e os materiais relacionados
+
+## 7. Checklist
+
+- ( ) Todos os ambientes do campus cadastrados na planilha
+- ( ) Tempo médio e tipo de limpeza definidos por ambiente
+- ( ) Quantidade de pessoal calculada a partir dos tempos
+- ( ) Materiais relacionados por atividade
+- ( ) Planilha validada e disponibilizada para consulta
+
+## 8. KPI / Indicadores
+
+| Indicador | Fórmula | Meta | Fonte |
+|---|---|---|---|
+| Percentual de ambientes do campus cadastrados na planilha | (Ambientes cadastrados ÷ total de ambientes do campus) × 100 | 100% | planilha |
+| Periodicidade de atualização da planilha | Data da última atualização | A definir | planilha |
+
+## 9. Mapa de contexto (interfaces inter-setoriais)
+
+| Origem | Relação | Destino | Artefato | Canal |
+|---|---|---|---|---|
+| Div. de Manutenção e Conservação | fornece | Almoxarifado | Relação de materiais de limpeza por atividade | planilha |
+| Div. de Manutenção e Conservação | fornece | Equipe de limpeza (própria/terceirizada) | Planilha de tempos e dimensionamento | planilha |
+
+## 10. Fluxograma (BPMN 2.0 — padrão Anne Bail)
+
+```mermaid
+flowchart LR
+  subgraph R1["Chefe da Divisão de Manutenção e Conservação"]
+    direction LR
+    e1(("Necessidade de cadastrar, atualizar ou consultar os tempos e o dimens…"))
+    e2["Cadastrar os ambientes na planilha de controle (auditórios, banheiros…"]
+    e3["Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal)"]
+    e4["Registrar observações específicas por ambiente (ex.: piso especial, e…"]
+    e5["Calcular a quantidade de pessoal necessária a partir dos tempos defin…"]
+    e6["Registrar o custo estimado de mão de obra a partir do dimensionamento"]
+    e7["Relacionar os materiais de limpeza por atividade na aba de materiais"]
+    e8["Validar a consistência da planilha antes de utilizá-la para o dimensi…"]
+    e9["Disponibilizar a planilha atualizada para consulta da equipe e do Alm…"]
+    e10["Atualizar a planilha sempre que houver novo ambiente, mudança de uso…"]
+    e13((("Planilha de controle validada, atualizada e disponível para consulta")))
+  end
+  subgraph R2["Almoxarifado"]
+    direction LR
+    e11[["✉ Encaminhar a Almoxarifado"]]
+  end
+  subgraph R3["Equipe de limpeza (própria/terceirizada)"]
+    direction LR
+    e12[["✉ Encaminhar a Equipe de limpeza (própria/terceirizada)"]]
+  end
+  e1 --> e2
+  e2 --> e3
+  e3 --> e4
+  e4 --> e5
+  e5 --> e6
+  e6 --> e7
+  e7 --> e8
+  e8 --> e9
+  e9 --> e10
+  e10 --> e11
+  e11 --> e12
+  e12 --> e13
+  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151
+  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E
+  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A
+  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544
+  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544
+  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66
+  class e1 inicio
+  class e2,e3,e4,e5,e6,e7,e8,e9,e10 atividade
+  class e11,e12 captura
+  class e13 fim
+```
+
+## 11. Especificação BPMN para o Miro
+
+**Raias:** Chefe da Divisão de Manutenção e Conservação · Almoxarifado · Equipe de limpeza (própria/terceirizada)
+
+| Id | Tipo | Elemento | Raia |
+|---|---|---|---|
+| e1 | inicio | Necessidade de cadastrar, atualizar ou consultar os tempos e o dimensionamento de limpeza | Chefe da Divisão de Manutenção e Conservação |
+| e2 | atividade | Cadastrar os ambientes na planilha de controle (auditórios, banheiros, corredores, salas, biblioteca etc.) | Chefe da Divisão de Manutenção e Conservação |
+| e3 | atividade | Definir o tempo médio de limpeza por ambiente e tipo (faxina/normal) | Chefe da Divisão de Manutenção e Conservação |
+| e4 | atividade | Registrar observações específicas por ambiente (ex.: piso especial, equipamentos sensíveis) | Chefe da Divisão de Manutenção e Conservação |
+| e5 | atividade | Calcular a quantidade de pessoal necessária a partir dos tempos definidos | Chefe da Divisão de Manutenção e Conservação |
+| e6 | atividade | Registrar o custo estimado de mão de obra a partir do dimensionamento | Chefe da Divisão de Manutenção e Conservação |
+| e7 | atividade | Relacionar os materiais de limpeza por atividade na aba de materiais | Chefe da Divisão de Manutenção e Conservação |
+| e8 | atividade | Validar a consistência da planilha antes de utilizá-la para o dimensionamento | Chefe da Divisão de Manutenção e Conservação |
+| e9 | atividade | Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado | Chefe da Divisão de Manutenção e Conservação |
+| e10 | atividade | Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão do contrato | Chefe da Divisão de Manutenção e Conservação |
+| e11 | captura | Encaminhar a Almoxarifado | Almoxarifado |
+| e12 | captura | Encaminhar a Equipe de limpeza (própria/terceirizada) | Equipe de limpeza (própria/terceirizada) |
+| e13 | fim | Planilha de controle validada, atualizada e disponível para consulta | Chefe da Divisão de Manutenção e Conservação |
+
+| De | Para | Rótulo |
+|---|---|---|
+| e1 | e2 | — |
+| e2 | e3 | — |
+| e3 | e4 | — |
+| e4 | e5 | — |
+| e5 | e6 | — |
+| e6 | e7 | — |
+| e7 | e8 | — |
+| e8 | e9 | — |
+| e9 | e10 | — |
+| e10 | e11 | — |
+| e11 | e12 | — |
+| e12 | e13 | — |
+
+_Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro._
+
+## 12. Histórico de versões
+
+| Versão | Data | Autor | Tipo | Mudanças | Fontes |
+|---|---|---|---|---|---|
+| 0.1.0 | 2026-09-02 | scripts/scaffold_pops.py | patch | Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200030 | 1780963200030 |
+| 1.0.0 | 2026-09-03 | agente:construtor-pop (lote C) | major | Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes); Passo adicionado após 2: Registrar observações específicas por ambiente (ex.: piso especial, equipamentos; Passo adicionado após 3: Registrar o custo estimado de mão de obra a partir do dimensionamento; Passo adicionado após 4: Validar a consistência da planilha antes de utilizá-la para o dimensionamento; Passo adicionado após 4: Disponibilizar a planilha atualizada para consulta da equipe e do Almoxarifado; Passo adicionado após 4: Atualizar a planilha sempre que houver novo ambiente, mudança de uso ou revisão ; entrada_nova: +2; saida_nova: +1; artefatos_novos: +2; decisoes_novas: +1; kpis_novos: +2; mapa_contexto_novo: +2; pontos_atencao_novos: +1; contingencia_nova: +3; checklist_novo: +5; glossario_novo: +1; Campo identificacao.responsavel atualizado; Campo identificacao.periodicidade atualizado; Campo ddd.subdominio atualizado; Campo playbook.gatilho atualizado; Fluxograma regenerado a partir dos passos; Status promovido a em_validacao (≥ 3 passos e responsável definido) | 1780963200030 |
+
+## 13. Validação e aprovação
+
+| Papel | Função / unidade | Data |
+|---|---|---|
+| Elaboração | ATDG — Assessoria Técnica da Direção Geral | 2026-09-02 |
+| Revisão | A definir (responsável do setor) | ___/___/______ |
+| Aprovação | Direção Geral do Campus | ___/___/______ |
+
+## 14. Lições incorporadas
+
+- **L-001** — Referir sempre função/cargo; nomes apenas no bloco 13 (Validação), com anuência (LGPD).
+- **L-004** — Nunca regenerar POP existente: aplicar patch com changelog, fontes e versão.
+- **L-006** — Preservar códigos legados como códigos de processo; não renumerar.
+- **L-007** — Referência Externa é benchmark; normativa do POP só cita atos da Unioeste, do Estado do Paraná ou federais aplicáveis.
+- **L-002** — Um passo = uma ação; ações compostas viram passos distintos.
+- **L-003** — Cada linha do mapa de contexto gera um elemento `captura` no BPMN e um passo na raia de destino.
+- **L-005** — No diagnóstico, agrupar versões do mesmo documento e registrar lacuna `versao_documento`.
+
+---
+_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `pops/DMC/DMC-01.pop.json` (diretrizes v1.5)._

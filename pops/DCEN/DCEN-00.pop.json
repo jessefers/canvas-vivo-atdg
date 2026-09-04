@@ -1,0 +1,497 @@
+{
+  "id": "pop-dcen-00",
+  "codigo": "DCEN-00",
+  "titulo": "Visão geral — Direção de Centro (competências gerais)",
+  "setor": "Direção de Centro",
+  "setor_codigo": "S13-DCEN",
+  "sigla": "DCEN",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Direção de Centro (competências gerais)",
+    "departamento": "Direção de Centro (competências gerais)",
+    "descricao": "Estabelece as competências do(a) Diretor(a) de Centro e das Assessorias de área, de ensino e de extensão na condução do Centro, incluindo representação institucional, indicação de representantes, delegação de atividades, condução e deliberação do Conselho de Centro e articulação do ensino com a PROGRAD e da extensão com a PROEX, nos termos do art. 37 do Estatuto (Res. 017/99-COU). Aplica-se de forma transversal às Direções dos Centros do Campus (CCSA e CECE), que mantêm playbooks próprios (CCSA-00, CECE-00) para as particularidades de cada Centro.",
+    "dominio": "Ensino, Pesquisa e Extensão (Centro)",
+    "subdominio": "Competências e governança da Direção de Centro",
+    "tipo_subdominio": "core",
+    "contexto": "S13-DCEN",
+    "glossario": [
+      {
+        "termo": "Conselho de Centro",
+        "definicao": "Órgão colegiado do Centro, convocado e presidido pelo Diretor(a) de Centro, responsável por deliberar sobre as matérias de sua competência regimental.",
+        "sistema": ""
+      },
+      {
+        "termo": "Assessoria de Ensino/Extensão do Centro",
+        "definicao": "Função exercida por delegação do Diretor(a) de Centro para conduzir as atividades de ensino ou de extensão do Centro, conforme o mapeamento de tarefas da Direção de Centro.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Diretor(a) de Centro",
+    "periodicidade": "Contínua, com convocação do Conselho de Centro conforme demanda (periodicidade formal a definir em regimento)",
+    "normativa": [
+      "Estatuto (Res. 017/99-COU) art. 37"
+    ],
+    "subordinacao": "Direção Geral de Campus",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S13_DCEN[\"S13-DCEN<br/>Direção de Centro (competências gerais)\"]\n  S01_DG --> S13_DCEN\n  P[\"DCEN-00<br/>Visão geral — Direção de Centro (competências gerais)\"]\n  S13_DCEN --> P\n  V1[\"PROGRAD\"]\n  P -. interface .-> V1\n  V2[\"PROEX\"]\n  P -. interface .-> V2\n  V3[\"Colegiado de Curso\"]\n  P -. interface .-> V3\n  V4[\"Direção Geral de Campus\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S13_DCEN setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Necessidade de representação do Centro, de indicação de representante, de delegação de atividade ou de deliberação de matéria de competência do Conselho de Centro",
+      "origem": "Diretor(a) de Centro, Assessorias do Centro, Colegiados de Curso ou Direção Geral de Campus"
+    },
+    "entrada": [
+      "Convocação ou demanda de representação, indicação ou deliberação",
+      "Mapeamento de tarefas da Direção de Centro (art. 37 do Estatuto)",
+      "Pauta ou matéria a ser submetida ao Conselho de Centro"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Representar o Centro em eventos, reuniões e atos oficiais internos e externos",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "",
+        "artefato": "Registro/ata de representação",
+        "prazo": "Conforme convocação do evento",
+        "evento": "Centro representado",
+        "fontes": [
+          "pb-direcao-centro"
+        ]
+      },
+      {
+        "n": 2,
+        "acao": "Nomear representantes do Centro para comitês, conselhos e grupos de trabalho",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Portaria ou ofício de designação",
+        "prazo": "Conforme demanda",
+        "evento": "Representante designado",
+        "fontes": [
+          "pb-direcao-centro"
+        ]
+      },
+      {
+        "acao": "Delegar às Assessorias de área, de ensino e de extensão as atividades correspondentes, conforme o mapeamento de tarefas da Direção de Centro",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "",
+        "artefato": "Mapeamento de tarefas da Direção de Centro",
+        "prazo": "No início da gestão e sempre que alterado",
+        "evento": "Atividades delegadas às Assessorias",
+        "fontes": [
+          "1780963200033"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Executar as atividades de ensino e de extensão delegadas pelo Diretor(a) de Centro",
+        "responsavel": "Assessoria de Ensino/Extensão do Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Relatório/registro de execução",
+        "prazo": "Conforme cronograma do Centro",
+        "evento": "Atividade delegada executada",
+        "fontes": [
+          "1780963200033"
+        ],
+        "n": 4
+      },
+      {
+        "n": 5,
+        "acao": "Convocar e presidir as reuniões do Conselho de Centro",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Edital de convocação e pauta",
+        "prazo": "A definir (periodicidade do Regimento do Conselho de Centro)",
+        "evento": "Conselho de Centro convocado",
+        "fontes": [
+          "pb-direcao-centro"
+        ]
+      },
+      {
+        "acao": "Deliberar sobre as matérias constantes da pauta do Conselho de Centro",
+        "responsavel": "Conselho de Centro",
+        "sistema": "",
+        "artefato": "Ata do Conselho de Centro",
+        "prazo": "Na sessão convocada",
+        "evento": "Matéria deliberada",
+        "fontes": [
+          "1780963200033"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Registrar a deliberação em ata e dar encaminhamento aos setores envolvidos",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Ata do Conselho de Centro assinada",
+        "prazo": "A definir (prazo regimental de lavratura da ata)",
+        "evento": "Deliberação registrada e encaminhada",
+        "fontes": [
+          "1780963200033"
+        ],
+        "n": 7
+      },
+      {
+        "n": 8,
+        "acao": "Articular o ensino do Centro com a PROGRAD e a extensão com a PROEX",
+        "responsavel": "Diretor(a) de Centro",
+        "sistema": "e-Protocolo",
+        "artefato": "Ofício/memorando de articulação",
+        "prazo": "Conforme demanda",
+        "evento": "Demanda articulada com PROGRAD/PROEX",
+        "fontes": [
+          "pb-direcao-centro"
+        ]
+      }
+    ],
+    "saida": [
+      "Centro representado nos eventos, reuniões e órgãos colegiados",
+      "Representantes designados para comitês, conselhos e grupos de trabalho",
+      "Ata do Conselho de Centro com as deliberações registradas",
+      "Demanda de ensino ou de extensão articulada com a PROGRAD/PROEX"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Mapeamento de tarefas da Direção de Centro",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [
+        "competência",
+        "responsável (Diretor/Assessoria)",
+        "base normativa"
+      ],
+      "responsavel_preenchimento": "Diretor(a) de Centro"
+    },
+    {
+      "nome": "Edital de convocação do Conselho de Centro",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "data",
+        "pauta",
+        "convocados"
+      ],
+      "responsavel_preenchimento": "Diretor(a) de Centro"
+    },
+    {
+      "nome": "Ata do Conselho de Centro",
+      "tipo": "registro",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "deliberações",
+        "votação",
+        "encaminhamentos"
+      ],
+      "responsavel_preenchimento": "Diretor(a) de Centro"
+    },
+    {
+      "nome": "Portaria/ofício de designação de representante",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "representante designado",
+        "comitê/conselho/GT",
+        "vigência"
+      ],
+      "responsavel_preenchimento": "Diretor(a) de Centro"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A matéria é aprovada pelo Conselho de Centro?",
+      "condicao": "Votação em reunião do Conselho de Centro, observado o quórum regimental",
+      "sim": "Registrar a aprovação em ata e encaminhar aos setores executores (Assessorias, PROGRAD, PROEX, Colegiados)",
+      "nao": "Registrar a rejeição em ata, com a justificativa, e devolver ao proponente"
+    }
+  ],
+  "pontos_atencao": [
+    "Distribuição de tarefas deve respeitar o art. 37 do Estatuto",
+    "Assessorias atuam por delegação do Diretor de Centro",
+    "A distribuição de competências entre Diretor(a) de Centro e Assessorias deve observar o art. 37 do Estatuto e não substitui a responsabilidade final do Diretor(a) de Centro.",
+    "Assessorias atuam por delegação; a delegação não desonera o Diretor(a) de Centro da supervisão dos atos delegados.",
+    "Convocação, quórum e periodicidade do Conselho de Centro seguem regimento próprio — ainda não evidenciados neste levantamento (A definir)."
+  ],
+  "contingencia": [
+    "Se o Diretor(a) de Centro estiver impedido de presidir o Conselho de Centro, aplicar as regras de substituição previstas no Estatuto/Regimento do Centro (instrumento específico a definir).",
+    "Se a pauta do Conselho de Centro não atingir quórum, registrar a ausência de quórum em ata e reconvocar a sessão.",
+    "Se a Assessoria delegada não executar a atividade no prazo, o Diretor(a) de Centro reassume a condução direta e comunica à Direção Geral de Campus, quando aplicável."
+  ],
+  "checklist": [
+    "Pauta e edital de convocação do Conselho de Centro emitidos com antecedência",
+    "Ata da reunião do Conselho de Centro registrada e assinada",
+    "Delegações às Assessorias formalizadas e comunicadas",
+    "Demandas de ensino e de extensão encaminhadas à PROGRAD/PROEX, quando aplicável"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de reuniões do Conselho de Centro com ata registrada",
+      "formula": "(reuniões com ata registrada / reuniões realizadas) × 100",
+      "meta": "A definir",
+      "fonte": "Atas do Conselho de Centro"
+    },
+    {
+      "indicador": "Prazo médio de resposta às demandas de articulação com PROGRAD/PROEX",
+      "formula": "Média (data de resposta − data de encaminhamento)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Direção de Centro",
+      "destino": "PROGRAD",
+      "relacao": "fornece",
+      "artefato": "Demanda de articulação de ensino",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Direção de Centro",
+      "destino": "PROEX",
+      "relacao": "fornece",
+      "artefato": "Demanda de articulação de extensão",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Colegiado de Curso",
+      "destino": "Direção de Centro",
+      "relacao": "fornece",
+      "artefato": "Matéria/demanda para pauta do Conselho de Centro",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Direção de Centro",
+      "destino": "Direção Geral de Campus",
+      "relacao": "informa",
+      "artefato": "Ata do Conselho de Centro e decisões relevantes",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Diretor(a) de Centro\"]\n    direction LR\n    e1((\"Necessidade de representação do Centro, de indicação de representante…\"))\n    e2[\"Representar o Centro em eventos, reuniões e atos oficiais internos e…\"]\n    e3[\"Nomear representantes do Centro para comitês, conselhos e grupos de t…\"]\n    e4[\"Delegar às Assessorias de área, de ensino e de extensão as atividades…\"]\n    e6[\"Convocar e presidir as reuniões do Conselho de Centro\"]\n    e8[\"Registrar a deliberação em ata e dar encaminhamento aos setores envol…\"]\n    e9[\"Articular o ensino do Centro com a PROGRAD e a extensão com a PROEX\"]\n    e13(((\"Centro representado nos eventos, reuniões e órgãos colegiados\")))\n  end\n  subgraph R2[\"Assessoria de Ensino/Extensão do Centro\"]\n    direction LR\n    e5[\"Executar as atividades de ensino e de extensão delegadas pelo Diretor…\"]\n  end\n  subgraph R3[\"Conselho de Centro\"]\n    direction LR\n    e7[\"Deliberar sobre as matérias constantes da pauta do Conselho de Centro\"]\n  end\n  subgraph R4[\"PROGRAD\"]\n    direction LR\n    e10[[\"✉ Encaminhar a PROGRAD\"]]\n  end\n  subgraph R5[\"PROEX\"]\n    direction LR\n    e11[[\"✉ Encaminhar a PROEX\"]]\n  end\n  subgraph R6[\"Direção Geral de Campus\"]\n    direction LR\n    e12[[\"✉ Informar Direção Geral de Campus\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8,e9 atividade\n  class e10,e11,e12 captura\n  class e13 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Diretor(a) de Centro",
+      "Assessoria de Ensino/Extensão do Centro",
+      "Conselho de Centro",
+      "PROGRAD",
+      "PROEX",
+      "Direção Geral de Campus"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Necessidade de representação do Centro, de indicação de representante, de delegação de atividade ou de deliberação de matéria de competência do Conselho de Centro",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Representar o Centro em eventos, reuniões e atos oficiais internos e externos",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Nomear representantes do Centro para comitês, conselhos e grupos de trabalho",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Delegar às Assessorias de área, de ensino e de extensão as atividades correspondentes, conforme o mapeamento de tarefas da Direção de Centro",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Executar as atividades de ensino e de extensão delegadas pelo Diretor(a) de Centro",
+        "raia": "Assessoria de Ensino/Extensão do Centro"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Convocar e presidir as reuniões do Conselho de Centro",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Deliberar sobre as matérias constantes da pauta do Conselho de Centro",
+        "raia": "Conselho de Centro"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Registrar a deliberação em ata e dar encaminhamento aos setores envolvidos",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Articular o ensino do Centro com a PROGRAD e a extensão com a PROEX",
+        "raia": "Diretor(a) de Centro"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Encaminhar a PROGRAD",
+        "raia": "PROGRAD"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Encaminhar a PROEX",
+        "raia": "PROEX"
+      },
+      {
+        "id": "e12",
+        "tipo": "captura",
+        "label": "Informar Direção Geral de Campus",
+        "raia": "Direção Geral de Campus"
+      },
+      {
+        "id": "e13",
+        "tipo": "fim",
+        "label": "Centro representado nos eventos, reuniões e órgãos colegiados",
+        "raia": "Diretor(a) de Centro"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 6 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-direcao-centro"
+      ],
+      "fontes": [
+        "pb-direcao-centro"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D2)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 3: Registrar a deliberação em ata e dar encaminhamento aos setores envolvidos",
+        "Passo adicionado após 3: Deliberar sobre as matérias constantes da pauta do Conselho de Centro",
+        "Passo adicionado após 2: Executar as atividades de ensino e de extensão delegadas pelo Diretor(a) de Cent",
+        "Passo adicionado após 2: Delegar às Assessorias de área, de ensino e de extensão as atividades correspond",
+        "entrada_nova: +3",
+        "saida_nova: +4",
+        "artefatos_novos: +4",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +4",
+        "pontos_atencao_novos: +3",
+        "contingencia_nova: +3",
+        "checklist_novo: +4",
+        "glossario_novo: +2",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-direcao-centro",
+        "1780963200033"
+      ],
+      "motivo": "Completar a visão geral das competências da Direção de Centro (responsável, gatilho, entradas/saídas, artefatos, decisão, KPIs, contingência, checklist e mapa de contexto) a partir do mapeamento de tarefas da Direção de Centro (art. 37 do Estatuto), tornando o POP transversal apto à validação."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
+  ],
+  "lacunas": [
+    "formulario"
+  ],
+  "observacoes": "POP consolidado a partir do mapeamento de tarefas da Direção de Centro (art. 37 do Estatuto); descreve as competências gerais aplicáveis a qualquer Direção de Centro do Campus. As particularidades de cada Centro constam dos playbooks CCSA-00 e CECE-00.",
+  "fontes_entradas": [
+    "pb-direcao-centro",
+    "1780963200033"
+  ],
+  "hash_fontes": "cacc150654c0050113032cbaff2d6bce5c2b7deee23d73fa738a4f43bfab84ad",
+  "agente": "pop-dcen-00",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-03T01:47:00Z"
+}

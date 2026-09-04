@@ -1,0 +1,85 @@
+{
+  "id": "diag-cece-20260903",
+  "setor": "CECE — Direção de Centro",
+  "setor_codigo": "S08-CECE",
+  "sigla": "CECE",
+  "data": "2026-09-03T02:00:00Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "pb-cece",
+    "1780963200013"
+  ],
+  "hash_fontes": "6b64a933856bd8be154544c134dc0ce8aae8a950f256ea32c22b8f32d5a86d4d",
+  "ecossistema": {
+    "dominio": "Ensino, Pesquisa e Extensão (Centro)",
+    "subdominios": [
+      "Articulação e governança do Centro",
+      "Gestão da base de contatos por função (colegiados, mestrados e laboratórios)",
+      "Encaminhamento e acompanhamento de demandas via e-Protocolo"
+    ],
+    "contextos_vizinhos": [
+      "Colegiado de Curso",
+      "Direção de Centro (competências gerais)",
+      "CCSA — Direção de Centro",
+      "Direção Geral de Campus"
+    ],
+    "sistemas": [
+      "e-Protocolo"
+    ],
+    "normas": [
+      "Estatuto (Res. 017/99-COU) art. 37 e 41"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "CECE-00",
+      "nome": "Visão geral — CECE — Direção de Centro",
+      "tipo": "processo",
+      "descricao": "Articulação da Direção do Centro de Engenharias e Ciências Exatas com os colegiados de Ciência da Computação, Engenharia Elétrica, Engenharia Mecânica e Matemática, com os Mestrados (PPGEEC e PPGTGS) e com os laboratórios do Centro, manutenção da base de contatos por função e encaminhamento e acompanhamento das demandas do Centro.",
+      "tipo_subdominio": "core",
+      "gatilho": "Necessidade de articulação com colegiados/mestrados/laboratórios, atualização da base de contatos ou encaminhamento de demanda do Centro",
+      "saida": "Base de contatos atualizada e demandas do Centro encaminhadas e acompanhadas até a resposta",
+      "atores": [
+        "Diretor(a) de Centro",
+        "Coordenador(a) de Curso"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Lista de contatos por função do CECE",
+        "Ofício/memorando de encaminhamento de demanda do Centro"
+      ],
+      "interfaces": [
+        "Colegiado de Curso",
+        "Direção Geral de Campus"
+      ],
+      "evidencias": [
+        "pb-cece",
+        "1780963200013"
+      ],
+      "maturidade": 3,
+      "criticidade": 0.7,
+      "frequencia": 0.7,
+      "risco_conformidade": 0.5,
+      "cobertura": 0.75,
+      "prioridade": 0.62,
+      "lacunas": [
+        "formulario",
+        "dados_pessoais_lgpd"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "pop-cece-00",
+      "justificativa": "POP completado nesta rodada (v1.0.0, em_validação) com 6 passos, responsável, decisão, KPIs, contingência e mapa de contexto, a partir da lista de contatos dos colegiados do Centro; restam o mapeamento das rotinas dos laboratórios e a política de tratamento dos dados pessoais de contato antes da promoção a 'aprovado'."
+    }
+  ],
+  "lacunas_setor": [
+    "Política de acesso e atualização da lista de contatos (dados pessoais) não formalizada",
+    "Rotinas dos laboratórios do Centro ainda não mapeadas",
+    "Periodicidade de validação dos contatos de colegiados e mestrados não normatizada"
+  ],
+  "licoes_propostas": [],
+  "observacoes": "As rotinas específicas de gestão acadêmica, estágio e TCC de cada colegiado do CECE são tratadas no POP transversal COLEG-00 (e nos processos derivados COLEG-01 a COLEG-04, ver diagnóstico COLEG); este diagnóstico cobre apenas a articulação e a governança da Direção de Centro do CECE. Rotinas dos laboratórios do Centro ainda não mapeadas."
+}

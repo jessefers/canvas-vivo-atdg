@@ -1,0 +1,170 @@
+{
+  "setor": "Div. de Graduação",
+  "codigo": "DGRAD-01",
+  "gerado_em": "2026-09-03T01:56:22Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DGRAD-01 — Fluxos e-Protocolo — Ensino (PROGRAD)",
+      "descricao": "Manual da Comissão e-Protocolo com os fluxos dos processos da área de Ensino sob a PROGRAD. Cobre, entre outros, alteração de resoluções de ensino, regulamentos de bibliotecas, PPP (alteração e novo curso), reconhecimento/renovação de curso, regulamentos de estágio/TCC/internato, projetos de ensino e monitorias (voluntárias e remuneradas). Referência para tramitação correta de processos acadêmicos no e-Protocolo.",
+      "raias": [
+        "Colegiado de Curso",
+        "Direção de Centro",
+        "PROGRAD"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Abertura de processo de ensino de graduação no e-Protocolo",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Identificar o tipo de processo de ensino (PPP, reconhecimento de curso, regulamento, projeto de ensino ou monitoria)",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Instruir o e-Protocolo conforme o fluxo específico",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e4",
+          "tipo": "decisao",
+          "label": "Processo depende de aprovação do Colegiado de Curso?",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Deliberar em reunião do Colegiado e registrar em ata",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e6",
+          "tipo": "captura",
+          "label": "Encaminhar à Direção de Centro",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Analisar o processo e emitir parecer do Centro",
+          "raia": "Direção de Centro"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Encaminhar à PROGRAD para deliberação",
+          "raia": "PROGRAD"
+        },
+        {
+          "id": "e9",
+          "tipo": "pausa",
+          "label": "Aguardar deliberação da PROGRAD",
+          "raia": "PROGRAD"
+        },
+        {
+          "id": "e10",
+          "tipo": "decisao",
+          "label": "PROGRAD aprova o processo?",
+          "raia": "PROGRAD"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Devolver ao Colegiado/Direção de Centro para ajustes",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e12",
+          "tipo": "atividade",
+          "label": "Realizar os ajustes solicitados e reencaminhar",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e13",
+          "tipo": "captura",
+          "label": "Arquivar/publicar a deliberação e comunicar ao curso/centro",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e14",
+          "tipo": "fim",
+          "label": "Processo deliberado pela PROGRAD e arquivado/publicado",
+          "raia": "Colegiado de Curso"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5",
+          "label": "Sim"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e4",
+          "para": "e6",
+          "label": "Não"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11",
+          "label": "Não"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e3"
+        },
+        {
+          "de": "e10",
+          "para": "e13",
+          "label": "Sim"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

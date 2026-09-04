@@ -1,0 +1,675 @@
+{
+  "id": "pop-dlic-00",
+  "codigo": "DLIC-00",
+  "titulo": "Visão geral — Div. de Licitação",
+  "setor": "Div. de Licitação",
+  "setor_codigo": "S03.06-DLIC",
+  "sigla": "DLIC",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Licitação",
+    "descricao": "Coordena o ciclo de aquisições e contratações da Unioeste Foz, do Termo de Referência à autorização da Direção Geral, licitação, formalização do contrato, emissão de portarias de Gestor e Fiscal e acompanhamento da execução até o encerramento da vigência, nos termos da Lei nº 14.133/2021 e das normas internas da Unioeste.",
+    "dominio": "Contratações Públicas",
+    "subdominio": "Ciclo de aquisições e contratações (planejamento, licitação, contrato e execução)",
+    "tipo_subdominio": "core",
+    "contexto": "S03.06-DLIC",
+    "glossario": [
+      {
+        "termo": "DDF",
+        "definicao": "Declaração de Disponibilidade Financeira, documento que indica a existência de recursos orçamentários para a despesa.",
+        "sistema": "GMS"
+      },
+      {
+        "termo": "GMS",
+        "definicao": "Sistema de gestão utilizado para catalogação, pesquisa de preços e registro de contratos.",
+        "sistema": "GMS"
+      },
+      {
+        "termo": "DIOE",
+        "definicao": "Diário Oficial do Estado, veículo de publicação obrigatória dos atos e contratos administrativos.",
+        "sistema": "DIOE"
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Licitação",
+    "periodicidade": "Contínua (conforme demanda de aquisições e contratações)",
+    "normativa": [
+      "Lei nº 14.133/2021",
+      "normas internas Unioeste"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-00<br/>Visão geral — Div. de Licitação\"]\n  S03_06_DLIC --> P\n  V1[\"Direção Geral\"]\n  P -. interface .-> V1\n  V2[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V2\n  V3[\"Planejamento\"]\n  P -. interface .-> V3\n  V4[\"Gestor/Fiscal do contrato\"]\n  P -. interface .-> V4\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque\n  class V1,V2,V3,V4 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Recebimento de demanda de aquisição ou contratação de serviço pela Div. de Licitação",
+      "origem": "Requisitante (unidade demandante)"
+    },
+    "entrada": [
+      "Memorando de solicitação do requisitante",
+      "Termo de Referência (TR) preliminar e cotações de preços"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Elaborar o Termo de Referência (TR) e realizar cotações de preços",
+        "responsavel": "Requisitante",
+        "sistema": "",
+        "artefato": "TR e cotações",
+        "prazo": "A definir",
+        "evento": "TR e cotações elaborados",
+        "fontes": [
+          "pb-licitacao",
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Submeter o TR e as cotações à autorização da Direção Geral",
+        "responsavel": "Direção Geral",
+        "sistema": "e-Protocolo",
+        "artefato": "Autorização da Direção Geral",
+        "prazo": "A definir",
+        "evento": "TR e cotações autorizados",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 2
+      },
+      {
+        "n": 3,
+        "acao": "Catalogar o item/serviço no GMS",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS",
+        "artefato": "Catalogação no GMS",
+        "prazo": "A definir",
+        "evento": "Item catalogado",
+        "fontes": [
+          "pb-licitacao",
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Realizar pesquisa de preços de mercado",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS",
+        "artefato": "Pesquisa de preços",
+        "prazo": "A definir",
+        "evento": "Pesquisa de preços concluída",
+        "fontes": [
+          "pb-licitacao",
+          "1780963200056"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Indicar os elementos de despesa e elaborar a Declaração de Disponibilidade Financeira (DDF)",
+        "responsavel": "Sec. Financeira/Contabilidade",
+        "sistema": "GMS",
+        "artefato": "Declaração de Disponibilidade Financeira (DDF)",
+        "prazo": "A definir",
+        "evento": "DDF emitida",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 5
+      },
+      {
+        "n": 6,
+        "acao": "Elaborar o edital e cadastrar o processo no GMS e no ComprasNet/PNCP",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS, ComprasNet/PNCP",
+        "artefato": "Edital",
+        "prazo": "A definir",
+        "evento": "Edital publicado",
+        "fontes": [
+          "pb-licitacao",
+          "1780963200056"
+        ]
+      },
+      {
+        "acao": "Conduzir a sessão pública e apurar o resultado da licitação",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "ComprasNet/PNCP",
+        "artefato": "Ata de sessão / resultado do certame",
+        "prazo": "A definir",
+        "evento": "Licitação homologada",
+        "fontes": [
+          "1780963200056"
+        ],
+        "n": 7
+      },
+      {
+        "n": 8,
+        "acao": "Gerar o contrato decorrente da licitação e verificar a regularidade fiscal do contratado",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS",
+        "artefato": "Contrato",
+        "prazo": "A definir",
+        "evento": "Contrato gerado",
+        "fontes": [
+          "pb-licitacao",
+          "1780963200054",
+          "1780963200055"
+        ]
+      },
+      {
+        "acao": "Publicar o contrato assinado no Diário Oficial do Estado (DIOE)",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "DIOE",
+        "artefato": "Extrato de publicação no DIOE",
+        "prazo": "A definir",
+        "evento": "Contrato publicado",
+        "fontes": [
+          "1780963200054",
+          "1780963200055"
+        ],
+        "n": 9
+      },
+      {
+        "acao": "Emitir e publicar as portarias de Gestor e Fiscal do contrato",
+        "responsavel": "Direção Geral",
+        "sistema": "e-Protocolo",
+        "artefato": "Portaria de Gestor; Portaria de Fiscal",
+        "prazo": "A definir",
+        "evento": "Portarias publicadas",
+        "fontes": [
+          "1780963200054",
+          "1780963200055"
+        ],
+        "n": 10
+      },
+      {
+        "n": 11,
+        "acao": "Registrar o contrato e as portarias no Planejamento (GMS)",
+        "responsavel": "Planejamento",
+        "sistema": "GMS",
+        "artefato": "Registro do contrato no GMS",
+        "prazo": "A definir",
+        "evento": "Contrato registrado",
+        "fontes": [
+          "pb-licitacao",
+          "1780963200054",
+          "1780963200055"
+        ]
+      },
+      {
+        "acao": "Acompanhar a execução contratual, as entregas e as notas fiscais até o encerramento da vigência",
+        "responsavel": "Gestor/Fiscal do contrato",
+        "sistema": "GMS",
+        "artefato": "Notas fiscais; relatório de execução",
+        "prazo": "Durante toda a vigência contratual",
+        "evento": "Execução encerrada",
+        "fontes": [
+          "1780963200054",
+          "1780963200055"
+        ],
+        "n": 12
+      }
+    ],
+    "saida": [
+      "Contrato assinado, publicado no DIOE e registrado no GMS",
+      "Execução contratual acompanhada até o encerramento da vigência"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Termo de Referência (TR)",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "objeto",
+        "justificativa",
+        "especificações técnicas",
+        "estimativa de custo"
+      ],
+      "responsavel_preenchimento": "Requisitante"
+    },
+    {
+      "nome": "Cotações de preços",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "fornecedor",
+        "valor unitário",
+        "data da cotação"
+      ],
+      "responsavel_preenchimento": "Requisitante"
+    },
+    {
+      "nome": "Declaração de Disponibilidade Financeira (DDF)",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "elemento de despesa",
+        "fonte de recurso",
+        "valor"
+      ],
+      "responsavel_preenchimento": "Sec. Financeira/Contabilidade"
+    },
+    {
+      "nome": "Portaria de Gestor do contrato",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "nº da portaria",
+        "servidor designado",
+        "contrato vinculado"
+      ],
+      "responsavel_preenchimento": "Direção Geral"
+    },
+    {
+      "nome": "Portaria de Fiscal do contrato",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "nº da portaria",
+        "servidor designado",
+        "contrato vinculado"
+      ],
+      "responsavel_preenchimento": "Direção Geral"
+    },
+    {
+      "nome": "Contrato administrativo",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "nº do contrato",
+        "partes",
+        "objeto",
+        "vigência",
+        "valor"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Direção Geral autoriza o TR e as cotações?",
+      "condicao": "Adequação do Termo de Referência e das cotações apresentadas à necessidade da contratação",
+      "sim": "Prossegue para catalogação no GMS",
+      "nao": "Requisitante revisa o TR e as cotações"
+    }
+  ],
+  "pontos_atencao": [
+    "Termo de Referência bem elaborado evita retrabalho",
+    "Portarias de Gestor e Fiscal são obrigatórias",
+    "Serviços contínuos exigem acompanhamento durante a vigência",
+    "A regularidade fiscal do contratado deve ser verificada antes de cada pagamento, não apenas na assinatura",
+    "O cadastro no ComprasNet/PNCP deve ser conferido para evitar divergência com o GMS"
+  ],
+  "contingencia": [
+    "Se a Direção Geral não autorizar o TR/cotações, o Requisitante deve revisar e reencaminhar o processo",
+    "Se a pesquisa de preços não localizar fornecedores suficientes, ampliar as fontes de cotação antes de prosseguir",
+    "Se o contratado apresentar irregularidade fiscal, suspender a assinatura ou o pagamento até a regularização, comunicando a Assessoria Jurídica",
+    "Se o prazo de publicação no DIOE não for cumprido, registrar justificativa e reprogramar a publicação junto à Direção Geral"
+  ],
+  "checklist": [
+    "TR e cotações anexados e conferidos",
+    "Autorização da Direção Geral registrada no e-Protocolo",
+    "Elementos de despesa e DDF emitidos pela Sec. Financeira/Contabilidade",
+    "Edital cadastrado no GMS e no ComprasNet/PNCP",
+    "Portarias de Gestor e Fiscal emitidas e publicadas",
+    "Contrato publicado no DIOE e registrado no GMS"
+  ],
+  "kpis": [
+    {
+      "indicador": "Prazo médio entre autorização da Direção Geral e publicação do edital",
+      "formula": "Data de publicação do edital − Data de autorização da Direção Geral",
+      "meta": "A definir",
+      "fonte": "GMS"
+    },
+    {
+      "indicador": "Percentual de contratos com portarias de Gestor/Fiscal emitidas antes do início da execução",
+      "formula": "(Contratos com portarias emitidas antes da execução ÷ total de contratos) × 100",
+      "meta": "100%",
+      "fonte": "e-Protocolo/GMS"
+    },
+    {
+      "indicador": "Percentual de pagamentos com regularidade fiscal verificada previamente",
+      "formula": "(Pagamentos com regularidade verificada ÷ total de pagamentos) × 100",
+      "meta": "100%",
+      "fonte": "GMS"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Direção Geral",
+      "relacao": "aprova",
+      "artefato": "TR e cotações",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Sec. Financeira/Contabilidade",
+      "relacao": "recebe",
+      "artefato": "Elementos de despesa e DDF",
+      "canal": "GMS"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Direção Geral",
+      "relacao": "informa",
+      "artefato": "Contrato assinado para emissão de portarias",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Planejamento",
+      "relacao": "fornece",
+      "artefato": "Registro do contrato e portarias",
+      "canal": "GMS"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Gestor/Fiscal do contrato",
+      "relacao": "informa",
+      "artefato": "Contrato e portarias para acompanhamento",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"Recebimento de demanda de aquisição ou contratação de serviço\"))\n    e5[\"Catalogar o item/serviço no GMS\"]\n    e6[\"Realizar pesquisa de preços de mercado\"]\n    e9[\"Elaborar o edital e cadastrar no GMS e ComprasNet/PNCP\"]\n    e10[\"Conduzir a sessão pública e apurar o resultado\"]\n    e11[\"Gerar o contrato e verificar regularidade fiscal\"]\n    e12[\"Publicar o contrato assinado no DIOE\"]\n  end\n  subgraph R2[\"Requisitante\"]\n    direction LR\n    e2[\"Elaborar o TR e realizar cotações de preços\"]\n  end\n  subgraph R3[\"Direção Geral\"]\n    direction LR\n    e3[[\"✉ Encaminhar TR e cotações à Direção Geral\"]]\n    e4{\"Direção Geral autoriza o TR e as cotações?\"}\n    e13[[\"✉ Encaminhar processo à Direção Geral para portarias\"]]\n    e14[\"Emitir e publicar as portarias de Gestor e Fiscal\"]\n  end\n  subgraph R4[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e7[[\"✉ Encaminhar elementos de despesa à Sec. Financeira/Contabilidade\"]]\n    e8[\"Indicar elementos de despesa e elaborar a DDF\"]\n  end\n  subgraph R5[\"Planejamento\"]\n    direction LR\n    e15[[\"✉ Encaminhar contrato e portarias ao Planejamento\"]]\n    e16[\"Registrar o contrato e as portarias no Planejamento (GMS)\"]\n  end\n  subgraph R6[\"Gestor/Fiscal do contrato\"]\n    direction LR\n    e17[[\"✉ Informar Gestor e Fiscal do contrato assinado\"]]\n    e18[\"Acompanhar execução, entregas e notas fiscais\"]\n    e19(((\"Execução contratual encerrada\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e5\n  e4 -- Não --> e2\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  e16 --> e17\n  e17 --> e18\n  e18 --> e19\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e5,e6,e8,e9,e10,e11,e12,e14,e16,e18 atividade\n  class e3,e7,e13,e15,e17 captura\n  class e4 decisao\n  class e19 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Licitação",
+      "Requisitante",
+      "Direção Geral",
+      "Sec. Financeira/Contabilidade",
+      "Planejamento",
+      "Gestor/Fiscal do contrato"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Recebimento de demanda de aquisição ou contratação de serviço",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Elaborar o TR e realizar cotações de preços",
+        "raia": "Requisitante"
+      },
+      {
+        "id": "e3",
+        "tipo": "captura",
+        "label": "Encaminhar TR e cotações à Direção Geral",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e4",
+        "tipo": "decisao",
+        "label": "Direção Geral autoriza o TR e as cotações?",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Catalogar o item/serviço no GMS",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Realizar pesquisa de preços de mercado",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e7",
+        "tipo": "captura",
+        "label": "Encaminhar elementos de despesa à Sec. Financeira/Contabilidade",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Indicar elementos de despesa e elaborar a DDF",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Elaborar o edital e cadastrar no GMS e ComprasNet/PNCP",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Conduzir a sessão pública e apurar o resultado",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Gerar o contrato e verificar regularidade fiscal",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e12",
+        "tipo": "atividade",
+        "label": "Publicar o contrato assinado no DIOE",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e13",
+        "tipo": "captura",
+        "label": "Encaminhar processo à Direção Geral para portarias",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e14",
+        "tipo": "atividade",
+        "label": "Emitir e publicar as portarias de Gestor e Fiscal",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e15",
+        "tipo": "captura",
+        "label": "Encaminhar contrato e portarias ao Planejamento",
+        "raia": "Planejamento"
+      },
+      {
+        "id": "e16",
+        "tipo": "atividade",
+        "label": "Registrar o contrato e as portarias no Planejamento (GMS)",
+        "raia": "Planejamento"
+      },
+      {
+        "id": "e17",
+        "tipo": "captura",
+        "label": "Informar Gestor e Fiscal do contrato assinado",
+        "raia": "Gestor/Fiscal do contrato"
+      },
+      {
+        "id": "e18",
+        "tipo": "atividade",
+        "label": "Acompanhar execução, entregas e notas fiscais",
+        "raia": "Gestor/Fiscal do contrato"
+      },
+      {
+        "id": "e19",
+        "tipo": "fim",
+        "label": "Execução contratual encerrada",
+        "raia": "Gestor/Fiscal do contrato"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5",
+        "label": "Sim"
+      },
+      {
+        "de": "e4",
+        "para": "e2",
+        "label": "Não"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15"
+      },
+      {
+        "de": "e15",
+        "para": "e16"
+      },
+      {
+        "de": "e16",
+        "para": "e17"
+      },
+      {
+        "de": "e17",
+        "para": "e18"
+      },
+      {
+        "de": "e18",
+        "para": "e19"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas pb-licitacao"
+      ],
+      "fontes": [
+        "pb-licitacao"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 5: Acompanhar a execução contratual, as entregas e as notas fiscais até o encerrame",
+        "Passo adicionado após 4: Emitir e publicar as portarias de Gestor e Fiscal do contrato",
+        "Passo adicionado após 4: Publicar o contrato assinado no Diário Oficial do Estado (DIOE)",
+        "Passo adicionado após 3: Conduzir a sessão pública e apurar o resultado da licitação",
+        "Passo adicionado após 2: Indicar os elementos de despesa e elaborar a Declaração de Disponibilidade Finan",
+        "Passo adicionado após 2: Realizar pesquisa de preços de mercado",
+        "Passo adicionado após 1: Submeter o TR e as cotações à autorização da Direção Geral",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +6",
+        "decisoes_novas: +1",
+        "kpis_novos: +3",
+        "mapa_contexto_novo: +5",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +4",
+        "checklist_novo: +6",
+        "glossario_novo: +3",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Requisitante, Direção Geral, Sec. Financeira/Contabilidade, Planejamento, Gestor/Fiscal do contrato",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7",
+        "Elementos BPMN adicionados: 19",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-licitacao",
+        "1780963200054",
+        "1780963200055",
+        "1780963200056"
+      ],
+      "motivo": "Detalhamento do playbook geral de Licitação e Contratos a partir do playbook e dos três fluxos evidenciados no Canvas (aquisição, serviços contínuos e processo licitatório): definição de responsável, gatilho, artefatos, decisão de autorização, interfaces inter-setoriais, contingência, checklist e KPIs."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
+  ],
+  "lacunas": [
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-licitacao",
+    "1780963200054",
+    "1780963200055",
+    "1780963200056"
+  ],
+  "hash_fontes": "c2cc11cbeb7dd1e3c620b97a88e9902152685bd44b593002dfbb228aaa14e67c",
+  "agente": "pop-dlic-00",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:41:44Z"
+}

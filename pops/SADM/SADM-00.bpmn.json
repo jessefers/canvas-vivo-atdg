@@ -1,0 +1,160 @@
+{
+  "setor": "Sec. Administrativa — Geral",
+  "codigo": "SADM-00",
+  "gerado_em": "2026-09-03T02:05:27Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "SADM-00 — Visão geral — Secretaria Administrativa",
+      "descricao": "Coordena as divisões administrativas do Campus, recebendo, triando e encaminhando demandas administrativas via e-Protocolo à divisão responsável (Almoxarifado, Compras, Licitação, Recursos Humanos, Manutenção e Conservação e demais em construção), acompanhando o atendimento até a conclusão e escalando à Direção Geral quando necessário.",
+      "raias": [
+        "Coordenador(a) Administrativo(a)",
+        "Div. de Licitação",
+        "Div. de Recursos Humanos",
+        "Div. de Manutenção e Conservação",
+        "Direção Geral"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Recebimento de demanda administrativa própria ou de outro setor do campus",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Receber a demanda administrativa (própria ou de outro setor) via e-Protocolo",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Identificar a divisão responsável pelo atendimento da demanda",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Consultar o playbook ou POP específico da divisão responsável",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Encaminhar a demanda à divisão responsável via e-Protocolo",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Acompanhar o andamento da demanda até a conclusão",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Escalar à Direção Geral as demandas não resolvidas no prazo ou que exijam decisão superior",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Consolidar o status das demandas das divisões administrativas",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Informar o resultado ao setor ou servidor solicitante",
+          "raia": "Coordenador(a) Administrativo(a)"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Encaminhar a Div. de Licitação",
+          "raia": "Div. de Licitação"
+        },
+        {
+          "id": "e11",
+          "tipo": "captura",
+          "label": "Encaminhar a Div. de Recursos Humanos",
+          "raia": "Div. de Recursos Humanos"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Encaminhar a Div. de Manutenção e Conservação",
+          "raia": "Div. de Manutenção e Conservação"
+        },
+        {
+          "id": "e13",
+          "tipo": "captura",
+          "label": "Informar Direção Geral",
+          "raia": "Direção Geral"
+        },
+        {
+          "id": "e14",
+          "tipo": "fim",
+          "label": "Demanda atendida pela divisão responsável e resultado informado ao solicitante",
+          "raia": "Coordenador(a) Administrativo(a)"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 5 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "id": "pop-drh-01",
+  "codigo": "DRH-01",
+  "titulo": "Fluxos e-Protocolo — RH (PRORH)",
+  "setor": "Div. de Recursos Humanos",
+  "setor_codigo": "S03.07-DRH",
+  "sigla": "DRH",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Recursos Humanos",
+    "descricao": "Instrui, no e-Protocolo, os processos funcionais de RH (licenças, afastamentos, progressões e demais demandas) conforme a versão vigente do Manual de Fluxos e-Protocolo da PRORH (v3.0, set/2024), que substitui a versão 2.0 (mai/2023) e suas cópias, até a análise e deliberação da PRORH.",
+    "dominio": "Gestão de Pessoas",
+    "subdominio": "Instrução de processos funcionais de RH no e-Protocolo (fluxo PRORH v3.0 vigente)",
+    "tipo_subdominio": "core",
+    "contexto": "S03.07-DRH",
+    "glossario": [
+      {
+        "termo": "Fluxo PRORH v3.0",
+        "definicao": "Versão vigente (set/2024) do manual de fluxos de RH da Comissão e-Protocolo, que substitui a v2.0 (mai/2023).",
+        "sistema": "e-Protocolo"
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Recursos Humanos",
+    "periodicidade": "Por demanda de processo funcional de RH",
+    "normativa": [
+      "Manual de Fluxos e-Protocolo — PRORH/Unioeste (v3.0)"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_07_DRH[\"S03.07-DRH<br/>Div. de Recursos Humanos\"]\n  S03_SADM --> S03_07_DRH\n  P[\"DRH-01<br/>Fluxos e-Protocolo — RH (PRORH)\"]\n  S03_07_DRH --> P\n  V1[\"Servidor\"]\n  P -. interface .-> V1\n  V2[\"PRORH\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_07_DRH setor\n  class P destaque\n  class V1,V2 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Servidor ou chefia solicita processo funcional de RH (licença, afastamento, progressão ou demais demandas)",
+      "origem": "Servidor / Chefia imediata"
+    },
+    "entrada": [
+      "Solicitação do servidor ou da chefia",
+      "Documentação funcional exigida pelo tipo de processo"
+    ],
+    "passos": [
+      {
+        "acao": "Solicitar o processo funcional de RH (licença, afastamento, progressão ou demais demandas)",
+        "responsavel": "Servidor",
+        "sistema": "e-Protocolo",
+        "artefato": "Solicitação de processo funcional",
+        "prazo": "A definir",
+        "evento": "Processo funcional solicitado",
+        "fontes": [
+          "1780963200065"
+        ],
+        "n": 1
+      },
+      {
+        "n": 2,
+        "acao": "Identificar o tipo de processo de RH e o fluxo aplicável (v3.0)",
+        "responsavel": "Chefe da Divisão de Recursos Humanos",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo de RH",
+        "prazo": "A definir",
+        "evento": "Tipo de processo identificado",
+        "fontes": [
+          "1780963200065"
+        ]
+      },
+      {
+        "acao": "Abrir o processo no e-Protocolo",
+        "responsavel": "Chefe da Divisão de Recursos Humanos",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo de RH",
+        "prazo": "A definir",
+        "evento": "Processo aberto",
+        "fontes": [
+          "1780963200065"
+        ],
+        "n": 3
+      },
+      {
+        "n": 4,
+        "acao": "Instruir o e-Protocolo conforme o fluxo da versão vigente (v3.0)",
+        "responsavel": "Chefe da Divisão de Recursos Humanos",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo de RH",
+        "prazo": "A definir",
+        "evento": "Processo instruído",
+        "fontes": [
+          "1780963200065"
+        ]
+      },
+      {
+        "n": 5,
+        "acao": "Anexar a documentação funcional exigida",
+        "responsavel": "Servidor",
+        "sistema": "e-Protocolo",
+        "artefato": "Documentação funcional",
+        "prazo": "A definir",
+        "evento": "Documentação anexada",
+        "fontes": [
+          "1780963200065"
+        ]
+      },
+      {
+        "n": 6,
+        "acao": "Encaminhar o processo às instâncias de RH/PRORH",
+        "responsavel": "Chefe da Divisão de Recursos Humanos",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo de RH",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado",
+        "fontes": [
+          "1780963200065"
+        ]
+      },
+      {
+        "acao": "PRORH analisa o processo conforme o fluxo vigente",
+        "responsavel": "PRORH",
+        "sistema": "e-Protocolo",
+        "artefato": "Análise da PRORH",
+        "prazo": "A definir",
+        "evento": "Processo analisado",
+        "fontes": [
+          "1780963200048",
+          "1780963200065"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "PRORH delibera e comunica a decisão",
+        "responsavel": "PRORH",
+        "sistema": "e-Protocolo",
+        "artefato": "Deliberação da PRORH",
+        "prazo": "A definir",
+        "evento": "Processo deliberado",
+        "fontes": [
+          "1780963200048",
+          "1780963200065"
+        ],
+        "n": 8
+      }
+    ],
+    "saida": [
+      "Processo de RH instruído, encaminhado e deliberado pela PRORH conforme o fluxo vigente (v3.0)"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Processo e-Protocolo de RH",
+      "tipo": "registro",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "tipo de processo",
+        "servidor requerente",
+        "fluxo aplicado (v3.0)"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Recursos Humanos"
+    },
+    {
+      "nome": "Documentação funcional",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "tipo de documento",
+        "data",
+        "validade"
+      ],
+      "responsavel_preenchimento": "Servidor"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "O processo está instruído conforme o fluxo vigente (v3.0)?",
+      "condicao": "Conferência da documentação e das etapas exigidas pelo fluxo PRORH v3.0",
+      "sim": "Encaminha-se às instâncias de RH/PRORH",
+      "nao": "Chefe da Divisão de Recursos Humanos corrige a instrução antes de encaminhar"
+    }
+  ],
+  "pontos_atencao": [
+    "Versão 3.0 (set/2024) substitui a v2.0 — usar a mais recente",
+    "Confirmar que não há atualização posterior",
+    "A versão 2.0 (mai/2023) e sua cópia no acervo de 'Fluxos Internos' estão superadas; usar exclusivamente a versão 3.0 (set/2024) vigente"
+  ],
+  "contingencia": [
+    "Se o processo estiver instruído por engano conforme a versão 2.0 (ou cópia) do fluxo, reabrir a instrução conforme a versão 3.0 vigente",
+    "Se a documentação funcional estiver incompleta, a Div. de Recursos Humanos solicita complementação ao servidor antes de encaminhar",
+    "Se não houver clareza sobre o fluxo aplicável ao tipo de processo, consultar a versão vigente do Manual de Fluxos e-Protocolo (PRORH v3.0) antes de instruir"
+  ],
+  "checklist": [
+    "Tipo de processo identificado e fluxo v3.0 confirmado",
+    "Processo aberto no e-Protocolo",
+    "Documentação funcional anexada",
+    "Instrução conferida antes do encaminhamento",
+    "Processo encaminhado às instâncias de RH/PRORH"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de processos instruídos conforme a versão vigente do fluxo (v3.0)",
+      "formula": "(Processos instruídos pela v3.0 ÷ total de processos) × 100",
+      "meta": "100%",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Prazo médio de instrução até o encaminhamento à PRORH",
+      "formula": "Data de encaminhamento − Data de abertura",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Recursos Humanos",
+      "destino": "Servidor",
+      "relacao": "recebe",
+      "artefato": "Solicitação e documentação funcional",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Recursos Humanos",
+      "destino": "PRORH",
+      "relacao": "fornece",
+      "artefato": "Processo de RH instruído",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Recursos Humanos\"]\n    direction LR\n    e3[[\"✉ Encaminhar solicitação à Div. de Recursos Humanos\"]]\n    e4[\"Identificar o tipo de processo e o fluxo aplicável (v3.0)\"]\n    e5[\"Abrir o processo no e-Protocolo\"]\n    e6[\"Instruir o e-Protocolo conforme o fluxo vigente (v3.0)\"]\n    e9{\"Processo está instruído conforme o fluxo vigente?\"}\n    e10([\"⏱ Aguardar correção da instrução\"])\n    e11[\"Encaminhar o processo às instâncias de RH/PRORH\"]\n  end\n  subgraph R2[\"Servidor\"]\n    direction LR\n    e1((\"Solicitação de processo funcional de RH\"))\n    e2[\"Solicitar o processo funcional de RH\"]\n    e7[[\"✉ Solicitar documentação complementar ao servidor\"]]\n    e8[\"Anexar a documentação funcional exigida\"]\n  end\n  subgraph R3[\"PRORH\"]\n    direction LR\n    e12[[\"✉ Receber processo na PRORH\"]]\n    e13[\"Analisar o processo conforme o fluxo vigente\"]\n    e14[\"Deliberar e comunicar a decisão\"]\n    e15(((\"Processo de RH concluído\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 -- Não --> e10\n  e10 --> e6\n  e9 -- Sim --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e5,e6,e8,e11,e13,e14 atividade\n  class e3,e7,e12 captura\n  class e9 decisao\n  class e10 pausa\n  class e15 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Recursos Humanos",
+      "Servidor",
+      "PRORH"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Solicitação de processo funcional de RH",
+        "raia": "Servidor"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Solicitar o processo funcional de RH",
+        "raia": "Servidor"
+      },
+      {
+        "id": "e3",
+        "tipo": "captura",
+        "label": "Encaminhar solicitação à Div. de Recursos Humanos",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Identificar o tipo de processo e o fluxo aplicável (v3.0)",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Abrir o processo no e-Protocolo",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Instruir o e-Protocolo conforme o fluxo vigente (v3.0)",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e7",
+        "tipo": "captura",
+        "label": "Solicitar documentação complementar ao servidor",
+        "raia": "Servidor"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Anexar a documentação funcional exigida",
+        "raia": "Servidor"
+      },
+      {
+        "id": "e9",
+        "tipo": "decisao",
+        "label": "Processo está instruído conforme o fluxo vigente?",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e10",
+        "tipo": "pausa",
+        "label": "Aguardar correção da instrução",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Encaminhar o processo às instâncias de RH/PRORH",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e12",
+        "tipo": "captura",
+        "label": "Receber processo na PRORH",
+        "raia": "PRORH"
+      },
+      {
+        "id": "e13",
+        "tipo": "atividade",
+        "label": "Analisar o processo conforme o fluxo vigente",
+        "raia": "PRORH"
+      },
+      {
+        "id": "e14",
+        "tipo": "atividade",
+        "label": "Deliberar e comunicar a decisão",
+        "raia": "PRORH"
+      },
+      {
+        "id": "e15",
+        "tipo": "fim",
+        "label": "Processo de RH concluído",
+        "raia": "PRORH"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10",
+        "label": "Não"
+      },
+      {
+        "de": "e10",
+        "para": "e6"
+      },
+      {
+        "de": "e9",
+        "para": "e11",
+        "label": "Sim"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200048, 1780963200065"
+      ],
+      "fontes": [
+        "1780963200048",
+        "1780963200065"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 0: Solicitar o processo funcional de RH (licença, afastamento, progressão ou demais",
+        "Passo adicionado após 1: Abrir o processo no e-Protocolo",
+        "Passo adicionado após 4: PRORH analisa o processo conforme o fluxo vigente",
+        "Passo adicionado após 4: PRORH delibera e comunica a decisão",
+        "entrada_nova: +2",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +2",
+        "pontos_atencao_novos: +1",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Servidor, PRORH",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 15",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200048",
+        "1780963200065",
+        "1780963200066"
+      ],
+      "motivo": "Detalhamento do fluxo de instrução de processos de RH no e-Protocolo a partir das entradas do Canvas: consolidação da versão 3.0 (vigente) como referência, tratando a versão 2.0 e sua cópia no acervo de 'Fluxos Internos' como histórico superado (lição L-005), com abertura, instrução, documentação, encaminhamento e deliberação da PRORH."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
+  ],
+  "lacunas": [
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "1780963200048",
+    "1780963200065",
+    "1780963200066"
+  ],
+  "hash_fontes": "8b270cd5b551a3a2a491c0cf27043a9ceff0b9271d94b968e89a2dd81371ca37",
+  "agente": "pop-drh-01",
+  "versao_diretrizes": "1.2",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:52:45Z"
+}

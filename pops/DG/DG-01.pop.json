@@ -1,0 +1,435 @@
+{
+  "id": "pop-dg-01",
+  "codigo": "DG-01",
+  "titulo": "Aplicação do Estatuto e das Instruções de Serviço do GRE",
+  "setor": "Direção Geral de Campus",
+  "setor_codigo": "S01-DG",
+  "sigla": "DG",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Direção Geral de Campus",
+    "departamento": "Direção Geral de Campus",
+    "descricao": "Aplicação do Estatuto e das Instruções de Serviço do GRE. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "dominio": "Governança e Direção do Campus",
+    "subdominio": "Aplicação do Estatuto e das Instruções de Serviço do GRE",
+    "tipo_subdominio": "core",
+    "contexto": "S01-DG",
+    "glossario": [
+      {
+        "termo": "Precedente normativo",
+        "definicao": "Registro de uma decisão de aplicação de norma a um caso concreto, mantido para orientar casos semelhantes futuros.",
+        "sistema": "OneDrive ATDG"
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Direção Geral do Campus",
+    "periodicidade": "Sob demanda",
+    "normativa": [
+      "Resolução nº 017/1999-COU (Estatuto da Unioeste)",
+      "Resolução nº 194/2024-COU (altera a Resolução nº 017/1999-COU)",
+      "Instruções de Serviço do Gabinete da Reitoria (GRE)"
+    ],
+    "subordinacao": "Reitoria da Unioeste",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "01_ADMINISTRATIVO"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  P[\"DG-01<br/>Aplicação do Estatuto e das Instruções de Serviço do GRE\"]\n  S01_DG --> P\n  V1[\"Setor demandante\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Direção Geral do Campus\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Situação concreta do Campus que exige aplicação ou interpretação do Estatuto ou de Instrução de Serviço do GRE (definição de competência, criação/alteração de órgão, dúvida de procedimento)",
+      "origem": "Setor demandante ou iniciativa da própria Direção Geral"
+    },
+    "entrada": [
+      "Solicitação/consulta do setor sobre competência ou procedimento",
+      "Estatuto da Unioeste (Res. 017/99-COU e 194/2024-COU)",
+      "Instrução de Serviço do GRE aplicável ao caso"
+    ],
+    "passos": [
+      {
+        "acao": "Registrar a solicitação ou identificar a situação que exige aplicação normativa",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Memorando/ofício de solicitação",
+        "prazo": "A definir",
+        "evento": "Situação registrada",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 1
+      },
+      {
+        "acao": "Identificar o dispositivo do Estatuto ou da Instrução de Serviço do GRE aplicável ao caso",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Estatuto/IS-GRE",
+        "prazo": "A definir",
+        "evento": "Dispositivo identificado",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Elaborar parecer técnico de enquadramento normativo",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Parecer técnico",
+        "prazo": "A definir",
+        "evento": "Parecer elaborado",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 3
+      },
+      {
+        "acao": "Submeter o parecer técnico à Direção Geral do Campus para decisão",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Parecer técnico",
+        "prazo": "A definir",
+        "evento": "Parecer submetido",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 4
+      },
+      {
+        "acao": "Decidir sobre a aplicação da norma ao caso concreto",
+        "responsavel": "Direção Geral do Campus",
+        "sistema": "e-Protocolo",
+        "artefato": "Despacho decisório",
+        "prazo": "A definir",
+        "evento": "Decisão proferida",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 5
+      },
+      {
+        "acao": "Formalizar o despacho ou a portaria de aplicação da norma",
+        "responsavel": "Direção Geral do Campus",
+        "sistema": "e-Protocolo",
+        "artefato": "Despacho/portaria",
+        "prazo": "A definir",
+        "evento": "Ato formalizado",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 6
+      },
+      {
+        "acao": "Comunicar o ato ao setor demandante e registrar o precedente no acervo normativo",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Registro de precedente",
+        "prazo": "A definir",
+        "evento": "Precedente registrado",
+        "fontes": [
+          "pb-direcao-geral"
+        ],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Despacho/portaria de aplicação da norma ao caso concreto",
+      "Registro do precedente no acervo normativo da ATDG"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Parecer técnico de enquadramento normativo",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "situação analisada",
+        "dispositivo aplicável",
+        "conclusão"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Despacho/portaria de aplicação da norma",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "ato normativo aplicado",
+        "decisão",
+        "data"
+      ],
+      "responsavel_preenchimento": "Direção Geral do Campus"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "A situação está devidamente enquadrada no Estatuto ou em Instrução de Serviço do GRE vigente?",
+      "condicao": "Parecer técnico de enquadramento normativo elaborado pela ATDG",
+      "sim": "Submeter o parecer à Direção Geral do Campus para decisão e formalização do ato",
+      "nao": "Consultar o Gabinete da Reitoria (GRE) para orientação sobre a lacuna normativa identificada"
+    }
+  ],
+  "pontos_atencao": [
+    "Situações não previstas expressamente no Estatuto ou nas IS-GRE exigem consulta prévia ao Gabinete da Reitoria antes da decisão",
+    "Verificar se a competência tratada foi alterada pela Res. 194/2024-COU"
+  ],
+  "contingencia": [
+    "Lacuna normativa identificada: suspender a decisão e consultar o Gabinete da Reitoria (GRE)",
+    "Norma referenciada não localizada no acervo: solicitar via oficial à Reitoria antes de prosseguir",
+    "Divergência entre o parecer da ATDG e o entendimento do setor demandante: submeter à Direção Geral para decisão final"
+  ],
+  "checklist": [
+    "Situação registrada no e-Protocolo",
+    "Dispositivo normativo aplicável identificado e citado com precisão",
+    "Parecer técnico de enquadramento elaborado",
+    "Decisão da Direção Geral formalizada em despacho/portaria",
+    "Precedente registrado no acervo normativo da ATDG"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio entre o registro da solicitação e a formalização do despacho",
+      "formula": "Média (data do despacho − data de registro)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de casos com precedente registrado no acervo normativo",
+      "formula": "(Casos com precedente registrado / total de casos) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Setor demandante",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Memorando/ofício de solicitação",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Assessoria Técnica da Direção Geral (ATDG)",
+      "destino": "Direção Geral do Campus",
+      "relacao": "aprova",
+      "artefato": "Parecer técnico de enquadramento normativo",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Direção Geral do Campus",
+      "destino": "Setor demandante",
+      "relacao": "informa",
+      "artefato": "Despacho/portaria de aplicação da norma",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Situação que exige aplicação normativa identificada\"))\n    e2[[\"✉ Receber solicitação do setor demandante\"]]\n    e3[\"Registrar a solicitação no e-Protocolo\"]\n    e4[\"Identificar o dispositivo do Estatuto/IS-GRE aplicável\"]\n    e5[\"Elaborar parecer técnico de enquadramento normativo\"]\n    e6{\"Situação enquadrada em norma vigente?\"}\n    e7[\"Consultar o Gabinete da Reitoria (GRE) sobre a lacuna normativa\"]\n  end\n  subgraph R2[\"Direção Geral do Campus\"]\n    direction LR\n    e8[[\"✉ Submeter parecer à Direção Geral\"]]\n    e9[\"Decidir e formalizar despacho/portaria\"]\n  end\n  subgraph R3[\"Setor demandante\"]\n    direction LR\n    e10[[\"✉ Receber despacho/portaria\"]]\n    e11(((\"Norma aplicada e precedente registrado\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 -- Não --> e7\n  e7 --> e5\n  e6 -- Sim --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e8,e10 captura\n  class e3,e4,e5,e7,e9 atividade\n  class e6 decisao\n  class e11 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Direção Geral do Campus",
+      "Setor demandante"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Situação que exige aplicação normativa identificada",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e2",
+        "tipo": "captura",
+        "label": "Receber solicitação do setor demandante",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Registrar a solicitação no e-Protocolo",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Identificar o dispositivo do Estatuto/IS-GRE aplicável",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Elaborar parecer técnico de enquadramento normativo",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "decisao",
+        "label": "Situação enquadrada em norma vigente?",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Consultar o Gabinete da Reitoria (GRE) sobre a lacuna normativa",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Submeter parecer à Direção Geral",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e9",
+        "tipo": "atividade",
+        "label": "Decidir e formalizar despacho/portaria",
+        "raia": "Direção Geral do Campus"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Receber despacho/portaria",
+        "raia": "Setor demandante"
+      },
+      {
+        "id": "e11",
+        "tipo": "fim",
+        "label": "Norma aplicada e precedente registrado",
+        "raia": "Setor demandante"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7",
+        "label": "Não"
+      },
+      {
+        "de": "e7",
+        "para": "e5"
+      },
+      {
+        "de": "e6",
+        "para": "e8",
+        "label": "Sim"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente"
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo adicionado após 0: Registrar a solicitação ou identificar a situação que exige aplicação normativa",
+        "Passo adicionado após 1: Identificar o dispositivo do Estatuto ou da Instrução de Serviço do GRE aplicáve",
+        "Passo adicionado após 2: Elaborar parecer técnico de enquadramento normativo",
+        "Passo adicionado após 3: Submeter o parecer técnico à Direção Geral do Campus para decisão",
+        "Passo adicionado após 4: Decidir sobre a aplicação da norma ao caso concreto",
+        "Passo adicionado após 5: Formalizar o despacho ou a portaria de aplicação da norma",
+        "Passo adicionado após 6: Comunicar o ato ao setor demandante e registrar o precedente no acervo normativo",
+        "entrada_nova: +3",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "glossario_novo: +1",
+        "normativa_nova: +3",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Assessoria Técnica da Direção Geral (ATDG), Direção Geral do Campus, Setor demandante",
+        "Elementos BPMN removidos: e1, e2",
+        "Elementos BPMN adicionados: 11",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "pb-direcao-geral",
+        "1780963200023",
+        "1780963200024",
+        "1780963200028",
+        "1780963200029"
+      ],
+      "motivo": "Elaboração do playbook do processo de aplicação, caso a caso, do Estatuto e das Instruções de Serviço do GRE a situações concretas do Campus, com parecer técnico da ATDG e decisão da Direção Geral."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "formulario",
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "pb-direcao-geral",
+    "1780963200023",
+    "1780963200024",
+    "1780963200028",
+    "1780963200029"
+  ],
+  "hash_fontes": "b9b63cf1a01f0f71abea90f7cb3ce8724699237a011a0230346bb0b05e2f7ed1",
+  "agente": "pop-dg-01",
+  "versao_diretrizes": "1.8",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T02:01:04Z"
+}

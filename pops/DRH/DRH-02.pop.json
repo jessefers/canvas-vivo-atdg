@@ -1,0 +1,187 @@
+{
+  "id": "pop-drh-02",
+  "codigo": "DRH-02",
+  "titulo": "Registro e apuração de frequência (ponto eletrônico)",
+  "setor": "Div. de Recursos Humanos",
+  "setor_codigo": "S03.07-DRH",
+  "sigla": "DRH",
+  "versao": "0.1.0",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Recursos Humanos",
+    "descricao": "Registro diário do ponto eletrônico, apuração semanal pela chefia imediata e comunicação de falhas/justificativas em até 48h via e-Protocolo, conforme IS 001/2024-DRH/Foz e Instrução 002/2019.",
+    "dominio": "Gestão de Pessoas",
+    "subdominio": "Registro e apuração de frequência (ponto eletrônico)",
+    "tipo_subdominio": "core",
+    "contexto": "S03.07-DRH",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "A definir",
+    "normativa": [],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_07_DRH[\"S03.07-DRH<br/>Div. de Recursos Humanos\"]\n  S03_SADM --> S03_07_DRH\n  P[\"DRH-02<br/>Registro e apuração de frequência (ponto eletrônico)\"]\n  S03_07_DRH --> P\n  V1[\"Div. de Recursos Humanos ↔ Chefia imediata\"]\n  P -. interface .-> V1\n  V2[\"Div. de Recursos Humanos ↔ Servidor\"]\n  P -. interface .-> V2\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_07_DRH setor\n  class P destaque\n  class V1,V2 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Início da jornada de trabalho do servidor",
+      "origem": ""
+    },
+    "entrada": [],
+    "passos": [],
+    "saida": [
+      "Frequência apurada e eventuais falhas justificadas e registradas dentro do prazo"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Registro de ponto",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [],
+      "responsavel_preenchimento": ""
+    },
+    {
+      "nome": "Apuração semanal de frequência",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [],
+      "responsavel_preenchimento": ""
+    },
+    {
+      "nome": "Justificativa de frequência",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [],
+      "responsavel_preenchimento": ""
+    }
+  ],
+  "decisoes": [],
+  "pontos_atencao": [],
+  "contingencia": [],
+  "checklist": [],
+  "kpis": [],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Recursos Humanos",
+      "destino": "Div. de Recursos Humanos ↔ Chefia imediata",
+      "relacao": "informa",
+      "artefato": "",
+      "canal": "A definir"
+    },
+    {
+      "origem": "Div. de Recursos Humanos",
+      "destino": "Div. de Recursos Humanos ↔ Servidor",
+      "relacao": "informa",
+      "artefato": "",
+      "canal": "A definir"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Recursos Humanos\"]\n    direction LR\n    e1((\"Início da jornada de trabalho do servidor\"))\n    e4(((\"Frequência apurada e eventuais falhas justificadas e registradas dent…\")))\n  end\n  subgraph R2[\"Div. de Recursos Humanos ↔ Chefia imediata\"]\n    direction LR\n    e2[[\"✉ Informar Div. de Recursos Humanos ↔ Chefia imediata\"]]\n  end\n  subgraph R3[\"Div. de Recursos Humanos ↔ Servidor\"]\n    direction LR\n    e3[[\"✉ Informar Div. de Recursos Humanos ↔ Servidor\"]]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3 captura\n  class e4 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Recursos Humanos",
+      "Div. de Recursos Humanos ↔ Chefia imediata",
+      "Div. de Recursos Humanos ↔ Servidor"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Início da jornada de trabalho do servidor",
+        "raia": "Div. de Recursos Humanos"
+      },
+      {
+        "id": "e2",
+        "tipo": "captura",
+        "label": "Informar Div. de Recursos Humanos ↔ Chefia imediata",
+        "raia": "Div. de Recursos Humanos ↔ Chefia imediata"
+      },
+      {
+        "id": "e3",
+        "tipo": "captura",
+        "label": "Informar Div. de Recursos Humanos ↔ Servidor",
+        "raia": "Div. de Recursos Humanos ↔ Servidor"
+      },
+      {
+        "id": "e4",
+        "tipo": "fim",
+        "label": "Frequência apurada e eventuais falhas justificadas e registradas dentro do prazo",
+        "raia": "Div. de Recursos Humanos"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-03",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto gerado a partir do diagnóstico diag-drh-20260903 (recomendação: gerar_pop)"
+      ],
+      "fontes": [
+        "pb-rh",
+        "1780963200022",
+        "1780963200025",
+        "1780963200026"
+      ],
+      "motivo": "Processo identificado no diagnóstico do setor sem POP correspondente"
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007"
+  ],
+  "lacunas": [
+    "passos",
+    "responsavel",
+    "entrada",
+    "kpi",
+    "contingencia",
+    "formulario",
+    "prazo",
+    "normativa",
+    "sistema",
+    "interface_setorial"
+  ],
+  "observacoes": "Esqueleto herdado do diagnóstico diag-drh-20260903 (processo identificado sem POP); gatilho, saída, artefatos e interfaces provisórios — inferência a validar (lição L-008).",
+  "fontes_entradas": [
+    "pb-rh",
+    "1780963200022",
+    "1780963200025",
+    "1780963200026"
+  ],
+  "hash_fontes": "8935ff37e223e683476a7665380a2f2de0d9bfee011f5522ecdb2cb188473850",
+  "agente": "pop-drh-02",
+  "versao_diretrizes": "1.12",
+  "criado_em": "2026-09-03T02:08:03Z",
+  "atualizado_em": "2026-09-03T02:08:03Z"
+}

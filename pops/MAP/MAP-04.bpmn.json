@@ -1,0 +1,114 @@
+{
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "codigo": "MAP-04",
+  "gerado_em": "2026-09-03T02:08:02Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "MAP-04 — Elaboração de POP, Instrução de Trabalho, Manual e Fluxos",
+      "descricao": "Elaboração de POP, Instrução de Trabalho, Manual e Fluxos. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+      "raias": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor respondente",
+        "Direção Geral do Campus"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Planilha consolidada disponível",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Selecionar o processo a documentar",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Elaborar POP, IT e Fluxograma do processo",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e4",
+          "tipo": "captura",
+          "label": "Submeter documentos para validação",
+          "raia": "Setor respondente"
+        },
+        {
+          "id": "e5",
+          "tipo": "decisao",
+          "label": "Setor respondente valida o conteúdo técnico?",
+          "raia": "Setor respondente"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Revisar o documento conforme observações",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Publicar o documento e consolidar no Manual de Gestão de Processos",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e8",
+          "tipo": "captura",
+          "label": "Informar Direção Geral sobre o Manual atualizado",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e9",
+          "tipo": "fim",
+          "label": "Processo documentado e publicado",
+          "raia": "Direção Geral do Campus"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6",
+          "label": "Não"
+        },
+        {
+          "de": "e6",
+          "para": "e4"
+        },
+        {
+          "de": "e5",
+          "para": "e7",
+          "label": "Sim"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

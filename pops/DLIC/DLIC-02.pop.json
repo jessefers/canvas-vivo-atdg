@@ -1,0 +1,678 @@
+{
+  "id": "pop-dlic-02",
+  "codigo": "DLIC-02",
+  "titulo": "Fluxo — Contrato de Serviços Contínuos (Licitação)",
+  "setor": "Div. de Licitação",
+  "setor_codigo": "S03.06-DLIC",
+  "sigla": "DLIC",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Secretaria Administrativa",
+    "departamento": "Div. de Licitação",
+    "descricao": "Formaliza e acompanha o contrato de serviços contínuos decorrente de licitação homologada: geração do contrato, verificação da regularidade fiscal e da disponibilidade orçamentária, publicação no DIOE, emissão de portarias de Gestor e Fiscal, registro no Planejamento e fiscalização mensal da execução (empenho, medições e notas fiscais) até a prorrogação ou o encerramento da vigência.",
+    "dominio": "Contratações Públicas",
+    "subdominio": "Formalização e fiscalização de contrato de serviços contínuos",
+    "tipo_subdominio": "core",
+    "contexto": "S03.06-DLIC",
+    "glossario": [
+      {
+        "termo": "Medição",
+        "definicao": "Verificação periódica da execução do serviço contínuo para fins de pagamento e controle de qualidade.",
+        "sistema": "GMS"
+      },
+      {
+        "termo": "Prorrogação contratual",
+        "definicao": "Extensão da vigência do contrato de serviço contínuo, quando prevista em cláusula e amparada em lei.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Chefe da Divisão de Licitação",
+    "periodicidade": "Por contrato de serviços contínuos, com acompanhamento mensal durante a vigência",
+    "normativa": [
+      "Lei nº 14.133/2021",
+      "normas internas Unioeste"
+    ],
+    "subordinacao": "Secretaria Administrativa",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S03_SADM[\"S03-SADM<br/>Secretaria Administrativa\"]\n  S01_DG --> S03_SADM\n  S03_06_DLIC[\"S03.06-DLIC<br/>Div. de Licitação\"]\n  S03_SADM --> S03_06_DLIC\n  P[\"DLIC-02<br/>Fluxo — Contrato de Serviços Contínuos (Licitação)\"]\n  S03_06_DLIC --> P\n  V1[\"Sec. Financeira/Contabilidade\"]\n  P -. interface .-> V1\n  V2[\"Direção Geral\"]\n  P -. interface .-> V2\n  V3[\"Planejamento\"]\n  P -. interface .-> V3\n  V4[\"Gestor/Fiscal do contrato\"]\n  P -. interface .-> V4\n  V5[\"Requisitante\"]\n  P -. interface .-> V5\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S03_SADM,S03_06_DLIC setor\n  class P destaque\n  class V1,V2,V3,V4,V5 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Homologação da licitação e necessidade de formalizar o contrato de serviços contínuos",
+      "origem": "Div. de Licitação (processo licitatório homologado)"
+    },
+    "entrada": [
+      "Processo licitatório homologado",
+      "Minuta do contrato de serviços contínuos"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Gerar o contrato de serviços contínuos no GMS",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "GMS",
+        "artefato": "Contrato de serviços contínuos",
+        "prazo": "A definir",
+        "evento": "Contrato gerado",
+        "fontes": [
+          "1780963200055"
+        ]
+      },
+      {
+        "acao": "Verificar a regularidade fiscal do contratado antes da assinatura",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "",
+        "artefato": "Certidões de regularidade fiscal",
+        "prazo": "A definir",
+        "evento": "Regularidade fiscal verificada",
+        "fontes": [
+          "1780963200055"
+        ],
+        "n": 2
+      },
+      {
+        "acao": "Confirmar a disponibilidade orçamentária para o exercício corrente",
+        "responsavel": "Sec. Financeira/Contabilidade",
+        "sistema": "GMS",
+        "artefato": "Confirmação de disponibilidade orçamentária",
+        "prazo": "A definir",
+        "evento": "Disponibilidade orçamentária confirmada",
+        "fontes": [
+          "1780963200055"
+        ],
+        "n": 3
+      },
+      {
+        "n": 4,
+        "acao": "Publicar o contrato assinado no Diário Oficial do Estado (DIOE)",
+        "responsavel": "Chefe da Divisão de Licitação",
+        "sistema": "DIOE",
+        "artefato": "Extrato de publicação no DIOE",
+        "prazo": "A definir",
+        "evento": "Contrato publicado",
+        "fontes": [
+          "1780963200055"
+        ]
+      },
+      {
+        "n": 5,
+        "acao": "Emitir e publicar as portarias de Gestor e Fiscal do contrato",
+        "responsavel": "Direção Geral",
+        "sistema": "e-Protocolo",
+        "artefato": "Portaria de Gestor; Portaria de Fiscal",
+        "prazo": "A definir",
+        "evento": "Portarias publicadas",
+        "fontes": [
+          "1780963200055"
+        ]
+      },
+      {
+        "n": 6,
+        "acao": "Registrar o contrato e as portarias no Planejamento (GMS)",
+        "responsavel": "Planejamento",
+        "sistema": "GMS",
+        "artefato": "Registro do contrato no GMS",
+        "prazo": "A definir",
+        "evento": "Contrato registrado",
+        "fontes": [
+          "1780963200055"
+        ]
+      },
+      {
+        "n": 7,
+        "acao": "Fiscal do contrato solicita o empenho para o período de referência",
+        "responsavel": "Fiscal do contrato",
+        "sistema": "GMS",
+        "artefato": "Nota de empenho mensal",
+        "prazo": "A definir",
+        "evento": "Empenho solicitado",
+        "fontes": [
+          "1780963200055"
+        ]
+      },
+      {
+        "acao": "Acompanhar a execução mensal do serviço",
+        "responsavel": "Fiscal do contrato",
+        "sistema": "GMS",
+        "artefato": "Relatório de medição mensal",
+        "prazo": "Mensal",
+        "evento": "Execução mensal acompanhada",
+        "fontes": [
+          "1780963200055"
+        ],
+        "n": 8
+      },
+      {
+        "acao": "Conferir as medições e as notas fiscais mensais",
+        "responsavel": "Fiscal do contrato",
+        "sistema": "GMS",
+        "artefato": "Relatório de medição mensal",
+        "prazo": "Mensal",
+        "evento": "Medição mensal conferida",
+        "fontes": [
+          "1780963200055"
+        ],
+        "n": 9
+      },
+      {
+        "acao": "Formalizar a prorrogação do contrato, quando prevista e legalmente possível, ou encaminhar à Div. de Licitação para novo processo licitatório",
+        "responsavel": "Fiscal do contrato",
+        "sistema": "e-Protocolo",
+        "artefato": "Termo de prorrogação contratual",
+        "prazo": "Antes do término da vigência",
+        "evento": "Prorrogação formalizada ou novo processo encaminhado",
+        "fontes": [
+          "1780963200055"
+        ],
+        "n": 10
+      }
+    ],
+    "saida": [
+      "Contrato de serviços contínuos publicado, registrado e com portarias emitidas",
+      "Execução mensal fiscalizada até a prorrogação ou o encerramento da vigência"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Contrato de serviços contínuos",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "nº do contrato",
+        "objeto",
+        "contratada",
+        "valor mensal",
+        "vigência"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+    },
+    {
+      "nome": "Certidões de regularidade fiscal",
+      "tipo": "documento",
+      "sistema": "",
+      "campos_chave": [
+        "CNPJ",
+        "validade",
+        "situação"
+      ],
+      "responsavel_preenchimento": "Chefe da Divisão de Licitação"
+    },
+    {
+      "nome": "Portaria de Gestor do contrato",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "nº da portaria",
+        "servidor designado"
+      ],
+      "responsavel_preenchimento": "Direção Geral"
+    },
+    {
+      "nome": "Portaria de Fiscal do contrato",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "nº da portaria",
+        "servidor designado"
+      ],
+      "responsavel_preenchimento": "Direção Geral"
+    },
+    {
+      "nome": "Nota de empenho mensal",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "nº do empenho",
+        "período de referência",
+        "valor"
+      ],
+      "responsavel_preenchimento": "Fiscal do contrato"
+    },
+    {
+      "nome": "Relatório de medição mensal",
+      "tipo": "documento",
+      "sistema": "GMS",
+      "campos_chave": [
+        "período",
+        "itens medidos",
+        "conformidade"
+      ],
+      "responsavel_preenchimento": "Fiscal do contrato"
+    },
+    {
+      "nome": "Termo de prorrogação contratual",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "nova vigência",
+        "justificativa",
+        "amparo legal"
+      ],
+      "responsavel_preenchimento": "Fiscal do contrato"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Contratado está com a regularidade fiscal em dia?",
+      "condicao": "Conferência das certidões de regularidade fiscal do contratado",
+      "sim": "Prossegue para confirmação da disponibilidade orçamentária",
+      "nao": "Assinatura/execução suspensa até a regularização"
+    },
+    {
+      "decisao": "O contrato está próximo do término da vigência?",
+      "condicao": "Verificação do prazo de vigência contratual",
+      "sim": "Avalia a possibilidade de prorrogação",
+      "nao": "Prossegue o ciclo mensal de acompanhamento"
+    },
+    {
+      "decisao": "Há prorrogação prevista e legalmente possível?",
+      "condicao": "Existência de previsão contratual e amparo legal para prorrogação (Lei nº 14.133/2021)",
+      "sim": "Fiscal formaliza a prorrogação do contrato",
+      "nao": "Encaminha-se à Div. de Licitação para abertura de novo processo licitatório"
+    }
+  ],
+  "pontos_atencao": [
+    "Serviços contínuos exigem acompanhamento de execução durante a vigência",
+    "Verificar regularidade fiscal a cada medição/pagamento",
+    "Atenção à vigência e eventuais prorrogações",
+    "A decisão sobre prorrogação deve ser tomada com antecedência suficiente para evitar solução de continuidade do serviço",
+    "Glosas identificadas na medição devem ser registradas antes do processamento do pagamento"
+  ],
+  "contingencia": [
+    "Se o contratado não apresentar regularidade fiscal, suspender a assinatura até a regularização",
+    "Se não houver disponibilidade orçamentária para o exercício, o processo retorna ao Planejamento para readequação",
+    "Se a medição mensal identificar não conformidade, o Fiscal deve notificar a contratada e glosar o valor correspondente antes do pagamento",
+    "Se não houver amparo legal ou interesse na prorrogação, encaminhar à Div. de Licitação para novo processo licitatório com antecedência mínima ao término da vigência"
+  ],
+  "checklist": [
+    "Regularidade fiscal do contratado verificada antes da assinatura",
+    "Disponibilidade orçamentária confirmada para o exercício corrente",
+    "Contrato publicado no DIOE e portarias emitidas",
+    "Empenho do período de referência solicitado",
+    "Medições e notas fiscais mensais conferidas",
+    "Necessidade de prorrogação avaliada com antecedência ao término da vigência"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de medições mensais sem não conformidade",
+      "formula": "(Medições sem não conformidade ÷ total de medições) × 100",
+      "meta": "100%",
+      "fonte": "GMS"
+    },
+    {
+      "indicador": "Prazo de antecedência entre a decisão de não prorrogar e o encaminhamento à Licitação",
+      "formula": "Data de encaminhamento à Licitação − Data da decisão de não prorrogar",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Sec. Financeira/Contabilidade",
+      "relacao": "recebe",
+      "artefato": "Confirmação de disponibilidade orçamentária",
+      "canal": "GMS"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Direção Geral",
+      "relacao": "informa",
+      "artefato": "Contrato de serviços contínuos assinado",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Planejamento",
+      "relacao": "fornece",
+      "artefato": "Registro do contrato e portarias",
+      "canal": "GMS"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Gestor/Fiscal do contrato",
+      "relacao": "informa",
+      "artefato": "Contrato de serviços contínuos para fiscalização",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Div. de Licitação",
+      "destino": "Requisitante",
+      "relacao": "informa",
+      "artefato": "Encerramento da vigência e necessidade de novo processo licitatório",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Div. de Licitação\"]\n    direction LR\n    e1((\"Homologação da licitação e necessidade de formalizar o contrato\"))\n    e2[\"Gerar o contrato de serviços contínuos no GMS\"]\n    e3[\"Verificar a regularidade fiscal do contratado\"]\n    e4{\"Contratado está com a regularidade fiscal em dia?\"}\n    e5([\"⏱ Aguardar regularização fiscal do contratado\"])\n    e8[\"Publicar o contrato assinado no DIOE\"]\n    e21[[\"✉ Encaminhar à Div. de Licitação para novo processo licitatório\"]]\n    e22(((\"Vigência encerrada — novo processo licitatório a iniciar\")))\n  end\n  subgraph R2[\"Sec. Financeira/Contabilidade\"]\n    direction LR\n    e6[[\"✉ Encaminhar consulta de disponibilidade orçamentária\"]]\n    e7[\"Confirmar a disponibilidade orçamentária\"]\n  end\n  subgraph R3[\"Direção Geral\"]\n    direction LR\n    e9[[\"✉ Encaminhar contrato à Direção Geral para portarias\"]]\n    e10[\"Emitir e publicar as portarias de Gestor e Fiscal\"]\n  end\n  subgraph R4[\"Planejamento\"]\n    direction LR\n    e11[[\"✉ Encaminhar contrato e portarias ao Planejamento\"]]\n    e12[\"Registrar o contrato e as portarias no Planejamento (GMS)\"]\n  end\n  subgraph R5[\"Fiscal do contrato\"]\n    direction LR\n    e13[[\"✉ Informar Fiscal do contrato assinado\"]]\n    e14[\"Solicitar o empenho do período de referência\"]\n    e15[\"Acompanhar a execução mensal do serviço\"]\n    e16[\"Conferir as medições e as notas fiscais mensais\"]\n    e17{\"O contrato está próximo do término da vigência?\"}\n    e18{\"Há prorrogação prevista e legalmente possível?\"}\n    e19[\"Formalizar a prorrogação do contrato\"]\n    e20(((\"Contrato prorrogado\")))\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 -- Sim --> e6\n  e4 -- Não --> e5\n  e5 --> e3\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  e12 --> e13\n  e13 --> e14\n  e14 --> e15\n  e15 --> e16\n  e16 --> e17\n  e17 -- Não --> e14\n  e17 -- Sim --> e18\n  e18 -- Sim --> e19\n  e19 --> e20\n  e18 -- Não --> e21\n  e21 --> e22\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e7,e8,e10,e12,e14,e15,e16,e19 atividade\n  class e4,e17,e18 decisao\n  class e5 pausa\n  class e6,e9,e11,e13,e21 captura\n  class e20,e22 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Div. de Licitação",
+      "Sec. Financeira/Contabilidade",
+      "Direção Geral",
+      "Planejamento",
+      "Fiscal do contrato"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Homologação da licitação e necessidade de formalizar o contrato",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Gerar o contrato de serviços contínuos no GMS",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Verificar a regularidade fiscal do contratado",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e4",
+        "tipo": "decisao",
+        "label": "Contratado está com a regularidade fiscal em dia?",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e5",
+        "tipo": "pausa",
+        "label": "Aguardar regularização fiscal do contratado",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e6",
+        "tipo": "captura",
+        "label": "Encaminhar consulta de disponibilidade orçamentária",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Confirmar a disponibilidade orçamentária",
+        "raia": "Sec. Financeira/Contabilidade"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Publicar o contrato assinado no DIOE",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Encaminhar contrato à Direção Geral para portarias",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e10",
+        "tipo": "atividade",
+        "label": "Emitir e publicar as portarias de Gestor e Fiscal",
+        "raia": "Direção Geral"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Encaminhar contrato e portarias ao Planejamento",
+        "raia": "Planejamento"
+      },
+      {
+        "id": "e12",
+        "tipo": "atividade",
+        "label": "Registrar o contrato e as portarias no Planejamento (GMS)",
+        "raia": "Planejamento"
+      },
+      {
+        "id": "e13",
+        "tipo": "captura",
+        "label": "Informar Fiscal do contrato assinado",
+        "raia": "Fiscal do contrato"
+      },
+      {
+        "id": "e14",
+        "tipo": "atividade",
+        "label": "Solicitar o empenho do período de referência",
+        "raia": "Fiscal do contrato"
+      },
+      {
+        "id": "e15",
+        "tipo": "atividade",
+        "label": "Acompanhar a execução mensal do serviço",
+        "raia": "Fiscal do contrato"
+      },
+      {
+        "id": "e16",
+        "tipo": "atividade",
+        "label": "Conferir as medições e as notas fiscais mensais",
+        "raia": "Fiscal do contrato"
+      },
+      {
+        "id": "e17",
+        "tipo": "decisao",
+        "label": "O contrato está próximo do término da vigência?",
+        "raia": "Fiscal do contrato"
+      },
+      {
+        "id": "e18",
+        "tipo": "decisao",
+        "label": "Há prorrogação prevista e legalmente possível?",
+        "raia": "Fiscal do contrato"
+      },
+      {
+        "id": "e19",
+        "tipo": "atividade",
+        "label": "Formalizar a prorrogação do contrato",
+        "raia": "Fiscal do contrato"
+      },
+      {
+        "id": "e20",
+        "tipo": "fim",
+        "label": "Contrato prorrogado",
+        "raia": "Fiscal do contrato"
+      },
+      {
+        "id": "e21",
+        "tipo": "captura",
+        "label": "Encaminhar à Div. de Licitação para novo processo licitatório",
+        "raia": "Div. de Licitação"
+      },
+      {
+        "id": "e22",
+        "tipo": "fim",
+        "label": "Vigência encerrada — novo processo licitatório a iniciar",
+        "raia": "Div. de Licitação"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e6",
+        "label": "Sim"
+      },
+      {
+        "de": "e4",
+        "para": "e5",
+        "label": "Não"
+      },
+      {
+        "de": "e5",
+        "para": "e3"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e12",
+        "para": "e13"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      },
+      {
+        "de": "e14",
+        "para": "e15"
+      },
+      {
+        "de": "e15",
+        "para": "e16"
+      },
+      {
+        "de": "e16",
+        "para": "e17"
+      },
+      {
+        "de": "e17",
+        "para": "e14",
+        "label": "Não"
+      },
+      {
+        "de": "e17",
+        "para": "e18",
+        "label": "Sim"
+      },
+      {
+        "de": "e18",
+        "para": "e19",
+        "label": "Sim"
+      },
+      {
+        "de": "e19",
+        "para": "e20"
+      },
+      {
+        "de": "e18",
+        "para": "e21",
+        "label": "Não"
+      },
+      {
+        "de": "e21",
+        "para": "e22"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200055"
+      ],
+      "fontes": [
+        "1780963200055"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote C)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo 5 alterado (acao, responsavel, sistema, artefato, prazo, evento, fontes)",
+        "Passo adicionado após 5: Formalizar a prorrogação do contrato, quando prevista e legalmente possível, ou ",
+        "Passo adicionado após 5: Conferir as medições e as notas fiscais mensais",
+        "Passo adicionado após 5: Acompanhar a execução mensal do serviço",
+        "Passo adicionado após 1: Confirmar a disponibilidade orçamentária para o exercício corrente",
+        "Passo adicionado após 1: Verificar a regularidade fiscal do contratado antes da assinatura",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +7",
+        "decisoes_novas: +3",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +5",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +4",
+        "checklist_novo: +6",
+        "glossario_novo: +2",
+        "Campo identificacao.responsavel atualizado",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo ddd.descricao atualizado",
+        "Campo ddd.subdominio atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Sec. Financeira/Contabilidade, Direção Geral, Planejamento, Fiscal do contrato",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6, e7",
+        "Elementos BPMN adicionados: 22",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200055"
+      ],
+      "motivo": "Detalhamento do fluxo de contrato de serviços contínuos a partir da entrada do Canvas (1780963200055): separação das ações compostas em passos atômicos, verificação de regularidade fiscal e disponibilidade orçamentária, ciclo mensal de empenho/medição/NF e decisão de prorrogação ou novo processo licitatório."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003",
+    "L-005"
+  ],
+  "lacunas": [
+    "prazo"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "1780963200055"
+  ],
+  "hash_fontes": "10b841b457f628f4766daeb4469c42f9ec5490752118b9bef23b1c21a7a24d32",
+  "agente": "pop-dlic-02",
+  "versao_diretrizes": "1.0",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T01:46:52Z"
+}

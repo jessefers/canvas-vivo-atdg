@@ -1,0 +1,47 @@
+{
+  "setor": "Colegiado de Curso",
+  "codigo": "COLEG-04",
+  "gerado_em": "2026-09-03T02:08:03Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "COLEG-04 — Coordenação de TCC",
+      "descricao": "Indicação de orientadores, organização de bancas e defesas, editais, atas e declarações, lançamento de notas e frequências no Academus, envio da versão final à Biblioteca e cronograma anual de TCC.",
+      "raias": [
+        "Colegiado de Curso",
+        "Biblioteca"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Abertura do cronograma anual de TCC ou solicitação de orientação/defesa de discente",
+          "raia": "Colegiado de Curso"
+        },
+        {
+          "id": "e2",
+          "tipo": "captura",
+          "label": "Informar Biblioteca",
+          "raia": "Biblioteca"
+        },
+        {
+          "id": "e3",
+          "tipo": "fim",
+          "label": "TCC defendido, notas lançadas no Academus e versão final enviada à Biblioteca",
+          "raia": "Colegiado de Curso"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

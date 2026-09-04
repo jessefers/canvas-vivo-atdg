@@ -1,0 +1,503 @@
+{
+  "id": "pop-dpg-01",
+  "codigo": "DPG-01",
+  "titulo": "Fluxos e-Protocolo — PRPPG Capacitação de Servidores",
+  "setor": "Div. de Pós-Graduação",
+  "setor_codigo": "S05.01-DPG",
+  "sigla": "DPG",
+  "versao": "1.0.0",
+  "status": "em_validacao",
+  "ddd": {
+    "divisao": "Coordenação Acadêmica",
+    "departamento": "Div. de Pós-Graduação",
+    "descricao": "Manual da Comissão e-Protocolo com os fluxos da PRPPG relativos à capacitação de servidores, com foco no afastamento e qualificação docente (Resolução nº 029/2013-CEPE). Cobre afastamento parcial/integral, afastamento para o exterior, prorrogação, transformação, troca de programa e retorno com/sem conclusão. Orienta a tramitação de cada situação no e-Protocolo.",
+    "dominio": "Gestão Acadêmica",
+    "subdominio": "Fluxos e-Protocolo — PRPPG Capacitação de Servidores",
+    "tipo_subdominio": "core",
+    "contexto": "S05.01-DPG",
+    "glossario": [
+      {
+        "termo": "e-Protocolo",
+        "definicao": "Sistema institucional de tramitação eletrônica de processos e documentos da Unioeste.",
+        "sistema": "e-Protocolo"
+      },
+      {
+        "termo": "PRPPG",
+        "definicao": "Pró-Reitoria de Pesquisa e Pós-Graduação da Unioeste, responsável por deliberar sobre afastamento/capacitação docente, cursos de pós-graduação e ética em pesquisa.",
+        "sistema": ""
+      },
+      {
+        "termo": "CEUA",
+        "definicao": "Comitê de Ética no Uso de Animais, responsável por autorizar e acompanhar projetos de pesquisa que envolvam animais.",
+        "sistema": ""
+      },
+      {
+        "termo": "CEUAP",
+        "definicao": "Comitê de Ética no Uso de Animais de Produção, responsável por autorizar e acompanhar projetos que envolvam animais de produção.",
+        "sistema": ""
+      },
+      {
+        "termo": "Lato sensu",
+        "definicao": "Pós-graduação de especialização, com carga horária e regras próprias definidas pela Resolução nº 071/2021-CEPE.",
+        "sistema": ""
+      },
+      {
+        "termo": "Stricto sensu",
+        "definicao": "Pós-graduação de mestrado ou doutorado, com programas regidos pela Resolução nº 078/2016-CEPE.",
+        "sistema": ""
+      }
+    ]
+  },
+  "identificacao": {
+    "responsavel": "Coordenação Acadêmica",
+    "periodicidade": "A definir",
+    "normativa": [
+      "Resolução nº 029/2013-CEPE",
+      "Manual de Fluxos e-Protocolo PRPPG",
+      "FLUXO-PRPPG-CAPACITAÇÃO_SERVIDORES_NOVO_2.pdf — Manual da Comissão e-Protocolo (documento-fonte)"
+    ],
+    "subordinacao": "Coordenação Acadêmica",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "03_MAPEAMENTO DE PROCESSOS"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S05_CACAD[\"S05-CACAD<br/>Coordenação Acadêmica\"]\n  S01_DG --> S05_CACAD\n  S05_01_DPG[\"S05.01-DPG<br/>Div. de Pós-Graduação\"]\n  S05_CACAD --> S05_01_DPG\n  P[\"DPG-01<br/>Fluxos e-Protocolo — PRPPG Capacitação de Servidores\"]\n  S05_01_DPG --> P\n  V1[\"Proponente/Coordenador da atividade\"]\n  P -. interface .-> V1\n  V2[\"Coordenação Acadêmica\"]\n  P -. interface .-> V2\n  V3[\"PRPPG\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S05_CACAD,S05_01_DPG setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Interesse do docente em afastamento/qualificação para capacitação",
+      "origem": "Proponente/Coordenador da atividade"
+    },
+    "entrada": [
+      "Solicitação de afastamento/qualificação docente"
+    ],
+    "passos": [
+      {
+        "n": 1,
+        "acao": "Identificar a modalidade de afastamento/qualificação (parcial, integral, prorrogação, transformação ou troca de programa)",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Formulário de afastamento/qualificação",
+        "prazo": "Antes da abertura do e-Protocolo",
+        "evento": "Modalidade identificada",
+        "fontes": [
+          "1780963200043"
+        ]
+      },
+      {
+        "acao": "Reunir os requisitos adicionais exigidos quando o afastamento for para o exterior",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Documentação adicional de afastamento ao exterior",
+        "prazo": "A definir",
+        "evento": "Requisitos adicionais reunidos",
+        "fontes": [
+          "1780963200043"
+        ],
+        "n": 2
+      },
+      {
+        "n": 3,
+        "acao": "Abrir o e-Protocolo conforme o fluxo aplicável à modalidade",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "e-Protocolo aberto",
+        "fontes": [
+          "1780963200043"
+        ]
+      },
+      {
+        "n": 4,
+        "acao": "Anexar a documentação exigida (plano de trabalho, aceite da instituição, comprovantes)",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Plano de trabalho; comprovante de aceite",
+        "prazo": "Antes do encaminhamento à Coordenação Acadêmica",
+        "evento": "Documentação anexada",
+        "fontes": [
+          "1780963200043"
+        ]
+      },
+      {
+        "acao": "Encaminhar o processo à Coordenação Acadêmica",
+        "responsavel": "Proponente/Coordenador da atividade",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Processo encaminhado",
+        "fontes": [
+          "1780963200043"
+        ],
+        "n": 5
+      },
+      {
+        "n": 6,
+        "acao": "Encaminhar à PRPPG para deliberação e acompanhar o retorno",
+        "responsavel": "Coordenação Acadêmica",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Deliberação acompanhada",
+        "fontes": [
+          "1780963200043"
+        ]
+      },
+      {
+        "acao": "Notificar o docente em caso de indeferimento e orientar novo pedido/recurso",
+        "responsavel": "Coordenação Acadêmica",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Indeferimento notificado",
+        "fontes": [
+          "1780963200043"
+        ],
+        "n": 7
+      },
+      {
+        "acao": "Acompanhar o afastamento deferido até o retorno, com ou sem conclusão",
+        "responsavel": "Coordenação Acadêmica",
+        "sistema": "e-Protocolo",
+        "artefato": "Processo e-Protocolo",
+        "prazo": "A definir",
+        "evento": "Retorno registrado",
+        "fontes": [
+          "1780963200043"
+        ],
+        "n": 8
+      }
+    ],
+    "saida": [
+      "Afastamento/qualificação deliberado pela PRPPG e acompanhado até o retorno"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Formulário de afastamento/qualificação docente",
+      "tipo": "formulario",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "modalidade",
+        "instituição de destino",
+        "período",
+        "plano de trabalho"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    },
+    {
+      "nome": "Plano de trabalho de capacitação",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "objetivo",
+        "cronograma",
+        "aceite da instituição"
+      ],
+      "responsavel_preenchimento": "Proponente/Coordenador da atividade"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "Afastamento é para o exterior?",
+      "condicao": "O afastamento/qualificação ocorrerá fora do país",
+      "sim": "Reunir os requisitos adicionais exigidos (Resolução nº 029/2013-CEPE) antes de abrir o e-Protocolo",
+      "nao": "Seguir a instrução padrão de afastamento nacional"
+    },
+    {
+      "decisao": "PRPPG defere o afastamento/qualificação?",
+      "condicao": "A PRPPG delibera favoravelmente ao pedido",
+      "sim": "Acompanhar o afastamento até o retorno, com ou sem conclusão",
+      "nao": "Notificar o docente e orientar novo pedido ou recurso"
+    }
+  ],
+  "pontos_atencao": [
+    "Observar a Resolução nº 029/2013-CEPE",
+    "Afastamento para o exterior tem requisitos adicionais"
+  ],
+  "contingencia": [
+    "Se o e-Protocolo estiver indisponível, registrar a solicitação em meio alternativo e regularizar a tramitação eletrônica assim que o sistema for restabelecido.",
+    "Se a documentação estiver incompleta, devolver ao proponente/coordenador com a relação de pendências antes de encaminhar à PRPPG.",
+    "Em caso de dúvida sobre o fluxo aplicável, consultar a Comissão e-Protocolo ou a PRPPG antes de tramitar.",
+    "Para afastamento ao exterior, verificar previamente os requisitos adicionais exigidos antes de abrir o e-Protocolo, evitando retrabalho."
+  ],
+  "checklist": [
+    "Ato/modalidade corretamente identificado",
+    "e-Protocolo aberto conforme o fluxo específico",
+    "Documentação obrigatória anexada",
+    "Classificação de sigilo (propriedade intelectual) verificada, quando aplicável",
+    "Encaminhamento à PRPPG realizado e acompanhamento registrado"
+  ],
+  "kpis": [
+    {
+      "indicador": "Tempo médio de tramitação (abertura no e-Protocolo → deliberação da PRPPG)",
+      "formula": "Σ(data da deliberação − data de abertura) / nº de processos no período",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    },
+    {
+      "indicador": "Percentual de processos devolvidos por pendência documental ou fluxo incorreto",
+      "formula": "processos devolvidos / total de processos abertos × 100",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "Proponente/Coordenador da atividade",
+      "destino": "Coordenação Acadêmica",
+      "relacao": "fornece",
+      "artefato": "Processo instruído (afastamento/curso/projeto)",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Coordenação Acadêmica",
+      "destino": "PRPPG",
+      "relacao": "aprova",
+      "artefato": "Processo encaminhado à PRPPG",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "PRPPG",
+      "destino": "Coordenação Acadêmica",
+      "relacao": "informa",
+      "artefato": "Deliberação da PRPPG",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Proponente/Coordenador da atividade\"]\n    direction LR\n    e1((\"Interesse do docente em afastamento/qualificação\"))\n    e2[\"Identificar a modalidade de afastamento/qualificação (parcial, integr…\"]\n    e3{\"Afastamento é para o exterior?\"}\n    e4[\"Reunir os requisitos adicionais exigidos para afastamento ao exterior\"]\n    e5[\"Abrir o e-Protocolo conforme o fluxo aplicável\"]\n    e6[\"Anexar documentação exigida (plano de trabalho, aceite, comprovantes)\"]\n  end\n  subgraph R2[\"Coordenação Acadêmica\"]\n    direction LR\n    e7[[\"✉ Encaminhar à Coordenação Acadêmica\"]]\n    e11[\"Notificar o docente e orientar novo pedido/recurso\"]\n    e12(((\"Afastamento/qualificação indeferido\")))\n    e13[\"Acompanhar o afastamento até o retorno (com ou sem conclusão)\"]\n    e14(((\"Afastamento/qualificação deliberado e acompanhado até o retorno\")))\n  end\n  subgraph R3[\"PRPPG\"]\n    direction LR\n    e8[[\"✉ Encaminhar à PRPPG para deliberação\"]]\n    e9([\"⏱ Aguardar deliberação da PRPPG\"])\n    e10{\"PRPPG defere o afastamento/qualificação?\"}\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 -- Sim --> e4\n  e4 --> e5\n  e3 -- Não --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 -- Não --> e11\n  e11 --> e12\n  e10 -- Sim --> e13\n  e13 --> e14\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e4,e5,e6,e11,e13 atividade\n  class e3,e10 decisao\n  class e7,e8 captura\n  class e9 pausa\n  class e12,e14 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Proponente/Coordenador da atividade",
+      "Coordenação Acadêmica",
+      "PRPPG"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Interesse do docente em afastamento/qualificação",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Identificar a modalidade de afastamento/qualificação (parcial, integral, prorrogação, transformação, troca de programa)",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e3",
+        "tipo": "decisao",
+        "label": "Afastamento é para o exterior?",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Reunir os requisitos adicionais exigidos para afastamento ao exterior",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Abrir o e-Protocolo conforme o fluxo aplicável",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Anexar documentação exigida (plano de trabalho, aceite, comprovantes)",
+        "raia": "Proponente/Coordenador da atividade"
+      },
+      {
+        "id": "e7",
+        "tipo": "captura",
+        "label": "Encaminhar à Coordenação Acadêmica",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e8",
+        "tipo": "captura",
+        "label": "Encaminhar à PRPPG para deliberação",
+        "raia": "PRPPG"
+      },
+      {
+        "id": "e9",
+        "tipo": "pausa",
+        "label": "Aguardar deliberação da PRPPG",
+        "raia": "PRPPG"
+      },
+      {
+        "id": "e10",
+        "tipo": "decisao",
+        "label": "PRPPG defere o afastamento/qualificação?",
+        "raia": "PRPPG"
+      },
+      {
+        "id": "e11",
+        "tipo": "atividade",
+        "label": "Notificar o docente e orientar novo pedido/recurso",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e12",
+        "tipo": "fim",
+        "label": "Afastamento/qualificação indeferido",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e13",
+        "tipo": "atividade",
+        "label": "Acompanhar o afastamento até o retorno (com ou sem conclusão)",
+        "raia": "Coordenação Acadêmica"
+      },
+      {
+        "id": "e14",
+        "tipo": "fim",
+        "label": "Afastamento/qualificação deliberado e acompanhado até o retorno",
+        "raia": "Coordenação Acadêmica"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4",
+        "label": "Sim"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e3",
+        "para": "e5",
+        "label": "Não"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11",
+        "label": "Não"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      },
+      {
+        "de": "e10",
+        "para": "e13",
+        "label": "Sim"
+      },
+      {
+        "de": "e13",
+        "para": "e14"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir das entradas 1780963200043"
+      ],
+      "fontes": [
+        "1780963200043"
+      ],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote D1)",
+      "tipo": "major",
+      "mudancas": [
+        "Passo 1 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 2 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 3 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo 4 alterado (acao, responsavel, sistema, artefato, prazo, evento)",
+        "Passo adicionado após 1: Reunir os requisitos adicionais exigidos quando o afastamento for para o exterio",
+        "Passo adicionado após 3: Encaminhar o processo à Coordenação Acadêmica",
+        "Passo adicionado após 4: Notificar o docente em caso de indeferimento e orientar novo pedido/recurso",
+        "Passo adicionado após 4: Acompanhar o afastamento deferido até o retorno, com ou sem conclusão",
+        "entrada_nova: +1",
+        "saida_nova: +1",
+        "artefatos_novos: +2",
+        "decisoes_novas: +2",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +4",
+        "checklist_novo: +5",
+        "glossario_novo: +6",
+        "normativa_nova: +1",
+        "Campo identificacao.responsavel atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Raias adicionadas: Proponente/Coordenador da atividade, Coordenação Acadêmica, PRPPG",
+        "Elementos BPMN removidos: e1, e2, e3, e4, e5, e6",
+        "Elementos BPMN adicionados: 14",
+        "Status promovido a em_validacao (≥ 3 passos e responsável definido)"
+      ],
+      "fontes": [
+        "1780963200043"
+      ],
+      "motivo": "Completar o fluxo de capacitação/afastamento docente (Resolução nº 029/2013-CEPE) com a decisão de afastamento ao exterior, deliberação da PRPPG e acompanhamento até o retorno."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "interface_setorial",
+    "versao_documento"
+  ],
+  "observacoes": "",
+  "fontes_entradas": [
+    "1780963200043"
+  ],
+  "hash_fontes": "5a47d66f34e19f24ff6ecaa3755cf13867f5c4d40e6ae8766177ebb78d96a639",
+  "agente": "pop-dpg-01",
+  "versao_diretrizes": "1.2",
+  "criado_em": "2026-09-02T17:55:55Z",
+  "atualizado_em": "2026-09-03T01:52:54Z"
+}

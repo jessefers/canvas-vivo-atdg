@@ -1,0 +1,171 @@
+{
+  "setor": "Div. de Pós-Graduação",
+  "codigo": "DPG-00",
+  "gerado_em": "2026-09-03T01:56:22Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DPG-00 — Visão geral — Div. de Pós-Graduação",
+      "descricao": "Guia dos fluxos de pós-graduação e pesquisa no e-Protocolo (PRPPG): capacitação/afastamento docente, ética no uso de animais (CEUA/CEUAP) e cursos lato e stricto sensu.",
+      "raias": [
+        "Proponente/Coordenador da atividade",
+        "Coordenação Acadêmica",
+        "CEUA/CEUAP",
+        "PRPPG"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Necessidade de afastamento/capacitação, projeto de ética ou proposta/alteração de curso de pós-graduação",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Identificar o ato (afastamento, proposta/alteração de curso, projeto de ética)",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e3",
+          "tipo": "decisao",
+          "label": "Projeto envolve propriedade intelectual?",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Marcar o processo como sigiloso no e-Protocolo",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Instruir o e-Protocolo conforme o fluxo aplicável",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Anexar a documentação exigida pelo ato",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Encaminhar à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e8",
+          "tipo": "decisao",
+          "label": "Ato é de competência de comitê de ética (CEUA/CEUAP)?",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar ao CEUA/CEUAP",
+          "raia": "CEUA/CEUAP"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Encaminhar à PRPPG para deliberação",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e11",
+          "tipo": "pausa",
+          "label": "Aguardar deliberação da PRPPG (ou do comitê de ética)",
+          "raia": "PRPPG"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Informar deliberação à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e13",
+          "tipo": "atividade",
+          "label": "Registrar a deliberação e comunicar ao proponente",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e14",
+          "tipo": "fim",
+          "label": "Processo deliberado pela PRPPG",
+          "raia": "Coordenação Acadêmica"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4",
+          "label": "Sim"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e3",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9",
+          "label": "Sim"
+        },
+        {
+          "de": "e9",
+          "para": "e12"
+        },
+        {
+          "de": "e8",
+          "para": "e10",
+          "label": "Não"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

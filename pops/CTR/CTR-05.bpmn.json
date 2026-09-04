@@ -1,0 +1,128 @@
+{
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "codigo": "CTR-05",
+  "gerado_em": "2026-09-03T02:08:02Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "CTR-05 — Gestão de Riscos",
+      "descricao": "Gestão de Riscos — Mapeamento, probabilidade, impacto. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+      "raias": [
+        "Assessoria Técnica da Direção Geral (ATDG)",
+        "Setor demandante",
+        "Direção Geral do Campus"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Definição do ciclo periódico de gestão de riscos institucionais pela Direção Geral/ATDG",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Definir o escopo e os setores/processos a serem avaliados no ciclo de gestão de riscos",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Levantar os riscos institucionais junto aos setores demandantes",
+          "raia": "Setor demandante"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Classificar cada risco quanto à probabilidade de ocorrência",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e5",
+          "tipo": "atividade",
+          "label": "Classificar cada risco quanto ao impacto institucional",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e6",
+          "tipo": "atividade",
+          "label": "Calcular a criticidade e priorizar os riscos institucionais",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e7",
+          "tipo": "atividade",
+          "label": "Submeter a matriz de riscos priorizada à Direção Geral do Campus",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Consolidar o relatório do ciclo de gestão de riscos e encaminhar aos setores para os planos de mitigação (CTR-02)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e9",
+          "tipo": "captura",
+          "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Aprovação por Direção Geral do Campus",
+          "raia": "Direção Geral do Campus"
+        },
+        {
+          "id": "e11",
+          "tipo": "fim",
+          "label": "Matriz de riscos institucionais atualizada",
+          "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e5",
+          "para": "e6"
+        },
+        {
+          "de": "e6",
+          "para": "e7"
+        },
+        {
+          "de": "e7",
+          "para": "e8"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 3 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "setor": "Coordenação Acadêmica — Geral",
+  "codigo": "CACAD-01",
+  "gerado_em": "2026-09-03T01:56:22Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "CACAD-01 — Fluxos e-Protocolo — Extensão (PROEX)",
+      "descricao": "Manual da Comissão e-Protocolo com os fluxos da área de Extensão (PROEX). Detalha a abertura de novas atividades de extensão (programas, projetos, cursos e eventos) com e sem recursos financeiros, propostas por docente ou agente universitário, e atividades com fomento externo. Orienta a tramitação correta de cada modalidade no e-Protocolo.",
+      "raias": [
+        "Proponente/Coordenador da atividade",
+        "PROEX",
+        "Coordenação Acadêmica"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "Abertura de nova atividade de extensão pelo proponente",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Classificar a modalidade da atividade (programa/projeto/curso/evento)",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e3",
+          "tipo": "decisao",
+          "label": "Proponente é agente universitário (e não docente)?",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Confirmar a possibilidade de proposição por agente universitário para a modalidade escolhida",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e5",
+          "tipo": "decisao",
+          "label": "Atividade com recursos financeiros?",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e6",
+          "tipo": "decisao",
+          "label": "Há fomento externo?",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e7",
+          "tipo": "captura",
+          "label": "Encaminhar pelo fluxo de fomento externo",
+          "raia": "PROEX"
+        },
+        {
+          "id": "e8",
+          "tipo": "atividade",
+          "label": "Abrir o e-Protocolo conforme o fluxo da modalidade",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e9",
+          "tipo": "atividade",
+          "label": "Anexar o projeto/plano de trabalho conforme a modalidade",
+          "raia": "Proponente/Coordenador da atividade"
+        },
+        {
+          "id": "e10",
+          "tipo": "captura",
+          "label": "Encaminhar à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e11",
+          "tipo": "atividade",
+          "label": "Encaminhar o processo às instâncias previstas",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e12",
+          "tipo": "captura",
+          "label": "Encaminhar à PROEX para aprovação",
+          "raia": "PROEX"
+        },
+        {
+          "id": "e13",
+          "tipo": "pausa",
+          "label": "Aguardar deliberação da PROEX",
+          "raia": "PROEX"
+        },
+        {
+          "id": "e14",
+          "tipo": "captura",
+          "label": "Informar resultado à Coordenação Acadêmica",
+          "raia": "Coordenação Acadêmica"
+        },
+        {
+          "id": "e15",
+          "tipo": "fim",
+          "label": "Atividade de extensão aprovada pela PROEX",
+          "raia": "Coordenação Acadêmica"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4",
+          "label": "Sim"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        },
+        {
+          "de": "e3",
+          "para": "e5",
+          "label": "Não"
+        },
+        {
+          "de": "e5",
+          "para": "e6",
+          "label": "Sim"
+        },
+        {
+          "de": "e5",
+          "para": "e8",
+          "label": "Não"
+        },
+        {
+          "de": "e6",
+          "para": "e7",
+          "label": "Sim"
+        },
+        {
+          "de": "e6",
+          "para": "e8",
+          "label": "Não"
+        },
+        {
+          "de": "e7",
+          "para": "e9"
+        },
+        {
+          "de": "e8",
+          "para": "e9"
+        },
+        {
+          "de": "e9",
+          "para": "e10"
+        },
+        {
+          "de": "e10",
+          "para": "e11"
+        },
+        {
+          "de": "e11",
+          "para": "e12"
+        },
+        {
+          "de": "e12",
+          "para": "e13"
+        },
+        {
+          "de": "e13",
+          "para": "e14"
+        },
+        {
+          "de": "e14",
+          "para": "e15"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

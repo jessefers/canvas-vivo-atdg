@@ -1,0 +1,66 @@
+{
+  "setor": "Div. de Patrimônio e Equipamentos",
+  "codigo": "DPAT-00",
+  "gerado_em": "2026-09-03T02:05:27Z",
+  "padrao": "BPMN 2.0 — Anne Bail (UNIOESTE Foz)",
+  "processos": [
+    {
+      "nome": "DPAT-00 — Visão geral — Div. de Patrimônio e Equipamentos",
+      "descricao": "Divisão de Patrimônio e Equipamentos da Secretaria Administrativa. Playbook em construção (tombamento, controle e desfazimento de bens).",
+      "raias": [
+        "Div. de Patrimônio e Equipamentos"
+      ],
+      "elementos": [
+        {
+          "id": "e1",
+          "tipo": "inicio",
+          "label": "A definir",
+          "raia": "Div. de Patrimônio e Equipamentos"
+        },
+        {
+          "id": "e2",
+          "tipo": "atividade",
+          "label": "Levantar as atividades e rotinas da área junto à chefia e aos servidores",
+          "raia": "Div. de Patrimônio e Equipamentos"
+        },
+        {
+          "id": "e3",
+          "tipo": "atividade",
+          "label": "Mapear os fluxos e os responsáveis por etapa",
+          "raia": "Div. de Patrimônio e Equipamentos"
+        },
+        {
+          "id": "e4",
+          "tipo": "atividade",
+          "label": "Identificar as normas aplicáveis e os pontos de atenção",
+          "raia": "Div. de Patrimônio e Equipamentos"
+        },
+        {
+          "id": "e5",
+          "tipo": "fim",
+          "label": "Concluído",
+          "raia": "Div. de Patrimônio e Equipamentos"
+        }
+      ],
+      "conexoes": [
+        {
+          "de": "e1",
+          "para": "e2"
+        },
+        {
+          "de": "e2",
+          "para": "e3"
+        },
+        {
+          "de": "e3",
+          "para": "e4"
+        },
+        {
+          "de": "e4",
+          "para": "e5"
+        }
+      ],
+      "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 1 raia(s). Revisar decisões e pausas antes de construir no Miro."
+    }
+  ]
+}

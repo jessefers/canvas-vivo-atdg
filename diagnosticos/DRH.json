@@ -1,0 +1,260 @@
+{
+  "id": "diag-drh-20260903",
+  "setor": "Div. de Recursos Humanos",
+  "setor_codigo": "S03.07-DRH",
+  "sigla": "DRH",
+  "data": "2026-09-03T01:59:01Z",
+  "modelo": "claude-sonnet (subagente construtor)",
+  "versao_diretrizes": "1.0",
+  "fontes_entradas": [
+    "1780963200022",
+    "1780963200025",
+    "1780963200026",
+    "1780963200027",
+    "1780963200048",
+    "1780963200065",
+    "1780963200066",
+    "pb-rh"
+  ],
+  "hash_fontes": "086ee148d16d146e846485653f68463ae4b5fc15e57b18f1ac4990d9e2aa1dc6",
+  "ecossistema": {
+    "dominio": "Gestão de Pessoas",
+    "subdominios": [
+      "Controle de frequência (ponto eletrônico)",
+      "Tramitação de processos funcionais (e-Protocolo/PRORH)"
+    ],
+    "contextos_vizinhos": [
+      "Chefia imediata",
+      "PRORH/GRE (Reitoria)",
+      "Servidor"
+    ],
+    "sistemas": [
+      "ponto eletrônico",
+      "e-Protocolo"
+    ],
+    "normas": [
+      "Lei nº 6.174/1970",
+      "IS 001/2024-DRH/Foz",
+      "Instrução 002/2019",
+      "Edital 096/2023-GRE (Anexo I)",
+      "Fluxos e-Protocolo PRORH v3.0"
+    ],
+    "benchmarks": []
+  },
+  "processos": [
+    {
+      "codigo_sugerido": "DRH-02",
+      "nome": "Registro e apuração de frequência (ponto eletrônico)",
+      "tipo": "processo",
+      "descricao": "Registro diário do ponto eletrônico, apuração semanal pela chefia imediata e comunicação de falhas/justificativas em até 48h via e-Protocolo, conforme IS 001/2024-DRH/Foz e Instrução 002/2019.",
+      "tipo_subdominio": "core",
+      "gatilho": "Início da jornada de trabalho do servidor",
+      "saida": "Frequência apurada e eventuais falhas justificadas e registradas dentro do prazo",
+      "atores": [
+        "Servidor",
+        "Chefia imediata",
+        "Chefe da Divisão de Recursos Humanos"
+      ],
+      "sistemas": [
+        "ponto eletrônico",
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Registro de ponto",
+        "Apuração semanal de frequência",
+        "Justificativa de frequência"
+      ],
+      "interfaces": [
+        "Div. de Recursos Humanos ↔ Chefia imediata",
+        "Div. de Recursos Humanos ↔ Servidor"
+      ],
+      "evidencias": [
+        "1780963200022",
+        "1780963200025",
+        "1780963200026",
+        "pb-rh"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.85,
+      "frequencia": 0.95,
+      "risco_conformidade": 0.85,
+      "cobertura": 0.3,
+      "prioridade": 0.81,
+      "lacunas": [
+        "responsavel",
+        "passos",
+        "sistema",
+        "formulario",
+        "interface_setorial"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "",
+      "justificativa": "Processo evidenciado por três normas (IS 001/2024-DRH/Foz, Instrução 002/2019, Lei nº 6.174/1970) e pelo playbook geral, mas sem POP dedicado; frequência diária/semanal e vedação de prestação de serviço sem registro elevam o risco. Recomenda-se gerar POP específico (DRH-02) a partir das normas já mapeadas."
+    },
+    {
+      "codigo_sugerido": "DRH-00",
+      "nome": "Playbook — Recursos Humanos (visão geral)",
+      "tipo": "processo",
+      "descricao": "Guia consolidado do controle diário/semanal de frequência e da instrução de processos funcionais de RH no e-Protocolo.",
+      "tipo_subdominio": "core",
+      "gatilho": "Início da jornada de trabalho do servidor ou necessidade de instruir processo funcional de RH",
+      "saida": "Frequência apurada (com justificativa quando houver falha) e processo funcional instruído e deliberado",
+      "atores": [
+        "Servidor",
+        "Chefia imediata",
+        "Chefe da Divisão de Recursos Humanos",
+        "PRORH"
+      ],
+      "sistemas": [
+        "ponto eletrônico",
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Registro de ponto",
+        "Apuração semanal de frequência",
+        "Justificativa de frequência",
+        "Processo e-Protocolo de RH"
+      ],
+      "interfaces": [
+        "Div. de Recursos Humanos ↔ Chefia imediata",
+        "Div. de Recursos Humanos ↔ Servidor",
+        "Div. de Recursos Humanos ↔ PRORH"
+      ],
+      "evidencias": [
+        "pb-rh"
+      ],
+      "maturidade": 1,
+      "criticidade": 0.8,
+      "frequencia": 0.9,
+      "risco_conformidade": 0.8,
+      "cobertura": 0.35,
+      "prioridade": 0.78,
+      "lacunas": [
+        "responsavel",
+        "gatilho",
+        "entrada",
+        "saida",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "DRH-00",
+      "justificativa": "Alta frequência (diária/semanal) e criticidade funcional/disciplinar, sem responsável, KPIs ou contingências definidos antes deste lote."
+    },
+    {
+      "codigo_sugerido": "DRH-01",
+      "nome": "Fluxos e-Protocolo — RH (PRORH) v3.0",
+      "tipo": "processo",
+      "descricao": "Instrução dos processos funcionais de RH no e-Protocolo conforme o fluxo vigente (v3.0), consolidando as versões e cópias anteriores como histórico.",
+      "tipo_subdominio": "core",
+      "gatilho": "Servidor ou chefia solicita processo funcional de RH",
+      "saida": "Processo de RH instruído, encaminhado e deliberado pela PRORH conforme o fluxo vigente (v3.0)",
+      "atores": [
+        "Servidor",
+        "Chefe da Divisão de Recursos Humanos",
+        "PRORH"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Processo e-Protocolo de RH",
+        "Documentação funcional"
+      ],
+      "interfaces": [
+        "Div. de Recursos Humanos ↔ Servidor",
+        "Div. de Recursos Humanos ↔ PRORH"
+      ],
+      "evidencias": [
+        "1780963200048",
+        "1780963200065",
+        "1780963200066"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.85,
+      "frequencia": 0.65,
+      "risco_conformidade": 0.8,
+      "cobertura": 0.4,
+      "prioridade": 0.71,
+      "lacunas": [
+        "responsavel",
+        "gatilho",
+        "entrada",
+        "saida",
+        "kpi",
+        "contingencia",
+        "formulario",
+        "prazo"
+      ],
+      "recomendacao": "gerar_pop",
+      "pop_existente": "DRH-01",
+      "justificativa": "Três entradas do Canvas registram versões (v2.0, v3.0) e uma cópia do mesmo manual (lição L-005): risco de uso de versão superada torna prioritário consolidar o POP na versão vigente."
+    },
+    {
+      "codigo_sugerido": "DRH-03",
+      "nome": "Instrução de processos de RH no e-Protocolo (licenças, afastamentos, progressões)",
+      "tipo": "processo",
+      "descricao": "Tramitação, por tipo de demanda funcional (licença, afastamento, progressão e demais), dos processos de RH no e-Protocolo, com apoio do perfil profissiográfico das funções (Edital 096/2023-GRE).",
+      "tipo_subdominio": "core",
+      "gatilho": "Servidor ou chefia solicita processo funcional de RH por tipo específico de demanda",
+      "saida": "Processo de RH instruído e encaminhado às instâncias competentes conforme o tipo de demanda",
+      "atores": [
+        "Servidor",
+        "Chefia imediata",
+        "Chefe da Divisão de Recursos Humanos",
+        "PRORH"
+      ],
+      "sistemas": [
+        "e-Protocolo"
+      ],
+      "artefatos": [
+        "Processo e-Protocolo",
+        "Perfil profissiográfico da função",
+        "Documentação funcional"
+      ],
+      "interfaces": [
+        "Div. de Recursos Humanos ↔ PRORH"
+      ],
+      "evidencias": [
+        "1780963200048",
+        "1780963200065",
+        "1780963200066",
+        "1780963200027",
+        "pb-rh"
+      ],
+      "maturidade": 2,
+      "criticidade": 0.75,
+      "frequencia": 0.55,
+      "risco_conformidade": 0.7,
+      "cobertura": 0.45,
+      "prioridade": 0.64,
+      "lacunas": [
+        "passos",
+        "formulario",
+        "prazo",
+        "kpi",
+        "interface_setorial"
+      ],
+      "recomendacao": "coletar_mais",
+      "pop_existente": "",
+      "justificativa": "O fluxo genérico de e-Protocolo já está coberto por DRH-01; falta evidência específica por tipo de demanda (licença, afastamento, progressão) para justificar POP(s) dedicado(s) sem duplicar DRH-01. Recomenda-se coletar exemplos por tipo antes de desdobrar."
+    }
+  ],
+  "lacunas_setor": [
+    "Não há POP dedicado ao registro e apuração de frequência, apenas referências dentro do playbook geral (DRH-00) e normas isoladas",
+    "Vigência da Lei nº 6.174/1970 não confirmada frente a alterações posteriores",
+    "Fluxo de instrução de processos de RH (DRH-01) não distingue os passos específicos por tipo de demanda (licença, afastamento, progressão)",
+    "Responsável (função) pelos processos de RH não definido nos POPs até este lote"
+  ],
+  "licoes_propostas": [
+    {
+      "licao": "O acervo do Canvas registrou o mesmo manual de fluxos de RH em duas pastas diferentes ('RH' e 'Fluxos Internos'), como se fossem entradas distintas, além de duas versões (v2.0 e v3.0).",
+      "regra": "Ao consolidar entradas para diagnóstico, tratar cópias do mesmo arquivo (mesmo nome/conteúdo) em pastas diferentes como uma única fonte de evidência para fins de contagem de maturidade e cobertura, mantendo apenas o registro de origem múltipla como observação.",
+      "exemplo": "DRH, entradas 1780963200048/1780963200065/1780963200066",
+      "origem": "diagnostico:DRH"
+    }
+  ],
+  "observacoes": "Setor com forte base normativa (5 normas evidenciadas) mas processos operacionais (frequência, instrução por tipo de demanda) ainda pouco desdobrados em POPs próprios; DRH-02 e DRH-03 ficam sugeridos para geração/aprofundamento em lote futuro."
+}

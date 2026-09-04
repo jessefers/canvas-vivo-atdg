@@ -1,0 +1,412 @@
+{
+  "id": "pop-ctr-04",
+  "codigo": "CTR-04",
+  "titulo": "Fiscalização Externa",
+  "setor": "ATDG — Assessoria Técnica da Direção Geral",
+  "setor_codigo": "S02.03-CTR",
+  "sigla": "CTR",
+  "versao": "0.2.1",
+  "status": "rascunho",
+  "ddd": {
+    "divisao": "ATDG — Assessoria Técnica da Direção Geral",
+    "departamento": "ATDG — Controladoria e Compliance",
+    "descricao": "Fiscalização Externa — Visitas, diligências, relatórios. Processo codificado no manual institucional da ATDG (jun/2026); conteúdo operacional a documentar.",
+    "dominio": "Controladoria, Compliance e Riscos",
+    "subdominio": "Fiscalização Externa",
+    "tipo_subdominio": "core",
+    "contexto": "S02.03-CTR",
+    "glossario": []
+  },
+  "identificacao": {
+    "responsavel": "A definir",
+    "periodicidade": "Sob demanda",
+    "normativa": [],
+    "subordinacao": "ATDG — Assessoria Técnica da Direção Geral",
+    "produto_atdg": "POP",
+    "pasta_onedrive": "02_CONTROLADORIA"
+  },
+  "organograma_mermaid": "graph TD\n  S01_DG[\"S01-DG<br/>Direção Geral de Campus\"]\n  S02_ATDG[\"S02-ATDG<br/>ATDG — Assessoria Técnica da Direção Geral\"]\n  S01_DG --> S02_ATDG\n  S02_03_CTR[\"S02.03-CTR<br/>ATDG — Controladoria e Compliance\"]\n  S02_ATDG --> S02_03_CTR\n  P[\"CTR-04<br/>Fiscalização Externa\"]\n  S02_03_CTR --> P\n  V1[\"TCE-PR\"]\n  P -. interface .-> V1\n  V2[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n  P -. interface .-> V2\n  V3[\"Setor respondente\"]\n  P -. interface .-> V3\n  classDef setor fill:#EEF0F7,stroke:#1B2747,stroke-width:1.5px,color:#1B2747\n  classDef destaque fill:#FDEAEE,stroke:#CC1544,stroke-width:3px,color:#1B2747\n  classDef vizinho fill:#E0F2F8,stroke:#0B4D66,stroke-width:1.5px,color:#0B4D66\n  class S01_DG,S02_ATDG,S02_03_CTR setor\n  class P destaque\n  class V1,V2,V3 vizinho",
+  "playbook": {
+    "gatilho": {
+      "evento": "Comunicação de visita, inspeção ou diligência de fiscalização externa (TCE-PR, SETI ou outro órgão) ao Campus",
+      "origem": "TCE-PR"
+    },
+    "entrada": [
+      "Comunicação de visita/diligência de fiscalização externa",
+      "Documentação e informações objeto da fiscalização"
+    ],
+    "passos": [
+      {
+        "acao": "Receber a comunicação de visita/diligência de fiscalização externa",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Comunicação de fiscalização",
+        "prazo": "A definir",
+        "evento": "Comunicação registrada",
+        "fontes": [],
+        "n": 1
+      },
+      {
+        "acao": "Informar a Direção Geral do Campus e os setores envolvidos sobre a fiscalização",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Comunicação interna",
+        "prazo": "A definir",
+        "evento": "Setores informados",
+        "fontes": [],
+        "n": 2
+      },
+      {
+        "acao": "Reunir a documentação e as informações objeto da fiscalização",
+        "responsavel": "Setor respondente",
+        "sistema": "e-Protocolo",
+        "artefato": "Documentação solicitada",
+        "prazo": "A definir",
+        "evento": "Documentação reunida",
+        "fontes": [],
+        "n": 3
+      },
+      {
+        "acao": "Acompanhar a visita/diligência do órgão fiscalizador",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "A definir",
+        "artefato": "Ata/registro de acompanhamento",
+        "prazo": "A definir",
+        "evento": "Visita acompanhada",
+        "fontes": [],
+        "n": 4
+      },
+      {
+        "acao": "Receber o relatório de fiscalização e as eventuais recomendações",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Relatório de fiscalização",
+        "prazo": "A definir",
+        "evento": "Relatório recebido",
+        "fontes": [],
+        "n": 5
+      },
+      {
+        "acao": "Elaborar plano de atendimento às recomendações do órgão fiscalizador",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "e-Protocolo",
+        "artefato": "Plano de atendimento às recomendações",
+        "prazo": "A definir",
+        "evento": "Plano elaborado",
+        "fontes": [],
+        "n": 6
+      },
+      {
+        "acao": "Monitorar a implementação das recomendações até seu atendimento integral",
+        "responsavel": "Assessoria Técnica da Direção Geral (ATDG)",
+        "sistema": "OneDrive ATDG",
+        "artefato": "Registro de monitoramento de recomendações",
+        "prazo": "A definir",
+        "evento": "Recomendações monitoradas",
+        "fontes": [],
+        "n": 7
+      }
+    ],
+    "saida": [
+      "Fiscalização externa atendida e documentada",
+      "Relatório de fiscalização e eventuais recomendações registrados"
+    ]
+  },
+  "artefatos": [
+    {
+      "nome": "Plano de atendimento às recomendações de fiscalização",
+      "tipo": "documento",
+      "sistema": "e-Protocolo",
+      "campos_chave": [
+        "recomendação",
+        "ação de atendimento",
+        "responsável",
+        "prazo"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    },
+    {
+      "nome": "Registro de fiscalizações externas",
+      "tipo": "registro",
+      "sistema": "OneDrive ATDG",
+      "campos_chave": [
+        "órgão fiscalizador",
+        "data",
+        "objeto",
+        "situação das recomendações"
+      ],
+      "responsavel_preenchimento": "Assessoria Técnica da Direção Geral (ATDG)"
+    }
+  ],
+  "decisoes": [
+    {
+      "decisao": "O relatório de fiscalização aponta recomendações a serem atendidas pelo Campus?",
+      "condicao": "Recebimento do relatório de fiscalização externa",
+      "sim": "Elaborar e monitorar o plano de atendimento às recomendações",
+      "nao": "Arquivar o relatório e encerrar o acompanhamento da fiscalização"
+    }
+  ],
+  "pontos_atencao": [
+    "Fiscalizações externas podem gerar recomendações com prazo de atendimento e possível reincidência em auditorias futuras (CTR-01)",
+    "Manter interlocução única (ATDG) com o órgão fiscalizador para evitar respostas divergentes entre setores"
+  ],
+  "contingencia": [
+    "Setor não reúne a documentação solicitada a tempo da visita: comunicar o atraso ao órgão fiscalizador e à Direção Geral",
+    "Recomendação do relatório de fiscalização não atendida no prazo: justificar formalmente ao órgão fiscalizador e reavaliar o plano",
+    "Divergência entre a versão do Campus e o relatório do órgão fiscalizador: registrar manifestação formal de contestação"
+  ],
+  "checklist": [
+    "Comunicação de fiscalização registrada e setores informados",
+    "Documentação objeto da fiscalização reunida",
+    "Visita/diligência acompanhada e registrada",
+    "Relatório de fiscalização e recomendações recebidos",
+    "Plano de atendimento às recomendações elaborado e monitorado"
+  ],
+  "kpis": [
+    {
+      "indicador": "Percentual de recomendações de fiscalização externa atendidas no prazo",
+      "formula": "(Recomendações atendidas no prazo / total de recomendações recebidas) × 100",
+      "meta": "A definir",
+      "fonte": "OneDrive ATDG"
+    },
+    {
+      "indicador": "Tempo médio de resposta às recomendações de fiscalização externa",
+      "formula": "Média (data de atendimento − data de recebimento do relatório)",
+      "meta": "A definir",
+      "fonte": "e-Protocolo"
+    }
+  ],
+  "mapa_contexto": [
+    {
+      "origem": "TCE-PR",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "informa",
+      "artefato": "Comunicação de visita/diligência de fiscalização",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "Setor respondente",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "fornece",
+      "artefato": "Documentação objeto da fiscalização",
+      "canal": "e-Protocolo"
+    },
+    {
+      "origem": "TCE-PR",
+      "destino": "Assessoria Técnica da Direção Geral (ATDG)",
+      "relacao": "informa",
+      "artefato": "Relatório de fiscalização e recomendações",
+      "canal": "e-Protocolo"
+    }
+  ],
+  "fluxograma_mermaid": "flowchart LR\n  subgraph R1[\"Assessoria Técnica da Direção Geral (ATDG)\"]\n    direction LR\n    e1((\"Comunicação de visita, inspeção ou diligência de fiscalização externa…\"))\n    e2[\"Receber a comunicação de visita/diligência de fiscalização externa\"]\n    e3[\"Informar a Direção Geral do Campus e os setores envolvidos sobre a fi…\"]\n    e5[\"Acompanhar a visita/diligência do órgão fiscalizador\"]\n    e6[\"Receber o relatório de fiscalização e as eventuais recomendações\"]\n    e7[\"Elaborar plano de atendimento às recomendações do órgão fiscalizador\"]\n    e8[\"Monitorar a implementação das recomendações até seu atendimento integ…\"]\n    e9[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e10[[\"✉ Encaminhar a Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e11[[\"✉ Informar Assessoria Técnica da Direção Geral (ATDG)\"]]\n    e12(((\"Fiscalização externa atendida e documentada\")))\n  end\n  subgraph R2[\"Setor respondente\"]\n    direction LR\n    e4[\"Reunir a documentação e as informações objeto da fiscalização\"]\n  end\n  e1 --> e2\n  e2 --> e3\n  e3 --> e4\n  e4 --> e5\n  e5 --> e6\n  e6 --> e7\n  e7 --> e8\n  e8 --> e9\n  e9 --> e10\n  e10 --> e11\n  e11 --> e12\n  classDef inicio fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#374151\n  classDef atividade fill:#E6F7F0,stroke:#0B7A4E,stroke-width:2px,color:#0B7A4E\n  classDef decisao fill:#FFF4ED,stroke:#C9783A,stroke-width:2px,color:#C9783A\n  classDef fim fill:#FDEAEE,stroke:#CC1544,stroke-width:4px,color:#CC1544\n  classDef pausa fill:#FDEAEE,stroke:#CC1544,stroke-width:2px,color:#CC1544\n  classDef captura fill:#E0F2F8,stroke:#0B4D66,stroke-width:2px,color:#0B4D66\n  class e1 inicio\n  class e2,e3,e4,e5,e6,e7,e8 atividade\n  class e9,e10,e11 captura\n  class e12 fim",
+  "bpmn_spec": {
+    "raias": [
+      "Assessoria Técnica da Direção Geral (ATDG)",
+      "Setor respondente"
+    ],
+    "elementos": [
+      {
+        "id": "e1",
+        "tipo": "inicio",
+        "label": "Comunicação de visita, inspeção ou diligência de fiscalização externa (TCE-PR, SETI ou outro órgão) ao Campus",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e2",
+        "tipo": "atividade",
+        "label": "Receber a comunicação de visita/diligência de fiscalização externa",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e3",
+        "tipo": "atividade",
+        "label": "Informar a Direção Geral do Campus e os setores envolvidos sobre a fiscalização",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e4",
+        "tipo": "atividade",
+        "label": "Reunir a documentação e as informações objeto da fiscalização",
+        "raia": "Setor respondente"
+      },
+      {
+        "id": "e5",
+        "tipo": "atividade",
+        "label": "Acompanhar a visita/diligência do órgão fiscalizador",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e6",
+        "tipo": "atividade",
+        "label": "Receber o relatório de fiscalização e as eventuais recomendações",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e7",
+        "tipo": "atividade",
+        "label": "Elaborar plano de atendimento às recomendações do órgão fiscalizador",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e8",
+        "tipo": "atividade",
+        "label": "Monitorar a implementação das recomendações até seu atendimento integral",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e9",
+        "tipo": "captura",
+        "label": "Informar Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e10",
+        "tipo": "captura",
+        "label": "Encaminhar a Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e11",
+        "tipo": "captura",
+        "label": "Informar Assessoria Técnica da Direção Geral (ATDG)",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      },
+      {
+        "id": "e12",
+        "tipo": "fim",
+        "label": "Fiscalização externa atendida e documentada",
+        "raia": "Assessoria Técnica da Direção Geral (ATDG)"
+      }
+    ],
+    "conexoes": [
+      {
+        "de": "e1",
+        "para": "e2"
+      },
+      {
+        "de": "e2",
+        "para": "e3"
+      },
+      {
+        "de": "e3",
+        "para": "e4"
+      },
+      {
+        "de": "e4",
+        "para": "e5"
+      },
+      {
+        "de": "e5",
+        "para": "e6"
+      },
+      {
+        "de": "e6",
+        "para": "e7"
+      },
+      {
+        "de": "e7",
+        "para": "e8"
+      },
+      {
+        "de": "e8",
+        "para": "e9"
+      },
+      {
+        "de": "e9",
+        "para": "e10"
+      },
+      {
+        "de": "e10",
+        "para": "e11"
+      },
+      {
+        "de": "e11",
+        "para": "e12"
+      }
+    ],
+    "observacoes_construcao_miro": "Especificação gerada a partir dos passos do POP; 2 raia(s). Revisar decisões e pausas antes de construir no Miro."
+  },
+  "changelog": [
+    {
+      "versao": "0.1.0",
+      "data": "2026-09-02",
+      "autor": "scripts/scaffold_pops.py",
+      "tipo": "patch",
+      "mudancas": [
+        "Esqueleto inicial gerado deterministicamente a partir do escopo \"Visitas, diligências, relatórios\""
+      ],
+      "fontes": [],
+      "motivo": "Scaffold do piloto (todos os setores do organograma)"
+    },
+    {
+      "versao": "0.2.0",
+      "data": "2026-09-03",
+      "autor": "agente:construtor-pop (lote B)",
+      "tipo": "minor",
+      "mudancas": [
+        "Passo adicionado após 0: Receber a comunicação de visita/diligência de fiscalização externa",
+        "Passo adicionado após 1: Informar a Direção Geral do Campus e os setores envolvidos sobre a fiscalização",
+        "Passo adicionado após 2: Reunir a documentação e as informações objeto da fiscalização",
+        "Passo adicionado após 3: Acompanhar a visita/diligência do órgão fiscalizador",
+        "Passo adicionado após 4: Receber o relatório de fiscalização e as eventuais recomendações",
+        "Passo adicionado após 5: Elaborar plano de atendimento às recomendações do órgão fiscalizador",
+        "Passo adicionado após 6: Monitorar a implementação das recomendações até seu atendimento integral",
+        "entrada_nova: +2",
+        "saida_nova: +2",
+        "artefatos_novos: +2",
+        "decisoes_novas: +1",
+        "kpis_novos: +2",
+        "mapa_contexto_novo: +3",
+        "pontos_atencao_novos: +2",
+        "contingencia_nova: +3",
+        "checklist_novo: +5",
+        "Campo identificacao.periodicidade atualizado",
+        "Campo playbook.gatilho atualizado",
+        "Campo observacoes atualizado",
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Elaboração do playbook de Fiscalização Externa (visitas, diligências, relatórios) a partir do escopo do manual institucional da ATDG."
+    },
+    {
+      "versao": "0.2.1",
+      "data": "2026-09-03",
+      "autor": "agente:curador-diretrizes",
+      "tipo": "patch",
+      "mudancas": [
+        "Fluxograma regenerado a partir dos passos"
+      ],
+      "fontes": [],
+      "motivo": "Uniformização da raia principal do fluxograma inferido (regeneração a partir dos passos)."
+    }
+  ],
+  "validacao": {
+    "elaboracao": "ATDG — Assessoria Técnica da Direção Geral",
+    "revisao": "A definir (responsável do setor)",
+    "aprovacao": "Direção Geral do Campus",
+    "data_aprovacao": ""
+  },
+  "licoes_aplicadas": [
+    "L-001",
+    "L-004",
+    "L-006",
+    "L-007",
+    "L-002",
+    "L-003"
+  ],
+  "lacunas": [
+    "responsavel",
+    "kpi",
+    "formulario",
+    "prazo",
+    "normativa"
+  ],
+  "observacoes": "Inferência a validar com a ATDG: playbook construído a partir do escopo do manual institucional da ATDG (jun/2026) e da prática administrativa geral de controladoria, compliance e gestão de riscos em universidades estaduais do Paraná, sem entradas do Canvas Vivo para este processo; validar papéis, sistemas, prazos, normativa específica e fluxo de aprovação junto à ATDG.",
+  "fontes_entradas": [],
+  "hash_fontes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "agente": "pop-ctr-04",
+  "versao_diretrizes": "1.12",
+  "criado_em": "2026-09-02T17:55:54Z",
+  "atualizado_em": "2026-09-03T02:08:02Z"
+}
