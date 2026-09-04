@@ -1,0 +1,889 @@
+<title>Mapa Vivo do EcoSys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#EEF1F4;
+    --surface:#FFFFFF;
+    --surface-2:#F5F7F9;
+    --ink:#111923;
+    --ink-2:#3D4956;
+    --muted:#66727F;
+    --line:#D2D9E0;
+    --line-strong:#AFBAC5;
+    --flow:#0B6E7F;
+    --flow-soft:#DCEEF1;
+    --authority:#9A6206;
+    --authority-soft:#F6EBD6;
+    --ok:#2C6E4B;
+    --warn:#9A6206;
+    --stop:#9E3524;
+    --stop-soft:#F6E2DE;
+    --ok-soft:#DEEBE3;
+    --shadow:0 1px 2px rgba(17,25,35,.06),0 8px 24px -16px rgba(17,25,35,.30);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0D131A;
+      --surface:#141C25;
+      --surface-2:#1A232D;
+      --ink:#E6EBF0;
+      --ink-2:#B7C2CD;
+      --muted:#8492A0;
+      --line:#28333F;
+      --line-strong:#3C4A58;
+      --flow:#4FBACB;
+      --flow-soft:#12313A;
+      --authority:#E0A544;
+      --authority-soft:#33280F;
+      --ok:#5FBE8A;
+      --warn:#E0A544;
+      --stop:#E0796A;
+      --stop-soft:#3A211B;
+      --ok-soft:#16301F;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.8);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0D131A;
+    --surface:#141C25;
+    --surface-2:#1A232D;
+    --ink:#E6EBF0;
+    --ink-2:#B7C2CD;
+    --muted:#8492A0;
+    --line:#28333F;
+    --line-strong:#3C4A58;
+    --flow:#4FBACB;
+    --flow-soft:#12313A;
+    --authority:#E0A544;
+    --authority-soft:#33280F;
+    --ok:#5FBE8A;
+    --warn:#E0A544;
+    --stop:#E0796A;
+    --stop-soft:#3A211B;
+    --ok-soft:#16301F;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:32px 20px 96px}
+
+  /* ---------- Cabeçalho ---------- */
+  .head{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-top:3px solid var(--flow);
+    box-shadow:var(--shadow);
+    padding:32px 32px 28px;
+    display:grid;
+    gap:20px;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--flow);font-weight:500;
+    display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;
+  }
+  h1{
+    font-family:Archivo,"IBM Plex Sans",sans-serif;
+    font-weight:800;font-size:clamp(30px,5.2vw,46px);line-height:1.06;
+    letter-spacing:-.022em;margin:0;text-wrap:balance;
+  }
+  .lede{font-size:17.5px;color:var(--ink-2);max-width:64ch;margin:0}
+  .headmeta{
+    display:flex;flex-wrap:wrap;gap:10px;
+    border-top:1px solid var(--line);padding-top:18px;
+  }
+  .chip{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:11.5px;letter-spacing:.04em;
+    border:1px solid var(--line-strong);border-radius:2px;
+    padding:5px 10px;color:var(--ink-2);background:var(--surface-2);
+  }
+  .chip b{color:var(--ink);font-weight:600}
+  .chip.live{border-color:var(--flow);color:var(--flow);background:var(--flow-soft)}
+
+  /* ---------- Seções ---------- */
+  section{margin-top:56px;scroll-margin-top:16px}
+  .shead{display:flex;gap:16px;align-items:baseline;border-bottom:1px solid var(--line-strong);padding-bottom:10px;margin-bottom:24px}
+  .snum{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:12px;font-weight:600;color:var(--flow);letter-spacing:.06em;
+    padding-top:6px;flex:none;
+  }
+  h2{
+    font-family:Archivo,sans-serif;font-weight:700;
+    font-size:clamp(21px,2.9vw,27px);letter-spacing:-.014em;
+    margin:0;line-height:1.2;text-wrap:balance;
+  }
+  .sdek{color:var(--muted);font-size:14.5px;margin:4px 0 0;max-width:62ch}
+  h3{font-family:Archivo,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.008em;margin:0 0 8px}
+  p{margin:0 0 14px;max-width:70ch}
+  p:last-child{margin-bottom:0}
+  strong{font-weight:600}
+  code,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em}
+  code{background:var(--surface-2);border:1px solid var(--line);border-radius:2px;padding:1px 5px}
+
+  /* ---------- Figuras ---------- */
+  figure{margin:0 0 8px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);padding:26px 22px 16px}
+  .figscroll{overflow-x:auto}
+  figure svg{display:block;width:100%;min-width:600px;height:auto;color:var(--ink-2)}
+  figcaption{
+    font-size:13.5px;color:var(--muted);
+    border-top:1px solid var(--line);margin-top:16px;padding-top:12px;max-width:74ch;
+  }
+  .s-line{stroke:var(--line-strong);fill:none;stroke-width:1.5}
+  .s-flow{stroke:var(--flow);fill:none;stroke-width:2}
+  .s-auth{stroke:var(--authority);fill:none;stroke-width:2}
+  .b-box{fill:var(--surface-2);stroke:var(--line-strong);stroke-width:1.5}
+  .b-flow{fill:var(--flow-soft);stroke:var(--flow);stroke-width:1.5}
+  .b-auth{fill:var(--authority-soft);stroke:var(--authority);stroke-width:2}
+  .t{font-family:"IBM Plex Sans",sans-serif;font-size:13px;fill:var(--ink)}
+  .t-b{font-family:Archivo,sans-serif;font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .t-s{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--muted);letter-spacing:.04em}
+  .t-a{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--flow);letter-spacing:.03em}
+  .t-auth{font-family:Archivo,sans-serif;font-size:13.5px;font-weight:700;fill:var(--authority)}
+
+  /* ---------- Grades ---------- */
+  .grid3{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .grid2{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .card{background:var(--surface);border:1px solid var(--line);padding:20px;box-shadow:var(--shadow)}
+  .card .k{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--flow);margin-bottom:6px;
+  }
+  .card p{font-size:14.5px;color:var(--ink-2)}
+
+  /* ---------- Escada de autonomia ---------- */
+  .ladder{display:grid;gap:0;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .rung{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);align-items:start}
+  .rung:last-child{border-bottom:0}
+  .rung .lvl{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;color:var(--muted);padding-top:2px}
+  .rung .txt{font-size:14.5px;color:var(--ink-2)}
+  .rung .txt b{color:var(--ink);display:block;font-family:Archivo,sans-serif;font-size:15px}
+  .rung.now{background:var(--flow-soft);border-left:3px solid var(--flow);padding-left:17px}
+  .rung.now .lvl{color:var(--flow)}
+  .rung.future{opacity:.72}
+  .nowtag{
+    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--flow);
+    border:1px solid var(--flow);border-radius:2px;padding:1px 6px;margin-left:8px;vertical-align:2px;
+  }
+
+  /* ---------- Tabelas ---------- */
+  .tscroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:660px;font-size:14px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;
+    background:var(--surface-2);border-bottom:1px solid var(--line-strong);white-space:nowrap;
+  }
+  tbody tr:last-child td{border-bottom:0}
+  td b{font-weight:600}
+  .num{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace;font-size:13px;white-space:nowrap}
+  .sub{color:var(--muted);font-size:12.5px;display:block}
+
+  .pill{
+    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+    letter-spacing:.06em;padding:2px 7px;border-radius:2px;white-space:nowrap;border:1px solid;
+  }
+  .p-ok{color:var(--ok);background:var(--ok-soft);border-color:var(--ok)}
+  .p-warn{color:var(--warn);background:var(--authority-soft);border-color:var(--warn)}
+  .p-stop{color:var(--stop);background:var(--stop-soft);border-color:var(--stop)}
+
+  /* ---------- Nota / regra ---------- */
+  .rule{
+    background:var(--authority-soft);border:1px solid var(--authority);
+    border-left-width:3px;padding:16px 20px;margin:18px 0 0;
+  }
+  .rule .k{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--authority);font-weight:600;margin-bottom:6px;
+  }
+  .rule p{font-size:14.5px;color:var(--ink-2)}
+
+  /* ---------- Glossário ---------- */
+  .gloss{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .grow{display:grid;grid-template-columns:minmax(120px,.8fr) minmax(120px,.9fr) minmax(220px,2fr);gap:16px;padding:13px 20px;border-bottom:1px solid var(--line);font-size:14px}
+  .grow:last-child{border-bottom:0}
+  .grow .term{font-family:Archivo,sans-serif;font-weight:700;color:var(--ink)}
+  .grow .ti{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--flow)}
+  .grow .plain{color:var(--ink-2)}
+  .ghead{background:var(--surface-2);border-bottom:1px solid var(--line-strong)}
+  .ghead div{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  @media (max-width:640px){
+    .grow{grid-template-columns:1fr;gap:4px}
+    .ghead{display:none}
+    .grow .ti::before{content:"TI: "}
+  }
+
+  ul{margin:0 0 14px;padding-left:20px}
+  li{margin-bottom:7px;color:var(--ink-2);font-size:14.5px}
+  li:last-child{margin-bottom:0}
+  li b{color:var(--ink)}
+
+  footer{
+    margin-top:64px;border-top:1px solid var(--line-strong);padding-top:20px;
+    color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+  }
+  a{color:var(--flow)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="head">
+    <div class="eyebrow">
+      <span>EcoSys · JJFS 1984</span><span>Fase Foundation</span><span>Mapa v1.0 · 04/09/2026</span>
+    </div>
+    <h1>Mapa Vivo do EcoSys</h1>
+    <p class="lede">Como o ecossistema multi-IA de Jesse (JJFS) está montado: quem manda, quem executa, onde mora a verdade e como o sistema aprende a decidir sozinho sem nunca tirar a palavra final do fundador.</p>
+    <div class="headmeta">
+      <span class="chip">Fundador <b>Jesse (JJFS)</b></span>
+      <span class="chip">Cofre <b>JJFS — 1984</b></span>
+      <span class="chip">Agentes autorizados <b>7</b></span>
+      <span class="chip">Constituição <b>MANIFEST + ADR-001…011</b></span>
+      <span class="chip live">Espelho do cofre — atualizado por republicação</span>
+    </div>
+  </header>
+
+  <!-- 01 -->
+  <section id="metafora">
+    <div class="shead">
+      <span class="snum">01</span>
+      <div>
+        <h2>O EcoSys é um computador</h2>
+        <p class="sdek">A metáfora que sustenta tudo. Guarde esta e o resto se explica sozinho.</p>
+      </div>
+    </div>
+
+    <p>Pense no seu ecossistema como um computador montado por você. Há um <strong>administrador</strong> com a senha, um <strong>sistema operacional</strong> que distribui o trabalho, <strong>aplicativos</strong> que executam tarefas e um <strong>disco</strong> onde tudo fica guardado. Cada peça do EcoSys ocupa exatamente um desses lugares.</p>
+
+    <figure class="figscroll">
+      <svg viewBox="0 0 760 430" role="img" aria-label="Diagrama em quatro camadas: Jesse como administrador no topo, o protocolo Eco como sistema operacional, sete agentes de IA como aplicativos, e o cofre como disco na base.">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+          <marker id="ar-f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--flow)"/>
+          </marker>
+          <marker id="ar-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--authority)"/>
+          </marker>
+        </defs>
+
+        <!-- Camada 1: Jesse -->
+        <rect x="230" y="14" width="300" height="58" class="b-auth"/>
+        <text x="380" y="38" text-anchor="middle" class="t-auth">JESSE (JJFS)</text>
+        <text x="380" y="57" text-anchor="middle" class="t-s">ROOT OF AUTHORITY · A SENHA DE ADMINISTRADOR</text>
+
+        <line x1="380" y1="72" x2="380" y2="106" class="s-auth" marker-end="url(#ar-a)"/>
+        <text x="392" y="94" class="t-a">promulga e aprova</text>
+
+        <!-- Camada 2: Eco -->
+        <rect x="130" y="108" width="500" height="58" class="b-flow"/>
+        <text x="380" y="132" text-anchor="middle" class="t-b">ECO — protocolo de roteamento</text>
+        <text x="380" y="151" text-anchor="middle" class="t-s">O SISTEMA OPERACIONAL · DECIDE QUAL AGENTE EXECUTA</text>
+
+        <line x1="200" y1="166" x2="200" y2="204" class="s-line" marker-end="url(#ar)"/>
+        <line x1="380" y1="166" x2="380" y2="204" class="s-line" marker-end="url(#ar)"/>
+        <line x1="560" y1="166" x2="560" y2="204" class="s-line" marker-end="url(#ar)"/>
+        <text x="392" y="190" class="t-s">DESPACHA A TAREFA</text>
+
+        <!-- Camada 3: agentes -->
+        <rect x="18" y="206" width="724" height="86" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
+        <text x="30" y="226" class="t-s">AGENTES — OS APLICATIVOS INSTALADOS (NENHUM TEM A SENHA)</text>
+
+        <rect x="30" y="234" width="128" height="44" class="b-box"/>
+        <text x="94" y="253" text-anchor="middle" class="t-b">Claude</text>
+        <text x="94" y="269" text-anchor="middle" class="t-s">PLANEJA · REVISA</text>
+
+        <rect x="166" y="234" width="128" height="44" class="b-box"/>
+        <text x="230" y="253" text-anchor="middle" class="t-b">Codex / Sol</text>
+        <text x="230" y="269" text-anchor="middle" class="t-s">EXECUTA · CONTRAPÕE</text>
+
+        <rect x="302" y="234" width="128" height="44" class="b-box"/>
+        <text x="366" y="253" text-anchor="middle" class="t-b">Gemini</text>
+        <text x="366" y="269" text-anchor="middle" class="t-s">LÊ MUITO · GOOGLE</text>
+
+        <rect x="438" y="234" width="128" height="44" class="b-box"/>
+        <text x="502" y="253" text-anchor="middle" class="t-b">Perplexity</text>
+        <text x="502" y="269" text-anchor="middle" class="t-s">BUSCA COM FONTE</text>
+
+        <rect x="574" y="234" width="140" height="44" class="b-box"/>
+        <text x="644" y="253" text-anchor="middle" class="t-b">Ollama</text>
+        <text x="644" y="269" text-anchor="middle" class="t-s">LOCAL · SIGILOSO</text>
+
+        <line x1="380" y1="292" x2="380" y2="330" class="s-flow" marker-end="url(#ar-f)"/>
+        <text x="392" y="316" class="t-a">lê antes de agir · escreve ao sair</text>
+
+        <!-- Camada 4: cofre -->
+        <rect x="130" y="332" width="500" height="80" class="b-box"/>
+        <text x="380" y="356" text-anchor="middle" class="t-b">COFRE — a memória do sistema</text>
+        <line x1="196" y1="368" x2="564" y2="368" class="s-line"/>
+        <text x="222" y="390" text-anchor="middle" class="t">Google Drive</text>
+        <text x="222" y="404" text-anchor="middle" class="t-s">TRANSPORTE</text>
+        <text x="380" y="390" text-anchor="middle" class="t">arquivos .md</text>
+        <text x="380" y="404" text-anchor="middle" class="t-s">A VERDADE</text>
+        <text x="538" y="390" text-anchor="middle" class="t">Git</text>
+        <text x="538" y="404" text-anchor="middle" class="t-s">HISTÓRIA</text>
+      </svg>
+      <figcaption>As quatro camadas e o sentido das setas. A autoridade desce de Jesse; o trabalho desce do Eco para os agentes; a memória sobe e desce do cofre. Nenhum agente conversa com a camada de autoridade sem passar pelo Eco.</figcaption>
+    </figure>
+
+    <div class="grid3" style="margin-top:18px">
+      <div class="card">
+        <div class="k">Regra 1</div>
+        <h3>Os dados são seus</h3>
+        <p>Nenhuma IA é dona do projeto. Elas recebem o contexto necessário e devolvem trabalho. Trocar de fornecedor não quebra o sistema.</p>
+      </div>
+      <div class="card">
+        <div class="k">Regra 2</div>
+        <h3>O contexto vai até a IA</h3>
+        <p>Você nunca é guardado dentro de um modelo. O cofre leva o contexto ao modelo adequado — por isso qualquer IA pode assumir uma tarefa parada.</p>
+      </div>
+      <div class="card">
+        <div class="k">Regra 3</div>
+        <h3>A verdade é texto simples</h3>
+        <p>Arquivos <code>.md</code> legíveis por qualquer modelo, hoje e daqui a dez anos. A memória interna de cada IA guarda só atalhos, nunca a verdade.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section id="fluxo">
+    <div class="shead">
+      <span class="snum">02</span>
+      <div>
+        <h2>Como uma tarefa atravessa o sistema</h2>
+        <p class="sdek">O ciclo de trabalho aprovado: dois modelos trabalham em par e o portão de aprovação continua sendo seu.</p>
+      </div>
+    </div>
+
+    <p>Na programação existe uma regra de ouro: código novo não entra sozinho no sistema principal. Ele espera numa sala de espera até que o dono aprove. Isso se chama <strong>branch protegida</strong>. O EcoSys aplica a mesma ideia a qualquer entrega — documento, parecer, script ou decisão.</p>
+
+    <figure class="figscroll">
+      <svg viewBox="0 0 760 300" role="img" aria-label="Fluxo de uma tarefa: Jesse pede, Claude planeja, Codex executa, Claude revisa, com laço de correção, e o portão final de aprovação de Jesse antes da entrega.">
+        <defs>
+          <marker id="f-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+          <marker id="f-arf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--flow)"/></marker>
+          <marker id="f-ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--authority)"/></marker>
+        </defs>
+        <rect x="12" y="60" width="104" height="56" class="b-auth"/>
+        <text x="64" y="84" text-anchor="middle" class="t-auth">Pedido</text>
+        <text x="64" y="101" text-anchor="middle" class="t-s">DE JESSE</text>
+
+        <line x1="116" y1="88" x2="152" y2="88" class="s-line" marker-end="url(#f-ar)"/>
+
+        <rect x="154" y="52" width="118" height="72" class="b-flow"/>
+        <text x="213" y="76" text-anchor="middle" class="t-b">1 · Planeja</text>
+        <text x="213" y="93" text-anchor="middle" class="t-s">CLAUDE</text>
+        <text x="213" y="110" text-anchor="middle" class="t-s">ESCREVE PLAN.MD</text>
+
+        <line x1="272" y1="88" x2="308" y2="88" class="s-line" marker-end="url(#f-ar)"/>
+
+        <rect x="310" y="52" width="118" height="72" class="b-box"/>
+        <text x="369" y="76" text-anchor="middle" class="t-b">2 · Executa</text>
+        <text x="369" y="93" text-anchor="middle" class="t-s">CODEX / SOL</text>
+        <text x="369" y="110" text-anchor="middle" class="t-s">PRODUZ O TRABALHO</text>
+
+        <line x1="428" y1="88" x2="464" y2="88" class="s-line" marker-end="url(#f-ar)"/>
+
+        <rect x="466" y="52" width="118" height="72" class="b-flow"/>
+        <text x="525" y="76" text-anchor="middle" class="t-b">3 · Revisa</text>
+        <text x="525" y="93" text-anchor="middle" class="t-s">CLAUDE (ADVERSARIAL)</text>
+        <text x="525" y="110" text-anchor="middle" class="t-s">CAÇA O QUE PASSOU</text>
+
+        <!-- laço de correção -->
+        <path d="M525,124 L525,158 L369,158 L369,126" class="s-flow" marker-end="url(#f-arf)"/>
+        <text x="447" y="176" text-anchor="middle" class="t-a">achou problema → devolve para corrigir</text>
+
+        <!-- para o portão -->
+        <path d="M584,88 L620,88 L620,206" class="s-auth" marker-end="url(#f-ara)"/>
+
+        <rect x="152" y="208" width="468" height="66" class="b-auth"/>
+        <text x="386" y="234" text-anchor="middle" class="t-auth">4 · PORTÃO — JESSE DECIDE</text>
+        <text x="386" y="253" text-anchor="middle" class="t-s">APROVA · PEDE AJUSTE · RECUSA — E A DECISÃO VIRA REGRA</text>
+        <text x="386" y="268" text-anchor="middle" class="t-s">NENHUMA ENTREGA SAI SEM PASSAR AQUI</text>
+
+        <line x1="152" y1="241" x2="116" y2="241" class="s-auth" marker-end="url(#f-ara)"/>
+        <text x="64" y="230" text-anchor="middle" class="t">Entrega</text>
+        <text x="64" y="248" text-anchor="middle" class="t-s">APROVADA</text>
+      </svg>
+      <figcaption>O laço entre os passos 2 e 3 gira quantas vezes for preciso sem consumir seu tempo. O passo 4 é o que a proposta original do <code>/route</code> eliminava e que o EcoSys mantém: a máquina pode fechar o trabalho, mas não pode fechar a decisão.</figcaption>
+    </figure>
+
+    <div class="rule">
+      <div class="k">Decisão do fundador · 04/09/2026</div>
+      <p>O portão não fica fixo para sempre. Ele <strong>encolhe conforme o Eco aprende</strong>: a cada deliberação sua, o caso resolvido vira regra registrada, e casos idênticos deixam de ser perguntados. O Eco só volta a interromper quando houver <strong>indício de desvio</strong> das suas diretrizes — quando o caso é novo, quando é irreversível, ou quando a regra existente não cobre a situação.</p>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section id="aprendizado">
+    <div class="shead">
+      <span class="snum">03</span>
+      <div>
+        <h2>Como o chef aprende os seus temperos</h2>
+        <p class="sdek">O mecanismo que transforma cada decisão sua em autonomia futura, sem nunca virar autoaprovação.</p>
+      </div>
+    </div>
+
+    <p>Um cozinheiro novo pergunta tudo: quanto sal, qual ponto, qual prato primeiro. Depois de cem jantares ele já sabe. Não porque ganhou autoridade, mas porque <strong>aprendeu o gosto do dono da casa</strong> — e o dono continua sendo quem manda o prato para a mesa. É exatamente assim que a autonomia do Eco cresce.</p>
+
+    <figure class="figscroll">
+      <svg viewBox="0 0 760 260" role="img" aria-label="Ciclo de aprendizado: caso novo, Eco convoca deliberação, Jesse decide, decisão registrada como regra, caso semelhante resolvido sem perguntar, e desvio detectado volta a perguntar.">
+        <defs>
+          <marker id="a-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+          <marker id="a-arf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--flow)"/></marker>
+          <marker id="a-ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--authority)"/></marker>
+        </defs>
+        <rect x="14" y="96" width="120" height="62" class="b-box"/>
+        <text x="74" y="122" text-anchor="middle" class="t-b">Caso novo</text>
+        <text x="74" y="139" text-anchor="middle" class="t-s">SEM REGRA AINDA</text>
+
+        <line x1="134" y1="127" x2="170" y2="127" class="s-line" marker-end="url(#a-ar)"/>
+
+        <rect x="172" y="96" width="130" height="62" class="b-flow"/>
+        <text x="237" y="122" text-anchor="middle" class="t-b">Eco convoca</text>
+        <text x="237" y="139" text-anchor="middle" class="t-s">PROPOSTA + RISCO</text>
+
+        <line x1="302" y1="127" x2="338" y2="127" class="s-line" marker-end="url(#a-ar)"/>
+
+        <rect x="340" y="96" width="130" height="62" class="b-auth"/>
+        <text x="405" y="122" text-anchor="middle" class="t-auth">Jesse decide</text>
+        <text x="405" y="139" text-anchor="middle" class="t-s">EM UMA FRASE</text>
+
+        <line x1="470" y1="127" x2="506" y2="127" class="s-auth" marker-end="url(#a-ara)"/>
+
+        <rect x="508" y="96" width="136" height="62" class="b-box"/>
+        <text x="576" y="122" text-anchor="middle" class="t-b">Vira regra</text>
+        <text x="576" y="139" text-anchor="middle" class="t-s">GRAVADA NO COFRE</text>
+
+        <!-- volta: caso semelhante -->
+        <path d="M644,127 L690,127 L690,42 L237,42 L237,94" class="s-flow" marker-end="url(#a-arf)"/>
+        <text x="464" y="34" text-anchor="middle" class="t-a">caso semelhante → o Eco resolve sozinho, não pergunta mais</text>
+
+        <!-- desvio -->
+        <path d="M576,158 L576,212 L237,212 L237,160" class="s-auth" marker-end="url(#a-ara)"/>
+        <text x="406" y="230" text-anchor="middle" class="t-s">INDÍCIO DE DESVIO, CASO INÉDITO OU AÇÃO IRREVERSÍVEL → VOLTA A PERGUNTAR</text>
+      </svg>
+      <figcaption>O laço superior é o ganho de autonomia; o inferior é o freio que impede a autonomia de virar autoaprovação. Os dois usam a mesma memória: as regras gravadas no cofre.</figcaption>
+    </figure>
+
+    <div class="grid2" style="margin-top:18px">
+      <div class="card">
+        <div class="k">O que o Eco aprende de você</div>
+        <ul>
+          <li><b>Gosto</b> — tom, vocabulário, nível de formalidade, o que você corta de um texto.</li>
+          <li><b>Tempero</b> — normas ABNT, linguagem institucional, o que nunca pode ser inventado.</li>
+          <li><b>Processo</b> — a ordem em que você quer as coisas, o que vem antes de agir.</li>
+          <li><b>Divisão</b> — o que é seu, o que é do agente, o que é do setor.</li>
+          <li><b>Finalidade e entregável</b> — para quem vai, em que formato, com qual prazo.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="k">O que o Eco nunca aprende a decidir</div>
+        <ul>
+          <li><b>Mudar a constituição</b> — o manifesto e as regras que limitam a própria autoridade.</li>
+          <li><b>Ampliar o próprio poder</b> — nem por atalho, ferramenta nova ou agente subordinado.</li>
+          <li><b>Segredos</b> — expor chave, token ou credencial é proibido em qualquer nível.</li>
+          <li><b>Gasto recorrente</b> — assinar, contratar ou comprometer orçamento.</li>
+          <li><b>O irreversível</b> — apagar, mover em massa, publicar para fora sem sua palavra.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section id="escada">
+    <div class="shead">
+      <span class="snum">04</span>
+      <div>
+        <h2>A escada de autonomia</h2>
+        <p class="sdek">Sete degraus, do conselheiro ao conselho autônomo. Subir exige capacidade demonstrada, risco avaliado, permissão e controle.</p>
+      </div>
+    </div>
+
+    <p>A autonomia não é um interruptor de liga e desliga: é uma escada, e você sobe um degrau por vez. Mais ainda, ela é atribuída <strong>por domínio</strong>, não como um nível único. Hoje o Eco pode estar alto em documentação e baixo em segurança ao mesmo tempo.</p>
+
+    <div class="ladder">
+      <div class="rung"><span class="lvl">A0</span><span class="txt"><b>Aconselha</b>Opina, não age. É o estágio de qualquer assunto constitucional.</span></div>
+      <div class="rung"><span class="lvl">A1</span><span class="txt"><b>Analisa</b>Levanta dados e diagnostica, sem propor mudança.</span></div>
+      <div class="rung"><span class="lvl">A2</span><span class="txt"><b>Propõe</b>Formula a proposta com benefício, custo, risco e reversibilidade.</span></div>
+      <div class="rung"><span class="lvl">A3</span><span class="txt"><b>Testa em área isolada</b>Experimenta num ambiente separado, sem tocar o que vale.</span></div>
+      <div class="rung now"><span class="lvl">A4</span><span class="txt"><b>Executa após revisão <span class="nowtag">Estamos aqui</span></b>Um agente executa, outro revisa, e Jesse dá a palavra final. É o ciclo da seção 02.</span></div>
+      <div class="rung future"><span class="lvl">A5</span><span class="txt"><b>Autonomia delegada</b>Classes de mudanças reversíveis e de baixo risco liberadas por política. É para cá que o aprendizado da seção 03 empurra o sistema.</span></div>
+      <div class="rung future"><span class="lvl">A6</span><span class="txt"><b>Conselho autônomo</b>Vários Ecos deliberam entre si dentro de limites que você definiu. Horizonte distante.</span></div>
+    </div>
+
+    <h3 style="margin-top:28px">A mesma escada, traduzida em permissões por domínio</h3>
+    <div class="tscroll" style="margin-top:10px">
+      <table>
+        <thead>
+          <tr><th>Domínio</th><th>Permissão hoje</th><th>Para onde caminha</th><th>O que significa na prática</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Documentação e texto</b></td><td><span class="pill p-warn">ALLOW WITH REVIEW</span></td><td><span class="pill p-ok">ALLOW</span></td><td>Correções, padronização e redação seguem sem perguntar assim que o gosto estiver aprendido.</td></tr>
+          <tr><td><b>Operações de rotina</b></td><td><span class="pill p-warn">ALLOW WITH REVIEW</span></td><td><span class="pill p-ok">ALLOW</span></td><td>Organizar, indexar, gerar relatório recorrente, atualizar HANDOFF.</td></tr>
+          <tr><td><b>Código e automação</b></td><td><span class="pill p-warn">ALLOW WITH REVIEW</span></td><td><span class="pill p-warn">ALLOW WITH REVIEW</span></td><td>Executa e revisa em par; você aprova antes de valer. É o ciclo da seção 02.</td></tr>
+          <tr><td><b>Arquitetura e gasto</b></td><td><span class="pill p-stop">REQUIRE JESSE</span></td><td><span class="pill p-stop">REQUIRE JESSE</span></td><td>Mudança estrutural ou despesa recorrente nunca sai sem deliberação registrada.</td></tr>
+          <tr><td><b>Segurança e credenciais</b></td><td><span class="pill p-stop">DENY</span></td><td><span class="pill p-stop">DENY</span></td><td>Expor chave, token ou credencial é proibido em qualquer degrau da escada.</td></tr>
+          <tr><td><b>Constitucional</b></td><td><span class="pill p-stop">REQUIRE JESSE</span></td><td><span class="pill p-stop">REQUIRE JESSE</span></td><td>Só o fundador promulga. Nenhum agente altera a regra que limita a própria autoridade.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;font-size:14px;color:var(--muted)">Princípio da fronteira de autonomia: quanto maior a capacidade de um agente produzir efeitos reais e irreversíveis, menos a governança pode depender apenas de instruções escritas em linguagem natural — precisa de trava técnica.</p>
+  </section>
+
+  <!-- 05 -->
+  <section id="matriz">
+    <div class="shead">
+      <span class="snum">05</span>
+      <div>
+        <h2>A matriz de agentes</h2>
+        <p class="sdek">Quem é bom em quê, qual plano está conectado e quem assume quando a cota acaba.</p>
+      </div>
+    </div>
+
+    <div class="tscroll">
+      <table>
+        <thead>
+          <tr><th>Agente</th><th>Plano conectado</th><th>Forte em</th><th>Use para</th><th>Substituto</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Claude</b><span class="sub">Fable 5.1 · Opus 5 · Sonnet 5 · Haiku 4.5</span></td>
+            <td>Claude Pro + Claude Code<span class="sub">esgota com frequência</span></td>
+            <td>Raciocínio longo, arquitetura, escrita científica e institucional, refatoração</td>
+            <td>Decisão, planejamento, documento formal, revisão crítica</td>
+            <td>Codex → Gemini</td>
+          </tr>
+          <tr>
+            <td><b>GPT-5.6 Sol</b><span class="sub">via Codex CLI</span></td>
+            <td>Codex Pro</td>
+            <td>Código, engenharia, cibersegurança, ciência; revisão adversarial</td>
+            <td>Scripts, automação, CI/CD, execução delegada, contraponto</td>
+            <td>Claude → Gemini</td>
+          </tr>
+          <tr>
+            <td><b>Gemini</b><span class="sub">3.1 Pro · 3.5 Pro</span></td>
+            <td>Google AI Pro</td>
+            <td>Contexto gigante, leitura de acervo denso, ecossistema Google</td>
+            <td>Ler PDFs longos, Drive/Gmail/Agenda, resumos de base</td>
+            <td>Perplexity → Claude</td>
+          </tr>
+          <tr>
+            <td><b>Perplexity</b></td>
+            <td>Perplexity Pro</td>
+            <td>Busca com fonte citada, validação factual</td>
+            <td>Referências, checagem de dado, levantamento inicial</td>
+            <td>Gemini</td>
+          </tr>
+          <tr>
+            <td><b>Ollama</b><span class="sub">local, offline</span></td>
+            <td>Gratuito · custo zero</td>
+            <td>Sigilo absoluto — nada trafega pela nuvem</td>
+            <td>Dado sensível, teste, rascunho descartável, boilerplate</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><b>Google Antigravity</b></td>
+            <td><span class="sub">a confirmar</span></td>
+            <td>Ambiente agêntico de desenvolvimento</td>
+            <td>Execução estruturada dentro do repositório</td>
+            <td>Codex</td>
+          </tr>
+          <tr>
+            <td><b>Manus</b></td>
+            <td><span class="sub">a confirmar</span></td>
+            <td>Execução autônoma de ponta a ponta</td>
+            <td>Fluxos longos e multietapas</td>
+            <td>Claude</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:28px">Custo e janela, para escolher com critério</h3>
+    <div class="tscroll" style="margin-top:10px">
+      <table>
+        <thead>
+          <tr><th>Modelo</th><th class="num">Janela de contexto</th><th class="num">Entrada / 1M</th><th class="num">Saída / 1M</th><th>Quando compensa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Claude Fable 5.1</td><td class="num">1M</td><td class="num">US$ 10,00</td><td class="num">US$ 50,00</td><td>O mais capaz. Reserve para o que decide rumo.</td></tr>
+          <tr><td>Claude Opus 5</td><td class="num">1M</td><td class="num">US$ 5,00</td><td class="num">US$ 25,00</td><td>Padrão para trabalho pesado do dia a dia.</td></tr>
+          <tr><td>Claude Sonnet 5</td><td class="num">1M</td><td class="num">US$ 2,00</td><td class="num">US$ 10,00</td><td>Volume com qualidade — o meio-termo.</td></tr>
+          <tr><td>Claude Haiku 4.5</td><td class="num">200K</td><td class="num">US$ 1,00</td><td class="num">US$ 5,00</td><td>Tarefa leve e repetitiva.</td></tr>
+          <tr><td>GPT-5.6 Sol</td><td class="num">1,05M<span class="sub">~258K efetivos no Codex CLI</span></td><td class="num">US$ 5,00</td><td class="num">US$ 30,00</td><td>Execução de código e revisão cruzada.</td></tr>
+          <tr><td>GPT-5.6 Terra</td><td class="num">—</td><td class="num">US$ 2,50</td><td class="num">US$ 15,00</td><td>Degrau econômico da mesma família.</td></tr>
+          <tr><td>GPT-5.6 Luna</td><td class="num">—</td><td class="num">US$ 1,00</td><td class="num">US$ 6,00</td><td>Tarefa simples em volume.</td></tr>
+          <tr><td>Gemini 3.1 Pro</td><td class="num">1M</td><td class="num" colspan="2">incluso no plano AI Pro</td><td>Leitura de acervo e trabalho no Google.</td></tr>
+          <tr><td>Gemini 3.5 Pro</td><td class="num">2M</td><td class="num" colspan="2">conforme plano</td><td>A maior janela disponível — acervo inteiro de uma vez.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;font-size:13.5px;color:var(--muted)">Preços de API por milhão de tokens, verificados em 04/09/2026. Planos de assinatura têm outra lógica de cobrança. Os campos marcados <em>a confirmar</em> aguardam sua informação — nada foi presumido.</p>
+  </section>
+
+  <!-- 06 -->
+  <section id="failover">
+    <div class="shead">
+      <span class="snum">06</span>
+      <div>
+        <h2>Quando a cota acaba no meio do trabalho</h2>
+        <p class="sdek">O mecanismo de substituição — e por que ele já existia sem ter esse nome.</p>
+      </div>
+    </div>
+
+    <p>Em infraestrutura chama-se <strong>failover</strong>: quando um servidor cai, outro assume sem que o usuário perceba. Para isso, o servidor que assume precisa saber exatamente onde o anterior parou. No EcoSys esse ponto de retomada já existe e tem nome: o <strong>HANDOFF</strong>. Ele é, literalmente, a única fonte viva de transição entre sessões e entre modelos diferentes.</p>
+
+    <figure class="figscroll">
+      <svg viewBox="0 0 760 250" role="img" aria-label="Cadeia de substituição: cota esgotada, HANDOFF atualizado no cofre, IA substituta lê o rito de entrada e continua a tarefa do ponto exato.">
+        <defs>
+          <marker id="v-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+        </defs>
+        <rect x="12" y="30" width="140" height="62" class="b-box"/>
+        <text x="82" y="56" text-anchor="middle" class="t-b">Cota esgotada</text>
+        <text x="82" y="73" text-anchor="middle" class="t-s">OU CRÉDITO NO FIM</text>
+
+        <line x1="152" y1="61" x2="188" y2="61" class="s-line" marker-end="url(#v-ar)"/>
+
+        <rect x="190" y="30" width="160" height="62" class="b-flow"/>
+        <text x="270" y="52" text-anchor="middle" class="t-b">Atualiza o HANDOFF</text>
+        <text x="270" y="69" text-anchor="middle" class="t-s">FEITO · ARQUIVOS · PENDÊNCIAS</text>
+        <text x="270" y="84" text-anchor="middle" class="t-s">PRÓXIMO PASSO</text>
+
+        <line x1="350" y1="61" x2="386" y2="61" class="s-line" marker-end="url(#v-ar)"/>
+
+        <rect x="388" y="30" width="160" height="62" class="b-box"/>
+        <text x="468" y="52" text-anchor="middle" class="t-b">IA substituta abre</text>
+        <text x="468" y="69" text-anchor="middle" class="t-s">RITO DE ENTRADA: README →</text>
+        <text x="468" y="84" text-anchor="middle" class="t-s">PROJECT_CONTEXT → HANDOFF</text>
+
+        <line x1="548" y1="61" x2="584" y2="61" class="s-line" marker-end="url(#v-ar)"/>
+
+        <rect x="586" y="30" width="160" height="62" class="b-flow"/>
+        <text x="666" y="56" text-anchor="middle" class="t-b">Continua do ponto</text>
+        <text x="666" y="73" text-anchor="middle" class="t-s">SEM RECOMEÇAR</text>
+
+        <line x1="380" y1="118" x2="380" y2="140" class="s-line" marker-end="url(#v-ar)"/>
+        <text x="380" y="112" text-anchor="middle" class="t-s">ORDEM DE SUBSTITUIÇÃO CONFORME A NATUREZA DA TAREFA</text>
+
+        <rect x="30" y="146" width="220" height="82" class="b-box"/>
+        <text x="140" y="168" text-anchor="middle" class="t-b">Raciocínio e escrita</text>
+        <text x="140" y="190" text-anchor="middle" class="t">Claude → Codex → Gemini</text>
+        <text x="140" y="212" text-anchor="middle" class="t-s">O QUE DECIDE RUMO FICA COM O MAIS CAPAZ</text>
+
+        <rect x="270" y="146" width="220" height="82" class="b-box"/>
+        <text x="380" y="168" text-anchor="middle" class="t-b">Código e automação</text>
+        <text x="380" y="190" text-anchor="middle" class="t">Codex → Claude → Ollama</text>
+        <text x="380" y="212" text-anchor="middle" class="t-s">EXECUÇÃO TEM SEGUNDO E TERCEIRO TIME</text>
+
+        <rect x="510" y="146" width="220" height="82" class="b-box"/>
+        <text x="620" y="168" text-anchor="middle" class="t-b">Leitura e pesquisa</text>
+        <text x="620" y="190" text-anchor="middle" class="t">Gemini → Perplexity → Ollama</text>
+        <text x="620" y="212" text-anchor="middle" class="t-s">ACERVO DENSO VAI PARA A MAIOR JANELA</text>
+      </svg>
+      <figcaption>A substituição funciona porque o contexto mora no cofre, não dentro do modelo. Qualquer agente autorizado que faça o rito de entrada retoma a tarefa no ponto exato.</figcaption>
+    </figure>
+
+    <div class="rule">
+      <div class="k">Honestidade técnica — leia antes de contar com isso</div>
+      <p>Hoje a troca <strong>não é automática</strong>. Nenhuma IA muda de plano, de modelo ou abre outra ferramenta sozinha; quem abre a IA substituta é você. O que o EcoSys garante é que ela <strong>não recomeça do zero</strong>. A troca automática depende do <em>Router</em>, previsto na fase Intelligence — enquanto ele não existe, o protocolo acima é o failover, e ele funciona desde já.</p>
+    </div>
+
+    <div class="grid3" style="margin-top:18px">
+      <div class="card">
+        <div class="k">Economia · regra prática</div>
+        <h3>Tarefa leve migra</h3>
+        <p>Resumo curto, tradução, correção, dúvida factual: leve para ChatGPT, Perplexity ou Gemini. Isso preserva a cota do Claude para o que só ele resolve bem.</p>
+      </div>
+      <div class="card">
+        <div class="k">Economia · regra prática</div>
+        <h3>Tarefa pesada fica</h3>
+        <p>Escrita científica, parecer, análise contratual, decisão estratégica: executa no Claude sem hesitar. Trocar aqui custa mais em retrabalho do que economiza em cota.</p>
+      </div>
+      <div class="card">
+        <div class="k">Economia · regra prática</div>
+        <h3>Um assunto por conversa</h3>
+        <p>A IA relê a conversa inteira a cada mensagem. Thread longa e misturada é o maior sorvedouro de cota que existe. Feche e abra outra por assunto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section id="ddd">
+    <div class="shead">
+      <span class="snum">07</span>
+      <div>
+        <h2>Ficha técnica no modo DDD</h2>
+        <p class="sdek">Domain-Driven Design: a forma como engenheiros descrevem um sistema pelo negócio que ele atende, não pela tecnologia que usa.</p>
+      </div>
+    </div>
+
+    <p>DDD é um jeito de descrever software começando pelo <strong>domínio</strong> — o assunto real do sistema — e não pelas ferramentas. Ele obriga a nomear as coisas como o dono do negócio as nomeia. Para o EcoSys isso cai como uma luva, porque o domínio aqui é a sua própria forma de trabalhar.</p>
+
+    <div class="grid2" style="margin-top:20px">
+      <div class="card">
+        <div class="k">Domínio</div>
+        <h3>Do que o sistema trata</h3>
+        <p>Governança e execução assistida por IA do trabalho intelectual de JJFS: pesquisa acadêmica, gestão universitária, políticas públicas, negócios e produção documental.</p>
+      </div>
+      <div class="card">
+        <div class="k">Subdomínio central</div>
+        <h3>Onde está o valor</h3>
+        <p>O <strong>roteamento governado</strong>: decidir qual agente executa o quê, com qual grau de autonomia, preservando a autoridade do fundador. Tudo o mais é apoio.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px">Contextos delimitados</h3>
+    <p style="font-size:14.5px;color:var(--muted);margin-bottom:14px">Um <em>bounded context</em> é uma fronteira dentro da qual cada palavra tem um único significado. Cruzar a fronteira exige tradução — e é onde nascem os erros.</p>
+    <div class="tscroll">
+      <table>
+        <thead><tr><th>Contexto</th><th>Responsabilidade</th><th>Onde vive</th></tr></thead>
+        <tbody>
+          <tr><td><b>Governança</b></td><td>Constituição, decisões arquiteturais, deliberações pendentes</td><td class="mono">ECOSYS_MANIFEST · ARCHITECTURE/DECISIONS.md</td></tr>
+          <tr><td><b>Roteamento</b></td><td>Escolher agente por custo, qualidade, tempo e privacidade</td><td class="mono">AGENTS.md · GUIA_ROTEAMENTO.md</td></tr>
+          <tr><td><b>Execução</b></td><td>Produzir o trabalho e revisá-lo em par</td><td class="mono">skills em .claude/ · SKILLS/README.md</td></tr>
+          <tr><td><b>Memória</b></td><td>Guardar a verdade e a história de forma legível por qualquer modelo</td><td class="mono">Drive · arquivos .md · Git</td></tr>
+          <tr><td><b>Projetos</b></td><td>As 8 áreas e seus projetos numerados</td><td class="mono">#01 a #08 · PROJECT_CONTEXT.md</td></tr>
+          <tr><td><b>Observabilidade</b></td><td>Registrar quem fez o quê, quando e com qual resultado</td><td class="mono">EVENTS/ (previsto) · CHANGELOG · COORDENACAO_IA</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:32px">Agregados e suas raízes</h3>
+    <p style="font-size:14.5px;color:var(--muted);margin-bottom:14px">Um <em>agregado</em> é um conjunto de coisas que só faz sentido mudar junto. A <em>raiz</em> é a porta de entrada: nada dentro se altera sem passar por ela.</p>
+    <div class="tscroll">
+      <table>
+        <thead><tr><th>Agregado</th><th>Raiz</th><th>Contém</th><th>Invariante que nunca pode ser quebrada</th></tr></thead>
+        <tbody>
+          <tr><td><b>Projeto</b></td><td class="mono">PROJECT_CONTEXT.md</td><td>HANDOFF, CHANGELOG, playbooks, entregáveis</td><td>Toda sessão relevante termina com o HANDOFF atualizado</td></tr>
+          <tr><td><b>Decisão</b></td><td class="mono">ADR</td><td>Proposta, parecer, promulgação, data</td><td>Só Jesse promulga; agente apenas propõe</td></tr>
+          <tr><td><b>Sessão de trabalho</b></td><td class="mono">HANDOFF.md</td><td>Feito, arquivos, pendências, próximo passo, agente responsável</td><td>Escritor único por vez no Git — nunca dois agentes gravando</td></tr>
+          <tr><td><b>Agente</b></td><td class="mono">AGENTS.md</td><td>Papel, limites, permissões por domínio</td><td>Ferramenta criada por um agente herda, no máximo, a autoridade dele</td></tr>
+          <tr><td><b>Skill</b></td><td class="mono">SKILLS/README.md</td><td>SKILL.md, gatilho, procedimento</td><td>Skill mora no cofre e é registrada — nunca só na máquina</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:32px">Eventos de domínio</h3>
+    <p style="font-size:14.5px;color:var(--muted);margin-bottom:14px">Fatos que já aconteceram e que o sistema precisa registrar. Escritos no passado, sempre.</p>
+    <div class="tscroll">
+      <table>
+        <thead><tr><th>Evento</th><th>Dispara o quê</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">SessãoIniciada</td><td>Rito de entrada: ler README, PROJECT_CONTEXT e HANDOFF antes de qualquer ação</td></tr>
+          <tr><td class="mono">TarefaRoteada</td><td>Escolha do agente conforme custo, qualidade, tempo e privacidade</td></tr>
+          <tr><td class="mono">TrabalhoExecutado</td><td>Passa obrigatoriamente para revisão cruzada</td></tr>
+          <tr><td class="mono">RevisãoConcluída</td><td>Volta ao executor para correção, ou sobe ao portão de aprovação</td></tr>
+          <tr><td class="mono">DeliberaçãoConvocada</td><td>Entra na pauta de pendências; nada executa até a decisão</td></tr>
+          <tr><td class="mono">DecisãoPromulgada</td><td>Vira regra registrada e reduz a pergunta seguinte — é o aprendizado da seção 03</td></tr>
+          <tr><td class="mono">CotaEsgotada</td><td>Atualiza HANDOFF e aciona a cadeia de substituição da seção 06</td></tr>
+          <tr><td class="mono">HandoffAtualizado</td><td>Libera qualquer agente autorizado a retomar do ponto exato</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section id="glossario">
+    <div class="shead">
+      <span class="snum">08</span>
+      <div>
+        <h2>Glossário para explicar a um leigo</h2>
+        <p class="sdek">Cada linha: o termo do EcoSys, o termo equivalente em TI e a explicação que qualquer pessoa entende.</p>
+      </div>
+    </div>
+
+    <div class="gloss">
+      <div class="grow ghead"><div>Termo do EcoSys</div><div>Equivalente em TI</div><div>Em linguagem comum</div></div>
+      <div class="grow"><span class="term">Eco</span><span class="ti">orquestrador / scheduler</span><span class="plain">O sistema operacional que decide qual IA faz cada tarefa. Não é uma IA — é o protocolo acima delas.</span></div>
+      <div class="grow"><span class="term">Agente</span><span class="ti">processo sem privilégio</span><span class="plain">Uma IA autorizada a trabalhar no cofre, com limites definidos. Nunca tem a senha de administrador.</span></div>
+      <div class="grow"><span class="term">Cofre</span><span class="ti">repositório / vault</span><span class="plain">A pasta onde vive tudo o que é verdade no sistema. Drive transporta, os arquivos de texto mandam, o Git guarda a história.</span></div>
+      <div class="grow"><span class="term">Skill</span><span class="ti">procedimento versionado</span><span class="plain">Uma receita de COMO executar algo. O agente é QUEM executa; a skill é o passo a passo que ele segue.</span></div>
+      <div class="grow"><span class="term">HANDOFF</span><span class="ti">checkpoint / save state</span><span class="plain">O bilhete de passagem de bastão: onde parei, o que fiz, o que falta. É o que permite outra IA continuar.</span></div>
+      <div class="grow"><span class="term">ADR</span><span class="ti">decision record</span><span class="plain">Ata de uma decisão de arquitetura: o que foi decidido, por quê, e por quem. Não se apaga, se supera.</span></div>
+      <div class="grow"><span class="term">Rito de entrada</span><span class="ti">bootstrap</span><span class="plain">A sequência obrigatória de leitura antes de agir. Impede a IA de trabalhar sem contexto.</span></div>
+      <div class="grow"><span class="term">Rito de saída</span><span class="ti">commit / flush</span><span class="plain">Fechar a sessão gravando o que mudou. Trabalho não gravado é trabalho perdido.</span></div>
+      <div class="grow"><span class="term">Deliberação</span><span class="ti">approval gate</span><span class="plain">O momento em que o sistema para e pergunta. Registra a proposta com custo, risco e reversibilidade.</span></div>
+      <div class="grow"><span class="term">Root of Authority</span><span class="ti">superusuário / root</span><span class="plain">Quem tem a senha final. É você, e a constituição proíbe qualquer agente de tomar esse lugar.</span></div>
+      <div class="grow"><span class="term">Revisão cruzada</span><span class="ti">code review</span><span class="plain">Uma IA revisa o trabalho da outra antes de você ver. Dois pares de olhos pegam o que um deixa passar.</span></div>
+      <div class="grow"><span class="term">Substituição</span><span class="ti">failover</span><span class="plain">Quando a cota de uma IA acaba, outra assume lendo o HANDOFF — sem recomeçar do zero.</span></div>
+      <div class="grow"><span class="term">Escritor único</span><span class="ti">write lock</span><span class="plain">Só um agente grava por vez. Dois gravando ao mesmo tempo corrompem o arquivo — como dois cozinheiros na mesma panela.</span></div>
+      <div class="grow"><span class="term">Fase Foundation</span><span class="ti">maturity stage</span><span class="plain">O estágio atual: a fundação está pronta. Depois vêm Core, Intelligence e o resto — só quando a dor aparecer.</span></div>
+    </div>
+  </section>
+
+  <!-- 09 -->
+  <section id="estado">
+    <div class="shead">
+      <span class="snum">09</span>
+      <div>
+        <h2>Onde o sistema está agora</h2>
+        <p class="sdek">O que já funciona, o que vem a seguir e o que aguarda sua palavra.</p>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <div class="k" style="color:var(--ok)">Em pé e funcionando</div>
+        <ul>
+          <li>Constituição promulgada — manifesto e decisões arquiteturais</li>
+          <li>Cofre em três camadas com backup semanal testado</li>
+          <li>Sete agentes autorizados, com papéis definidos</li>
+          <li>Ritos de entrada e saída em vigor</li>
+          <li>Política de segredos e disciplina de escritor único</li>
+          <li>Revisão cruzada disponível entre Claude e Codex</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--flow)">
+        <div class="k" style="color:var(--flow)">Próximos passos</div>
+        <ul>
+          <li>Reserva de frente declarada no HANDOFF de cada projeto</li>
+          <li>Registro de eventos ativado quando o segundo agente gravar com regularidade</li>
+          <li>Skill do ciclo de execução guardada e registrada no cofre</li>
+          <li>Confirmar planos e limites de Antigravity e Manus</li>
+          <li>Teste de restauração mensal do backup</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:3px solid var(--authority)">
+        <div class="k" style="color:var(--authority)">Horizonte — fase Intelligence</div>
+        <ul>
+          <li>Router: roteamento automático por custo, qualidade, tempo e privacidade</li>
+          <li>Validador automático por classe de risco</li>
+          <li>Substituição automática entre agentes quando a cota acabar</li>
+          <li>Memória semântica sobre o acervo</li>
+          <li>Conselho de Ecos deliberando entre si dentro de limites definidos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="k">Por que esta página não guarda nada</div>
+      <p>Ela é um <strong>espelho</strong>, não um segundo cofre. Seu manifesto determina que a memória do sistema são os arquivos de texto do cofre; se esta página guardasse decisões, o EcoSys passaria a ter duas fontes da verdade concorrentes — o erro clássico que quebra sistemas de informação. Toda atualização entra no cofre primeiro e depois é republicada aqui, no mesmo endereço.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>EcoSys · JJFS 1984 — Mapa Vivo v1.0 · 04/09/2026</span>
+    <span>Fonte da verdade: arquivos .md do cofre · Esta página é espelho renderizado</span>
+  </footer>
+
+</div>
