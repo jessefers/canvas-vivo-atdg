@@ -247,7 +247,7 @@
 
   <header class="head">
     <div class="eyebrow">
-      <span>EcoSys · JJFS 1984</span><span>Fase Foundation</span><span>Mapa v1.0 · 04/09/2026</span>
+      <span>EcoSys · JJFS 1984</span><span>Fase Foundation</span><span>Mapa v1.1 · 06/09/2026</span>
     </div>
     <h1>Mapa Vivo do EcoSys</h1>
     <p class="lede">Como o ecossistema multi-IA de Jesse (JJFS) está montado: quem manda, quem executa, onde mora a verdade e como o sistema aprende a decidir sozinho sem nunca tirar a palavra final do fundador.</p>
@@ -596,21 +596,21 @@
           </tr>
           <tr>
             <td><b>Ollama</b><span class="sub">local, offline</span></td>
-            <td>Gratuito · custo zero</td>
+            <td>Gratuito<span class="sub">⚠ não configurado</span></td>
             <td>Sigilo absoluto — nada trafega pela nuvem</td>
             <td>Dado sensível, teste, rascunho descartável, boilerplate</td>
             <td>—</td>
           </tr>
           <tr>
             <td><b>Google Antigravity</b></td>
-            <td><span class="sub">a confirmar</span></td>
+            <td><span class="sub">⚠ sem acesso hoje</span></td>
             <td>Ambiente agêntico de desenvolvimento</td>
             <td>Execução estruturada dentro do repositório</td>
             <td>Codex</td>
           </tr>
           <tr>
             <td><b>Manus</b></td>
-            <td><span class="sub">a confirmar</span></td>
+            <td><span class="sub">⚠ sem acesso hoje</span></td>
             <td>Execução autônoma de ponta a ponta</td>
             <td>Fluxos longos e multietapas</td>
             <td>Claude</td>
@@ -638,7 +638,91 @@
         </tbody>
       </table>
     </div>
-    <p style="margin-top:14px;font-size:13.5px;color:var(--muted)">Preços de API por milhão de tokens, verificados em 04/09/2026. Planos de assinatura têm outra lógica de cobrança. Os campos marcados <em>a confirmar</em> aguardam sua informação — nada foi presumido.</p>
+    <p style="margin-top:14px;font-size:13.5px;color:var(--muted)">Preços de API por milhão de tokens, verificados em 04/09/2026. Planos de assinatura têm outra lógica de cobrança.</p>
+
+    <h3 style="margin-top:32px">O que você paga hoje</h3>
+    <div class="tscroll" style="margin-top:10px">
+      <table>
+        <thead>
+          <tr><th>Assinatura</th><th class="num">Custo/mês</th><th>Capacidade que ela entrega</th><th>Situação</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Claude Pro</b> + Claude Code</td>
+            <td class="num">US$ 20<span class="sub">R$ 55 no registro do cofre</span></td>
+            <td>Raciocínio denso, escrita científica, Claude Code operando no cofre</td>
+            <td><span class="pill p-stop">Recurso escasso</span><span class="sub">esgota com frequência</span></td>
+          </tr>
+          <tr>
+            <td><b>ChatGPT / Codex</b></td>
+            <td class="num">US$ 20 a 200<span class="sub">Plus · Pro 5× · Pro 20×</span></td>
+            <td>Codex CLI, execução de código, automação, revisão cruzada</td>
+            <td><span class="pill p-warn">Tier a confirmar</span><span class="sub">diferença de até 10× no custo</span></td>
+          </tr>
+          <tr>
+            <td><b>Google AI Pro</b></td>
+            <td class="num">US$ 19,99</td>
+            <td>Gemini 3.1 Pro, 1M de contexto, Drive, Gmail e Agenda</td>
+            <td><span class="pill p-warn">Subutilizada</span></td>
+          </tr>
+          <tr>
+            <td><b>Perplexity Pro</b></td>
+            <td class="num">US$ 20<span class="sub">US$ 200/ano</span></td>
+            <td>Busca Pro ilimitada · <b>20 Deep Research por dia</b> · upload ilimitado até 40 MB · Spaces com 50 arquivos</td>
+            <td><span class="pill p-warn">Subutilizada</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:28px">A camada gratuita — hoje</h3>
+    <div class="tscroll" style="margin-top:10px">
+      <table>
+        <thead>
+          <tr><th>Recurso</th><th>O que daria</th><th>Situação</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Ollama</b> (local)</td>
+            <td>Custo zero, cota zero, sigilo total — o único que aceita dado sensível</td>
+            <td><span class="pill p-stop">Não configurado</span><span class="sub">o degrau está vazio</span></td>
+          </tr>
+          <tr>
+            <td><b>Kimi Adagio</b></td>
+            <td>Chat ilimitado sem medidor, modelo K2.6 com 256K, upload de documentos e web</td>
+            <td><span class="pill p-warn">A testar</span></td>
+          </tr>
+          <tr>
+            <td>Camadas gratuitas de Gemini e ChatGPT</td>
+            <td>Chat medido</td>
+            <td><span class="sub">Redundante — as versões pagas já estão contratadas</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:32px">Veredito de custo-benefício</h3>
+    <p style="font-size:17px;color:var(--ink);max-width:60ch"><strong>O gargalo não é falta de recurso. É concentração de carga no recurso mais escasso, com a camada gratuita vazia.</strong></p>
+
+    <div class="grid3" style="margin-top:18px">
+      <div class="card" style="border-left:3px solid var(--stop)">
+        <div class="k" style="color:var(--stop)">Onde está o desperdício</div>
+        <p>Perplexity Pro entrega <b>20 Deep Research por dia</b> — capacidade desenhada exatamente para referencial teórico e revisão de literatura. Gemini AI Pro entrega 1M de contexto para acervo denso. As duas ficam ociosas enquanto o Claude Pro esgota.</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--flow)">
+        <div class="k" style="color:var(--flow)">Ganho de custo zero</div>
+        <p>Redistribuir a carga média para as assinaturas já pagas. Não custa um centavo a mais, alivia a cota do Claude hoje, e usa dinheiro que já saiu do seu bolso.</p>
+      </div>
+      <div class="card" style="border-left:3px solid var(--ok)">
+        <div class="k" style="color:var(--ok)">Maior retorno por real</div>
+        <p>Configurar o <b>Ollama</b>. Custo zero e cria o degrau que hoje não existe: uma camada sem cota, sem mensalidade, e a única que processa matéria sigilosa sem que ela saia da máquina.</p>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div class="k">O que não fazer agora</div>
+      <p>Não contratar nada novo — nem Kimi pago, nem plano superior. Você já paga cerca de <strong>US$ 80 por mês</strong> em quatro assinaturas (mais, se o tier do ChatGPT for Pro). O problema é de <strong>utilização</strong>, não de capacidade. Gasto novo só depois de esgotar os três movimentos acima, e com evidência de que não bastaram.</p>
+    </div>
   </section>
 
   <!-- 06 -->
@@ -856,10 +940,12 @@
       <div class="card" style="border-left:3px solid var(--flow)">
         <div class="k" style="color:var(--flow)">Próximos passos</div>
         <ul>
+          <li><b>Configurar o Ollama</b> — custo zero, maior retorno; preenche o degrau gratuito hoje vazio</li>
+          <li><b>Redistribuir carga média</b> para Perplexity Pro e Gemini AI Pro, já pagas e ociosas</li>
+          <li>Testar a camada gratuita do Kimi antes de qualquer contratação</li>
+          <li>Confirmar o tier do ChatGPT/Codex — varia de US$ 20 a US$ 200</li>
           <li>Reserva de frente declarada no HANDOFF de cada projeto</li>
           <li>Registro de eventos ativado quando o segundo agente gravar com regularidade</li>
-          <li>Skill do ciclo de execução guardada e registrada no cofre</li>
-          <li>Confirmar planos e limites de Antigravity e Manus</li>
           <li>Teste de restauração mensal do backup</li>
         </ul>
       </div>
@@ -882,7 +968,7 @@
   </section>
 
   <footer>
-    <span>EcoSys · JJFS 1984 — Mapa Vivo v1.0 · 04/09/2026</span>
+    <span>EcoSys · JJFS 1984 — Mapa Vivo v1.1 · 06/09/2026</span>
     <span>Fonte da verdade: arquivos .md do cofre · Esta página é espelho renderizado</span>
   </footer>
 
