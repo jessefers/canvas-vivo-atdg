@@ -935,6 +935,7 @@ async function callClaude({model,max_tokens=4000,system,messages,content,tools,t
     });
     const d=await r.json().catch(()=>({}));
     if(!r.ok||d.error)throw new Error('API '+r.status+': '+((d.error&&d.error.message)||'').substring(0,200));
+    if(d.stop_reason==='max_tokens')throw new Error('Resposta truncada pela API (stop_reason=max_tokens, limite '+max_tokens+'); aumente max_tokens e refaça a chamada.');
     const txt=(d.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('\n');
     addBudget(JSON.stringify(body).length+txt.length);
     if(json)return extractJSON(txt);
@@ -2935,7 +2936,7 @@ async function diagnosticarSetor(codigo,opts){
   try{
     updateManualProgress('🤖 Diagnosticando '+node.sigla+' ('+ents.length+' entradas)...');
     const model=ents.length<=3?MODEL_RAPIDO:getModel();
-    const r=await callClaude({model,max_tokens:4000,timeoutMs:150000,content:promptDiagnostico(node,entradas,popsSigla,prox)});
+    const r=await callClaude({model,max_tokens:8000,timeoutMs:150000,content:promptDiagnostico(node,entradas,popsSigla,prox)});
     const procs=(r.processos||[]).map(p=>{p.prioridade=prioridadeDe(p);p.maturidade=Math.max(0,Math.min(5,Math.round(+p.maturidade||0)));if(!p.recomendacao)p.recomendacao=p.prioridade>=0.7?'gerar_pop':(p.prioridade>=0.4?'coletar_mais':'descartar');p.pop_existente=(popsSigla.find(x=>x.codigo===p.codigo_sugerido)||{}).id||p.pop_existente||'';return p;}).sort((a,b)=>b.prioridade-a.prioridade);
     const diag={id:'diag-'+node.sigla.toLowerCase()+'-'+hoje().replace(/-/g,''),setor:node.id_app,setor_codigo:node.codigo,sigla:node.sigla,data:nowIso(),modelo:model,versao_diretrizes:diretrizesVersao(),fontes_entradas:ents.map(e=>e.id),hash_fontes:hash,ecossistema:Object.assign({dominio:node.dominio,subdominios:[],contextos_vizinhos:[],sistemas:[],normas:[],benchmarks:[]},r.ecossistema||{}),processos:procs,lacunas_setor:r.lacunas_setor||[],licoes_propostas:r.licoes_propostas||[],observacoes:r.observacoes||'',atualizado_em:nowIso()};
     if(anterior)diag.changelog=(anterior.changelog||[]).concat([{data:anterior.data,id_anterior:anterior.id,resumo:(anterior.processos||[]).length+' processo(s)'}]);

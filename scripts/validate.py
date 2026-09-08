@@ -156,7 +156,7 @@ def check_pop(pop, org, schema, siglas, licoes, render=True):
 
 def check_entries_hash(data, permitir):
     try:
-        base = subprocess.run(['git', 'show', 'HEAD:data.json'], cwd=cl.ROOT, capture_output=True, text=True, check=True).stdout
+        base = subprocess.run(['git', 'show', 'HEAD:data.json'], cwd=cl.ROOT, capture_output=True, encoding='utf-8', check=True).stdout
         base_entries = json.loads(base)['entries']
     except Exception as e:  # noqa: BLE001
         warn('não foi possível ler data.json de HEAD (%s)' % e)
