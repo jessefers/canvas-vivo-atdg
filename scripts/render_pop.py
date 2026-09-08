@@ -160,7 +160,7 @@ def render_md(pop, org=None, licoes=None):
         L.append('> **Observações:** %s' % cell(pop['observacoes']))
         L.append('')
     L.append('---')
-    L.append('_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `%s` (diretrizes v%s)._' % (os.path.relpath(cl.pop_paths(pop)[0], cl.ROOT), pop.get('versao_diretrizes', '')))
+    L.append('_Canvas Vivo — Base de Conhecimento Institucional · ATDG · UNIOESTE Campus Foz do Iguaçu · gerado por `scripts/render_pop.py` a partir de `%s` (diretrizes v%s)._' % (os.path.relpath(cl.pop_paths(pop)[0], cl.ROOT).replace(os.sep, '/'), pop.get('versao_diretrizes', '')))
     return '\n'.join(L) + '\n'
 
 

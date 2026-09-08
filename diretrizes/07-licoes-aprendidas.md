@@ -1,8 +1,8 @@
 ---
 id: diretriz-07
 titulo: Lições aprendidas (log append-only)
-versao: "1.24"
-atualizado_em: "2026-09-03"
+versao: "1.26"
+atualizado_em: "2026-09-04"
 ---
 
 # 07 — Lições aprendidas
@@ -37,18 +37,8 @@ Log **append-only**. Somente lições com `status: aprovada` são injetadas nos 
 
 | id | data | origem | lição | regra proposta | status |
 |---|---|---|---|---|---|
-
-
-
-
-
-
-
-
-
-
-
-
+| L-020 | 2026-09-04 | curador | A sigla legada CON gera a pasta pops/CON/ e os arquivos diagnosticos/CON.json e CON.md, e CON é nome reservado do Windows (como PRN, AUX, NUL, COM1–9 e LPT1–9), o que impede o checkout completo do repositório nesse sistema (git: invalid path). | Nomes de pastas e arquivos derivados de siglas não podem coincidir com nomes reservados do Windows; quando a sigla legada coincidir (L-006 preserva o código CON-nn), o caminho em disco recebe um sufixo fixo definido por JJFS (ex.: pops/CON_/ e diagnosticos/CON_.json), sem alterar o código do processo nos artefatos. | proposta |
+| L-021 | 2026-09-04 | curador | Renderizações geradas por script embutiam caminhos com os.path.relpath, que no Windows usa barra invertida (pops\ALM\ALM-01.pop.json), fazendo o validate.py acusar todos os .md como desatualizados nesse sistema; o mesmo validate.py decodificava a saída do git em cp1252. | Caminhos embutidos em artefatos gerados (rodapés, índices, registros) usam sempre o separador /, e os scripts leem e escrevem texto e saída de processos com encoding utf-8 explícito, para que validate.py e render_pop.py produzam o mesmo resultado em Linux e Windows. | proposta |
 
 ## Rejeitadas
 
